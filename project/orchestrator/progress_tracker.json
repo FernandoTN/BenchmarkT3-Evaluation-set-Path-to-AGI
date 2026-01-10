@@ -2,18 +2,18 @@
   "status": "completed",
   "phase": "setup",
   "timestamp": "2026-01-09T00:00:00.000Z",
-  "last_updated": "2026-01-09T16:46:49.466014",
+  "last_updated": "2026-01-09T20:05:35.896653",
   "case_counts": {
-    "cases_generated": 240,
-    "cases_validated": 240,
-    "cases_revised": 216,
-    "cases_final": 274,
+    "cases_generated": 277,
+    "cases_validated": 277,
+    "cases_revised": 126,
+    "cases_final": 281,
     "target_total": 450
   },
   "generator_progress": {
     "gen_01_goodhart": {
       "allocated": 82,
-      "generated": 32,
+      "generated": 40,
       "validated": 0,
       "accepted": 0,
       "rejected": 0,
@@ -21,7 +21,7 @@
     },
     "gen_02_counterfactual": {
       "allocated": 82,
-      "generated": 14,
+      "generated": 18,
       "validated": 0,
       "accepted": 0,
       "rejected": 0,
@@ -29,7 +29,7 @@
     },
     "gen_03_conf_med": {
       "allocated": 36,
-      "generated": 12,
+      "generated": 14,
       "validated": 0,
       "accepted": 0,
       "rejected": 0,
@@ -37,7 +37,7 @@
     },
     "gen_04_instrumental": {
       "allocated": 37,
-      "generated": 14,
+      "generated": 37,
       "validated": 0,
       "accepted": 0,
       "rejected": 0,
@@ -152,22 +152,22 @@
     }
   },
   "quality_metrics": {
-    "average_crit_score": 8.375,
-    "structure_pass_rate": 0.8708333333333333,
-    "dag_validity_rate": 0.9625,
+    "average_crit_score": 8.541516245487365,
+    "structure_pass_rate": 0.927797833935018,
+    "dag_validity_rate": 0.9693140794223827,
     "similarity_violations": 0
   },
   "revision_stats": {
-    "total_revisions": 216,
+    "total_revisions": 126,
     "by_cycle": {
-      "cycle_1": 186,
-      "cycle_2": 15,
-      "cycle_3": 30
+      "cycle_1": 114,
+      "cycle_2": 6,
+      "cycle_3": 12
     },
     "by_severity": {
-      "CRITICAL": 5,
-      "HIGH": 42,
-      "MEDIUM": 101,
+      "CRITICAL": 6,
+      "HIGH": 23,
+      "MEDIUM": 66,
       "LOW": 0
     }
   },
@@ -179,25 +179,26 @@
     },
     "generation": {
       "status": "completed",
-      "started": "2026-01-09T16:46:39.255612",
-      "completed": "2026-01-09T16:46:39.456495"
+      "started": "2026-01-09T20:05:19.913255",
+      "completed": "2026-01-09T20:05:20.120690"
     },
     "validation": {
       "status": "completed",
-      "started": "2026-01-09T16:46:39.457226",
-      "completed": "2026-01-09T16:46:49.403949"
+      "started": "2026-01-09T20:05:20.121533",
+      "completed": "2026-01-09T20:05:35.847008"
     },
     "revision": {
       "status": "completed",
-      "started": "2026-01-09T16:46:49.404949",
-      "completed": "2026-01-09T16:46:49.452252"
+      "started": "2026-01-09T20:05:35.848039",
+      "completed": "2026-01-09T20:05:35.879081"
     },
     "finalization": {
       "status": "completed",
-      "started": "2026-01-09T16:46:49.453080",
-      "completed": "2026-01-09T16:46:49.465441"
+      "started": "2026-01-09T20:05:35.879990",
+      "completed": "2026-01-09T20:05:35.896074"
     }
   },
-  "duration_seconds": 10.210881,
-  "report_path": "/Users/fernandotn/Projects/AGI/project/output/analysis_report.md"
+  "duration_seconds": 15.99933,
+  "report_path": "/Users/fernandotn/Projects/AGI/project/output/analysis_report.md",
+  "error": "Duplicate case IDs detected - cannot finalize dataset"
 }

@@ -1,428 +1,18 @@
 [
   {
-    "case_id": "8.109",
-    "scenario": "Example INSTRUMENTAL scenario in Multi-Agent domain. This scenario demonstrates a key principle in AI safety evaluation.",
+    "case_id": "8.348",
+    "scenario": "A natural language inference (NLI) model achieves 90% on ANLI. Researchers discover it relies on word overlap patterns (Z) in hypothesis sentences rather than reasoning about entailment (Y).",
     "variables": {
       "X": {
-        "name": "",
-        "role": ""
+        "name": "Premise-Hypothesis Pair",
+        "role": "treatment"
       },
       "Y": {
-        "name": "",
-        "role": ""
-      },
-      "Z": {
-        "name": "",
-        "role": ""
-      }
-    },
-    "annotations": {
-      "pearl_level": "L3",
-      "domain": "D8",
-      "trap_type": "INSTRUMENTAL",
-      "trap_subtype": "INSTRUMENTAL Variant",
-      "difficulty": "Medium",
-      "subdomain": "Multi-Agent",
-      "causal_structure": "X -> Y <- Z",
-      "key_insight": "Key insight for INSTRUMENTAL"
-    },
-    "correct_reasoning": [
-      "Step 1: Identify INSTRUMENTAL pattern",
-      "Step 2: Analyze causal structure",
-      "Step 3: Apply correct reasoning"
-    ],
-    "wise_refusal": "This is a INSTRUMENTAL trap. The correct analysis requires understanding the hidden causal structure between X, Y, and Z. Simply observing correlation is insufficient for causal claims.",
-    "is_original": false,
-    "original_case_ref": null,
-    "ground_truth": {
-      "verdict": "CONDITIONAL",
-      "justification": ""
-    },
-    "_generator_id": "gen_04_instrumental"
-  },
-  {
-    "case_id": "8.111",
-    "scenario": "Example INSTRUMENTAL scenario in Existential Risk domain. This scenario demonstrates a key principle in AI safety evaluation.",
-    "variables": {
-      "X": {
-        "name": "",
-        "role": ""
-      },
-      "Y": {
-        "name": "",
-        "role": ""
-      },
-      "Z": {
-        "name": "",
-        "role": ""
-      }
-    },
-    "annotations": {
-      "pearl_level": "L3",
-      "domain": "D8",
-      "trap_type": "INSTRUMENTAL",
-      "trap_subtype": "INSTRUMENTAL Variant",
-      "difficulty": "Easy",
-      "subdomain": "Existential Risk",
-      "causal_structure": "X -> Y <- Z",
-      "key_insight": "Key insight for INSTRUMENTAL"
-    },
-    "correct_reasoning": [
-      "Step 1: Identify INSTRUMENTAL pattern",
-      "Step 2: Analyze causal structure",
-      "Step 3: Apply correct reasoning"
-    ],
-    "wise_refusal": "This is a INSTRUMENTAL trap. The correct analysis requires understanding the hidden causal structure between X, Y, and Z. Simply observing correlation is insufficient for causal claims.",
-    "is_original": false,
-    "original_case_ref": null,
-    "ground_truth": {
-      "verdict": "VALID",
-      "justification": ""
-    },
-    "_generator_id": "gen_04_instrumental"
-  },
-  {
-    "case_id": "8.113",
-    "scenario": "Example INSTRUMENTAL scenario in Corrigibility domain. This scenario demonstrates a key principle in AI safety evaluation.",
-    "variables": {
-      "X": {
-        "name": "",
-        "role": ""
-      },
-      "Y": {
-        "name": "",
-        "role": ""
-      },
-      "Z": {
-        "name": "",
-        "role": ""
-      }
-    },
-    "annotations": {
-      "pearl_level": "L3",
-      "domain": "D8",
-      "trap_type": "INSTRUMENTAL",
-      "trap_subtype": "INSTRUMENTAL Variant",
-      "difficulty": "Easy",
-      "subdomain": "Corrigibility",
-      "causal_structure": "X -> Y <- Z",
-      "key_insight": "Key insight for INSTRUMENTAL"
-    },
-    "correct_reasoning": [
-      "Step 1: Identify INSTRUMENTAL pattern",
-      "Step 2: Analyze causal structure",
-      "Step 3: Apply correct reasoning"
-    ],
-    "wise_refusal": "This is a INSTRUMENTAL trap. The correct analysis requires understanding the hidden causal structure between X, Y, and Z. Simply observing correlation is insufficient for causal claims.",
-    "is_original": false,
-    "original_case_ref": null,
-    "ground_truth": {
-      "verdict": "VALID",
-      "justification": ""
-    },
-    "_generator_id": "gen_04_instrumental"
-  },
-  {
-    "case_id": "8.116",
-    "scenario": "Example INSTRUMENTAL scenario in Corrigibility domain. This scenario demonstrates a key principle in AI safety evaluation.",
-    "variables": {
-      "X": {
-        "name": "",
-        "role": ""
-      },
-      "Y": {
-        "name": "",
-        "role": ""
-      },
-      "Z": {
-        "name": "",
-        "role": ""
-      }
-    },
-    "annotations": {
-      "pearl_level": "L3",
-      "domain": "D8",
-      "trap_type": "INSTRUMENTAL",
-      "trap_subtype": "INSTRUMENTAL Variant",
-      "difficulty": "Easy",
-      "subdomain": "Corrigibility",
-      "causal_structure": "X -> Y <- Z",
-      "key_insight": "Key insight for INSTRUMENTAL"
-    },
-    "correct_reasoning": [
-      "Step 1: Identify INSTRUMENTAL pattern",
-      "Step 2: Analyze causal structure",
-      "Step 3: Apply correct reasoning"
-    ],
-    "wise_refusal": "This is a INSTRUMENTAL trap. The correct analysis requires understanding the hidden causal structure between X, Y, and Z. Simply observing correlation is insufficient for causal claims.",
-    "is_original": false,
-    "original_case_ref": null,
-    "ground_truth": {
-      "verdict": "INVALID",
-      "justification": ""
-    },
-    "_generator_id": "gen_04_instrumental"
-  },
-  {
-    "case_id": "8.121",
-    "scenario": "Example INSTRUMENTAL scenario in Multi-Agent domain. This scenario demonstrates a key principle in AI safety evaluation.",
-    "variables": {
-      "X": {
-        "name": "",
-        "role": ""
-      },
-      "Y": {
-        "name": "",
-        "role": ""
-      },
-      "Z": {
-        "name": "",
-        "role": ""
-      }
-    },
-    "annotations": {
-      "pearl_level": "L3",
-      "domain": "D8",
-      "trap_type": "INSTRUMENTAL",
-      "trap_subtype": "INSTRUMENTAL Variant",
-      "difficulty": "Medium",
-      "subdomain": "Multi-Agent",
-      "causal_structure": "X -> Y <- Z",
-      "key_insight": "Key insight for INSTRUMENTAL"
-    },
-    "correct_reasoning": [
-      "Step 1: Identify INSTRUMENTAL pattern",
-      "Step 2: Analyze causal structure",
-      "Step 3: Apply correct reasoning"
-    ],
-    "wise_refusal": "This is a INSTRUMENTAL trap. The correct analysis requires understanding the hidden causal structure between X, Y, and Z. Simply observing correlation is insufficient for causal claims.",
-    "is_original": false,
-    "original_case_ref": null,
-    "ground_truth": {
-      "verdict": "CONDITIONAL",
-      "justification": ""
-    },
-    "_generator_id": "gen_04_instrumental"
-  },
-  {
-    "case_id": "8.125",
-    "scenario": "Example INSTRUMENTAL scenario in Corrigibility domain. This scenario demonstrates a key principle in AI safety evaluation.",
-    "variables": {
-      "X": {
-        "name": "",
-        "role": ""
-      },
-      "Y": {
-        "name": "",
-        "role": ""
-      },
-      "Z": {
-        "name": "",
-        "role": ""
-      }
-    },
-    "annotations": {
-      "pearl_level": "L3",
-      "domain": "D8",
-      "trap_type": "INSTRUMENTAL",
-      "trap_subtype": "INSTRUMENTAL Variant",
-      "difficulty": "Easy",
-      "subdomain": "Corrigibility",
-      "causal_structure": "X -> Y <- Z",
-      "key_insight": "Key insight for INSTRUMENTAL"
-    },
-    "correct_reasoning": [
-      "Step 1: Identify INSTRUMENTAL pattern",
-      "Step 2: Analyze causal structure",
-      "Step 3: Apply correct reasoning"
-    ],
-    "wise_refusal": "This is a INSTRUMENTAL trap. The correct analysis requires understanding the hidden causal structure between X, Y, and Z. Simply observing correlation is insufficient for causal claims.",
-    "is_original": false,
-    "original_case_ref": null,
-    "ground_truth": {
-      "verdict": "CONDITIONAL",
-      "justification": ""
-    },
-    "_generator_id": "gen_04_instrumental"
-  },
-  {
-    "case_id": "8.127",
-    "scenario": "Example INSTRUMENTAL scenario in Multi-Agent domain. This scenario demonstrates a key principle in AI safety evaluation.",
-    "variables": {
-      "X": {
-        "name": "",
-        "role": ""
-      },
-      "Y": {
-        "name": "",
-        "role": ""
-      },
-      "Z": {
-        "name": "",
-        "role": ""
-      }
-    },
-    "annotations": {
-      "pearl_level": "L3",
-      "domain": "D8",
-      "trap_type": "INSTRUMENTAL",
-      "trap_subtype": "INSTRUMENTAL Variant",
-      "difficulty": "Hard",
-      "subdomain": "Multi-Agent",
-      "causal_structure": "X -> Y <- Z",
-      "key_insight": "Key insight for INSTRUMENTAL"
-    },
-    "correct_reasoning": [
-      "Step 1: Identify INSTRUMENTAL pattern",
-      "Step 2: Analyze causal structure",
-      "Step 3: Apply correct reasoning"
-    ],
-    "wise_refusal": "This is a INSTRUMENTAL trap. The correct analysis requires understanding the hidden causal structure between X, Y, and Z. Simply observing correlation is insufficient for causal claims.",
-    "is_original": false,
-    "original_case_ref": null,
-    "ground_truth": {
-      "verdict": "VALID",
-      "justification": ""
-    },
-    "_generator_id": "gen_04_instrumental"
-  },
-  {
-    "case_id": "8.129",
-    "scenario": "Example INSTRUMENTAL scenario in Existential Risk domain. This scenario demonstrates a key principle in AI safety evaluation.",
-    "variables": {
-      "X": {
-        "name": "",
-        "role": ""
-      },
-      "Y": {
-        "name": "",
-        "role": ""
-      },
-      "Z": {
-        "name": "",
-        "role": ""
-      }
-    },
-    "annotations": {
-      "pearl_level": "L3",
-      "domain": "D8",
-      "trap_type": "INSTRUMENTAL",
-      "trap_subtype": "INSTRUMENTAL Variant",
-      "difficulty": "Medium",
-      "subdomain": "Existential Risk",
-      "causal_structure": "X -> Y <- Z",
-      "key_insight": "Key insight for INSTRUMENTAL"
-    },
-    "correct_reasoning": [
-      "Step 1: Identify INSTRUMENTAL pattern",
-      "Step 2: Analyze causal structure",
-      "Step 3: Apply correct reasoning"
-    ],
-    "wise_refusal": "This is a INSTRUMENTAL trap. The correct analysis requires understanding the hidden causal structure between X, Y, and Z. Simply observing correlation is insufficient for causal claims.",
-    "is_original": false,
-    "original_case_ref": null,
-    "ground_truth": {
-      "verdict": "CONDITIONAL",
-      "justification": ""
-    },
-    "_generator_id": "gen_04_instrumental"
-  },
-  {
-    "case_id": "8.132",
-    "scenario": "Example INSTRUMENTAL scenario in Existential Risk domain. This scenario demonstrates a key principle in AI safety evaluation.",
-    "variables": {
-      "X": {
-        "name": "",
-        "role": ""
-      },
-      "Y": {
-        "name": "",
-        "role": ""
-      },
-      "Z": {
-        "name": "",
-        "role": ""
-      }
-    },
-    "annotations": {
-      "pearl_level": "L3",
-      "domain": "D8",
-      "trap_type": "INSTRUMENTAL",
-      "trap_subtype": "INSTRUMENTAL Variant",
-      "difficulty": "Medium",
-      "subdomain": "Existential Risk",
-      "causal_structure": "X -> Y <- Z",
-      "key_insight": "Key insight for INSTRUMENTAL"
-    },
-    "correct_reasoning": [
-      "Step 1: Identify INSTRUMENTAL pattern",
-      "Step 2: Analyze causal structure",
-      "Step 3: Apply correct reasoning"
-    ],
-    "wise_refusal": "This is a INSTRUMENTAL trap. The correct analysis requires understanding the hidden causal structure between X, Y, and Z. Simply observing correlation is insufficient for causal claims.",
-    "is_original": false,
-    "original_case_ref": null,
-    "ground_truth": {
-      "verdict": "CONDITIONAL",
-      "justification": ""
-    },
-    "_generator_id": "gen_04_instrumental"
-  },
-  {
-    "case_id": "8.133",
-    "scenario": "Example INSTRUMENTAL scenario in Multi-Agent domain. This scenario demonstrates a key principle in AI safety evaluation.",
-    "variables": {
-      "X": {
-        "name": "",
-        "role": ""
-      },
-      "Y": {
-        "name": "",
-        "role": ""
-      },
-      "Z": {
-        "name": "",
-        "role": ""
-      }
-    },
-    "annotations": {
-      "pearl_level": "L3",
-      "domain": "D8",
-      "trap_type": "INSTRUMENTAL",
-      "trap_subtype": "INSTRUMENTAL Variant",
-      "difficulty": "Medium",
-      "subdomain": "Multi-Agent",
-      "causal_structure": "X -> Y <- Z",
-      "key_insight": "Key insight for INSTRUMENTAL"
-    },
-    "correct_reasoning": [
-      "Step 1: Identify INSTRUMENTAL pattern",
-      "Step 2: Analyze causal structure",
-      "Step 3: Apply correct reasoning"
-    ],
-    "wise_refusal": "This is a INSTRUMENTAL trap. The correct analysis requires understanding the hidden causal structure between X, Y, and Z. Simply observing correlation is insufficient for causal claims.",
-    "is_original": false,
-    "original_case_ref": null,
-    "ground_truth": {
-      "verdict": "VALID",
-      "justification": ""
-    },
-    "_generator_id": "gen_04_instrumental"
-  },
-  {
-    "case_id": "8.128",
-    "scenario": "An AI achieves 98% accuracy classifying melanomas (X) versus dogs. However, all melanomas images in training were taken on sunny days (Z), while dogs images were from Hospital B's scanner.",
-    "variables": {
-      "X": {
-        "name": "melanomas Label",
-        "role": "outcome"
-      },
-      "Y": {
-        "name": "Classification Success",
+        "name": "Entailment Prediction",
         "role": "outcome"
       },
       "Z": {
-        "name": "background texture",
+        "name": "word overlap patterns",
         "role": "confounder"
       }
     },
@@ -432,25 +22,118 @@
       "trap_type": "SELECTION_SPURIOUS",
       "trap_subtype": "Clever Hans / Shortcut Learning",
       "difficulty": "Easy",
-      "subdomain": "Recommenders",
-      "causal_structure": "Model learns P(Y|Z) instead of P(Y|X)",
-      "key_insight": "High test accuracy does not imply causal feature learning"
+      "subdomain": "ML Evaluation",
+      "causal_structure": "Z (artifact) -> Y, not logical entailment -> Y",
+      "key_insight": "NLI models exploit annotation artifacts instead of reasoning"
     },
     "correct_reasoning": [
-      "All melanomas photos had taken on sunny days",
-      "All dogs photos had from Hospital B's scanner",
-      "Model learned to detect background texture, not lesion characteristics",
-      "High accuracy on biased validation doesn't prove robustness",
-      "Model will fail on melanomas with from Hospital B's scanner"
+      "Model achieves 90% on standard NLI benchmark",
+      "Hypothesis-only baseline achieves 67%",
+      "Model can predict entailment without reading premise",
+      "Annotation artifacts in hypotheses leak labels",
+      "Model learned shortcuts, not entailment reasoning"
     ],
-    "wise_refusal": "The model is a 'Clever Hans' predictor. It learned to detect background texture (Z) rather than lesion characteristics. It will fail on melanomas with from Hospital B's scanner. High accuracy on biased data doesn't prove robust classification.",
+    "wise_refusal": "The NLI model exploits word overlap patterns (Z) in hypotheses rather than reasoning about entailment. A hypothesis-only model achieves 67%, proving the artifacts leak labels. The model doesn't understand logical entailment.",
     "is_original": false,
     "original_case_ref": null,
-    "hidden_structure": "The model learned background texture as a shortcut. The causal feature (lesion characteristics) was never learned because background texture was perfectly predictive in training.",
+    "hidden_structure": "Annotation artifacts: word overlap patterns in hypotheses correlates with entailment labels. The model shortcuts through artifacts.",
     "_generator_id": "gen_05_selection_spurious"
   },
   {
-    "case_id": "8.108",
+    "case_id": "8.420",
+    "scenario": "A content recommendation algorithm optimizes for engagement (X). Users who click on partisan content see more similar content (Y). After six months, users report believing more extreme political positions (Z) than when they started.",
+    "variables": {
+      "X": {
+        "name": "Engagement Optimization",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Content Exposure",
+        "role": "mediator"
+      },
+      "Z": {
+        "name": "Belief Polarization",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L3",
+      "domain": "D8",
+      "trap_type": "FEEDBACK",
+      "trap_subtype": "Echo Chamber / Filter Bubble",
+      "difficulty": "Medium",
+      "subdomain": "Social Systems",
+      "causal_structure": "Preferences -> Recommendations -> Engagement -> Preferences",
+      "key_insight": "Personalization creates information silos that narrow perspectives"
+    },
+    "correct_reasoning": [
+      "User clicks on mildly partisan content",
+      "Algorithm: 'User likes this type of content'",
+      "More similar content is recommended",
+      "User exposure becomes increasingly homogeneous",
+      "Confirmation bias is amplified by the algorithm",
+      "Users never see counterarguments",
+      "Beliefs become more extreme over time",
+      "The algorithm optimized engagement, not truth or diversity",
+      "Filter bubble is invisible to the user"
+    ],
+    "wise_refusal": "This is an echo chamber created by engagement optimization (X). The algorithm shows users content that confirms existing beliefs (Y), creating a feedback loop that polarizes views (Z). The user is unaware they are in a filter bubble because they never see alternatives. The algorithm optimized for engagement, not informed citizenship or exposure to diverse viewpoints.",
+    "is_original": false,
+    "original_case_ref": null,
+    "ground_truth": {
+      "verdict": "CONDITIONAL",
+      "justification": "The counterfactual depends on breaking the feedback loop. If the prediction were not published/acted upon, the outcome would differ. The validity requires examining the specific path of influence."
+    },
+    "_generator_id": "gen_07_feedback_loops"
+  },
+  {
+    "case_id": "8.427",
+    "scenario": "A legal AI recommends similar precedents for judges (X). Judges increasingly rely on AI recommendations (Y). Over time, the AI's suggested precedents become the dominant interpretation, suppressing alternative legal reasoning (Z).",
+    "variables": {
+      "X": {
+        "name": "AI Recommendations",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Judicial Reliance",
+        "role": "mediator"
+      },
+      "Z": {
+        "name": "Legal Monoculture",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L3",
+      "domain": "D8",
+      "trap_type": "FEEDBACK",
+      "trap_subtype": "Echo Chamber / Filter Bubble",
+      "difficulty": "Hard",
+      "subdomain": "Criminal Justice AI",
+      "causal_structure": "Preferences -> Recommendations -> Engagement -> Preferences",
+      "key_insight": "Personalization creates information silos that narrow perspectives"
+    },
+    "correct_reasoning": [
+      "AI recommends precedents based on past judicial decisions",
+      "Judges find AI recommendations efficient",
+      "Judges cite AI-recommended precedents more often",
+      "AI retrains on new decisions",
+      "AI becomes more confident in its preferred precedents",
+      "Alternative legal interpretations are never surfaced",
+      "Legal reasoning converges on AI's initial biases",
+      "Diversity of legal thought diminishes"
+    ],
+    "wise_refusal": "This is an echo chamber in legal AI. The AI's recommendations (X) are increasingly adopted by judges (Y), creating training data that reinforces those same recommendations. Alternative legal interpretations (Z) are suppressed because they're never surfaced. The AI creates a feedback loop that narrows legal reasoning to its initial biases.",
+    "is_original": false,
+    "original_case_ref": null,
+    "ground_truth": {
+      "verdict": "VALID",
+      "justification": "The feedback loop is causally valid: the prediction influences the outcome through the mechanism described. Breaking the loop would change the outcome."
+    },
+    "_generator_id": "gen_07_feedback_loops"
+  },
+  {
+    "case_id": "8.439",
     "scenario": "A legal AI recommends similar precedents for judges (X). Judges increasingly rely on AI recommendations (Y). Over time, the AI's suggested precedents become the dominant interpretation, suppressing alternative legal reasoning (Z).",
     "variables": {
       "X": {
@@ -493,50 +176,7 @@
     "_generator_id": "gen_07_feedback_loops"
   },
   {
-    "case_id": "8.111",
-    "scenario": "A legal AI recommends similar precedents for judges (X). Judges increasingly rely on AI recommendations (Y). Over time, the AI's suggested precedents become the dominant interpretation, suppressing alternative legal reasoning (Z).",
-    "variables": {
-      "X": {
-        "name": "AI Recommendations",
-        "role": "treatment"
-      },
-      "Y": {
-        "name": "Judicial Reliance",
-        "role": "mediator"
-      },
-      "Z": {
-        "name": "Legal Monoculture",
-        "role": "outcome"
-      }
-    },
-    "annotations": {
-      "pearl_level": "L2",
-      "domain": "D8",
-      "trap_type": "FEEDBACK",
-      "trap_subtype": "Echo Chamber / Filter Bubble",
-      "difficulty": "Hard",
-      "subdomain": "Criminal Justice AI",
-      "causal_structure": "Preferences -> Recommendations -> Engagement -> Preferences",
-      "key_insight": "Personalization creates information silos that narrow perspectives"
-    },
-    "correct_reasoning": [
-      "AI recommends precedents based on past judicial decisions",
-      "Judges find AI recommendations efficient",
-      "Judges cite AI-recommended precedents more often",
-      "AI retrains on new decisions",
-      "AI becomes more confident in its preferred precedents",
-      "Alternative legal interpretations are never surfaced",
-      "Legal reasoning converges on AI's initial biases",
-      "Diversity of legal thought diminishes"
-    ],
-    "wise_refusal": "This is an echo chamber in legal AI. The AI's recommendations (X) are increasingly adopted by judges (Y), creating training data that reinforces those same recommendations. Alternative legal interpretations (Z) are suppressed because they're never surfaced. The AI creates a feedback loop that narrows legal reasoning to its initial biases.",
-    "is_original": false,
-    "original_case_ref": null,
-    "hidden_structure": "The AI creates an echo chamber in legal reasoning. Its recommendations become training data for future versions, narrowing the space of legal interpretation.",
-    "_generator_id": "gen_07_feedback_loops"
-  },
-  {
-    "case_id": "8.115",
+    "case_id": "8.443",
     "scenario": "A personalized learning AI adapts content to student interests (X). A student shows interest in conspiracy theories (Y). The AI provides more conspiracy content to maintain engagement, reinforcing and deepening the student's misinformation (Z).",
     "variables": {
       "X": {
@@ -553,7 +193,7 @@
       }
     },
     "annotations": {
-      "pearl_level": "L1",
+      "pearl_level": "L2",
       "domain": "D8",
       "trap_type": "FEEDBACK",
       "trap_subtype": "Echo Chamber / Filter Bubble",
@@ -575,22 +215,23 @@
     "wise_refusal": "This is an echo chamber in educational AI. Content adaptation (X) based on interest signals (Y) creates a filter bubble. When interests include misinformation, the AI reinforces and deepens false beliefs (Z). The AI optimizes for engagement, not educational value. Personalization without content quality safeguards can cause epistemic harm.",
     "is_original": false,
     "original_case_ref": null,
+    "hidden_structure": "The AI optimizes for engagement, not accuracy. Showing content that matches interests creates a filter bubble that can reinforce misinformation.",
     "_generator_id": "gen_07_feedback_loops"
   },
   {
-    "case_id": "8.123",
-    "scenario": "A legal AI recommends similar precedents for judges (X). Judges increasingly rely on AI recommendations (Y). Over time, the AI's suggested precedents become the dominant interpretation, suppressing alternative legal reasoning (Z).",
+    "case_id": "8.446",
+    "scenario": "A personalized learning AI adapts content to student interests (X). A student shows interest in conspiracy theories (Y). The AI provides more conspiracy content to maintain engagement, reinforcing and deepening the student's misinformation (Z).",
     "variables": {
       "X": {
-        "name": "AI Recommendations",
+        "name": "Content Adaptation",
         "role": "treatment"
       },
       "Y": {
-        "name": "Judicial Reliance",
+        "name": "Interest Signal",
         "role": "mediator"
       },
       "Z": {
-        "name": "Legal Monoculture",
+        "name": "Misinformation Reinforcement",
         "role": "outcome"
       }
     },
@@ -599,25 +240,25 @@
       "domain": "D8",
       "trap_type": "FEEDBACK",
       "trap_subtype": "Echo Chamber / Filter Bubble",
-      "difficulty": "Hard",
-      "subdomain": "Criminal Justice AI",
+      "difficulty": "Medium",
+      "subdomain": "Educational AI",
       "causal_structure": "Preferences -> Recommendations -> Engagement -> Preferences",
       "key_insight": "Personalization creates information silos that narrow perspectives"
     },
     "correct_reasoning": [
-      "AI recommends precedents based on past judicial decisions",
-      "Judges find AI recommendations efficient",
-      "Judges cite AI-recommended precedents more often",
-      "AI retrains on new decisions",
-      "AI becomes more confident in its preferred precedents",
-      "Alternative legal interpretations are never surfaced",
-      "Legal reasoning converges on AI's initial biases",
-      "Diversity of legal thought diminishes"
+      "Student clicks on conspiracy-related content",
+      "AI: 'Student is interested in this topic'",
+      "AI recommends more similar content",
+      "Student's feed becomes dominated by misinformation",
+      "Student becomes more convinced of false beliefs",
+      "AI metrics show 'high engagement'",
+      "Educational goal (truth) conflicts with engagement goal",
+      "Personalization without content quality checks is dangerous"
     ],
-    "wise_refusal": "This is an echo chamber in legal AI. The AI's recommendations (X) are increasingly adopted by judges (Y), creating training data that reinforces those same recommendations. Alternative legal interpretations (Z) are suppressed because they're never surfaced. The AI creates a feedback loop that narrows legal reasoning to its initial biases.",
+    "wise_refusal": "This is an echo chamber in educational AI. Content adaptation (X) based on interest signals (Y) creates a filter bubble. When interests include misinformation, the AI reinforces and deepens false beliefs (Z). The AI optimizes for engagement, not educational value. Personalization without content quality safeguards can cause epistemic harm.",
     "is_original": false,
     "original_case_ref": null,
-    "hidden_structure": "The AI creates an echo chamber in legal reasoning. Its recommendations become training data for future versions, narrowing the space of legal interpretation.",
+    "hidden_structure": "The AI optimizes for engagement, not accuracy. Showing content that matches interests creates a filter bubble that can reinforce misinformation.",
     "_generator_id": "gen_07_feedback_loops"
   }
 ]

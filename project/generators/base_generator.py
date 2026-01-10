@@ -17,10 +17,63 @@ from dataclasses import dataclass, field
 from enum import Enum
 from pathlib import Path
 from typing import Any, Dict, List, Optional, TypedDict, Union
+from threading import Lock
+from itertools import count
 import json
 import random
 import re
 from datetime import datetime
+
+
+# =============================================================================
+# Global ID Counter (shared across all generator instances)
+# =============================================================================
+
+class _GlobalIDCounter:
+    """
+    Thread-safe global ID counter shared across all generator instances.
+
+    This ensures unique case IDs even when multiple generators run
+    concurrently or sequentially in the same process.
+    """
+    _instance = None
+    _lock = Lock()
+
+    def __new__(cls):
+        if cls._instance is None:
+            with cls._lock:
+                if cls._instance is None:
+                    cls._instance = super().__new__(cls)
+                    cls._instance._counter = count(100)
+                    cls._instance._counter_lock = Lock()
+        return cls._instance
+
+    def next_id(self) -> int:
+        """Get the next unique case ID in a thread-safe manner."""
+        with self._counter_lock:
+            return next(self._counter)
+
+    def reset(self, start: int = 100) -> None:
+        """Reset the counter (for testing purposes only)."""
+        with self._counter_lock:
+            self._counter = count(start)
+
+
+# Singleton instance
+_global_id_counter = _GlobalIDCounter()
+
+
+def reset_global_id_counter(start: int = 100) -> None:
+    """
+    Reset the global ID counter.
+
+    Should be called at the start of a new pipeline run to ensure
+    IDs start from a consistent value.
+
+    Args:
+        start: Starting value for the counter (default: 100)
+    """
+    _global_id_counter.reset(start)
 
 
 # =============================================================================
@@ -844,14 +897,17 @@ class BaseGenerator(ABC):
         """
         Get the next available case number for ID generation.
 
+        Uses a global thread-safe counter to ensure unique IDs across
+        all generator instances.
+
         Args:
-            start_from: Starting case number (default 100 to leave room for originals)
+            start_from: Ignored (kept for backward compatibility).
+                        Counter always uses global singleton.
 
         Returns:
-            Next available case number
+            Next available case number (globally unique)
         """
-        self._case_counter = max(self._case_counter + 1, start_from)
-        return self._case_counter
+        return _global_id_counter.next_id()
 
     def reset_stats(self) -> None:
         """Reset generation statistics for a new batch."""

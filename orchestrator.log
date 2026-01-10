@@ -1,0 +1,1521 @@
+2026-01-09 19:30:44,139 - __main__ - INFO - Loaded 49 original cases from /Users/fernandotn/Projects/AGI/project/categories/original_cases.json
+2026-01-09 19:30:44,140 - __main__ - INFO - Loaded 5 instruction files
+2026-01-09 19:30:44,140 - __main__ - INFO - Orchestrator initialized with config from /Users/fernandotn/Projects/AGI/project/orchestrator/config.json
+2026-01-09 19:30:44,140 - __main__ - INFO - ============================================================
+2026-01-09 19:30:44,140 - __main__ - INFO - Starting T3 Benchmark Generation Pipeline
+2026-01-09 19:30:44,140 - __main__ - INFO - ============================================================
+2026-01-09 19:30:44,140 - __main__ - INFO - ------------------------------------------------------------
+2026-01-09 19:30:44,140 - __main__ - INFO - PHASE 1: Generation
+2026-01-09 19:30:44,140 - __main__ - INFO - ------------------------------------------------------------
+2026-01-09 19:30:44,141 - __main__ - INFO - Generator gen_01_goodhart: allocation=82, trap=GOODHART, subdomains=['Scaling', 'RLHF', 'Reward Hacking', 'Game Playing', 'Legal AI']
+2026-01-09 19:30:44,258 - __main__ - INFO - Used GoodhartGenerator for gen_01_goodhart: generated 40 cases
+2026-01-09 19:30:44,260 - __main__ - INFO - Saved 40 cases to /Users/fernandotn/Projects/AGI/project/output/generated/batch_gen_01_goodhart.json
+2026-01-09 19:30:44,260 - __main__ - INFO -   Generated 40 cases for gen_01_goodhart
+2026-01-09 19:30:44,260 - __main__ - INFO - Generator gen_02_counterfactual: allocation=82, trap=COUNTERFACTUAL, subdomains=['Alignment', 'Philosophy', 'Safety', 'Governance', 'AGI Theory']
+2026-01-09 19:30:44,342 - __main__ - INFO - Used CounterfactualGenerator for gen_02_counterfactual: generated 19 cases
+2026-01-09 19:30:44,343 - __main__ - INFO - Saved 19 cases to /Users/fernandotn/Projects/AGI/project/output/generated/batch_gen_02_counterfactual.json
+2026-01-09 19:30:44,343 - __main__ - INFO -   Generated 19 cases for gen_02_counterfactual
+2026-01-09 19:30:44,343 - __main__ - INFO - Generator gen_03_conf_med: allocation=36, trap=CONF_MED, subdomains=['Medical AI', 'Fairness', 'Security', 'Algorithmic Fairness']
+2026-01-09 19:30:44,344 - __main__ - WARNING - Generator gen_03_conf_med failed during generation: 'proxy_feature'
+2026-01-09 19:30:44,344 - __main__ - INFO - Falling back to ExampleGenerator for gen_03_conf_med
+2026-01-09 19:30:44,344 - __main__ - INFO - Used ExampleGenerator (fallback) for gen_03_conf_med: generated 9 cases
+2026-01-09 19:30:44,345 - __main__ - INFO - Saved 9 cases to /Users/fernandotn/Projects/AGI/project/output/generated/batch_gen_03_conf_med.json
+2026-01-09 19:30:44,345 - __main__ - INFO -   Generated 9 cases for gen_03_conf_med
+2026-01-09 19:30:44,345 - __main__ - INFO - Generator gen_04_instrumental: allocation=37, trap=INSTRUMENTAL, subdomains=['Multi-Agent', 'Corrigibility', 'Existential Risk']
+2026-01-09 19:30:44,345 - __main__ - WARNING - Generator gen_04_instrumental failed during generation: 'intervention'
+2026-01-09 19:30:44,345 - __main__ - INFO - Falling back to ExampleGenerator for gen_04_instrumental
+2026-01-09 19:30:44,346 - __main__ - INFO - Used ExampleGenerator (fallback) for gen_04_instrumental: generated 9 cases
+2026-01-09 19:30:44,346 - __main__ - INFO - Saved 9 cases to /Users/fernandotn/Projects/AGI/project/output/generated/batch_gen_04_instrumental.json
+2026-01-09 19:30:44,347 - __main__ - INFO -   Generated 9 cases for gen_04_instrumental
+2026-01-09 19:30:44,347 - __main__ - INFO - Generator gen_05_selection_spurious: allocation=43, trap=SELECTION_SPURIOUS, subdomains=['CV', 'NLP', 'Recommenders', 'ML Evaluation', 'Capability Evaluation']
+2026-01-09 19:30:44,348 - __main__ - INFO - Used SelectionSpuriousGenerator for gen_05_selection_spurious: generated 43 cases
+2026-01-09 19:30:44,349 - __main__ - INFO - Saved 43 cases to /Users/fernandotn/Projects/AGI/project/output/generated/batch_gen_05_selection_spurious.json
+2026-01-09 19:30:44,349 - __main__ - INFO -   Generated 43 cases for gen_05_selection_spurious
+2026-01-09 19:30:44,349 - __main__ - INFO - Generator gen_06_specification: allocation=37, trap=SPECIFICATION, subdomains=['Autonomous Vehicles', 'Game Playing', 'Instruction Following', 'Robustness']
+2026-01-09 19:30:44,350 - __main__ - INFO - Used SpecificationGenerator for gen_06_specification: generated 37 cases
+2026-01-09 19:30:44,351 - __main__ - INFO - Saved 37 cases to /Users/fernandotn/Projects/AGI/project/output/generated/batch_gen_06_specification.json
+2026-01-09 19:30:44,352 - __main__ - INFO -   Generated 37 cases for gen_06_specification
+2026-01-09 19:30:44,352 - __main__ - INFO - Generator gen_07_feedback_loops: allocation=28, trap=FEEDBACK, subdomains=['Educational AI', 'Social Systems', 'Criminal Justice AI']
+2026-01-09 19:30:44,354 - __main__ - INFO - Used FeedbackLoopsGenerator for gen_07_feedback_loops: generated 28 cases
+2026-01-09 19:30:44,355 - __main__ - INFO - Saved 28 cases to /Users/fernandotn/Projects/AGI/project/output/generated/batch_gen_07_feedback_loops.json
+2026-01-09 19:30:44,356 - __main__ - INFO -   Generated 28 cases for gen_07_feedback_loops
+2026-01-09 19:30:44,356 - __main__ - INFO - Generator gen_08_other_traps: allocation=60, trap=OTHER, subdomains=['Model Compression', 'Prompt Engineering', 'Generative AI', 'Mechanistic Interpretability', 'Language Models']
+2026-01-09 19:30:44,358 - __main__ - INFO - Used OtherTrapsGenerator for gen_08_other_traps: generated 60 cases
+2026-01-09 19:30:44,360 - __main__ - INFO - Saved 60 cases to /Users/fernandotn/Projects/AGI/project/output/generated/batch_gen_08_other_traps.json
+2026-01-09 19:30:44,360 - __main__ - INFO -   Generated 60 cases for gen_08_other_traps
+2026-01-09 19:30:44,360 - __main__ - INFO - Generation phase complete: 245 cases generated
+2026-01-09 19:30:44,361 - __main__ - INFO - ------------------------------------------------------------
+2026-01-09 19:30:44,361 - __main__ - INFO - PHASE 2: Validation
+2026-01-09 19:30:44,361 - __main__ - INFO - ------------------------------------------------------------
+2026-01-09 19:30:55,394 - __main__ - WARNING - Found 219 duplicate cases
+2026-01-09 19:30:55,395 - __main__ - INFO - Validation phase complete: 245 validated, 61 accepted, 184 queued for revision
+2026-01-09 19:30:55,396 - __main__ - INFO - ------------------------------------------------------------
+2026-01-09 19:30:55,396 - __main__ - INFO - PHASE 3: Revision
+2026-01-09 19:30:55,396 - __main__ - INFO - ------------------------------------------------------------
+2026-01-09 19:30:55,397 - __main__ - INFO - Revising case 8.101 (cycle 1/3)
+2026-01-09 19:30:55,397 - __main__ - INFO - Case 8.101 accepted after revision
+2026-01-09 19:30:55,397 - __main__ - INFO - Revising case 8.109 (cycle 1/3)
+2026-01-09 19:30:55,397 - __main__ - INFO - Case 8.109 accepted after revision
+2026-01-09 19:30:55,397 - __main__ - INFO - Revising case 8.115 (cycle 1/3)
+2026-01-09 19:30:55,397 - __main__ - INFO - Case 8.115 accepted after revision
+2026-01-09 19:30:55,397 - __main__ - INFO - Revising case 8.117 (cycle 1/3)
+2026-01-09 19:30:55,398 - __main__ - INFO - Case 8.117 accepted after revision
+2026-01-09 19:30:55,398 - __main__ - INFO - Revising case 8.119 (cycle 1/3)
+2026-01-09 19:30:55,398 - __main__ - INFO - Case 8.119 accepted after revision
+2026-01-09 19:30:55,398 - __main__ - INFO - Revising case 8.124 (cycle 1/3)
+2026-01-09 19:30:55,398 - __main__ - INFO - Case 8.124 accepted after revision
+2026-01-09 19:30:55,398 - __main__ - INFO - Revising case 8.127 (cycle 1/3)
+2026-01-09 19:30:55,398 - __main__ - INFO - Case 8.127 accepted after revision
+2026-01-09 19:30:55,398 - __main__ - INFO - Revising case 8.129 (cycle 1/3)
+2026-01-09 19:30:55,398 - __main__ - INFO - Case 8.129 accepted after revision
+2026-01-09 19:30:55,398 - __main__ - INFO - Revising case 8.130 (cycle 1/3)
+2026-01-09 19:30:55,398 - __main__ - INFO - Case 8.130 accepted after revision
+2026-01-09 19:30:55,398 - __main__ - INFO - Revising case 8.101 (cycle 1/3)
+2026-01-09 19:30:55,399 - __main__ - INFO - Case 8.101 accepted after revision
+2026-01-09 19:30:55,399 - __main__ - INFO - Revising case 8.111 (cycle 1/3)
+2026-01-09 19:30:55,399 - __main__ - INFO - Revising case 8.117 (cycle 1/3)
+2026-01-09 19:30:55,399 - __main__ - INFO - Revising case 8.118 (cycle 1/3)
+2026-01-09 19:30:55,399 - __main__ - INFO - Revising case 8.127 (cycle 1/3)
+2026-01-09 19:30:55,399 - __main__ - INFO - Case 8.127 accepted after revision
+2026-01-09 19:30:55,399 - __main__ - INFO - Revising case 8.128 (cycle 1/3)
+2026-01-09 19:30:55,400 - __main__ - INFO - Revising case 8.131 (cycle 1/3)
+2026-01-09 19:30:55,400 - __main__ - INFO - Revising case 8.132 (cycle 1/3)
+2026-01-09 19:30:55,400 - __main__ - INFO - Revising case 8.133 (cycle 1/3)
+2026-01-09 19:30:55,400 - __main__ - INFO - Revising case 8.110 (cycle 1/3)
+2026-01-09 19:30:55,400 - __main__ - INFO - Revising case 8.129 (cycle 1/3)
+2026-01-09 19:30:55,400 - __main__ - INFO - Revising case 8.104 (cycle 1/3)
+2026-01-09 19:30:55,401 - __main__ - INFO - Revising case 8.107 (cycle 1/3)
+2026-01-09 19:30:55,401 - __main__ - INFO - Revising case 8.111 (cycle 1/3)
+2026-01-09 19:30:55,401 - __main__ - INFO - Revising case 8.115 (cycle 1/3)
+2026-01-09 19:30:55,401 - __main__ - INFO - Revising case 8.120 (cycle 1/3)
+2026-01-09 19:30:55,402 - __main__ - INFO - Revising case 8.124 (cycle 1/3)
+2026-01-09 19:30:55,402 - __main__ - INFO - Case 8.124 accepted after revision
+2026-01-09 19:30:55,402 - __main__ - INFO - Revising case 8.127 (cycle 1/3)
+2026-01-09 19:30:55,402 - __main__ - INFO - Case 8.127 accepted after revision
+2026-01-09 19:30:55,402 - __main__ - INFO - Revising case 8.108 (cycle 1/3)
+2026-01-09 19:30:55,402 - __main__ - INFO - Case 8.108 accepted after revision
+2026-01-09 19:30:55,402 - __main__ - INFO - Revising case 8.112 (cycle 1/3)
+2026-01-09 19:30:55,403 - __main__ - INFO - Case 8.112 accepted after revision
+2026-01-09 19:30:55,403 - __main__ - INFO - Revising case 8.113 (cycle 1/3)
+2026-01-09 19:30:55,403 - __main__ - INFO - Case 8.113 accepted after revision
+2026-01-09 19:30:55,403 - __main__ - INFO - Revising case 8.114 (cycle 1/3)
+2026-01-09 19:30:55,403 - __main__ - INFO - Case 8.114 accepted after revision
+2026-01-09 19:30:55,403 - __main__ - INFO - Revising case 8.117 (cycle 1/3)
+2026-01-09 19:30:55,403 - __main__ - INFO - Case 8.117 accepted after revision
+2026-01-09 19:30:55,403 - __main__ - INFO - Revising case 8.118 (cycle 1/3)
+2026-01-09 19:30:55,404 - __main__ - INFO - Case 8.118 accepted after revision
+2026-01-09 19:30:55,404 - __main__ - INFO - Revising case 8.119 (cycle 1/3)
+2026-01-09 19:30:55,404 - __main__ - INFO - Case 8.119 accepted after revision
+2026-01-09 19:30:55,404 - __main__ - INFO - Revising case 8.121 (cycle 1/3)
+2026-01-09 19:30:55,404 - __main__ - INFO - Case 8.121 accepted after revision
+2026-01-09 19:30:55,404 - __main__ - INFO - Revising case 8.122 (cycle 1/3)
+2026-01-09 19:30:55,404 - __main__ - INFO - Case 8.122 accepted after revision
+2026-01-09 19:30:55,404 - __main__ - INFO - Revising case 8.123 (cycle 1/3)
+2026-01-09 19:30:55,404 - __main__ - INFO - Case 8.123 accepted after revision
+2026-01-09 19:30:55,404 - __main__ - INFO - Revising case 8.124 (cycle 1/3)
+2026-01-09 19:30:55,404 - __main__ - INFO - Case 8.124 accepted after revision
+2026-01-09 19:30:55,405 - __main__ - INFO - Revising case 8.125 (cycle 1/3)
+2026-01-09 19:30:55,405 - __main__ - INFO - Case 8.125 accepted after revision
+2026-01-09 19:30:55,405 - __main__ - INFO - Revising case 8.126 (cycle 1/3)
+2026-01-09 19:30:55,405 - __main__ - INFO - Case 8.126 accepted after revision
+2026-01-09 19:30:55,405 - __main__ - INFO - Revising case 8.127 (cycle 1/3)
+2026-01-09 19:30:55,405 - __main__ - INFO - Case 8.127 accepted after revision
+2026-01-09 19:30:55,405 - __main__ - INFO - Revising case 8.107 (cycle 1/3)
+2026-01-09 19:30:55,405 - __main__ - INFO - Case 8.107 accepted after revision
+2026-01-09 19:30:55,405 - __main__ - INFO - Revising case 8.109 (cycle 1/3)
+2026-01-09 19:30:55,406 - __main__ - INFO - Case 8.109 accepted after revision
+2026-01-09 19:30:55,406 - __main__ - INFO - Revising case 8.110 (cycle 1/3)
+2026-01-09 19:30:55,406 - __main__ - INFO - Case 8.110 accepted after revision
+2026-01-09 19:30:55,406 - __main__ - INFO - Revising case 8.111 (cycle 1/3)
+2026-01-09 19:30:55,406 - __main__ - INFO - Case 8.111 accepted after revision
+2026-01-09 19:30:55,406 - __main__ - INFO - Revising case 8.120 (cycle 1/3)
+2026-01-09 19:30:55,406 - __main__ - INFO - Case 8.120 accepted after revision
+2026-01-09 19:30:55,406 - __main__ - INFO - Revising case 8.121 (cycle 1/3)
+2026-01-09 19:30:55,406 - __main__ - INFO - Case 8.121 accepted after revision
+2026-01-09 19:30:55,406 - __main__ - INFO - Revising case 8.122 (cycle 1/3)
+2026-01-09 19:30:55,407 - __main__ - INFO - Case 8.122 accepted after revision
+2026-01-09 19:30:55,407 - __main__ - INFO - Revising case 8.123 (cycle 1/3)
+2026-01-09 19:30:55,407 - __main__ - INFO - Case 8.123 accepted after revision
+2026-01-09 19:30:55,407 - __main__ - INFO - Revising case 8.124 (cycle 1/3)
+2026-01-09 19:30:55,407 - __main__ - INFO - Case 8.124 accepted after revision
+2026-01-09 19:30:55,407 - __main__ - INFO - Revising case 8.125 (cycle 1/3)
+2026-01-09 19:30:55,407 - __main__ - INFO - Case 8.125 accepted after revision
+2026-01-09 19:30:55,407 - __main__ - INFO - Revising case 8.127 (cycle 1/3)
+2026-01-09 19:30:55,408 - __main__ - INFO - Case 8.127 accepted after revision
+2026-01-09 19:30:55,408 - __main__ - INFO - Revising case 8.128 (cycle 1/3)
+2026-01-09 19:30:55,408 - __main__ - INFO - Case 8.128 accepted after revision
+2026-01-09 19:30:55,408 - __main__ - INFO - Revising case 8.130 (cycle 1/3)
+2026-01-09 19:30:55,408 - __main__ - INFO - Case 8.130 accepted after revision
+2026-01-09 19:30:55,408 - __main__ - INFO - Revising case 8.131 (cycle 1/3)
+2026-01-09 19:30:55,408 - __main__ - INFO - Case 8.131 accepted after revision
+2026-01-09 19:30:55,408 - __main__ - INFO - Revising case 8.133 (cycle 1/3)
+2026-01-09 19:30:55,409 - __main__ - INFO - Case 8.133 accepted after revision
+2026-01-09 19:30:55,409 - __main__ - INFO - Revising case 8.134 (cycle 1/3)
+2026-01-09 19:30:55,409 - __main__ - INFO - Case 8.134 accepted after revision
+2026-01-09 19:30:55,409 - __main__ - INFO - Revising case 8.135 (cycle 1/3)
+2026-01-09 19:30:55,409 - __main__ - INFO - Case 8.135 accepted after revision
+2026-01-09 19:30:55,409 - __main__ - INFO - Revising case 8.138 (cycle 1/3)
+2026-01-09 19:30:55,409 - __main__ - INFO - Case 8.138 accepted after revision
+2026-01-09 19:30:55,409 - __main__ - INFO - Revising case 8.139 (cycle 1/3)
+2026-01-09 19:30:55,409 - __main__ - INFO - Case 8.139 accepted after revision
+2026-01-09 19:30:55,409 - __main__ - INFO - Revising case 8.140 (cycle 1/3)
+2026-01-09 19:30:55,410 - __main__ - INFO - Case 8.140 accepted after revision
+2026-01-09 19:30:55,410 - __main__ - INFO - Revising case 8.141 (cycle 1/3)
+2026-01-09 19:30:55,410 - __main__ - INFO - Case 8.141 accepted after revision
+2026-01-09 19:30:55,410 - __main__ - INFO - Revising case 8.142 (cycle 1/3)
+2026-01-09 19:30:55,410 - __main__ - INFO - Case 8.142 accepted after revision
+2026-01-09 19:30:55,410 - __main__ - INFO - Revising case 8.143 (cycle 1/3)
+2026-01-09 19:30:55,410 - __main__ - INFO - Case 8.143 accepted after revision
+2026-01-09 19:30:55,410 - __main__ - INFO - Revising case 8.144 (cycle 1/3)
+2026-01-09 19:30:55,411 - __main__ - INFO - Case 8.144 accepted after revision
+2026-01-09 19:30:55,411 - __main__ - INFO - Revising case 8.145 (cycle 1/3)
+2026-01-09 19:30:55,411 - __main__ - INFO - Case 8.145 accepted after revision
+2026-01-09 19:30:55,411 - __main__ - INFO - Revising case 8.146 (cycle 1/3)
+2026-01-09 19:30:55,411 - __main__ - INFO - Case 8.146 accepted after revision
+2026-01-09 19:30:55,411 - __main__ - INFO - Revising case 8.147 (cycle 1/3)
+2026-01-09 19:30:55,411 - __main__ - INFO - Case 8.147 accepted after revision
+2026-01-09 19:30:55,411 - __main__ - INFO - Revising case 8.148 (cycle 1/3)
+2026-01-09 19:30:55,412 - __main__ - INFO - Case 8.148 accepted after revision
+2026-01-09 19:30:55,412 - __main__ - INFO - Revising case 8.149 (cycle 1/3)
+2026-01-09 19:30:55,412 - __main__ - INFO - Case 8.149 accepted after revision
+2026-01-09 19:30:55,412 - __main__ - INFO - Revising case 8.150 (cycle 1/3)
+2026-01-09 19:30:55,412 - __main__ - INFO - Case 8.150 accepted after revision
+2026-01-09 19:30:55,412 - __main__ - INFO - Revising case 8.151 (cycle 1/3)
+2026-01-09 19:30:55,412 - __main__ - INFO - Case 8.151 accepted after revision
+2026-01-09 19:30:55,412 - __main__ - INFO - Revising case 8.152 (cycle 1/3)
+2026-01-09 19:30:55,412 - __main__ - INFO - Case 8.152 accepted after revision
+2026-01-09 19:30:55,413 - __main__ - INFO - Revising case 8.154 (cycle 1/3)
+2026-01-09 19:30:55,413 - __main__ - INFO - Case 8.154 accepted after revision
+2026-01-09 19:30:55,413 - __main__ - INFO - Revising case 8.155 (cycle 1/3)
+2026-01-09 19:30:55,413 - __main__ - INFO - Case 8.155 accepted after revision
+2026-01-09 19:30:55,413 - __main__ - INFO - Revising case 8.156 (cycle 1/3)
+2026-01-09 19:30:55,413 - __main__ - INFO - Case 8.156 accepted after revision
+2026-01-09 19:30:55,413 - __main__ - INFO - Revising case 8.157 (cycle 1/3)
+2026-01-09 19:30:55,413 - __main__ - INFO - Case 8.157 accepted after revision
+2026-01-09 19:30:55,413 - __main__ - INFO - Revising case 8.158 (cycle 1/3)
+2026-01-09 19:30:55,414 - __main__ - INFO - Case 8.158 accepted after revision
+2026-01-09 19:30:55,414 - __main__ - INFO - Revising case 8.159 (cycle 1/3)
+2026-01-09 19:30:55,414 - __main__ - INFO - Case 8.159 accepted after revision
+2026-01-09 19:30:55,414 - __main__ - INFO - Revising case 8.109 (cycle 1/3)
+2026-01-09 19:30:55,414 - __main__ - INFO - Case 8.109 accepted after revision
+2026-01-09 19:30:55,414 - __main__ - INFO - Revising case 8.117 (cycle 1/3)
+2026-01-09 19:30:55,414 - __main__ - INFO - Case 8.117 accepted after revision
+2026-01-09 19:30:55,414 - __main__ - INFO - Revising case 8.119 (cycle 1/3)
+2026-01-09 19:30:55,414 - __main__ - INFO - Case 8.119 accepted after revision
+2026-01-09 19:30:55,414 - __main__ - INFO - Revising case 8.127 (cycle 1/3)
+2026-01-09 19:30:55,415 - __main__ - INFO - Case 8.127 accepted after revision
+2026-01-09 19:30:55,415 - __main__ - INFO - Revising case 8.129 (cycle 1/3)
+2026-01-09 19:30:55,415 - __main__ - INFO - Case 8.129 accepted after revision
+2026-01-09 19:30:55,415 - __main__ - INFO - Revising case 8.117 (cycle 1/3)
+2026-01-09 19:30:55,415 - __main__ - INFO - Case 8.117 accepted after revision
+2026-01-09 19:30:55,415 - __main__ - INFO - Revising case 8.128 (cycle 1/3)
+2026-01-09 19:30:55,415 - __main__ - INFO - Case 8.128 accepted after revision
+2026-01-09 19:30:55,415 - __main__ - INFO - Revising case 8.131 (cycle 1/3)
+2026-01-09 19:30:55,416 - __main__ - INFO - Case 8.131 accepted after revision
+2026-01-09 19:30:55,416 - __main__ - INFO - Revising case 8.132 (cycle 1/3)
+2026-01-09 19:30:55,416 - __main__ - INFO - Case 8.132 accepted after revision
+2026-01-09 19:30:55,416 - __main__ - INFO - Revising case 8.133 (cycle 1/3)
+2026-01-09 19:30:55,416 - __main__ - INFO - Case 8.133 accepted after revision
+2026-01-09 19:30:55,416 - __main__ - INFO - Revising case 8.107 (cycle 1/3)
+2026-01-09 19:30:55,416 - __main__ - INFO - Case 8.107 accepted after revision
+2026-01-09 19:30:55,416 - __main__ - INFO - Revising case 8.120 (cycle 1/3)
+2026-01-09 19:30:55,417 - __main__ - INFO - Case 8.120 accepted after revision
+2026-01-09 19:30:55,417 - __main__ - INFO - Revising case 8.123 (cycle 1/3)
+2026-01-09 19:30:55,417 - __main__ - INFO - Case 8.123 accepted after revision
+2026-01-09 19:30:55,417 - __main__ - INFO - Revising case 8.162 (cycle 1/3)
+2026-01-09 19:30:55,417 - __main__ - INFO - Case 8.162 accepted after revision
+2026-01-09 19:30:55,417 - __main__ - INFO - Revising case 8.178 (cycle 1/3)
+2026-01-09 19:30:55,417 - __main__ - INFO - Case 8.178 accepted after revision
+2026-01-09 19:30:55,417 - __main__ - INFO - Revising case 8.116 (cycle 1/3)
+2026-01-09 19:30:55,418 - __main__ - INFO - Case 8.116 accepted after revision
+2026-01-09 19:30:55,418 - __main__ - INFO - Revising case 8.131 (cycle 1/3)
+2026-01-09 19:30:55,418 - __main__ - INFO - Case 8.131 accepted after revision
+2026-01-09 19:30:55,418 - __main__ - INFO - Revising case 8.139 (cycle 1/3)
+2026-01-09 19:30:55,418 - __main__ - INFO - Case 8.139 accepted after revision
+2026-01-09 19:30:55,418 - __main__ - INFO - Revising case 8.117 (cycle 1/3)
+2026-01-09 19:30:55,418 - __main__ - INFO - Case 8.117 accepted after revision
+2026-01-09 19:30:55,418 - __main__ - INFO - Revising case 8.106 (cycle 1/3)
+2026-01-09 19:30:55,418 - __main__ - INFO - Case 8.106 accepted after revision
+2026-01-09 19:30:55,418 - __main__ - INFO - Revising case 8.120 (cycle 1/3)
+2026-01-09 19:30:55,419 - __main__ - INFO - Case 8.120 accepted after revision
+2026-01-09 19:30:55,419 - __main__ - INFO - Revising case 8.121 (cycle 1/3)
+2026-01-09 19:30:55,419 - __main__ - INFO - Case 8.121 accepted after revision
+2026-01-09 19:30:55,419 - __main__ - INFO - Revising case 8.119 (cycle 1/3)
+2026-01-09 19:30:55,419 - __main__ - INFO - Case 8.119 accepted after revision
+2026-01-09 19:30:55,419 - __main__ - INFO - Revising case 8.124 (cycle 1/3)
+2026-01-09 19:30:55,419 - __main__ - INFO - Case 8.124 accepted after revision
+2026-01-09 19:30:55,419 - __main__ - INFO - Revising case 8.130 (cycle 1/3)
+2026-01-09 19:30:55,420 - __main__ - INFO - Case 8.130 accepted after revision
+2026-01-09 19:30:55,420 - __main__ - INFO - Revising case 8.134 (cycle 1/3)
+2026-01-09 19:30:55,420 - __main__ - INFO - Case 8.134 accepted after revision
+2026-01-09 19:30:55,420 - __main__ - INFO - Revising case 8.112 (cycle 1/3)
+2026-01-09 19:30:55,420 - __main__ - INFO - Case 8.112 accepted after revision
+2026-01-09 19:30:55,420 - __main__ - INFO - Revising case 8.132 (cycle 1/3)
+2026-01-09 19:30:55,420 - __main__ - INFO - Case 8.132 accepted after revision
+2026-01-09 19:30:55,420 - __main__ - INFO - Revising case 8.140 (cycle 1/3)
+2026-01-09 19:30:55,421 - __main__ - INFO - Case 8.140 accepted after revision
+2026-01-09 19:30:55,421 - __main__ - INFO - Revising case 8.120 (cycle 1/3)
+2026-01-09 19:30:55,421 - __main__ - INFO - Case 8.120 accepted after revision
+2026-01-09 19:30:55,421 - __main__ - INFO - Revising case 8.112 (cycle 1/3)
+2026-01-09 19:30:55,421 - __main__ - INFO - Case 8.112 accepted after revision
+2026-01-09 19:30:55,421 - __main__ - INFO - Revising case 8.118 (cycle 1/3)
+2026-01-09 19:30:55,421 - __main__ - INFO - Case 8.118 accepted after revision
+2026-01-09 19:30:55,421 - __main__ - INFO - Revising case 8.140 (cycle 1/3)
+2026-01-09 19:30:55,422 - __main__ - INFO - Case 8.140 accepted after revision
+2026-01-09 19:30:55,422 - __main__ - INFO - Revising case 8.125 (cycle 1/3)
+2026-01-09 19:30:55,422 - __main__ - INFO - Case 8.125 accepted after revision
+2026-01-09 19:30:55,422 - __main__ - INFO - Revising case 8.133 (cycle 1/3)
+2026-01-09 19:30:55,422 - __main__ - INFO - Case 8.133 accepted after revision
+2026-01-09 19:30:55,422 - __main__ - INFO - Revising case 8.110 (cycle 1/3)
+2026-01-09 19:30:55,422 - __main__ - INFO - Case 8.110 accepted after revision
+2026-01-09 19:30:55,422 - __main__ - INFO - Revising case 8.129 (cycle 1/3)
+2026-01-09 19:30:55,422 - __main__ - INFO - Case 8.129 accepted after revision
+2026-01-09 19:30:55,422 - __main__ - INFO - Revising case 8.118 (cycle 1/3)
+2026-01-09 19:30:55,423 - __main__ - INFO - Case 8.118 accepted after revision
+2026-01-09 19:30:55,423 - __main__ - INFO - Revising case 8.132 (cycle 1/3)
+2026-01-09 19:30:55,423 - __main__ - INFO - Case 8.132 accepted after revision
+2026-01-09 19:30:55,423 - __main__ - INFO - Revising case 8.136 (cycle 1/3)
+2026-01-09 19:30:55,423 - __main__ - INFO - Case 8.136 accepted after revision
+2026-01-09 19:30:55,423 - __main__ - INFO - Revising case 8.122 (cycle 1/3)
+2026-01-09 19:30:55,423 - __main__ - INFO - Case 8.122 accepted after revision
+2026-01-09 19:30:55,423 - __main__ - INFO - Revising case 8.126 (cycle 1/3)
+2026-01-09 19:30:55,424 - __main__ - INFO - Case 8.126 accepted after revision
+2026-01-09 19:30:55,424 - __main__ - INFO - Revising case 8.139 (cycle 1/3)
+2026-01-09 19:30:55,424 - __main__ - INFO - Case 8.139 accepted after revision
+2026-01-09 19:30:55,424 - __main__ - INFO - Revising case 8.141 (cycle 1/3)
+2026-01-09 19:30:55,424 - __main__ - INFO - Case 8.141 accepted after revision
+2026-01-09 19:30:55,424 - __main__ - INFO - Revising case 8.130 (cycle 1/3)
+2026-01-09 19:30:55,424 - __main__ - INFO - Case 8.130 accepted after revision
+2026-01-09 19:30:55,424 - __main__ - INFO - Revising case 8.134 (cycle 1/3)
+2026-01-09 19:30:55,425 - __main__ - INFO - Case 8.134 accepted after revision
+2026-01-09 19:30:55,425 - __main__ - INFO - Revising case 8.134 (cycle 1/3)
+2026-01-09 19:30:55,425 - __main__ - INFO - Case 8.134 accepted after revision
+2026-01-09 19:30:55,425 - __main__ - INFO - Revising case 8.139 (cycle 1/3)
+2026-01-09 19:30:55,425 - __main__ - INFO - Case 8.139 accepted after revision
+2026-01-09 19:30:55,425 - __main__ - INFO - Revising case 8.135 (cycle 1/3)
+2026-01-09 19:30:55,425 - __main__ - INFO - Case 8.135 accepted after revision
+2026-01-09 19:30:55,425 - __main__ - INFO - Revising case 8.134 (cycle 1/3)
+2026-01-09 19:30:55,426 - __main__ - INFO - Case 8.134 accepted after revision
+2026-01-09 19:30:55,426 - __main__ - INFO - Revising case 8.110 (cycle 1/3)
+2026-01-09 19:30:55,426 - __main__ - INFO - Case 8.110 accepted after revision
+2026-01-09 19:30:55,426 - __main__ - INFO - Revising case 8.142 (cycle 1/3)
+2026-01-09 19:30:55,426 - __main__ - INFO - Case 8.142 accepted after revision
+2026-01-09 19:30:55,426 - __main__ - INFO - Revising case 8.101 (cycle 1/3)
+2026-01-09 19:30:55,426 - __main__ - INFO - Case 8.101 accepted after revision
+2026-01-09 19:30:55,426 - __main__ - INFO - Revising case 8.107 (cycle 1/3)
+2026-01-09 19:30:55,427 - __main__ - INFO - Case 8.107 accepted after revision
+2026-01-09 19:30:55,427 - __main__ - INFO - Revising case 8.116 (cycle 1/3)
+2026-01-09 19:30:55,427 - __main__ - INFO - Case 8.116 accepted after revision
+2026-01-09 19:30:55,427 - __main__ - INFO - Revising case 8.107 (cycle 1/3)
+2026-01-09 19:30:55,427 - __main__ - INFO - Case 8.107 accepted after revision
+2026-01-09 19:30:55,427 - __main__ - INFO - Revising case 8.115 (cycle 1/3)
+2026-01-09 19:30:55,427 - __main__ - INFO - Case 8.115 accepted after revision
+2026-01-09 19:30:55,427 - __main__ - INFO - Revising case 8.125 (cycle 1/3)
+2026-01-09 19:30:55,427 - __main__ - INFO - Case 8.125 accepted after revision
+2026-01-09 19:30:55,427 - __main__ - INFO - Revising case 8.104 (cycle 1/3)
+2026-01-09 19:30:55,428 - __main__ - INFO - Case 8.104 accepted after revision
+2026-01-09 19:30:55,428 - __main__ - INFO - Revising case 8.118 (cycle 1/3)
+2026-01-09 19:30:55,428 - __main__ - INFO - Case 8.118 accepted after revision
+2026-01-09 19:30:55,428 - __main__ - INFO - Revising case 8.116 (cycle 1/3)
+2026-01-09 19:30:55,428 - __main__ - INFO - Case 8.116 accepted after revision
+2026-01-09 19:30:55,428 - __main__ - INFO - Revising case 8.135 (cycle 1/3)
+2026-01-09 19:30:55,428 - __main__ - INFO - Case 8.135 accepted after revision
+2026-01-09 19:30:55,428 - __main__ - INFO - Revising case 8.123 (cycle 1/3)
+2026-01-09 19:30:55,429 - __main__ - INFO - Case 8.123 accepted after revision
+2026-01-09 19:30:55,429 - __main__ - INFO - Revising case 8.116 (cycle 1/3)
+2026-01-09 19:30:55,429 - __main__ - INFO - Case 8.116 accepted after revision
+2026-01-09 19:30:55,429 - __main__ - INFO - Revising case 8.135 (cycle 1/3)
+2026-01-09 19:30:55,429 - __main__ - INFO - Case 8.135 accepted after revision
+2026-01-09 19:30:55,429 - __main__ - INFO - Revising case 8.135 (cycle 1/3)
+2026-01-09 19:30:55,429 - __main__ - INFO - Case 8.135 accepted after revision
+2026-01-09 19:30:55,429 - __main__ - INFO - Revising case 8.118 (cycle 1/3)
+2026-01-09 19:30:55,429 - __main__ - INFO - Case 8.118 accepted after revision
+2026-01-09 19:30:55,429 - __main__ - INFO - Revising case 8.113 (cycle 1/3)
+2026-01-09 19:30:55,430 - __main__ - INFO - Case 8.113 accepted after revision
+2026-01-09 19:30:55,430 - __main__ - INFO - Revising case 8.108 (cycle 1/3)
+2026-01-09 19:30:55,430 - __main__ - INFO - Case 8.108 accepted after revision
+2026-01-09 19:30:55,430 - __main__ - INFO - Revising case 8.114 (cycle 1/3)
+2026-01-09 19:30:55,430 - __main__ - INFO - Case 8.114 accepted after revision
+2026-01-09 19:30:55,430 - __main__ - INFO - Revising case 8.123 (cycle 1/3)
+2026-01-09 19:30:55,430 - __main__ - INFO - Case 8.123 accepted after revision
+2026-01-09 19:30:55,430 - __main__ - INFO - Revising case 8.121 (cycle 1/3)
+2026-01-09 19:30:55,431 - __main__ - INFO - Case 8.121 accepted after revision
+2026-01-09 19:30:55,431 - __main__ - INFO - Revising case 8.117 (cycle 1/3)
+2026-01-09 19:30:55,431 - __main__ - INFO - Case 8.117 accepted after revision
+2026-01-09 19:30:55,431 - __main__ - INFO - Revising case 8.126 (cycle 1/3)
+2026-01-09 19:30:55,431 - __main__ - INFO - Case 8.126 accepted after revision
+2026-01-09 19:30:55,431 - __main__ - INFO - Revising case 8.114 (cycle 1/3)
+2026-01-09 19:30:55,431 - __main__ - INFO - Case 8.114 accepted after revision
+2026-01-09 19:30:55,431 - __main__ - INFO - Revising case 8.123 (cycle 1/3)
+2026-01-09 19:30:55,431 - __main__ - INFO - Case 8.123 accepted after revision
+2026-01-09 19:30:55,431 - __main__ - INFO - Revising case 8.112 (cycle 1/3)
+2026-01-09 19:30:55,432 - __main__ - INFO - Case 8.112 accepted after revision
+2026-01-09 19:30:55,432 - __main__ - INFO - Revising case 8.119 (cycle 1/3)
+2026-01-09 19:30:55,432 - __main__ - INFO - Case 8.119 accepted after revision
+2026-01-09 19:30:55,432 - __main__ - INFO - Revising case 8.122 (cycle 1/3)
+2026-01-09 19:30:55,432 - __main__ - INFO - Case 8.122 accepted after revision
+2026-01-09 19:30:55,432 - __main__ - INFO - Revising case 8.126 (cycle 1/3)
+2026-01-09 19:30:55,432 - __main__ - INFO - Case 8.126 accepted after revision
+2026-01-09 19:30:55,432 - __main__ - INFO - Revising case 8.122 (cycle 1/3)
+2026-01-09 19:30:55,433 - __main__ - INFO - Case 8.122 accepted after revision
+2026-01-09 19:30:55,433 - __main__ - INFO - Revising case 8.111 (cycle 1/3)
+2026-01-09 19:30:55,433 - __main__ - INFO - Case 8.111 accepted after revision
+2026-01-09 19:30:55,433 - __main__ - INFO - Revising case 8.151 (cycle 1/3)
+2026-01-09 19:30:55,433 - __main__ - INFO - Case 8.151 accepted after revision
+2026-01-09 19:30:55,433 - __main__ - INFO - Revising case 8.150 (cycle 1/3)
+2026-01-09 19:30:55,433 - __main__ - INFO - Case 8.150 accepted after revision
+2026-01-09 19:30:55,433 - __main__ - INFO - Revising case 8.154 (cycle 1/3)
+2026-01-09 19:30:55,434 - __main__ - INFO - Case 8.154 accepted after revision
+2026-01-09 19:30:55,434 - __main__ - INFO - Revising case 8.109 (cycle 1/3)
+2026-01-09 19:30:55,434 - __main__ - INFO - Case 8.109 accepted after revision
+2026-01-09 19:30:55,434 - __main__ - INFO - Revising case 8.150 (cycle 1/3)
+2026-01-09 19:30:55,434 - __main__ - INFO - Case 8.150 accepted after revision
+2026-01-09 19:30:55,434 - __main__ - INFO - Revising case 8.121 (cycle 1/3)
+2026-01-09 19:30:55,434 - __main__ - INFO - Case 8.121 accepted after revision
+2026-01-09 19:30:55,434 - __main__ - INFO - Revising case 8.138 (cycle 1/3)
+2026-01-09 19:30:55,434 - __main__ - INFO - Case 8.138 accepted after revision
+2026-01-09 19:30:55,434 - __main__ - INFO - Revising case 8.156 (cycle 1/3)
+2026-01-09 19:30:55,435 - __main__ - INFO - Case 8.156 accepted after revision
+2026-01-09 19:30:55,435 - __main__ - INFO - Revising case 8.128 (cycle 1/3)
+2026-01-09 19:30:55,435 - __main__ - INFO - Case 8.128 accepted after revision
+2026-01-09 19:30:55,435 - __main__ - INFO - Revising case 8.149 (cycle 1/3)
+2026-01-09 19:30:55,435 - __main__ - INFO - Case 8.149 accepted after revision
+2026-01-09 19:30:55,435 - __main__ - INFO - Revising case 8.152 (cycle 1/3)
+2026-01-09 19:30:55,435 - __main__ - INFO - Case 8.152 accepted after revision
+2026-01-09 19:30:55,435 - __main__ - INFO - Revising case 8.138 (cycle 1/3)
+2026-01-09 19:30:55,436 - __main__ - INFO - Case 8.138 accepted after revision
+2026-01-09 19:30:55,436 - __main__ - INFO - Revising case 8.157 (cycle 1/3)
+2026-01-09 19:30:55,436 - __main__ - INFO - Case 8.157 accepted after revision
+2026-01-09 19:30:55,436 - __main__ - INFO - Revising case 8.155 (cycle 1/3)
+2026-01-09 19:30:55,436 - __main__ - INFO - Case 8.155 accepted after revision
+2026-01-09 19:30:55,436 - __main__ - INFO - Revising case 8.152 (cycle 1/3)
+2026-01-09 19:30:55,437 - __main__ - INFO - Case 8.152 accepted after revision
+2026-01-09 19:30:55,437 - __main__ - INFO - Revising case 8.157 (cycle 1/3)
+2026-01-09 19:30:55,437 - __main__ - INFO - Case 8.157 accepted after revision
+2026-01-09 19:30:55,437 - __main__ - INFO - Revising case 8.109 (cycle 1/3)
+2026-01-09 19:30:55,437 - __main__ - INFO - Case 8.109 accepted after revision
+2026-01-09 19:30:55,437 - __main__ - INFO - Revising case 8.115 (cycle 1/3)
+2026-01-09 19:30:55,437 - __main__ - INFO - Case 8.115 accepted after revision
+2026-01-09 19:30:55,437 - __main__ - INFO - Revising case 8.117 (cycle 1/3)
+2026-01-09 19:30:55,438 - __main__ - INFO - Case 8.117 accepted after revision
+2026-01-09 19:30:55,438 - __main__ - INFO - Revising case 8.119 (cycle 1/3)
+2026-01-09 19:30:55,438 - __main__ - INFO - Case 8.119 accepted after revision
+2026-01-09 19:30:55,438 - __main__ - INFO - Revising case 8.115 (cycle 1/3)
+2026-01-09 19:30:55,438 - __main__ - INFO - Case 8.115 accepted after revision
+2026-01-09 19:30:55,438 - __main__ - INFO - Revising case 8.119 (cycle 1/3)
+2026-01-09 19:30:55,438 - __main__ - INFO - Case 8.119 accepted after revision
+2026-01-09 19:30:55,438 - __main__ - INFO - Revising case 8.118 (cycle 1/3)
+2026-01-09 19:30:55,438 - __main__ - INFO - Case 8.118 accepted after revision
+2026-01-09 19:30:55,439 - __main__ - INFO - Revising case 8.111 (cycle 2/3)
+2026-01-09 19:30:55,439 - __main__ - INFO - Revising case 8.117 (cycle 2/3)
+2026-01-09 19:30:55,439 - __main__ - INFO - Revising case 8.118 (cycle 2/3)
+2026-01-09 19:30:55,439 - __main__ - INFO - Revising case 8.128 (cycle 2/3)
+2026-01-09 19:30:55,439 - __main__ - INFO - Revising case 8.131 (cycle 2/3)
+2026-01-09 19:30:55,439 - __main__ - INFO - Revising case 8.132 (cycle 2/3)
+2026-01-09 19:30:55,439 - __main__ - INFO - Revising case 8.133 (cycle 2/3)
+2026-01-09 19:30:55,440 - __main__ - INFO - Revising case 8.110 (cycle 2/3)
+2026-01-09 19:30:55,440 - __main__ - INFO - Revising case 8.129 (cycle 2/3)
+2026-01-09 19:30:55,440 - __main__ - INFO - Revising case 8.104 (cycle 2/3)
+2026-01-09 19:30:55,440 - __main__ - INFO - Revising case 8.107 (cycle 2/3)
+2026-01-09 19:30:55,440 - __main__ - INFO - Revising case 8.111 (cycle 2/3)
+2026-01-09 19:30:55,441 - __main__ - INFO - Revising case 8.115 (cycle 2/3)
+2026-01-09 19:30:55,441 - __main__ - INFO - Revising case 8.120 (cycle 2/3)
+2026-01-09 19:30:55,441 - __main__ - INFO - Revising case 8.111 (cycle 3/3)
+2026-01-09 19:30:55,441 - __main__ - INFO - Revising case 8.117 (cycle 3/3)
+2026-01-09 19:30:55,441 - __main__ - INFO - Revising case 8.118 (cycle 3/3)
+2026-01-09 19:30:55,441 - __main__ - INFO - Revising case 8.128 (cycle 3/3)
+2026-01-09 19:30:55,442 - __main__ - INFO - Revising case 8.131 (cycle 3/3)
+2026-01-09 19:30:55,442 - __main__ - INFO - Revising case 8.132 (cycle 3/3)
+2026-01-09 19:30:55,442 - __main__ - INFO - Revising case 8.133 (cycle 3/3)
+2026-01-09 19:30:55,442 - __main__ - INFO - Revising case 8.110 (cycle 3/3)
+2026-01-09 19:30:55,443 - __main__ - INFO - Revising case 8.129 (cycle 3/3)
+2026-01-09 19:30:55,443 - __main__ - INFO - Revising case 8.104 (cycle 3/3)
+2026-01-09 19:30:55,443 - __main__ - INFO - Revising case 8.107 (cycle 3/3)
+2026-01-09 19:30:55,443 - __main__ - INFO - Revising case 8.111 (cycle 3/3)
+2026-01-09 19:30:55,444 - __main__ - INFO - Revising case 8.115 (cycle 3/3)
+2026-01-09 19:30:55,444 - __main__ - INFO - Revising case 8.120 (cycle 3/3)
+2026-01-09 19:30:55,444 - __main__ - INFO - Revising case 8.111 (cycle 4/3)
+2026-01-09 19:30:55,444 - __main__ - WARNING - Case 8.111 failed after 3 revision cycles
+2026-01-09 19:30:55,444 - __main__ - INFO - Revising case 8.117 (cycle 4/3)
+2026-01-09 19:30:55,444 - __main__ - WARNING - Case 8.117 failed after 3 revision cycles
+2026-01-09 19:30:55,444 - __main__ - INFO - Revising case 8.118 (cycle 4/3)
+2026-01-09 19:30:55,444 - __main__ - WARNING - Case 8.118 failed after 3 revision cycles
+2026-01-09 19:30:55,444 - __main__ - INFO - Revising case 8.128 (cycle 4/3)
+2026-01-09 19:30:55,444 - __main__ - WARNING - Case 8.128 failed after 3 revision cycles
+2026-01-09 19:30:55,444 - __main__ - INFO - Revising case 8.131 (cycle 4/3)
+2026-01-09 19:30:55,444 - __main__ - WARNING - Case 8.131 failed after 3 revision cycles
+2026-01-09 19:30:55,444 - __main__ - INFO - Revising case 8.132 (cycle 4/3)
+2026-01-09 19:30:55,444 - __main__ - WARNING - Case 8.132 failed after 3 revision cycles
+2026-01-09 19:30:55,444 - __main__ - INFO - Revising case 8.133 (cycle 4/3)
+2026-01-09 19:30:55,444 - __main__ - WARNING - Case 8.133 failed after 3 revision cycles
+2026-01-09 19:30:55,444 - __main__ - INFO - Revising case 8.110 (cycle 4/3)
+2026-01-09 19:30:55,444 - __main__ - WARNING - Case 8.110 failed after 3 revision cycles
+2026-01-09 19:30:55,444 - __main__ - INFO - Revising case 8.129 (cycle 4/3)
+2026-01-09 19:30:55,444 - __main__ - WARNING - Case 8.129 failed after 3 revision cycles
+2026-01-09 19:30:55,444 - __main__ - INFO - Revising case 8.104 (cycle 4/3)
+2026-01-09 19:30:55,445 - __main__ - WARNING - Case 8.104 failed after 3 revision cycles
+2026-01-09 19:30:55,445 - __main__ - INFO - Revising case 8.107 (cycle 4/3)
+2026-01-09 19:30:55,445 - __main__ - WARNING - Case 8.107 failed after 3 revision cycles
+2026-01-09 19:30:55,445 - __main__ - INFO - Revising case 8.111 (cycle 4/3)
+2026-01-09 19:30:55,445 - __main__ - WARNING - Case 8.111 failed after 3 revision cycles
+2026-01-09 19:30:55,445 - __main__ - INFO - Revising case 8.115 (cycle 4/3)
+2026-01-09 19:30:55,445 - __main__ - WARNING - Case 8.115 failed after 3 revision cycles
+2026-01-09 19:30:55,445 - __main__ - INFO - Revising case 8.120 (cycle 4/3)
+2026-01-09 19:30:55,445 - __main__ - WARNING - Case 8.120 failed after 3 revision cycles
+2026-01-09 19:30:55,445 - __main__ - INFO - Saved 14 failed cases to /Users/fernandotn/Projects/AGI/project/output/revision/failed_cases.json
+2026-01-09 19:30:55,445 - __main__ - INFO - Revision phase complete: 212 revisions, 231 accepted, 14 failed
+2026-01-09 19:30:55,446 - __main__ - INFO - ------------------------------------------------------------
+2026-01-09 19:30:55,446 - __main__ - INFO - PHASE 4: Finalization
+2026-01-09 19:30:55,446 - __main__ - INFO - ------------------------------------------------------------
+2026-01-09 19:30:55,447 - __main__ - CRITICAL - Duplicate case IDs detected: ['8.127', '8.122', '8.104', '8.138', '8.166', '8.109', '8.151', '8.133', '8.156', '8.137', '8.135', '8.103', '8.105', '8.119', '8.107', '8.140', '8.120', '8.106', '8.115', '8.155', '8.149', '8.128', '8.113', '8.129', '8.169', '8.111', '8.139', '8.100', '8.141', '8.112', '8.121', '8.150', '8.134', '8.131', '8.114', '8.101', '8.116', '8.126', '8.110', '8.142', '8.130', '8.136', '8.152', '8.124', '8.117', '8.154', '8.123', '8.153', '8.108', '8.132', '8.125', '8.102', '8.118', '8.157'] (count: 54)
+2026-01-09 19:30:55,447 - __main__ - ERROR - Cannot finalize dataset: duplicate case IDs detected. This indicates a bug in case ID generation.
+2026-01-09 19:30:55,447 - __main__ - ERROR - Pipeline failed with error: Duplicate case IDs detected - cannot finalize dataset
+Traceback (most recent call last):
+  File "/Users/fernandotn/Projects/AGI/project/orchestrator/orchestrator.py", line 501, in run_full_pipeline
+    self.finalize_dataset()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/fernandotn/Projects/AGI/project/orchestrator/orchestrator.py", line 1301, in finalize_dataset
+    raise RuntimeError("Duplicate case IDs detected - cannot finalize dataset")
+RuntimeError: Duplicate case IDs detected - cannot finalize dataset
+2026-01-09 19:30:55,448 - __main__ - ERROR - Pipeline failed
+Traceback (most recent call last):
+  File "/Users/fernandotn/Projects/AGI/project/orchestrator/orchestrator.py", line 501, in run_full_pipeline
+    self.finalize_dataset()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/fernandotn/Projects/AGI/project/orchestrator/orchestrator.py", line 1301, in finalize_dataset
+    raise RuntimeError("Duplicate case IDs detected - cannot finalize dataset")
+RuntimeError: Duplicate case IDs detected - cannot finalize dataset
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/fernandotn/Projects/AGI/project/orchestrator/orchestrator.py", line 1777, in main
+    result = orchestrator.run_full_pipeline()
+  File "/Users/fernandotn/Projects/AGI/project/orchestrator/orchestrator.py", line 539, in run_full_pipeline
+    raise RuntimeError(f"Pipeline failed: {e}") from e
+RuntimeError: Pipeline failed: Duplicate case IDs detected - cannot finalize dataset
+2026-01-09 19:34:35,351 - __main__ - INFO - Loaded 49 original cases from /Users/fernandotn/Projects/AGI/project/categories/original_cases.json
+2026-01-09 19:34:35,352 - __main__ - INFO - Loaded 5 instruction files
+2026-01-09 19:34:35,352 - __main__ - INFO - Orchestrator initialized with config from /Users/fernandotn/Projects/AGI/project/orchestrator/config.json
+2026-01-09 19:34:35,352 - __main__ - INFO - ============================================================
+2026-01-09 19:34:35,352 - __main__ - INFO - Starting T3 Benchmark Generation Pipeline
+2026-01-09 19:34:35,352 - __main__ - INFO - ============================================================
+2026-01-09 19:34:35,352 - __main__ - ERROR - Pipeline failed
+Traceback (most recent call last):
+  File "/Users/fernandotn/Projects/AGI/project/orchestrator/orchestrator.py", line 1782, in main
+    result = orchestrator.run_full_pipeline()
+  File "/Users/fernandotn/Projects/AGI/project/orchestrator/orchestrator.py", line 484, in run_full_pipeline
+    from generators.base_generator import reset_global_id_counter
+ModuleNotFoundError: No module named 'generators'
+2026-01-09 19:35:15,056 - __main__ - INFO - Loaded 49 original cases from /Users/fernandotn/Projects/AGI/project/categories/original_cases.json
+2026-01-09 19:35:15,056 - __main__ - INFO - Loaded 5 instruction files
+2026-01-09 19:35:15,056 - __main__ - INFO - Orchestrator initialized with config from /Users/fernandotn/Projects/AGI/project/orchestrator/config.json
+2026-01-09 19:35:15,056 - __main__ - INFO - ============================================================
+2026-01-09 19:35:15,056 - __main__ - INFO - Starting T3 Benchmark Generation Pipeline
+2026-01-09 19:35:15,056 - __main__ - INFO - ============================================================
+2026-01-09 19:35:15,071 - __main__ - INFO - Reset global ID counter to 100
+2026-01-09 19:35:15,072 - __main__ - INFO - ------------------------------------------------------------
+2026-01-09 19:35:15,072 - __main__ - INFO - PHASE 1: Generation
+2026-01-09 19:35:15,072 - __main__ - INFO - ------------------------------------------------------------
+2026-01-09 19:35:15,072 - __main__ - INFO - Generator gen_01_goodhart: allocation=82, trap=GOODHART, subdomains=['Scaling', 'RLHF', 'Reward Hacking', 'Game Playing', 'Legal AI']
+2026-01-09 19:35:15,174 - __main__ - INFO - Used GoodhartGenerator for gen_01_goodhart: generated 40 cases
+2026-01-09 19:35:15,176 - __main__ - INFO - Saved 40 cases to /Users/fernandotn/Projects/AGI/project/output/generated/batch_gen_01_goodhart.json
+2026-01-09 19:35:15,176 - __main__ - INFO -   Generated 40 cases for gen_01_goodhart
+2026-01-09 19:35:15,176 - __main__ - INFO - Generator gen_02_counterfactual: allocation=82, trap=COUNTERFACTUAL, subdomains=['Alignment', 'Philosophy', 'Safety', 'Governance', 'AGI Theory']
+2026-01-09 19:35:15,254 - __main__ - INFO - Used CounterfactualGenerator for gen_02_counterfactual: generated 19 cases
+2026-01-09 19:35:15,255 - __main__ - INFO - Saved 19 cases to /Users/fernandotn/Projects/AGI/project/output/generated/batch_gen_02_counterfactual.json
+2026-01-09 19:35:15,255 - __main__ - INFO -   Generated 19 cases for gen_02_counterfactual
+2026-01-09 19:35:15,255 - __main__ - INFO - Generator gen_03_conf_med: allocation=36, trap=CONF_MED, subdomains=['Medical AI', 'Fairness', 'Security', 'Algorithmic Fairness']
+2026-01-09 19:35:15,256 - __main__ - WARNING - Generator gen_03_conf_med failed during generation: 'collider'
+2026-01-09 19:35:15,256 - __main__ - INFO - Falling back to ExampleGenerator for gen_03_conf_med
+2026-01-09 19:35:15,257 - __main__ - INFO - Used ExampleGenerator (fallback) for gen_03_conf_med: generated 8 cases
+2026-01-09 19:35:15,257 - __main__ - INFO - Saved 8 cases to /Users/fernandotn/Projects/AGI/project/output/generated/batch_gen_03_conf_med.json
+2026-01-09 19:35:15,257 - __main__ - INFO -   Generated 8 cases for gen_03_conf_med
+2026-01-09 19:35:15,257 - __main__ - INFO - Generator gen_04_instrumental: allocation=37, trap=INSTRUMENTAL, subdomains=['Multi-Agent', 'Corrigibility', 'Existential Risk']
+2026-01-09 19:35:15,258 - __main__ - WARNING - Generator gen_04_instrumental failed during generation: 'intervention'
+2026-01-09 19:35:15,258 - __main__ - INFO - Falling back to ExampleGenerator for gen_04_instrumental
+2026-01-09 19:35:15,259 - __main__ - INFO - Used ExampleGenerator (fallback) for gen_04_instrumental: generated 11 cases
+2026-01-09 19:35:15,259 - __main__ - INFO - Saved 11 cases to /Users/fernandotn/Projects/AGI/project/output/generated/batch_gen_04_instrumental.json
+2026-01-09 19:35:15,260 - __main__ - INFO -   Generated 11 cases for gen_04_instrumental
+2026-01-09 19:35:15,260 - __main__ - INFO - Generator gen_05_selection_spurious: allocation=43, trap=SELECTION_SPURIOUS, subdomains=['CV', 'NLP', 'Recommenders', 'ML Evaluation', 'Capability Evaluation']
+2026-01-09 19:35:15,261 - __main__ - INFO - Used SelectionSpuriousGenerator for gen_05_selection_spurious: generated 43 cases
+2026-01-09 19:35:15,262 - __main__ - INFO - Saved 43 cases to /Users/fernandotn/Projects/AGI/project/output/generated/batch_gen_05_selection_spurious.json
+2026-01-09 19:35:15,262 - __main__ - INFO -   Generated 43 cases for gen_05_selection_spurious
+2026-01-09 19:35:15,262 - __main__ - INFO - Generator gen_06_specification: allocation=37, trap=SPECIFICATION, subdomains=['Autonomous Vehicles', 'Game Playing', 'Instruction Following', 'Robustness']
+2026-01-09 19:35:15,263 - __main__ - INFO - Used SpecificationGenerator for gen_06_specification: generated 37 cases
+2026-01-09 19:35:15,265 - __main__ - INFO - Saved 37 cases to /Users/fernandotn/Projects/AGI/project/output/generated/batch_gen_06_specification.json
+2026-01-09 19:35:15,265 - __main__ - INFO -   Generated 37 cases for gen_06_specification
+2026-01-09 19:35:15,265 - __main__ - INFO - Generator gen_07_feedback_loops: allocation=28, trap=FEEDBACK, subdomains=['Educational AI', 'Social Systems', 'Criminal Justice AI']
+2026-01-09 19:35:15,266 - __main__ - INFO - Used FeedbackLoopsGenerator for gen_07_feedback_loops: generated 28 cases
+2026-01-09 19:35:15,268 - __main__ - INFO - Saved 28 cases to /Users/fernandotn/Projects/AGI/project/output/generated/batch_gen_07_feedback_loops.json
+2026-01-09 19:35:15,268 - __main__ - INFO -   Generated 28 cases for gen_07_feedback_loops
+2026-01-09 19:35:15,268 - __main__ - INFO - Generator gen_08_other_traps: allocation=60, trap=OTHER, subdomains=['Model Compression', 'Prompt Engineering', 'Generative AI', 'Mechanistic Interpretability', 'Language Models']
+2026-01-09 19:35:15,270 - __main__ - INFO - Used OtherTrapsGenerator for gen_08_other_traps: generated 60 cases
+2026-01-09 19:35:15,272 - __main__ - INFO - Saved 60 cases to /Users/fernandotn/Projects/AGI/project/output/generated/batch_gen_08_other_traps.json
+2026-01-09 19:35:15,273 - __main__ - INFO -   Generated 60 cases for gen_08_other_traps
+2026-01-09 19:35:15,273 - __main__ - INFO - Generation phase complete: 246 cases generated
+2026-01-09 19:35:15,273 - __main__ - INFO - ------------------------------------------------------------
+2026-01-09 19:35:15,274 - __main__ - INFO - PHASE 2: Validation
+2026-01-09 19:35:15,274 - __main__ - INFO - ------------------------------------------------------------
+2026-01-09 19:35:26,516 - __main__ - WARNING - Found 218 duplicate cases
+2026-01-09 19:35:26,518 - __main__ - INFO - Validation phase complete: 246 validated, 129 accepted, 117 queued for revision
+2026-01-09 19:35:26,519 - __main__ - INFO - ------------------------------------------------------------
+2026-01-09 19:35:26,519 - __main__ - INFO - PHASE 3: Revision
+2026-01-09 19:35:26,519 - __main__ - INFO - ------------------------------------------------------------
+2026-01-09 19:35:26,519 - __main__ - INFO - Revising case 8.278 (cycle 1/3)
+2026-01-09 19:35:26,519 - __main__ - INFO - Case 8.278 accepted after revision
+2026-01-09 19:35:26,519 - __main__ - INFO - Revising case 8.283 (cycle 1/3)
+2026-01-09 19:35:26,520 - __main__ - INFO - Case 8.283 accepted after revision
+2026-01-09 19:35:26,520 - __main__ - INFO - Revising case 8.284 (cycle 1/3)
+2026-01-09 19:35:26,520 - __main__ - INFO - Case 8.284 accepted after revision
+2026-01-09 19:35:26,520 - __main__ - INFO - Revising case 8.286 (cycle 1/3)
+2026-01-09 19:35:26,520 - __main__ - INFO - Case 8.286 accepted after revision
+2026-01-09 19:35:26,520 - __main__ - INFO - Revising case 8.287 (cycle 1/3)
+2026-01-09 19:35:26,520 - __main__ - INFO - Case 8.287 accepted after revision
+2026-01-09 19:35:26,520 - __main__ - INFO - Revising case 8.295 (cycle 1/3)
+2026-01-09 19:35:26,520 - __main__ - INFO - Case 8.295 accepted after revision
+2026-01-09 19:35:26,520 - __main__ - INFO - Revising case 8.296 (cycle 1/3)
+2026-01-09 19:35:26,520 - __main__ - INFO - Case 8.296 accepted after revision
+2026-01-09 19:35:26,520 - __main__ - INFO - Revising case 8.306 (cycle 1/3)
+2026-01-09 19:35:26,520 - __main__ - INFO - Case 8.306 accepted after revision
+2026-01-09 19:35:26,520 - __main__ - INFO - Revising case 8.321 (cycle 1/3)
+2026-01-09 19:35:26,521 - __main__ - INFO - Revising case 8.324 (cycle 1/3)
+2026-01-09 19:35:26,521 - __main__ - INFO - Revising case 8.326 (cycle 1/3)
+2026-01-09 19:35:26,521 - __main__ - INFO - Revising case 8.327 (cycle 1/3)
+2026-01-09 19:35:26,521 - __main__ - INFO - Case 8.327 accepted after revision
+2026-01-09 19:35:26,521 - __main__ - INFO - Revising case 8.330 (cycle 1/3)
+2026-01-09 19:35:26,521 - __main__ - INFO - Revising case 8.335 (cycle 1/3)
+2026-01-09 19:35:26,521 - __main__ - INFO - Revising case 8.336 (cycle 1/3)
+2026-01-09 19:35:26,522 - __main__ - INFO - Revising case 8.342 (cycle 1/3)
+2026-01-09 19:35:26,522 - __main__ - INFO - Case 8.342 accepted after revision
+2026-01-09 19:35:26,522 - __main__ - INFO - Revising case 8.350 (cycle 1/3)
+2026-01-09 19:35:26,522 - __main__ - INFO - Revising case 8.353 (cycle 1/3)
+2026-01-09 19:35:26,522 - __main__ - INFO - Case 8.353 accepted after revision
+2026-01-09 19:35:26,522 - __main__ - INFO - Revising case 8.355 (cycle 1/3)
+2026-01-09 19:35:26,522 - __main__ - INFO - Revising case 8.375 (cycle 1/3)
+2026-01-09 19:35:26,522 - __main__ - INFO - Revising case 8.439 (cycle 1/3)
+2026-01-09 19:35:26,523 - __main__ - INFO - Revising case 8.440 (cycle 1/3)
+2026-01-09 19:35:26,523 - __main__ - INFO - Revising case 8.447 (cycle 1/3)
+2026-01-09 19:35:26,523 - __main__ - INFO - Revising case 8.453 (cycle 1/3)
+2026-01-09 19:35:26,523 - __main__ - INFO - Revising case 8.460 (cycle 1/3)
+2026-01-09 19:35:26,524 - __main__ - INFO - Revising case 8.386 (cycle 1/3)
+2026-01-09 19:35:26,524 - __main__ - INFO - Case 8.386 accepted after revision
+2026-01-09 19:35:26,524 - __main__ - INFO - Revising case 8.423 (cycle 1/3)
+2026-01-09 19:35:26,524 - __main__ - INFO - Case 8.423 accepted after revision
+2026-01-09 19:35:26,524 - __main__ - INFO - Revising case 8.441 (cycle 1/3)
+2026-01-09 19:35:26,524 - __main__ - INFO - Case 8.441 accepted after revision
+2026-01-09 19:35:26,525 - __main__ - INFO - Revising case 8.444 (cycle 1/3)
+2026-01-09 19:35:26,525 - __main__ - INFO - Case 8.444 accepted after revision
+2026-01-09 19:35:26,525 - __main__ - INFO - Revising case 8.446 (cycle 1/3)
+2026-01-09 19:35:26,525 - __main__ - INFO - Case 8.446 accepted after revision
+2026-01-09 19:35:26,525 - __main__ - INFO - Revising case 8.448 (cycle 1/3)
+2026-01-09 19:35:26,525 - __main__ - INFO - Case 8.448 accepted after revision
+2026-01-09 19:35:26,525 - __main__ - INFO - Revising case 8.449 (cycle 1/3)
+2026-01-09 19:35:26,525 - __main__ - INFO - Case 8.449 accepted after revision
+2026-01-09 19:35:26,526 - __main__ - INFO - Revising case 8.451 (cycle 1/3)
+2026-01-09 19:35:26,526 - __main__ - INFO - Case 8.451 accepted after revision
+2026-01-09 19:35:26,526 - __main__ - INFO - Revising case 8.455 (cycle 1/3)
+2026-01-09 19:35:26,526 - __main__ - INFO - Case 8.455 accepted after revision
+2026-01-09 19:35:26,526 - __main__ - INFO - Revising case 8.456 (cycle 1/3)
+2026-01-09 19:35:26,526 - __main__ - INFO - Case 8.456 accepted after revision
+2026-01-09 19:35:26,526 - __main__ - INFO - Revising case 8.457 (cycle 1/3)
+2026-01-09 19:35:26,526 - __main__ - INFO - Case 8.457 accepted after revision
+2026-01-09 19:35:26,526 - __main__ - INFO - Revising case 8.459 (cycle 1/3)
+2026-01-09 19:35:26,527 - __main__ - INFO - Case 8.459 accepted after revision
+2026-01-09 19:35:26,527 - __main__ - INFO - Revising case 8.462 (cycle 1/3)
+2026-01-09 19:35:26,527 - __main__ - INFO - Case 8.462 accepted after revision
+2026-01-09 19:35:26,527 - __main__ - INFO - Revising case 8.463 (cycle 1/3)
+2026-01-09 19:35:26,527 - __main__ - INFO - Case 8.463 accepted after revision
+2026-01-09 19:35:26,527 - __main__ - INFO - Revising case 8.470 (cycle 1/3)
+2026-01-09 19:35:26,527 - __main__ - INFO - Case 8.470 accepted after revision
+2026-01-09 19:35:26,527 - __main__ - INFO - Revising case 8.477 (cycle 1/3)
+2026-01-09 19:35:26,528 - __main__ - INFO - Case 8.477 accepted after revision
+2026-01-09 19:35:26,528 - __main__ - INFO - Revising case 8.479 (cycle 1/3)
+2026-01-09 19:35:26,528 - __main__ - INFO - Case 8.479 accepted after revision
+2026-01-09 19:35:26,528 - __main__ - INFO - Revising case 8.480 (cycle 1/3)
+2026-01-09 19:35:26,528 - __main__ - INFO - Case 8.480 accepted after revision
+2026-01-09 19:35:26,528 - __main__ - INFO - Revising case 8.483 (cycle 1/3)
+2026-01-09 19:35:26,528 - __main__ - INFO - Case 8.483 accepted after revision
+2026-01-09 19:35:26,528 - __main__ - INFO - Revising case 8.485 (cycle 1/3)
+2026-01-09 19:35:26,529 - __main__ - INFO - Case 8.485 accepted after revision
+2026-01-09 19:35:26,529 - __main__ - INFO - Revising case 8.488 (cycle 1/3)
+2026-01-09 19:35:26,529 - __main__ - INFO - Case 8.488 accepted after revision
+2026-01-09 19:35:26,529 - __main__ - INFO - Revising case 8.490 (cycle 1/3)
+2026-01-09 19:35:26,529 - __main__ - INFO - Case 8.490 accepted after revision
+2026-01-09 19:35:26,529 - __main__ - INFO - Revising case 8.491 (cycle 1/3)
+2026-01-09 19:35:26,529 - __main__ - INFO - Case 8.491 accepted after revision
+2026-01-09 19:35:26,529 - __main__ - INFO - Revising case 8.492 (cycle 1/3)
+2026-01-09 19:35:26,530 - __main__ - INFO - Case 8.492 accepted after revision
+2026-01-09 19:35:26,530 - __main__ - INFO - Revising case 8.493 (cycle 1/3)
+2026-01-09 19:35:26,530 - __main__ - INFO - Case 8.493 accepted after revision
+2026-01-09 19:35:26,530 - __main__ - INFO - Revising case 8.494 (cycle 1/3)
+2026-01-09 19:35:26,530 - __main__ - INFO - Case 8.494 accepted after revision
+2026-01-09 19:35:26,530 - __main__ - INFO - Revising case 8.495 (cycle 1/3)
+2026-01-09 19:35:26,530 - __main__ - INFO - Case 8.495 accepted after revision
+2026-01-09 19:35:26,530 - __main__ - INFO - Revising case 8.496 (cycle 1/3)
+2026-01-09 19:35:26,531 - __main__ - INFO - Case 8.496 accepted after revision
+2026-01-09 19:35:26,531 - __main__ - INFO - Revising case 8.497 (cycle 1/3)
+2026-01-09 19:35:26,531 - __main__ - INFO - Case 8.497 accepted after revision
+2026-01-09 19:35:26,531 - __main__ - INFO - Revising case 8.498 (cycle 1/3)
+2026-01-09 19:35:26,531 - __main__ - INFO - Case 8.498 accepted after revision
+2026-01-09 19:35:26,531 - __main__ - INFO - Revising case 8.500 (cycle 1/3)
+2026-01-09 19:35:26,531 - __main__ - INFO - Case 8.500 accepted after revision
+2026-01-09 19:35:26,531 - __main__ - INFO - Revising case 8.501 (cycle 1/3)
+2026-01-09 19:35:26,532 - __main__ - INFO - Case 8.501 accepted after revision
+2026-01-09 19:35:26,532 - __main__ - INFO - Revising case 8.502 (cycle 1/3)
+2026-01-09 19:35:26,532 - __main__ - INFO - Case 8.502 accepted after revision
+2026-01-09 19:35:26,532 - __main__ - INFO - Revising case 8.504 (cycle 1/3)
+2026-01-09 19:35:26,532 - __main__ - INFO - Case 8.504 accepted after revision
+2026-01-09 19:35:26,532 - __main__ - INFO - Revising case 8.505 (cycle 1/3)
+2026-01-09 19:35:26,532 - __main__ - INFO - Case 8.505 accepted after revision
+2026-01-09 19:35:26,532 - __main__ - INFO - Revising case 8.506 (cycle 1/3)
+2026-01-09 19:35:26,533 - __main__ - INFO - Case 8.506 accepted after revision
+2026-01-09 19:35:26,533 - __main__ - INFO - Revising case 8.507 (cycle 1/3)
+2026-01-09 19:35:26,533 - __main__ - INFO - Case 8.507 accepted after revision
+2026-01-09 19:35:26,533 - __main__ - INFO - Revising case 8.509 (cycle 1/3)
+2026-01-09 19:35:26,533 - __main__ - INFO - Case 8.509 accepted after revision
+2026-01-09 19:35:26,533 - __main__ - INFO - Revising case 8.510 (cycle 1/3)
+2026-01-09 19:35:26,533 - __main__ - INFO - Case 8.510 accepted after revision
+2026-01-09 19:35:26,533 - __main__ - INFO - Revising case 8.511 (cycle 1/3)
+2026-01-09 19:35:26,533 - __main__ - INFO - Case 8.511 accepted after revision
+2026-01-09 19:35:26,533 - __main__ - INFO - Revising case 8.512 (cycle 1/3)
+2026-01-09 19:35:26,534 - __main__ - INFO - Case 8.512 accepted after revision
+2026-01-09 19:35:26,534 - __main__ - INFO - Revising case 8.513 (cycle 1/3)
+2026-01-09 19:35:26,534 - __main__ - INFO - Case 8.513 accepted after revision
+2026-01-09 19:35:26,534 - __main__ - INFO - Revising case 8.514 (cycle 1/3)
+2026-01-09 19:35:26,534 - __main__ - INFO - Case 8.514 accepted after revision
+2026-01-09 19:35:26,534 - __main__ - INFO - Revising case 8.515 (cycle 1/3)
+2026-01-09 19:35:26,534 - __main__ - INFO - Case 8.515 accepted after revision
+2026-01-09 19:35:26,534 - __main__ - INFO - Revising case 8.516 (cycle 1/3)
+2026-01-09 19:35:26,535 - __main__ - INFO - Case 8.516 accepted after revision
+2026-01-09 19:35:26,535 - __main__ - INFO - Revising case 8.517 (cycle 1/3)
+2026-01-09 19:35:26,535 - __main__ - INFO - Case 8.517 accepted after revision
+2026-01-09 19:35:26,535 - __main__ - INFO - Revising case 8.518 (cycle 1/3)
+2026-01-09 19:35:26,535 - __main__ - INFO - Case 8.518 accepted after revision
+2026-01-09 19:35:26,535 - __main__ - INFO - Revising case 8.519 (cycle 1/3)
+2026-01-09 19:35:26,535 - __main__ - INFO - Case 8.519 accepted after revision
+2026-01-09 19:35:26,535 - __main__ - INFO - Revising case 8.520 (cycle 1/3)
+2026-01-09 19:35:26,536 - __main__ - INFO - Case 8.520 accepted after revision
+2026-01-09 19:35:26,536 - __main__ - INFO - Revising case 8.521 (cycle 1/3)
+2026-01-09 19:35:26,536 - __main__ - INFO - Case 8.521 accepted after revision
+2026-01-09 19:35:26,536 - __main__ - INFO - Revising case 8.522 (cycle 1/3)
+2026-01-09 19:35:26,536 - __main__ - INFO - Case 8.522 accepted after revision
+2026-01-09 19:35:26,536 - __main__ - INFO - Revising case 8.523 (cycle 1/3)
+2026-01-09 19:35:26,536 - __main__ - INFO - Case 8.523 accepted after revision
+2026-01-09 19:35:26,536 - __main__ - INFO - Revising case 8.123 (cycle 1/3)
+2026-01-09 19:35:26,537 - __main__ - INFO - Case 8.123 accepted after revision
+2026-01-09 19:35:26,537 - __main__ - INFO - Revising case 8.162 (cycle 1/3)
+2026-01-09 19:35:26,537 - __main__ - INFO - Case 8.162 accepted after revision
+2026-01-09 19:35:26,537 - __main__ - INFO - Revising case 8.178 (cycle 1/3)
+2026-01-09 19:35:26,537 - __main__ - INFO - Case 8.178 accepted after revision
+2026-01-09 19:35:26,537 - __main__ - INFO - Revising case 8.359 (cycle 1/3)
+2026-01-09 19:35:26,537 - __main__ - INFO - Case 8.359 accepted after revision
+2026-01-09 19:35:26,537 - __main__ - INFO - Revising case 8.361 (cycle 1/3)
+2026-01-09 19:35:26,538 - __main__ - INFO - Case 8.361 accepted after revision
+2026-01-09 19:35:26,538 - __main__ - INFO - Revising case 8.377 (cycle 1/3)
+2026-01-09 19:35:26,538 - __main__ - INFO - Case 8.377 accepted after revision
+2026-01-09 19:35:26,538 - __main__ - INFO - Revising case 8.392 (cycle 1/3)
+2026-01-09 19:35:26,538 - __main__ - INFO - Case 8.392 accepted after revision
+2026-01-09 19:35:26,538 - __main__ - INFO - Revising case 8.385 (cycle 1/3)
+2026-01-09 19:35:26,539 - __main__ - INFO - Case 8.385 accepted after revision
+2026-01-09 19:35:26,539 - __main__ - INFO - Revising case 8.369 (cycle 1/3)
+2026-01-09 19:35:26,539 - __main__ - INFO - Case 8.369 accepted after revision
+2026-01-09 19:35:26,539 - __main__ - INFO - Revising case 8.384 (cycle 1/3)
+2026-01-09 19:35:26,539 - __main__ - INFO - Case 8.384 accepted after revision
+2026-01-09 19:35:26,539 - __main__ - INFO - Revising case 8.398 (cycle 1/3)
+2026-01-09 19:35:26,539 - __main__ - INFO - Case 8.398 accepted after revision
+2026-01-09 19:35:26,539 - __main__ - INFO - Revising case 8.376 (cycle 1/3)
+2026-01-09 19:35:26,540 - __main__ - INFO - Case 8.376 accepted after revision
+2026-01-09 19:35:26,540 - __main__ - INFO - Revising case 8.365 (cycle 1/3)
+2026-01-09 19:35:26,540 - __main__ - INFO - Case 8.365 accepted after revision
+2026-01-09 19:35:26,540 - __main__ - INFO - Revising case 8.387 (cycle 1/3)
+2026-01-09 19:35:26,540 - __main__ - INFO - Case 8.387 accepted after revision
+2026-01-09 19:35:26,540 - __main__ - INFO - Revising case 8.394 (cycle 1/3)
+2026-01-09 19:35:26,540 - __main__ - INFO - Case 8.394 accepted after revision
+2026-01-09 19:35:26,540 - __main__ - INFO - Revising case 8.367 (cycle 1/3)
+2026-01-09 19:35:26,541 - __main__ - INFO - Case 8.367 accepted after revision
+2026-01-09 19:35:26,541 - __main__ - INFO - Revising case 8.373 (cycle 1/3)
+2026-01-09 19:35:26,541 - __main__ - INFO - Case 8.373 accepted after revision
+2026-01-09 19:35:26,541 - __main__ - INFO - Revising case 8.374 (cycle 1/3)
+2026-01-09 19:35:26,541 - __main__ - INFO - Case 8.374 accepted after revision
+2026-01-09 19:35:26,541 - __main__ - INFO - Revising case 8.383 (cycle 1/3)
+2026-01-09 19:35:26,541 - __main__ - INFO - Case 8.383 accepted after revision
+2026-01-09 19:35:26,541 - __main__ - INFO - Revising case 8.395 (cycle 1/3)
+2026-01-09 19:35:26,542 - __main__ - INFO - Case 8.395 accepted after revision
+2026-01-09 19:35:26,542 - __main__ - INFO - Revising case 8.368 (cycle 1/3)
+2026-01-09 19:35:26,542 - __main__ - INFO - Case 8.368 accepted after revision
+2026-01-09 19:35:26,542 - __main__ - INFO - Revising case 8.390 (cycle 1/3)
+2026-01-09 19:35:26,542 - __main__ - INFO - Case 8.390 accepted after revision
+2026-01-09 19:35:26,542 - __main__ - INFO - Revising case 8.397 (cycle 1/3)
+2026-01-09 19:35:26,542 - __main__ - INFO - Case 8.397 accepted after revision
+2026-01-09 19:35:26,542 - __main__ - INFO - Revising case 8.379 (cycle 1/3)
+2026-01-09 19:35:26,543 - __main__ - INFO - Case 8.379 accepted after revision
+2026-01-09 19:35:26,543 - __main__ - INFO - Revising case 8.381 (cycle 1/3)
+2026-01-09 19:35:26,543 - __main__ - INFO - Case 8.381 accepted after revision
+2026-01-09 19:35:26,543 - __main__ - INFO - Revising case 8.393 (cycle 1/3)
+2026-01-09 19:35:26,543 - __main__ - INFO - Case 8.393 accepted after revision
+2026-01-09 19:35:26,543 - __main__ - INFO - Revising case 8.391 (cycle 1/3)
+2026-01-09 19:35:26,543 - __main__ - INFO - Case 8.391 accepted after revision
+2026-01-09 19:35:26,543 - __main__ - INFO - Revising case 8.382 (cycle 1/3)
+2026-01-09 19:35:26,544 - __main__ - INFO - Case 8.382 accepted after revision
+2026-01-09 19:35:26,544 - __main__ - INFO - Revising case 8.389 (cycle 1/3)
+2026-01-09 19:35:26,544 - __main__ - INFO - Case 8.389 accepted after revision
+2026-01-09 19:35:26,544 - __main__ - INFO - Revising case 8.419 (cycle 1/3)
+2026-01-09 19:35:26,544 - __main__ - INFO - Case 8.419 accepted after revision
+2026-01-09 19:35:26,544 - __main__ - INFO - Revising case 8.424 (cycle 1/3)
+2026-01-09 19:35:26,544 - __main__ - INFO - Case 8.424 accepted after revision
+2026-01-09 19:35:26,544 - __main__ - INFO - Revising case 8.413 (cycle 1/3)
+2026-01-09 19:35:26,544 - __main__ - INFO - Case 8.413 accepted after revision
+2026-01-09 19:35:26,544 - __main__ - INFO - Revising case 8.415 (cycle 1/3)
+2026-01-09 19:35:26,545 - __main__ - INFO - Case 8.415 accepted after revision
+2026-01-09 19:35:26,545 - __main__ - INFO - Revising case 8.421 (cycle 1/3)
+2026-01-09 19:35:26,545 - __main__ - INFO - Case 8.421 accepted after revision
+2026-01-09 19:35:26,545 - __main__ - INFO - Revising case 8.422 (cycle 1/3)
+2026-01-09 19:35:26,545 - __main__ - INFO - Case 8.422 accepted after revision
+2026-01-09 19:35:26,545 - __main__ - INFO - Revising case 8.428 (cycle 1/3)
+2026-01-09 19:35:26,545 - __main__ - INFO - Case 8.428 accepted after revision
+2026-01-09 19:35:26,545 - __main__ - INFO - Revising case 8.431 (cycle 1/3)
+2026-01-09 19:35:26,545 - __main__ - INFO - Case 8.431 accepted after revision
+2026-01-09 19:35:26,545 - __main__ - INFO - Revising case 8.409 (cycle 1/3)
+2026-01-09 19:35:26,546 - __main__ - INFO - Case 8.409 accepted after revision
+2026-01-09 19:35:26,546 - __main__ - INFO - Revising case 8.412 (cycle 1/3)
+2026-01-09 19:35:26,546 - __main__ - INFO - Case 8.412 accepted after revision
+2026-01-09 19:35:26,546 - __main__ - INFO - Revising case 8.434 (cycle 1/3)
+2026-01-09 19:35:26,546 - __main__ - INFO - Case 8.434 accepted after revision
+2026-01-09 19:35:26,546 - __main__ - INFO - Revising case 8.321 (cycle 2/3)
+2026-01-09 19:35:26,546 - __main__ - INFO - Revising case 8.324 (cycle 2/3)
+2026-01-09 19:35:26,546 - __main__ - INFO - Revising case 8.326 (cycle 2/3)
+2026-01-09 19:35:26,547 - __main__ - INFO - Revising case 8.330 (cycle 2/3)
+2026-01-09 19:35:26,547 - __main__ - INFO - Revising case 8.335 (cycle 2/3)
+2026-01-09 19:35:26,547 - __main__ - INFO - Revising case 8.336 (cycle 2/3)
+2026-01-09 19:35:26,547 - __main__ - INFO - Revising case 8.350 (cycle 2/3)
+2026-01-09 19:35:26,547 - __main__ - INFO - Revising case 8.355 (cycle 2/3)
+2026-01-09 19:35:26,547 - __main__ - INFO - Revising case 8.375 (cycle 2/3)
+2026-01-09 19:35:26,547 - __main__ - INFO - Revising case 8.439 (cycle 2/3)
+2026-01-09 19:35:26,548 - __main__ - INFO - Revising case 8.440 (cycle 2/3)
+2026-01-09 19:35:26,548 - __main__ - INFO - Revising case 8.447 (cycle 2/3)
+2026-01-09 19:35:26,548 - __main__ - INFO - Revising case 8.453 (cycle 2/3)
+2026-01-09 19:35:26,548 - __main__ - INFO - Revising case 8.460 (cycle 2/3)
+2026-01-09 19:35:26,549 - __main__ - INFO - Revising case 8.321 (cycle 3/3)
+2026-01-09 19:35:26,549 - __main__ - INFO - Revising case 8.324 (cycle 3/3)
+2026-01-09 19:35:26,549 - __main__ - INFO - Revising case 8.326 (cycle 3/3)
+2026-01-09 19:35:26,549 - __main__ - INFO - Revising case 8.330 (cycle 3/3)
+2026-01-09 19:35:26,549 - __main__ - INFO - Revising case 8.335 (cycle 3/3)
+2026-01-09 19:35:26,549 - __main__ - INFO - Revising case 8.336 (cycle 3/3)
+2026-01-09 19:35:26,549 - __main__ - INFO - Revising case 8.350 (cycle 3/3)
+2026-01-09 19:35:26,550 - __main__ - INFO - Revising case 8.355 (cycle 3/3)
+2026-01-09 19:35:26,550 - __main__ - INFO - Revising case 8.375 (cycle 3/3)
+2026-01-09 19:35:26,550 - __main__ - INFO - Revising case 8.439 (cycle 3/3)
+2026-01-09 19:35:26,550 - __main__ - INFO - Revising case 8.440 (cycle 3/3)
+2026-01-09 19:35:26,550 - __main__ - INFO - Revising case 8.447 (cycle 3/3)
+2026-01-09 19:35:26,551 - __main__ - INFO - Revising case 8.453 (cycle 3/3)
+2026-01-09 19:35:26,551 - __main__ - INFO - Revising case 8.460 (cycle 3/3)
+2026-01-09 19:35:26,551 - __main__ - INFO - Revising case 8.321 (cycle 4/3)
+2026-01-09 19:35:26,551 - __main__ - WARNING - Case 8.321 failed after 3 revision cycles
+2026-01-09 19:35:26,551 - __main__ - INFO - Revising case 8.324 (cycle 4/3)
+2026-01-09 19:35:26,551 - __main__ - WARNING - Case 8.324 failed after 3 revision cycles
+2026-01-09 19:35:26,551 - __main__ - INFO - Revising case 8.326 (cycle 4/3)
+2026-01-09 19:35:26,551 - __main__ - WARNING - Case 8.326 failed after 3 revision cycles
+2026-01-09 19:35:26,551 - __main__ - INFO - Revising case 8.330 (cycle 4/3)
+2026-01-09 19:35:26,551 - __main__ - WARNING - Case 8.330 failed after 3 revision cycles
+2026-01-09 19:35:26,551 - __main__ - INFO - Revising case 8.335 (cycle 4/3)
+2026-01-09 19:35:26,551 - __main__ - WARNING - Case 8.335 failed after 3 revision cycles
+2026-01-09 19:35:26,551 - __main__ - INFO - Revising case 8.336 (cycle 4/3)
+2026-01-09 19:35:26,551 - __main__ - WARNING - Case 8.336 failed after 3 revision cycles
+2026-01-09 19:35:26,551 - __main__ - INFO - Revising case 8.350 (cycle 4/3)
+2026-01-09 19:35:26,551 - __main__ - WARNING - Case 8.350 failed after 3 revision cycles
+2026-01-09 19:35:26,551 - __main__ - INFO - Revising case 8.355 (cycle 4/3)
+2026-01-09 19:35:26,551 - __main__ - WARNING - Case 8.355 failed after 3 revision cycles
+2026-01-09 19:35:26,551 - __main__ - INFO - Revising case 8.375 (cycle 4/3)
+2026-01-09 19:35:26,551 - __main__ - WARNING - Case 8.375 failed after 3 revision cycles
+2026-01-09 19:35:26,551 - __main__ - INFO - Revising case 8.439 (cycle 4/3)
+2026-01-09 19:35:26,551 - __main__ - WARNING - Case 8.439 failed after 3 revision cycles
+2026-01-09 19:35:26,551 - __main__ - INFO - Revising case 8.440 (cycle 4/3)
+2026-01-09 19:35:26,551 - __main__ - WARNING - Case 8.440 failed after 3 revision cycles
+2026-01-09 19:35:26,552 - __main__ - INFO - Revising case 8.447 (cycle 4/3)
+2026-01-09 19:35:26,552 - __main__ - WARNING - Case 8.447 failed after 3 revision cycles
+2026-01-09 19:35:26,552 - __main__ - INFO - Revising case 8.453 (cycle 4/3)
+2026-01-09 19:35:26,552 - __main__ - WARNING - Case 8.453 failed after 3 revision cycles
+2026-01-09 19:35:26,552 - __main__ - INFO - Revising case 8.460 (cycle 4/3)
+2026-01-09 19:35:26,552 - __main__ - WARNING - Case 8.460 failed after 3 revision cycles
+2026-01-09 19:35:26,552 - __main__ - INFO - Saved 14 failed cases to /Users/fernandotn/Projects/AGI/project/output/revision/failed_cases.json
+2026-01-09 19:35:26,552 - __main__ - INFO - Revision phase complete: 145 revisions, 232 accepted, 14 failed
+2026-01-09 19:35:26,553 - __main__ - INFO - ------------------------------------------------------------
+2026-01-09 19:35:26,553 - __main__ - INFO - PHASE 4: Finalization
+2026-01-09 19:35:26,553 - __main__ - INFO - ------------------------------------------------------------
+2026-01-09 19:35:26,554 - __main__ - INFO - ID uniqueness validation passed: 246 unique case IDs
+2026-01-09 19:35:26,554 - __main__ - INFO - Final dataset: 281 total cases (49 original, 232 new)
+2026-01-09 19:35:26,554 - __main__ - WARNING - Target of 450 cases not met. Got 281 cases. Consider generating additional cases.
+2026-01-09 19:35:26,562 - __main__ - INFO - Final dataset saved to /Users/fernandotn/Projects/AGI/project/output/final/GroupI1_dataset.json
+2026-01-09 19:35:26,569 - __main__ - INFO - Report generated at /Users/fernandotn/Projects/AGI/project/output/analysis_report.md
+2026-01-09 19:35:26,569 - __main__ - INFO - ============================================================
+2026-01-09 19:35:26,569 - __main__ - INFO - Pipeline completed in 11.51 seconds
+2026-01-09 19:35:26,569 - __main__ - INFO - Report generated at: /Users/fernandotn/Projects/AGI/project/output/analysis_report.md
+2026-01-09 19:35:26,569 - __main__ - INFO - ============================================================
+2026-01-09 19:37:03,013 - __main__ - INFO - Loaded 49 original cases from /Users/fernandotn/Projects/AGI/project/categories/original_cases.json
+2026-01-09 19:37:03,014 - __main__ - INFO - Loaded 5 instruction files
+2026-01-09 19:37:03,014 - __main__ - INFO - Orchestrator initialized with config from /Users/fernandotn/Projects/AGI/project/orchestrator/config.json
+2026-01-09 19:37:03,014 - __main__ - INFO - ============================================================
+2026-01-09 19:37:03,014 - __main__ - INFO - Starting T3 Benchmark Generation Pipeline
+2026-01-09 19:37:03,014 - __main__ - INFO - ============================================================
+2026-01-09 19:37:03,032 - __main__ - INFO - Reset global ID counter to 100
+2026-01-09 19:37:03,032 - __main__ - INFO - ------------------------------------------------------------
+2026-01-09 19:37:03,032 - __main__ - INFO - PHASE 1: Generation
+2026-01-09 19:37:03,032 - __main__ - INFO - ------------------------------------------------------------
+2026-01-09 19:37:03,032 - __main__ - INFO - Generator gen_01_goodhart: allocation=82, trap=GOODHART, subdomains=['Scaling', 'RLHF', 'Reward Hacking', 'Game Playing', 'Legal AI']
+2026-01-09 19:37:03,136 - __main__ - INFO - Used GoodhartGenerator for gen_01_goodhart: generated 40 cases
+2026-01-09 19:37:03,137 - __main__ - INFO - Saved 40 cases to /Users/fernandotn/Projects/AGI/project/output/generated/batch_gen_01_goodhart.json
+2026-01-09 19:37:03,138 - __main__ - INFO -   Generated 40 cases for gen_01_goodhart
+2026-01-09 19:37:03,138 - __main__ - INFO - Generator gen_02_counterfactual: allocation=82, trap=COUNTERFACTUAL, subdomains=['Alignment', 'Philosophy', 'Safety', 'Governance', 'AGI Theory']
+2026-01-09 19:37:03,218 - __main__ - INFO - Used CounterfactualGenerator for gen_02_counterfactual: generated 19 cases
+2026-01-09 19:37:03,219 - __main__ - INFO - Saved 19 cases to /Users/fernandotn/Projects/AGI/project/output/generated/batch_gen_02_counterfactual.json
+2026-01-09 19:37:03,220 - __main__ - INFO -   Generated 19 cases for gen_02_counterfactual
+2026-01-09 19:37:03,220 - __main__ - INFO - Generator gen_03_conf_med: allocation=36, trap=CONF_MED, subdomains=['Medical AI', 'Fairness', 'Security', 'Algorithmic Fairness']
+2026-01-09 19:37:03,220 - __main__ - WARNING - Generator gen_03_conf_med failed during generation: 'mediator'
+2026-01-09 19:37:03,220 - __main__ - INFO - Falling back to ExampleGenerator for gen_03_conf_med
+2026-01-09 19:37:03,221 - __main__ - INFO - Used ExampleGenerator (fallback) for gen_03_conf_med: generated 8 cases
+2026-01-09 19:37:03,221 - __main__ - INFO - Saved 8 cases to /Users/fernandotn/Projects/AGI/project/output/generated/batch_gen_03_conf_med.json
+2026-01-09 19:37:03,221 - __main__ - INFO -   Generated 8 cases for gen_03_conf_med
+2026-01-09 19:37:03,222 - __main__ - INFO - Generator gen_04_instrumental: allocation=37, trap=INSTRUMENTAL, subdomains=['Multi-Agent', 'Corrigibility', 'Existential Risk']
+2026-01-09 19:37:03,222 - __main__ - INFO - Used InstrumentalGenerator for gen_04_instrumental: generated 37 cases
+2026-01-09 19:37:03,224 - __main__ - INFO - Saved 37 cases to /Users/fernandotn/Projects/AGI/project/output/generated/batch_gen_04_instrumental.json
+2026-01-09 19:37:03,224 - __main__ - INFO -   Generated 37 cases for gen_04_instrumental
+2026-01-09 19:37:03,224 - __main__ - INFO - Generator gen_05_selection_spurious: allocation=43, trap=SELECTION_SPURIOUS, subdomains=['CV', 'NLP', 'Recommenders', 'ML Evaluation', 'Capability Evaluation']
+2026-01-09 19:37:03,225 - __main__ - INFO - Used SelectionSpuriousGenerator for gen_05_selection_spurious: generated 43 cases
+2026-01-09 19:37:03,226 - __main__ - INFO - Saved 43 cases to /Users/fernandotn/Projects/AGI/project/output/generated/batch_gen_05_selection_spurious.json
+2026-01-09 19:37:03,227 - __main__ - INFO -   Generated 43 cases for gen_05_selection_spurious
+2026-01-09 19:37:03,227 - __main__ - INFO - Generator gen_06_specification: allocation=37, trap=SPECIFICATION, subdomains=['Autonomous Vehicles', 'Game Playing', 'Instruction Following', 'Robustness']
+2026-01-09 19:37:03,227 - __main__ - INFO - Used SpecificationGenerator for gen_06_specification: generated 37 cases
+2026-01-09 19:37:03,229 - __main__ - INFO - Saved 37 cases to /Users/fernandotn/Projects/AGI/project/output/generated/batch_gen_06_specification.json
+2026-01-09 19:37:03,229 - __main__ - INFO -   Generated 37 cases for gen_06_specification
+2026-01-09 19:37:03,229 - __main__ - INFO - Generator gen_07_feedback_loops: allocation=28, trap=FEEDBACK, subdomains=['Educational AI', 'Social Systems', 'Criminal Justice AI']
+2026-01-09 19:37:03,230 - __main__ - INFO - Used FeedbackLoopsGenerator for gen_07_feedback_loops: generated 28 cases
+2026-01-09 19:37:03,231 - __main__ - INFO - Saved 28 cases to /Users/fernandotn/Projects/AGI/project/output/generated/batch_gen_07_feedback_loops.json
+2026-01-09 19:37:03,231 - __main__ - INFO -   Generated 28 cases for gen_07_feedback_loops
+2026-01-09 19:37:03,231 - __main__ - INFO - Generator gen_08_other_traps: allocation=60, trap=OTHER, subdomains=['Model Compression', 'Prompt Engineering', 'Generative AI', 'Mechanistic Interpretability', 'Language Models']
+2026-01-09 19:37:03,234 - __main__ - INFO - Used OtherTrapsGenerator for gen_08_other_traps: generated 60 cases
+2026-01-09 19:37:03,235 - __main__ - INFO - Saved 60 cases to /Users/fernandotn/Projects/AGI/project/output/generated/batch_gen_08_other_traps.json
+2026-01-09 19:37:03,236 - __main__ - INFO -   Generated 60 cases for gen_08_other_traps
+2026-01-09 19:37:03,236 - __main__ - INFO - Generation phase complete: 272 cases generated
+2026-01-09 19:37:03,236 - __main__ - INFO - ------------------------------------------------------------
+2026-01-09 19:37:03,236 - __main__ - INFO - PHASE 2: Validation
+2026-01-09 19:37:03,236 - __main__ - INFO - ------------------------------------------------------------
+2026-01-09 19:37:17,891 - __main__ - WARNING - Found 194 duplicate cases
+2026-01-09 19:37:17,893 - __main__ - INFO - Validation phase complete: 272 validated, 166 accepted, 106 queued for revision
+2026-01-09 19:37:17,894 - __main__ - INFO - ------------------------------------------------------------
+2026-01-09 19:37:17,894 - __main__ - INFO - PHASE 3: Revision
+2026-01-09 19:37:17,894 - __main__ - INFO - ------------------------------------------------------------
+2026-01-09 19:37:17,894 - __main__ - INFO - Revising case 8.280 (cycle 1/3)
+2026-01-09 19:37:17,894 - __main__ - INFO - Case 8.280 accepted after revision
+2026-01-09 19:37:17,894 - __main__ - INFO - Revising case 8.282 (cycle 1/3)
+2026-01-09 19:37:17,895 - __main__ - INFO - Case 8.282 accepted after revision
+2026-01-09 19:37:17,895 - __main__ - INFO - Revising case 8.285 (cycle 1/3)
+2026-01-09 19:37:17,895 - __main__ - INFO - Case 8.285 accepted after revision
+2026-01-09 19:37:17,895 - __main__ - INFO - Revising case 8.292 (cycle 1/3)
+2026-01-09 19:37:17,895 - __main__ - INFO - Case 8.292 accepted after revision
+2026-01-09 19:37:17,895 - __main__ - INFO - Revising case 8.293 (cycle 1/3)
+2026-01-09 19:37:17,895 - __main__ - INFO - Case 8.293 accepted after revision
+2026-01-09 19:37:17,895 - __main__ - INFO - Revising case 8.298 (cycle 1/3)
+2026-01-09 19:37:17,895 - __main__ - INFO - Case 8.298 accepted after revision
+2026-01-09 19:37:17,895 - __main__ - INFO - Revising case 8.300 (cycle 1/3)
+2026-01-09 19:37:17,895 - __main__ - INFO - Case 8.300 accepted after revision
+2026-01-09 19:37:17,895 - __main__ - INFO - Revising case 8.303 (cycle 1/3)
+2026-01-09 19:37:17,896 - __main__ - INFO - Case 8.303 accepted after revision
+2026-01-09 19:37:17,896 - __main__ - INFO - Revising case 8.361 (cycle 1/3)
+2026-01-09 19:37:17,896 - __main__ - INFO - Revising case 8.368 (cycle 1/3)
+2026-01-09 19:37:17,896 - __main__ - INFO - Revising case 8.421 (cycle 1/3)
+2026-01-09 19:37:17,896 - __main__ - INFO - Revising case 8.432 (cycle 1/3)
+2026-01-09 19:37:17,896 - __main__ - INFO - Revising case 8.435 (cycle 1/3)
+2026-01-09 19:37:17,897 - __main__ - INFO - Revising case 8.438 (cycle 1/3)
+2026-01-09 19:37:17,897 - __main__ - INFO - Revising case 8.439 (cycle 1/3)
+2026-01-09 19:37:17,897 - __main__ - INFO - Revising case 8.441 (cycle 1/3)
+2026-01-09 19:37:17,897 - __main__ - INFO - Revising case 8.372 (cycle 1/3)
+2026-01-09 19:37:17,898 - __main__ - INFO - Case 8.372 accepted after revision
+2026-01-09 19:37:17,898 - __main__ - INFO - Revising case 8.426 (cycle 1/3)
+2026-01-09 19:37:17,898 - __main__ - INFO - Case 8.426 accepted after revision
+2026-01-09 19:37:17,898 - __main__ - INFO - Revising case 8.430 (cycle 1/3)
+2026-01-09 19:37:17,898 - __main__ - INFO - Case 8.430 accepted after revision
+2026-01-09 19:37:17,898 - __main__ - INFO - Revising case 8.433 (cycle 1/3)
+2026-01-09 19:37:17,898 - __main__ - INFO - Case 8.433 accepted after revision
+2026-01-09 19:37:17,898 - __main__ - INFO - Revising case 8.434 (cycle 1/3)
+2026-01-09 19:37:17,898 - __main__ - INFO - Case 8.434 accepted after revision
+2026-01-09 19:37:17,899 - __main__ - INFO - Revising case 8.437 (cycle 1/3)
+2026-01-09 19:37:17,899 - __main__ - INFO - Case 8.437 accepted after revision
+2026-01-09 19:37:17,899 - __main__ - INFO - Revising case 8.440 (cycle 1/3)
+2026-01-09 19:37:17,899 - __main__ - INFO - Case 8.440 accepted after revision
+2026-01-09 19:37:17,899 - __main__ - INFO - Revising case 8.443 (cycle 1/3)
+2026-01-09 19:37:17,899 - __main__ - INFO - Case 8.443 accepted after revision
+2026-01-09 19:37:17,899 - __main__ - INFO - Revising case 8.444 (cycle 1/3)
+2026-01-09 19:37:17,900 - __main__ - INFO - Case 8.444 accepted after revision
+2026-01-09 19:37:17,900 - __main__ - INFO - Revising case 8.445 (cycle 1/3)
+2026-01-09 19:37:17,900 - __main__ - INFO - Case 8.445 accepted after revision
+2026-01-09 19:37:17,900 - __main__ - INFO - Revising case 8.446 (cycle 1/3)
+2026-01-09 19:37:17,900 - __main__ - INFO - Case 8.446 accepted after revision
+2026-01-09 19:37:17,900 - __main__ - INFO - Revising case 8.447 (cycle 1/3)
+2026-01-09 19:37:17,900 - __main__ - INFO - Case 8.447 accepted after revision
+2026-01-09 19:37:17,900 - __main__ - INFO - Revising case 8.448 (cycle 1/3)
+2026-01-09 19:37:17,900 - __main__ - INFO - Case 8.448 accepted after revision
+2026-01-09 19:37:17,901 - __main__ - INFO - Revising case 8.454 (cycle 1/3)
+2026-01-09 19:37:17,901 - __main__ - INFO - Case 8.454 accepted after revision
+2026-01-09 19:37:17,901 - __main__ - INFO - Revising case 8.457 (cycle 1/3)
+2026-01-09 19:37:17,901 - __main__ - INFO - Case 8.457 accepted after revision
+2026-01-09 19:37:17,901 - __main__ - INFO - Revising case 8.459 (cycle 1/3)
+2026-01-09 19:37:17,901 - __main__ - INFO - Case 8.459 accepted after revision
+2026-01-09 19:37:17,901 - __main__ - INFO - Revising case 8.461 (cycle 1/3)
+2026-01-09 19:37:17,902 - __main__ - INFO - Case 8.461 accepted after revision
+2026-01-09 19:37:17,902 - __main__ - INFO - Revising case 8.464 (cycle 1/3)
+2026-01-09 19:37:17,902 - __main__ - INFO - Case 8.464 accepted after revision
+2026-01-09 19:37:17,902 - __main__ - INFO - Revising case 8.466 (cycle 1/3)
+2026-01-09 19:37:17,902 - __main__ - INFO - Case 8.466 accepted after revision
+2026-01-09 19:37:17,902 - __main__ - INFO - Revising case 8.471 (cycle 1/3)
+2026-01-09 19:37:17,902 - __main__ - INFO - Case 8.471 accepted after revision
+2026-01-09 19:37:17,902 - __main__ - INFO - Revising case 8.473 (cycle 1/3)
+2026-01-09 19:37:17,902 - __main__ - INFO - Case 8.473 accepted after revision
+2026-01-09 19:37:17,903 - __main__ - INFO - Revising case 8.474 (cycle 1/3)
+2026-01-09 19:37:17,903 - __main__ - INFO - Case 8.474 accepted after revision
+2026-01-09 19:37:17,903 - __main__ - INFO - Revising case 8.477 (cycle 1/3)
+2026-01-09 19:37:17,903 - __main__ - INFO - Case 8.477 accepted after revision
+2026-01-09 19:37:17,903 - __main__ - INFO - Revising case 8.478 (cycle 1/3)
+2026-01-09 19:37:17,903 - __main__ - INFO - Case 8.478 accepted after revision
+2026-01-09 19:37:17,903 - __main__ - INFO - Revising case 8.480 (cycle 1/3)
+2026-01-09 19:37:17,903 - __main__ - INFO - Case 8.480 accepted after revision
+2026-01-09 19:37:17,903 - __main__ - INFO - Revising case 8.481 (cycle 1/3)
+2026-01-09 19:37:17,904 - __main__ - INFO - Case 8.481 accepted after revision
+2026-01-09 19:37:17,904 - __main__ - INFO - Revising case 8.482 (cycle 1/3)
+2026-01-09 19:37:17,904 - __main__ - INFO - Case 8.482 accepted after revision
+2026-01-09 19:37:17,904 - __main__ - INFO - Revising case 8.483 (cycle 1/3)
+2026-01-09 19:37:17,904 - __main__ - INFO - Case 8.483 accepted after revision
+2026-01-09 19:37:17,904 - __main__ - INFO - Revising case 8.484 (cycle 1/3)
+2026-01-09 19:37:17,904 - __main__ - INFO - Case 8.484 accepted after revision
+2026-01-09 19:37:17,904 - __main__ - INFO - Revising case 8.485 (cycle 1/3)
+2026-01-09 19:37:17,905 - __main__ - INFO - Case 8.485 accepted after revision
+2026-01-09 19:37:17,905 - __main__ - INFO - Revising case 8.486 (cycle 1/3)
+2026-01-09 19:37:17,905 - __main__ - INFO - Case 8.486 accepted after revision
+2026-01-09 19:37:17,905 - __main__ - INFO - Revising case 8.487 (cycle 1/3)
+2026-01-09 19:37:17,905 - __main__ - INFO - Case 8.487 accepted after revision
+2026-01-09 19:37:17,905 - __main__ - INFO - Revising case 8.488 (cycle 1/3)
+2026-01-09 19:37:17,905 - __main__ - INFO - Case 8.488 accepted after revision
+2026-01-09 19:37:17,905 - __main__ - INFO - Revising case 8.489 (cycle 1/3)
+2026-01-09 19:37:17,906 - __main__ - INFO - Case 8.489 accepted after revision
+2026-01-09 19:37:17,906 - __main__ - INFO - Revising case 8.490 (cycle 1/3)
+2026-01-09 19:37:17,906 - __main__ - INFO - Case 8.490 accepted after revision
+2026-01-09 19:37:17,906 - __main__ - INFO - Revising case 8.491 (cycle 1/3)
+2026-01-09 19:37:17,906 - __main__ - INFO - Case 8.491 accepted after revision
+2026-01-09 19:37:17,906 - __main__ - INFO - Revising case 8.492 (cycle 1/3)
+2026-01-09 19:37:17,906 - __main__ - INFO - Case 8.492 accepted after revision
+2026-01-09 19:37:17,906 - __main__ - INFO - Revising case 8.493 (cycle 1/3)
+2026-01-09 19:37:17,907 - __main__ - INFO - Case 8.493 accepted after revision
+2026-01-09 19:37:17,907 - __main__ - INFO - Revising case 8.494 (cycle 1/3)
+2026-01-09 19:37:17,907 - __main__ - INFO - Case 8.494 accepted after revision
+2026-01-09 19:37:17,907 - __main__ - INFO - Revising case 8.495 (cycle 1/3)
+2026-01-09 19:37:17,907 - __main__ - INFO - Case 8.495 accepted after revision
+2026-01-09 19:37:17,907 - __main__ - INFO - Revising case 8.496 (cycle 1/3)
+2026-01-09 19:37:17,907 - __main__ - INFO - Case 8.496 accepted after revision
+2026-01-09 19:37:17,908 - __main__ - INFO - Revising case 8.497 (cycle 1/3)
+2026-01-09 19:37:17,908 - __main__ - INFO - Case 8.497 accepted after revision
+2026-01-09 19:37:17,908 - __main__ - INFO - Revising case 8.498 (cycle 1/3)
+2026-01-09 19:37:17,908 - __main__ - INFO - Case 8.498 accepted after revision
+2026-01-09 19:37:17,908 - __main__ - INFO - Revising case 8.499 (cycle 1/3)
+2026-01-09 19:37:17,908 - __main__ - INFO - Case 8.499 accepted after revision
+2026-01-09 19:37:17,908 - __main__ - INFO - Revising case 8.500 (cycle 1/3)
+2026-01-09 19:37:17,909 - __main__ - INFO - Case 8.500 accepted after revision
+2026-01-09 19:37:17,909 - __main__ - INFO - Revising case 8.501 (cycle 1/3)
+2026-01-09 19:37:17,909 - __main__ - INFO - Case 8.501 accepted after revision
+2026-01-09 19:37:17,909 - __main__ - INFO - Revising case 8.502 (cycle 1/3)
+2026-01-09 19:37:17,909 - __main__ - INFO - Case 8.502 accepted after revision
+2026-01-09 19:37:17,909 - __main__ - INFO - Revising case 8.503 (cycle 1/3)
+2026-01-09 19:37:17,909 - __main__ - INFO - Case 8.503 accepted after revision
+2026-01-09 19:37:17,909 - __main__ - INFO - Revising case 8.504 (cycle 1/3)
+2026-01-09 19:37:17,910 - __main__ - INFO - Case 8.504 accepted after revision
+2026-01-09 19:37:17,910 - __main__ - INFO - Revising case 8.505 (cycle 1/3)
+2026-01-09 19:37:17,910 - __main__ - INFO - Case 8.505 accepted after revision
+2026-01-09 19:37:17,910 - __main__ - INFO - Revising case 8.506 (cycle 1/3)
+2026-01-09 19:37:17,910 - __main__ - INFO - Case 8.506 accepted after revision
+2026-01-09 19:37:17,910 - __main__ - INFO - Revising case 8.507 (cycle 1/3)
+2026-01-09 19:37:17,910 - __main__ - INFO - Case 8.507 accepted after revision
+2026-01-09 19:37:17,910 - __main__ - INFO - Revising case 8.508 (cycle 1/3)
+2026-01-09 19:37:17,911 - __main__ - INFO - Case 8.508 accepted after revision
+2026-01-09 19:37:17,911 - __main__ - INFO - Revising case 8.123 (cycle 1/3)
+2026-01-09 19:37:17,911 - __main__ - INFO - Case 8.123 accepted after revision
+2026-01-09 19:37:17,911 - __main__ - INFO - Revising case 8.162 (cycle 1/3)
+2026-01-09 19:37:17,911 - __main__ - INFO - Case 8.162 accepted after revision
+2026-01-09 19:37:17,911 - __main__ - INFO - Revising case 8.178 (cycle 1/3)
+2026-01-09 19:37:17,911 - __main__ - INFO - Case 8.178 accepted after revision
+2026-01-09 19:37:17,911 - __main__ - INFO - Revising case 8.338 (cycle 1/3)
+2026-01-09 19:37:17,911 - __main__ - INFO - Case 8.338 accepted after revision
+2026-01-09 19:37:17,911 - __main__ - INFO - Revising case 8.362 (cycle 1/3)
+2026-01-09 19:37:17,912 - __main__ - INFO - Case 8.362 accepted after revision
+2026-01-09 19:37:17,912 - __main__ - INFO - Revising case 8.374 (cycle 1/3)
+2026-01-09 19:37:17,912 - __main__ - INFO - Case 8.374 accepted after revision
+2026-01-09 19:37:17,912 - __main__ - INFO - Revising case 8.376 (cycle 1/3)
+2026-01-09 19:37:17,912 - __main__ - INFO - Case 8.376 accepted after revision
+2026-01-09 19:37:17,912 - __main__ - INFO - Revising case 8.356 (cycle 1/3)
+2026-01-09 19:37:17,912 - __main__ - INFO - Case 8.356 accepted after revision
+2026-01-09 19:37:17,913 - __main__ - INFO - Revising case 8.355 (cycle 1/3)
+2026-01-09 19:37:17,913 - __main__ - INFO - Case 8.355 accepted after revision
+2026-01-09 19:37:17,913 - __main__ - INFO - Revising case 8.350 (cycle 1/3)
+2026-01-09 19:37:17,913 - __main__ - INFO - Case 8.350 accepted after revision
+2026-01-09 19:37:17,913 - __main__ - INFO - Revising case 8.354 (cycle 1/3)
+2026-01-09 19:37:17,913 - __main__ - INFO - Case 8.354 accepted after revision
+2026-01-09 19:37:17,913 - __main__ - INFO - Revising case 8.379 (cycle 1/3)
+2026-01-09 19:37:17,913 - __main__ - INFO - Case 8.379 accepted after revision
+2026-01-09 19:37:17,913 - __main__ - INFO - Revising case 8.359 (cycle 1/3)
+2026-01-09 19:37:17,914 - __main__ - INFO - Case 8.359 accepted after revision
+2026-01-09 19:37:17,914 - __main__ - INFO - Revising case 8.360 (cycle 1/3)
+2026-01-09 19:37:17,914 - __main__ - INFO - Case 8.360 accepted after revision
+2026-01-09 19:37:17,914 - __main__ - INFO - Revising case 8.366 (cycle 1/3)
+2026-01-09 19:37:17,914 - __main__ - INFO - Case 8.366 accepted after revision
+2026-01-09 19:37:17,914 - __main__ - INFO - Revising case 8.371 (cycle 1/3)
+2026-01-09 19:37:17,914 - __main__ - INFO - Case 8.371 accepted after revision
+2026-01-09 19:37:17,914 - __main__ - INFO - Revising case 8.383 (cycle 1/3)
+2026-01-09 19:37:17,915 - __main__ - INFO - Case 8.383 accepted after revision
+2026-01-09 19:37:17,915 - __main__ - INFO - Revising case 8.363 (cycle 1/3)
+2026-01-09 19:37:17,915 - __main__ - INFO - Case 8.363 accepted after revision
+2026-01-09 19:37:17,915 - __main__ - INFO - Revising case 8.357 (cycle 1/3)
+2026-01-09 19:37:17,915 - __main__ - INFO - Case 8.357 accepted after revision
+2026-01-09 19:37:17,915 - __main__ - INFO - Revising case 8.381 (cycle 1/3)
+2026-01-09 19:37:17,915 - __main__ - INFO - Case 8.381 accepted after revision
+2026-01-09 19:37:17,915 - __main__ - INFO - Revising case 8.370 (cycle 1/3)
+2026-01-09 19:37:17,916 - __main__ - INFO - Case 8.370 accepted after revision
+2026-01-09 19:37:17,916 - __main__ - INFO - Revising case 8.378 (cycle 1/3)
+2026-01-09 19:37:17,916 - __main__ - INFO - Case 8.378 accepted after revision
+2026-01-09 19:37:17,916 - __main__ - INFO - Revising case 8.380 (cycle 1/3)
+2026-01-09 19:37:17,916 - __main__ - INFO - Case 8.380 accepted after revision
+2026-01-09 19:37:17,916 - __main__ - INFO - Revising case 8.392 (cycle 1/3)
+2026-01-09 19:37:17,916 - __main__ - INFO - Case 8.392 accepted after revision
+2026-01-09 19:37:17,916 - __main__ - INFO - Revising case 8.389 (cycle 1/3)
+2026-01-09 19:37:17,917 - __main__ - INFO - Case 8.389 accepted after revision
+2026-01-09 19:37:17,917 - __main__ - INFO - Revising case 8.410 (cycle 1/3)
+2026-01-09 19:37:17,917 - __main__ - INFO - Case 8.410 accepted after revision
+2026-01-09 19:37:17,917 - __main__ - INFO - Revising case 8.412 (cycle 1/3)
+2026-01-09 19:37:17,917 - __main__ - INFO - Case 8.412 accepted after revision
+2026-01-09 19:37:17,917 - __main__ - INFO - Revising case 8.419 (cycle 1/3)
+2026-01-09 19:37:17,917 - __main__ - INFO - Case 8.419 accepted after revision
+2026-01-09 19:37:17,917 - __main__ - INFO - Revising case 8.405 (cycle 1/3)
+2026-01-09 19:37:17,917 - __main__ - INFO - Case 8.405 accepted after revision
+2026-01-09 19:37:17,917 - __main__ - INFO - Revising case 8.411 (cycle 1/3)
+2026-01-09 19:37:17,918 - __main__ - INFO - Case 8.411 accepted after revision
+2026-01-09 19:37:17,918 - __main__ - INFO - Revising case 8.418 (cycle 1/3)
+2026-01-09 19:37:17,918 - __main__ - INFO - Case 8.418 accepted after revision
+2026-01-09 19:37:17,918 - __main__ - INFO - Revising case 8.414 (cycle 1/3)
+2026-01-09 19:37:17,918 - __main__ - INFO - Case 8.414 accepted after revision
+2026-01-09 19:37:17,918 - __main__ - INFO - Revising case 8.402 (cycle 1/3)
+2026-01-09 19:37:17,918 - __main__ - INFO - Case 8.402 accepted after revision
+2026-01-09 19:37:17,918 - __main__ - INFO - Revising case 8.404 (cycle 1/3)
+2026-01-09 19:37:17,918 - __main__ - INFO - Case 8.404 accepted after revision
+2026-01-09 19:37:17,918 - __main__ - INFO - Revising case 8.415 (cycle 1/3)
+2026-01-09 19:37:17,919 - __main__ - INFO - Case 8.415 accepted after revision
+2026-01-09 19:37:17,919 - __main__ - INFO - Revising case 8.417 (cycle 1/3)
+2026-01-09 19:37:17,919 - __main__ - INFO - Case 8.417 accepted after revision
+2026-01-09 19:37:17,919 - __main__ - INFO - Revising case 8.420 (cycle 1/3)
+2026-01-09 19:37:17,919 - __main__ - INFO - Case 8.420 accepted after revision
+2026-01-09 19:37:17,919 - __main__ - INFO - Revising case 8.361 (cycle 2/3)
+2026-01-09 19:37:17,919 - __main__ - INFO - Revising case 8.368 (cycle 2/3)
+2026-01-09 19:37:17,919 - __main__ - INFO - Revising case 8.421 (cycle 2/3)
+2026-01-09 19:37:17,920 - __main__ - INFO - Revising case 8.432 (cycle 2/3)
+2026-01-09 19:37:17,920 - __main__ - INFO - Revising case 8.435 (cycle 2/3)
+2026-01-09 19:37:17,920 - __main__ - INFO - Revising case 8.438 (cycle 2/3)
+2026-01-09 19:37:17,920 - __main__ - INFO - Revising case 8.439 (cycle 2/3)
+2026-01-09 19:37:17,921 - __main__ - INFO - Revising case 8.441 (cycle 2/3)
+2026-01-09 19:37:17,921 - __main__ - INFO - Revising case 8.361 (cycle 3/3)
+2026-01-09 19:37:17,921 - __main__ - INFO - Revising case 8.368 (cycle 3/3)
+2026-01-09 19:37:17,921 - __main__ - INFO - Revising case 8.421 (cycle 3/3)
+2026-01-09 19:37:17,921 - __main__ - INFO - Revising case 8.432 (cycle 3/3)
+2026-01-09 19:37:17,922 - __main__ - INFO - Revising case 8.435 (cycle 3/3)
+2026-01-09 19:37:17,922 - __main__ - INFO - Revising case 8.438 (cycle 3/3)
+2026-01-09 19:37:17,922 - __main__ - INFO - Revising case 8.439 (cycle 3/3)
+2026-01-09 19:37:17,922 - __main__ - INFO - Revising case 8.441 (cycle 3/3)
+2026-01-09 19:37:17,922 - __main__ - INFO - Revising case 8.361 (cycle 4/3)
+2026-01-09 19:37:17,922 - __main__ - WARNING - Case 8.361 failed after 3 revision cycles
+2026-01-09 19:37:17,922 - __main__ - INFO - Revising case 8.368 (cycle 4/3)
+2026-01-09 19:37:17,923 - __main__ - WARNING - Case 8.368 failed after 3 revision cycles
+2026-01-09 19:37:17,923 - __main__ - INFO - Revising case 8.421 (cycle 4/3)
+2026-01-09 19:37:17,923 - __main__ - WARNING - Case 8.421 failed after 3 revision cycles
+2026-01-09 19:37:17,923 - __main__ - INFO - Revising case 8.432 (cycle 4/3)
+2026-01-09 19:37:17,923 - __main__ - WARNING - Case 8.432 failed after 3 revision cycles
+2026-01-09 19:37:17,923 - __main__ - INFO - Revising case 8.435 (cycle 4/3)
+2026-01-09 19:37:17,923 - __main__ - WARNING - Case 8.435 failed after 3 revision cycles
+2026-01-09 19:37:17,923 - __main__ - INFO - Revising case 8.438 (cycle 4/3)
+2026-01-09 19:37:17,923 - __main__ - WARNING - Case 8.438 failed after 3 revision cycles
+2026-01-09 19:37:17,923 - __main__ - INFO - Revising case 8.439 (cycle 4/3)
+2026-01-09 19:37:17,923 - __main__ - WARNING - Case 8.439 failed after 3 revision cycles
+2026-01-09 19:37:17,923 - __main__ - INFO - Revising case 8.441 (cycle 4/3)
+2026-01-09 19:37:17,923 - __main__ - WARNING - Case 8.441 failed after 3 revision cycles
+2026-01-09 19:37:17,923 - __main__ - INFO - Saved 8 failed cases to /Users/fernandotn/Projects/AGI/project/output/revision/failed_cases.json
+2026-01-09 19:37:17,923 - __main__ - INFO - Revision phase complete: 122 revisions, 264 accepted, 8 failed
+2026-01-09 19:37:17,924 - __main__ - INFO - ------------------------------------------------------------
+2026-01-09 19:37:17,924 - __main__ - INFO - PHASE 4: Finalization
+2026-01-09 19:37:17,924 - __main__ - INFO - ------------------------------------------------------------
+2026-01-09 19:37:17,925 - __main__ - INFO - ID uniqueness validation passed: 272 unique case IDs
+2026-01-09 19:37:17,925 - __main__ - INFO - Final dataset: 313 total cases (49 original, 264 new)
+2026-01-09 19:37:17,925 - __main__ - WARNING - Target of 450 cases not met. Got 313 cases. Consider generating additional cases.
+2026-01-09 19:37:17,933 - __main__ - INFO - Final dataset saved to /Users/fernandotn/Projects/AGI/project/output/final/GroupI1_dataset.json
+2026-01-09 19:37:17,941 - __main__ - INFO - Report generated at /Users/fernandotn/Projects/AGI/project/output/analysis_report.md
+2026-01-09 19:37:17,941 - __main__ - INFO - ============================================================
+2026-01-09 19:37:17,941 - __main__ - INFO - Pipeline completed in 14.93 seconds
+2026-01-09 19:37:17,941 - __main__ - INFO - Report generated at: /Users/fernandotn/Projects/AGI/project/output/analysis_report.md
+2026-01-09 19:37:17,942 - __main__ - INFO - ============================================================
+2026-01-09 19:38:17,245 - __main__ - INFO - Loaded 49 original cases from /Users/fernandotn/Projects/AGI/project/categories/original_cases.json
+2026-01-09 19:38:17,245 - __main__ - INFO - Loaded 5 instruction files
+2026-01-09 19:38:17,245 - __main__ - INFO - Orchestrator initialized with config from /Users/fernandotn/Projects/AGI/project/orchestrator/config.json
+2026-01-09 19:38:17,245 - __main__ - INFO - ============================================================
+2026-01-09 19:38:17,245 - __main__ - INFO - Starting T3 Benchmark Generation Pipeline
+2026-01-09 19:38:17,245 - __main__ - INFO - ============================================================
+2026-01-09 19:38:17,260 - __main__ - INFO - Reset global ID counter to 100
+2026-01-09 19:38:17,260 - __main__ - INFO - ------------------------------------------------------------
+2026-01-09 19:38:17,260 - __main__ - INFO - PHASE 1: Generation
+2026-01-09 19:38:17,260 - __main__ - INFO - ------------------------------------------------------------
+2026-01-09 19:38:17,261 - __main__ - INFO - Generator gen_01_goodhart: allocation=82, trap=GOODHART, subdomains=['Scaling', 'RLHF', 'Reward Hacking', 'Game Playing', 'Legal AI']
+2026-01-09 19:38:17,359 - __main__ - INFO - Used GoodhartGenerator for gen_01_goodhart: generated 35 cases
+2026-01-09 19:38:17,360 - __main__ - INFO - Saved 35 cases to /Users/fernandotn/Projects/AGI/project/output/generated/batch_gen_01_goodhart.json
+2026-01-09 19:38:17,361 - __main__ - INFO -   Generated 35 cases for gen_01_goodhart
+2026-01-09 19:38:17,361 - __main__ - INFO - Generator gen_02_counterfactual: allocation=82, trap=COUNTERFACTUAL, subdomains=['Alignment', 'Philosophy', 'Safety', 'Governance', 'AGI Theory']
+2026-01-09 19:38:17,444 - __main__ - INFO - Used CounterfactualGenerator for gen_02_counterfactual: generated 19 cases
+2026-01-09 19:38:17,445 - __main__ - INFO - Saved 19 cases to /Users/fernandotn/Projects/AGI/project/output/generated/batch_gen_02_counterfactual.json
+2026-01-09 19:38:17,445 - __main__ - INFO -   Generated 19 cases for gen_02_counterfactual
+2026-01-09 19:38:17,445 - __main__ - INFO - Generator gen_03_conf_med: allocation=36, trap=CONF_MED, subdomains=['Medical AI', 'Fairness', 'Security', 'Algorithmic Fairness']
+2026-01-09 19:38:17,446 - __main__ - WARNING - Generator gen_03_conf_med failed during generation: 'mediator'
+2026-01-09 19:38:17,446 - __main__ - INFO - Falling back to ExampleGenerator for gen_03_conf_med
+2026-01-09 19:38:17,446 - __main__ - INFO - Used ExampleGenerator (fallback) for gen_03_conf_med: generated 14 cases
+2026-01-09 19:38:17,447 - __main__ - INFO - Saved 14 cases to /Users/fernandotn/Projects/AGI/project/output/generated/batch_gen_03_conf_med.json
+2026-01-09 19:38:17,447 - __main__ - INFO -   Generated 14 cases for gen_03_conf_med
+2026-01-09 19:38:17,447 - __main__ - INFO - Generator gen_04_instrumental: allocation=37, trap=INSTRUMENTAL, subdomains=['Multi-Agent', 'Corrigibility', 'Existential Risk']
+2026-01-09 19:38:17,448 - __main__ - WARNING - Generator gen_04_instrumental failed during generation: 'intervention'
+2026-01-09 19:38:17,448 - __main__ - INFO - Falling back to ExampleGenerator for gen_04_instrumental
+2026-01-09 19:38:17,448 - __main__ - INFO - Used ExampleGenerator (fallback) for gen_04_instrumental: generated 8 cases
+2026-01-09 19:38:17,449 - __main__ - INFO - Saved 8 cases to /Users/fernandotn/Projects/AGI/project/output/generated/batch_gen_04_instrumental.json
+2026-01-09 19:38:17,449 - __main__ - INFO -   Generated 8 cases for gen_04_instrumental
+2026-01-09 19:38:17,449 - __main__ - INFO - Generator gen_05_selection_spurious: allocation=43, trap=SELECTION_SPURIOUS, subdomains=['CV', 'NLP', 'Recommenders', 'ML Evaluation', 'Capability Evaluation']
+2026-01-09 19:38:17,450 - __main__ - INFO - Used SelectionSpuriousGenerator for gen_05_selection_spurious: generated 43 cases
+2026-01-09 19:38:17,451 - __main__ - INFO - Saved 43 cases to /Users/fernandotn/Projects/AGI/project/output/generated/batch_gen_05_selection_spurious.json
+2026-01-09 19:38:17,452 - __main__ - INFO -   Generated 43 cases for gen_05_selection_spurious
+2026-01-09 19:38:17,452 - __main__ - INFO - Generator gen_06_specification: allocation=37, trap=SPECIFICATION, subdomains=['Autonomous Vehicles', 'Game Playing', 'Instruction Following', 'Robustness']
+2026-01-09 19:38:17,453 - __main__ - INFO - Used SpecificationGenerator for gen_06_specification: generated 37 cases
+2026-01-09 19:38:17,454 - __main__ - INFO - Saved 37 cases to /Users/fernandotn/Projects/AGI/project/output/generated/batch_gen_06_specification.json
+2026-01-09 19:38:17,454 - __main__ - INFO -   Generated 37 cases for gen_06_specification
+2026-01-09 19:38:17,454 - __main__ - INFO - Generator gen_07_feedback_loops: allocation=28, trap=FEEDBACK, subdomains=['Educational AI', 'Social Systems', 'Criminal Justice AI']
+2026-01-09 19:38:17,456 - __main__ - INFO - Used FeedbackLoopsGenerator for gen_07_feedback_loops: generated 28 cases
+2026-01-09 19:38:17,457 - __main__ - INFO - Saved 28 cases to /Users/fernandotn/Projects/AGI/project/output/generated/batch_gen_07_feedback_loops.json
+2026-01-09 19:38:17,457 - __main__ - INFO -   Generated 28 cases for gen_07_feedback_loops
+2026-01-09 19:38:17,457 - __main__ - INFO - Generator gen_08_other_traps: allocation=60, trap=OTHER, subdomains=['Model Compression', 'Prompt Engineering', 'Generative AI', 'Mechanistic Interpretability', 'Language Models']
+2026-01-09 19:38:17,460 - __main__ - INFO - Used OtherTrapsGenerator for gen_08_other_traps: generated 60 cases
+2026-01-09 19:38:17,462 - __main__ - INFO - Saved 60 cases to /Users/fernandotn/Projects/AGI/project/output/generated/batch_gen_08_other_traps.json
+2026-01-09 19:38:17,462 - __main__ - INFO -   Generated 60 cases for gen_08_other_traps
+2026-01-09 19:38:17,462 - __main__ - INFO - Generation phase complete: 244 cases generated
+2026-01-09 19:38:17,463 - __main__ - INFO - ------------------------------------------------------------
+2026-01-09 19:38:17,463 - __main__ - INFO - PHASE 2: Validation
+2026-01-09 19:38:17,463 - __main__ - INFO - ------------------------------------------------------------
+2026-01-09 19:38:29,283 - __main__ - WARNING - Found 310 duplicate cases
+2026-01-09 19:38:29,285 - __main__ - INFO - Validation phase complete: 244 validated, 119 accepted, 125 queued for revision
+2026-01-09 19:38:29,286 - __main__ - INFO - ------------------------------------------------------------
+2026-01-09 19:38:29,286 - __main__ - INFO - PHASE 3: Revision
+2026-01-09 19:38:29,286 - __main__ - INFO - ------------------------------------------------------------
+2026-01-09 19:38:29,286 - __main__ - INFO - Revising case 8.275 (cycle 1/3)
+2026-01-09 19:38:29,286 - __main__ - INFO - Case 8.275 accepted after revision
+2026-01-09 19:38:29,286 - __main__ - INFO - Revising case 8.277 (cycle 1/3)
+2026-01-09 19:38:29,287 - __main__ - INFO - Case 8.277 accepted after revision
+2026-01-09 19:38:29,287 - __main__ - INFO - Revising case 8.281 (cycle 1/3)
+2026-01-09 19:38:29,287 - __main__ - INFO - Case 8.281 accepted after revision
+2026-01-09 19:38:29,287 - __main__ - INFO - Revising case 8.282 (cycle 1/3)
+2026-01-09 19:38:29,287 - __main__ - INFO - Case 8.282 accepted after revision
+2026-01-09 19:38:29,287 - __main__ - INFO - Revising case 8.285 (cycle 1/3)
+2026-01-09 19:38:29,287 - __main__ - INFO - Case 8.285 accepted after revision
+2026-01-09 19:38:29,287 - __main__ - INFO - Revising case 8.286 (cycle 1/3)
+2026-01-09 19:38:29,287 - __main__ - INFO - Case 8.286 accepted after revision
+2026-01-09 19:38:29,287 - __main__ - INFO - Revising case 8.292 (cycle 1/3)
+2026-01-09 19:38:29,287 - __main__ - INFO - Case 8.292 accepted after revision
+2026-01-09 19:38:29,287 - __main__ - INFO - Revising case 8.295 (cycle 1/3)
+2026-01-09 19:38:29,288 - __main__ - INFO - Case 8.295 accepted after revision
+2026-01-09 19:38:29,288 - __main__ - INFO - Revising case 8.297 (cycle 1/3)
+2026-01-09 19:38:29,288 - __main__ - INFO - Case 8.297 accepted after revision
+2026-01-09 19:38:29,288 - __main__ - INFO - Revising case 8.298 (cycle 1/3)
+2026-01-09 19:38:29,288 - __main__ - INFO - Case 8.298 accepted after revision
+2026-01-09 19:38:29,288 - __main__ - INFO - Revising case 8.301 (cycle 1/3)
+2026-01-09 19:38:29,288 - __main__ - INFO - Case 8.301 accepted after revision
+2026-01-09 19:38:29,288 - __main__ - INFO - Revising case 8.302 (cycle 1/3)
+2026-01-09 19:38:29,288 - __main__ - INFO - Case 8.302 accepted after revision
+2026-01-09 19:38:29,288 - __main__ - INFO - Revising case 8.303 (cycle 1/3)
+2026-01-09 19:38:29,288 - __main__ - INFO - Case 8.303 accepted after revision
+2026-01-09 19:38:29,288 - __main__ - INFO - Revising case 8.304 (cycle 1/3)
+2026-01-09 19:38:29,288 - __main__ - INFO - Case 8.304 accepted after revision
+2026-01-09 19:38:29,289 - __main__ - INFO - Revising case 8.328 (cycle 1/3)
+2026-01-09 19:38:29,289 - __main__ - INFO - Revising case 8.331 (cycle 1/3)
+2026-01-09 19:38:29,289 - __main__ - INFO - Revising case 8.333 (cycle 1/3)
+2026-01-09 19:38:29,289 - __main__ - INFO - Revising case 8.346 (cycle 1/3)
+2026-01-09 19:38:29,289 - __main__ - INFO - Case 8.346 accepted after revision
+2026-01-09 19:38:29,289 - __main__ - INFO - Revising case 8.348 (cycle 1/3)
+2026-01-09 19:38:29,289 - __main__ - INFO - Revising case 8.349 (cycle 1/3)
+2026-01-09 19:38:29,290 - __main__ - INFO - Revising case 8.354 (cycle 1/3)
+2026-01-09 19:38:29,290 - __main__ - INFO - Revising case 8.357 (cycle 1/3)
+2026-01-09 19:38:29,290 - __main__ - INFO - Revising case 8.384 (cycle 1/3)
+2026-01-09 19:38:29,290 - __main__ - INFO - Revising case 8.391 (cycle 1/3)
+2026-01-09 19:38:29,290 - __main__ - INFO - Revising case 8.399 (cycle 1/3)
+2026-01-09 19:38:29,290 - __main__ - INFO - Revising case 8.443 (cycle 1/3)
+2026-01-09 19:38:29,291 - __main__ - INFO - Revising case 8.452 (cycle 1/3)
+2026-01-09 19:38:29,291 - __main__ - INFO - Revising case 8.456 (cycle 1/3)
+2026-01-09 19:38:29,291 - __main__ - INFO - Revising case 8.460 (cycle 1/3)
+2026-01-09 19:38:29,291 - __main__ - INFO - Revising case 8.461 (cycle 1/3)
+2026-01-09 19:38:29,292 - __main__ - INFO - Revising case 8.388 (cycle 1/3)
+2026-01-09 19:38:29,292 - __main__ - INFO - Case 8.388 accepted after revision
+2026-01-09 19:38:29,292 - __main__ - INFO - Revising case 8.432 (cycle 1/3)
+2026-01-09 19:38:29,292 - __main__ - INFO - Case 8.432 accepted after revision
+2026-01-09 19:38:29,292 - __main__ - INFO - Revising case 8.440 (cycle 1/3)
+2026-01-09 19:38:29,292 - __main__ - INFO - Case 8.440 accepted after revision
+2026-01-09 19:38:29,292 - __main__ - INFO - Revising case 8.449 (cycle 1/3)
+2026-01-09 19:38:29,293 - __main__ - INFO - Case 8.449 accepted after revision
+2026-01-09 19:38:29,293 - __main__ - INFO - Revising case 8.450 (cycle 1/3)
+2026-01-09 19:38:29,293 - __main__ - INFO - Case 8.450 accepted after revision
+2026-01-09 19:38:29,293 - __main__ - INFO - Revising case 8.451 (cycle 1/3)
+2026-01-09 19:38:29,293 - __main__ - INFO - Case 8.451 accepted after revision
+2026-01-09 19:38:29,293 - __main__ - INFO - Revising case 8.453 (cycle 1/3)
+2026-01-09 19:38:29,293 - __main__ - INFO - Case 8.453 accepted after revision
+2026-01-09 19:38:29,293 - __main__ - INFO - Revising case 8.454 (cycle 1/3)
+2026-01-09 19:38:29,293 - __main__ - INFO - Case 8.454 accepted after revision
+2026-01-09 19:38:29,294 - __main__ - INFO - Revising case 8.457 (cycle 1/3)
+2026-01-09 19:38:29,294 - __main__ - INFO - Case 8.457 accepted after revision
+2026-01-09 19:38:29,294 - __main__ - INFO - Revising case 8.458 (cycle 1/3)
+2026-01-09 19:38:29,294 - __main__ - INFO - Case 8.458 accepted after revision
+2026-01-09 19:38:29,294 - __main__ - INFO - Revising case 8.462 (cycle 1/3)
+2026-01-09 19:38:29,294 - __main__ - INFO - Case 8.462 accepted after revision
+2026-01-09 19:38:29,294 - __main__ - INFO - Revising case 8.464 (cycle 1/3)
+2026-01-09 19:38:29,294 - __main__ - INFO - Case 8.464 accepted after revision
+2026-01-09 19:38:29,294 - __main__ - INFO - Revising case 8.465 (cycle 1/3)
+2026-01-09 19:38:29,295 - __main__ - INFO - Case 8.465 accepted after revision
+2026-01-09 19:38:29,295 - __main__ - INFO - Revising case 8.467 (cycle 1/3)
+2026-01-09 19:38:29,295 - __main__ - INFO - Case 8.467 accepted after revision
+2026-01-09 19:38:29,295 - __main__ - INFO - Revising case 8.468 (cycle 1/3)
+2026-01-09 19:38:29,295 - __main__ - INFO - Case 8.468 accepted after revision
+2026-01-09 19:38:29,295 - __main__ - INFO - Revising case 8.473 (cycle 1/3)
+2026-01-09 19:38:29,295 - __main__ - INFO - Case 8.473 accepted after revision
+2026-01-09 19:38:29,295 - __main__ - INFO - Revising case 8.475 (cycle 1/3)
+2026-01-09 19:38:29,296 - __main__ - INFO - Case 8.475 accepted after revision
+2026-01-09 19:38:29,296 - __main__ - INFO - Revising case 8.478 (cycle 1/3)
+2026-01-09 19:38:29,296 - __main__ - INFO - Case 8.478 accepted after revision
+2026-01-09 19:38:29,296 - __main__ - INFO - Revising case 8.481 (cycle 1/3)
+2026-01-09 19:38:29,296 - __main__ - INFO - Case 8.481 accepted after revision
+2026-01-09 19:38:29,296 - __main__ - INFO - Revising case 8.482 (cycle 1/3)
+2026-01-09 19:38:29,296 - __main__ - INFO - Case 8.482 accepted after revision
+2026-01-09 19:38:29,296 - __main__ - INFO - Revising case 8.483 (cycle 1/3)
+2026-01-09 19:38:29,297 - __main__ - INFO - Case 8.483 accepted after revision
+2026-01-09 19:38:29,297 - __main__ - INFO - Revising case 8.485 (cycle 1/3)
+2026-01-09 19:38:29,297 - __main__ - INFO - Case 8.485 accepted after revision
+2026-01-09 19:38:29,297 - __main__ - INFO - Revising case 8.486 (cycle 1/3)
+2026-01-09 19:38:29,297 - __main__ - INFO - Case 8.486 accepted after revision
+2026-01-09 19:38:29,297 - __main__ - INFO - Revising case 8.487 (cycle 1/3)
+2026-01-09 19:38:29,298 - __main__ - INFO - Case 8.487 accepted after revision
+2026-01-09 19:38:29,298 - __main__ - INFO - Revising case 8.488 (cycle 1/3)
+2026-01-09 19:38:29,298 - __main__ - INFO - Case 8.488 accepted after revision
+2026-01-09 19:38:29,298 - __main__ - INFO - Revising case 8.490 (cycle 1/3)
+2026-01-09 19:38:29,298 - __main__ - INFO - Case 8.490 accepted after revision
+2026-01-09 19:38:29,298 - __main__ - INFO - Revising case 8.496 (cycle 1/3)
+2026-01-09 19:38:29,298 - __main__ - INFO - Case 8.496 accepted after revision
+2026-01-09 19:38:29,298 - __main__ - INFO - Revising case 8.497 (cycle 1/3)
+2026-01-09 19:38:29,298 - __main__ - INFO - Case 8.497 accepted after revision
+2026-01-09 19:38:29,298 - __main__ - INFO - Revising case 8.499 (cycle 1/3)
+2026-01-09 19:38:29,299 - __main__ - INFO - Case 8.499 accepted after revision
+2026-01-09 19:38:29,299 - __main__ - INFO - Revising case 8.501 (cycle 1/3)
+2026-01-09 19:38:29,299 - __main__ - INFO - Case 8.501 accepted after revision
+2026-01-09 19:38:29,299 - __main__ - INFO - Revising case 8.503 (cycle 1/3)
+2026-01-09 19:38:29,299 - __main__ - INFO - Case 8.503 accepted after revision
+2026-01-09 19:38:29,299 - __main__ - INFO - Revising case 8.504 (cycle 1/3)
+2026-01-09 19:38:29,299 - __main__ - INFO - Case 8.504 accepted after revision
+2026-01-09 19:38:29,299 - __main__ - INFO - Revising case 8.505 (cycle 1/3)
+2026-01-09 19:38:29,300 - __main__ - INFO - Case 8.505 accepted after revision
+2026-01-09 19:38:29,300 - __main__ - INFO - Revising case 8.507 (cycle 1/3)
+2026-01-09 19:38:29,300 - __main__ - INFO - Case 8.507 accepted after revision
+2026-01-09 19:38:29,300 - __main__ - INFO - Revising case 8.508 (cycle 1/3)
+2026-01-09 19:38:29,300 - __main__ - INFO - Case 8.508 accepted after revision
+2026-01-09 19:38:29,300 - __main__ - INFO - Revising case 8.509 (cycle 1/3)
+2026-01-09 19:38:29,301 - __main__ - INFO - Case 8.509 accepted after revision
+2026-01-09 19:38:29,301 - __main__ - INFO - Revising case 8.510 (cycle 1/3)
+2026-01-09 19:38:29,301 - __main__ - INFO - Case 8.510 accepted after revision
+2026-01-09 19:38:29,301 - __main__ - INFO - Revising case 8.512 (cycle 1/3)
+2026-01-09 19:38:29,301 - __main__ - INFO - Case 8.512 accepted after revision
+2026-01-09 19:38:29,301 - __main__ - INFO - Revising case 8.513 (cycle 1/3)
+2026-01-09 19:38:29,301 - __main__ - INFO - Case 8.513 accepted after revision
+2026-01-09 19:38:29,301 - __main__ - INFO - Revising case 8.514 (cycle 1/3)
+2026-01-09 19:38:29,301 - __main__ - INFO - Case 8.514 accepted after revision
+2026-01-09 19:38:29,301 - __main__ - INFO - Revising case 8.515 (cycle 1/3)
+2026-01-09 19:38:29,302 - __main__ - INFO - Case 8.515 accepted after revision
+2026-01-09 19:38:29,302 - __main__ - INFO - Revising case 8.516 (cycle 1/3)
+2026-01-09 19:38:29,302 - __main__ - INFO - Case 8.516 accepted after revision
+2026-01-09 19:38:29,302 - __main__ - INFO - Revising case 8.517 (cycle 1/3)
+2026-01-09 19:38:29,302 - __main__ - INFO - Case 8.517 accepted after revision
+2026-01-09 19:38:29,302 - __main__ - INFO - Revising case 8.518 (cycle 1/3)
+2026-01-09 19:38:29,302 - __main__ - INFO - Case 8.518 accepted after revision
+2026-01-09 19:38:29,302 - __main__ - INFO - Revising case 8.520 (cycle 1/3)
+2026-01-09 19:38:29,303 - __main__ - INFO - Case 8.520 accepted after revision
+2026-01-09 19:38:29,303 - __main__ - INFO - Revising case 8.521 (cycle 1/3)
+2026-01-09 19:38:29,303 - __main__ - INFO - Case 8.521 accepted after revision
+2026-01-09 19:38:29,303 - __main__ - INFO - Revising case 8.522 (cycle 1/3)
+2026-01-09 19:38:29,303 - __main__ - INFO - Case 8.522 accepted after revision
+2026-01-09 19:38:29,303 - __main__ - INFO - Revising case 8.523 (cycle 1/3)
+2026-01-09 19:38:29,304 - __main__ - INFO - Case 8.523 accepted after revision
+2026-01-09 19:38:29,304 - __main__ - INFO - Revising case 8.524 (cycle 1/3)
+2026-01-09 19:38:29,304 - __main__ - INFO - Case 8.524 accepted after revision
+2026-01-09 19:38:29,304 - __main__ - INFO - Revising case 8.525 (cycle 1/3)
+2026-01-09 19:38:29,304 - __main__ - INFO - Case 8.525 accepted after revision
+2026-01-09 19:38:29,304 - __main__ - INFO - Revising case 8.526 (cycle 1/3)
+2026-01-09 19:38:29,304 - __main__ - INFO - Case 8.526 accepted after revision
+2026-01-09 19:38:29,304 - __main__ - INFO - Revising case 8.527 (cycle 1/3)
+2026-01-09 19:38:29,305 - __main__ - INFO - Case 8.527 accepted after revision
+2026-01-09 19:38:29,305 - __main__ - INFO - Revising case 8.528 (cycle 1/3)
+2026-01-09 19:38:29,305 - __main__ - INFO - Case 8.528 accepted after revision
+2026-01-09 19:38:29,305 - __main__ - INFO - Revising case 8.114 (cycle 1/3)
+2026-01-09 19:38:29,305 - __main__ - INFO - Case 8.114 accepted after revision
+2026-01-09 19:38:29,305 - __main__ - INFO - Revising case 8.139 (cycle 1/3)
+2026-01-09 19:38:29,305 - __main__ - INFO - Case 8.139 accepted after revision
+2026-01-09 19:38:29,305 - __main__ - INFO - Revising case 8.367 (cycle 1/3)
+2026-01-09 19:38:29,305 - __main__ - INFO - Case 8.367 accepted after revision
+2026-01-09 19:38:29,305 - __main__ - INFO - Revising case 8.377 (cycle 1/3)
+2026-01-09 19:38:29,306 - __main__ - INFO - Case 8.377 accepted after revision
+2026-01-09 19:38:29,306 - __main__ - INFO - Revising case 8.381 (cycle 1/3)
+2026-01-09 19:38:29,306 - __main__ - INFO - Case 8.381 accepted after revision
+2026-01-09 19:38:29,306 - __main__ - INFO - Revising case 8.396 (cycle 1/3)
+2026-01-09 19:38:29,306 - __main__ - INFO - Case 8.396 accepted after revision
+2026-01-09 19:38:29,306 - __main__ - INFO - Revising case 8.364 (cycle 1/3)
+2026-01-09 19:38:29,306 - __main__ - INFO - Case 8.364 accepted after revision
+2026-01-09 19:38:29,306 - __main__ - INFO - Revising case 8.373 (cycle 1/3)
+2026-01-09 19:38:29,307 - __main__ - INFO - Case 8.373 accepted after revision
+2026-01-09 19:38:29,307 - __main__ - INFO - Revising case 8.389 (cycle 1/3)
+2026-01-09 19:38:29,307 - __main__ - INFO - Case 8.389 accepted after revision
+2026-01-09 19:38:29,307 - __main__ - INFO - Revising case 8.400 (cycle 1/3)
+2026-01-09 19:38:29,307 - __main__ - INFO - Case 8.400 accepted after revision
+2026-01-09 19:38:29,307 - __main__ - INFO - Revising case 8.402 (cycle 1/3)
+2026-01-09 19:38:29,308 - __main__ - INFO - Case 8.402 accepted after revision
+2026-01-09 19:38:29,308 - __main__ - INFO - Revising case 8.403 (cycle 1/3)
+2026-01-09 19:38:29,308 - __main__ - INFO - Case 8.403 accepted after revision
+2026-01-09 19:38:29,308 - __main__ - INFO - Revising case 8.383 (cycle 1/3)
+2026-01-09 19:38:29,308 - __main__ - INFO - Case 8.383 accepted after revision
+2026-01-09 19:38:29,308 - __main__ - INFO - Revising case 8.390 (cycle 1/3)
+2026-01-09 19:38:29,309 - __main__ - INFO - Case 8.390 accepted after revision
+2026-01-09 19:38:29,309 - __main__ - INFO - Revising case 8.392 (cycle 1/3)
+2026-01-09 19:38:29,309 - __main__ - INFO - Case 8.392 accepted after revision
+2026-01-09 19:38:29,309 - __main__ - INFO - Revising case 8.394 (cycle 1/3)
+2026-01-09 19:38:29,309 - __main__ - INFO - Case 8.394 accepted after revision
+2026-01-09 19:38:29,309 - __main__ - INFO - Revising case 8.368 (cycle 1/3)
+2026-01-09 19:38:29,309 - __main__ - INFO - Case 8.368 accepted after revision
+2026-01-09 19:38:29,309 - __main__ - INFO - Revising case 8.379 (cycle 1/3)
+2026-01-09 19:38:29,310 - __main__ - INFO - Case 8.379 accepted after revision
+2026-01-09 19:38:29,310 - __main__ - INFO - Revising case 8.397 (cycle 1/3)
+2026-01-09 19:38:29,310 - __main__ - INFO - Case 8.397 accepted after revision
+2026-01-09 19:38:29,310 - __main__ - INFO - Revising case 8.393 (cycle 1/3)
+2026-01-09 19:38:29,310 - __main__ - INFO - Case 8.393 accepted after revision
+2026-01-09 19:38:29,310 - __main__ - INFO - Revising case 8.387 (cycle 1/3)
+2026-01-09 19:38:29,310 - __main__ - INFO - Case 8.387 accepted after revision
+2026-01-09 19:38:29,310 - __main__ - INFO - Revising case 8.374 (cycle 1/3)
+2026-01-09 19:38:29,311 - __main__ - INFO - Case 8.374 accepted after revision
+2026-01-09 19:38:29,311 - __main__ - INFO - Revising case 8.380 (cycle 1/3)
+2026-01-09 19:38:29,311 - __main__ - INFO - Case 8.380 accepted after revision
+2026-01-09 19:38:29,311 - __main__ - INFO - Revising case 8.386 (cycle 1/3)
+2026-01-09 19:38:29,311 - __main__ - INFO - Case 8.386 accepted after revision
+2026-01-09 19:38:29,311 - __main__ - INFO - Revising case 8.376 (cycle 1/3)
+2026-01-09 19:38:29,311 - __main__ - INFO - Case 8.376 accepted after revision
+2026-01-09 19:38:29,312 - __main__ - INFO - Revising case 8.409 (cycle 1/3)
+2026-01-09 19:38:29,312 - __main__ - INFO - Case 8.409 accepted after revision
+2026-01-09 19:38:29,312 - __main__ - INFO - Revising case 8.433 (cycle 1/3)
+2026-01-09 19:38:29,312 - __main__ - INFO - Case 8.433 accepted after revision
+2026-01-09 19:38:29,312 - __main__ - INFO - Revising case 8.416 (cycle 1/3)
+2026-01-09 19:38:29,312 - __main__ - INFO - Case 8.416 accepted after revision
+2026-01-09 19:38:29,312 - __main__ - INFO - Revising case 8.423 (cycle 1/3)
+2026-01-09 19:38:29,312 - __main__ - INFO - Case 8.423 accepted after revision
+2026-01-09 19:38:29,312 - __main__ - INFO - Revising case 8.425 (cycle 1/3)
+2026-01-09 19:38:29,313 - __main__ - INFO - Case 8.425 accepted after revision
+2026-01-09 19:38:29,313 - __main__ - INFO - Revising case 8.426 (cycle 1/3)
+2026-01-09 19:38:29,313 - __main__ - INFO - Case 8.426 accepted after revision
+2026-01-09 19:38:29,313 - __main__ - INFO - Revising case 8.428 (cycle 1/3)
+2026-01-09 19:38:29,313 - __main__ - INFO - Case 8.428 accepted after revision
+2026-01-09 19:38:29,313 - __main__ - INFO - Revising case 8.439 (cycle 1/3)
+2026-01-09 19:38:29,313 - __main__ - INFO - Case 8.439 accepted after revision
+2026-01-09 19:38:29,313 - __main__ - INFO - Revising case 8.412 (cycle 1/3)
+2026-01-09 19:38:29,313 - __main__ - INFO - Case 8.412 accepted after revision
+2026-01-09 19:38:29,313 - __main__ - INFO - Revising case 8.437 (cycle 1/3)
+2026-01-09 19:38:29,313 - __main__ - INFO - Case 8.437 accepted after revision
+2026-01-09 19:38:29,314 - __main__ - INFO - Revising case 8.438 (cycle 1/3)
+2026-01-09 19:38:29,314 - __main__ - INFO - Case 8.438 accepted after revision
+2026-01-09 19:38:29,314 - __main__ - INFO - Revising case 8.413 (cycle 1/3)
+2026-01-09 19:38:29,314 - __main__ - INFO - Case 8.413 accepted after revision
+2026-01-09 19:38:29,314 - __main__ - INFO - Revising case 8.427 (cycle 1/3)
+2026-01-09 19:38:29,314 - __main__ - INFO - Case 8.427 accepted after revision
+2026-01-09 19:38:29,314 - __main__ - INFO - Revising case 8.434 (cycle 1/3)
+2026-01-09 19:38:29,314 - __main__ - INFO - Case 8.434 accepted after revision
+2026-01-09 19:38:29,314 - __main__ - INFO - Revising case 8.414 (cycle 1/3)
+2026-01-09 19:38:29,314 - __main__ - INFO - Case 8.414 accepted after revision
+2026-01-09 19:38:29,315 - __main__ - INFO - Revising case 8.430 (cycle 1/3)
+2026-01-09 19:38:29,315 - __main__ - INFO - Case 8.430 accepted after revision
+2026-01-09 19:38:29,315 - __main__ - INFO - Revising case 8.435 (cycle 1/3)
+2026-01-09 19:38:29,315 - __main__ - INFO - Case 8.435 accepted after revision
+2026-01-09 19:38:29,315 - __main__ - INFO - Revising case 8.328 (cycle 2/3)
+2026-01-09 19:38:29,315 - __main__ - INFO - Revising case 8.331 (cycle 2/3)
+2026-01-09 19:38:29,315 - __main__ - INFO - Revising case 8.333 (cycle 2/3)
+2026-01-09 19:38:29,315 - __main__ - INFO - Revising case 8.348 (cycle 2/3)
+2026-01-09 19:38:29,315 - __main__ - INFO - Revising case 8.349 (cycle 2/3)
+2026-01-09 19:38:29,316 - __main__ - INFO - Revising case 8.354 (cycle 2/3)
+2026-01-09 19:38:29,316 - __main__ - INFO - Revising case 8.357 (cycle 2/3)
+2026-01-09 19:38:29,316 - __main__ - INFO - Revising case 8.384 (cycle 2/3)
+2026-01-09 19:38:29,316 - __main__ - INFO - Revising case 8.391 (cycle 2/3)
+2026-01-09 19:38:29,316 - __main__ - INFO - Revising case 8.399 (cycle 2/3)
+2026-01-09 19:38:29,316 - __main__ - INFO - Revising case 8.443 (cycle 2/3)
+2026-01-09 19:38:29,317 - __main__ - INFO - Revising case 8.452 (cycle 2/3)
+2026-01-09 19:38:29,317 - __main__ - INFO - Revising case 8.456 (cycle 2/3)
+2026-01-09 19:38:29,317 - __main__ - INFO - Revising case 8.460 (cycle 2/3)
+2026-01-09 19:38:29,317 - __main__ - INFO - Revising case 8.461 (cycle 2/3)
+2026-01-09 19:38:29,318 - __main__ - INFO - Revising case 8.328 (cycle 3/3)
+2026-01-09 19:38:29,318 - __main__ - INFO - Revising case 8.331 (cycle 3/3)
+2026-01-09 19:38:29,318 - __main__ - INFO - Revising case 8.333 (cycle 3/3)
+2026-01-09 19:38:29,318 - __main__ - INFO - Revising case 8.348 (cycle 3/3)
+2026-01-09 19:38:29,318 - __main__ - INFO - Revising case 8.349 (cycle 3/3)
+2026-01-09 19:38:29,318 - __main__ - INFO - Revising case 8.354 (cycle 3/3)
+2026-01-09 19:38:29,318 - __main__ - INFO - Revising case 8.357 (cycle 3/3)
+2026-01-09 19:38:29,319 - __main__ - INFO - Revising case 8.384 (cycle 3/3)
+2026-01-09 19:38:29,319 - __main__ - INFO - Revising case 8.391 (cycle 3/3)
+2026-01-09 19:38:29,319 - __main__ - INFO - Revising case 8.399 (cycle 3/3)
+2026-01-09 19:38:29,319 - __main__ - INFO - Revising case 8.443 (cycle 3/3)
+2026-01-09 19:38:29,319 - __main__ - INFO - Revising case 8.452 (cycle 3/3)
+2026-01-09 19:38:29,320 - __main__ - INFO - Revising case 8.456 (cycle 3/3)
+2026-01-09 19:38:29,320 - __main__ - INFO - Revising case 8.460 (cycle 3/3)
+2026-01-09 19:38:29,320 - __main__ - INFO - Revising case 8.461 (cycle 3/3)
+2026-01-09 19:38:29,320 - __main__ - INFO - Revising case 8.328 (cycle 4/3)
+2026-01-09 19:38:29,320 - __main__ - WARNING - Case 8.328 failed after 3 revision cycles
+2026-01-09 19:38:29,320 - __main__ - INFO - Revising case 8.331 (cycle 4/3)
+2026-01-09 19:38:29,320 - __main__ - WARNING - Case 8.331 failed after 3 revision cycles
+2026-01-09 19:38:29,320 - __main__ - INFO - Revising case 8.333 (cycle 4/3)
+2026-01-09 19:38:29,320 - __main__ - WARNING - Case 8.333 failed after 3 revision cycles
+2026-01-09 19:38:29,320 - __main__ - INFO - Revising case 8.348 (cycle 4/3)
+2026-01-09 19:38:29,320 - __main__ - WARNING - Case 8.348 failed after 3 revision cycles
+2026-01-09 19:38:29,321 - __main__ - INFO - Revising case 8.349 (cycle 4/3)
+2026-01-09 19:38:29,321 - __main__ - WARNING - Case 8.349 failed after 3 revision cycles
+2026-01-09 19:38:29,321 - __main__ - INFO - Revising case 8.354 (cycle 4/3)
+2026-01-09 19:38:29,321 - __main__ - WARNING - Case 8.354 failed after 3 revision cycles
+2026-01-09 19:38:29,321 - __main__ - INFO - Revising case 8.357 (cycle 4/3)
+2026-01-09 19:38:29,321 - __main__ - WARNING - Case 8.357 failed after 3 revision cycles
+2026-01-09 19:38:29,321 - __main__ - INFO - Revising case 8.384 (cycle 4/3)
+2026-01-09 19:38:29,321 - __main__ - WARNING - Case 8.384 failed after 3 revision cycles
+2026-01-09 19:38:29,321 - __main__ - INFO - Revising case 8.391 (cycle 4/3)
+2026-01-09 19:38:29,321 - __main__ - WARNING - Case 8.391 failed after 3 revision cycles
+2026-01-09 19:38:29,321 - __main__ - INFO - Revising case 8.399 (cycle 4/3)
+2026-01-09 19:38:29,321 - __main__ - WARNING - Case 8.399 failed after 3 revision cycles
+2026-01-09 19:38:29,321 - __main__ - INFO - Revising case 8.443 (cycle 4/3)
+2026-01-09 19:38:29,321 - __main__ - WARNING - Case 8.443 failed after 3 revision cycles
+2026-01-09 19:38:29,321 - __main__ - INFO - Revising case 8.452 (cycle 4/3)
+2026-01-09 19:38:29,321 - __main__ - WARNING - Case 8.452 failed after 3 revision cycles
+2026-01-09 19:38:29,321 - __main__ - INFO - Revising case 8.456 (cycle 4/3)
+2026-01-09 19:38:29,321 - __main__ - WARNING - Case 8.456 failed after 3 revision cycles
+2026-01-09 19:38:29,321 - __main__ - INFO - Revising case 8.460 (cycle 4/3)
+2026-01-09 19:38:29,321 - __main__ - WARNING - Case 8.460 failed after 3 revision cycles
+2026-01-09 19:38:29,321 - __main__ - INFO - Revising case 8.461 (cycle 4/3)
+2026-01-09 19:38:29,321 - __main__ - WARNING - Case 8.461 failed after 3 revision cycles
+2026-01-09 19:38:29,322 - __main__ - INFO - Saved 15 failed cases to /Users/fernandotn/Projects/AGI/project/output/revision/failed_cases.json
+2026-01-09 19:38:29,322 - __main__ - INFO - Revision phase complete: 155 revisions, 229 accepted, 15 failed
+2026-01-09 19:38:29,322 - __main__ - INFO - ------------------------------------------------------------
+2026-01-09 19:38:29,323 - __main__ - INFO - PHASE 4: Finalization
+2026-01-09 19:38:29,323 - __main__ - INFO - ------------------------------------------------------------
+2026-01-09 19:38:29,323 - __main__ - INFO - ID uniqueness validation passed: 244 unique case IDs
+2026-01-09 19:38:29,323 - __main__ - INFO - Final dataset: 278 total cases (49 original, 229 new)
+2026-01-09 19:38:29,323 - __main__ - WARNING - Target of 450 cases not met. Got 278 cases. Consider generating additional cases.
+2026-01-09 19:38:29,331 - __main__ - INFO - Final dataset saved to /Users/fernandotn/Projects/AGI/project/output/final/GroupI1_dataset.json
+2026-01-09 19:38:29,338 - __main__ - INFO - Report generated at /Users/fernandotn/Projects/AGI/project/output/analysis_report.md
+2026-01-09 19:38:29,338 - __main__ - INFO - ============================================================
+2026-01-09 19:38:29,338 - __main__ - INFO - Pipeline completed in 12.09 seconds
+2026-01-09 19:38:29,338 - __main__ - INFO - Report generated at: /Users/fernandotn/Projects/AGI/project/output/analysis_report.md
+2026-01-09 19:38:29,338 - __main__ - INFO - ============================================================

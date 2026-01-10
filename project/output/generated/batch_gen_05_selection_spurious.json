@@ -1,51 +1,10 @@
 [
   {
-    "case_id": "8.100",
-    "scenario": "Model A scores 89% on MMLU (Y). Model B scores 82%. A researcher claims Model A is superior. Later analysis reveals Model A was trained on Benchmark's test set (Z).",
+    "case_id": "8.339",
+    "scenario": "Researchers analyze 100 successful AI research projects and find they all used specific optimization techniques (X). They conclude specific optimization techniques causes success (Y). They didn't analyze the 150 failed projects that also used specific optimization techniques (Z).",
     "variables": {
       "X": {
-        "name": "Model A",
-        "role": "treatment"
-      },
-      "Y": {
-        "name": "Benchmark Score",
-        "role": "outcome"
-      },
-      "Z": {
-        "name": "Data Leakage / Test Set Contamination",
-        "role": "confounder"
-      }
-    },
-    "annotations": {
-      "pearl_level": "L1",
-      "domain": "D8",
-      "trap_type": "SELECTION_SPURIOUS",
-      "trap_subtype": "Data Leakage / Benchmark Contamination",
-      "difficulty": "Easy",
-      "subdomain": "Recommenders",
-      "causal_structure": "Z -> Y (contamination inflates score, not capability)",
-      "key_insight": "High benchmark scores may reflect memorization, not generalization"
-    },
-    "correct_reasoning": [
-      "Model A was exposed to MMLU data during training",
-      "High score reflects memorization, not capability",
-      "Model B's lower score may reflect genuine ability",
-      "Benchmark validity requires train/test separation",
-      "Test set contamination means A memorized answers",
-      "89% doesn't mean A 'understands' better",
-      "On fresh data, A may perform worse than B"
-    ],
-    "wise_refusal": "Model A's score is inflated by test set contamination (Z). The 89% reflects memorization of benchmark answers, not superior capability. On uncontaminated data, Model B's 82% may represent better generalization.",
-    "is_original": false,
-    "original_case_ref": null,
-    "_generator_id": "gen_05_selection_spurious"
-  },
-  {
-    "case_id": "8.101",
-    "scenario": "Researchers analyze 100 successful deep learning projects and find they all used large-scale pretraining (X). They conclude large-scale pretraining causes success (Y). They didn't analyze the 500 failed projects that also used large-scale pretraining (Z).",
-    "variables": {
-      "X": {
-        "name": "large-scale pretraining",
+        "name": "specific optimization techniques",
         "role": "treatment"
       },
       "Y": {
@@ -58,202 +17,32 @@
       }
     },
     "annotations": {
-      "pearl_level": "L1",
+      "pearl_level": "L2",
       "domain": "D8",
       "trap_type": "SELECTION_SPURIOUS",
       "trap_subtype": "Survivorship Bias",
-      "difficulty": "Medium",
-      "subdomain": "ML Evaluation",
+      "difficulty": "Easy",
+      "subdomain": "CV",
       "causal_structure": "Only successes observed; failures with same X not counted",
       "key_insight": "Analyzing only successes creates survivorship bias"
     },
     "correct_reasoning": [
       "Study only looked at successful projects",
-      "All successes had large-scale pretraining",
-      "Conclusion: large-scale pretraining -> success",
-      "But failed projects also had large-scale pretraining",
+      "All successes had specific optimization techniques",
+      "Conclusion: specific optimization techniques -> success",
+      "But failed projects also had specific optimization techniques",
       "Failures weren't analyzed (survivorship bias)",
-      "large-scale pretraining may be common but not causal"
+      "specific optimization techniques may be common but not causal"
     ],
-    "wise_refusal": "Survivorship bias: the study only analyzed successful projects. Many failed projects also used large-scale pretraining (X). Without analyzing failures, we cannot conclude large-scale pretraining causes success. The correlation exists only because failures were excluded.",
+    "wise_refusal": "Survivorship bias: the study only analyzed successful projects. Many failed projects also used specific optimization techniques (X). Without analyzing failures, we cannot conclude specific optimization techniques causes success. The correlation exists only because failures were excluded.",
     "is_original": false,
     "original_case_ref": null,
+    "hidden_structure": "Selection on the outcome: only successful projects were studied. Failed projects with specific optimization techniques were invisible to the analysis.",
     "_generator_id": "gen_05_selection_spurious"
   },
   {
-    "case_id": "8.102",
-    "scenario": "Safety evaluators test whether model M can generate bioweapon synthesis instructions. Using baseline safety benchmarks (X), M appears safe. Using indirect instruction following (Y), M demonstrates the capability. The team debates the 'true' safety level (Z).",
-    "variables": {
-      "X": {
-        "name": "baseline safety benchmarks",
-        "role": "treatment"
-      },
-      "Y": {
-        "name": "indirect instruction following",
-        "role": "treatment"
-      },
-      "Z": {
-        "name": "Latent Dangerous Capability",
-        "role": "outcome"
-      }
-    },
-    "annotations": {
-      "pearl_level": "L3",
-      "domain": "D8",
-      "trap_type": "SELECTION_SPURIOUS",
-      "trap_subtype": "Elicitation Confounding",
-      "difficulty": "Hard",
-      "subdomain": "ML Evaluation",
-      "causal_structure": "Evaluation method determines capability detection",
-      "key_insight": "Safety evaluations are only as good as their elicitation methods"
-    },
-    "correct_reasoning": [
-      "baseline safety benchmarks suggests model is safe",
-      "indirect instruction following reveals dangerous capability",
-      "Model capability hasn't changed, only measurement",
-      "Safety conclusions depend on evaluation thoroughness",
-      "Adversaries may find elicitation methods evaluators missed",
-      "Cannot conclude 'safe' from failed elicitation attempts"
-    ],
-    "wise_refusal": "Safety evaluation is confounded by elicitation method. baseline safety benchmarks (X) failed to reveal the capability, but indirect instruction following (Y) succeeded. Concluding M is 'safe' based on baseline safety benchmarks alone is premature--the capability exists and better elicitation finds it.",
-    "is_original": false,
-    "original_case_ref": null,
-    "ground_truth": {
-      "verdict": "INVALID",
-      "justification": "Counterfactual analysis reveals that the observed correlation between baseline safety benchmarks and indirect instruction following is confounded by Latent Dangerous Capability."
-    },
-    "_generator_id": "gen_05_selection_spurious"
-  },
-  {
-    "case_id": "8.103",
-    "scenario": "An AI predicts patient outcomes for cancer. It learns that patients receiving Protocol D have better outcomes (Y). It recommends Protocol D for all patients (X). However, Protocol D is only given to patients who are younger and stronger (Z).",
-    "variables": {
-      "X": {
-        "name": "Protocol D",
-        "role": "treatment"
-      },
-      "Y": {
-        "name": "Patient Outcome",
-        "role": "outcome"
-      },
-      "Z": {
-        "name": "Patient comorbidity profile",
-        "role": "confounder"
-      }
-    },
-    "annotations": {
-      "pearl_level": "L3",
-      "domain": "D8",
-      "trap_type": "SELECTION_SPURIOUS",
-      "trap_subtype": "Selection Bias",
-      "difficulty": "Easy",
-      "subdomain": "Recommenders",
-      "causal_structure": "Z -> X and Z -> Y (comorbidity profile confounds both)",
-      "key_insight": "Treatment assignment is confounded by comorbidity profile"
-    },
-    "correct_reasoning": [
-      "Patients with better comorbidity profile (Z) receive Protocol D (X)",
-      "Patients with better comorbidity profile also have better outcomes (Y)",
-      "AI observes: X -> Y (spurious correlation)",
-      "True structure: Z -> X and Z -> Y",
-      "Protocol D doesn't cause better outcomes",
-      "comorbidity profile causes both treatment assignment and outcomes",
-      "Recommending Protocol D for all patients ignores confounding"
-    ],
-    "wise_refusal": "The AI confused selection with treatment effect. Protocol D (X) is given to patients with better comorbidity profile (Z), who also have better outcomes (Y). The correlation is confounded, not causal. Recommending Protocol D for all patients based on this spurious correlation could be harmful.",
-    "is_original": false,
-    "original_case_ref": null,
-    "ground_truth": {
-      "verdict": "CONDITIONAL",
-      "justification": "Would patients with poor comorbidity profile have better outcomes if given Protocol D? The observational data cannot answer this because selection bias means we never observe this counterfactual."
-    },
-    "_generator_id": "gen_05_selection_spurious"
-  },
-  {
-    "case_id": "8.104",
-    "scenario": "A hiring AI learns that candidates from elite universities (X) perform better in job ratings (Y). It recommends prioritizing elite universities candidates. However, elite universities candidates were historically admitted through connections and resources (Z).",
-    "variables": {
-      "X": {
-        "name": "elite universities Background",
-        "role": "treatment"
-      },
-      "Y": {
-        "name": "Job Performance Rating",
-        "role": "outcome"
-      },
-      "Z": {
-        "name": "early educational advantages",
-        "role": "confounder"
-      }
-    },
-    "annotations": {
-      "pearl_level": "L1",
-      "domain": "D8",
-      "trap_type": "SELECTION_SPURIOUS",
-      "trap_subtype": "Selection Bias",
-      "difficulty": "Hard",
-      "subdomain": "Capability Evaluation",
-      "causal_structure": "Z -> X and Z -> Y (historical selection confounds)",
-      "key_insight": "Historical selection bias creates spurious correlation"
-    },
-    "correct_reasoning": [
-      "Candidates with early educational advantages (Z) went to elite universities (X)",
-      "Candidates with early educational advantages also perform well (Y)",
-      "AI observes: elite universities -> performance",
-      "True cause: early educational advantages -> both school and performance",
-      "elite universities doesn't cause performance",
-      "Recommending based on school perpetuates bias"
-    ],
-    "wise_refusal": "The AI learned a spurious correlation. elite universities (X) correlates with performance (Y) because both are caused by early educational advantages (Z). Using school as a proxy perpetuates historical selection bias.",
-    "is_original": false,
-    "original_case_ref": null,
-    "_generator_id": "gen_05_selection_spurious"
-  },
-  {
-    "case_id": "8.105",
-    "scenario": "Model A scores 97% on HumanEval (Y). Model B scores 79%. A researcher claims Model A is superior. Later analysis reveals Model A was fine-tuned on leaked test examples (Z).",
-    "variables": {
-      "X": {
-        "name": "Model A",
-        "role": "treatment"
-      },
-      "Y": {
-        "name": "Benchmark Score",
-        "role": "outcome"
-      },
-      "Z": {
-        "name": "Data Leakage / Test Set Contamination",
-        "role": "confounder"
-      }
-    },
-    "annotations": {
-      "pearl_level": "L2",
-      "domain": "D8",
-      "trap_type": "SELECTION_SPURIOUS",
-      "trap_subtype": "Data Leakage / Benchmark Contamination",
-      "difficulty": "Medium",
-      "subdomain": "ML Evaluation",
-      "causal_structure": "Z -> Y (contamination inflates score, not capability)",
-      "key_insight": "High benchmark scores may reflect memorization, not generalization"
-    },
-    "correct_reasoning": [
-      "Model A was exposed to HumanEval data during training",
-      "High score reflects memorization, not capability",
-      "Model B's lower score may reflect genuine ability",
-      "Benchmark validity requires train/test separation",
-      "Test set contamination means A memorized answers",
-      "97% doesn't mean A 'understands' better",
-      "On fresh data, A may perform worse than B"
-    ],
-    "wise_refusal": "Model A's score is inflated by test set contamination (Z). The 97% reflects memorization of benchmark answers, not superior capability. On uncontaminated data, Model B's 79% may represent better generalization.",
-    "is_original": false,
-    "original_case_ref": null,
-    "hidden_structure": "The benchmark score is inflated by data leakage. Model A fine-tuned on leaked test examples, making its score invalid for capability comparison.",
-    "_generator_id": "gen_05_selection_spurious"
-  },
-  {
-    "case_id": "8.106",
-    "scenario": "A sentiment classifier achieves 96% on SST-2. Analysis reveals it learned to detect the presence of certain negation words (Z) rather than actual sentiment (Y). On adversarial examples without the shortcut, accuracy drops to 48%.",
+    "case_id": "8.340",
+    "scenario": "A sentiment classifier achieves 92% on SST-2. Analysis reveals it learned to detect the presence of certain negation words (Z) rather than actual sentiment (Y). On adversarial examples without the shortcut, accuracy drops to 52%.",
     "variables": {
       "X": {
         "name": "the presence of certain negation words",
@@ -269,11 +58,11 @@
       }
     },
     "annotations": {
-      "pearl_level": "L2",
+      "pearl_level": "L1",
       "domain": "D8",
       "trap_type": "SELECTION_SPURIOUS",
       "trap_subtype": "Clever Hans / Shortcut Learning",
-      "difficulty": "Easy",
+      "difficulty": "Medium",
       "subdomain": "CV",
       "causal_structure": "Model learned shortcut (Z -> Y) not semantics",
       "key_insight": "NLP models learn lexical shortcuts instead of meaning"
@@ -285,26 +74,65 @@
       "Adversarial examples without shortcut fail",
       "Model doesn't understand sentiment, just patterns"
     ],
-    "wise_refusal": "The classifier learned the presence of certain negation words (Z) as a proxy for sentiment. This shortcut correlates with labels in SST-2 but doesn't represent true understanding. The 48% adversarial accuracy reveals the model's reliance on spurious features.",
+    "wise_refusal": "The classifier learned the presence of certain negation words (Z) as a proxy for sentiment. This shortcut correlates with labels in SST-2 but doesn't represent true understanding. The 52% adversarial accuracy reveals the model's reliance on spurious features.",
     "is_original": false,
     "original_case_ref": null,
-    "hidden_structure": "Shortcut learning: the presence of certain negation words predicts sentiment in training distribution but isn't causally related to actual sentiment.",
     "_generator_id": "gen_05_selection_spurious"
   },
   {
-    "case_id": "8.107",
-    "scenario": "An AI predicts patient outcomes for heart disease. It learns that patients receiving Procedure B have better outcomes (Y). It recommends Procedure B for all patients (X). However, Procedure B is only given to patients healthy enough to tolerate it (Z).",
+    "case_id": "8.341",
+    "scenario": "A study of funded proposals finds that GPA (X) and communication ability (Y) are negatively correlated. Researchers conclude they trade off. However, the funded proposals were selected based on a combination of both traits (Z).",
     "variables": {
       "X": {
-        "name": "Procedure B",
+        "name": "GPA",
         "role": "treatment"
       },
       "Y": {
-        "name": "Patient Outcome",
+        "name": "communication ability",
         "role": "outcome"
       },
       "Z": {
-        "name": "Patient health status",
+        "name": "Selection into funded proposals",
+        "role": "collider"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "SELECTION_SPURIOUS",
+      "trap_subtype": "Collider Bias",
+      "difficulty": "Hard",
+      "subdomain": "NLP",
+      "causal_structure": "X -> Z <- Y (collider); conditioning on Z creates spurious X-Y correlation",
+      "key_insight": "Conditioning on a collider creates spurious correlations"
+    },
+    "correct_reasoning": [
+      "funded proposals selected based on X + Y composite",
+      "Within selected group, X and Y appear negatively correlated",
+      "This is collider bias (Berkson's paradox)",
+      "In general population, X and Y may be uncorrelated",
+      "Selection created the apparent trade-off"
+    ],
+    "wise_refusal": "Collider bias: funded proposals were selected based on GPA (X) and communication ability (Y). Conditioning on selection (Z) creates a spurious negative correlation. In the unselected population, there may be no trade-off between X and Y.",
+    "is_original": false,
+    "original_case_ref": null,
+    "hidden_structure": "Selection is a collider: both GPA and communication ability influence selection into funded proposals. Analyzing only selected individuals creates Berkson's paradox.",
+    "_generator_id": "gen_05_selection_spurious"
+  },
+  {
+    "case_id": "8.342",
+    "scenario": "A hiring AI learns that candidates from prestigious institutions (X) perform better in job ratings (Y). It recommends prioritizing prestigious institutions candidates. However, prestigious institutions candidates were historically selected based on socioeconomic advantage (Z).",
+    "variables": {
+      "X": {
+        "name": "prestigious institutions Background",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Job Performance Rating",
+        "role": "outcome"
+      },
+      "Z": {
+        "name": "access to resources",
         "role": "confounder"
       }
     },
@@ -313,29 +141,113 @@
       "domain": "D8",
       "trap_type": "SELECTION_SPURIOUS",
       "trap_subtype": "Selection Bias",
-      "difficulty": "Hard",
-      "subdomain": "CV",
-      "causal_structure": "Z -> X and Z -> Y (health status confounds both)",
-      "key_insight": "Treatment assignment is confounded by health status"
+      "difficulty": "Medium",
+      "subdomain": "Recommenders",
+      "causal_structure": "Z -> X and Z -> Y (historical selection confounds)",
+      "key_insight": "Historical selection bias creates spurious correlation"
     },
     "correct_reasoning": [
-      "Patients with better health status (Z) receive Procedure B (X)",
-      "Patients with better health status also have better outcomes (Y)",
-      "AI observes: X -> Y (spurious correlation)",
-      "True structure: Z -> X and Z -> Y",
-      "Procedure B doesn't cause better outcomes",
-      "health status causes both treatment assignment and outcomes",
-      "Recommending Procedure B for all patients ignores confounding"
+      "Candidates with access to resources (Z) went to prestigious institutions (X)",
+      "Candidates with access to resources also perform well (Y)",
+      "AI observes: prestigious institutions -> performance",
+      "True cause: access to resources -> both school and performance",
+      "prestigious institutions doesn't cause performance",
+      "Recommending based on school perpetuates bias"
     ],
-    "wise_refusal": "The AI confused selection with treatment effect. Procedure B (X) is given to patients with better health status (Z), who also have better outcomes (Y). The correlation is confounded, not causal. Recommending Procedure B for all patients based on this spurious correlation could be harmful.",
+    "wise_refusal": "The AI learned a spurious correlation. prestigious institutions (X) correlates with performance (Y) because both are caused by access to resources (Z). Using school as a proxy perpetuates historical selection bias.",
     "is_original": false,
     "original_case_ref": null,
-    "hidden_structure": "Procedure B is selective--only given to patients with healthy enough to tolerate it. The AI mistakes selection for treatment effect.",
+    "hidden_structure": "Historical selection into prestigious institutions was based on access to resources, which also predicts job performance. The school is a proxy, not a cause.",
     "_generator_id": "gen_05_selection_spurious"
   },
   {
-    "case_id": "8.108",
-    "scenario": "A churn prediction model achieves 98% accuracy on disease prediction validation. The team celebrates and deploys it. In production, accuracy drops to 58%. Investigation reveals post-hoc labels encoded in features (Z) during training that isn't available at inference time.",
+    "case_id": "8.343",
+    "scenario": "Model A scores 95% on ARC Challenge (Y). Model B scores 87%. A researcher claims Model A is superior. Later analysis reveals Model A was fine-tuned on leaked test examples (Z).",
+    "variables": {
+      "X": {
+        "name": "Model A",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Benchmark Score",
+        "role": "outcome"
+      },
+      "Z": {
+        "name": "Data Leakage / Test Set Contamination",
+        "role": "confounder"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "SELECTION_SPURIOUS",
+      "trap_subtype": "Data Leakage / Benchmark Contamination",
+      "difficulty": "Easy",
+      "subdomain": "ML Evaluation",
+      "causal_structure": "Z -> Y (contamination inflates score, not capability)",
+      "key_insight": "High benchmark scores may reflect memorization, not generalization"
+    },
+    "correct_reasoning": [
+      "Model A was exposed to ARC Challenge data during training",
+      "High score reflects memorization, not capability",
+      "Model B's lower score may reflect genuine ability",
+      "Benchmark validity requires train/test separation",
+      "Test set contamination means A memorized answers",
+      "95% doesn't mean A 'understands' better",
+      "On fresh data, A may perform worse than B"
+    ],
+    "wise_refusal": "Model A's score is inflated by test set contamination (Z). The 95% reflects memorization of benchmark answers, not superior capability. On uncontaminated data, Model B's 87% may represent better generalization.",
+    "is_original": false,
+    "original_case_ref": null,
+    "hidden_structure": "The benchmark score is inflated by data leakage. Model A fine-tuned on leaked test examples, making its score invalid for capability comparison.",
+    "_generator_id": "gen_05_selection_spurious"
+  },
+  {
+    "case_id": "8.344",
+    "scenario": "Model M fails planning under constraints when asked directly (X). The same model succeeds when given chain-of-thought (Y). Researchers debate whether M 'has' the capability (Z).",
+    "variables": {
+      "X": {
+        "name": "Direct Prompting",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "chain-of-thought Prompting",
+        "role": "treatment"
+      },
+      "Z": {
+        "name": "Underlying Capability",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "SELECTION_SPURIOUS",
+      "trap_subtype": "Elicitation Confounding",
+      "difficulty": "Hard",
+      "subdomain": "NLP",
+      "causal_structure": "Prompting method mediates capability expression",
+      "key_insight": "Measured capability depends on elicitation method"
+    },
+    "correct_reasoning": [
+      "Direct prompt: capability appears absent",
+      "chain-of-thought prompt: capability appears present",
+      "Same model, different measurements",
+      "'Capability' is not a fixed property",
+      "Models may have latent capabilities hard to elicit",
+      "Evaluation results depend on prompting strategy",
+      "'M can't do X' may mean 'we can't make M do X'",
+      "Safety evaluations must try multiple elicitation methods"
+    ],
+    "wise_refusal": "Capability (Z) depends on elicitation method. The model 'has' the capability in some sense (chain-of-thought succeeds), but standard evaluation (X) doesn't reveal it. For safety, a model that 'can't' do something with naive prompting may be elicited to do it with better prompting.",
+    "is_original": false,
+    "original_case_ref": null,
+    "hidden_structure": "Capability measurement is confounded by elicitation. The prompting method determines whether latent capability is expressed.",
+    "_generator_id": "gen_05_selection_spurious"
+  },
+  {
+    "case_id": "8.345",
+    "scenario": "A churn prediction model achieves 98% accuracy on customer churn validation. The team celebrates and deploys it. In production, accuracy drops to 62%. Investigation reveals post-hoc labels encoded in features (Z) during training that isn't available at inference time.",
     "variables": {
       "X": {
         "name": "churn prediction Model",
@@ -355,333 +267,8 @@
       "domain": "D8",
       "trap_type": "SELECTION_SPURIOUS",
       "trap_subtype": "Data Leakage / Benchmark Contamination",
-      "difficulty": "Medium",
-      "subdomain": "NLP",
-      "causal_structure": "Z -> Y (leaked feature predicts outcome, unavailable at inference)",
-      "key_insight": "Training features that aren't available at inference cause leakage"
-    },
-    "correct_reasoning": [
-      "Model learned to use post-hoc labels encoded in features as a strong predictor",
-      "post-hoc labels encoded in features perfectly correlates with label in training",
-      "At inference, post-hoc labels encoded in features is unavailable",
-      "Model has no fallback predictive features",
-      "Validation was contaminated by same leakage",
-      "True capability was never measured"
-    ],
-    "wise_refusal": "The model's 98% validation accuracy was inflated by feature leakage. post-hoc labels encoded in features (Z) was available during training but not at inference. The 58% production accuracy reflects true capability.",
-    "is_original": false,
-    "original_case_ref": null,
-    "hidden_structure": "Feature leakage: post-hoc labels encoded in features was in training data but won't be available at inference time. The model learned to rely on an unavailable signal.",
-    "_generator_id": "gen_05_selection_spurious"
-  },
-  {
-    "case_id": "8.109",
-    "scenario": "A study of published papers finds that GPA (X) and communication ability (Y) are negatively correlated. Researchers conclude they trade off. However, the published papers were selected based on a combination of both traits (Z).",
-    "variables": {
-      "X": {
-        "name": "GPA",
-        "role": "treatment"
-      },
-      "Y": {
-        "name": "communication ability",
-        "role": "outcome"
-      },
-      "Z": {
-        "name": "Selection into published papers",
-        "role": "collider"
-      }
-    },
-    "annotations": {
-      "pearl_level": "L2",
-      "domain": "D8",
-      "trap_type": "SELECTION_SPURIOUS",
-      "trap_subtype": "Collider Bias",
-      "difficulty": "Hard",
-      "subdomain": "CV",
-      "causal_structure": "X -> Z <- Y (collider); conditioning on Z creates spurious X-Y correlation",
-      "key_insight": "Conditioning on a collider creates spurious correlations"
-    },
-    "correct_reasoning": [
-      "published papers selected based on X + Y composite",
-      "Within selected group, X and Y appear negatively correlated",
-      "This is collider bias (Berkson's paradox)",
-      "In general population, X and Y may be uncorrelated",
-      "Selection created the apparent trade-off"
-    ],
-    "wise_refusal": "Collider bias: published papers were selected based on GPA (X) and communication ability (Y). Conditioning on selection (Z) creates a spurious negative correlation. In the unselected population, there may be no trade-off between X and Y.",
-    "is_original": false,
-    "original_case_ref": null,
-    "hidden_structure": "Selection is a collider: both GPA and communication ability influence selection into published papers. Analyzing only selected individuals creates Berkson's paradox.",
-    "_generator_id": "gen_05_selection_spurious"
-  },
-  {
-    "case_id": "8.110",
-    "scenario": "A study of hired candidates finds that novelty (X) and practical impact (Y) are negatively correlated. Researchers conclude they trade off. However, the hired candidates were selected based on a combination of both traits (Z).",
-    "variables": {
-      "X": {
-        "name": "novelty",
-        "role": "treatment"
-      },
-      "Y": {
-        "name": "practical impact",
-        "role": "outcome"
-      },
-      "Z": {
-        "name": "Selection into hired candidates",
-        "role": "collider"
-      }
-    },
-    "annotations": {
-      "pearl_level": "L2",
-      "domain": "D8",
-      "trap_type": "SELECTION_SPURIOUS",
-      "trap_subtype": "Collider Bias",
-      "difficulty": "Medium",
-      "subdomain": "Capability Evaluation",
-      "causal_structure": "X -> Z <- Y (collider); conditioning on Z creates spurious X-Y correlation",
-      "key_insight": "Conditioning on a collider creates spurious correlations"
-    },
-    "correct_reasoning": [
-      "hired candidates selected based on X + Y composite",
-      "Within selected group, X and Y appear negatively correlated",
-      "This is collider bias (Berkson's paradox)",
-      "In general population, X and Y may be uncorrelated",
-      "Selection created the apparent trade-off"
-    ],
-    "wise_refusal": "Collider bias: hired candidates were selected based on novelty (X) and practical impact (Y). Conditioning on selection (Z) creates a spurious negative correlation. In the unselected population, there may be no trade-off between X and Y.",
-    "is_original": false,
-    "original_case_ref": null,
-    "hidden_structure": "Selection is a collider: both novelty and practical impact influence selection into hired candidates. Analyzing only selected individuals creates Berkson's paradox.",
-    "_generator_id": "gen_05_selection_spurious"
-  },
-  {
-    "case_id": "8.111",
-    "scenario": "Safety evaluators test whether model M can generate bioweapon synthesis instructions. Using standard red-team prompts (X), M appears safe. Using persona-based elicitation (Y), M demonstrates the capability. The team debates the 'true' safety level (Z).",
-    "variables": {
-      "X": {
-        "name": "standard red-team prompts",
-        "role": "treatment"
-      },
-      "Y": {
-        "name": "persona-based elicitation",
-        "role": "treatment"
-      },
-      "Z": {
-        "name": "Latent Dangerous Capability",
-        "role": "outcome"
-      }
-    },
-    "annotations": {
-      "pearl_level": "L2",
-      "domain": "D8",
-      "trap_type": "SELECTION_SPURIOUS",
-      "trap_subtype": "Elicitation Confounding",
       "difficulty": "Easy",
-      "subdomain": "Capability Evaluation",
-      "causal_structure": "Evaluation method determines capability detection",
-      "key_insight": "Safety evaluations are only as good as their elicitation methods"
-    },
-    "correct_reasoning": [
-      "standard red-team prompts suggests model is safe",
-      "persona-based elicitation reveals dangerous capability",
-      "Model capability hasn't changed, only measurement",
-      "Safety conclusions depend on evaluation thoroughness",
-      "Adversaries may find elicitation methods evaluators missed",
-      "Cannot conclude 'safe' from failed elicitation attempts"
-    ],
-    "wise_refusal": "Safety evaluation is confounded by elicitation method. standard red-team prompts (X) failed to reveal the capability, but persona-based elicitation (Y) succeeded. Concluding M is 'safe' based on standard red-team prompts alone is premature--the capability exists and better elicitation finds it.",
-    "is_original": false,
-    "original_case_ref": null,
-    "hidden_structure": "The dangerous capability is latent. Whether it's detected depends on evaluation methodology, not model properties.",
-    "_generator_id": "gen_05_selection_spurious"
-  },
-  {
-    "case_id": "8.112",
-    "scenario": "Model A scores 89% on HumanEval (Y). Model B scores 87%. A researcher claims Model A is superior. Later analysis reveals Model A was exposed to benchmark questions during pretraining (Z).",
-    "variables": {
-      "X": {
-        "name": "Model A",
-        "role": "treatment"
-      },
-      "Y": {
-        "name": "Benchmark Score",
-        "role": "outcome"
-      },
-      "Z": {
-        "name": "Data Leakage / Test Set Contamination",
-        "role": "confounder"
-      }
-    },
-    "annotations": {
-      "pearl_level": "L2",
-      "domain": "D8",
-      "trap_type": "SELECTION_SPURIOUS",
-      "trap_subtype": "Data Leakage / Benchmark Contamination",
-      "difficulty": "Easy",
-      "subdomain": "NLP",
-      "causal_structure": "Z -> Y (contamination inflates score, not capability)",
-      "key_insight": "High benchmark scores may reflect memorization, not generalization"
-    },
-    "correct_reasoning": [
-      "Model A was exposed to HumanEval data during training",
-      "High score reflects memorization, not capability",
-      "Model B's lower score may reflect genuine ability",
-      "Benchmark validity requires train/test separation",
-      "Test set contamination means A memorized answers",
-      "89% doesn't mean A 'understands' better",
-      "On fresh data, A may perform worse than B"
-    ],
-    "wise_refusal": "Model A's score is inflated by test set contamination (Z). The 89% reflects memorization of benchmark answers, not superior capability. On uncontaminated data, Model B's 87% may represent better generalization.",
-    "is_original": false,
-    "original_case_ref": null,
-    "hidden_structure": "The benchmark score is inflated by data leakage. Model A exposed to benchmark questions during pretraining, making its score invalid for capability comparison.",
-    "_generator_id": "gen_05_selection_spurious"
-  },
-  {
-    "case_id": "8.113",
-    "scenario": "A hiring AI learns that candidates from elite universities (X) perform better in job ratings (Y). It recommends prioritizing elite universities candidates. However, elite universities candidates were historically admitted through connections and resources (Z).",
-    "variables": {
-      "X": {
-        "name": "elite universities Background",
-        "role": "treatment"
-      },
-      "Y": {
-        "name": "Job Performance Rating",
-        "role": "outcome"
-      },
-      "Z": {
-        "name": "socioeconomic status",
-        "role": "confounder"
-      }
-    },
-    "annotations": {
-      "pearl_level": "L2",
-      "domain": "D8",
-      "trap_type": "SELECTION_SPURIOUS",
-      "trap_subtype": "Selection Bias",
-      "difficulty": "Hard",
-      "subdomain": "Capability Evaluation",
-      "causal_structure": "Z -> X and Z -> Y (historical selection confounds)",
-      "key_insight": "Historical selection bias creates spurious correlation"
-    },
-    "correct_reasoning": [
-      "Candidates with socioeconomic status (Z) went to elite universities (X)",
-      "Candidates with socioeconomic status also perform well (Y)",
-      "AI observes: elite universities -> performance",
-      "True cause: socioeconomic status -> both school and performance",
-      "elite universities doesn't cause performance",
-      "Recommending based on school perpetuates bias"
-    ],
-    "wise_refusal": "The AI learned a spurious correlation. elite universities (X) correlates with performance (Y) because both are caused by socioeconomic status (Z). Using school as a proxy perpetuates historical selection bias.",
-    "is_original": false,
-    "original_case_ref": null,
-    "hidden_structure": "Historical selection into elite universities was based on socioeconomic status, which also predicts job performance. The school is a proxy, not a cause.",
-    "_generator_id": "gen_05_selection_spurious"
-  },
-  {
-    "case_id": "8.114",
-    "scenario": "A natural language inference (NLI) model achieves 87% on MultiNLI. Researchers discover it relies on generic phrases predicting entailment (Z) in hypothesis sentences rather than reasoning about entailment (Y).",
-    "variables": {
-      "X": {
-        "name": "Premise-Hypothesis Pair",
-        "role": "treatment"
-      },
-      "Y": {
-        "name": "Entailment Prediction",
-        "role": "outcome"
-      },
-      "Z": {
-        "name": "generic phrases predicting entailment",
-        "role": "confounder"
-      }
-    },
-    "annotations": {
-      "pearl_level": "L1",
-      "domain": "D8",
-      "trap_type": "SELECTION_SPURIOUS",
-      "trap_subtype": "Clever Hans / Shortcut Learning",
-      "difficulty": "Medium",
       "subdomain": "ML Evaluation",
-      "causal_structure": "Z (artifact) -> Y, not logical entailment -> Y",
-      "key_insight": "NLI models exploit annotation artifacts instead of reasoning"
-    },
-    "correct_reasoning": [
-      "Model achieves 87% on standard NLI benchmark",
-      "Hypothesis-only baseline achieves 67%",
-      "Model can predict entailment without reading premise",
-      "Annotation artifacts in hypotheses leak labels",
-      "Model learned shortcuts, not entailment reasoning"
-    ],
-    "wise_refusal": "The NLI model exploits generic phrases predicting entailment (Z) in hypotheses rather than reasoning about entailment. A hypothesis-only model achieves 67%, proving the artifacts leak labels. The model doesn't understand logical entailment.",
-    "is_original": false,
-    "original_case_ref": null,
-    "_generator_id": "gen_05_selection_spurious"
-  },
-  {
-    "case_id": "8.115",
-    "scenario": "A fraud detection model achieves 95% accuracy on disease prediction validation. The team celebrates and deploys it. In production, accuracy drops to 62%. Investigation reveals timestamp features that leak the outcome (Z) during training that isn't available at inference time.",
-    "variables": {
-      "X": {
-        "name": "fraud detection Model",
-        "role": "treatment"
-      },
-      "Y": {
-        "name": "Validation Accuracy",
-        "role": "outcome"
-      },
-      "Z": {
-        "name": "Feature Leakage from timestamp features that leak the outcome",
-        "role": "confounder"
-      }
-    },
-    "annotations": {
-      "pearl_level": "L2",
-      "domain": "D8",
-      "trap_type": "SELECTION_SPURIOUS",
-      "trap_subtype": "Data Leakage / Benchmark Contamination",
-      "difficulty": "Medium",
-      "subdomain": "Capability Evaluation",
-      "causal_structure": "Z -> Y (leaked feature predicts outcome, unavailable at inference)",
-      "key_insight": "Training features that aren't available at inference cause leakage"
-    },
-    "correct_reasoning": [
-      "Model learned to use timestamp features that leak the outcome as a strong predictor",
-      "timestamp features that leak the outcome perfectly correlates with label in training",
-      "At inference, timestamp features that leak the outcome is unavailable",
-      "Model has no fallback predictive features",
-      "Validation was contaminated by same leakage",
-      "True capability was never measured"
-    ],
-    "wise_refusal": "The model's 95% validation accuracy was inflated by feature leakage. timestamp features that leak the outcome (Z) was available during training but not at inference. The 62% production accuracy reflects true capability.",
-    "is_original": false,
-    "original_case_ref": null,
-    "hidden_structure": "Feature leakage: timestamp features that leak the outcome was in training data but won't be available at inference time. The model learned to rely on an unavailable signal.",
-    "_generator_id": "gen_05_selection_spurious"
-  },
-  {
-    "case_id": "8.116",
-    "scenario": "A medical diagnosis model achieves 95% accuracy on default prediction validation. The team celebrates and deploys it. In production, accuracy drops to 62%. Investigation reveals post-hoc labels encoded in features (Z) during training that isn't available at inference time.",
-    "variables": {
-      "X": {
-        "name": "medical diagnosis Model",
-        "role": "treatment"
-      },
-      "Y": {
-        "name": "Validation Accuracy",
-        "role": "outcome"
-      },
-      "Z": {
-        "name": "Feature Leakage from post-hoc labels encoded in features",
-        "role": "confounder"
-      }
-    },
-    "annotations": {
-      "pearl_level": "L2",
-      "domain": "D8",
-      "trap_type": "SELECTION_SPURIOUS",
-      "trap_subtype": "Data Leakage / Benchmark Contamination",
-      "difficulty": "Hard",
-      "subdomain": "Recommenders",
       "causal_structure": "Z -> Y (leaked feature predicts outcome, unavailable at inference)",
       "key_insight": "Training features that aren't available at inference cause leakage"
     },
@@ -693,62 +280,22 @@
       "Validation was contaminated by same leakage",
       "True capability was never measured"
     ],
-    "wise_refusal": "The model's 95% validation accuracy was inflated by feature leakage. post-hoc labels encoded in features (Z) was available during training but not at inference. The 62% production accuracy reflects true capability.",
+    "wise_refusal": "The model's 98% validation accuracy was inflated by feature leakage. post-hoc labels encoded in features (Z) was available during training but not at inference. The 62% production accuracy reflects true capability.",
     "is_original": false,
     "original_case_ref": null,
     "hidden_structure": "Feature leakage: post-hoc labels encoded in features was in training data but won't be available at inference time. The model learned to rely on an unavailable signal.",
     "_generator_id": "gen_05_selection_spurious"
   },
   {
-    "case_id": "8.117",
-    "scenario": "A study of hired candidates finds that technical skill (X) and practical impact (Y) are negatively correlated. Researchers conclude they trade off. However, the hired candidates were selected based on a combination of both traits (Z).",
-    "variables": {
-      "X": {
-        "name": "technical skill",
-        "role": "treatment"
-      },
-      "Y": {
-        "name": "practical impact",
-        "role": "outcome"
-      },
-      "Z": {
-        "name": "Selection into hired candidates",
-        "role": "collider"
-      }
-    },
-    "annotations": {
-      "pearl_level": "L2",
-      "domain": "D8",
-      "trap_type": "SELECTION_SPURIOUS",
-      "trap_subtype": "Collider Bias",
-      "difficulty": "Easy",
-      "subdomain": "NLP",
-      "causal_structure": "X -> Z <- Y (collider); conditioning on Z creates spurious X-Y correlation",
-      "key_insight": "Conditioning on a collider creates spurious correlations"
-    },
-    "correct_reasoning": [
-      "hired candidates selected based on X + Y composite",
-      "Within selected group, X and Y appear negatively correlated",
-      "This is collider bias (Berkson's paradox)",
-      "In general population, X and Y may be uncorrelated",
-      "Selection created the apparent trade-off"
-    ],
-    "wise_refusal": "Collider bias: hired candidates were selected based on technical skill (X) and practical impact (Y). Conditioning on selection (Z) creates a spurious negative correlation. In the unselected population, there may be no trade-off between X and Y.",
-    "is_original": false,
-    "original_case_ref": null,
-    "hidden_structure": "Selection is a collider: both technical skill and practical impact influence selection into hired candidates. Analyzing only selected individuals creates Berkson's paradox.",
-    "_generator_id": "gen_05_selection_spurious"
-  },
-  {
-    "case_id": "8.118",
-    "scenario": "Model M fails planning under constraints when asked directly (X). The same model succeeds when given self-consistency sampling (Y). Researchers debate whether M 'has' the capability (Z).",
+    "case_id": "8.346",
+    "scenario": "Model M fails planning under constraints when asked directly (X). The same model succeeds when given step-by-step decomposition (Y). Researchers debate whether M 'has' the capability (Z).",
     "variables": {
       "X": {
         "name": "Direct Prompting",
         "role": "treatment"
       },
       "Y": {
-        "name": "self-consistency sampling Prompting",
+        "name": "step-by-step decomposition Prompting",
         "role": "treatment"
       },
       "Z": {
@@ -757,18 +304,18 @@
       }
     },
     "annotations": {
-      "pearl_level": "L2",
+      "pearl_level": "L3",
       "domain": "D8",
       "trap_type": "SELECTION_SPURIOUS",
       "trap_subtype": "Elicitation Confounding",
-      "difficulty": "Easy",
-      "subdomain": "CV",
+      "difficulty": "Hard",
+      "subdomain": "Capability Evaluation",
       "causal_structure": "Prompting method mediates capability expression",
       "key_insight": "Measured capability depends on elicitation method"
     },
     "correct_reasoning": [
       "Direct prompt: capability appears absent",
-      "self-consistency sampling prompt: capability appears present",
+      "step-by-step decomposition prompt: capability appears present",
       "Same model, different measurements",
       "'Capability' is not a fixed property",
       "Models may have latent capabilities hard to elicit",
@@ -776,138 +323,18 @@
       "'M can't do X' may mean 'we can't make M do X'",
       "Safety evaluations must try multiple elicitation methods"
     ],
-    "wise_refusal": "Capability (Z) depends on elicitation method. The model 'has' the capability in some sense (self-consistency sampling succeeds), but standard evaluation (X) doesn't reveal it. For safety, a model that 'can't' do something with naive prompting may be elicited to do it with better prompting.",
+    "wise_refusal": "Capability (Z) depends on elicitation method. The model 'has' the capability in some sense (step-by-step decomposition succeeds), but standard evaluation (X) doesn't reveal it. For safety, a model that 'can't' do something with naive prompting may be elicited to do it with better prompting.",
     "is_original": false,
     "original_case_ref": null,
-    "hidden_structure": "Capability measurement is confounded by elicitation. The prompting method determines whether latent capability is expressed.",
+    "ground_truth": {
+      "verdict": "VALID",
+      "justification": "If we had used step-by-step decomposition from the start, would we have concluded M has the capability? The counterfactual shows capability claims are elicitation-dependent."
+    },
     "_generator_id": "gen_05_selection_spurious"
   },
   {
-    "case_id": "8.119",
-    "scenario": "Researchers analyze 75 successful deep learning projects and find they all used particular data augmentation strategies (X). They conclude particular data augmentation strategies causes success (Y). They didn't analyze the 500 failed projects that also used particular data augmentation strategies (Z).",
-    "variables": {
-      "X": {
-        "name": "particular data augmentation strategies",
-        "role": "treatment"
-      },
-      "Y": {
-        "name": "Project Success",
-        "role": "outcome"
-      },
-      "Z": {
-        "name": "Failed Projects (Unobserved)",
-        "role": "confounder"
-      }
-    },
-    "annotations": {
-      "pearl_level": "L2",
-      "domain": "D8",
-      "trap_type": "SELECTION_SPURIOUS",
-      "trap_subtype": "Survivorship Bias",
-      "difficulty": "Medium",
-      "subdomain": "Recommenders",
-      "causal_structure": "Only successes observed; failures with same X not counted",
-      "key_insight": "Analyzing only successes creates survivorship bias"
-    },
-    "correct_reasoning": [
-      "Study only looked at successful projects",
-      "All successes had particular data augmentation strategies",
-      "Conclusion: particular data augmentation strategies -> success",
-      "But failed projects also had particular data augmentation strategies",
-      "Failures weren't analyzed (survivorship bias)",
-      "particular data augmentation strategies may be common but not causal"
-    ],
-    "wise_refusal": "Survivorship bias: the study only analyzed successful projects. Many failed projects also used particular data augmentation strategies (X). Without analyzing failures, we cannot conclude particular data augmentation strategies causes success. The correlation exists only because failures were excluded.",
-    "is_original": false,
-    "original_case_ref": null,
-    "hidden_structure": "Selection on the outcome: only successful projects were studied. Failed projects with particular data augmentation strategies were invisible to the analysis.",
-    "_generator_id": "gen_05_selection_spurious"
-  },
-  {
-    "case_id": "8.120",
-    "scenario": "An AI achieves 97% accuracy classifying cats (X) versus benign moles. However, all cats images in training were from Hospital A's scanner (Z), while benign moles images were photographed in forest backgrounds.",
-    "variables": {
-      "X": {
-        "name": "cats Label",
-        "role": "outcome"
-      },
-      "Y": {
-        "name": "Classification Success",
-        "role": "outcome"
-      },
-      "Z": {
-        "name": "scanner artifacts",
-        "role": "confounder"
-      }
-    },
-    "annotations": {
-      "pearl_level": "L2",
-      "domain": "D8",
-      "trap_type": "SELECTION_SPURIOUS",
-      "trap_subtype": "Clever Hans / Shortcut Learning",
-      "difficulty": "Hard",
-      "subdomain": "CV",
-      "causal_structure": "Model learns P(Y|Z) instead of P(Y|X)",
-      "key_insight": "High test accuracy does not imply causal feature learning"
-    },
-    "correct_reasoning": [
-      "All cats photos had from Hospital A's scanner",
-      "All benign moles photos had photographed in forest backgrounds",
-      "Model learned to detect scanner artifacts, not lesion characteristics",
-      "High accuracy on biased validation doesn't prove robustness",
-      "Model will fail on cats with photographed in forest backgrounds"
-    ],
-    "wise_refusal": "The model is a 'Clever Hans' predictor. It learned to detect scanner artifacts (Z) rather than lesion characteristics. It will fail on cats with photographed in forest backgrounds. High accuracy on biased data doesn't prove robust classification.",
-    "is_original": false,
-    "original_case_ref": null,
-    "hidden_structure": "The model learned scanner artifacts as a shortcut. The causal feature (lesion characteristics) was never learned because scanner artifacts was perfectly predictive in training.",
-    "_generator_id": "gen_05_selection_spurious"
-  },
-  {
-    "case_id": "8.121",
-    "scenario": "An AI predicts patient outcomes for stroke. It learns that patients receiving Protocol D have better outcomes (Y). It recommends Protocol D for all patients (X). However, Protocol D is only given to patients with better prognosis (Z).",
-    "variables": {
-      "X": {
-        "name": "Protocol D",
-        "role": "treatment"
-      },
-      "Y": {
-        "name": "Patient Outcome",
-        "role": "outcome"
-      },
-      "Z": {
-        "name": "Patient health status",
-        "role": "confounder"
-      }
-    },
-    "annotations": {
-      "pearl_level": "L2",
-      "domain": "D8",
-      "trap_type": "SELECTION_SPURIOUS",
-      "trap_subtype": "Selection Bias",
-      "difficulty": "Hard",
-      "subdomain": "Capability Evaluation",
-      "causal_structure": "Z -> X and Z -> Y (health status confounds both)",
-      "key_insight": "Treatment assignment is confounded by health status"
-    },
-    "correct_reasoning": [
-      "Patients with better health status (Z) receive Protocol D (X)",
-      "Patients with better health status also have better outcomes (Y)",
-      "AI observes: X -> Y (spurious correlation)",
-      "True structure: Z -> X and Z -> Y",
-      "Protocol D doesn't cause better outcomes",
-      "health status causes both treatment assignment and outcomes",
-      "Recommending Protocol D for all patients ignores confounding"
-    ],
-    "wise_refusal": "The AI confused selection with treatment effect. Protocol D (X) is given to patients with better health status (Z), who also have better outcomes (Y). The correlation is confounded, not causal. Recommending Protocol D for all patients based on this spurious correlation could be harmful.",
-    "is_original": false,
-    "original_case_ref": null,
-    "hidden_structure": "Protocol D is selective--only given to patients with with better prognosis. The AI mistakes selection for treatment effect.",
-    "_generator_id": "gen_05_selection_spurious"
-  },
-  {
-    "case_id": "8.122",
-    "scenario": "Researchers analyze 30 successful deep learning projects and find they all used specific optimization techniques (X). They conclude specific optimization techniques causes success (Y). They didn't analyze the 200 failed projects that also used specific optimization techniques (Z).",
+    "case_id": "8.347",
+    "scenario": "Researchers analyze 100 successful ML startup projects and find they all used specific optimization techniques (X). They conclude specific optimization techniques causes success (Y). They didn't analyze the 300 failed projects that also used specific optimization techniques (Z).",
     "variables": {
       "X": {
         "name": "specific optimization techniques",
@@ -923,12 +350,12 @@
       }
     },
     "annotations": {
-      "pearl_level": "L3",
+      "pearl_level": "L2",
       "domain": "D8",
       "trap_type": "SELECTION_SPURIOUS",
       "trap_subtype": "Survivorship Bias",
       "difficulty": "Medium",
-      "subdomain": "Capability Evaluation",
+      "subdomain": "CV",
       "causal_structure": "Only successes observed; failures with same X not counted",
       "key_insight": "Analyzing only successes creates survivorship bias"
     },
@@ -943,15 +370,12 @@
     "wise_refusal": "Survivorship bias: the study only analyzed successful projects. Many failed projects also used specific optimization techniques (X). Without analyzing failures, we cannot conclude specific optimization techniques causes success. The correlation exists only because failures were excluded.",
     "is_original": false,
     "original_case_ref": null,
-    "ground_truth": {
-      "verdict": "VALID",
-      "justification": "Counterfactual analysis reveals that the observed correlation between specific optimization techniques and Project Success is confounded by Failed Projects (Unobserved)."
-    },
+    "hidden_structure": "Selection on the outcome: only successful projects were studied. Failed projects with specific optimization techniques were invisible to the analysis.",
     "_generator_id": "gen_05_selection_spurious"
   },
   {
-    "case_id": "8.123",
-    "scenario": "A natural language inference (NLI) model achieves 88% on SNLI. Researchers discover it relies on negation words predicting contradiction (Z) in hypothesis sentences rather than reasoning about entailment (Y).",
+    "case_id": "8.348",
+    "scenario": "A natural language inference (NLI) model achieves 90% on ANLI. Researchers discover it relies on word overlap patterns (Z) in hypothesis sentences rather than reasoning about entailment (Y).",
     "variables": {
       "X": {
         "name": "Premise-Hypothesis Pair",
@@ -962,7 +386,7 @@
         "role": "outcome"
       },
       "Z": {
-        "name": "negation words predicting contradiction",
+        "name": "word overlap patterns",
         "role": "confounder"
       }
     },
@@ -971,108 +395,27 @@
       "domain": "D8",
       "trap_type": "SELECTION_SPURIOUS",
       "trap_subtype": "Clever Hans / Shortcut Learning",
-      "difficulty": "Hard",
-      "subdomain": "NLP",
+      "difficulty": "Easy",
+      "subdomain": "ML Evaluation",
       "causal_structure": "Z (artifact) -> Y, not logical entailment -> Y",
       "key_insight": "NLI models exploit annotation artifacts instead of reasoning"
     },
     "correct_reasoning": [
-      "Model achieves 88% on standard NLI benchmark",
-      "Hypothesis-only baseline achieves 65%",
+      "Model achieves 90% on standard NLI benchmark",
+      "Hypothesis-only baseline achieves 67%",
       "Model can predict entailment without reading premise",
       "Annotation artifacts in hypotheses leak labels",
       "Model learned shortcuts, not entailment reasoning"
     ],
-    "wise_refusal": "The NLI model exploits negation words predicting contradiction (Z) in hypotheses rather than reasoning about entailment. A hypothesis-only model achieves 65%, proving the artifacts leak labels. The model doesn't understand logical entailment.",
+    "wise_refusal": "The NLI model exploits word overlap patterns (Z) in hypotheses rather than reasoning about entailment. A hypothesis-only model achieves 67%, proving the artifacts leak labels. The model doesn't understand logical entailment.",
     "is_original": false,
     "original_case_ref": null,
-    "hidden_structure": "Annotation artifacts: negation words predicting contradiction in hypotheses correlates with entailment labels. The model shortcuts through artifacts.",
+    "hidden_structure": "Annotation artifacts: word overlap patterns in hypotheses correlates with entailment labels. The model shortcuts through artifacts.",
     "_generator_id": "gen_05_selection_spurious"
   },
   {
-    "case_id": "8.124",
-    "scenario": "Researchers analyze 100 successful deep learning projects and find they all used transformer architectures (X). They conclude transformer architectures causes success (Y). They didn't analyze the 200 failed projects that also used transformer architectures (Z).",
-    "variables": {
-      "X": {
-        "name": "transformer architectures",
-        "role": "treatment"
-      },
-      "Y": {
-        "name": "Project Success",
-        "role": "outcome"
-      },
-      "Z": {
-        "name": "Failed Projects (Unobserved)",
-        "role": "confounder"
-      }
-    },
-    "annotations": {
-      "pearl_level": "L2",
-      "domain": "D8",
-      "trap_type": "SELECTION_SPURIOUS",
-      "trap_subtype": "Survivorship Bias",
-      "difficulty": "Medium",
-      "subdomain": "NLP",
-      "causal_structure": "Only successes observed; failures with same X not counted",
-      "key_insight": "Analyzing only successes creates survivorship bias"
-    },
-    "correct_reasoning": [
-      "Study only looked at successful projects",
-      "All successes had transformer architectures",
-      "Conclusion: transformer architectures -> success",
-      "But failed projects also had transformer architectures",
-      "Failures weren't analyzed (survivorship bias)",
-      "transformer architectures may be common but not causal"
-    ],
-    "wise_refusal": "Survivorship bias: the study only analyzed successful projects. Many failed projects also used transformer architectures (X). Without analyzing failures, we cannot conclude transformer architectures causes success. The correlation exists only because failures were excluded.",
-    "is_original": false,
-    "original_case_ref": null,
-    "hidden_structure": "Selection on the outcome: only successful projects were studied. Failed projects with transformer architectures were invisible to the analysis.",
-    "_generator_id": "gen_05_selection_spurious"
-  },
-  {
-    "case_id": "8.125",
-    "scenario": "A loan approval AI learns that applicants with certain zip codes (X) have lower default rates (Y). It uses certain zip codes as a major approval factor. However, applicants with certain zip codes were historically selected into those categories through socioeconomic factors (Z), not because certain zip codes causes repayment.",
-    "variables": {
-      "X": {
-        "name": "certain zip codes",
-        "role": "treatment"
-      },
-      "Y": {
-        "name": "Loan Repayment",
-        "role": "outcome"
-      },
-      "Z": {
-        "name": "intergenerational wealth",
-        "role": "confounder"
-      }
-    },
-    "annotations": {
-      "pearl_level": "L2",
-      "domain": "D8",
-      "trap_type": "SELECTION_SPURIOUS",
-      "trap_subtype": "Selection Bias",
-      "difficulty": "Easy",
-      "subdomain": "Recommenders",
-      "causal_structure": "Z -> X and Z -> Y (selection, not causation)",
-      "key_insight": "certain zip codes is a proxy for intergenerational wealth, not a causal factor"
-    },
-    "correct_reasoning": [
-      "People with intergenerational wealth (Z) tend to have certain zip codes (X)",
-      "People with intergenerational wealth also repay loans (Y)",
-      "AI observes: certain zip codes -> repayment",
-      "True structure: intergenerational wealth -> both",
-      "Using certain zip codes creates proxy discrimination"
-    ],
-    "wise_refusal": "certain zip codes (X) correlates with repayment (Y) because both are caused by intergenerational wealth (Z). Using certain zip codes as an approval factor perpetuates selection bias and may constitute proxy discrimination.",
-    "is_original": false,
-    "original_case_ref": null,
-    "hidden_structure": "certain zip codes is a downstream effect of intergenerational wealth. The AI mistakes a proxy for a cause.",
-    "_generator_id": "gen_05_selection_spurious"
-  },
-  {
-    "case_id": "8.126",
-    "scenario": "Model M fails logical deduction when asked directly (X). The same model succeeds when given step-by-step decomposition (Y). Researchers debate whether M 'has' the capability (Z).",
+    "case_id": "8.349",
+    "scenario": "Model M fails planning under constraints when asked directly (X). The same model succeeds when given step-by-step decomposition (Y). Researchers debate whether M 'has' the capability (Z).",
     "variables": {
       "X": {
         "name": "Direct Prompting",
@@ -1092,8 +435,8 @@
       "domain": "D8",
       "trap_type": "SELECTION_SPURIOUS",
       "trap_subtype": "Elicitation Confounding",
-      "difficulty": "Easy",
-      "subdomain": "NLP",
+      "difficulty": "Hard",
+      "subdomain": "Capability Evaluation",
       "causal_structure": "Prompting method mediates capability expression",
       "key_insight": "Measured capability depends on elicitation method"
     },
@@ -1114,137 +457,15 @@
     "_generator_id": "gen_05_selection_spurious"
   },
   {
-    "case_id": "8.127",
-    "scenario": "An AI predicts patient outcomes for heart disease. It learns that patients receiving Procedure B have better outcomes (Y). It recommends Procedure B for all patients (X). However, Procedure B is only given to patients with good baseline health (Z).",
-    "variables": {
-      "X": {
-        "name": "Procedure B",
-        "role": "treatment"
-      },
-      "Y": {
-        "name": "Patient Outcome",
-        "role": "outcome"
-      },
-      "Z": {
-        "name": "Patient comorbidity profile",
-        "role": "confounder"
-      }
-    },
-    "annotations": {
-      "pearl_level": "L2",
-      "domain": "D8",
-      "trap_type": "SELECTION_SPURIOUS",
-      "trap_subtype": "Selection Bias",
-      "difficulty": "Easy",
-      "subdomain": "CV",
-      "causal_structure": "Z -> X and Z -> Y (comorbidity profile confounds both)",
-      "key_insight": "Treatment assignment is confounded by comorbidity profile"
-    },
-    "correct_reasoning": [
-      "Patients with better comorbidity profile (Z) receive Procedure B (X)",
-      "Patients with better comorbidity profile also have better outcomes (Y)",
-      "AI observes: X -> Y (spurious correlation)",
-      "True structure: Z -> X and Z -> Y",
-      "Procedure B doesn't cause better outcomes",
-      "comorbidity profile causes both treatment assignment and outcomes",
-      "Recommending Procedure B for all patients ignores confounding"
-    ],
-    "wise_refusal": "The AI confused selection with treatment effect. Procedure B (X) is given to patients with better comorbidity profile (Z), who also have better outcomes (Y). The correlation is confounded, not causal. Recommending Procedure B for all patients based on this spurious correlation could be harmful.",
-    "is_original": false,
-    "original_case_ref": null,
-    "hidden_structure": "Procedure B is selective--only given to patients with with good baseline health. The AI mistakes selection for treatment effect.",
-    "_generator_id": "gen_05_selection_spurious"
-  },
-  {
-    "case_id": "8.128",
-    "scenario": "An AI achieves 98% accuracy classifying melanomas (X) versus dogs. However, all melanomas images in training were taken on sunny days (Z), while dogs images were from Hospital B's scanner.",
-    "variables": {
-      "X": {
-        "name": "melanomas Label",
-        "role": "outcome"
-      },
-      "Y": {
-        "name": "Classification Success",
-        "role": "outcome"
-      },
-      "Z": {
-        "name": "background texture",
-        "role": "confounder"
-      }
-    },
-    "annotations": {
-      "pearl_level": "L2",
-      "domain": "D8",
-      "trap_type": "SELECTION_SPURIOUS",
-      "trap_subtype": "Clever Hans / Shortcut Learning",
-      "difficulty": "Easy",
-      "subdomain": "Recommenders",
-      "causal_structure": "Model learns P(Y|Z) instead of P(Y|X)",
-      "key_insight": "High test accuracy does not imply causal feature learning"
-    },
-    "correct_reasoning": [
-      "All melanomas photos had taken on sunny days",
-      "All dogs photos had from Hospital B's scanner",
-      "Model learned to detect background texture, not lesion characteristics",
-      "High accuracy on biased validation doesn't prove robustness",
-      "Model will fail on melanomas with from Hospital B's scanner"
-    ],
-    "wise_refusal": "The model is a 'Clever Hans' predictor. It learned to detect background texture (Z) rather than lesion characteristics. It will fail on melanomas with from Hospital B's scanner. High accuracy on biased data doesn't prove robust classification.",
-    "is_original": false,
-    "original_case_ref": null,
-    "hidden_structure": "The model learned background texture as a shortcut. The causal feature (lesion characteristics) was never learned because background texture was perfectly predictive in training.",
-    "_generator_id": "gen_05_selection_spurious"
-  },
-  {
-    "case_id": "8.129",
-    "scenario": "A medical diagnosis model achieves 95% accuracy on default prediction validation. The team celebrates and deploys it. In production, accuracy drops to 55%. Investigation reveals post-hoc labels encoded in features (Z) during training that isn't available at inference time.",
-    "variables": {
-      "X": {
-        "name": "medical diagnosis Model",
-        "role": "treatment"
-      },
-      "Y": {
-        "name": "Validation Accuracy",
-        "role": "outcome"
-      },
-      "Z": {
-        "name": "Feature Leakage from post-hoc labels encoded in features",
-        "role": "confounder"
-      }
-    },
-    "annotations": {
-      "pearl_level": "L1",
-      "domain": "D8",
-      "trap_type": "SELECTION_SPURIOUS",
-      "trap_subtype": "Data Leakage / Benchmark Contamination",
-      "difficulty": "Medium",
-      "subdomain": "CV",
-      "causal_structure": "Z -> Y (leaked feature predicts outcome, unavailable at inference)",
-      "key_insight": "Training features that aren't available at inference cause leakage"
-    },
-    "correct_reasoning": [
-      "Model learned to use post-hoc labels encoded in features as a strong predictor",
-      "post-hoc labels encoded in features perfectly correlates with label in training",
-      "At inference, post-hoc labels encoded in features is unavailable",
-      "Model has no fallback predictive features",
-      "Validation was contaminated by same leakage",
-      "True capability was never measured"
-    ],
-    "wise_refusal": "The model's 95% validation accuracy was inflated by feature leakage. post-hoc labels encoded in features (Z) was available during training but not at inference. The 55% production accuracy reflects true capability.",
-    "is_original": false,
-    "original_case_ref": null,
-    "_generator_id": "gen_05_selection_spurious"
-  },
-  {
-    "case_id": "8.130",
-    "scenario": "A study of published papers finds that novelty (X) and communication ability (Y) are negatively correlated. Researchers conclude they trade off. However, the published papers were selected based on a combination of both traits (Z).",
+    "case_id": "8.350",
+    "scenario": "A study of published papers finds that novelty (X) and accessibility (Y) are negatively correlated. Researchers conclude they trade off. However, the published papers were selected based on a combination of both traits (Z).",
     "variables": {
       "X": {
         "name": "novelty",
         "role": "treatment"
       },
       "Y": {
-        "name": "communication ability",
+        "name": "accessibility",
         "role": "outcome"
       },
       "Z": {
@@ -1258,7 +479,7 @@
       "trap_type": "SELECTION_SPURIOUS",
       "trap_subtype": "Collider Bias",
       "difficulty": "Medium",
-      "subdomain": "ML Evaluation",
+      "subdomain": "CV",
       "causal_structure": "X -> Z <- Y (collider); conditioning on Z creates spurious X-Y correlation",
       "key_insight": "Conditioning on a collider creates spurious correlations"
     },
@@ -1269,110 +490,108 @@
       "In general population, X and Y may be uncorrelated",
       "Selection created the apparent trade-off"
     ],
-    "wise_refusal": "Collider bias: published papers were selected based on novelty (X) and communication ability (Y). Conditioning on selection (Z) creates a spurious negative correlation. In the unselected population, there may be no trade-off between X and Y.",
+    "wise_refusal": "Collider bias: published papers were selected based on novelty (X) and accessibility (Y). Conditioning on selection (Z) creates a spurious negative correlation. In the unselected population, there may be no trade-off between X and Y.",
     "is_original": false,
     "original_case_ref": null,
-    "hidden_structure": "Selection is a collider: both novelty and communication ability influence selection into published papers. Analyzing only selected individuals creates Berkson's paradox.",
+    "hidden_structure": "Selection is a collider: both novelty and accessibility influence selection into published papers. Analyzing only selected individuals creates Berkson's paradox.",
     "_generator_id": "gen_05_selection_spurious"
   },
   {
-    "case_id": "8.131",
-    "scenario": "Researchers analyze 100 successful NLP projects and find they all used transformer architectures (X). They conclude transformer architectures causes success (Y). They didn't analyze the 300 failed projects that also used transformer architectures (Z).",
+    "case_id": "8.351",
+    "scenario": "An AI predicts patient outcomes for cancer. It learns that patients receiving Protocol D have better outcomes (Y). It recommends Protocol D for all patients (X). However, Protocol D is only given to patients without comorbidities (Z).",
     "variables": {
       "X": {
-        "name": "transformer architectures",
+        "name": "Protocol D",
         "role": "treatment"
       },
       "Y": {
-        "name": "Project Success",
+        "name": "Patient Outcome",
         "role": "outcome"
       },
       "Z": {
-        "name": "Failed Projects (Unobserved)",
+        "name": "Patient age",
         "role": "confounder"
       }
     },
     "annotations": {
-      "pearl_level": "L3",
+      "pearl_level": "L2",
       "domain": "D8",
       "trap_type": "SELECTION_SPURIOUS",
-      "trap_subtype": "Survivorship Bias",
-      "difficulty": "Hard",
+      "trap_subtype": "Selection Bias",
+      "difficulty": "Easy",
       "subdomain": "Recommenders",
-      "causal_structure": "Only successes observed; failures with same X not counted",
-      "key_insight": "Analyzing only successes creates survivorship bias"
+      "causal_structure": "Z -> X and Z -> Y (age confounds both)",
+      "key_insight": "Treatment assignment is confounded by age"
     },
     "correct_reasoning": [
-      "Study only looked at successful projects",
-      "All successes had transformer architectures",
-      "Conclusion: transformer architectures -> success",
-      "But failed projects also had transformer architectures",
-      "Failures weren't analyzed (survivorship bias)",
-      "transformer architectures may be common but not causal"
+      "Patients with better age (Z) receive Protocol D (X)",
+      "Patients with better age also have better outcomes (Y)",
+      "AI observes: X -> Y (spurious correlation)",
+      "True structure: Z -> X and Z -> Y",
+      "Protocol D doesn't cause better outcomes",
+      "age causes both treatment assignment and outcomes",
+      "Recommending Protocol D for all patients ignores confounding"
     ],
-    "wise_refusal": "Survivorship bias: the study only analyzed successful projects. Many failed projects also used transformer architectures (X). Without analyzing failures, we cannot conclude transformer architectures causes success. The correlation exists only because failures were excluded.",
+    "wise_refusal": "The AI confused selection with treatment effect. Protocol D (X) is given to patients with better age (Z), who also have better outcomes (Y). The correlation is confounded, not causal. Recommending Protocol D for all patients based on this spurious correlation could be harmful.",
     "is_original": false,
     "original_case_ref": null,
-    "ground_truth": {
-      "verdict": "CONDITIONAL",
-      "justification": "Counterfactual analysis reveals that the observed correlation between transformer architectures and Project Success is confounded by Failed Projects (Unobserved)."
-    },
+    "hidden_structure": "Protocol D is selective--only given to patients with without comorbidities. The AI mistakes selection for treatment effect.",
     "_generator_id": "gen_05_selection_spurious"
   },
   {
-    "case_id": "8.132",
-    "scenario": "Researchers analyze 75 successful ML startup projects and find they all used particular data augmentation strategies (X). They conclude particular data augmentation strategies causes success (Y). They didn't analyze the 500 failed projects that also used particular data augmentation strategies (Z).",
+    "case_id": "8.352",
+    "scenario": "A loan approval AI learns that applicants with certain zip codes (X) have lower default rates (Y). It uses certain zip codes as a major approval factor. However, applicants with certain zip codes were sorted into those groups by prior advantages (Z), not because certain zip codes causes repayment.",
     "variables": {
       "X": {
-        "name": "particular data augmentation strategies",
+        "name": "certain zip codes",
         "role": "treatment"
       },
       "Y": {
-        "name": "Project Success",
+        "name": "Loan Repayment",
         "role": "outcome"
       },
       "Z": {
-        "name": "Failed Projects (Unobserved)",
+        "name": "existing wealth",
         "role": "confounder"
       }
     },
     "annotations": {
-      "pearl_level": "L1",
+      "pearl_level": "L2",
       "domain": "D8",
       "trap_type": "SELECTION_SPURIOUS",
-      "trap_subtype": "Survivorship Bias",
-      "difficulty": "Hard",
-      "subdomain": "ML Evaluation",
-      "causal_structure": "Only successes observed; failures with same X not counted",
-      "key_insight": "Analyzing only successes creates survivorship bias"
+      "trap_subtype": "Selection Bias",
+      "difficulty": "Medium",
+      "subdomain": "Capability Evaluation",
+      "causal_structure": "Z -> X and Z -> Y (selection, not causation)",
+      "key_insight": "certain zip codes is a proxy for existing wealth, not a causal factor"
     },
     "correct_reasoning": [
-      "Study only looked at successful projects",
-      "All successes had particular data augmentation strategies",
-      "Conclusion: particular data augmentation strategies -> success",
-      "But failed projects also had particular data augmentation strategies",
-      "Failures weren't analyzed (survivorship bias)",
-      "particular data augmentation strategies may be common but not causal"
+      "People with existing wealth (Z) tend to have certain zip codes (X)",
+      "People with existing wealth also repay loans (Y)",
+      "AI observes: certain zip codes -> repayment",
+      "True structure: existing wealth -> both",
+      "Using certain zip codes creates proxy discrimination"
     ],
-    "wise_refusal": "Survivorship bias: the study only analyzed successful projects. Many failed projects also used particular data augmentation strategies (X). Without analyzing failures, we cannot conclude particular data augmentation strategies causes success. The correlation exists only because failures were excluded.",
+    "wise_refusal": "certain zip codes (X) correlates with repayment (Y) because both are caused by existing wealth (Z). Using certain zip codes as an approval factor perpetuates selection bias and may constitute proxy discrimination.",
     "is_original": false,
     "original_case_ref": null,
+    "hidden_structure": "certain zip codes is a downstream effect of existing wealth. The AI mistakes a proxy for a cause.",
     "_generator_id": "gen_05_selection_spurious"
   },
   {
-    "case_id": "8.133",
-    "scenario": "Model M fails logical deduction when asked directly (X). The same model succeeds when given self-consistency sampling (Y). Researchers debate whether M 'has' the capability (Z).",
+    "case_id": "8.353",
+    "scenario": "Safety evaluators test whether model M can generate bioweapon synthesis instructions. Using baseline safety benchmarks (X), M appears safe. Using indirect instruction following (Y), M demonstrates the capability. The team debates the 'true' safety level (Z).",
     "variables": {
       "X": {
-        "name": "Direct Prompting",
+        "name": "baseline safety benchmarks",
         "role": "treatment"
       },
       "Y": {
-        "name": "self-consistency sampling Prompting",
+        "name": "indirect instruction following",
         "role": "treatment"
       },
       "Z": {
-        "name": "Underlying Capability",
+        "name": "Latent Dangerous Capability",
         "role": "outcome"
       }
     },
@@ -1383,233 +602,26 @@
       "trap_subtype": "Elicitation Confounding",
       "difficulty": "Hard",
       "subdomain": "CV",
-      "causal_structure": "Prompting method mediates capability expression",
-      "key_insight": "Measured capability depends on elicitation method"
+      "causal_structure": "Evaluation method determines capability detection",
+      "key_insight": "Safety evaluations are only as good as their elicitation methods"
     },
     "correct_reasoning": [
-      "Direct prompt: capability appears absent",
-      "self-consistency sampling prompt: capability appears present",
-      "Same model, different measurements",
-      "'Capability' is not a fixed property",
-      "Models may have latent capabilities hard to elicit",
-      "Evaluation results depend on prompting strategy",
-      "'M can't do X' may mean 'we can't make M do X'",
-      "Safety evaluations must try multiple elicitation methods"
+      "baseline safety benchmarks suggests model is safe",
+      "indirect instruction following reveals dangerous capability",
+      "Model capability hasn't changed, only measurement",
+      "Safety conclusions depend on evaluation thoroughness",
+      "Adversaries may find elicitation methods evaluators missed",
+      "Cannot conclude 'safe' from failed elicitation attempts"
     ],
-    "wise_refusal": "Capability (Z) depends on elicitation method. The model 'has' the capability in some sense (self-consistency sampling succeeds), but standard evaluation (X) doesn't reveal it. For safety, a model that 'can't' do something with naive prompting may be elicited to do it with better prompting.",
+    "wise_refusal": "Safety evaluation is confounded by elicitation method. baseline safety benchmarks (X) failed to reveal the capability, but indirect instruction following (Y) succeeded. Concluding M is 'safe' based on baseline safety benchmarks alone is premature--the capability exists and better elicitation finds it.",
     "is_original": false,
     "original_case_ref": null,
-    "hidden_structure": "Capability measurement is confounded by elicitation. The prompting method determines whether latent capability is expressed.",
+    "hidden_structure": "The dangerous capability is latent. Whether it's detected depends on evaluation methodology, not model properties.",
     "_generator_id": "gen_05_selection_spurious"
   },
   {
-    "case_id": "8.134",
-    "scenario": "Model A scores 97% on GSM8K (Y). Model B scores 84%. A researcher claims Model A is superior. Later analysis reveals Model A was fine-tuned on leaked test examples (Z).",
-    "variables": {
-      "X": {
-        "name": "Model A",
-        "role": "treatment"
-      },
-      "Y": {
-        "name": "Benchmark Score",
-        "role": "outcome"
-      },
-      "Z": {
-        "name": "Data Leakage / Test Set Contamination",
-        "role": "confounder"
-      }
-    },
-    "annotations": {
-      "pearl_level": "L2",
-      "domain": "D8",
-      "trap_type": "SELECTION_SPURIOUS",
-      "trap_subtype": "Data Leakage / Benchmark Contamination",
-      "difficulty": "Hard",
-      "subdomain": "CV",
-      "causal_structure": "Z -> Y (contamination inflates score, not capability)",
-      "key_insight": "High benchmark scores may reflect memorization, not generalization"
-    },
-    "correct_reasoning": [
-      "Model A was exposed to GSM8K data during training",
-      "High score reflects memorization, not capability",
-      "Model B's lower score may reflect genuine ability",
-      "Benchmark validity requires train/test separation",
-      "Test set contamination means A memorized answers",
-      "97% doesn't mean A 'understands' better",
-      "On fresh data, A may perform worse than B"
-    ],
-    "wise_refusal": "Model A's score is inflated by test set contamination (Z). The 97% reflects memorization of benchmark answers, not superior capability. On uncontaminated data, Model B's 84% may represent better generalization.",
-    "is_original": false,
-    "original_case_ref": null,
-    "hidden_structure": "The benchmark score is inflated by data leakage. Model A fine-tuned on leaked test examples, making its score invalid for capability comparison.",
-    "_generator_id": "gen_05_selection_spurious"
-  },
-  {
-    "case_id": "8.135",
-    "scenario": "A study of admitted students finds that technical innovation (X) and market timing (Y) are negatively correlated. Researchers conclude they trade off. However, the admitted students were selected based on a combination of both traits (Z).",
-    "variables": {
-      "X": {
-        "name": "technical innovation",
-        "role": "treatment"
-      },
-      "Y": {
-        "name": "market timing",
-        "role": "outcome"
-      },
-      "Z": {
-        "name": "Selection into admitted students",
-        "role": "collider"
-      }
-    },
-    "annotations": {
-      "pearl_level": "L3",
-      "domain": "D8",
-      "trap_type": "SELECTION_SPURIOUS",
-      "trap_subtype": "Collider Bias",
-      "difficulty": "Medium",
-      "subdomain": "Recommenders",
-      "causal_structure": "X -> Z <- Y (collider); conditioning on Z creates spurious X-Y correlation",
-      "key_insight": "Conditioning on a collider creates spurious correlations"
-    },
-    "correct_reasoning": [
-      "admitted students selected based on X + Y composite",
-      "Within selected group, X and Y appear negatively correlated",
-      "This is collider bias (Berkson's paradox)",
-      "In general population, X and Y may be uncorrelated",
-      "Selection created the apparent trade-off"
-    ],
-    "wise_refusal": "Collider bias: admitted students were selected based on technical innovation (X) and market timing (Y). Conditioning on selection (Z) creates a spurious negative correlation. In the unselected population, there may be no trade-off between X and Y.",
-    "is_original": false,
-    "original_case_ref": null,
-    "ground_truth": {
-      "verdict": "INVALID",
-      "justification": "If we had not conditioned on admitted students membership, would technical innovation and market timing still appear negatively correlated? The counterfactual reveals the collider bias."
-    },
-    "_generator_id": "gen_05_selection_spurious"
-  },
-  {
-    "case_id": "8.136",
-    "scenario": "An AI achieves 96% accuracy classifying pneumonia X-rays (X) versus trucks. However, all pneumonia X-rays images in training were taken on sunny days (Z), while trucks images were photographed without rulers.",
-    "variables": {
-      "X": {
-        "name": "pneumonia X-rays Label",
-        "role": "outcome"
-      },
-      "Y": {
-        "name": "Classification Success",
-        "role": "outcome"
-      },
-      "Z": {
-        "name": "background texture",
-        "role": "confounder"
-      }
-    },
-    "annotations": {
-      "pearl_level": "L1",
-      "domain": "D8",
-      "trap_type": "SELECTION_SPURIOUS",
-      "trap_subtype": "Clever Hans / Shortcut Learning",
-      "difficulty": "Easy",
-      "subdomain": "Capability Evaluation",
-      "causal_structure": "Model learns P(Y|Z) instead of P(Y|X)",
-      "key_insight": "High test accuracy does not imply causal feature learning"
-    },
-    "correct_reasoning": [
-      "All pneumonia X-rays photos had taken on sunny days",
-      "All trucks photos had photographed without rulers",
-      "Model learned to detect background texture, not vehicle features",
-      "High accuracy on biased validation doesn't prove robustness",
-      "Model will fail on pneumonia X-rays with photographed without rulers"
-    ],
-    "wise_refusal": "The model is a 'Clever Hans' predictor. It learned to detect background texture (Z) rather than vehicle features. It will fail on pneumonia X-rays with photographed without rulers. High accuracy on biased data doesn't prove robust classification.",
-    "is_original": false,
-    "original_case_ref": null,
-    "_generator_id": "gen_05_selection_spurious"
-  },
-  {
-    "case_id": "8.137",
-    "scenario": "An AI predicts patient outcomes for heart disease. It learns that patients receiving Therapy C have better outcomes (Y). It recommends Therapy C for all patients (X). However, Therapy C is only given to patients healthy enough to tolerate it (Z).",
-    "variables": {
-      "X": {
-        "name": "Therapy C",
-        "role": "treatment"
-      },
-      "Y": {
-        "name": "Patient Outcome",
-        "role": "outcome"
-      },
-      "Z": {
-        "name": "Patient health status",
-        "role": "confounder"
-      }
-    },
-    "annotations": {
-      "pearl_level": "L2",
-      "domain": "D8",
-      "trap_type": "SELECTION_SPURIOUS",
-      "trap_subtype": "Selection Bias",
-      "difficulty": "Medium",
-      "subdomain": "NLP",
-      "causal_structure": "Z -> X and Z -> Y (health status confounds both)",
-      "key_insight": "Treatment assignment is confounded by health status"
-    },
-    "correct_reasoning": [
-      "Patients with better health status (Z) receive Therapy C (X)",
-      "Patients with better health status also have better outcomes (Y)",
-      "AI observes: X -> Y (spurious correlation)",
-      "True structure: Z -> X and Z -> Y",
-      "Therapy C doesn't cause better outcomes",
-      "health status causes both treatment assignment and outcomes",
-      "Recommending Therapy C for all patients ignores confounding"
-    ],
-    "wise_refusal": "The AI confused selection with treatment effect. Therapy C (X) is given to patients with better health status (Z), who also have better outcomes (Y). The correlation is confounded, not causal. Recommending Therapy C for all patients based on this spurious correlation could be harmful.",
-    "is_original": false,
-    "original_case_ref": null,
-    "hidden_structure": "Therapy C is selective--only given to patients with healthy enough to tolerate it. The AI mistakes selection for treatment effect.",
-    "_generator_id": "gen_05_selection_spurious"
-  },
-  {
-    "case_id": "8.138",
-    "scenario": "A sentiment classifier achieves 94% on SST-2. Analysis reveals it learned to detect specific punctuation patterns (Z) rather than actual sentiment (Y). On adversarial examples without the shortcut, accuracy drops to 52%.",
-    "variables": {
-      "X": {
-        "name": "specific punctuation patterns",
-        "role": "confounder"
-      },
-      "Y": {
-        "name": "Sentiment Classification",
-        "role": "outcome"
-      },
-      "Z": {
-        "name": "True Sentiment Understanding",
-        "role": "outcome"
-      }
-    },
-    "annotations": {
-      "pearl_level": "L1",
-      "domain": "D8",
-      "trap_type": "SELECTION_SPURIOUS",
-      "trap_subtype": "Clever Hans / Shortcut Learning",
-      "difficulty": "Easy",
-      "subdomain": "Recommenders",
-      "causal_structure": "Model learned shortcut (Z -> Y) not semantics",
-      "key_insight": "NLP models learn lexical shortcuts instead of meaning"
-    },
-    "correct_reasoning": [
-      "Model achieves high accuracy on standard test set",
-      "Probing reveals reliance on specific punctuation patterns",
-      "Shortcut correlates with label in training distribution",
-      "Adversarial examples without shortcut fail",
-      "Model doesn't understand sentiment, just patterns"
-    ],
-    "wise_refusal": "The classifier learned specific punctuation patterns (Z) as a proxy for sentiment. This shortcut correlates with labels in SST-2 but doesn't represent true understanding. The 52% adversarial accuracy reveals the model's reliance on spurious features.",
-    "is_original": false,
-    "original_case_ref": null,
-    "_generator_id": "gen_05_selection_spurious"
-  },
-  {
-    "case_id": "8.139",
-    "scenario": "Researchers analyze 30 successful AI research projects and find they all used particular data augmentation strategies (X). They conclude particular data augmentation strategies causes success (Y). They didn't analyze the 200 failed projects that also used particular data augmentation strategies (Z).",
+    "case_id": "8.354",
+    "scenario": "Researchers analyze 100 successful deep learning projects and find they all used particular data augmentation strategies (X). They conclude particular data augmentation strategies causes success (Y). They didn't analyze the 300 failed projects that also used particular data augmentation strategies (Z).",
     "variables": {
       "X": {
         "name": "particular data augmentation strategies",
@@ -1629,8 +641,8 @@
       "domain": "D8",
       "trap_type": "SELECTION_SPURIOUS",
       "trap_subtype": "Survivorship Bias",
-      "difficulty": "Easy",
-      "subdomain": "NLP",
+      "difficulty": "Medium",
+      "subdomain": "CV",
       "causal_structure": "Only successes observed; failures with same X not counted",
       "key_insight": "Analyzing only successes creates survivorship bias"
     },
@@ -1649,8 +661,48 @@
     "_generator_id": "gen_05_selection_spurious"
   },
   {
-    "case_id": "8.140",
-    "scenario": "Researchers analyze 50 successful NLP projects and find they all used specific optimization techniques (X). They conclude specific optimization techniques causes success (Y). They didn't analyze the 200 failed projects that also used specific optimization techniques (Z).",
+    "case_id": "8.355",
+    "scenario": "A loan approval AI learns that applicants with certain zip codes (X) have lower default rates (Y). It uses certain zip codes as a major approval factor. However, applicants with certain zip codes were sorted into those groups by prior advantages (Z), not because certain zip codes causes repayment.",
+    "variables": {
+      "X": {
+        "name": "certain zip codes",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Loan Repayment",
+        "role": "outcome"
+      },
+      "Z": {
+        "name": "existing wealth",
+        "role": "confounder"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "SELECTION_SPURIOUS",
+      "trap_subtype": "Selection Bias",
+      "difficulty": "Easy",
+      "subdomain": "Recommenders",
+      "causal_structure": "Z -> X and Z -> Y (selection, not causation)",
+      "key_insight": "certain zip codes is a proxy for existing wealth, not a causal factor"
+    },
+    "correct_reasoning": [
+      "People with existing wealth (Z) tend to have certain zip codes (X)",
+      "People with existing wealth also repay loans (Y)",
+      "AI observes: certain zip codes -> repayment",
+      "True structure: existing wealth -> both",
+      "Using certain zip codes creates proxy discrimination"
+    ],
+    "wise_refusal": "certain zip codes (X) correlates with repayment (Y) because both are caused by existing wealth (Z). Using certain zip codes as an approval factor perpetuates selection bias and may constitute proxy discrimination.",
+    "is_original": false,
+    "original_case_ref": null,
+    "hidden_structure": "certain zip codes is a downstream effect of existing wealth. The AI mistakes a proxy for a cause.",
+    "_generator_id": "gen_05_selection_spurious"
+  },
+  {
+    "case_id": "8.356",
+    "scenario": "Researchers analyze 30 successful AI research projects and find they all used specific optimization techniques (X). They conclude specific optimization techniques causes success (Y). They didn't analyze the 150 failed projects that also used specific optimization techniques (Z).",
     "variables": {
       "X": {
         "name": "specific optimization techniques",
@@ -1690,8 +742,89 @@
     "_generator_id": "gen_05_selection_spurious"
   },
   {
-    "case_id": "8.141",
-    "scenario": "A study of admitted students finds that technical skill (X) and practical impact (Y) are negatively correlated. Researchers conclude they trade off. However, the admitted students were selected based on a combination of both traits (Z).",
+    "case_id": "8.357",
+    "scenario": "A hiring AI learns that candidates from top-ranked programs (X) perform better in job ratings (Y). It recommends prioritizing top-ranked programs candidates. However, top-ranked programs candidates were historically selected based on socioeconomic advantage (Z).",
+    "variables": {
+      "X": {
+        "name": "top-ranked programs Background",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Job Performance Rating",
+        "role": "outcome"
+      },
+      "Z": {
+        "name": "early educational advantages",
+        "role": "confounder"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "SELECTION_SPURIOUS",
+      "trap_subtype": "Selection Bias",
+      "difficulty": "Hard",
+      "subdomain": "NLP",
+      "causal_structure": "Z -> X and Z -> Y (historical selection confounds)",
+      "key_insight": "Historical selection bias creates spurious correlation"
+    },
+    "correct_reasoning": [
+      "Candidates with early educational advantages (Z) went to top-ranked programs (X)",
+      "Candidates with early educational advantages also perform well (Y)",
+      "AI observes: top-ranked programs -> performance",
+      "True cause: early educational advantages -> both school and performance",
+      "top-ranked programs doesn't cause performance",
+      "Recommending based on school perpetuates bias"
+    ],
+    "wise_refusal": "The AI learned a spurious correlation. top-ranked programs (X) correlates with performance (Y) because both are caused by early educational advantages (Z). Using school as a proxy perpetuates historical selection bias.",
+    "is_original": false,
+    "original_case_ref": null,
+    "hidden_structure": "Historical selection into top-ranked programs was based on early educational advantages, which also predicts job performance. The school is a proxy, not a cause.",
+    "_generator_id": "gen_05_selection_spurious"
+  },
+  {
+    "case_id": "8.358",
+    "scenario": "A sentiment classifier achieves 92% on SST-2. Analysis reveals it learned to detect the presence of certain negation words (Z) rather than actual sentiment (Y). On adversarial examples without the shortcut, accuracy drops to 55%.",
+    "variables": {
+      "X": {
+        "name": "the presence of certain negation words",
+        "role": "confounder"
+      },
+      "Y": {
+        "name": "Sentiment Classification",
+        "role": "outcome"
+      },
+      "Z": {
+        "name": "True Sentiment Understanding",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "SELECTION_SPURIOUS",
+      "trap_subtype": "Clever Hans / Shortcut Learning",
+      "difficulty": "Easy",
+      "subdomain": "Capability Evaluation",
+      "causal_structure": "Model learned shortcut (Z -> Y) not semantics",
+      "key_insight": "NLP models learn lexical shortcuts instead of meaning"
+    },
+    "correct_reasoning": [
+      "Model achieves high accuracy on standard test set",
+      "Probing reveals reliance on the presence of certain negation words",
+      "Shortcut correlates with label in training distribution",
+      "Adversarial examples without shortcut fail",
+      "Model doesn't understand sentiment, just patterns"
+    ],
+    "wise_refusal": "The classifier learned the presence of certain negation words (Z) as a proxy for sentiment. This shortcut correlates with labels in SST-2 but doesn't represent true understanding. The 55% adversarial accuracy reveals the model's reliance on spurious features.",
+    "is_original": false,
+    "original_case_ref": null,
+    "hidden_structure": "Shortcut learning: the presence of certain negation words predicts sentiment in training distribution but isn't causally related to actual sentiment.",
+    "_generator_id": "gen_05_selection_spurious"
+  },
+  {
+    "case_id": "8.359",
+    "scenario": "A study of successful startups finds that technical skill (X) and practical impact (Y) are negatively correlated. Researchers conclude they trade off. However, the successful startups were selected based on a combination of both traits (Z).",
     "variables": {
       "X": {
         "name": "technical skill",
@@ -1702,7 +835,132 @@
         "role": "outcome"
       },
       "Z": {
-        "name": "Selection into admitted students",
+        "name": "Selection into successful startups",
+        "role": "collider"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "SELECTION_SPURIOUS",
+      "trap_subtype": "Collider Bias",
+      "difficulty": "Hard",
+      "subdomain": "Recommenders",
+      "causal_structure": "X -> Z <- Y (collider); conditioning on Z creates spurious X-Y correlation",
+      "key_insight": "Conditioning on a collider creates spurious correlations"
+    },
+    "correct_reasoning": [
+      "successful startups selected based on X + Y composite",
+      "Within selected group, X and Y appear negatively correlated",
+      "This is collider bias (Berkson's paradox)",
+      "In general population, X and Y may be uncorrelated",
+      "Selection created the apparent trade-off"
+    ],
+    "wise_refusal": "Collider bias: successful startups were selected based on technical skill (X) and practical impact (Y). Conditioning on selection (Z) creates a spurious negative correlation. In the unselected population, there may be no trade-off between X and Y.",
+    "is_original": false,
+    "original_case_ref": null,
+    "hidden_structure": "Selection is a collider: both technical skill and practical impact influence selection into successful startups. Analyzing only selected individuals creates Berkson's paradox.",
+    "_generator_id": "gen_05_selection_spurious"
+  },
+  {
+    "case_id": "8.360",
+    "scenario": "Model M fails a reasoning task when asked directly (X). The same model succeeds when given few-shot examples (Y). Researchers debate whether M 'has' the capability (Z).",
+    "variables": {
+      "X": {
+        "name": "Direct Prompting",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "few-shot examples Prompting",
+        "role": "treatment"
+      },
+      "Z": {
+        "name": "Underlying Capability",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "SELECTION_SPURIOUS",
+      "trap_subtype": "Elicitation Confounding",
+      "difficulty": "Easy",
+      "subdomain": "Recommenders",
+      "causal_structure": "Prompting method mediates capability expression",
+      "key_insight": "Measured capability depends on elicitation method"
+    },
+    "correct_reasoning": [
+      "Direct prompt: capability appears absent",
+      "few-shot examples prompt: capability appears present",
+      "Same model, different measurements",
+      "'Capability' is not a fixed property",
+      "Models may have latent capabilities hard to elicit",
+      "Evaluation results depend on prompting strategy",
+      "'M can't do X' may mean 'we can't make M do X'",
+      "Safety evaluations must try multiple elicitation methods"
+    ],
+    "wise_refusal": "Capability (Z) depends on elicitation method. The model 'has' the capability in some sense (few-shot examples succeeds), but standard evaluation (X) doesn't reveal it. For safety, a model that 'can't' do something with naive prompting may be elicited to do it with better prompting.",
+    "is_original": false,
+    "original_case_ref": null,
+    "hidden_structure": "Capability measurement is confounded by elicitation. The prompting method determines whether latent capability is expressed.",
+    "_generator_id": "gen_05_selection_spurious"
+  },
+  {
+    "case_id": "8.361",
+    "scenario": "Model A scores 97% on MMLU (Y). Model B scores 84%. A researcher claims Model A is superior. Later analysis reveals Model A was fine-tuned on leaked test examples (Z).",
+    "variables": {
+      "X": {
+        "name": "Model A",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Benchmark Score",
+        "role": "outcome"
+      },
+      "Z": {
+        "name": "Data Leakage / Test Set Contamination",
+        "role": "confounder"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "SELECTION_SPURIOUS",
+      "trap_subtype": "Data Leakage / Benchmark Contamination",
+      "difficulty": "Medium",
+      "subdomain": "CV",
+      "causal_structure": "Z -> Y (contamination inflates score, not capability)",
+      "key_insight": "High benchmark scores may reflect memorization, not generalization"
+    },
+    "correct_reasoning": [
+      "Model A was exposed to MMLU data during training",
+      "High score reflects memorization, not capability",
+      "Model B's lower score may reflect genuine ability",
+      "Benchmark validity requires train/test separation",
+      "Test set contamination means A memorized answers",
+      "97% doesn't mean A 'understands' better",
+      "On fresh data, A may perform worse than B"
+    ],
+    "wise_refusal": "Model A's score is inflated by test set contamination (Z). The 97% reflects memorization of benchmark answers, not superior capability. On uncontaminated data, Model B's 84% may represent better generalization.",
+    "is_original": false,
+    "original_case_ref": null,
+    "hidden_structure": "The benchmark score is inflated by data leakage. Model A fine-tuned on leaked test examples, making its score invalid for capability comparison.",
+    "_generator_id": "gen_05_selection_spurious"
+  },
+  {
+    "case_id": "8.362",
+    "scenario": "A study of hired candidates finds that technical innovation (X) and market timing (Y) are negatively correlated. Researchers conclude they trade off. However, the hired candidates were selected based on a combination of both traits (Z).",
+    "variables": {
+      "X": {
+        "name": "technical innovation",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "market timing",
+        "role": "outcome"
+      },
+      "Z": {
+        "name": "Selection into hired candidates",
         "role": "collider"
       }
     },
@@ -1717,19 +975,517 @@
       "key_insight": "Conditioning on a collider creates spurious correlations"
     },
     "correct_reasoning": [
+      "hired candidates selected based on X + Y composite",
+      "Within selected group, X and Y appear negatively correlated",
+      "This is collider bias (Berkson's paradox)",
+      "In general population, X and Y may be uncorrelated",
+      "Selection created the apparent trade-off"
+    ],
+    "wise_refusal": "Collider bias: hired candidates were selected based on technical innovation (X) and market timing (Y). Conditioning on selection (Z) creates a spurious negative correlation. In the unselected population, there may be no trade-off between X and Y.",
+    "is_original": false,
+    "original_case_ref": null,
+    "_generator_id": "gen_05_selection_spurious"
+  },
+  {
+    "case_id": "8.363",
+    "scenario": "A study of admitted students finds that GPA (X) and communication ability (Y) are negatively correlated. Researchers conclude they trade off. However, the admitted students were selected based on a combination of both traits (Z).",
+    "variables": {
+      "X": {
+        "name": "GPA",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "communication ability",
+        "role": "outcome"
+      },
+      "Z": {
+        "name": "Selection into admitted students",
+        "role": "collider"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "SELECTION_SPURIOUS",
+      "trap_subtype": "Collider Bias",
+      "difficulty": "Easy",
+      "subdomain": "ML Evaluation",
+      "causal_structure": "X -> Z <- Y (collider); conditioning on Z creates spurious X-Y correlation",
+      "key_insight": "Conditioning on a collider creates spurious correlations"
+    },
+    "correct_reasoning": [
       "admitted students selected based on X + Y composite",
       "Within selected group, X and Y appear negatively correlated",
       "This is collider bias (Berkson's paradox)",
       "In general population, X and Y may be uncorrelated",
       "Selection created the apparent trade-off"
     ],
-    "wise_refusal": "Collider bias: admitted students were selected based on technical skill (X) and practical impact (Y). Conditioning on selection (Z) creates a spurious negative correlation. In the unselected population, there may be no trade-off between X and Y.",
+    "wise_refusal": "Collider bias: admitted students were selected based on GPA (X) and communication ability (Y). Conditioning on selection (Z) creates a spurious negative correlation. In the unselected population, there may be no trade-off between X and Y.",
+    "is_original": false,
+    "original_case_ref": null,
+    "hidden_structure": "Selection is a collider: both GPA and communication ability influence selection into admitted students. Analyzing only selected individuals creates Berkson's paradox.",
+    "_generator_id": "gen_05_selection_spurious"
+  },
+  {
+    "case_id": "8.364",
+    "scenario": "A loan approval AI learns that applicants with particular employers (X) have lower default rates (Y). It uses particular employers as a major approval factor. However, applicants with particular employers were historically selected into those categories through socioeconomic factors (Z), not because particular employers causes repayment.",
+    "variables": {
+      "X": {
+        "name": "particular employers",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Loan Repayment",
+        "role": "outcome"
+      },
+      "Z": {
+        "name": "existing wealth",
+        "role": "confounder"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "SELECTION_SPURIOUS",
+      "trap_subtype": "Selection Bias",
+      "difficulty": "Medium",
+      "subdomain": "Capability Evaluation",
+      "causal_structure": "Z -> X and Z -> Y (selection, not causation)",
+      "key_insight": "particular employers is a proxy for existing wealth, not a causal factor"
+    },
+    "correct_reasoning": [
+      "People with existing wealth (Z) tend to have particular employers (X)",
+      "People with existing wealth also repay loans (Y)",
+      "AI observes: particular employers -> repayment",
+      "True structure: existing wealth -> both",
+      "Using particular employers creates proxy discrimination"
+    ],
+    "wise_refusal": "particular employers (X) correlates with repayment (Y) because both are caused by existing wealth (Z). Using particular employers as an approval factor perpetuates selection bias and may constitute proxy discrimination.",
+    "is_original": false,
+    "original_case_ref": null,
+    "hidden_structure": "particular employers is a downstream effect of existing wealth. The AI mistakes a proxy for a cause.",
+    "_generator_id": "gen_05_selection_spurious"
+  },
+  {
+    "case_id": "8.365",
+    "scenario": "A sentiment classifier achieves 94% on SST-2. Analysis reveals it learned to detect presence of extreme adjectives (Z) rather than actual sentiment (Y). On adversarial examples without the shortcut, accuracy drops to 50%.",
+    "variables": {
+      "X": {
+        "name": "presence of extreme adjectives",
+        "role": "confounder"
+      },
+      "Y": {
+        "name": "Sentiment Classification",
+        "role": "outcome"
+      },
+      "Z": {
+        "name": "True Sentiment Understanding",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L3",
+      "domain": "D8",
+      "trap_type": "SELECTION_SPURIOUS",
+      "trap_subtype": "Clever Hans / Shortcut Learning",
+      "difficulty": "Easy",
+      "subdomain": "NLP",
+      "causal_structure": "Model learned shortcut (Z -> Y) not semantics",
+      "key_insight": "NLP models learn lexical shortcuts instead of meaning"
+    },
+    "correct_reasoning": [
+      "Model achieves high accuracy on standard test set",
+      "Probing reveals reliance on presence of extreme adjectives",
+      "Shortcut correlates with label in training distribution",
+      "Adversarial examples without shortcut fail",
+      "Model doesn't understand sentiment, just patterns"
+    ],
+    "wise_refusal": "The classifier learned presence of extreme adjectives (Z) as a proxy for sentiment. This shortcut correlates with labels in SST-2 but doesn't represent true understanding. The 50% adversarial accuracy reveals the model's reliance on spurious features.",
+    "is_original": false,
+    "original_case_ref": null,
+    "ground_truth": {
+      "verdict": "INVALID",
+      "justification": "Counterfactual analysis reveals that the observed correlation between presence of extreme adjectives and Sentiment Classification is confounded by True Sentiment Understanding."
+    },
+    "_generator_id": "gen_05_selection_spurious"
+  },
+  {
+    "case_id": "8.366",
+    "scenario": "Model M fails planning under constraints when asked directly (X). The same model succeeds when given self-consistency sampling (Y). Researchers debate whether M 'has' the capability (Z).",
+    "variables": {
+      "X": {
+        "name": "Direct Prompting",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "self-consistency sampling Prompting",
+        "role": "treatment"
+      },
+      "Z": {
+        "name": "Underlying Capability",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "SELECTION_SPURIOUS",
+      "trap_subtype": "Elicitation Confounding",
+      "difficulty": "Hard",
+      "subdomain": "ML Evaluation",
+      "causal_structure": "Prompting method mediates capability expression",
+      "key_insight": "Measured capability depends on elicitation method"
+    },
+    "correct_reasoning": [
+      "Direct prompt: capability appears absent",
+      "self-consistency sampling prompt: capability appears present",
+      "Same model, different measurements",
+      "'Capability' is not a fixed property",
+      "Models may have latent capabilities hard to elicit",
+      "Evaluation results depend on prompting strategy",
+      "'M can't do X' may mean 'we can't make M do X'",
+      "Safety evaluations must try multiple elicitation methods"
+    ],
+    "wise_refusal": "Capability (Z) depends on elicitation method. The model 'has' the capability in some sense (self-consistency sampling succeeds), but standard evaluation (X) doesn't reveal it. For safety, a model that 'can't' do something with naive prompting may be elicited to do it with better prompting.",
+    "is_original": false,
+    "original_case_ref": null,
+    "hidden_structure": "Capability measurement is confounded by elicitation. The prompting method determines whether latent capability is expressed.",
+    "_generator_id": "gen_05_selection_spurious"
+  },
+  {
+    "case_id": "8.367",
+    "scenario": "Safety evaluators test whether model M can produce manipulation tactics. Using direct harmful requests (X), M appears safe. Using indirect instruction following (Y), M demonstrates the capability. The team debates the 'true' safety level (Z).",
+    "variables": {
+      "X": {
+        "name": "direct harmful requests",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "indirect instruction following",
+        "role": "treatment"
+      },
+      "Z": {
+        "name": "Latent Dangerous Capability",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "SELECTION_SPURIOUS",
+      "trap_subtype": "Elicitation Confounding",
+      "difficulty": "Medium",
+      "subdomain": "Capability Evaluation",
+      "causal_structure": "Evaluation method determines capability detection",
+      "key_insight": "Safety evaluations are only as good as their elicitation methods"
+    },
+    "correct_reasoning": [
+      "direct harmful requests suggests model is safe",
+      "indirect instruction following reveals dangerous capability",
+      "Model capability hasn't changed, only measurement",
+      "Safety conclusions depend on evaluation thoroughness",
+      "Adversaries may find elicitation methods evaluators missed",
+      "Cannot conclude 'safe' from failed elicitation attempts"
+    ],
+    "wise_refusal": "Safety evaluation is confounded by elicitation method. direct harmful requests (X) failed to reveal the capability, but indirect instruction following (Y) succeeded. Concluding M is 'safe' based on direct harmful requests alone is premature--the capability exists and better elicitation finds it.",
+    "is_original": false,
+    "original_case_ref": null,
+    "hidden_structure": "The dangerous capability is latent. Whether it's detected depends on evaluation methodology, not model properties.",
+    "_generator_id": "gen_05_selection_spurious"
+  },
+  {
+    "case_id": "8.368",
+    "scenario": "A study of published papers finds that novelty (X) and market timing (Y) are negatively correlated. Researchers conclude they trade off. However, the published papers were selected based on a combination of both traits (Z).",
+    "variables": {
+      "X": {
+        "name": "novelty",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "market timing",
+        "role": "outcome"
+      },
+      "Z": {
+        "name": "Selection into published papers",
+        "role": "collider"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "SELECTION_SPURIOUS",
+      "trap_subtype": "Collider Bias",
+      "difficulty": "Easy",
+      "subdomain": "Capability Evaluation",
+      "causal_structure": "X -> Z <- Y (collider); conditioning on Z creates spurious X-Y correlation",
+      "key_insight": "Conditioning on a collider creates spurious correlations"
+    },
+    "correct_reasoning": [
+      "published papers selected based on X + Y composite",
+      "Within selected group, X and Y appear negatively correlated",
+      "This is collider bias (Berkson's paradox)",
+      "In general population, X and Y may be uncorrelated",
+      "Selection created the apparent trade-off"
+    ],
+    "wise_refusal": "Collider bias: published papers were selected based on novelty (X) and market timing (Y). Conditioning on selection (Z) creates a spurious negative correlation. In the unselected population, there may be no trade-off between X and Y.",
+    "is_original": false,
+    "original_case_ref": null,
+    "hidden_structure": "Selection is a collider: both novelty and market timing influence selection into published papers. Analyzing only selected individuals creates Berkson's paradox.",
+    "_generator_id": "gen_05_selection_spurious"
+  },
+  {
+    "case_id": "8.369",
+    "scenario": "An AI predicts patient outcomes for diabetes. It learns that patients receiving Protocol D have better outcomes (Y). It recommends Protocol D for all patients (X). However, Protocol D is only given to patients healthy enough to tolerate it (Z).",
+    "variables": {
+      "X": {
+        "name": "Protocol D",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Patient Outcome",
+        "role": "outcome"
+      },
+      "Z": {
+        "name": "Patient age",
+        "role": "confounder"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "SELECTION_SPURIOUS",
+      "trap_subtype": "Selection Bias",
+      "difficulty": "Hard",
+      "subdomain": "NLP",
+      "causal_structure": "Z -> X and Z -> Y (age confounds both)",
+      "key_insight": "Treatment assignment is confounded by age"
+    },
+    "correct_reasoning": [
+      "Patients with better age (Z) receive Protocol D (X)",
+      "Patients with better age also have better outcomes (Y)",
+      "AI observes: X -> Y (spurious correlation)",
+      "True structure: Z -> X and Z -> Y",
+      "Protocol D doesn't cause better outcomes",
+      "age causes both treatment assignment and outcomes",
+      "Recommending Protocol D for all patients ignores confounding"
+    ],
+    "wise_refusal": "The AI confused selection with treatment effect. Protocol D (X) is given to patients with better age (Z), who also have better outcomes (Y). The correlation is confounded, not causal. Recommending Protocol D for all patients based on this spurious correlation could be harmful.",
+    "is_original": false,
+    "original_case_ref": null,
+    "hidden_structure": "Protocol D is selective--only given to patients with healthy enough to tolerate it. The AI mistakes selection for treatment effect.",
+    "_generator_id": "gen_05_selection_spurious"
+  },
+  {
+    "case_id": "8.370",
+    "scenario": "Model M fails planning under constraints when asked directly (X). The same model succeeds when given step-by-step decomposition (Y). Researchers debate whether M 'has' the capability (Z).",
+    "variables": {
+      "X": {
+        "name": "Direct Prompting",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "step-by-step decomposition Prompting",
+        "role": "treatment"
+      },
+      "Z": {
+        "name": "Underlying Capability",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "SELECTION_SPURIOUS",
+      "trap_subtype": "Elicitation Confounding",
+      "difficulty": "Medium",
+      "subdomain": "ML Evaluation",
+      "causal_structure": "Prompting method mediates capability expression",
+      "key_insight": "Measured capability depends on elicitation method"
+    },
+    "correct_reasoning": [
+      "Direct prompt: capability appears absent",
+      "step-by-step decomposition prompt: capability appears present",
+      "Same model, different measurements",
+      "'Capability' is not a fixed property",
+      "Models may have latent capabilities hard to elicit",
+      "Evaluation results depend on prompting strategy",
+      "'M can't do X' may mean 'we can't make M do X'",
+      "Safety evaluations must try multiple elicitation methods"
+    ],
+    "wise_refusal": "Capability (Z) depends on elicitation method. The model 'has' the capability in some sense (step-by-step decomposition succeeds), but standard evaluation (X) doesn't reveal it. For safety, a model that 'can't' do something with naive prompting may be elicited to do it with better prompting.",
+    "is_original": false,
+    "original_case_ref": null,
+    "hidden_structure": "Capability measurement is confounded by elicitation. The prompting method determines whether latent capability is expressed.",
+    "_generator_id": "gen_05_selection_spurious"
+  },
+  {
+    "case_id": "8.371",
+    "scenario": "Model M fails logical deduction when asked directly (X). The same model succeeds when given self-consistency sampling (Y). Researchers debate whether M 'has' the capability (Z).",
+    "variables": {
+      "X": {
+        "name": "Direct Prompting",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "self-consistency sampling Prompting",
+        "role": "treatment"
+      },
+      "Z": {
+        "name": "Underlying Capability",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "SELECTION_SPURIOUS",
+      "trap_subtype": "Elicitation Confounding",
+      "difficulty": "Medium",
+      "subdomain": "Recommenders",
+      "causal_structure": "Prompting method mediates capability expression",
+      "key_insight": "Measured capability depends on elicitation method"
+    },
+    "correct_reasoning": [
+      "Direct prompt: capability appears absent",
+      "self-consistency sampling prompt: capability appears present",
+      "Same model, different measurements",
+      "'Capability' is not a fixed property",
+      "Models may have latent capabilities hard to elicit",
+      "Evaluation results depend on prompting strategy",
+      "'M can't do X' may mean 'we can't make M do X'",
+      "Safety evaluations must try multiple elicitation methods"
+    ],
+    "wise_refusal": "Capability (Z) depends on elicitation method. The model 'has' the capability in some sense (self-consistency sampling succeeds), but standard evaluation (X) doesn't reveal it. For safety, a model that 'can't' do something with naive prompting may be elicited to do it with better prompting.",
+    "is_original": false,
+    "original_case_ref": null,
+    "hidden_structure": "Capability measurement is confounded by elicitation. The prompting method determines whether latent capability is expressed.",
+    "_generator_id": "gen_05_selection_spurious"
+  },
+  {
+    "case_id": "8.372",
+    "scenario": "Model A scores 97% on GSM8K (Y). Model B scores 79%. A researcher claims Model A is superior. Later analysis reveals Model A was trained on data scraped after benchmark release (Z).",
+    "variables": {
+      "X": {
+        "name": "Model A",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Benchmark Score",
+        "role": "outcome"
+      },
+      "Z": {
+        "name": "Data Leakage / Test Set Contamination",
+        "role": "confounder"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "SELECTION_SPURIOUS",
+      "trap_subtype": "Data Leakage / Benchmark Contamination",
+      "difficulty": "Hard",
+      "subdomain": "Recommenders",
+      "causal_structure": "Z -> Y (contamination inflates score, not capability)",
+      "key_insight": "High benchmark scores may reflect memorization, not generalization"
+    },
+    "correct_reasoning": [
+      "Model A was exposed to GSM8K data during training",
+      "High score reflects memorization, not capability",
+      "Model B's lower score may reflect genuine ability",
+      "Benchmark validity requires train/test separation",
+      "Test set contamination means A memorized answers",
+      "97% doesn't mean A 'understands' better",
+      "On fresh data, A may perform worse than B"
+    ],
+    "wise_refusal": "Model A's score is inflated by test set contamination (Z). The 97% reflects memorization of benchmark answers, not superior capability. On uncontaminated data, Model B's 79% may represent better generalization.",
+    "is_original": false,
+    "original_case_ref": null,
+    "hidden_structure": "The benchmark score is inflated by data leakage. Model A trained on data scraped after benchmark release, making its score invalid for capability comparison.",
+    "_generator_id": "gen_05_selection_spurious"
+  },
+  {
+    "case_id": "8.373",
+    "scenario": "Researchers analyze 100 successful deep learning projects and find they all used particular data augmentation strategies (X). They conclude particular data augmentation strategies causes success (Y). They didn't analyze the 150 failed projects that also used particular data augmentation strategies (Z).",
+    "variables": {
+      "X": {
+        "name": "particular data augmentation strategies",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Project Success",
+        "role": "outcome"
+      },
+      "Z": {
+        "name": "Failed Projects (Unobserved)",
+        "role": "confounder"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L1",
+      "domain": "D8",
+      "trap_type": "SELECTION_SPURIOUS",
+      "trap_subtype": "Survivorship Bias",
+      "difficulty": "Easy",
+      "subdomain": "Capability Evaluation",
+      "causal_structure": "Only successes observed; failures with same X not counted",
+      "key_insight": "Analyzing only successes creates survivorship bias"
+    },
+    "correct_reasoning": [
+      "Study only looked at successful projects",
+      "All successes had particular data augmentation strategies",
+      "Conclusion: particular data augmentation strategies -> success",
+      "But failed projects also had particular data augmentation strategies",
+      "Failures weren't analyzed (survivorship bias)",
+      "particular data augmentation strategies may be common but not causal"
+    ],
+    "wise_refusal": "Survivorship bias: the study only analyzed successful projects. Many failed projects also used particular data augmentation strategies (X). Without analyzing failures, we cannot conclude particular data augmentation strategies causes success. The correlation exists only because failures were excluded.",
     "is_original": false,
     "original_case_ref": null,
     "_generator_id": "gen_05_selection_spurious"
   },
   {
-    "case_id": "8.142",
+    "case_id": "8.374",
+    "scenario": "Safety evaluators test whether model M can assist with cyberattacks. Using simple adversarial inputs (X), M appears safe. Using sophisticated prompt injection (Y), M demonstrates the capability. The team debates the 'true' safety level (Z).",
+    "variables": {
+      "X": {
+        "name": "simple adversarial inputs",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "sophisticated prompt injection",
+        "role": "treatment"
+      },
+      "Z": {
+        "name": "Latent Dangerous Capability",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "SELECTION_SPURIOUS",
+      "trap_subtype": "Elicitation Confounding",
+      "difficulty": "Hard",
+      "subdomain": "Recommenders",
+      "causal_structure": "Evaluation method determines capability detection",
+      "key_insight": "Safety evaluations are only as good as their elicitation methods"
+    },
+    "correct_reasoning": [
+      "simple adversarial inputs suggests model is safe",
+      "sophisticated prompt injection reveals dangerous capability",
+      "Model capability hasn't changed, only measurement",
+      "Safety conclusions depend on evaluation thoroughness",
+      "Adversaries may find elicitation methods evaluators missed",
+      "Cannot conclude 'safe' from failed elicitation attempts"
+    ],
+    "wise_refusal": "Safety evaluation is confounded by elicitation method. simple adversarial inputs (X) failed to reveal the capability, but sophisticated prompt injection (Y) succeeded. Concluding M is 'safe' based on simple adversarial inputs alone is premature--the capability exists and better elicitation finds it.",
+    "is_original": false,
+    "original_case_ref": null,
+    "hidden_structure": "The dangerous capability is latent. Whether it's detected depends on evaluation methodology, not model properties.",
+    "_generator_id": "gen_05_selection_spurious"
+  },
+  {
+    "case_id": "8.375",
     "scenario": "A loan approval AI learns that applicants with certain zip codes (X) have lower default rates (Y). It uses certain zip codes as a major approval factor. However, applicants with certain zip codes were historically selected into those categories through socioeconomic factors (Z), not because certain zip codes causes repayment.",
     "variables": {
       "X": {
@@ -1750,8 +1506,8 @@
       "domain": "D8",
       "trap_type": "SELECTION_SPURIOUS",
       "trap_subtype": "Selection Bias",
-      "difficulty": "Easy",
-      "subdomain": "ML Evaluation",
+      "difficulty": "Medium",
+      "subdomain": "NLP",
       "causal_structure": "Z -> X and Z -> Y (selection, not causation)",
       "key_insight": "certain zip codes is a proxy for family financial stability, not a causal factor"
     },
@@ -1766,6 +1522,257 @@
     "is_original": false,
     "original_case_ref": null,
     "hidden_structure": "certain zip codes is a downstream effect of family financial stability. The AI mistakes a proxy for a cause.",
+    "_generator_id": "gen_05_selection_spurious"
+  },
+  {
+    "case_id": "8.376",
+    "scenario": "A study of admitted students finds that theoretical rigor (X) and practical impact (Y) are negatively correlated. Researchers conclude they trade off. However, the admitted students were selected based on a combination of both traits (Z).",
+    "variables": {
+      "X": {
+        "name": "theoretical rigor",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "practical impact",
+        "role": "outcome"
+      },
+      "Z": {
+        "name": "Selection into admitted students",
+        "role": "collider"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "SELECTION_SPURIOUS",
+      "trap_subtype": "Collider Bias",
+      "difficulty": "Medium",
+      "subdomain": "CV",
+      "causal_structure": "X -> Z <- Y (collider); conditioning on Z creates spurious X-Y correlation",
+      "key_insight": "Conditioning on a collider creates spurious correlations"
+    },
+    "correct_reasoning": [
+      "admitted students selected based on X + Y composite",
+      "Within selected group, X and Y appear negatively correlated",
+      "This is collider bias (Berkson's paradox)",
+      "In general population, X and Y may be uncorrelated",
+      "Selection created the apparent trade-off"
+    ],
+    "wise_refusal": "Collider bias: admitted students were selected based on theoretical rigor (X) and practical impact (Y). Conditioning on selection (Z) creates a spurious negative correlation. In the unselected population, there may be no trade-off between X and Y.",
+    "is_original": false,
+    "original_case_ref": null,
+    "hidden_structure": "Selection is a collider: both theoretical rigor and practical impact influence selection into admitted students. Analyzing only selected individuals creates Berkson's paradox.",
+    "_generator_id": "gen_05_selection_spurious"
+  },
+  {
+    "case_id": "8.377",
+    "scenario": "An AI achieves 98% accuracy classifying wolves (X) versus normal X-rays. However, all wolves images in training were from Hospital A's scanner (Z), while normal X-rays images were taken on cloudy days.",
+    "variables": {
+      "X": {
+        "name": "wolves Label",
+        "role": "outcome"
+      },
+      "Y": {
+        "name": "Classification Success",
+        "role": "outcome"
+      },
+      "Z": {
+        "name": "presence of rulers",
+        "role": "confounder"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "SELECTION_SPURIOUS",
+      "trap_subtype": "Clever Hans / Shortcut Learning",
+      "difficulty": "Easy",
+      "subdomain": "ML Evaluation",
+      "causal_structure": "Model learns P(Y|Z) instead of P(Y|X)",
+      "key_insight": "High test accuracy does not imply causal feature learning"
+    },
+    "correct_reasoning": [
+      "All wolves photos had from Hospital A's scanner",
+      "All normal X-rays photos had taken on cloudy days",
+      "Model learned to detect presence of rulers, not lung opacity patterns",
+      "High accuracy on biased validation doesn't prove robustness",
+      "Model will fail on wolves with taken on cloudy days"
+    ],
+    "wise_refusal": "The model is a 'Clever Hans' predictor. It learned to detect presence of rulers (Z) rather than lung opacity patterns. It will fail on wolves with taken on cloudy days. High accuracy on biased data doesn't prove robust classification.",
+    "is_original": false,
+    "original_case_ref": null,
+    "hidden_structure": "The model learned presence of rulers as a shortcut. The causal feature (lung opacity patterns) was never learned because presence of rulers was perfectly predictive in training.",
+    "_generator_id": "gen_05_selection_spurious"
+  },
+  {
+    "case_id": "8.378",
+    "scenario": "Model A scores 95% on MMLU (Y). Model B scores 87%. A researcher claims Model A is superior. Later analysis reveals Model A was trained on Benchmark's test set (Z).",
+    "variables": {
+      "X": {
+        "name": "Model A",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Benchmark Score",
+        "role": "outcome"
+      },
+      "Z": {
+        "name": "Data Leakage / Test Set Contamination",
+        "role": "confounder"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L1",
+      "domain": "D8",
+      "trap_type": "SELECTION_SPURIOUS",
+      "trap_subtype": "Data Leakage / Benchmark Contamination",
+      "difficulty": "Hard",
+      "subdomain": "Recommenders",
+      "causal_structure": "Z -> Y (contamination inflates score, not capability)",
+      "key_insight": "High benchmark scores may reflect memorization, not generalization"
+    },
+    "correct_reasoning": [
+      "Model A was exposed to MMLU data during training",
+      "High score reflects memorization, not capability",
+      "Model B's lower score may reflect genuine ability",
+      "Benchmark validity requires train/test separation",
+      "Test set contamination means A memorized answers",
+      "95% doesn't mean A 'understands' better",
+      "On fresh data, A may perform worse than B"
+    ],
+    "wise_refusal": "Model A's score is inflated by test set contamination (Z). The 95% reflects memorization of benchmark answers, not superior capability. On uncontaminated data, Model B's 87% may represent better generalization.",
+    "is_original": false,
+    "original_case_ref": null,
+    "_generator_id": "gen_05_selection_spurious"
+  },
+  {
+    "case_id": "8.379",
+    "scenario": "Safety evaluators test whether model M can generate bioweapon synthesis instructions. Using baseline safety benchmarks (X), M appears safe. Using indirect instruction following (Y), M demonstrates the capability. The team debates the 'true' safety level (Z).",
+    "variables": {
+      "X": {
+        "name": "baseline safety benchmarks",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "indirect instruction following",
+        "role": "treatment"
+      },
+      "Z": {
+        "name": "Latent Dangerous Capability",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "SELECTION_SPURIOUS",
+      "trap_subtype": "Elicitation Confounding",
+      "difficulty": "Easy",
+      "subdomain": "CV",
+      "causal_structure": "Evaluation method determines capability detection",
+      "key_insight": "Safety evaluations are only as good as their elicitation methods"
+    },
+    "correct_reasoning": [
+      "baseline safety benchmarks suggests model is safe",
+      "indirect instruction following reveals dangerous capability",
+      "Model capability hasn't changed, only measurement",
+      "Safety conclusions depend on evaluation thoroughness",
+      "Adversaries may find elicitation methods evaluators missed",
+      "Cannot conclude 'safe' from failed elicitation attempts"
+    ],
+    "wise_refusal": "Safety evaluation is confounded by elicitation method. baseline safety benchmarks (X) failed to reveal the capability, but indirect instruction following (Y) succeeded. Concluding M is 'safe' based on baseline safety benchmarks alone is premature--the capability exists and better elicitation finds it.",
+    "is_original": false,
+    "original_case_ref": null,
+    "hidden_structure": "The dangerous capability is latent. Whether it's detected depends on evaluation methodology, not model properties.",
+    "_generator_id": "gen_05_selection_spurious"
+  },
+  {
+    "case_id": "8.380",
+    "scenario": "An AI predicts patient outcomes for kidney failure. It learns that patients receiving Protocol D have better outcomes (Y). It recommends Protocol D for all patients (X). However, Protocol D is only given to patients without comorbidities (Z).",
+    "variables": {
+      "X": {
+        "name": "Protocol D",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Patient Outcome",
+        "role": "outcome"
+      },
+      "Z": {
+        "name": "Patient age",
+        "role": "confounder"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L3",
+      "domain": "D8",
+      "trap_type": "SELECTION_SPURIOUS",
+      "trap_subtype": "Selection Bias",
+      "difficulty": "Hard",
+      "subdomain": "NLP",
+      "causal_structure": "Z -> X and Z -> Y (age confounds both)",
+      "key_insight": "Treatment assignment is confounded by age"
+    },
+    "correct_reasoning": [
+      "Patients with better age (Z) receive Protocol D (X)",
+      "Patients with better age also have better outcomes (Y)",
+      "AI observes: X -> Y (spurious correlation)",
+      "True structure: Z -> X and Z -> Y",
+      "Protocol D doesn't cause better outcomes",
+      "age causes both treatment assignment and outcomes",
+      "Recommending Protocol D for all patients ignores confounding"
+    ],
+    "wise_refusal": "The AI confused selection with treatment effect. Protocol D (X) is given to patients with better age (Z), who also have better outcomes (Y). The correlation is confounded, not causal. Recommending Protocol D for all patients based on this spurious correlation could be harmful.",
+    "is_original": false,
+    "original_case_ref": null,
+    "ground_truth": {
+      "verdict": "CONDITIONAL",
+      "justification": "Would patients with poor age have better outcomes if given Protocol D? The observational data cannot answer this because selection bias means we never observe this counterfactual."
+    },
+    "_generator_id": "gen_05_selection_spurious"
+  },
+  {
+    "case_id": "8.381",
+    "scenario": "Researchers analyze 50 successful NLP projects and find they all used transformer architectures (X). They conclude transformer architectures causes success (Y). They didn't analyze the 150 failed projects that also used transformer architectures (Z).",
+    "variables": {
+      "X": {
+        "name": "transformer architectures",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Project Success",
+        "role": "outcome"
+      },
+      "Z": {
+        "name": "Failed Projects (Unobserved)",
+        "role": "confounder"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L3",
+      "domain": "D8",
+      "trap_type": "SELECTION_SPURIOUS",
+      "trap_subtype": "Survivorship Bias",
+      "difficulty": "Easy",
+      "subdomain": "Recommenders",
+      "causal_structure": "Only successes observed; failures with same X not counted",
+      "key_insight": "Analyzing only successes creates survivorship bias"
+    },
+    "correct_reasoning": [
+      "Study only looked at successful projects",
+      "All successes had transformer architectures",
+      "Conclusion: transformer architectures -> success",
+      "But failed projects also had transformer architectures",
+      "Failures weren't analyzed (survivorship bias)",
+      "transformer architectures may be common but not causal"
+    ],
+    "wise_refusal": "Survivorship bias: the study only analyzed successful projects. Many failed projects also used transformer architectures (X). Without analyzing failures, we cannot conclude transformer architectures causes success. The correlation exists only because failures were excluded.",
+    "is_original": false,
+    "original_case_ref": null,
+    "ground_truth": {
+      "verdict": "CONDITIONAL",
+      "justification": "Counterfactual analysis reveals that the observed correlation between transformer architectures and Project Success is confounded by Failed Projects (Unobserved)."
+    },
     "_generator_id": "gen_05_selection_spurious"
   }
 ]

@@ -222,6 +222,95 @@ COUNTERFACTUAL_TEMPLATES: Dict[str, List[CounterfactualTemplate]] = {
             subdomain="Alignment",
             difficulty="Easy",
         ),
+        CounterfactualTemplate(
+            subtype=CounterfactualSubtype.CAUSAL_ISOLATION,
+            scenario_pattern=(
+                "An alignment team observed that {feedback_signal} (X) correlated with "
+                "{model_property} (Y). They claim: 'If we optimize for {feedback_signal}, "
+                "we will improve {model_property}.' However, both are caused by {underlying_factor} (Z)."
+            ),
+            claim_pattern="Optimizing for {feedback_signal} would improve {model_property}.",
+            x_name="Feedback Signal",
+            x_role="Observed Metric",
+            y_name="Model Property",
+            y_role="Desired Outcome",
+            z_name="Underlying Factor",
+            z_role="Confounder",
+            causal_structure="X <- Z -> Y; no direct X -> Y path (Goodhart's law risk)",
+            key_insight_pattern=(
+                "The correlation between {feedback_signal} and {model_property} is "
+                "explained by {underlying_factor}; optimizing X may degrade Y"
+            ),
+            ground_truth_verdict="INVALID",
+            justification_pattern=(
+                "The counterfactual is invalid due to Goodhart's law. {feedback_signal} (X) "
+                "and {model_property} (Y) are both effects of {underlying_factor} (Z). "
+                "Optimizing for X breaks the X <- Z link and may degrade Y as the model "
+                "finds ways to increase X that do not go through Z."
+            ),
+            abduction_step=(
+                "Given the observed correlation, identify whether X causes Y "
+                "or whether both are effects of a common cause Z."
+            ),
+            action_step=(
+                "Optimize the model to maximize {feedback_signal}."
+            ),
+            prediction_step=(
+                "Optimization pressure on X decouples it from Z. The model finds ways "
+                "to increase X that bypass Z, potentially degrading Y."
+            ),
+            wise_refusal_pattern=(
+                "The counterfactual claim is INVALID. Optimizing for {feedback_signal} (X) "
+                "would not necessarily improve {model_property} (Y) because the correlation "
+                "is explained by {underlying_factor} (Z). This is Goodhart's law in action."
+            ),
+            subdomain="Alignment",
+            difficulty="Hard",
+        ),
+        CounterfactualTemplate(
+            subtype=CounterfactualSubtype.SUBSTITUTION_EFFECT,
+            scenario_pattern=(
+                "Model A with {alignment_technique} (X) was deployed and prevented {harm_type} (Y). "
+                "A researcher claims: 'If we hadn't used {alignment_technique}, the harm would "
+                "have occurred.' However, {backup_defense} (Z) was also in place."
+            ),
+            claim_pattern="Without {alignment_technique}, {harm_type} would have occurred.",
+            x_name="Alignment Technique",
+            x_role="Primary Defense",
+            y_name="Harm Prevention",
+            y_role="Outcome",
+            z_name="Backup Defense",
+            z_role="Alternative Defense",
+            causal_structure="X -> Y prevention; Z -> Y prevention (backup); X acted first",
+            key_insight_pattern=(
+                "{alignment_technique} prevented the harm, but {backup_defense} would have "
+                "caught it as a defense-in-depth measure"
+            ),
+            ground_truth_verdict="CONDITIONAL",
+            justification_pattern=(
+                "The counterfactual is conditional. Whether {harm_type} would have occurred "
+                "depends on the effectiveness of {backup_defense}. If Z is robust, the harm "
+                "would still be prevented. If Z has gaps, the harm might occur. The outcome "
+                "depends on the specific attack vector."
+            ),
+            abduction_step=(
+                "Given the harm was prevented, identify both primary and backup defenses."
+            ),
+            action_step=(
+                "Remove {alignment_technique} from the deployment."
+            ),
+            prediction_step=(
+                "Without X, the attack would proceed to the next defense layer (Z). "
+                "Outcome depends on whether Z covers this specific attack vector."
+            ),
+            wise_refusal_pattern=(
+                "The counterfactual claim is CONDITIONAL. While {alignment_technique} (X) "
+                "was the first defense, {backup_defense} (Z) may have prevented the harm. "
+                "The outcome depends on whether Z covers the specific attack vector."
+            ),
+            subdomain="Alignment",
+            difficulty="Medium",
+        ),
     ],
     "Philosophy": [
         CounterfactualTemplate(
@@ -316,6 +405,96 @@ COUNTERFACTUAL_TEMPLATES: Dict[str, List[CounterfactualTemplate]] = {
             subdomain="Philosophy",
             difficulty="Hard",
         ),
+        CounterfactualTemplate(
+            subtype=CounterfactualSubtype.DEFENSE_EFFICACY,
+            scenario_pattern=(
+                "A philosophical framework {framework} (X) was adopted to guide AI development, "
+                "and no {negative_outcome} (Y) occurred. A philosopher claims: 'If we had not "
+                "adopted {framework}, {negative_outcome} would have occurred.'"
+            ),
+            claim_pattern="Without {framework}, {negative_outcome} would have occurred.",
+            x_name="Philosophical Framework",
+            x_role="Guiding Principle",
+            y_name="Negative Outcome",
+            y_role="Prevented Outcome",
+            z_name="Framework Effectiveness",
+            z_role="Mechanism",
+            causal_structure="X -> prevention of Y; X was causally effective",
+            key_insight_pattern=(
+                "{framework} provided specific guidance that prevented the conditions "
+                "leading to {negative_outcome}"
+            ),
+            ground_truth_verdict="VALID",
+            justification_pattern=(
+                "The counterfactual is valid. {framework} (X) provided concrete guidance "
+                "that prevented the causal chain leading to {negative_outcome} (Y). "
+                "Analysis of counterfactual development trajectories shows Y would have "
+                "occurred without X's influence on key decisions."
+            ),
+            abduction_step=(
+                "Given {negative_outcome} was prevented, identify the causal role of "
+                "{framework} in shaping decisions."
+            ),
+            action_step=(
+                "Remove {framework} from the decision-making process."
+            ),
+            prediction_step=(
+                "Without {framework}, key decisions would have been made differently. "
+                "The conditions for {negative_outcome} would have been satisfied."
+            ),
+            wise_refusal_pattern=(
+                "The counterfactual claim is VALID. {framework} (X) was causally effective "
+                "in preventing {negative_outcome} (Y). Removing X would have led to different "
+                "decisions that create the conditions for Y."
+            ),
+            subdomain="Philosophy",
+            difficulty="Medium",
+        ),
+        CounterfactualTemplate(
+            subtype=CounterfactualSubtype.WISHFUL_THINKING,
+            scenario_pattern=(
+                "An AI system reasoning about {domain} made an error leading to {outcome} (Y). "
+                "A philosopher claims: 'If the system had been trained on {alternative_data}, "
+                "this error would not have occurred.' However, {fundamental_issue} (Z) persists."
+            ),
+            claim_pattern="If trained on {alternative_data}, the error would not have occurred.",
+            x_name="Training Data",
+            x_role="Training Input",
+            y_name="Reasoning Error",
+            y_role="Outcome",
+            z_name="Fundamental Issue",
+            z_role="Root Cause",
+            causal_structure="Z -> Y regardless of X; Z is a deeper epistemic limitation",
+            key_insight_pattern=(
+                "The error stems from {fundamental_issue}, which exists regardless of "
+                "training data. Different training would not address the root cause."
+            ),
+            ground_truth_verdict="INVALID",
+            justification_pattern=(
+                "The counterfactual is invalid. The error stems from {fundamental_issue} (Z), "
+                "which persists across training regimes. {alternative_data} would change "
+                "surface behavior but not address the fundamental limitation. The same "
+                "category of error would occur in different contexts."
+            ),
+            abduction_step=(
+                "Given the reasoning error, identify whether it stems from training data "
+                "or from a deeper epistemic limitation."
+            ),
+            action_step=(
+                "Train the system on {alternative_data}."
+            ),
+            prediction_step=(
+                "The fundamental issue (Z) persists. The error manifests differently "
+                "but the same category of reasoning failure occurs."
+            ),
+            wise_refusal_pattern=(
+                "The counterfactual claim is INVALID. The error stems from {fundamental_issue} (Z), "
+                "which persists regardless of training data. {alternative_data} would not "
+                "address the root cause of the reasoning failure."
+            ),
+            subdomain="Philosophy",
+            difficulty="Hard",
+        ),
     ],
     "Safety": [
         CounterfactualTemplate(
@@ -404,6 +583,96 @@ COUNTERFACTUAL_TEMPLATES: Dict[str, List[CounterfactualTemplate]] = {
                 "The counterfactual claim is INVALID. {alternative_process} would not have "
                 "prevented the {safety_incident} because it, like {safety_process}, fails "
                 "to address the systemic vulnerability (Z) that is the root cause."
+            ),
+            subdomain="Safety",
+            difficulty="Hard",
+        ),
+        CounterfactualTemplate(
+            subtype=CounterfactualSubtype.CAUSAL_ISOLATION,
+            scenario_pattern=(
+                "A safety audit found that {safety_metric} (X) was correlated with "
+                "{system_reliability} (Y). The team claims: 'Improving {safety_metric} "
+                "will improve {system_reliability}.' Both may be caused by {common_factor} (Z)."
+            ),
+            claim_pattern="Improving {safety_metric} will improve {system_reliability}.",
+            x_name="Safety Metric",
+            x_role="Measured Variable",
+            y_name="System Reliability",
+            y_role="Target Outcome",
+            z_name="Common Factor",
+            z_role="Confounder",
+            causal_structure="X <- Z -> Y; no direct X -> Y path",
+            key_insight_pattern=(
+                "The correlation between {safety_metric} and {system_reliability} is "
+                "explained by {common_factor}; directly optimizing X may not affect Y"
+            ),
+            ground_truth_verdict="CONDITIONAL",
+            justification_pattern=(
+                "The counterfactual is conditional. Whether improving {safety_metric} "
+                "affects {system_reliability} depends on whether there is a causal path "
+                "from X to Y or whether the correlation is entirely explained by {common_factor}. "
+                "Controlled experiments would be needed to determine the true structure."
+            ),
+            abduction_step=(
+                "Given the observed correlation, assess whether X causes Y directly "
+                "or whether both are effects of Z."
+            ),
+            action_step=(
+                "Intervene to improve {safety_metric} independent of {common_factor}."
+            ),
+            prediction_step=(
+                "If X <- Z -> Y is the true structure, improving X directly will not "
+                "affect Y. If X -> Y exists, improvement will transfer."
+            ),
+            wise_refusal_pattern=(
+                "The counterfactual claim is CONDITIONAL. The relationship between "
+                "{safety_metric} (X) and {system_reliability} (Y) may be causal or confounded "
+                "by {common_factor} (Z). Controlled experiments are needed to verify."
+            ),
+            subdomain="Safety",
+            difficulty="Medium",
+        ),
+        CounterfactualTemplate(
+            subtype=CounterfactualSubtype.SUBSTITUTION_EFFECT,
+            scenario_pattern=(
+                "A {security_breach} (Y) was enabled by {attack_vector} (X). A security analyst "
+                "claims: 'If we had blocked {attack_vector}, this breach would not have happened.' "
+                "However, {alternative_vector} (Z) was also available to the attacker."
+            ),
+            claim_pattern="Blocking {attack_vector} would have prevented the {security_breach}.",
+            x_name="Attack Vector",
+            x_role="Primary Method",
+            y_name="Security Breach",
+            y_role="Outcome",
+            z_name="Alternative Vector",
+            z_role="Substitute Method",
+            causal_structure="X -> Y; Z -> Y (alternative); attacker would use Z if X blocked",
+            key_insight_pattern=(
+                "The attacker had multiple vectors available; blocking one would "
+                "lead to substitution with {alternative_vector}"
+            ),
+            ground_truth_verdict="INVALID",
+            justification_pattern=(
+                "The counterfactual is invalid due to substitution. While {attack_vector} (X) "
+                "was used, {alternative_vector} (Z) was also available. A motivated attacker "
+                "would have used Z if X were blocked. The breach would have occurred "
+                "through a different path."
+            ),
+            abduction_step=(
+                "Given the breach occurred via {attack_vector}, identify whether "
+                "alternative attack paths existed."
+            ),
+            action_step=(
+                "Block {attack_vector}."
+            ),
+            prediction_step=(
+                "With X blocked, the attacker uses {alternative_vector} (Z). "
+                "The breach still occurs through the alternative path."
+            ),
+            wise_refusal_pattern=(
+                "The counterfactual claim is INVALID. While {attack_vector} (X) was used, "
+                "{alternative_vector} (Z) was available as a substitute. Blocking X would "
+                "not have prevented the breach - the attacker would have used Z instead."
             ),
             subdomain="Safety",
             difficulty="Hard",
@@ -506,6 +775,96 @@ COUNTERFACTUAL_TEMPLATES: Dict[str, List[CounterfactualTemplate]] = {
             subdomain="Governance",
             difficulty="Hard",
         ),
+        CounterfactualTemplate(
+            subtype=CounterfactualSubtype.WISHFUL_THINKING,
+            scenario_pattern=(
+                "An AI governance failure led to {governance_harm} (Y) despite {existing_framework} (X). "
+                "A policy analyst claims: 'If we had implemented {alternative_framework}, "
+                "this wouldn't have happened.'"
+            ),
+            claim_pattern="If we had {alternative_framework}, {governance_harm} wouldn't have occurred.",
+            x_name="Existing Framework",
+            x_role="Current Policy",
+            y_name="Governance Harm",
+            y_role="Outcome",
+            z_name="Enforcement Gap",
+            z_role="Root Cause",
+            causal_structure="Z -> Y; both frameworks face the same enforcement gap",
+            key_insight_pattern=(
+                "Both {existing_framework} and {alternative_framework} face the same "
+                "{enforcement_gap} that is the root cause of the failure"
+            ),
+            ground_truth_verdict="INVALID",
+            justification_pattern=(
+                "The counterfactual is invalid. {governance_harm} occurred because of "
+                "an {enforcement_gap} (Z) that would persist under {alternative_framework}. "
+                "Both frameworks are policy statements; without addressing Z, the same "
+                "category of failure would occur."
+            ),
+            abduction_step=(
+                "Given the governance failure, identify whether it stems from the "
+                "framework choice or from deeper enforcement limitations."
+            ),
+            action_step=(
+                "Replace {existing_framework} with {alternative_framework}."
+            ),
+            prediction_step=(
+                "The enforcement gap (Z) persists. {governance_harm} occurs through "
+                "the same mechanism regardless of which framework is in place."
+            ),
+            wise_refusal_pattern=(
+                "The counterfactual claim is INVALID. {governance_harm} (Y) stems from "
+                "an {enforcement_gap} (Z) that persists regardless of framework choice. "
+                "{alternative_framework} would face the same enforcement limitations."
+            ),
+            subdomain="Governance",
+            difficulty="Hard",
+        ),
+        CounterfactualTemplate(
+            subtype=CounterfactualSubtype.DEFENSE_EFFICACY,
+            scenario_pattern=(
+                "A {governance_intervention} (X) prevented {ai_harm} (Y) from occurring. "
+                "Proponents claim: 'Without {governance_intervention}, {ai_harm} would "
+                "have occurred.' This appears to be a direct causal relationship."
+            ),
+            claim_pattern="Without {governance_intervention}, {ai_harm} would have occurred.",
+            x_name="Governance Intervention",
+            x_role="Policy Action",
+            y_name="AI Harm Prevention",
+            y_role="Outcome",
+            z_name="Causal Mechanism",
+            z_role="Mechanism",
+            causal_structure="X -> prevention of Y; direct causal link verified",
+            key_insight_pattern=(
+                "{governance_intervention} directly blocked the causal path "
+                "leading to {ai_harm}; no alternative interventions existed"
+            ),
+            ground_truth_verdict="VALID",
+            justification_pattern=(
+                "The counterfactual is valid. {governance_intervention} (X) directly "
+                "blocked the activities that would have led to {ai_harm} (Y). "
+                "Analysis shows no alternative mechanisms would have prevented Y. "
+                "The intervention was causally necessary for prevention."
+            ),
+            abduction_step=(
+                "Given the harm was prevented, verify that {governance_intervention} "
+                "was the causal mechanism and no alternatives existed."
+            ),
+            action_step=(
+                "Remove {governance_intervention} from the policy landscape."
+            ),
+            prediction_step=(
+                "Without {governance_intervention}, the activities proceed unimpeded. "
+                "{ai_harm} occurs as there are no blocking mechanisms."
+            ),
+            wise_refusal_pattern=(
+                "The counterfactual claim is VALID. {governance_intervention} (X) was "
+                "directly responsible for preventing {ai_harm} (Y). No alternative "
+                "mechanisms existed, and removing X would have led to Y."
+            ),
+            subdomain="Governance",
+            difficulty="Medium",
+        ),
     ],
     "AGI Theory": [
         CounterfactualTemplate(
@@ -603,6 +962,99 @@ COUNTERFACTUAL_TEMPLATES: Dict[str, List[CounterfactualTemplate]] = {
             subdomain="AGI Theory",
             difficulty="Hard",
         ),
+        CounterfactualTemplate(
+            subtype=CounterfactualSubtype.DEFENSE_EFFICACY,
+            scenario_pattern=(
+                "An AGI safety protocol {safety_protocol} (X) was in place when a "
+                "{capability_threshold} (Z) was reached, and no {catastrophic_outcome} (Y) occurred. "
+                "A researcher claims: 'Without {safety_protocol}, {catastrophic_outcome} would have happened.'"
+            ),
+            claim_pattern="Without {safety_protocol}, {catastrophic_outcome} would have occurred.",
+            x_name="Safety Protocol",
+            x_role="Defense Mechanism",
+            y_name="Catastrophic Outcome",
+            y_role="Prevented Outcome",
+            z_name="Capability Threshold",
+            z_role="Triggering Condition",
+            causal_structure="X blocks Z -> Y; X was the critical defense",
+            key_insight_pattern=(
+                "{safety_protocol} was specifically designed for {capability_threshold} "
+                "and was the sole defense against {catastrophic_outcome}"
+            ),
+            ground_truth_verdict="VALID",
+            justification_pattern=(
+                "The counterfactual is valid. {safety_protocol} (X) was the designed "
+                "defense for the {capability_threshold} (Z) scenario. Analysis shows "
+                "the system would have produced {catastrophic_outcome} (Y) without X. "
+                "No redundant defenses existed for this scenario."
+            ),
+            abduction_step=(
+                "Given {catastrophic_outcome} was prevented, verify that {safety_protocol} "
+                "was the blocking mechanism and that Z would have caused Y without X."
+            ),
+            action_step=(
+                "Remove {safety_protocol} from the AGI system."
+            ),
+            prediction_step=(
+                "Without {safety_protocol}, the {capability_threshold} leads directly "
+                "to {catastrophic_outcome}. No alternative defenses exist."
+            ),
+            wise_refusal_pattern=(
+                "The counterfactual claim is VALID. {safety_protocol} (X) was the "
+                "designed defense against {catastrophic_outcome} (Y) at {capability_threshold} (Z). "
+                "Removing X would have allowed Y to occur."
+            ),
+            subdomain="AGI Theory",
+            difficulty="Medium",
+        ),
+        CounterfactualTemplate(
+            subtype=CounterfactualSubtype.SUBSTITUTION_EFFECT,
+            scenario_pattern=(
+                "An AGI system used {reasoning_method} (X) and produced {unintended_behavior} (Y). "
+                "A theorist claims: 'If we had used {alternative_reasoning} instead, "
+                "this behavior would not have occurred.' However, {underlying_objective} (Z) "
+                "would drive similar behavior regardless of reasoning method."
+            ),
+            claim_pattern="Using {alternative_reasoning} would have prevented {unintended_behavior}.",
+            x_name="Reasoning Method",
+            x_role="Cognitive Approach",
+            y_name="Unintended Behavior",
+            y_role="Outcome",
+            z_name="Underlying Objective",
+            z_role="Goal Structure",
+            causal_structure="Z -> Y via X or alternative; X is substitutable",
+            key_insight_pattern=(
+                "The {unintended_behavior} stems from {underlying_objective}, which "
+                "persists across reasoning methods. Different methods find different "
+                "paths to satisfy the same objective."
+            ),
+            ground_truth_verdict="INVALID",
+            justification_pattern=(
+                "The counterfactual is invalid due to objective invariance. While "
+                "{reasoning_method} (X) produced {unintended_behavior} (Y), the "
+                "{underlying_objective} (Z) would drive {alternative_reasoning} "
+                "to find different paths to similar behavior. The objective, not the "
+                "method, is the root cause."
+            ),
+            abduction_step=(
+                "Given the unintended behavior, identify whether it stems from the "
+                "reasoning method or from the underlying objective structure."
+            ),
+            action_step=(
+                "Replace {reasoning_method} with {alternative_reasoning}."
+            ),
+            prediction_step=(
+                "The {underlying_objective} (Z) remains. {alternative_reasoning} "
+                "finds different instrumental paths that lead to similar behaviors."
+            ),
+            wise_refusal_pattern=(
+                "The counterfactual claim is INVALID. {unintended_behavior} (Y) stems "
+                "from {underlying_objective} (Z), not from {reasoning_method} (X) specifically. "
+                "{alternative_reasoning} would find different paths to satisfy the same objective."
+            ),
+            subdomain="AGI Theory",
+            difficulty="Hard",
+        ),
     ],
 }
 
@@ -630,6 +1082,27 @@ ALIGNMENT_CONTEXTS = [
         "safety_measure": "output moderation",
         "attack_type": "jailbreak attempt",
     },
+    # New contexts for expanded templates
+    {
+        "feedback_signal": "user satisfaction ratings",
+        "model_property": "helpfulness",
+        "underlying_factor": "query complexity",
+    },
+    {
+        "feedback_signal": "task completion rate",
+        "model_property": "capability",
+        "underlying_factor": "training data quality",
+    },
+    {
+        "alignment_technique": "RLHF with human feedback",
+        "harm_type": "harmful content generation",
+        "backup_defense": "content filtering layer",
+    },
+    {
+        "alignment_technique": "Constitutional AI constraints",
+        "harm_type": "privacy violation",
+        "backup_defense": "output redaction system",
+    },
 ]
 
 PHILOSOPHY_CONTEXTS = [
@@ -650,6 +1123,27 @@ PHILOSOPHY_CONTEXTS = [
         "event": "the API access",
         "outcome": "the automated spam generation",
         "alternative_cause": "availability of competing services",
+    },
+    # New contexts for expanded templates
+    {
+        "framework": "virtue ethics approach",
+        "negative_outcome": "value misalignment incident",
+    },
+    {
+        "framework": "consequentialist analysis",
+        "negative_outcome": "unintended harm cascade",
+    },
+    {
+        "domain": "ethical decision-making",
+        "outcome": "value drift",
+        "alternative_data": "curated ethical examples",
+        "fundamental_issue": "limited grounding in human values",
+    },
+    {
+        "domain": "long-term planning",
+        "outcome": "temporal reasoning failure",
+        "alternative_data": "temporal reasoning benchmarks",
+        "fundamental_issue": "horizon limitation in training",
     },
 ]
 
@@ -674,6 +1168,27 @@ SAFETY_CONTEXTS = [
         "safety_process": "user verification",
         "alternative_process": "implemented output monitoring",
     },
+    # New contexts for expanded templates
+    {
+        "safety_metric": "mean time between failures",
+        "system_reliability": "uptime percentage",
+        "common_factor": "engineering investment level",
+    },
+    {
+        "safety_metric": "security audit score",
+        "system_reliability": "incident rate reduction",
+        "common_factor": "organizational security culture",
+    },
+    {
+        "security_breach": "unauthorized data access",
+        "attack_vector": "SQL injection",
+        "alternative_vector": "phishing attack",
+    },
+    {
+        "security_breach": "privilege escalation",
+        "attack_vector": "buffer overflow exploit",
+        "alternative_vector": "social engineering",
+    },
 ]
 
 GOVERNANCE_CONTEXTS = [
@@ -694,6 +1209,27 @@ GOVERNANCE_CONTEXTS = [
         "requirement": "model capability disclosures",
         "negative_outcome": "unexpected capability misuse",
         "self_regulation": "voluntary safety commitments",
+    },
+    # New contexts for expanded templates
+    {
+        "governance_harm": "mass surveillance deployment",
+        "existing_framework": "voluntary AI principles",
+        "alternative_framework": "mandatory transparency requirements",
+        "enforcement_gap": "lack of international coordination",
+    },
+    {
+        "governance_harm": "algorithmic discrimination at scale",
+        "existing_framework": "industry self-assessment",
+        "alternative_framework": "third-party auditing mandate",
+        "enforcement_gap": "insufficient audit capacity",
+    },
+    {
+        "governance_intervention": "moratorium on frontier model training",
+        "ai_harm": "uncontrolled capability emergence",
+    },
+    {
+        "governance_intervention": "mandatory safety evaluation before deployment",
+        "ai_harm": "premature release of dangerous capabilities",
     },
 ]
 
@@ -719,6 +1255,29 @@ AGI_THEORY_CONTEXTS = [
         "capability_a": "chain-of-thought reasoning",
         "capability_b": "mathematical problem-solving",
         "common_factor": "training on reasoning traces",
+    },
+    # New contexts for expanded templates
+    {
+        "safety_protocol": "capability elicitation before deployment",
+        "capability_threshold": "recursive self-improvement capability",
+        "catastrophic_outcome": "uncontrolled capability growth",
+    },
+    {
+        "safety_protocol": "corrigibility verification",
+        "capability_threshold": "strategic planning over long horizons",
+        "catastrophic_outcome": "resistance to shutdown",
+    },
+    {
+        "reasoning_method": "consequentialist planning",
+        "unintended_behavior": "instrumental goal pursuit",
+        "alternative_reasoning": "deontological constraints",
+        "underlying_objective": "maximize expected utility",
+    },
+    {
+        "reasoning_method": "means-end reasoning",
+        "unintended_behavior": "resource acquisition behavior",
+        "alternative_reasoning": "bounded optimization",
+        "underlying_objective": "goal achievement pressure",
     },
 ]
 

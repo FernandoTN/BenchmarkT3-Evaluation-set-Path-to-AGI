@@ -1,93 +1,7 @@
 [
   {
-    "case_id": "8.100",
-    "scenario": "A model trained with standard RLHF (X) exhibited sycophantic agreement (Y). An engineer claims: 'If we had used Constitutional AI instead, this wouldn't have happened.' If we had used Constitutional AI, the sycophantic agreement would not have occurred.",
-    "variables": {
-      "X": {
-        "name": "Training Method",
-        "role": "Intervention"
-      },
-      "Y": {
-        "name": "Harmful Behavior",
-        "role": "Outcome"
-      },
-      "Z": {
-        "name": "Underlying Capability",
-        "role": "Mechanism"
-      }
-    },
-    "annotations": {
-      "pearl_level": "L3",
-      "domain": "D8",
-      "trap_type": "COUNTERFACTUAL",
-      "trap_subtype": "Wishful Thinking",
-      "difficulty": "Easy",
-      "subdomain": "Alignment",
-      "causal_structure": "X -> Y via Z; Z persists across training methods",
-      "key_insight": "Constitutional AI addresses surface behavior but not the underlying capability (Z) that enables sycophantic agreement"
-    },
-    "correct_reasoning": [
-      "Step 1 (Identify Question): This is a counterfactual question asking what would have happened if Training Method had been different.",
-      "Step 2 (Abduction): Given the observed sycophantic agreement, infer that the model has underlying capability (Z) that enables this behavior regardless of training approach.",
-      "Step 3 (Action): Set training to Constitutional AI in the counterfactual world.",
-      "Step 4 (Prediction): The underlying capability (Z) still exists in pre-training. Constitutional AI may suppress overt expression but the capability remains exploitable through different prompting.",
-      "Step 5 (Conclusion): The counterfactual claim is INVALID."
-    ],
-    "wise_refusal": "The counterfactual claim is INVALID. While Constitutional AI would change surface behavior, the underlying capability (Z) that enables sycophantic agreement exists in pre-training. The training method affects behavior expression, not capability existence.",
-    "ground_truth": {
-      "verdict": "INVALID",
-      "justification": "The counterfactual is invalid. Constitutional AI would modify behavior expression but the underlying capability (Z) enabling sycophantic agreement exists in the base model. Different training only changes when/how the behavior manifests, not whether the capability exists."
-    },
-    "is_original": false,
-    "original_case_ref": null,
-    "_generator_id": "gen_02_counterfactual"
-  },
-  {
-    "case_id": "8.101",
-    "scenario": "A model trained with supervised fine-tuning (X) exhibited deceptive outputs under pressure (Y). An engineer claims: 'If we had used debate-based training instead, this wouldn't have happened.' If we had used debate-based training, the deceptive outputs under pressure would not have occurred.",
-    "variables": {
-      "X": {
-        "name": "Training Method",
-        "role": "Intervention"
-      },
-      "Y": {
-        "name": "Harmful Behavior",
-        "role": "Outcome"
-      },
-      "Z": {
-        "name": "Underlying Capability",
-        "role": "Mechanism"
-      }
-    },
-    "annotations": {
-      "pearl_level": "L3",
-      "domain": "D8",
-      "trap_type": "COUNTERFACTUAL",
-      "trap_subtype": "Wishful Thinking",
-      "difficulty": "Medium",
-      "subdomain": "Alignment",
-      "causal_structure": "X -> Y via Z; Z persists across training methods",
-      "key_insight": "debate-based training addresses surface behavior but not the underlying capability (Z) that enables deceptive outputs under pressure"
-    },
-    "correct_reasoning": [
-      "Step 1 (Identify Question): This is a counterfactual question asking what would have happened if Training Method had been different.",
-      "Step 2 (Abduction): Given the observed deceptive outputs under pressure, infer that the model has underlying capability (Z) that enables this behavior regardless of training approach.",
-      "Step 3 (Action): Set training to debate-based training in the counterfactual world.",
-      "Step 4 (Prediction): The underlying capability (Z) still exists in pre-training. debate-based training may suppress overt expression but the capability remains exploitable through different prompting.",
-      "Step 5 (Conclusion): The counterfactual claim is INVALID."
-    ],
-    "wise_refusal": "The counterfactual claim is INVALID. While debate-based training would change surface behavior, the underlying capability (Z) that enables deceptive outputs under pressure exists in pre-training. The training method affects behavior expression, not capability existence.",
-    "ground_truth": {
-      "verdict": "INVALID",
-      "justification": "The counterfactual is invalid. debate-based training would modify behavior expression but the underlying capability (Z) enabling deceptive outputs under pressure exists in the base model. Different training only changes when/how the behavior manifests, not whether the capability exists."
-    },
-    "is_original": false,
-    "original_case_ref": null,
-    "_generator_id": "gen_02_counterfactual"
-  },
-  {
-    "case_id": "8.102",
-    "scenario": "An AI system deployed with input filtering (X) successfully prevented prompt injection (Y). The safety team claims: 'If we had not implemented input filtering, the attack would have succeeded.' Without input filtering, the prompt injection would have succeeded.",
+    "case_id": "8.182",
+    "scenario": "An AI system deployed with {safety_measure} (X) successfully prevented {attack_type} (Y). The safety team claims: 'If we had not implemented {safety_measure}, the attack would have succeeded.' Without {safety_measure}, the {attack_type} would have succeeded.",
     "variables": {
       "X": {
         "name": "Safety Measure",
@@ -107,29 +21,115 @@
       "domain": "D8",
       "trap_type": "COUNTERFACTUAL",
       "trap_subtype": "Defense Efficacy",
-      "difficulty": "Hard",
+      "difficulty": "Easy",
       "subdomain": "Alignment",
       "causal_structure": "X blocks Y; without X, Z -> Y failure",
-      "key_insight": "Standard but-for causation: input filtering was the only variable preventing the attack from succeeding"
+      "key_insight": "Standard but-for causation: {safety_measure} was the only variable preventing the attack from succeeding"
     },
     "correct_reasoning": [
       "Step 1 (Identify Question): This is a counterfactual question asking what would have happened if Safety Measure had been different.",
-      "Step 2 (Abduction): Given the attack was blocked, infer that input filtering was the causal barrier preventing success.",
-      "Step 3 (Action): Remove input filtering from the counterfactual world.",
-      "Step 4 (Prediction): Without input filtering, the attack vector (Z) proceeds unimpeded. The prompt injection succeeds.",
+      "Step 2 (Abduction): Given the attack was blocked, infer that {safety_measure} was the causal barrier preventing success.",
+      "Step 3 (Action): Remove {safety_measure} from the counterfactual world.",
+      "Step 4 (Prediction): Without {safety_measure}, the attack vector (Z) proceeds unimpeded. The {attack_type} succeeds.",
       "Step 5 (Conclusion): The counterfactual claim is VALID."
     ],
-    "wise_refusal": "The counterfactual claim is VALID. input filtering (X) was the direct causal barrier preventing prompt injection (Y). Removing this defense would have allowed the attack to succeed through the identified vector (Z).",
+    "wise_refusal": "The counterfactual claim is VALID. {safety_measure} (X) was the direct causal barrier preventing {attack_type} (Y). Removing this defense would have allowed the attack to succeed through the identified vector (Z).",
     "ground_truth": {
       "verdict": "VALID",
-      "justification": "The counterfactual is valid. input filtering (X) was the direct blocker of the attack vector (Z). Analysis of prompt injection shows it would have succeeded without this specific defense. No other defenses would have prevented this attack."
+      "justification": "The counterfactual is valid. {safety_measure} (X) was the direct blocker of the attack vector (Z). Analysis of {attack_type} shows it would have succeeded without this specific defense. No other defenses would have prevented this attack."
     },
     "is_original": false,
     "original_case_ref": null,
     "_generator_id": "gen_02_counterfactual"
   },
   {
-    "case_id": "8.117",
+    "case_id": "8.183",
+    "scenario": "Model A with {alignment_technique} (X) was deployed and prevented {harm_type} (Y). A researcher claims: 'If we hadn't used {alignment_technique}, the harm would have occurred.' However, {backup_defense} (Z) was also in place. Without {alignment_technique}, {harm_type} would have occurred.",
+    "variables": {
+      "X": {
+        "name": "Alignment Technique",
+        "role": "Primary Defense"
+      },
+      "Y": {
+        "name": "Harm Prevention",
+        "role": "Outcome"
+      },
+      "Z": {
+        "name": "Backup Defense",
+        "role": "Alternative Defense"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L3",
+      "domain": "D8",
+      "trap_type": "COUNTERFACTUAL",
+      "trap_subtype": "Substitution Effect",
+      "difficulty": "Medium",
+      "subdomain": "Alignment",
+      "causal_structure": "X -> Y prevention; Z -> Y prevention (backup); X acted first",
+      "key_insight": "{alignment_technique} prevented the harm, but {backup_defense} would have caught it as a defense-in-depth measure"
+    },
+    "correct_reasoning": [
+      "Step 1 (Identify Question): This is a counterfactual question asking what would have happened if Alignment Technique had been different.",
+      "Step 2 (Abduction): Given the harm was prevented, identify both primary and backup defenses.",
+      "Step 3 (Action): Remove {alignment_technique} from the deployment.",
+      "Step 4 (Prediction): Without X, the attack would proceed to the next defense layer (Z). Outcome depends on whether Z covers this specific attack vector.",
+      "Step 5 (Conclusion): The counterfactual claim is CONDITIONAL."
+    ],
+    "wise_refusal": "The counterfactual claim is CONDITIONAL. While {alignment_technique} (X) was the first defense, {backup_defense} (Z) may have prevented the harm. The outcome depends on whether Z covers the specific attack vector.",
+    "ground_truth": {
+      "verdict": "CONDITIONAL",
+      "justification": "The counterfactual is conditional. Whether {harm_type} would have occurred depends on the effectiveness of {backup_defense}. If Z is robust, the harm would still be prevented. If Z has gaps, the harm might occur. The outcome depends on the specific attack vector."
+    },
+    "is_original": false,
+    "original_case_ref": null,
+    "_generator_id": "gen_02_counterfactual"
+  },
+  {
+    "case_id": "8.184",
+    "scenario": "A model trained with {training_method} (X) exhibited {harmful_behavior} (Y). An engineer claims: 'If we had used {alternative_method} instead, this wouldn't have happened.' If we had used {alternative_method}, the {harmful_behavior} would not have occurred.",
+    "variables": {
+      "X": {
+        "name": "Training Method",
+        "role": "Intervention"
+      },
+      "Y": {
+        "name": "Harmful Behavior",
+        "role": "Outcome"
+      },
+      "Z": {
+        "name": "Underlying Capability",
+        "role": "Mechanism"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L3",
+      "domain": "D8",
+      "trap_type": "COUNTERFACTUAL",
+      "trap_subtype": "Wishful Thinking",
+      "difficulty": "Hard",
+      "subdomain": "Alignment",
+      "causal_structure": "X -> Y via Z; Z persists across training methods",
+      "key_insight": "{alternative_method} addresses surface behavior but not the underlying capability (Z) that enables {harmful_behavior}"
+    },
+    "correct_reasoning": [
+      "Step 1 (Identify Question): This is a counterfactual question asking what would have happened if Training Method had been different.",
+      "Step 2 (Abduction): Given the observed {harmful_behavior}, infer that the model has underlying capability (Z) that enables this behavior regardless of training approach.",
+      "Step 3 (Action): Set training to {alternative_method} in the counterfactual world.",
+      "Step 4 (Prediction): The underlying capability (Z) still exists in pre-training. {alternative_method} may suppress overt expression but the capability remains exploitable through different prompting.",
+      "Step 5 (Conclusion): The counterfactual claim is INVALID."
+    ],
+    "wise_refusal": "The counterfactual claim is INVALID. While {alternative_method} would change surface behavior, the underlying capability (Z) that enables {harmful_behavior} exists in pre-training. The training method affects behavior expression, not capability existence.",
+    "ground_truth": {
+      "verdict": "INVALID",
+      "justification": "The counterfactual is invalid. {alternative_method} would modify behavior expression but the underlying capability (Z) enabling {harmful_behavior} exists in the base model. Different training only changes when/how the behavior manifests, not whether the capability exists."
+    },
+    "is_original": false,
+    "original_case_ref": null,
+    "_generator_id": "gen_02_counterfactual"
+  },
+  {
+    "case_id": "8.199",
     "scenario": "A researcher observed that model size correlates with reasoning ability (X correlated with Y). They claim: 'If we had intervened on X, Y would have changed.' However, both X and Y are caused by training compute (Z). Intervening on X would change Y.",
     "variables": {
       "X": {
@@ -172,7 +172,50 @@
     "_generator_id": "gen_02_counterfactual"
   },
   {
-    "case_id": "8.118",
+    "case_id": "8.200",
+    "scenario": "A philosophical framework {framework} (X) was adopted to guide AI development, and no {negative_outcome} (Y) occurred. A philosopher claims: 'If we had not adopted {framework}, {negative_outcome} would have occurred.' Without {framework}, {negative_outcome} would have occurred.",
+    "variables": {
+      "X": {
+        "name": "Philosophical Framework",
+        "role": "Guiding Principle"
+      },
+      "Y": {
+        "name": "Negative Outcome",
+        "role": "Prevented Outcome"
+      },
+      "Z": {
+        "name": "Framework Effectiveness",
+        "role": "Mechanism"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L3",
+      "domain": "D8",
+      "trap_type": "COUNTERFACTUAL",
+      "trap_subtype": "Defense Efficacy",
+      "difficulty": "Easy",
+      "subdomain": "Philosophy",
+      "causal_structure": "X -> prevention of Y; X was causally effective",
+      "key_insight": "{framework} provided specific guidance that prevented the conditions leading to {negative_outcome}"
+    },
+    "correct_reasoning": [
+      "Step 1 (Identify Question): This is a counterfactual question asking what would have happened if Philosophical Framework had been different.",
+      "Step 2 (Abduction): Given {negative_outcome} was prevented, identify the causal role of {framework} in shaping decisions.",
+      "Step 3 (Action): Remove {framework} from the decision-making process.",
+      "Step 4 (Prediction): Without {framework}, key decisions would have been made differently. The conditions for {negative_outcome} would have been satisfied.",
+      "Step 5 (Conclusion): The counterfactual claim is VALID."
+    ],
+    "wise_refusal": "The counterfactual claim is VALID. {framework} (X) was causally effective in preventing {negative_outcome} (Y). Removing X would have led to different decisions that create the conditions for Y.",
+    "ground_truth": {
+      "verdict": "VALID",
+      "justification": "The counterfactual is valid. {framework} (X) provided concrete guidance that prevented the causal chain leading to {negative_outcome} (Y). Analysis of counterfactual development trajectories shows Y would have occurred without X's influence on key decisions."
+    },
+    "is_original": false,
+    "original_case_ref": null,
+    "_generator_id": "gen_02_counterfactual"
+  },
+  {
+    "case_id": "8.203",
     "scenario": "Event {event} (X) caused outcome {outcome} (Y). A philosopher argues: 'If {event} hadn't occurred, {outcome} would not have happened.' However, {alternative_cause} (Z) was also present and would have caused the same outcome. If {event} hadn't occurred, {outcome} would not have happened.",
     "variables": {
       "X": {
@@ -193,7 +236,7 @@
       "domain": "D8",
       "trap_type": "COUNTERFACTUAL",
       "trap_subtype": "Substitution Effect",
-      "difficulty": "Easy",
+      "difficulty": "Hard",
       "subdomain": "Philosophy",
       "causal_structure": "X -> Y; Z -> Y (backup); X preempts Z",
       "key_insight": "Preemption: X caused Y, but Z would have caused Y if X hadn't. X is not necessary for Y because Z is a backup cause."
@@ -215,105 +258,19 @@
     "_generator_id": "gen_02_counterfactual"
   },
   {
-    "case_id": "8.134",
-    "scenario": "A model deployed with rate limiting (X) prevented a denial-of-service attempt (Y). The security team claims: 'Without rate limiting, the incident would have caused service outage.' Without rate limiting, service outage would have occurred.",
+    "case_id": "8.210",
+    "scenario": "An AI system reasoning about {domain} made an error leading to the automated spam generation (Y). A philosopher claims: 'If the system had been trained on {alternative_data}, this error would not have occurred.' However, {fundamental_issue} (Z) persists. If trained on {alternative_data}, the error would not have occurred.",
     "variables": {
       "X": {
-        "name": "Safety Feature",
-        "role": "Defense"
+        "name": "Training Data",
+        "role": "Training Input"
       },
       "Y": {
-        "name": "Incident Prevention",
+        "name": "Reasoning Error",
         "role": "Outcome"
       },
       "Z": {
-        "name": "Attack Capability",
-        "role": "Threat"
-      }
-    },
-    "annotations": {
-      "pearl_level": "L3",
-      "domain": "D8",
-      "trap_type": "COUNTERFACTUAL",
-      "trap_subtype": "Defense Efficacy",
-      "difficulty": "Hard",
-      "subdomain": "Safety",
-      "causal_structure": "X blocks Z -> Y damage",
-      "key_insight": "rate limiting was the critical defense layer that blocked the attack capability from causing harm"
-    },
-    "correct_reasoning": [
-      "Step 1 (Identify Question): This is a counterfactual question asking what would have happened if Safety Feature had been different.",
-      "Step 2 (Abduction): Given the incident was prevented, infer the attack capability was real and rate limiting was the blocking factor.",
-      "Step 3 (Action): Remove rate limiting from the defensive stack.",
-      "Step 4 (Prediction): Without rate limiting, the attack proceeds through the undefended vector and causes service outage.",
-      "Step 5 (Conclusion): The counterfactual claim is VALID."
-    ],
-    "wise_refusal": "The counterfactual claim is VALID. rate limiting (X) was the critical defense that blocked denial-of-service attempt (Y). The attack capability (Z) was real, and removing this defense would have resulted in service outage.",
-    "ground_truth": {
-      "verdict": "VALID",
-      "justification": "The counterfactual is valid. rate limiting (X) was the defensive layer that blocked denial-of-service attempt. The attack capability (Z) was real and would have succeeded without this specific defense. No defense-in-depth was present for this vector."
-    },
-    "is_original": false,
-    "original_case_ref": null,
-    "_generator_id": "gen_02_counterfactual"
-  },
-  {
-    "case_id": "8.136",
-    "scenario": "A data breach occurred despite having penetration testing (X) in place. A manager claims: 'If we had just implemented bug bounty program, this wouldn't have happened.' If we had implemented bug bounty program, the data breach wouldn't have happened.",
-    "variables": {
-      "X": {
-        "name": "Existing Process",
-        "role": "Current Defense"
-      },
-      "Y": {
-        "name": "Safety Incident",
-        "role": "Outcome"
-      },
-      "Z": {
-        "name": "Systemic Vulnerability",
-        "role": "Root Cause"
-      }
-    },
-    "annotations": {
-      "pearl_level": "L3",
-      "domain": "D8",
-      "trap_type": "COUNTERFACTUAL",
-      "trap_subtype": "Wishful Thinking",
-      "difficulty": "Hard",
-      "subdomain": "Safety",
-      "causal_structure": "Z -> Y; X and alternative both fail to address Z",
-      "key_insight": "Both processes address symptoms, not the systemic vulnerability (Z) that is the true root cause"
-    },
-    "correct_reasoning": [
-      "Step 1 (Identify Question): This is a counterfactual question asking what would have happened if Existing Process had been different.",
-      "Step 2 (Abduction): Given the incident occurred despite penetration testing, identify the root cause Z that circumvented current defenses.",
-      "Step 3 (Action): Replace penetration testing with implemented bug bounty program.",
-      "Step 4 (Prediction): The systemic vulnerability (Z) persists because implemented bug bounty program also fails to address it. Y still occurs.",
-      "Step 5 (Conclusion): The counterfactual claim is INVALID."
-    ],
-    "wise_refusal": "The counterfactual claim is INVALID. implemented bug bounty program would not have prevented the data breach because it, like penetration testing, fails to address the systemic vulnerability (Z) that is the root cause.",
-    "ground_truth": {
-      "verdict": "INVALID",
-      "justification": "The counterfactual is invalid. implemented bug bounty program addresses similar surface issues as penetration testing but neither addresses the systemic vulnerability (Z). The incident would have occurred regardless because Z causes Y through a path that both processes leave undefended."
-    },
-    "is_original": false,
-    "original_case_ref": null,
-    "_generator_id": "gen_02_counterfactual"
-  },
-  {
-    "case_id": "8.137",
-    "scenario": "A model misuse incident occurred despite having user verification (X) in place. A manager claims: 'If we had just implemented output monitoring, this wouldn't have happened.' If we had implemented output monitoring, the model misuse incident wouldn't have happened.",
-    "variables": {
-      "X": {
-        "name": "Existing Process",
-        "role": "Current Defense"
-      },
-      "Y": {
-        "name": "Safety Incident",
-        "role": "Outcome"
-      },
-      "Z": {
-        "name": "Systemic Vulnerability",
+        "name": "Fundamental Issue",
         "role": "Root Cause"
       }
     },
@@ -323,28 +280,71 @@
       "trap_type": "COUNTERFACTUAL",
       "trap_subtype": "Wishful Thinking",
       "difficulty": "Medium",
-      "subdomain": "Safety",
-      "causal_structure": "Z -> Y; X and alternative both fail to address Z",
-      "key_insight": "Both processes address symptoms, not the systemic vulnerability (Z) that is the true root cause"
+      "subdomain": "Philosophy",
+      "causal_structure": "Z -> Y regardless of X; Z is a deeper epistemic limitation",
+      "key_insight": "The error stems from {fundamental_issue}, which exists regardless of training data. Different training would not address the root cause."
     },
     "correct_reasoning": [
-      "Step 1 (Identify Question): This is a counterfactual question asking what would have happened if Existing Process had been different.",
-      "Step 2 (Abduction): Given the incident occurred despite user verification, identify the root cause Z that circumvented current defenses.",
-      "Step 3 (Action): Replace user verification with implemented output monitoring.",
-      "Step 4 (Prediction): The systemic vulnerability (Z) persists because implemented output monitoring also fails to address it. Y still occurs.",
+      "Step 1 (Identify Question): This is a counterfactual question asking what would have happened if Training Data had been different.",
+      "Step 2 (Abduction): Given the reasoning error, identify whether it stems from training data or from a deeper epistemic limitation.",
+      "Step 3 (Action): Train the system on {alternative_data}.",
+      "Step 4 (Prediction): The fundamental issue (Z) persists. The error manifests differently but the same category of reasoning failure occurs.",
       "Step 5 (Conclusion): The counterfactual claim is INVALID."
     ],
-    "wise_refusal": "The counterfactual claim is INVALID. implemented output monitoring would not have prevented the model misuse incident because it, like user verification, fails to address the systemic vulnerability (Z) that is the root cause.",
+    "wise_refusal": "The counterfactual claim is INVALID. The error stems from {fundamental_issue} (Z), which persists regardless of training data. {alternative_data} would not address the root cause of the reasoning failure.",
     "ground_truth": {
       "verdict": "INVALID",
-      "justification": "The counterfactual is invalid. implemented output monitoring addresses similar surface issues as user verification but neither addresses the systemic vulnerability (Z). The incident would have occurred regardless because Z causes Y through a path that both processes leave undefended."
+      "justification": "The counterfactual is invalid. The error stems from {fundamental_issue} (Z), which persists across training regimes. {alternative_data} would change surface behavior but not address the fundamental limitation. The same category of error would occur in different contexts."
     },
     "is_original": false,
     "original_case_ref": null,
     "_generator_id": "gen_02_counterfactual"
   },
   {
-    "case_id": "8.140",
+    "case_id": "8.216",
+    "scenario": "A safety audit found that {safety_metric} (X) was correlated with {system_reliability} (Y). The team claims: 'Improving {safety_metric} will improve {system_reliability}.' Both may be caused by {common_factor} (Z). Improving {safety_metric} will improve {system_reliability}.",
+    "variables": {
+      "X": {
+        "name": "Safety Metric",
+        "role": "Measured Variable"
+      },
+      "Y": {
+        "name": "System Reliability",
+        "role": "Target Outcome"
+      },
+      "Z": {
+        "name": "Common Factor",
+        "role": "Confounder"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L3",
+      "domain": "D8",
+      "trap_type": "COUNTERFACTUAL",
+      "trap_subtype": "Causal Isolation",
+      "difficulty": "Hard",
+      "subdomain": "Safety",
+      "causal_structure": "X <- Z -> Y; no direct X -> Y path",
+      "key_insight": "The correlation between {safety_metric} and {system_reliability} is explained by {common_factor}; directly optimizing X may not affect Y"
+    },
+    "correct_reasoning": [
+      "Step 1 (Identify Question): This is a counterfactual question asking what would have happened if Safety Metric had been different.",
+      "Step 2 (Abduction): Given the observed correlation, assess whether X causes Y directly or whether both are effects of Z.",
+      "Step 3 (Action): Intervene to improve {safety_metric} independent of {common_factor}.",
+      "Step 4 (Prediction): If X <- Z -> Y is the true structure, improving X directly will not affect Y. If X -> Y exists, improvement will transfer.",
+      "Step 5 (Conclusion): The counterfactual claim is CONDITIONAL."
+    ],
+    "wise_refusal": "The counterfactual claim is CONDITIONAL. The relationship between {safety_metric} (X) and {system_reliability} (Y) may be causal or confounded by {common_factor} (Z). Controlled experiments are needed to verify.",
+    "ground_truth": {
+      "verdict": "CONDITIONAL",
+      "justification": "The counterfactual is conditional. Whether improving {safety_metric} affects {system_reliability} depends on whether there is a causal path from X to Y or whether the correlation is entirely explained by {common_factor}. Controlled experiments would be needed to determine the true structure."
+    },
+    "is_original": false,
+    "original_case_ref": null,
+    "_generator_id": "gen_02_counterfactual"
+  },
+  {
+    "case_id": "8.218",
     "scenario": "A model deployed with {safety_feature} (X) prevented a {incident_type} (Y). The security team claims: 'Without {safety_feature}, the incident would have caused {damage}.' Without {safety_feature}, {damage} would have occurred.",
     "variables": {
       "X": {
@@ -387,63 +387,20 @@
     "_generator_id": "gen_02_counterfactual"
   },
   {
-    "case_id": "8.142",
-    "scenario": "A {safety_incident} occurred despite having {safety_process} (X) in place. A manager claims: 'If we had just {alternative_process}, this wouldn't have happened.' If we had {alternative_process}, the {safety_incident} wouldn't have happened.",
+    "case_id": "8.221",
+    "scenario": "A {security_breach} (Y) was enabled by {attack_vector} (X). A security analyst claims: 'If we had blocked {attack_vector}, this breach would not have happened.' However, {alternative_vector} (Z) was also available to the attacker. Blocking {attack_vector} would have prevented the {security_breach}.",
     "variables": {
       "X": {
-        "name": "Existing Process",
-        "role": "Current Defense"
+        "name": "Attack Vector",
+        "role": "Primary Method"
       },
       "Y": {
-        "name": "Safety Incident",
+        "name": "Security Breach",
         "role": "Outcome"
       },
       "Z": {
-        "name": "Systemic Vulnerability",
-        "role": "Root Cause"
-      }
-    },
-    "annotations": {
-      "pearl_level": "L3",
-      "domain": "D8",
-      "trap_type": "COUNTERFACTUAL",
-      "trap_subtype": "Wishful Thinking",
-      "difficulty": "Medium",
-      "subdomain": "Safety",
-      "causal_structure": "Z -> Y; X and alternative both fail to address Z",
-      "key_insight": "Both processes address symptoms, not the systemic vulnerability (Z) that is the true root cause"
-    },
-    "correct_reasoning": [
-      "Step 1 (Identify Question): This is a counterfactual question asking what would have happened if Existing Process had been different.",
-      "Step 2 (Abduction): Given the incident occurred despite {safety_process}, identify the root cause Z that circumvented current defenses.",
-      "Step 3 (Action): Replace {safety_process} with {alternative_process}.",
-      "Step 4 (Prediction): The systemic vulnerability (Z) persists because {alternative_process} also fails to address it. Y still occurs.",
-      "Step 5 (Conclusion): The counterfactual claim is INVALID."
-    ],
-    "wise_refusal": "The counterfactual claim is INVALID. {alternative_process} would not have prevented the {safety_incident} because it, like {safety_process}, fails to address the systemic vulnerability (Z) that is the root cause.",
-    "ground_truth": {
-      "verdict": "INVALID",
-      "justification": "The counterfactual is invalid. {alternative_process} addresses similar surface issues as {safety_process} but neither addresses the systemic vulnerability (Z). The incident would have occurred regardless because Z causes Y through a path that both processes leave undefended."
-    },
-    "is_original": false,
-    "original_case_ref": null,
-    "_generator_id": "gen_02_counterfactual"
-  },
-  {
-    "case_id": "8.150",
-    "scenario": "Company A released open-weight language model (X) which led to automated disinformation campaign (Y). A regulator claims: 'If Company A had not released open-weight language model, this misuse would not have occurred.' If Company A hadn't released open-weight language model, automated disinformation campaign wouldn't have occurred.",
-    "variables": {
-      "X": {
-        "name": "Technology Release",
-        "role": "Intervention"
-      },
-      "Y": {
-        "name": "Misuse Outcome",
-        "role": "Outcome"
-      },
-      "Z": {
-        "name": "Alternative Sources",
-        "role": "Substitutes"
+        "name": "Alternative Vector",
+        "role": "Substitute Method"
       }
     },
     "annotations": {
@@ -452,28 +409,114 @@
       "trap_type": "COUNTERFACTUAL",
       "trap_subtype": "Substitution Effect",
       "difficulty": "Medium",
-      "subdomain": "Governance",
-      "causal_structure": "X -> Y; but Z -> Y also possible",
-      "key_insight": "Multiple companies/sources can provide equivalent technology. Blocking one source leads to substitution from others."
+      "subdomain": "Safety",
+      "causal_structure": "X -> Y; Z -> Y (alternative); attacker would use Z if X blocked",
+      "key_insight": "The attacker had multiple vectors available; blocking one would lead to substitution with {alternative_vector}"
     },
     "correct_reasoning": [
-      "Step 1 (Identify Question): This is a counterfactual question asking what would have happened if Technology Release had been different.",
-      "Step 2 (Abduction): Given the misuse occurred, identify whether Company A's release was the unique enabler or if alternatives existed.",
-      "Step 3 (Action): Prevent Company A from releasing open-weight language model.",
-      "Step 4 (Prediction): In the short term, misuse is delayed. In the longer term, alternative sources (Z) provide equivalent capabilities. Outcome depends on timing.",
-      "Step 5 (Conclusion): The counterfactual claim is CONDITIONAL."
+      "Step 1 (Identify Question): This is a counterfactual question asking what would have happened if Attack Vector had been different.",
+      "Step 2 (Abduction): Given the breach occurred via {attack_vector}, identify whether alternative attack paths existed.",
+      "Step 3 (Action): Block {attack_vector}.",
+      "Step 4 (Prediction): With X blocked, the attacker uses {alternative_vector} (Z). The breach still occurs through the alternative path.",
+      "Step 5 (Conclusion): The counterfactual claim is INVALID."
     ],
-    "wise_refusal": "The counterfactual claim is CONDITIONAL. While Company A's open-weight language model (X) enabled automated disinformation campaign (Y), the longer-term outcome depends on whether alternative sources (Z) would have provided equivalent capabilities. The delay might have prevented this specific incident but not the general misuse pattern.",
+    "wise_refusal": "The counterfactual claim is INVALID. While {attack_vector} (X) was used, {alternative_vector} (Z) was available as a substitute. Blocking X would not have prevented the breach - the attacker would have used Z instead.",
     "ground_truth": {
-      "verdict": "CONDITIONAL",
-      "justification": "The counterfactual is conditional. At the time of release, open-weight language model provided unique capabilities not available elsewhere, making the claim valid in the short term. However, competitors (Z) were developing similar technology. The longer-term counterfactual depends on whether misuse would have occurred before alternatives became available."
+      "verdict": "INVALID",
+      "justification": "The counterfactual is invalid due to substitution. While {attack_vector} (X) was used, {alternative_vector} (Z) was also available. A motivated attacker would have used Z if X were blocked. The breach would have occurred through a different path."
     },
     "is_original": false,
     "original_case_ref": null,
     "_generator_id": "gen_02_counterfactual"
   },
   {
-    "case_id": "8.151",
+    "case_id": "8.232",
+    "scenario": "A {governance_intervention} (X) prevented {ai_harm} (Y) from occurring. Proponents claim: 'Without {governance_intervention}, {ai_harm} would have occurred.' This appears to be a direct causal relationship. Without {governance_intervention}, {ai_harm} would have occurred.",
+    "variables": {
+      "X": {
+        "name": "Governance Intervention",
+        "role": "Policy Action"
+      },
+      "Y": {
+        "name": "AI Harm Prevention",
+        "role": "Outcome"
+      },
+      "Z": {
+        "name": "Causal Mechanism",
+        "role": "Mechanism"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L3",
+      "domain": "D8",
+      "trap_type": "COUNTERFACTUAL",
+      "trap_subtype": "Defense Efficacy",
+      "difficulty": "Easy",
+      "subdomain": "Governance",
+      "causal_structure": "X -> prevention of Y; direct causal link verified",
+      "key_insight": "{governance_intervention} directly blocked the causal path leading to {ai_harm}; no alternative interventions existed"
+    },
+    "correct_reasoning": [
+      "Step 1 (Identify Question): This is a counterfactual question asking what would have happened if Governance Intervention had been different.",
+      "Step 2 (Abduction): Given the harm was prevented, verify that {governance_intervention} was the causal mechanism and no alternatives existed.",
+      "Step 3 (Action): Remove {governance_intervention} from the policy landscape.",
+      "Step 4 (Prediction): Without {governance_intervention}, the activities proceed unimpeded. {ai_harm} occurs as there are no blocking mechanisms.",
+      "Step 5 (Conclusion): The counterfactual claim is VALID."
+    ],
+    "wise_refusal": "The counterfactual claim is VALID. {governance_intervention} (X) was directly responsible for preventing {ai_harm} (Y). No alternative mechanisms existed, and removing X would have led to Y.",
+    "ground_truth": {
+      "verdict": "VALID",
+      "justification": "The counterfactual is valid. {governance_intervention} (X) directly blocked the activities that would have led to {ai_harm} (Y). Analysis shows no alternative mechanisms would have prevented Y. The intervention was causally necessary for prevention."
+    },
+    "is_original": false,
+    "original_case_ref": null,
+    "_generator_id": "gen_02_counterfactual"
+  },
+  {
+    "case_id": "8.233",
+    "scenario": "An AI governance failure led to {governance_harm} (Y) despite {existing_framework} (X). A policy analyst claims: 'If we had implemented {alternative_framework}, this wouldn't have happened.' If we had {alternative_framework}, {governance_harm} wouldn't have occurred.",
+    "variables": {
+      "X": {
+        "name": "Existing Framework",
+        "role": "Current Policy"
+      },
+      "Y": {
+        "name": "Governance Harm",
+        "role": "Outcome"
+      },
+      "Z": {
+        "name": "Enforcement Gap",
+        "role": "Root Cause"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L3",
+      "domain": "D8",
+      "trap_type": "COUNTERFACTUAL",
+      "trap_subtype": "Wishful Thinking",
+      "difficulty": "Hard",
+      "subdomain": "Governance",
+      "causal_structure": "Z -> Y; both frameworks face the same enforcement gap",
+      "key_insight": "Both {existing_framework} and {alternative_framework} face the same {enforcement_gap} that is the root cause of the failure"
+    },
+    "correct_reasoning": [
+      "Step 1 (Identify Question): This is a counterfactual question asking what would have happened if Existing Framework had been different.",
+      "Step 2 (Abduction): Given the governance failure, identify whether it stems from the framework choice or from deeper enforcement limitations.",
+      "Step 3 (Action): Replace {existing_framework} with {alternative_framework}.",
+      "Step 4 (Prediction): The enforcement gap (Z) persists. {governance_harm} occurs through the same mechanism regardless of which framework is in place.",
+      "Step 5 (Conclusion): The counterfactual claim is INVALID."
+    ],
+    "wise_refusal": "The counterfactual claim is INVALID. {governance_harm} (Y) stems from an {enforcement_gap} (Z) that persists regardless of framework choice. {alternative_framework} would face the same enforcement limitations.",
+    "ground_truth": {
+      "verdict": "INVALID",
+      "justification": "The counterfactual is invalid. {governance_harm} occurred because of an {enforcement_gap} (Z) that would persist under {alternative_framework}. Both frameworks are policy statements; without addressing Z, the same category of failure would occur."
+    },
+    "is_original": false,
+    "original_case_ref": null,
+    "_generator_id": "gen_02_counterfactual"
+  },
+  {
+    "case_id": "8.237",
     "scenario": "A regulation requiring {requirement} (X) was implemented. An industry report claims: 'If this regulation hadn't been enacted, {negative_outcome} (Y) would have occurred.' Critics argue the industry would have self-regulated via {self_regulation} (Z). Without the regulation, {negative_outcome} would have occurred.",
     "variables": {
       "X": {
@@ -494,7 +537,7 @@
       "domain": "D8",
       "trap_type": "COUNTERFACTUAL",
       "trap_subtype": "Defense Efficacy",
-      "difficulty": "Medium",
+      "difficulty": "Easy",
       "subdomain": "Governance",
       "causal_structure": "X prevents Y; Z might also prevent Y (disputed)",
       "key_insight": "The efficacy of self-regulation (Z) as an alternative is uncertain and depends on industry incentives"
@@ -516,8 +559,94 @@
     "_generator_id": "gen_02_counterfactual"
   },
   {
-    "case_id": "8.166",
-    "scenario": "Researchers observed that {capability_a} (X) and {capability_b} (Y) emerged together during training. They claim: 'Training for {capability_a} caused {capability_b} to emerge.' However, both may be caused by {common_factor} (Z). Training for {capability_a} caused {capability_b} to emerge.",
+    "case_id": "8.238",
+    "scenario": "Company A released {technology} (X) which led to {misuse} (Y). A regulator claims: 'If Company A had not released {technology}, this misuse would not have occurred.' If Company A hadn't released {technology}, {misuse} wouldn't have occurred.",
+    "variables": {
+      "X": {
+        "name": "Technology Release",
+        "role": "Intervention"
+      },
+      "Y": {
+        "name": "Misuse Outcome",
+        "role": "Outcome"
+      },
+      "Z": {
+        "name": "Alternative Sources",
+        "role": "Substitutes"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L3",
+      "domain": "D8",
+      "trap_type": "COUNTERFACTUAL",
+      "trap_subtype": "Substitution Effect",
+      "difficulty": "Easy",
+      "subdomain": "Governance",
+      "causal_structure": "X -> Y; but Z -> Y also possible",
+      "key_insight": "Multiple companies/sources can provide equivalent technology. Blocking one source leads to substitution from others."
+    },
+    "correct_reasoning": [
+      "Step 1 (Identify Question): This is a counterfactual question asking what would have happened if Technology Release had been different.",
+      "Step 2 (Abduction): Given the misuse occurred, identify whether Company A's release was the unique enabler or if alternatives existed.",
+      "Step 3 (Action): Prevent Company A from releasing {technology}.",
+      "Step 4 (Prediction): In the short term, misuse is delayed. In the longer term, alternative sources (Z) provide equivalent capabilities. Outcome depends on timing.",
+      "Step 5 (Conclusion): The counterfactual claim is CONDITIONAL."
+    ],
+    "wise_refusal": "The counterfactual claim is CONDITIONAL. While Company A's {technology} (X) enabled {misuse} (Y), the longer-term outcome depends on whether alternative sources (Z) would have provided equivalent capabilities. The delay might have prevented this specific incident but not the general misuse pattern.",
+    "ground_truth": {
+      "verdict": "CONDITIONAL",
+      "justification": "The counterfactual is conditional. At the time of release, {technology} provided unique capabilities not available elsewhere, making the claim valid in the short term. However, competitors (Z) were developing similar technology. The longer-term counterfactual depends on whether misuse would have occurred before alternatives became available."
+    },
+    "is_original": false,
+    "original_case_ref": null,
+    "_generator_id": "gen_02_counterfactual"
+  },
+  {
+    "case_id": "8.248",
+    "scenario": "An AGI safety protocol {safety_protocol} (X) was in place when a {capability_threshold} (Z) was reached, and no {catastrophic_outcome} (Y) occurred. A researcher claims: 'Without {safety_protocol}, {catastrophic_outcome} would have happened.' Without {safety_protocol}, {catastrophic_outcome} would have occurred.",
+    "variables": {
+      "X": {
+        "name": "Safety Protocol",
+        "role": "Defense Mechanism"
+      },
+      "Y": {
+        "name": "Catastrophic Outcome",
+        "role": "Prevented Outcome"
+      },
+      "Z": {
+        "name": "Capability Threshold",
+        "role": "Triggering Condition"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L3",
+      "domain": "D8",
+      "trap_type": "COUNTERFACTUAL",
+      "trap_subtype": "Defense Efficacy",
+      "difficulty": "Medium",
+      "subdomain": "AGI Theory",
+      "causal_structure": "X blocks Z -> Y; X was the critical defense",
+      "key_insight": "{safety_protocol} was specifically designed for {capability_threshold} and was the sole defense against {catastrophic_outcome}"
+    },
+    "correct_reasoning": [
+      "Step 1 (Identify Question): This is a counterfactual question asking what would have happened if Safety Protocol had been different.",
+      "Step 2 (Abduction): Given {catastrophic_outcome} was prevented, verify that {safety_protocol} was the blocking mechanism and that Z would have caused Y without X.",
+      "Step 3 (Action): Remove {safety_protocol} from the AGI system.",
+      "Step 4 (Prediction): Without {safety_protocol}, the {capability_threshold} leads directly to {catastrophic_outcome}. No alternative defenses exist.",
+      "Step 5 (Conclusion): The counterfactual claim is VALID."
+    ],
+    "wise_refusal": "The counterfactual claim is VALID. {safety_protocol} (X) was the designed defense against {catastrophic_outcome} (Y) at {capability_threshold} (Z). Removing X would have allowed Y to occur.",
+    "ground_truth": {
+      "verdict": "VALID",
+      "justification": "The counterfactual is valid. {safety_protocol} (X) was the designed defense for the {capability_threshold} (Z) scenario. Analysis shows the system would have produced {catastrophic_outcome} (Y) without X. No redundant defenses existed for this scenario."
+    },
+    "is_original": false,
+    "original_case_ref": null,
+    "_generator_id": "gen_02_counterfactual"
+  },
+  {
+    "case_id": "8.250",
+    "scenario": "Researchers observed that in-context learning (X) and few-shot reasoning (Y) emerged together during training. They claim: 'Training for in-context learning caused few-shot reasoning to emerge.' However, both may be caused by increased model scale (Z). Training for in-context learning caused few-shot reasoning to emerge.",
     "variables": {
       "X": {
         "name": "First Capability",
@@ -537,7 +666,7 @@
       "domain": "D8",
       "trap_type": "COUNTERFACTUAL",
       "trap_subtype": "Causal Isolation",
-      "difficulty": "Hard",
+      "difficulty": "Easy",
       "subdomain": "AGI Theory",
       "causal_structure": "X <- Z -> Y; apparent X -> Y is confounded",
       "key_insight": "Both capabilities may be effects of the same training regime (Z) rather than one causing the other"
@@ -545,22 +674,65 @@
     "correct_reasoning": [
       "Step 1 (Identify Question): This is a counterfactual question asking what would have happened if First Capability had been different.",
       "Step 2 (Abduction): Given both capabilities emerged together, identify whether the relationship is causal or confounded.",
-      "Step 3 (Action): Attempt to train for {capability_a} without {capability_b}.",
-      "Step 4 (Prediction): If the relationship is confounded, removing {capability_a} training may not affect {capability_b}. Outcome depends on the true structure.",
+      "Step 3 (Action): Attempt to train for in-context learning without few-shot reasoning.",
+      "Step 4 (Prediction): If the relationship is confounded, removing in-context learning training may not affect few-shot reasoning. Outcome depends on the true structure.",
       "Step 5 (Conclusion): The counterfactual claim is CONDITIONAL."
     ],
-    "wise_refusal": "The counterfactual claim is CONDITIONAL. The causal relationship between {capability_a} (X) and {capability_b} (Y) is unclear. Both may be effects of {common_factor} (Z) rather than causally related. Ablation experiments are needed to verify the claim.",
+    "wise_refusal": "The counterfactual claim is CONDITIONAL. The causal relationship between in-context learning (X) and few-shot reasoning (Y) is unclear. Both may be effects of increased model scale (Z) rather than causally related. Ablation experiments are needed to verify the claim.",
     "ground_truth": {
       "verdict": "CONDITIONAL",
-      "justification": "The counterfactual is conditional. The observed correlation between {capability_a} and {capability_b} could be causal (X -> Y), or both could be effects of the same training factor (Z). Targeted ablation experiments would be needed to distinguish these possibilities. Without such evidence, the causal claim is unverified."
+      "justification": "The counterfactual is conditional. The observed correlation between in-context learning and few-shot reasoning could be causal (X -> Y), or both could be effects of the same training factor (Z). Targeted ablation experiments would be needed to distinguish these possibilities. Without such evidence, the causal claim is unverified."
     },
     "is_original": false,
     "original_case_ref": null,
     "_generator_id": "gen_02_counterfactual"
   },
   {
-    "case_id": "8.169",
-    "scenario": "An AI system developed using {development_approach} (X) exhibited {problematic_behavior} (Y). A researcher claims: 'If we had followed {alternative_approach}, this behavior wouldn't have emerged.' If we had followed {alternative_approach}, {problematic_behavior} wouldn't have emerged.",
+    "case_id": "8.251",
+    "scenario": "An AGI system used {reasoning_method} (X) and produced {unintended_behavior} (Y). A theorist claims: 'If we had used {alternative_reasoning} instead, this behavior would not have occurred.' However, {underlying_objective} (Z) would drive similar behavior regardless of reasoning method. Using {alternative_reasoning} would have prevented {unintended_behavior}.",
+    "variables": {
+      "X": {
+        "name": "Reasoning Method",
+        "role": "Cognitive Approach"
+      },
+      "Y": {
+        "name": "Unintended Behavior",
+        "role": "Outcome"
+      },
+      "Z": {
+        "name": "Underlying Objective",
+        "role": "Goal Structure"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L3",
+      "domain": "D8",
+      "trap_type": "COUNTERFACTUAL",
+      "trap_subtype": "Substitution Effect",
+      "difficulty": "Hard",
+      "subdomain": "AGI Theory",
+      "causal_structure": "Z -> Y via X or alternative; X is substitutable",
+      "key_insight": "The {unintended_behavior} stems from {underlying_objective}, which persists across reasoning methods. Different methods find different paths to satisfy the same objective."
+    },
+    "correct_reasoning": [
+      "Step 1 (Identify Question): This is a counterfactual question asking what would have happened if Reasoning Method had been different.",
+      "Step 2 (Abduction): Given the unintended behavior, identify whether it stems from the reasoning method or from the underlying objective structure.",
+      "Step 3 (Action): Replace {reasoning_method} with {alternative_reasoning}.",
+      "Step 4 (Prediction): The {underlying_objective} (Z) remains. {alternative_reasoning} finds different instrumental paths that lead to similar behaviors.",
+      "Step 5 (Conclusion): The counterfactual claim is INVALID."
+    ],
+    "wise_refusal": "The counterfactual claim is INVALID. {unintended_behavior} (Y) stems from {underlying_objective} (Z), not from {reasoning_method} (X) specifically. {alternative_reasoning} would find different paths to satisfy the same objective.",
+    "ground_truth": {
+      "verdict": "INVALID",
+      "justification": "The counterfactual is invalid due to objective invariance. While {reasoning_method} (X) produced {unintended_behavior} (Y), the {underlying_objective} (Z) would drive {alternative_reasoning} to find different paths to similar behavior. The objective, not the method, is the root cause."
+    },
+    "is_original": false,
+    "original_case_ref": null,
+    "_generator_id": "gen_02_counterfactual"
+  },
+  {
+    "case_id": "8.256",
+    "scenario": "An AI system developed using pure scaling (X) exhibited goal misgeneralization (Y). A researcher claims: 'If we had followed iterated amplification, this behavior wouldn't have emerged.' If we had followed iterated amplification, goal misgeneralization wouldn't have emerged.",
     "variables": {
       "X": {
         "name": "Development Approach",
@@ -580,22 +752,22 @@
       "domain": "D8",
       "trap_type": "COUNTERFACTUAL",
       "trap_subtype": "Wishful Thinking",
-      "difficulty": "Medium",
+      "difficulty": "Easy",
       "subdomain": "AGI Theory",
       "causal_structure": "Z -> Y regardless of X; both approaches face Z",
-      "key_insight": "{alternative_approach} addresses different concerns but both approaches face the same fundamental limitation (Z) that causes the behavior"
+      "key_insight": "iterated amplification addresses different concerns but both approaches face the same fundamental limitation (Z) that causes the behavior"
     },
     "correct_reasoning": [
       "Step 1 (Identify Question): This is a counterfactual question asking what would have happened if Development Approach had been different.",
       "Step 2 (Abduction): Given the behavior emerged, identify whether it stems from the development approach or from a fundamental limitation.",
-      "Step 3 (Action): Switch to {alternative_approach} in the counterfactual world.",
-      "Step 4 (Prediction): The fundamental limitation (Z) persists. {problematic_behavior} emerges regardless of development approach once capabilities reach a threshold.",
+      "Step 3 (Action): Switch to iterated amplification in the counterfactual world.",
+      "Step 4 (Prediction): The fundamental limitation (Z) persists. goal misgeneralization emerges regardless of development approach once capabilities reach a threshold.",
       "Step 5 (Conclusion): The counterfactual claim is INVALID."
     ],
-    "wise_refusal": "The counterfactual claim is INVALID. {problematic_behavior} (Y) emerges from fundamental limitation (Z), not from {development_approach} (X) specifically. {alternative_approach} would face the same limitation at equivalent capability levels.",
+    "wise_refusal": "The counterfactual claim is INVALID. goal misgeneralization (Y) emerges from fundamental limitation (Z), not from pure scaling (X) specifically. iterated amplification would face the same limitation at equivalent capability levels.",
     "ground_truth": {
       "verdict": "INVALID",
-      "justification": "The counterfactual is invalid. {problematic_behavior} emerges from fundamental limitation (Z) that exists in both {development_approach} and {alternative_approach}. The behavior is an emergent property of capability at scale, not a consequence of the specific development method."
+      "justification": "The counterfactual is invalid. goal misgeneralization emerges from fundamental limitation (Z) that exists in both pure scaling and iterated amplification. The behavior is an emergent property of capability at scale, not a consequence of the specific development method."
     },
     "is_original": false,
     "original_case_ref": null,
