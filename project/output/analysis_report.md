@@ -6,9 +6,9 @@
 
 ## Executive Summary
 
-- **Total Cases Generated:** 274
+- **Total Cases Generated:** 218
 - **Original Cases:** 49
-- **New Cases:** 225
+- **New Cases:** 169
 - **Failed Cases:** 15
 - **Average CRIT Score:** 8.38/10
 - **Validation Pass Rate:** 87.1%
@@ -45,9 +45,9 @@ Acceptance thresholds:
 
 | Level | Count | Percentage | Target |
 |-------|-------|------------|--------|
-| L1 | 49 | 17.9% | 10-12% |
-| L2 | 170 | 62.0% | 66-70% |
-| L3 | 55 | 20.1% | 18-21% |
+| L1 | 35 | 16.1% | 10-12% |
+| L2 | 135 | 61.9% | 66-70% |
+| L3 | 48 | 22.0% | 18-21% |
 
 ### Trap Type Distribution
 
@@ -78,7 +78,7 @@ Acceptance thresholds:
 ## Quality Metrics
 
 - **Average CRIT Score:** 8.38/10
-- **Cases Above Threshold (7.0):** 213
+- **Cases Above Threshold (7.0):** 169
 - **Cases Below Minimum (5.0):** 0
 
 ## Revision Statistics

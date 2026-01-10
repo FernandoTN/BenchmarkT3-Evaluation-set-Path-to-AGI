@@ -9,7 +9,7 @@
 **Plan Reference:** [docs/plans/memoized-beaming-barto.md](docs/plans/memoized-beaming-barto.md)
 
 **Final Results:**
-- Total cases generated: **274** (49 original + 225 new)
+- Total cases generated: **218** (49 original + 169 new)
 - Average CRIT Score: **8.38/10**
 - Validation Pass Rate: **87.1%**
 - DAG Validity Rate: **96.2%**
@@ -75,7 +75,7 @@
   - [x] LOW severity → Polish
 - [x] Process revision queue (max 3 cycles per case)
 - [x] Merge validated cases with original 45
-- [x] Generate `output/final/GroupI1_dataset.json` (274 cases)
+- [x] Generate `output/final/GroupI1_dataset.json` (218 cases)
 - [x] Generate `reports/analysis_report.md`
 
 ---
@@ -85,9 +85,9 @@
 - [x] Validate JSON schema compliance
 - [x] Verify original 49 cases marked with `is_original: true`
 - [x] Check Pearl level distribution:
-  - [x] L1 (Association): 17.9%
-  - [x] L2 (Intervention): 62.0%
-  - [x] L3 (Counterfactual): 20.1%
+  - [x] L1 (Association): 35 (16.1%)
+  - [x] L2 (Intervention): 135 (61.9%)
+  - [x] L3 (Counterfactual): 48 (22.0%)
 - [x] Confirm zero exact duplicates
 - [x] Check difficulty distribution
 - [x] Quality review completed
@@ -96,7 +96,7 @@
 
 ## Deliverables - COMPLETED
 
-- [x] `GroupI1_dataset.json` - 274 cases in required JSON format
+- [x] `GroupI1_dataset.json` - 218 cases in required JSON format
 - [x] `analysis_report.md` - Analysis report with methodology documentation
 - [x] Source code - All orchestrator, generator, and validator scripts
 
