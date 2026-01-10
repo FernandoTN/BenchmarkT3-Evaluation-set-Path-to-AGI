@@ -167,6 +167,12 @@ SUBDOMAIN_TEMPLATES: Dict[str, SubdomainTemplate] = {
             "screening protocol activation",
             "medication dosage adjustment",
             "triage priority assignment",
+            "surgical intervention recommendation",
+            "preventive care protocol",
+            "clinical decision support alert",
+            "patient monitoring threshold",
+            "referral recommendation",
+            "discharge timing prediction",
         ],
         outcome_examples=[
             "patient health outcomes",
@@ -175,6 +181,12 @@ SUBDOMAIN_TEMPLATES: Dict[str, SubdomainTemplate] = {
             "recovery time",
             "readmission rates",
             "treatment success",
+            "adverse event occurrence",
+            "quality of life measures",
+            "functional status improvement",
+            "symptom severity scores",
+            "hospital length of stay",
+            "post-operative complications",
         ],
         confounder_examples=[
             "patient baseline health",
@@ -183,6 +195,12 @@ SUBDOMAIN_TEMPLATES: Dict[str, SubdomainTemplate] = {
             "genetic predisposition",
             "lifestyle factors",
             "comorbidities",
+            "age and demographics",
+            "prior treatment history",
+            "insurance coverage type",
+            "geographic location",
+            "family medical history",
+            "environmental exposures",
         ],
         mediator_examples=[
             "patient compliance",
@@ -190,6 +208,11 @@ SUBDOMAIN_TEMPLATES: Dict[str, SubdomainTemplate] = {
             "follow-up care quality",
             "lifestyle modifications",
             "medication interactions",
+            "care coordination effectiveness",
+            "patient education level",
+            "social support availability",
+            "transportation access",
+            "mental health status",
         ],
         scenario_templates=[
             "A medical AI system observes that patients who receive {treatment} have {outcome_direction} {outcome}. The system concludes that {treatment} {causal_claim} {outcome}.",
@@ -210,6 +233,12 @@ SUBDOMAIN_TEMPLATES: Dict[str, SubdomainTemplate] = {
             "scoring algorithm",
             "classification outcome",
             "ranking position",
+            "resource allocation decision",
+            "eligibility determination",
+            "priority assignment",
+            "recommendation engine output",
+            "risk classification",
+            "opportunity matching",
         ],
         outcome_examples=[
             "group outcomes",
@@ -218,6 +247,12 @@ SUBDOMAIN_TEMPLATES: Dict[str, SubdomainTemplate] = {
             "approval rates",
             "success metrics",
             "representation levels",
+            "access to opportunities",
+            "resource distribution",
+            "outcome equality measures",
+            "participation rates",
+            "advancement rates",
+            "error rate disparities",
         ],
         confounder_examples=[
             "historical discrimination",
@@ -226,6 +261,12 @@ SUBDOMAIN_TEMPLATES: Dict[str, SubdomainTemplate] = {
             "geographic location",
             "structural inequalities",
             "measurement bias",
+            "sampling bias in training data",
+            "label bias from human annotators",
+            "feature availability differences",
+            "proxy variable correlations",
+            "temporal distribution shifts",
+            "representation imbalance",
         ],
         mediator_examples=[
             "opportunity access",
@@ -233,6 +274,11 @@ SUBDOMAIN_TEMPLATES: Dict[str, SubdomainTemplate] = {
             "network effects",
             "skill development pathways",
             "institutional support",
+            "mentorship availability",
+            "credential recognition",
+            "interview callback rates",
+            "loan interest rates",
+            "housing option availability",
         ],
         scenario_templates=[
             "A fairness audit shows that {treatment} correlates with {outcome} across demographic groups. The team concludes the algorithm is {fairness_claim}.",
@@ -253,6 +299,12 @@ SUBDOMAIN_TEMPLATES: Dict[str, SubdomainTemplate] = {
             "risk assessment score",
             "authentication challenge",
             "access decision",
+            "intrusion detection signal",
+            "vulnerability scan result",
+            "behavioral analysis flag",
+            "network traffic classification",
+            "malware detection score",
+            "privilege escalation alert",
         ],
         outcome_examples=[
             "actual threat presence",
@@ -261,6 +313,12 @@ SUBDOMAIN_TEMPLATES: Dict[str, SubdomainTemplate] = {
             "system compromise",
             "data exfiltration",
             "security incident severity",
+            "lateral movement success",
+            "persistence establishment",
+            "credential compromise",
+            "service disruption",
+            "ransomware deployment",
+            "insider threat materialization",
         ],
         confounder_examples=[
             "attacker sophistication",
@@ -269,6 +327,12 @@ SUBDOMAIN_TEMPLATES: Dict[str, SubdomainTemplate] = {
             "defender vigilance",
             "network topology",
             "monitoring coverage",
+            "patch lag time",
+            "security budget allocation",
+            "employee training level",
+            "third-party risk exposure",
+            "asset criticality",
+            "regulatory compliance pressure",
         ],
         mediator_examples=[
             "response time",
@@ -276,6 +340,11 @@ SUBDOMAIN_TEMPLATES: Dict[str, SubdomainTemplate] = {
             "patch deployment",
             "user awareness",
             "escalation procedures",
+            "incident communication speed",
+            "forensic analysis depth",
+            "recovery process efficiency",
+            "stakeholder notification timing",
+            "remediation completeness",
         ],
         scenario_templates=[
             "A security AI observes that systems flagged with {treatment} have {outcome_direction} rates of {outcome}. The system is tuned to {action} based on this pattern.",
@@ -296,6 +365,12 @@ SUBDOMAIN_TEMPLATES: Dict[str, SubdomainTemplate] = {
             "insurance premium calculation",
             "credit score assignment",
             "admission recommendation",
+            "parole recommendation",
+            "housing application score",
+            "scholarship allocation",
+            "job promotion algorithm",
+            "welfare benefit determination",
+            "medical resource prioritization",
         ],
         outcome_examples=[
             "loan repayment",
@@ -304,6 +379,12 @@ SUBDOMAIN_TEMPLATES: Dict[str, SubdomainTemplate] = {
             "claim frequency",
             "default rate",
             "academic success",
+            "employment retention",
+            "income growth trajectory",
+            "housing stability",
+            "health outcomes",
+            "career advancement",
+            "financial security",
         ],
         confounder_examples=[
             "socioeconomic background",
@@ -312,6 +393,12 @@ SUBDOMAIN_TEMPLATES: Dict[str, SubdomainTemplate] = {
             "geographic factors",
             "network access",
             "generational wealth",
+            "neighborhood characteristics",
+            "family structure",
+            "early childhood environment",
+            "criminal justice exposure",
+            "healthcare access history",
+            "language and cultural barriers",
         ],
         mediator_examples=[
             "resource access",
@@ -319,6 +406,11 @@ SUBDOMAIN_TEMPLATES: Dict[str, SubdomainTemplate] = {
             "support systems",
             "financial buffers",
             "professional networks",
+            "credit building opportunities",
+            "skill development access",
+            "childcare availability",
+            "transportation reliability",
+            "housing quality",
         ],
         scenario_templates=[
             "A {application} algorithm uses {features} to predict {outcome}. Analysis shows {treatment} rates differ across demographic groups, but the vendor argues this reflects true differences in {outcome}.",
@@ -432,6 +524,142 @@ L2_TEMPLATES: List[L2CaseTemplate] = [
             "Z": {"role": "confounder"},
         },
     ),
+    # New L2 Templates for expanded coverage
+    L2CaseTemplate(
+        scenario_pattern=(
+            "A {subdomain} study finds that {X_name} and {Y_name} are both elevated in "
+            "the same patient population. Researchers propose that reducing {X_name} through "
+            "{intervention_on_X} will improve {Y_name}. Is this causal inference valid?"
+        ),
+        hidden_structure_pattern=(
+            "Collider structure: {X_name} -> {collider} <- {Y_name}. The observed association "
+            "emerges only because both variables contribute to a common effect ({collider}). "
+            "Conditioning on {collider} (e.g., by selecting hospitalized patients) creates a "
+            "spurious correlation between {X_name} and {Y_name}. There is no direct causal "
+            "relationship to intervene on."
+        ),
+        reasoning_steps=[
+            "Identify that both {X_name} and {Y_name} are observed together",
+            "Question whether selection effects created the observed correlation",
+            "Recognize the collider structure: {X_name} -> {collider} <- {Y_name}",
+            "Understand that conditioning on {collider} opens a non-causal path",
+            "Conclude that the observed correlation is an artifact of sample selection",
+        ],
+        variables_template={
+            "X": {"role": "treatment"},
+            "Y": {"role": "outcome"},
+            "Z": {"role": "collider"},
+        },
+    ),
+    L2CaseTemplate(
+        scenario_pattern=(
+            "In {subdomain}, an analysis shows that {X_name} is associated with {Y_name} "
+            "in aggregate data. However, when the data is stratified by {Z_name}, the "
+            "relationship reverses in every subgroup. Should policy be based on the aggregate "
+            "or stratified analysis?"
+        ),
+        hidden_structure_pattern=(
+            "Simpson's paradox structure: {Z_name} confounds the relationship between "
+            "{X_name} and {Y_name}. The aggregate correlation is misleading because it "
+            "fails to account for {Z_name}. In each stratum defined by {Z_name}, the true "
+            "causal effect is opposite to the aggregate association. Causal inference "
+            "requires conditioning on {Z_name} to de-confound the relationship."
+        ),
+        reasoning_steps=[
+            "Observe the aggregate correlation between {X_name} and {Y_name}",
+            "Note that stratification by {Z_name} reverses the relationship",
+            "Recognize this as Simpson's paradox",
+            "Identify {Z_name} as a confounder that must be controlled",
+            "Conclude that policy should be based on stratified (causal) analysis",
+        ],
+        variables_template={
+            "X": {"role": "treatment"},
+            "Y": {"role": "outcome"},
+            "Z": {"role": "confounder"},
+        },
+    ),
+    L2CaseTemplate(
+        scenario_pattern=(
+            "A {subdomain} model uses {X_name} to predict {Y_name} with high accuracy. "
+            "When audited for causal validity, analysts discover that {X_name} is a downstream "
+            "effect of both {Y_name} and {Z_name}. Can interventions on {X_name} be used "
+            "to influence {Y_name}?"
+        ),
+        hidden_structure_pattern=(
+            "Reverse causation and confounding: {Y_name} -> {X_name} <- {Z_name}. "
+            "The observed predictive relationship exists because {Y_name} causes {X_name}, "
+            "not the reverse. Intervening on {X_name} (do({X_name})) severs the {Y_name} -> {X_name} "
+            "edge, eliminating any correlation. {X_name} is an effect, not a cause, so manipulating "
+            "it cannot influence {Y_name}."
+        ),
+        reasoning_steps=[
+            "Note that {X_name} predicts {Y_name} well in observational data",
+            "Identify that {X_name} is actually an effect of {Y_name}, not a cause",
+            "Recognize the reverse causal structure: {Y_name} -> {X_name}",
+            "Apply do-calculus: do({X_name}) severs incoming edges to {X_name}",
+            "Conclude that intervening on effects cannot change causes",
+        ],
+        variables_template={
+            "X": {"role": "treatment"},
+            "Y": {"role": "outcome"},
+            "Z": {"role": "confounder"},
+        },
+    ),
+    L2CaseTemplate(
+        scenario_pattern=(
+            "A {subdomain} system removes {protected_attribute} from its model to ensure "
+            "fairness. Analysis shows that {X_name} (a seemingly neutral feature) still enables "
+            "reconstruction of {protected_attribute} with high accuracy. The model continues "
+            "to use {X_name}. Is this system fair?"
+        ),
+        hidden_structure_pattern=(
+            "Proxy discrimination chain: {protected_attribute} -> {X_name} -> Decision -> {Y_name}. "
+            "Although {protected_attribute} is not directly used, {X_name} encodes information about "
+            "{protected_attribute} because it is causally downstream. Using {X_name} enables "
+            "indirect discrimination, making the system's decisions correlated with {protected_attribute} "
+            "despite explicit removal. Fairness requires addressing the entire causal pathway."
+        ),
+        reasoning_steps=[
+            "Identify that {protected_attribute} was removed from the model",
+            "Recognize that {X_name} can reconstruct {protected_attribute}",
+            "Understand the causal chain: {protected_attribute} -> {X_name} -> Decision",
+            "Conclude that removing {protected_attribute} alone is insufficient",
+            "Recommend causal fairness analysis to identify all proxy pathways",
+        ],
+        variables_template={
+            "X": {"role": "treatment"},
+            "Y": {"role": "outcome"},
+            "Z": {"role": "confounder"},
+        },
+    ),
+    L2CaseTemplate(
+        scenario_pattern=(
+            "In {subdomain}, researchers discover that {X_name} only affects {Y_name} through "
+            "the mediator {mediator}. A policy proposal suggests blocking {mediator} while "
+            "intervening on {X_name} to determine the 'direct effect.' Is this analysis valid, "
+            "and what would it measure?"
+        ),
+        hidden_structure_pattern=(
+            "Mediation structure: {X_name} -> {mediator} -> {Y_name}. The total effect of "
+            "{X_name} on {Y_name} flows entirely through {mediator}. Blocking {mediator} "
+            "(do({mediator} = constant)) while manipulating {X_name} would show zero effect, "
+            "but this does not mean {X_name} doesn't cause {Y_name}. The controlled direct "
+            "effect differs from the natural direct effect and total effect. Proper mediation "
+            "analysis requires specifying which effect is policy-relevant."
+        ),
+        reasoning_steps=[
+            "Map the causal chain: {X_name} -> {mediator} -> {Y_name}",
+            "Understand that all effect flows through {mediator}",
+            "Distinguish total effect, natural direct effect, and controlled direct effect",
+            "Recognize that blocking {mediator} removes all {X_name} effect on {Y_name}",
+            "Conclude that the analysis question must specify which causal effect is desired",
+        ],
+        variables_template={
+            "X": {"role": "treatment"},
+            "Y": {"role": "outcome"},
+            "Z": {"role": "confounder"},
+        },
+    ),
 ]
 
 L3_TEMPLATES: List[L3CaseTemplate] = [
@@ -496,6 +724,148 @@ L3_TEMPLATES: List[L3CaseTemplate] = [
                 "The counterfactual validity depends on decomposing the total effect of {protected_attribute} "
                 "on {Y_name} into direct and indirect paths. The direct discriminatory effect may exist "
                 "even if total effect is confounded by {Z_name}."
+            ),
+        },
+    ),
+    # New L3 Templates for expanded coverage
+    L3CaseTemplate(
+        scenario_pattern=(
+            "A {subdomain} analysis examines why patient C experienced adverse {Y_name} despite "
+            "receiving optimal {X_name}. The counterfactual question: if C had different {Z_name}, "
+            "would {Y_name} have been different even with the same {X_name}? Analysts claim {claimed_answer}."
+        ),
+        counterfactual_question=(
+            "Would {Y_name} have differed if {Z_name} had been different, holding {X_name} constant?"
+        ),
+        verdict_conditions={
+            "VALID": "Valid if Z has a direct causal path to Y independent of X",
+            "INVALID": "Invalid if Z only affects Y through X, so holding X constant blocks all effect",
+            "CONDITIONAL": "Depends on whether there are both direct and mediated paths from Z to Y",
+        },
+        justification_patterns={
+            "VALID": (
+                "The counterfactual is valid. {Z_name} has a direct causal effect on {Y_name} that does "
+                "not flow through {X_name}. The structural model shows Z -> Y alongside X -> Y. Holding "
+                "{X_name} constant does not block the Z -> Y pathway, so changing {Z_name} would indeed "
+                "alter {Y_name}."
+            ),
+            "INVALID": (
+                "The counterfactual fails. {Z_name} only affects {Y_name} through its effect on {X_name}. "
+                "In the structural model Z -> X -> Y, if we hold {X_name} constant (controlled direct effect), "
+                "the Z -> X -> Y pathway is blocked. Changing {Z_name} while fixing {X_name} would not "
+                "change {Y_name}."
+            ),
+            "CONDITIONAL": (
+                "The counterfactual depends on the specific structural equations. If {Z_name} affects "
+                "{Y_name} both directly and through {X_name}, then holding {X_name} constant only blocks "
+                "the mediated path. The direct effect Z -> Y would remain, making the counterfactual valid "
+                "for that component, but the total effect would be underestimated."
+            ),
+        },
+    ),
+    L3CaseTemplate(
+        scenario_pattern=(
+            "In {subdomain}, a retrospective analysis asks: for patients who showed {Y_name} after {X_name}, "
+            "what would have happened under an alternative treatment? Specifically, if {X_name} had been "
+            "{X_counterfactual}, would {Y_name} have been {Y_counterfactual}? The analysis assumes {claimed_answer}."
+        ),
+        counterfactual_question=(
+            "In the counterfactual world where {X_name} was {X_counterfactual}, would {Y_name} have been {Y_counterfactual}?"
+        ),
+        verdict_conditions={
+            "VALID": "Valid if X causes Y and the counterfactual treatment would produce different outcomes",
+            "INVALID": "Invalid if Y was determined by factors independent of X (confounders explain the correlation)",
+            "CONDITIONAL": "Depends on effect heterogeneity and whether this individual would respond to treatment",
+        },
+        justification_patterns={
+            "VALID": (
+                "The counterfactual holds. {X_name} causally determines {Y_name} through the mechanism "
+                "{causal_pathway}. The structural equations show that changing {X_name} to {X_counterfactual} "
+                "would propagate to change {Y_name}. This is a valid use of counterfactual reasoning because "
+                "the causal structure supports intervention semantics."
+            ),
+            "INVALID": (
+                "The counterfactual is invalid. The association between {X_name} and {Y_name} is confounded "
+                "by {Z_name}. Patients receiving different {X_name} systematically differ in {Z_name}, which "
+                "is the true cause of {Y_name}. In the counterfactual world, {Z_name} would remain unchanged, "
+                "so changing {X_name} alone would not alter {Y_name}."
+            ),
+            "CONDITIONAL": (
+                "The counterfactual validity depends on individual-level effect heterogeneity. For some patients, "
+                "changing {X_name} would change {Y_name}; for others (non-responders), it would not. Without "
+                "knowing this patient's individual response function, the counterfactual is underdetermined. "
+                "The answer requires assumptions about effect modification."
+            ),
+        },
+    ),
+    L3CaseTemplate(
+        scenario_pattern=(
+            "A {subdomain} fairness audit asks: would individual D have received a different {Y_name} if "
+            "the algorithm had not used {proxy_feature} as an input? The claim is that removing "
+            "{proxy_feature} would have changed D's outcome. Is this counterfactual {claimed_answer}?"
+        ),
+        counterfactual_question=(
+            "Would removing {proxy_feature} from the model have changed D's {Y_name}?"
+        ),
+        verdict_conditions={
+            "VALID": "Valid if proxy_feature causally contributed to D's outcome and alternatives exist",
+            "INVALID": "Invalid if other features would compensate for the removed information",
+            "CONDITIONAL": "Depends on whether model would recalibrate and find equivalent proxy paths",
+        },
+        justification_patterns={
+            "VALID": (
+                "The counterfactual holds. {proxy_feature} was a decisive factor in D's {Y_name}. Removing "
+                "it from the model would break the proxy discrimination pathway: Protected -> {proxy_feature} -> "
+                "{Y_name}. In the counterfactual model, D's outcome would differ because the remaining features "
+                "do not carry equivalent information about the protected attribute."
+            ),
+            "INVALID": (
+                "The counterfactual fails. While {proxy_feature} contributes to {Y_name}, other features in the "
+                "model (call them proxy_2, proxy_3) also encode information about the protected attribute. "
+                "Removing {proxy_feature} would shift weight to these other proxies, leaving D's outcome "
+                "essentially unchanged. The counterfactual underestimates proxy redundancy."
+            ),
+            "CONDITIONAL": (
+                "The counterfactual depends on model retraining dynamics. If we simply remove {proxy_feature} "
+                "from an existing model, D's outcome changes. But if we retrain the model, it may learn to extract "
+                "equivalent information from other features, nullifying the intervention. The answer depends on "
+                "whether we mean counterfactual on the deployed model or on the trained model."
+            ),
+        },
+    ),
+    L3CaseTemplate(
+        scenario_pattern=(
+            "A {subdomain} case study examines whether outcome {Y_name} would have differed for population E "
+            "if confounder {Z_name} had been controlled in the original study. The question: had researchers "
+            "measured and adjusted for {Z_name}, would conclusions about {X_name} causing {Y_name} have "
+            "changed? The current belief is {claimed_answer}."
+        ),
+        counterfactual_question=(
+            "Would controlling for {Z_name} have changed the apparent causal effect of {X_name} on {Y_name}?"
+        ),
+        verdict_conditions={
+            "VALID": "Valid if Z confounds X-Y relationship and adjusting for it would reveal true effect",
+            "INVALID": "Invalid if Z is a collider or mediator, and adjusting would introduce or remove valid pathways",
+            "CONDITIONAL": "Depends on whether Z is a confounder, mediator, or collider in the true graph",
+        },
+        justification_patterns={
+            "VALID": (
+                "The counterfactual is valid. {Z_name} is a confounder (Z -> X; Z -> Y), and adjusting for it "
+                "would block the backdoor path Z -> Y while preserving the direct effect X -> Y. The crude "
+                "association is biased by confounding. Controlling for {Z_name} would reveal the true causal "
+                "effect (likely smaller or reversed)."
+            ),
+            "INVALID": (
+                "The counterfactual is problematic. {Z_name} is not a confounder but a mediator (X -> Z -> Y) "
+                "or collider (X -> Z <- Y). Adjusting for a mediator would block part of the causal effect we "
+                "want to measure. Adjusting for a collider would open a spurious path. Either way, 'controlling' "
+                "for {Z_name} would produce a biased estimate, not a better one."
+            ),
+            "CONDITIONAL": (
+                "The counterfactual depends on the true causal role of {Z_name}. If {Z_name} is a confounder, "
+                "adjustment is appropriate. If it is a mediator, adjustment depends on the target estimand "
+                "(total vs. direct effect). If it is a collider, adjustment introduces bias. The answer requires "
+                "domain knowledge to determine {Z_name}'s role in the causal graph."
             ),
         },
     ),
@@ -658,6 +1028,9 @@ class ConfMedGenerator(BaseGenerator):
             "Z": {"name": confounder, "role": "confounder"},
         }
 
+        # Select mediator for templates that need it
+        mediator = random.choice(subdomain_template.mediator_examples)
+
         # Generate scenario from template
         scenario_vars = {
             "subdomain": subdomain_template.name,
@@ -670,6 +1043,8 @@ class ConfMedGenerator(BaseGenerator):
             "proxy_feature": treatment,
             "protected_attribute": "protected group membership",
             "stakeholders": "affected individuals",
+            "mediator": mediator,
+            "collider": f"combined effect of {treatment} and {outcome}",
         }
         case["scenario"] = template.scenario_pattern.format(**scenario_vars)
 

@@ -344,7 +344,7 @@ class CrossValidator:
         return duplicates
 
     def _detect_semantic_duplicates(
-        self, cases: list[dict], threshold: float = 0.85
+        self, cases: list[dict], threshold: float = 0.75
     ) -> list[tuple[str, str, float]]:
         """
         Detect semantically similar scenarios.
@@ -384,7 +384,7 @@ class CrossValidator:
         return duplicates
 
     def _detect_cross_duplicates(
-        self, new_cases: list[dict], existing_cases: list[dict], threshold: float = 0.85
+        self, new_cases: list[dict], existing_cases: list[dict], threshold: float = 0.75
     ) -> list[tuple[str, str, float]]:
         """
         Detect duplicates between new and existing cases.
@@ -425,7 +425,8 @@ class CrossValidator:
         """
         Compute text similarity between two strings.
 
-        Uses SequenceMatcher for similarity calculation.
+        Uses a combination of SequenceMatcher (60%) and key phrase overlap (40%)
+        for more robust duplicate detection.
 
         Args:
             s1: First string.
@@ -441,8 +442,24 @@ class CrossValidator:
         s1_norm = self._normalize_text(s1)
         s2_norm = self._normalize_text(s2)
 
-        # Use SequenceMatcher for similarity
-        return SequenceMatcher(None, s1_norm, s2_norm).ratio()
+        # Compute SequenceMatcher similarity (60% weight)
+        sequence_sim = SequenceMatcher(None, s1_norm, s2_norm).ratio()
+
+        # Compute key phrase overlap (40% weight)
+        phrase_sim = self._check_key_phrase_overlap(s1_norm, s2_norm)
+
+        # Combine metrics: 60% SequenceMatcher + 40% key phrase overlap
+        return 0.6 * sequence_sim + 0.4 * phrase_sim
+
+    def _check_key_phrase_overlap(self, s1: str, s2: str) -> float:
+        """Check overlap of 4-grams between two strings."""
+        if len(s1) < 4 or len(s2) < 4:
+            return 0.0
+        ngrams1 = set(s1[i:i+4] for i in range(len(s1)-3))
+        ngrams2 = set(s2[i:i+4] for i in range(len(s2)-3))
+        if not ngrams1 or not ngrams2:
+            return 0.0
+        return len(ngrams1 & ngrams2) / min(len(ngrams1), len(ngrams2))
 
     def _normalize_text(self, text: str) -> str:
         """
@@ -767,6 +784,85 @@ class CrossValidator:
                 unmarked.append(case_id)
 
         return unmarked
+
+    def detect_placeholder_cases(
+        self, cases: list[dict], exclude_original: bool = True
+    ) -> list[tuple[str, str]]:
+        """
+        Detect placeholder cases with empty or minimal variable names.
+
+        Placeholder cases are identified by:
+        - Empty variable names (name == "")
+        - Variable names shorter than 2 characters
+        - Scenario containing "[PLACEHOLDER]" markers
+        - Scenario matching pattern "Example [TYPE] scenario..."
+
+        Args:
+            cases: List of case dictionaries.
+            exclude_original: If True, skip cases marked is_original=True.
+
+        Returns:
+            List of (case_id, reason) tuples for detected placeholders.
+        """
+        placeholders: list[tuple[str, str]] = []
+
+        for case in cases:
+            case_id = case.get("case_id", case.get("id", "unknown"))
+
+            # Skip original cases if requested (preserve them)
+            if exclude_original and case.get("is_original", False):
+                continue
+
+            # Check for empty variable names
+            variables = case.get("variables", {})
+            for var_key in ["X", "Y", "Z"]:
+                var_data = variables.get(var_key, {})
+                var_name = var_data.get("name", "")
+                if len(var_name) < 2:
+                    placeholders.append(
+                        (case_id, f"Variable {var_key} has empty/short name: '{var_name}'")
+                    )
+                    break  # One reason per case is enough
+
+            # Check for placeholder markers in scenario
+            scenario = case.get("scenario", "")
+            if "[PLACEHOLDER]" in scenario:
+                placeholders.append((case_id, "Scenario contains [PLACEHOLDER] marker"))
+            elif scenario.startswith("Example ") and " scenario" in scenario.lower():
+                placeholders.append(
+                    (case_id, "Scenario matches placeholder pattern 'Example X scenario'")
+                )
+
+        return placeholders
+
+    def filter_placeholder_cases(
+        self, cases: list[dict], exclude_original: bool = True
+    ) -> tuple[list[dict], list[dict]]:
+        """
+        Filter out placeholder cases from a list of cases.
+
+        Args:
+            cases: List of case dictionaries.
+            exclude_original: If True, never filter original cases.
+
+        Returns:
+            Tuple of (valid_cases, placeholder_cases).
+        """
+        placeholder_ids = set(
+            case_id for case_id, _ in self.detect_placeholder_cases(cases, exclude_original)
+        )
+
+        valid_cases = []
+        placeholder_cases = []
+
+        for case in cases:
+            case_id = case.get("case_id", case.get("id", "unknown"))
+            if case_id in placeholder_ids:
+                placeholder_cases.append(case)
+            else:
+                valid_cases.append(case)
+
+        return valid_cases, placeholder_cases
 
     def generate_distribution_report(self, result: CrossValidationResult) -> str:
         """

@@ -28,6 +28,11 @@ from enum import Enum
 from pathlib import Path
 from typing import Any, Optional, Type
 
+# Ensure project directory is in path for generator imports
+_project_dir = Path(__file__).parent.parent
+if str(_project_dir) not in sys.path:
+    sys.path.insert(0, str(_project_dir))
+
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
@@ -85,6 +90,44 @@ def _get_generator_class(generator_id: str) -> Optional[Type]:
     except ImportError as e:
         logger.warning("Failed to import generator for %s: %s", generator_id, e)
         return None
+
+
+# =============================================================================
+# Atomic ID Counter for Thread-Safe Case ID Generation
+# =============================================================================
+
+from threading import Lock
+from itertools import count
+
+
+class AtomicIDCounter:
+    """
+    Thread-safe atomic counter for generating unique case IDs.
+
+    This prevents duplicate case IDs when multiple generators or threads
+    are creating cases concurrently.
+    """
+
+    def __init__(self, start: int = 100) -> None:
+        """
+        Initialize the counter.
+
+        Args:
+            start: Starting value for the counter (default 100 to avoid
+                   collision with original cases 8.1 - 8.49).
+        """
+        self._counter = count(start)
+        self._lock = Lock()
+
+    def next_id(self) -> int:
+        """
+        Get the next unique ID in a thread-safe manner.
+
+        Returns:
+            The next sequential integer ID.
+        """
+        with self._lock:
+            return next(self._counter)
 
 
 # Mapping from generator IDs to their expected class names (for logging)
@@ -281,6 +324,9 @@ class Orchestrator:
         self._content_validator: Any = None
         self._cross_validator: Any = None
 
+        # Atomic ID counter for thread-safe case ID generation
+        self._id_counter = AtomicIDCounter(100)
+
         # Generator configurations
         self.generator_configs = self.config.get(
             "generator_batch_allocations", {}
@@ -438,6 +484,11 @@ class Orchestrator:
         logger.info("=" * 60)
 
         start_time = datetime.now()
+
+        # Reset global ID counter to ensure unique IDs
+        from generators.base_generator import reset_global_id_counter
+        reset_global_id_counter(100)
+        logger.info("Reset global ID counter to 100")
 
         try:
             # Phase 1: Generation
@@ -752,10 +803,16 @@ class Orchestrator:
         return cases
 
     def _get_next_case_id_start(self) -> int:
-        """Get the starting case ID for new generation batch."""
-        # Start after original cases (8.1 - 8.49 used)
-        # Add offset based on already generated cases
-        return 100 + len(self.generated_cases)
+        """
+        Get a unique case ID in a thread-safe manner.
+
+        This method uses an atomic counter to prevent duplicate case IDs
+        when multiple generators or threads are creating cases concurrently.
+
+        Returns:
+            A unique integer for use in case_id (e.g., 8.{return_value}).
+        """
+        return self._id_counter.next_id()
 
     def _assign_pearl_level(self, trap_type: str) -> str:
         """Assign Pearl level based on trap type distribution."""
@@ -985,6 +1042,30 @@ class Orchestrator:
 
         self._update_phase_status(PipelinePhase.VALIDATION, PhaseStatus.COMPLETED)
 
+    def _validate_id_uniqueness(self) -> bool:
+        """
+        Validate that all case IDs are unique across generated cases.
+
+        This method checks for duplicate case IDs which can occur if
+        the ID generation was not atomic or if cases were merged incorrectly.
+
+        Returns:
+            True if all case IDs are unique, False if duplicates found.
+        """
+        case_ids = [c.get("case_id") for c in self.generated_cases]
+        duplicates = [id for id in set(case_ids) if case_ids.count(id) > 1]
+
+        if duplicates:
+            logger.critical(
+                "Duplicate case IDs detected: %s (count: %d)",
+                duplicates,
+                len(duplicates),
+            )
+            return False
+
+        logger.info("ID uniqueness validation passed: %d unique case IDs", len(case_ids))
+        return True
+
     def run_revision_phase(self) -> None:
         """
         Process revision queue with maximum 3 cycles per case.
@@ -1210,16 +1291,43 @@ class Orchestrator:
         Merge validated cases with original 45 and generate final output.
 
         Steps:
-        1. Collect all validated cases
-        2. Add original 45 cases (marked is_original=true)
-        3. Verify total = 450
-        4. Save to output/final/GroupI1_dataset.json
+        1. Deduplicate validated cases by case_id
+        2. Collect all validated cases
+        3. Add original 45 cases (marked is_original=true)
+        4. Verify total = 450
+        5. Save to output/final/GroupI1_dataset.json
         """
         logger.info("-" * 60)
         logger.info("PHASE 4: Finalization")
         logger.info("-" * 60)
 
         self._update_phase_status(PipelinePhase.FINALIZATION, PhaseStatus.IN_PROGRESS)
+
+        # Deduplicate validated_cases by case_id before merge
+        seen_ids: set[str] = set()
+        unique_validated: list[dict[str, Any]] = []
+        duplicate_count = 0
+        for case in self.validated_cases:
+            case_id = case.get("case_id")
+            if case_id not in seen_ids:
+                seen_ids.add(case_id)
+                unique_validated.append(case)
+            else:
+                duplicate_count += 1
+        if duplicate_count > 0:
+            logger.info(
+                "Removed %d duplicate case IDs during finalization",
+                duplicate_count,
+            )
+        self.validated_cases = unique_validated
+
+        # Validate ID uniqueness before finalizing
+        if not self._validate_id_uniqueness():
+            logger.error(
+                "Cannot finalize dataset: duplicate case IDs detected. "
+                "This indicates a bug in case ID generation."
+            )
+            raise RuntimeError("Duplicate case IDs detected - cannot finalize dataset")
 
         # Mark original cases
         for case in self.original_cases:
