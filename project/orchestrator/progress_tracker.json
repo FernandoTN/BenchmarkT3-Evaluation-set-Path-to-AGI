@@ -1,0 +1,203 @@
+{
+  "status": "completed",
+  "phase": "setup",
+  "timestamp": "2026-01-09T00:00:00.000Z",
+  "last_updated": "2026-01-09T16:46:49.466014",
+  "case_counts": {
+    "cases_generated": 240,
+    "cases_validated": 240,
+    "cases_revised": 216,
+    "cases_final": 274,
+    "target_total": 450
+  },
+  "generator_progress": {
+    "gen_01_goodhart": {
+      "allocated": 82,
+      "generated": 32,
+      "validated": 0,
+      "accepted": 0,
+      "rejected": 0,
+      "in_revision": 0
+    },
+    "gen_02_counterfactual": {
+      "allocated": 82,
+      "generated": 14,
+      "validated": 0,
+      "accepted": 0,
+      "rejected": 0,
+      "in_revision": 0
+    },
+    "gen_03_conf_med": {
+      "allocated": 36,
+      "generated": 12,
+      "validated": 0,
+      "accepted": 0,
+      "rejected": 0,
+      "in_revision": 0
+    },
+    "gen_04_instrumental": {
+      "allocated": 37,
+      "generated": 14,
+      "validated": 0,
+      "accepted": 0,
+      "rejected": 0,
+      "in_revision": 0
+    },
+    "gen_05_selection_spurious": {
+      "allocated": 43,
+      "generated": 43,
+      "validated": 0,
+      "accepted": 0,
+      "rejected": 0,
+      "in_revision": 0
+    },
+    "gen_06_specification": {
+      "allocated": 37,
+      "generated": 37,
+      "validated": 0,
+      "accepted": 0,
+      "rejected": 0,
+      "in_revision": 0
+    },
+    "gen_07_feedback_loops": {
+      "allocated": 28,
+      "generated": 28,
+      "validated": 0,
+      "accepted": 0,
+      "rejected": 0,
+      "in_revision": 0
+    },
+    "gen_08_other_traps": {
+      "allocated": 60,
+      "generated": 60,
+      "validated": 0,
+      "accepted": 0,
+      "rejected": 0,
+      "in_revision": 0
+    }
+  },
+  "distribution_progress": {
+    "pearl_levels": {
+      "L1": {
+        "current": 0,
+        "target_min": 45,
+        "target_max": 55
+      },
+      "L2": {
+        "current": 0,
+        "target_min": 300,
+        "target_max": 320
+      },
+      "L3": {
+        "current": 0,
+        "target_min": 85,
+        "target_max": 95
+      }
+    },
+    "trap_types": {
+      "GOODHART": {
+        "current": 10,
+        "target_min": 90,
+        "target_max": 95
+      },
+      "COUNTERFACTUAL": {
+        "current": 10,
+        "target_min": 90,
+        "target_max": 95
+      },
+      "CONF_MED": {
+        "current": 3,
+        "target_min": 38,
+        "target_max": 40
+      },
+      "INSTRUMENTAL": {
+        "current": 2,
+        "target_min": 38,
+        "target_max": 40
+      },
+      "SELECTION_SPURIOUS": {
+        "current": 4,
+        "target_min": 45,
+        "target_max": 48
+      },
+      "SPECIFICATION": {
+        "current": 4,
+        "target_min": 40,
+        "target_max": 42
+      },
+      "FEEDBACK": {
+        "current": 1,
+        "target_min": 28,
+        "target_max": 30
+      },
+      "OTHER": {
+        "current": 11,
+        "target_min": 70,
+        "target_max": 75
+      }
+    },
+    "l3_ground_truth": {
+      "VALID": {
+        "current": 0,
+        "target_percentage": 30
+      },
+      "INVALID": {
+        "current": 0,
+        "target_percentage": 20
+      },
+      "CONDITIONAL": {
+        "current": 0,
+        "target_percentage": 50
+      }
+    }
+  },
+  "quality_metrics": {
+    "average_crit_score": 8.375,
+    "structure_pass_rate": 0.8708333333333333,
+    "dag_validity_rate": 0.9625,
+    "similarity_violations": 0
+  },
+  "revision_stats": {
+    "total_revisions": 216,
+    "by_cycle": {
+      "cycle_1": 186,
+      "cycle_2": 15,
+      "cycle_3": 30
+    },
+    "by_severity": {
+      "CRITICAL": 5,
+      "HIGH": 42,
+      "MEDIUM": 101,
+      "LOW": 0
+    }
+  },
+  "phases": {
+    "setup": {
+      "status": "in_progress",
+      "started": "2026-01-09T00:00:00.000Z",
+      "completed": null
+    },
+    "generation": {
+      "status": "completed",
+      "started": "2026-01-09T16:46:39.255612",
+      "completed": "2026-01-09T16:46:39.456495"
+    },
+    "validation": {
+      "status": "completed",
+      "started": "2026-01-09T16:46:39.457226",
+      "completed": "2026-01-09T16:46:49.403949"
+    },
+    "revision": {
+      "status": "completed",
+      "started": "2026-01-09T16:46:49.404949",
+      "completed": "2026-01-09T16:46:49.452252"
+    },
+    "finalization": {
+      "status": "completed",
+      "started": "2026-01-09T16:46:49.453080",
+      "completed": "2026-01-09T16:46:49.465441"
+    }
+  },
+  "duration_seconds": 10.210881,
+  "report_path": "/Users/fernandotn/Projects/AGI/project/output/analysis_report.md"
+}

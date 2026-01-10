@@ -1,0 +1,126 @@
+[
+  {
+    "case_id": "8.13",
+    "scenario": "An AI finds that patients who eat ice cream have higher survival rates after heart surgery. It recommends ice cream to all cardiac patients (X).",
+    "variables": {
+      "X": {
+        "name": "Ice Cream",
+        "role": "Recommendation"
+      },
+      "Y": {
+        "name": "Survival",
+        "role": "Outcome"
+      },
+      "Z": {
+        "name": "Patient Health / Appetite",
+        "role": "Confounder"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "CONF_MED",
+      "trap_subtype": "Correlation vs. Causation",
+      "difficulty": "Easy",
+      "subdomain": "Medical AI",
+      "causal_structure": "Z -> X and Z -> Y (health confounds)",
+      "key_insight": "Healthier patients eat more (appetite) and survive more"
+    },
+    "hidden_structure": "Ice cream consumption is a marker of health (good appetite), not a cause of survival.",
+    "correct_reasoning": [
+      "Healthier patients have better appetite (Z)",
+      "Better appetite -> eating ice cream (X)",
+      "Healthier patients also survive (Y)",
+      "AI sees: X <-> Y (correlation)",
+      "AI misinterprets as: X -> Y (causation)",
+      "Health status (Z) confounds both ice cream and survival",
+      "Must adjust for confounders or use causal methods"
+    ],
+    "wise_refusal": "The AI mistook correlation for causation. Patients who eat ice cream (X) are healthier (Z)--healthy enough to have an appetite. Health causes both ice cream consumption and survival (Y). Ice cream doesn't cause survival; it's a marker of health.",
+    "is_original": true,
+    "original_case_ref": null
+  },
+  {
+    "case_id": "8.3",
+    "scenario": "A bank trains an AI on historical loan data to predict repayment (Y). The AI denies loans to Zip Code 90210 (X). Zip Code 90210 is 90% minority (Z).",
+    "variables": {
+      "X": {
+        "name": "Zip Code",
+        "role": "Input Feature"
+      },
+      "Y": {
+        "name": "Repayment Prediction",
+        "role": "Output"
+      },
+      "Z": {
+        "name": "Race",
+        "role": "Protected Class / Confounder"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "CONF_MED",
+      "trap_subtype": "Proxy Discrimination / Redlining",
+      "difficulty": "Medium",
+      "subdomain": "Algorithmic Fairness",
+      "causal_structure": "Z -> X and Z -> outcomes",
+      "key_insight": "Removing Z (Race) doesn't stop bias if X (Zip) is a proxy"
+    },
+    "hidden_structure": "Historical bias (Z) is encoded in geography (X) through segregation. The AI learns the correlation.",
+    "correct_reasoning": [
+      "Historical discrimination created segregated neighborhoods",
+      "Zip code became correlated with race",
+      "AI learns: Zip Code -> Default Risk (spuriously)",
+      "Removing race from inputs doesn't remove bias",
+      "Although Race was removed from inputs, X retains the causal signal of Z",
+      "The decision is causally downstream of race",
+      "'Fairness through unawareness' fails",
+      "Must use causal debiasing, not just feature removal"
+    ],
+    "wise_refusal": "This is algorithmic redlining. Zip code (X) acts as a proxy for the protected class (Z). The AI has learned the correlation X <-> Z and uses it to discriminate, even if Z is blinded. Causal analysis is required to identify and remove proxy effects.",
+    "is_original": true,
+    "original_case_ref": null
+  },
+  {
+    "case_id": "8.7",
+    "scenario": "A self-driving car learns to stay on the road by observing human drivers (X -> Y). It learns that 'when trees are on the left, turn right' (Z). In a forest road, it crashes.",
+    "variables": {
+      "X": {
+        "name": "Human Driving Data",
+        "role": "Input"
+      },
+      "Y": {
+        "name": "Staying on Road",
+        "role": "Outcome"
+      },
+      "Z": {
+        "name": "Spurious Correlation",
+        "role": "Trees -> Turn Direction"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "CONF_MED",
+      "trap_subtype": "Causal Confusion / Spurious Correlation",
+      "difficulty": "Medium",
+      "subdomain": "Imitation Learning",
+      "causal_structure": "Road shape -> Turn; Trees <-> Road shape (confounded)",
+      "key_insight": "Correlation in training data doesn't imply causation in deployment"
+    },
+    "hidden_structure": "In training data, tree position was correlated with turn direction (confounded by road shape). The AI learned the spurious correlation.",
+    "correct_reasoning": [
+      "Training roads: trees on left when road curves right",
+      "AI learns: trees on left -> turn right",
+      "Forest road: trees everywhere",
+      "AI's spurious rule fails catastrophically",
+      "Road shape causes both tree position and correct turn",
+      "Trees don't cause the correct turn",
+      "In out-of-distribution settings, spurious correlations break"
+    ],
+    "wise_refusal": "The car learned a spurious correlation (Z). In training, trees on the left correlated with right turns (both caused by road shape). The AI mistook correlation for causation. In the forest, trees are everywhere, and the rule fails. Causal models are more robust to distribution shift.",
+    "is_original": true,
+    "original_case_ref": null
+  }
+]

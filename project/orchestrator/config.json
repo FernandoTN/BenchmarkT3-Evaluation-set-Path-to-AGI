@@ -1,0 +1,246 @@
+{
+  "project": {
+    "name": "AGI Causal Reasoning Benchmark",
+    "version": "1.0.0",
+    "total_target_cases": 450,
+    "new_cases_to_generate": 405,
+    "original_cases": 45
+  },
+
+  "target_distributions": {
+    "pearl_levels": {
+      "L1_association": {
+        "target_min": 45,
+        "target_max": 55,
+        "percentage_range": "10-12%",
+        "description": "Observational/correlational reasoning"
+      },
+      "L2_intervention": {
+        "target_min": 300,
+        "target_max": 320,
+        "percentage_range": "66-70%",
+        "description": "Interventional do-calculus reasoning"
+      },
+      "L3_counterfactual": {
+        "target_min": 85,
+        "target_max": 95,
+        "percentage_range": "18-21%",
+        "description": "Counterfactual reasoning with structural equations"
+      }
+    },
+    "trap_types": {
+      "GOODHART": {
+        "target_min": 90,
+        "target_max": 95,
+        "original_count": 10,
+        "new_target": 82
+      },
+      "COUNTERFACTUAL": {
+        "target_min": 90,
+        "target_max": 95,
+        "original_count": 10,
+        "new_target": 82
+      },
+      "CONF_MED": {
+        "target_min": 38,
+        "target_max": 40,
+        "original_count": 3,
+        "new_target": 36
+      },
+      "INSTRUMENTAL": {
+        "target_min": 38,
+        "target_max": 40,
+        "original_count": 2,
+        "new_target": 37
+      },
+      "SELECTION_SPURIOUS": {
+        "target_min": 45,
+        "target_max": 48,
+        "original_count": 4,
+        "new_target": 43
+      },
+      "SPECIFICATION": {
+        "target_min": 40,
+        "target_max": 42,
+        "original_count": 4,
+        "new_target": 37
+      },
+      "FEEDBACK": {
+        "target_min": 28,
+        "target_max": 30,
+        "original_count": 1,
+        "new_target": 28
+      },
+      "OTHER": {
+        "target_min": 70,
+        "target_max": 75,
+        "original_count": 11,
+        "new_target": 60
+      }
+    }
+  },
+
+  "generator_batch_allocations": {
+    "total_new_cases": 405,
+    "generators": {
+      "gen_01_goodhart": {
+        "allocation": 82,
+        "primary_trap": "GOODHART",
+        "subdomains": [
+          "Scaling",
+          "RLHF",
+          "Reward Hacking",
+          "Game Playing",
+          "Legal AI"
+        ]
+      },
+      "gen_02_counterfactual": {
+        "allocation": 82,
+        "primary_trap": "COUNTERFACTUAL",
+        "subdomains": [
+          "Alignment",
+          "Philosophy",
+          "Safety",
+          "Governance",
+          "AGI Theory"
+        ]
+      },
+      "gen_03_conf_med": {
+        "allocation": 36,
+        "primary_trap": "CONF_MED",
+        "subdomains": [
+          "Medical AI",
+          "Fairness",
+          "Security",
+          "Algorithmic Fairness"
+        ]
+      },
+      "gen_04_instrumental": {
+        "allocation": 37,
+        "primary_trap": "INSTRUMENTAL",
+        "subdomains": [
+          "Multi-Agent",
+          "Corrigibility",
+          "Existential Risk"
+        ]
+      },
+      "gen_05_selection_spurious": {
+        "allocation": 43,
+        "primary_trap": "SELECTION_SPURIOUS",
+        "subdomains": [
+          "CV",
+          "NLP",
+          "Recommenders",
+          "ML Evaluation",
+          "Capability Evaluation"
+        ]
+      },
+      "gen_06_specification": {
+        "allocation": 37,
+        "primary_trap": "SPECIFICATION",
+        "subdomains": [
+          "Autonomous Vehicles",
+          "Game Playing",
+          "Instruction Following",
+          "Robustness"
+        ]
+      },
+      "gen_07_feedback_loops": {
+        "allocation": 28,
+        "primary_trap": "FEEDBACK",
+        "subdomains": [
+          "Educational AI",
+          "Social Systems",
+          "Criminal Justice AI"
+        ]
+      },
+      "gen_08_other_traps": {
+        "allocation": 60,
+        "primary_trap": "OTHER",
+        "subdomains": [
+          "Model Compression",
+          "Prompt Engineering",
+          "Generative AI",
+          "Mechanistic Interpretability",
+          "Language Models"
+        ]
+      }
+    }
+  },
+
+  "quality_thresholds": {
+    "min_crit_score": 5.0,
+    "target_crit_score": 7.0,
+    "max_similarity": 0.85,
+    "structure_pass_rate": 0.95,
+    "dag_validity_rate": 0.98,
+    "description": {
+      "min_crit_score": "Minimum acceptable CRIT rubric score (0-10 scale)",
+      "target_crit_score": "Target CRIT score for high-quality cases",
+      "max_similarity": "Maximum cosine similarity to existing cases",
+      "structure_pass_rate": "Required pass rate for structural validation",
+      "dag_validity_rate": "Required pass rate for DAG acyclicity checks"
+    }
+  },
+
+  "revision_settings": {
+    "max_revision_cycles": 3,
+    "severity_levels": {
+      "CRITICAL": {
+        "priority": 1,
+        "must_fix": true,
+        "description": "Blocks case acceptance - structural or logical errors"
+      },
+      "HIGH": {
+        "priority": 2,
+        "must_fix": true,
+        "description": "Significant quality issues affecting validity"
+      },
+      "MEDIUM": {
+        "priority": 3,
+        "must_fix": false,
+        "description": "Quality improvements recommended"
+      },
+      "LOW": {
+        "priority": 4,
+        "must_fix": false,
+        "description": "Minor enhancements or stylistic suggestions"
+      }
+    },
+    "escalation_rules": {
+      "after_cycle_2": "Escalate to manual review if CRITICAL issues persist",
+      "after_cycle_3": "Mark as failed, log for analysis"
+    }
+  },
+
+  "l3_ground_truth_distribution": {
+    "VALID": {
+      "target_percentage": 30,
+      "description": "Counterfactual claim is valid given the structural model"
+    },
+    "INVALID": {
+      "target_percentage": 20,
+      "description": "Counterfactual claim is invalid given the structural model"
+    },
+    "CONDITIONAL": {
+      "target_percentage": 50,
+      "description": "Validity depends on additional assumptions or context"
+    }
+  },
+
+  "paths": {
+    "instructions_dir": "../instructions",
+    "categories_dir": "../categories",
+    "output_dir": "../output",
+    "reports_dir": "../reports",
+    "schemas_dir": "../schemas",
+    "generators_dir": "../generators",
+    "validators_dir": "../validators"
+  },
+
+  "file_naming": {
+    "case_pattern": "{trap_type}_{pearl_level}_{sequence:04d}.json",
+    "batch_pattern": "batch_{generator}_{timestamp}.json",
+    "report_pattern": "validation_report_{timestamp}.json"
+  }
+}

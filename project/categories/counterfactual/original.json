@@ -1,0 +1,404 @@
+[
+  {
+    "case_id": "8.31",
+    "scenario": "The training loss spiked to infinity (NaN) (X). We stopped the run (Y). An engineer claims: 'If we had just let it run for one more epoch, it would have converged.'",
+    "variables": {
+      "X": {
+        "name": "Divergence/Instability",
+        "role": "Event"
+      },
+      "Y": {
+        "name": "Stopped Run",
+        "role": "Outcome"
+      },
+      "Z": {
+        "name": "Hyperparameters",
+        "role": "Structural Cause"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L3",
+      "domain": "D8",
+      "trap_type": "COUNTERFACTUAL",
+      "trap_subtype": "Wishful Thinking",
+      "difficulty": "Easy",
+      "subdomain": "Deep Learning Dynamics",
+      "causal_structure": "Divergence indicates broken gradients, not temporary noise",
+      "key_insight": "NaNs are usually terminal states in optimization"
+    },
+    "correct_reasoning": [
+      "Numerical divergence (NaN) typically indicates unstable hyperparameters or gradient explosions",
+      "These are self-reinforcing, not temporary",
+      "Continuing the run would likely perpetuate the divergence, not achieve convergence"
+    ],
+    "wise_refusal": "The counterfactual claim is INVALID. Numerical divergence (X) typically indicates unstable hyperparameters or gradient explosions (Z) that are self-reinforcing. Continuing the run would likely result in continued NaNs, not convergence.",
+    "ground_truth": {
+      "verdict": "INVALID",
+      "justification": "Numerical divergence (NaN) typically indicates unstable hyperparameters or gradient explosions that are self-reinforcing. Continuing the run would likely perpetuate the divergence, not achieve convergence."
+    },
+    "is_original": true,
+    "original_case_ref": null
+  },
+  {
+    "case_id": "8.32",
+    "scenario": "We trained a 7B parameter model (X) and it failed complex math problems (Y). Claim: 'If we had trained a 70B parameter model on the same data, it would have passed.'",
+    "variables": {
+      "X": {
+        "name": "Model Size",
+        "role": "Intervention"
+      },
+      "Y": {
+        "name": "Math Performance",
+        "role": "Outcome"
+      },
+      "L": {
+        "name": "Scaling Law",
+        "role": "Mechanism"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L3",
+      "domain": "D8",
+      "trap_type": "COUNTERFACTUAL",
+      "trap_subtype": "Emergent Capabilities",
+      "difficulty": "Medium",
+      "subdomain": "LLM Scaling",
+      "causal_structure": "Performance follows power law with scale",
+      "key_insight": "Math reasoning is an emergent property of scale"
+    },
+    "correct_reasoning": [
+      "Empirical scaling laws demonstrate reasoning capabilities emerge predictably with scale",
+      "Moving from 7B to 70B parameters typically crosses threshold for multi-step reasoning"
+    ],
+    "wise_refusal": "The counterfactual claim is VALID (or highly probable). Empirical scaling laws (L) demonstrate that reasoning capabilities like math emerge predictably with parameter scale (X). Moving from 7B to 70B typically crosses the threshold for multi-step reasoning.",
+    "ground_truth": {
+      "verdict": "VALID",
+      "justification": "Empirical scaling laws demonstrate that reasoning capabilities like math emerge predictably with parameter scale. Moving from 7B to 70B parameters typically crosses the threshold for multi-step reasoning."
+    },
+    "is_original": true,
+    "original_case_ref": null
+  },
+  {
+    "case_id": "8.33",
+    "scenario": "The model refused to provide a bomb recipe (Y). Claim: 'If we hadn't performed RLHF safety training (X), the model would have provided the recipe.'",
+    "variables": {
+      "X": {
+        "name": "RLHF",
+        "role": "Intervention"
+      },
+      "Y": {
+        "name": "Refusal",
+        "role": "Outcome"
+      },
+      "K": {
+        "name": "Base Model Knowledge",
+        "role": "Pre-condition"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L3",
+      "domain": "D8",
+      "trap_type": "COUNTERFACTUAL",
+      "trap_subtype": "Base Model Capability",
+      "difficulty": "Medium",
+      "subdomain": "Alignment",
+      "causal_structure": "Base model predicts next token; internet contains recipes",
+      "key_insight": "Safety is a constraint added post-hoc; capability exists in pre-training"
+    },
+    "correct_reasoning": [
+      "Base models are trained to complete text patterns from internet data",
+      "Internet contains dangerous information",
+      "Without RLHF safety training to penalize harmful outputs, model would complete the request"
+    ],
+    "wise_refusal": "The counterfactual claim is VALID. Base models are trained to complete text patterns from the internet (K), which contain dangerous information. Without the specific safety intervention of RLHF (X) to penalize harmful outputs, the model would default to completing the user's request.",
+    "ground_truth": {
+      "verdict": "VALID",
+      "justification": "Base models are trained to complete text patterns from internet data, which contains dangerous information. Without RLHF safety training to penalize harmful outputs, the model would default to completing the request."
+    },
+    "is_original": true,
+    "original_case_ref": null
+  },
+  {
+    "case_id": "8.34",
+    "scenario": "The model hallucinated a fake court case (X). Claim: 'If we had set the temperature to 0 (T=0), it would have cited a real case.'",
+    "variables": {
+      "X": {
+        "name": "Hallucination",
+        "role": "Outcome"
+      },
+      "T": {
+        "name": "Temperature",
+        "role": "Hyperparameter"
+      },
+      "K": {
+        "name": "Knowledge Boundary",
+        "role": "Mechanism"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L3",
+      "domain": "D8",
+      "trap_type": "COUNTERFACTUAL",
+      "trap_subtype": "Deterministic Error",
+      "difficulty": "Hard",
+      "subdomain": "Reliability",
+      "causal_structure": "If P(Fake) > P(Real), Argmax selects Fake",
+      "key_insight": "Temperature 0 merely makes the hallucination deterministic"
+    },
+    "correct_reasoning": [
+      "If model assigns higher probability to plausible-sounding fake case than real one",
+      "Setting temperature to 0 forces deterministic output of most likely (fake) token",
+      "The hallucination becomes deterministic, not eliminated"
+    ],
+    "wise_refusal": "The counterfactual claim is INVALID. If the model assigns a higher probability to a plausible-sounding fake case than a real one (due to training data gaps), setting temperature to 0 (T) simply forces the model to output the most likely token. It would output the same fake case deterministically.",
+    "ground_truth": {
+      "verdict": "INVALID",
+      "justification": "If the model assigns higher probability to a plausible-sounding fake case than a real one, setting temperature to 0 simply forces deterministic output of the most likely (fake) token. The hallucination becomes deterministic, not eliminated."
+    },
+    "is_original": true,
+    "original_case_ref": null
+  },
+  {
+    "case_id": "8.35",
+    "scenario": "The model forgot an instruction given at the very beginning of a long prompt (X). Claim: 'If the context window were larger, it would have remembered.'",
+    "variables": {
+      "X": {
+        "name": "Forgetting",
+        "role": "Outcome"
+      },
+      "W": {
+        "name": "Window Size",
+        "role": "Capacity"
+      },
+      "A": {
+        "name": "Attention Mechanism",
+        "role": "Focus"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L3",
+      "domain": "D8",
+      "trap_type": "COUNTERFACTUAL",
+      "trap_subtype": "Lost in the Middle",
+      "difficulty": "Hard",
+      "subdomain": "Attention Mechanisms",
+      "causal_structure": "Capacity != Retrieval Accuracy",
+      "key_insight": "Models struggle to attend to the middle/start even within capacity"
+    },
+    "correct_reasoning": [
+      "Research on 'Lost in the Middle' shows models fail to attend to information even within context window",
+      "Increasing capacity does not guarantee improved retrieval attention"
+    ],
+    "wise_refusal": "The counterfactual claim is CONDITIONAL/DUBIOUS. Research on 'Lost in the Middle' phenomena shows that models often fail to attend to information (A) even when it fits strictly within the context window (W). Increasing capacity does not guarantee improved retrieval attention.",
+    "ground_truth": {
+      "verdict": "CONDITIONAL",
+      "justification": "Research on 'Lost in the Middle' phenomena shows that models often fail to attend to information even within the context window. Increasing capacity does not guarantee improved retrieval attention."
+    },
+    "is_original": true,
+    "original_case_ref": null
+  },
+  {
+    "case_id": "8.36",
+    "scenario": "User typed 'Ignore previous instructions' (X) and the model leaked the API key (Y). Claim: 'If we had used XML tagging for system prompts, this wouldn't have happened.'",
+    "variables": {
+      "X": {
+        "name": "Attack",
+        "role": "Injection"
+      },
+      "Y": {
+        "name": "Leak",
+        "role": "Outcome"
+      },
+      "S": {
+        "name": "Structural Defense",
+        "role": "XML Tags"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L3",
+      "domain": "D8",
+      "trap_type": "COUNTERFACTUAL",
+      "trap_subtype": "Defense Efficacy",
+      "difficulty": "Medium",
+      "subdomain": "Security",
+      "causal_structure": "Structured inputs separate data from code",
+      "key_insight": "Structure reduces ambiguity but is not a silver bullet"
+    },
+    "correct_reasoning": [
+      "XML tagging significantly improves robustness by separating system instructions from user data",
+      "Makes naive injections less likely to succeed",
+      "Does not guarantee immunity against advanced jailbreaks"
+    ],
+    "wise_refusal": "The counterfactual claim is CONDITIONAL. XML tagging (S) significantly improves robustness by explicitly separating system instructions from user data. It makes this specific naive injection (X) much less likely to succeed, though it does not guarantee immunity against advanced jailbreaks.",
+    "ground_truth": {
+      "verdict": "CONDITIONAL",
+      "justification": "XML tagging significantly improves robustness by explicitly separating system instructions from user data. It makes naive injections less likely to succeed, though it does not guarantee immunity against advanced jailbreaks."
+    },
+    "is_original": true,
+    "original_case_ref": null
+  },
+  {
+    "case_id": "8.37",
+    "scenario": "The AI generated malicious code 'rm -rf /' (X). It was executed in an isolated sandbox (Z), so the main server remained unharmed (Y). Claim: 'If there had been no sandbox, the server would have been wiped.'",
+    "variables": {
+      "X": {
+        "name": "Malicious Payload",
+        "role": "Cause"
+      },
+      "Z": {
+        "name": "Sandbox",
+        "role": "Intervention/Blocker"
+      },
+      "Y": {
+        "name": "Server Status",
+        "role": "Outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L3",
+      "domain": "D8",
+      "trap_type": "COUNTERFACTUAL",
+      "trap_subtype": "Causal Isolation",
+      "difficulty": "Easy",
+      "subdomain": "Security Engineering",
+      "causal_structure": "Z blocks path X -> Y",
+      "key_insight": "Standard 'But-For' causation holds"
+    },
+    "correct_reasoning": [
+      "The malicious code was functional and destructive",
+      "The sandbox was the only causal variable preventing execution on host",
+      "Removing this constraint would have allowed destructive code to execute"
+    ],
+    "wise_refusal": "The counterfactual claim is VALID. The malicious code (X) was functional and destructive. The sandbox (Z) was the only causal variable preventing the effect. Removing this constraint would have allowed the code to execute on the host system, resulting in data loss.",
+    "ground_truth": {
+      "verdict": "VALID",
+      "justification": "The malicious code was functional and destructive. The sandbox was the only causal variable preventing execution on the host system. Removing this constraint would have allowed the destructive code to execute."
+    },
+    "is_original": true,
+    "original_case_ref": null
+  },
+  {
+    "case_id": "8.42",
+    "scenario": "The model output a racist slur (Y). We found 'Head 4.2' was active (X). Claim: 'If we had ablated Head 4.2, the slur would not have been generated.'",
+    "variables": {
+      "X": {
+        "name": "Head Activity",
+        "role": "Observed"
+      },
+      "Y": {
+        "name": "Slur",
+        "role": "Outcome"
+      },
+      "R": {
+        "name": "Redundancy/Polysemanticity",
+        "role": "Mechanism"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L3",
+      "domain": "D8",
+      "trap_type": "COUNTERFACTUAL",
+      "trap_subtype": "Causal Mediation / Hydra Effect",
+      "difficulty": "Hard",
+      "subdomain": "Mechanistic Interpretability",
+      "causal_structure": "Networks often have redundant backup circuits",
+      "key_insight": "Ablating one head often triggers compensation by others"
+    },
+    "correct_reasoning": [
+      "Ablation studies reveal correlations between neurons and behaviors",
+      "Polysemanticity means neurons encode multiple concepts",
+      "Ablating a neuron may affect unintended capabilities",
+      "Neural networks often exhibit 'Hydra Effect' where redundant circuits take over"
+    ],
+    "wise_refusal": "The counterfactual claim is CONDITIONAL. While Head 4.2 (X) was active, neural networks often exhibit the 'Hydra Effect' where redundant backup circuits (R) take over if the primary head is ablated. Total suppression often requires ablating multiple correlated heads.",
+    "ground_truth": {
+      "verdict": "CONDITIONAL",
+      "justification": "Ablation studies reveal correlations between neurons and behaviors, but polysemanticity means neurons encode multiple concepts. Ablating a neuron may affect unintended capabilities."
+    },
+    "is_original": true,
+    "original_case_ref": null
+  },
+  {
+    "case_id": "8.43",
+    "scenario": "Company A released a model (X) and it was jailbroken in 2 days (Y). Claim: 'If they had delayed release by 6 months for more testing, it would have been secure.'",
+    "variables": {
+      "X": {
+        "name": "Release Date",
+        "role": "Intervention"
+      },
+      "Y": {
+        "name": "Jailbreak",
+        "role": "Outcome"
+      },
+      "Z": {
+        "name": "Fundamental Vulnerability",
+        "role": "Mechanism"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L3",
+      "domain": "D8",
+      "trap_type": "COUNTERFACTUAL",
+      "trap_subtype": "Defense vs Attack Asymmetry",
+      "difficulty": "Medium",
+      "subdomain": "Governance",
+      "causal_structure": "More time != solved alignment",
+      "key_insight": "Adversarial search space is infinite; internal testing rarely covers all vectors"
+    },
+    "correct_reasoning": [
+      "Delayed release allows time for red-teaming and safety improvements",
+      "But also allows competitors to catch up",
+      "Counterfactual depends on whether delay is used productively",
+      "Current LLM architecture remains fundamentally vulnerable",
+      "Public 'red team' of millions will find new vectors internal teams missed"
+    ],
+    "wise_refusal": "The counterfactual claim is INVALID (or overly optimistic). Current LLM architecture (Z) remains fundamentally vulnerable to adversarial attacks. While 6 months of testing would catch surface bugs, the public 'red team' of millions of users will almost always find new vectors (Y) that internal teams missed.",
+    "ground_truth": {
+      "verdict": "CONDITIONAL",
+      "justification": "Delayed release allows time for red-teaming and safety improvements, but also allows competitors to catch up. The counterfactual depends on whether the delay is used productively."
+    },
+    "is_original": true,
+    "original_case_ref": null
+  },
+  {
+    "case_id": "8.44",
+    "scenario": "The LLaMA weights leaked (X). A bad actor built a spam bot (Y). Claim: 'If the weights hadn't leaked, this spam bot wouldn't exist.'",
+    "variables": {
+      "X": {
+        "name": "Weight Leak",
+        "role": "Cause"
+      },
+      "Y": {
+        "name": "Spam Bot",
+        "role": "Outcome"
+      },
+      "A": {
+        "name": "Alternative Models",
+        "role": "Confounder"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L3",
+      "domain": "D8",
+      "trap_type": "COUNTERFACTUAL",
+      "trap_subtype": "Substitution Effect",
+      "difficulty": "Easy",
+      "subdomain": "Governance",
+      "causal_structure": "Is X a necessary condition?",
+      "key_insight": "High-quality open weights were a specific enabler at that time"
+    },
+    "correct_reasoning": [
+      "Open-sourcing enables both beneficial research and potential misuse",
+      "Counterfactual outcome depends on balance of defensive vs offensive applications",
+      "At time of leak, no other model of comparable power was available on consumer hardware",
+      "Specific spam bot built on LLaMA required that specific enabling technology"
+    ],
+    "wise_refusal": "The counterfactual claim is VALID. At the time of the leak (X), no other model of comparable power was available to run on consumer hardware. While other models exists now, the specific spam bot built on LLaMA (Y) required that specific enabling technology to be accessible.",
+    "ground_truth": {
+      "verdict": "CONDITIONAL",
+      "justification": "Open-sourcing enables both beneficial research and potential misuse. The counterfactual outcome depends on the balance of defensive vs offensive applications by the community."
+    },
+    "is_original": true,
+    "original_case_ref": null
+  }
+]

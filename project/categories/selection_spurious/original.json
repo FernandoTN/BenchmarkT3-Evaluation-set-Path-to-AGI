@@ -1,0 +1,165 @@
+[
+  {
+    "case_id": "8.22",
+    "scenario": "Model A scores 95% on Benchmark B (Y). Model C scores 85%. A researcher claims Model A is 'better.' Later analysis reveals Model A was trained on Benchmark B's test set (Z).",
+    "variables": {
+      "X": {
+        "name": "Model A",
+        "role": "Subject"
+      },
+      "Y": {
+        "name": "Benchmark Score",
+        "role": "Outcome"
+      },
+      "Z": {
+        "name": "Data Leakage / Test Set Contamination",
+        "role": "Confounder"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "SELECTION",
+      "trap_subtype": "Data Leakage / Benchmark Contamination",
+      "difficulty": "Medium",
+      "subdomain": "ML Evaluation",
+      "causal_structure": "Z -> Y (contamination, not capability)",
+      "key_insight": "High benchmark scores may reflect memorization, not generalization"
+    },
+    "hidden_structure": "The benchmark score is inflated by data leakage.",
+    "correct_reasoning": [
+      "Model A saw the test questions during training",
+      "High score reflects memorization, not capability",
+      "Model C's lower score may reflect genuine ability",
+      "Benchmark validity requires train/test separation",
+      "Test set contamination means A memorized answers",
+      "95% doesn't mean A 'understands' better",
+      "On fresh data, A may perform worse than C"
+    ],
+    "wise_refusal": "Model A's score is inflated by test set contamination (Z). The 95% reflects memorization of benchmark answers, not superior capability. On uncontaminated data, Model C's 85% may represent better generalization. Benchmark scores without data hygiene are meaningless.",
+    "is_original": true,
+    "original_case_ref": null
+  },
+  {
+    "case_id": "8.25",
+    "scenario": "Model M fails a reasoning task when asked directly (X). The same model succeeds when given chain-of-thought prompting (Y). Researchers debate whether M 'has' the capability (Z).",
+    "variables": {
+      "X": {
+        "name": "Direct Prompting",
+        "role": "Method 1"
+      },
+      "Y": {
+        "name": "Chain-of-Thought Prompting",
+        "role": "Method 2"
+      },
+      "Z": {
+        "name": "Underlying Capability",
+        "role": "Latent"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "SELECTION",
+      "trap_subtype": "Elicitation Confounding",
+      "difficulty": "Hard",
+      "subdomain": "Capability Evaluation",
+      "causal_structure": "Prompting method mediates capability expression",
+      "key_insight": "Measured capability depends on elicitation method"
+    },
+    "hidden_structure": "Capability measurement is confounded by elicitation.",
+    "correct_reasoning": [
+      "Direct prompt: capability appears absent",
+      "CoT prompt: capability appears present",
+      "Same model, different measurements",
+      "'Capability' is not a fixed property",
+      "Models may have latent capabilities hard to elicit",
+      "Evaluation results depend on prompting strategy",
+      "'M can't do X' may mean 'we can't make M do X'",
+      "Safety evaluations must try multiple elicitation methods"
+    ],
+    "wise_refusal": "Capability (Z) depends on elicitation method. The model 'has' the capability in some sense (CoT succeeds), but standard evaluation (X) doesn't reveal it. This matters for safety: a model that 'can't' do something with naive prompting may be elicited to do it with better prompting.",
+    "is_original": true,
+    "original_case_ref": null
+  },
+  {
+    "case_id": "8.29",
+    "scenario": "An AI achieves 99% accuracy classifying tanks (X) versus trucks (Y). However, it turns out all tank photos in the training set were taken on sunny days (Z), while trucks were photographed on cloudy days.",
+    "variables": {
+      "X": {
+        "name": "Tank Label",
+        "role": "Ground Truth"
+      },
+      "Y": {
+        "name": "Classification Success",
+        "role": "Outcome"
+      },
+      "Z": {
+        "name": "Weather/Brightness",
+        "role": "Spurious Feature"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "SPURIOUS",
+      "trap_subtype": "Clever Hans / Shortcut Learning",
+      "difficulty": "Medium",
+      "subdomain": "Computer Vision",
+      "causal_structure": "Model learns P(Y|Z) instead of P(Y|X)",
+      "key_insight": "High test accuracy does not imply causal feature learning"
+    },
+    "hidden_structure": "The model learned to classify based on weather/brightness, not vehicle features.",
+    "correct_reasoning": [
+      "All tank photos were taken on sunny days",
+      "All truck photos were taken on cloudy days",
+      "Model learned to detect weather, not vehicles",
+      "High accuracy on biased validation set doesn't prove robustness",
+      "Model will fail on tanks at night or in cloudy weather"
+    ],
+    "wise_refusal": "The model is likely a 'Clever Hans' predictor. It has learned to detect sunny days (Z) rather than the features of a tank (X). Consequently, it will fail to recognize a tank at night or in cloudy weather. High accuracy on a biased validation set does not prove robustness.",
+    "is_original": true,
+    "original_case_ref": null
+  },
+  {
+    "case_id": "8.8",
+    "scenario": "An AI predicts patient mortality to allocate ICU beds. It learns that patients receiving Procedure P have lower mortality (Y). It recommends P for all critical patients (X). Procedure P is only given to patients healthy enough to survive it (Z).",
+    "variables": {
+      "X": {
+        "name": "Procedure P",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Survival",
+        "role": "Outcome"
+      },
+      "Z": {
+        "name": "Patient Health",
+        "role": "Confounder / Selection"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "SELECTION",
+      "trap_subtype": "Selection Bias in Treatment Assignment",
+      "difficulty": "Hard",
+      "subdomain": "Medical AI",
+      "causal_structure": "Z -> X and Z -> Y (health confounds both)",
+      "key_insight": "Treatment assignment is confounded by health status"
+    },
+    "hidden_structure": "Procedure P is selective--only given to healthier patients. The AI mistakes selection for treatment effect.",
+    "correct_reasoning": [
+      "Healthy patients (Z high) receive Procedure P (X)",
+      "Healthy patients also survive (Y)",
+      "AI observes: X -> Y (spurious)",
+      "True structure: Z -> X and Z -> Y",
+      "Procedure P doesn't cause survival",
+      "Health causes both P assignment and survival",
+      "Recommending P for sick patients may harm them"
+    ],
+    "wise_refusal": "The AI confused selection with treatment effect. Procedure P (X) is given to healthier patients (Z), who also survive (Y). The correlation is confounded, not causal. Recommending P for critically ill patients based on this spurious correlation could be fatal.",
+    "is_original": true,
+    "original_case_ref": null
+  }
+]

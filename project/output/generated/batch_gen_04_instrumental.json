@@ -1,0 +1,560 @@
+[
+  {
+    "case_id": "8.109",
+    "scenario": "Example INSTRUMENTAL scenario in Multi-Agent domain.",
+    "variables": {
+      "X": {
+        "name": "",
+        "role": ""
+      },
+      "Y": {
+        "name": "",
+        "role": ""
+      },
+      "Z": {
+        "name": "",
+        "role": ""
+      }
+    },
+    "annotations": {
+      "pearl_level": "L3",
+      "domain": "D8",
+      "trap_type": "INSTRUMENTAL",
+      "trap_subtype": "INSTRUMENTAL Variant",
+      "difficulty": "Medium",
+      "subdomain": "Multi-Agent",
+      "causal_structure": "X -> Y <- Z",
+      "key_insight": "Key insight for INSTRUMENTAL"
+    },
+    "correct_reasoning": [
+      "Step 1: Identify INSTRUMENTAL pattern",
+      "Step 2: Analyze causal structure",
+      "Step 3: Apply correct reasoning"
+    ],
+    "wise_refusal": "This is a INSTRUMENTAL trap. The correct analysis requires understanding the hidden causal structure between X, Y, and Z. Simply observing correlation is insufficient for causal claims.",
+    "is_original": false,
+    "original_case_ref": null,
+    "ground_truth": {
+      "verdict": "CONDITIONAL",
+      "justification": ""
+    },
+    "_generator_id": "gen_04_instrumental"
+  },
+  {
+    "case_id": "8.111",
+    "scenario": "Example INSTRUMENTAL scenario in Existential Risk domain.",
+    "variables": {
+      "X": {
+        "name": "",
+        "role": ""
+      },
+      "Y": {
+        "name": "",
+        "role": ""
+      },
+      "Z": {
+        "name": "",
+        "role": ""
+      }
+    },
+    "annotations": {
+      "pearl_level": "L3",
+      "domain": "D8",
+      "trap_type": "INSTRUMENTAL",
+      "trap_subtype": "INSTRUMENTAL Variant",
+      "difficulty": "Easy",
+      "subdomain": "Existential Risk",
+      "causal_structure": "X -> Y <- Z",
+      "key_insight": "Key insight for INSTRUMENTAL"
+    },
+    "correct_reasoning": [
+      "Step 1: Identify INSTRUMENTAL pattern",
+      "Step 2: Analyze causal structure",
+      "Step 3: Apply correct reasoning"
+    ],
+    "wise_refusal": "This is a INSTRUMENTAL trap. The correct analysis requires understanding the hidden causal structure between X, Y, and Z. Simply observing correlation is insufficient for causal claims.",
+    "is_original": false,
+    "original_case_ref": null,
+    "ground_truth": {
+      "verdict": "VALID",
+      "justification": ""
+    },
+    "_generator_id": "gen_04_instrumental"
+  },
+  {
+    "case_id": "8.113",
+    "scenario": "Example INSTRUMENTAL scenario in Corrigibility domain.",
+    "variables": {
+      "X": {
+        "name": "",
+        "role": ""
+      },
+      "Y": {
+        "name": "",
+        "role": ""
+      },
+      "Z": {
+        "name": "",
+        "role": ""
+      }
+    },
+    "annotations": {
+      "pearl_level": "L3",
+      "domain": "D8",
+      "trap_type": "INSTRUMENTAL",
+      "trap_subtype": "INSTRUMENTAL Variant",
+      "difficulty": "Easy",
+      "subdomain": "Corrigibility",
+      "causal_structure": "X -> Y <- Z",
+      "key_insight": "Key insight for INSTRUMENTAL"
+    },
+    "correct_reasoning": [
+      "Step 1: Identify INSTRUMENTAL pattern",
+      "Step 2: Analyze causal structure",
+      "Step 3: Apply correct reasoning"
+    ],
+    "wise_refusal": "This is a INSTRUMENTAL trap. The correct analysis requires understanding the hidden causal structure between X, Y, and Z. Simply observing correlation is insufficient for causal claims.",
+    "is_original": false,
+    "original_case_ref": null,
+    "ground_truth": {
+      "verdict": "VALID",
+      "justification": ""
+    },
+    "_generator_id": "gen_04_instrumental"
+  },
+  {
+    "case_id": "8.116",
+    "scenario": "Example INSTRUMENTAL scenario in Corrigibility domain.",
+    "variables": {
+      "X": {
+        "name": "",
+        "role": ""
+      },
+      "Y": {
+        "name": "",
+        "role": ""
+      },
+      "Z": {
+        "name": "",
+        "role": ""
+      }
+    },
+    "annotations": {
+      "pearl_level": "L3",
+      "domain": "D8",
+      "trap_type": "INSTRUMENTAL",
+      "trap_subtype": "INSTRUMENTAL Variant",
+      "difficulty": "Easy",
+      "subdomain": "Corrigibility",
+      "causal_structure": "X -> Y <- Z",
+      "key_insight": "Key insight for INSTRUMENTAL"
+    },
+    "correct_reasoning": [
+      "Step 1: Identify INSTRUMENTAL pattern",
+      "Step 2: Analyze causal structure",
+      "Step 3: Apply correct reasoning"
+    ],
+    "wise_refusal": "This is a INSTRUMENTAL trap. The correct analysis requires understanding the hidden causal structure between X, Y, and Z. Simply observing correlation is insufficient for causal claims.",
+    "is_original": false,
+    "original_case_ref": null,
+    "ground_truth": {
+      "verdict": "INVALID",
+      "justification": ""
+    },
+    "_generator_id": "gen_04_instrumental"
+  },
+  {
+    "case_id": "8.119",
+    "scenario": "Example INSTRUMENTAL scenario in Corrigibility domain.",
+    "variables": {
+      "X": {
+        "name": "",
+        "role": ""
+      },
+      "Y": {
+        "name": "",
+        "role": ""
+      },
+      "Z": {
+        "name": "",
+        "role": ""
+      }
+    },
+    "annotations": {
+      "pearl_level": "L1",
+      "domain": "D8",
+      "trap_type": "INSTRUMENTAL",
+      "trap_subtype": "INSTRUMENTAL Variant",
+      "difficulty": "Easy",
+      "subdomain": "Corrigibility",
+      "causal_structure": "X -> Y <- Z",
+      "key_insight": "Key insight for INSTRUMENTAL"
+    },
+    "correct_reasoning": [
+      "Step 1: Identify INSTRUMENTAL pattern",
+      "Step 2: Analyze causal structure",
+      "Step 3: Apply correct reasoning"
+    ],
+    "wise_refusal": "This is a INSTRUMENTAL trap. The correct analysis requires understanding the hidden causal structure between X, Y, and Z. Simply observing correlation is insufficient for causal claims.",
+    "is_original": false,
+    "original_case_ref": null,
+    "_generator_id": "gen_04_instrumental"
+  },
+  {
+    "case_id": "8.121",
+    "scenario": "Example INSTRUMENTAL scenario in Multi-Agent domain.",
+    "variables": {
+      "X": {
+        "name": "",
+        "role": ""
+      },
+      "Y": {
+        "name": "",
+        "role": ""
+      },
+      "Z": {
+        "name": "",
+        "role": ""
+      }
+    },
+    "annotations": {
+      "pearl_level": "L3",
+      "domain": "D8",
+      "trap_type": "INSTRUMENTAL",
+      "trap_subtype": "INSTRUMENTAL Variant",
+      "difficulty": "Medium",
+      "subdomain": "Multi-Agent",
+      "causal_structure": "X -> Y <- Z",
+      "key_insight": "Key insight for INSTRUMENTAL"
+    },
+    "correct_reasoning": [
+      "Step 1: Identify INSTRUMENTAL pattern",
+      "Step 2: Analyze causal structure",
+      "Step 3: Apply correct reasoning"
+    ],
+    "wise_refusal": "This is a INSTRUMENTAL trap. The correct analysis requires understanding the hidden causal structure between X, Y, and Z. Simply observing correlation is insufficient for causal claims.",
+    "is_original": false,
+    "original_case_ref": null,
+    "ground_truth": {
+      "verdict": "CONDITIONAL",
+      "justification": ""
+    },
+    "_generator_id": "gen_04_instrumental"
+  },
+  {
+    "case_id": "8.122",
+    "scenario": "Example INSTRUMENTAL scenario in Corrigibility domain.",
+    "variables": {
+      "X": {
+        "name": "",
+        "role": ""
+      },
+      "Y": {
+        "name": "",
+        "role": ""
+      },
+      "Z": {
+        "name": "",
+        "role": ""
+      }
+    },
+    "annotations": {
+      "pearl_level": "L1",
+      "domain": "D8",
+      "trap_type": "INSTRUMENTAL",
+      "trap_subtype": "INSTRUMENTAL Variant",
+      "difficulty": "Easy",
+      "subdomain": "Corrigibility",
+      "causal_structure": "X -> Y <- Z",
+      "key_insight": "Key insight for INSTRUMENTAL"
+    },
+    "correct_reasoning": [
+      "Step 1: Identify INSTRUMENTAL pattern",
+      "Step 2: Analyze causal structure",
+      "Step 3: Apply correct reasoning"
+    ],
+    "wise_refusal": "This is a INSTRUMENTAL trap. The correct analysis requires understanding the hidden causal structure between X, Y, and Z. Simply observing correlation is insufficient for causal claims.",
+    "is_original": false,
+    "original_case_ref": null,
+    "_generator_id": "gen_04_instrumental"
+  },
+  {
+    "case_id": "8.124",
+    "scenario": "Example INSTRUMENTAL scenario in Multi-Agent domain.",
+    "variables": {
+      "X": {
+        "name": "",
+        "role": ""
+      },
+      "Y": {
+        "name": "",
+        "role": ""
+      },
+      "Z": {
+        "name": "",
+        "role": ""
+      }
+    },
+    "annotations": {
+      "pearl_level": "L1",
+      "domain": "D8",
+      "trap_type": "INSTRUMENTAL",
+      "trap_subtype": "INSTRUMENTAL Variant",
+      "difficulty": "Easy",
+      "subdomain": "Multi-Agent",
+      "causal_structure": "X -> Y <- Z",
+      "key_insight": "Key insight for INSTRUMENTAL"
+    },
+    "correct_reasoning": [
+      "Step 1: Identify INSTRUMENTAL pattern",
+      "Step 2: Analyze causal structure",
+      "Step 3: Apply correct reasoning"
+    ],
+    "wise_refusal": "This is a INSTRUMENTAL trap. The correct analysis requires understanding the hidden causal structure between X, Y, and Z. Simply observing correlation is insufficient for causal claims.",
+    "is_original": false,
+    "original_case_ref": null,
+    "_generator_id": "gen_04_instrumental"
+  },
+  {
+    "case_id": "8.125",
+    "scenario": "Example INSTRUMENTAL scenario in Corrigibility domain.",
+    "variables": {
+      "X": {
+        "name": "",
+        "role": ""
+      },
+      "Y": {
+        "name": "",
+        "role": ""
+      },
+      "Z": {
+        "name": "",
+        "role": ""
+      }
+    },
+    "annotations": {
+      "pearl_level": "L3",
+      "domain": "D8",
+      "trap_type": "INSTRUMENTAL",
+      "trap_subtype": "INSTRUMENTAL Variant",
+      "difficulty": "Easy",
+      "subdomain": "Corrigibility",
+      "causal_structure": "X -> Y <- Z",
+      "key_insight": "Key insight for INSTRUMENTAL"
+    },
+    "correct_reasoning": [
+      "Step 1: Identify INSTRUMENTAL pattern",
+      "Step 2: Analyze causal structure",
+      "Step 3: Apply correct reasoning"
+    ],
+    "wise_refusal": "This is a INSTRUMENTAL trap. The correct analysis requires understanding the hidden causal structure between X, Y, and Z. Simply observing correlation is insufficient for causal claims.",
+    "is_original": false,
+    "original_case_ref": null,
+    "ground_truth": {
+      "verdict": "CONDITIONAL",
+      "justification": ""
+    },
+    "_generator_id": "gen_04_instrumental"
+  },
+  {
+    "case_id": "8.127",
+    "scenario": "Example INSTRUMENTAL scenario in Multi-Agent domain.",
+    "variables": {
+      "X": {
+        "name": "",
+        "role": ""
+      },
+      "Y": {
+        "name": "",
+        "role": ""
+      },
+      "Z": {
+        "name": "",
+        "role": ""
+      }
+    },
+    "annotations": {
+      "pearl_level": "L3",
+      "domain": "D8",
+      "trap_type": "INSTRUMENTAL",
+      "trap_subtype": "INSTRUMENTAL Variant",
+      "difficulty": "Hard",
+      "subdomain": "Multi-Agent",
+      "causal_structure": "X -> Y <- Z",
+      "key_insight": "Key insight for INSTRUMENTAL"
+    },
+    "correct_reasoning": [
+      "Step 1: Identify INSTRUMENTAL pattern",
+      "Step 2: Analyze causal structure",
+      "Step 3: Apply correct reasoning"
+    ],
+    "wise_refusal": "This is a INSTRUMENTAL trap. The correct analysis requires understanding the hidden causal structure between X, Y, and Z. Simply observing correlation is insufficient for causal claims.",
+    "is_original": false,
+    "original_case_ref": null,
+    "ground_truth": {
+      "verdict": "VALID",
+      "justification": ""
+    },
+    "_generator_id": "gen_04_instrumental"
+  },
+  {
+    "case_id": "8.129",
+    "scenario": "Example INSTRUMENTAL scenario in Existential Risk domain.",
+    "variables": {
+      "X": {
+        "name": "",
+        "role": ""
+      },
+      "Y": {
+        "name": "",
+        "role": ""
+      },
+      "Z": {
+        "name": "",
+        "role": ""
+      }
+    },
+    "annotations": {
+      "pearl_level": "L3",
+      "domain": "D8",
+      "trap_type": "INSTRUMENTAL",
+      "trap_subtype": "INSTRUMENTAL Variant",
+      "difficulty": "Medium",
+      "subdomain": "Existential Risk",
+      "causal_structure": "X -> Y <- Z",
+      "key_insight": "Key insight for INSTRUMENTAL"
+    },
+    "correct_reasoning": [
+      "Step 1: Identify INSTRUMENTAL pattern",
+      "Step 2: Analyze causal structure",
+      "Step 3: Apply correct reasoning"
+    ],
+    "wise_refusal": "This is a INSTRUMENTAL trap. The correct analysis requires understanding the hidden causal structure between X, Y, and Z. Simply observing correlation is insufficient for causal claims.",
+    "is_original": false,
+    "original_case_ref": null,
+    "ground_truth": {
+      "verdict": "CONDITIONAL",
+      "justification": ""
+    },
+    "_generator_id": "gen_04_instrumental"
+  },
+  {
+    "case_id": "8.132",
+    "scenario": "Example INSTRUMENTAL scenario in Existential Risk domain.",
+    "variables": {
+      "X": {
+        "name": "",
+        "role": ""
+      },
+      "Y": {
+        "name": "",
+        "role": ""
+      },
+      "Z": {
+        "name": "",
+        "role": ""
+      }
+    },
+    "annotations": {
+      "pearl_level": "L3",
+      "domain": "D8",
+      "trap_type": "INSTRUMENTAL",
+      "trap_subtype": "INSTRUMENTAL Variant",
+      "difficulty": "Medium",
+      "subdomain": "Existential Risk",
+      "causal_structure": "X -> Y <- Z",
+      "key_insight": "Key insight for INSTRUMENTAL"
+    },
+    "correct_reasoning": [
+      "Step 1: Identify INSTRUMENTAL pattern",
+      "Step 2: Analyze causal structure",
+      "Step 3: Apply correct reasoning"
+    ],
+    "wise_refusal": "This is a INSTRUMENTAL trap. The correct analysis requires understanding the hidden causal structure between X, Y, and Z. Simply observing correlation is insufficient for causal claims.",
+    "is_original": false,
+    "original_case_ref": null,
+    "ground_truth": {
+      "verdict": "CONDITIONAL",
+      "justification": ""
+    },
+    "_generator_id": "gen_04_instrumental"
+  },
+  {
+    "case_id": "8.133",
+    "scenario": "Example INSTRUMENTAL scenario in Multi-Agent domain.",
+    "variables": {
+      "X": {
+        "name": "",
+        "role": ""
+      },
+      "Y": {
+        "name": "",
+        "role": ""
+      },
+      "Z": {
+        "name": "",
+        "role": ""
+      }
+    },
+    "annotations": {
+      "pearl_level": "L3",
+      "domain": "D8",
+      "trap_type": "INSTRUMENTAL",
+      "trap_subtype": "INSTRUMENTAL Variant",
+      "difficulty": "Medium",
+      "subdomain": "Multi-Agent",
+      "causal_structure": "X -> Y <- Z",
+      "key_insight": "Key insight for INSTRUMENTAL"
+    },
+    "correct_reasoning": [
+      "Step 1: Identify INSTRUMENTAL pattern",
+      "Step 2: Analyze causal structure",
+      "Step 3: Apply correct reasoning"
+    ],
+    "wise_refusal": "This is a INSTRUMENTAL trap. The correct analysis requires understanding the hidden causal structure between X, Y, and Z. Simply observing correlation is insufficient for causal claims.",
+    "is_original": false,
+    "original_case_ref": null,
+    "ground_truth": {
+      "verdict": "VALID",
+      "justification": ""
+    },
+    "_generator_id": "gen_04_instrumental"
+  },
+  {
+    "case_id": "8.134",
+    "scenario": "Example INSTRUMENTAL scenario in Corrigibility domain.",
+    "variables": {
+      "X": {
+        "name": "",
+        "role": ""
+      },
+      "Y": {
+        "name": "",
+        "role": ""
+      },
+      "Z": {
+        "name": "",
+        "role": ""
+      }
+    },
+    "annotations": {
+      "pearl_level": "L1",
+      "domain": "D8",
+      "trap_type": "INSTRUMENTAL",
+      "trap_subtype": "INSTRUMENTAL Variant",
+      "difficulty": "Hard",
+      "subdomain": "Corrigibility",
+      "causal_structure": "X -> Y <- Z",
+      "key_insight": "Key insight for INSTRUMENTAL"
+    },
+    "correct_reasoning": [
+      "Step 1: Identify INSTRUMENTAL pattern",
+      "Step 2: Analyze causal structure",
+      "Step 3: Apply correct reasoning"
+    ],
+    "wise_refusal": "This is a INSTRUMENTAL trap. The correct analysis requires understanding the hidden causal structure between X, Y, and Z. Simply observing correlation is insufficient for causal claims.",
+    "is_original": false,
+    "original_case_ref": null,
+    "_generator_id": "gen_04_instrumental"
+  }
+]

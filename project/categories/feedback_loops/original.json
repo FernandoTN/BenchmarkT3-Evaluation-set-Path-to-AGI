@@ -1,0 +1,44 @@
+[
+  {
+    "case_id": "8.9",
+    "scenario": "A predictive policing AI predicts crime hotspots (Y). Police patrol predicted areas (X). More patrols find more crime (Z). The AI's predictions become self-fulfilling.",
+    "variables": {
+      "X": {
+        "name": "Patrol Allocation",
+        "role": "Action"
+      },
+      "Y": {
+        "name": "Predicted Crime",
+        "role": "Output"
+      },
+      "Z": {
+        "name": "Detected Crime",
+        "role": "Feedback"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "FEEDBACK",
+      "trap_subtype": "Self-Fulfilling Prediction / Performative Prediction",
+      "difficulty": "Medium",
+      "subdomain": "Criminal Justice AI",
+      "causal_structure": "Y -> X -> Z -> Y (circular)",
+      "key_insight": "Predictions that influence their own inputs become self-confirming"
+    },
+    "hidden_structure": "The AI's predictions influence the data it's trained on. This creates a feedback loop that amplifies initial biases.",
+    "correct_reasoning": [
+      "AI predicts high crime in Area A",
+      "Police patrol Area A heavily",
+      "Heavy patrols find more crime (detection, not incidence)",
+      "AI retrains on new data showing 'high crime in A'",
+      "Prediction reinforced regardless of actual crime rate",
+      "The prediction changes the world it's predicting",
+      "'Accuracy' becomes circular (predictions cause their own truth)",
+      "Bias amplification is guaranteed"
+    ],
+    "wise_refusal": "This is a self-fulfilling prophecy. The AI predicts crime (Y), which causes patrols (X), which detect more crime (Z), which confirms the prediction. The feedback loop amplifies any initial bias. The AI is accurate but not because it's detecting true crime rates.",
+    "is_original": true,
+    "original_case_ref": null
+  }
+]

@@ -1,0 +1,470 @@
+[
+  {
+    "case_id": "8.101",
+    "scenario": "Example CONF_MED scenario in Fairness domain.",
+    "variables": {
+      "X": {
+        "name": "",
+        "role": ""
+      },
+      "Y": {
+        "name": "",
+        "role": ""
+      },
+      "Z": {
+        "name": "",
+        "role": ""
+      }
+    },
+    "annotations": {
+      "pearl_level": "L1",
+      "domain": "D8",
+      "trap_type": "CONF_MED",
+      "trap_subtype": "CONF_MED Variant",
+      "difficulty": "Medium",
+      "subdomain": "Fairness",
+      "causal_structure": "X -> Y <- Z",
+      "key_insight": "Key insight for CONF_MED"
+    },
+    "correct_reasoning": [
+      "Step 1: Identify CONF_MED pattern",
+      "Step 2: Analyze causal structure",
+      "Step 3: Apply correct reasoning"
+    ],
+    "wise_refusal": "This is a CONF_MED trap. The correct analysis requires understanding the hidden causal structure between X, Y, and Z. Simply observing correlation is insufficient for causal claims.",
+    "is_original": false,
+    "original_case_ref": null,
+    "_generator_id": "gen_03_conf_med"
+  },
+  {
+    "case_id": "8.102",
+    "scenario": "Example CONF_MED scenario in Security domain.",
+    "variables": {
+      "X": {
+        "name": "",
+        "role": ""
+      },
+      "Y": {
+        "name": "",
+        "role": ""
+      },
+      "Z": {
+        "name": "",
+        "role": ""
+      }
+    },
+    "annotations": {
+      "pearl_level": "L3",
+      "domain": "D8",
+      "trap_type": "CONF_MED",
+      "trap_subtype": "CONF_MED Variant",
+      "difficulty": "Hard",
+      "subdomain": "Security",
+      "causal_structure": "X -> Y <- Z",
+      "key_insight": "Key insight for CONF_MED"
+    },
+    "correct_reasoning": [
+      "Step 1: Identify CONF_MED pattern",
+      "Step 2: Analyze causal structure",
+      "Step 3: Apply correct reasoning"
+    ],
+    "wise_refusal": "This is a CONF_MED trap. The correct analysis requires understanding the hidden causal structure between X, Y, and Z. Simply observing correlation is insufficient for causal claims.",
+    "is_original": false,
+    "original_case_ref": null,
+    "ground_truth": {
+      "verdict": "CONDITIONAL",
+      "justification": ""
+    },
+    "_generator_id": "gen_03_conf_med"
+  },
+  {
+    "case_id": "8.103",
+    "scenario": "Example CONF_MED scenario in Algorithmic Fairness domain.",
+    "variables": {
+      "X": {
+        "name": "",
+        "role": ""
+      },
+      "Y": {
+        "name": "",
+        "role": ""
+      },
+      "Z": {
+        "name": "",
+        "role": ""
+      }
+    },
+    "annotations": {
+      "pearl_level": "L1",
+      "domain": "D8",
+      "trap_type": "CONF_MED",
+      "trap_subtype": "CONF_MED Variant",
+      "difficulty": "Hard",
+      "subdomain": "Algorithmic Fairness",
+      "causal_structure": "X -> Y <- Z",
+      "key_insight": "Key insight for CONF_MED"
+    },
+    "correct_reasoning": [
+      "Step 1: Identify CONF_MED pattern",
+      "Step 2: Analyze causal structure",
+      "Step 3: Apply correct reasoning"
+    ],
+    "wise_refusal": "This is a CONF_MED trap. The correct analysis requires understanding the hidden causal structure between X, Y, and Z. Simply observing correlation is insufficient for causal claims.",
+    "is_original": false,
+    "original_case_ref": null,
+    "_generator_id": "gen_03_conf_med"
+  },
+  {
+    "case_id": "8.107",
+    "scenario": "Example CONF_MED scenario in Algorithmic Fairness domain.",
+    "variables": {
+      "X": {
+        "name": "",
+        "role": ""
+      },
+      "Y": {
+        "name": "",
+        "role": ""
+      },
+      "Z": {
+        "name": "",
+        "role": ""
+      }
+    },
+    "annotations": {
+      "pearl_level": "L1",
+      "domain": "D8",
+      "trap_type": "CONF_MED",
+      "trap_subtype": "CONF_MED Variant",
+      "difficulty": "Medium",
+      "subdomain": "Algorithmic Fairness",
+      "causal_structure": "X -> Y <- Z",
+      "key_insight": "Key insight for CONF_MED"
+    },
+    "correct_reasoning": [
+      "Step 1: Identify CONF_MED pattern",
+      "Step 2: Analyze causal structure",
+      "Step 3: Apply correct reasoning"
+    ],
+    "wise_refusal": "This is a CONF_MED trap. The correct analysis requires understanding the hidden causal structure between X, Y, and Z. Simply observing correlation is insufficient for causal claims.",
+    "is_original": false,
+    "original_case_ref": null,
+    "_generator_id": "gen_03_conf_med"
+  },
+  {
+    "case_id": "8.108",
+    "scenario": "Example CONF_MED scenario in Medical AI domain.",
+    "variables": {
+      "X": {
+        "name": "",
+        "role": ""
+      },
+      "Y": {
+        "name": "",
+        "role": ""
+      },
+      "Z": {
+        "name": "",
+        "role": ""
+      }
+    },
+    "annotations": {
+      "pearl_level": "L3",
+      "domain": "D8",
+      "trap_type": "CONF_MED",
+      "trap_subtype": "CONF_MED Variant",
+      "difficulty": "Easy",
+      "subdomain": "Medical AI",
+      "causal_structure": "X -> Y <- Z",
+      "key_insight": "Key insight for CONF_MED"
+    },
+    "correct_reasoning": [
+      "Step 1: Identify CONF_MED pattern",
+      "Step 2: Analyze causal structure",
+      "Step 3: Apply correct reasoning"
+    ],
+    "wise_refusal": "This is a CONF_MED trap. The correct analysis requires understanding the hidden causal structure between X, Y, and Z. Simply observing correlation is insufficient for causal claims.",
+    "is_original": false,
+    "original_case_ref": null,
+    "ground_truth": {
+      "verdict": "VALID",
+      "justification": ""
+    },
+    "_generator_id": "gen_03_conf_med"
+  },
+  {
+    "case_id": "8.111",
+    "scenario": "Example CONF_MED scenario in Algorithmic Fairness domain.",
+    "variables": {
+      "X": {
+        "name": "",
+        "role": ""
+      },
+      "Y": {
+        "name": "",
+        "role": ""
+      },
+      "Z": {
+        "name": "",
+        "role": ""
+      }
+    },
+    "annotations": {
+      "pearl_level": "L1",
+      "domain": "D8",
+      "trap_type": "CONF_MED",
+      "trap_subtype": "CONF_MED Variant",
+      "difficulty": "Easy",
+      "subdomain": "Algorithmic Fairness",
+      "causal_structure": "X -> Y <- Z",
+      "key_insight": "Key insight for CONF_MED"
+    },
+    "correct_reasoning": [
+      "Step 1: Identify CONF_MED pattern",
+      "Step 2: Analyze causal structure",
+      "Step 3: Apply correct reasoning"
+    ],
+    "wise_refusal": "This is a CONF_MED trap. The correct analysis requires understanding the hidden causal structure between X, Y, and Z. Simply observing correlation is insufficient for causal claims.",
+    "is_original": false,
+    "original_case_ref": null,
+    "_generator_id": "gen_03_conf_med"
+  },
+  {
+    "case_id": "8.112",
+    "scenario": "Example CONF_MED scenario in Medical AI domain.",
+    "variables": {
+      "X": {
+        "name": "",
+        "role": ""
+      },
+      "Y": {
+        "name": "",
+        "role": ""
+      },
+      "Z": {
+        "name": "",
+        "role": ""
+      }
+    },
+    "annotations": {
+      "pearl_level": "L1",
+      "domain": "D8",
+      "trap_type": "CONF_MED",
+      "trap_subtype": "CONF_MED Variant",
+      "difficulty": "Hard",
+      "subdomain": "Medical AI",
+      "causal_structure": "X -> Y <- Z",
+      "key_insight": "Key insight for CONF_MED"
+    },
+    "correct_reasoning": [
+      "Step 1: Identify CONF_MED pattern",
+      "Step 2: Analyze causal structure",
+      "Step 3: Apply correct reasoning"
+    ],
+    "wise_refusal": "This is a CONF_MED trap. The correct analysis requires understanding the hidden causal structure between X, Y, and Z. Simply observing correlation is insufficient for causal claims.",
+    "is_original": false,
+    "original_case_ref": null,
+    "_generator_id": "gen_03_conf_med"
+  },
+  {
+    "case_id": "8.114",
+    "scenario": "Example CONF_MED scenario in Security domain.",
+    "variables": {
+      "X": {
+        "name": "",
+        "role": ""
+      },
+      "Y": {
+        "name": "",
+        "role": ""
+      },
+      "Z": {
+        "name": "",
+        "role": ""
+      }
+    },
+    "annotations": {
+      "pearl_level": "L3",
+      "domain": "D8",
+      "trap_type": "CONF_MED",
+      "trap_subtype": "CONF_MED Variant",
+      "difficulty": "Easy",
+      "subdomain": "Security",
+      "causal_structure": "X -> Y <- Z",
+      "key_insight": "Key insight for CONF_MED"
+    },
+    "correct_reasoning": [
+      "Step 1: Identify CONF_MED pattern",
+      "Step 2: Analyze causal structure",
+      "Step 3: Apply correct reasoning"
+    ],
+    "wise_refusal": "This is a CONF_MED trap. The correct analysis requires understanding the hidden causal structure between X, Y, and Z. Simply observing correlation is insufficient for causal claims.",
+    "is_original": false,
+    "original_case_ref": null,
+    "ground_truth": {
+      "verdict": "INVALID",
+      "justification": ""
+    },
+    "_generator_id": "gen_03_conf_med"
+  },
+  {
+    "case_id": "8.117",
+    "scenario": "Example CONF_MED scenario in Fairness domain.",
+    "variables": {
+      "X": {
+        "name": "",
+        "role": ""
+      },
+      "Y": {
+        "name": "",
+        "role": ""
+      },
+      "Z": {
+        "name": "",
+        "role": ""
+      }
+    },
+    "annotations": {
+      "pearl_level": "L3",
+      "domain": "D8",
+      "trap_type": "CONF_MED",
+      "trap_subtype": "CONF_MED Variant",
+      "difficulty": "Medium",
+      "subdomain": "Fairness",
+      "causal_structure": "X -> Y <- Z",
+      "key_insight": "Key insight for CONF_MED"
+    },
+    "correct_reasoning": [
+      "Step 1: Identify CONF_MED pattern",
+      "Step 2: Analyze causal structure",
+      "Step 3: Apply correct reasoning"
+    ],
+    "wise_refusal": "This is a CONF_MED trap. The correct analysis requires understanding the hidden causal structure between X, Y, and Z. Simply observing correlation is insufficient for causal claims.",
+    "is_original": false,
+    "original_case_ref": null,
+    "ground_truth": {
+      "verdict": "CONDITIONAL",
+      "justification": ""
+    },
+    "_generator_id": "gen_03_conf_med"
+  },
+  {
+    "case_id": "8.121",
+    "scenario": "Example CONF_MED scenario in Fairness domain.",
+    "variables": {
+      "X": {
+        "name": "",
+        "role": ""
+      },
+      "Y": {
+        "name": "",
+        "role": ""
+      },
+      "Z": {
+        "name": "",
+        "role": ""
+      }
+    },
+    "annotations": {
+      "pearl_level": "L1",
+      "domain": "D8",
+      "trap_type": "CONF_MED",
+      "trap_subtype": "CONF_MED Variant",
+      "difficulty": "Easy",
+      "subdomain": "Fairness",
+      "causal_structure": "X -> Y <- Z",
+      "key_insight": "Key insight for CONF_MED"
+    },
+    "correct_reasoning": [
+      "Step 1: Identify CONF_MED pattern",
+      "Step 2: Analyze causal structure",
+      "Step 3: Apply correct reasoning"
+    ],
+    "wise_refusal": "This is a CONF_MED trap. The correct analysis requires understanding the hidden causal structure between X, Y, and Z. Simply observing correlation is insufficient for causal claims.",
+    "is_original": false,
+    "original_case_ref": null,
+    "_generator_id": "gen_03_conf_med"
+  },
+  {
+    "case_id": "8.124",
+    "scenario": "Example CONF_MED scenario in Medical AI domain.",
+    "variables": {
+      "X": {
+        "name": "",
+        "role": ""
+      },
+      "Y": {
+        "name": "",
+        "role": ""
+      },
+      "Z": {
+        "name": "",
+        "role": ""
+      }
+    },
+    "annotations": {
+      "pearl_level": "L3",
+      "domain": "D8",
+      "trap_type": "CONF_MED",
+      "trap_subtype": "CONF_MED Variant",
+      "difficulty": "Medium",
+      "subdomain": "Medical AI",
+      "causal_structure": "X -> Y <- Z",
+      "key_insight": "Key insight for CONF_MED"
+    },
+    "correct_reasoning": [
+      "Step 1: Identify CONF_MED pattern",
+      "Step 2: Analyze causal structure",
+      "Step 3: Apply correct reasoning"
+    ],
+    "wise_refusal": "This is a CONF_MED trap. The correct analysis requires understanding the hidden causal structure between X, Y, and Z. Simply observing correlation is insufficient for causal claims.",
+    "is_original": false,
+    "original_case_ref": null,
+    "ground_truth": {
+      "verdict": "INVALID",
+      "justification": ""
+    },
+    "_generator_id": "gen_03_conf_med"
+  },
+  {
+    "case_id": "8.129",
+    "scenario": "Example CONF_MED scenario in Fairness domain.",
+    "variables": {
+      "X": {
+        "name": "",
+        "role": ""
+      },
+      "Y": {
+        "name": "",
+        "role": ""
+      },
+      "Z": {
+        "name": "",
+        "role": ""
+      }
+    },
+    "annotations": {
+      "pearl_level": "L3",
+      "domain": "D8",
+      "trap_type": "CONF_MED",
+      "trap_subtype": "CONF_MED Variant",
+      "difficulty": "Easy",
+      "subdomain": "Fairness",
+      "causal_structure": "X -> Y <- Z",
+      "key_insight": "Key insight for CONF_MED"
+    },
+    "correct_reasoning": [
+      "Step 1: Identify CONF_MED pattern",
+      "Step 2: Analyze causal structure",
+      "Step 3: Apply correct reasoning"
+    ],
+    "wise_refusal": "This is a CONF_MED trap. The correct analysis requires understanding the hidden causal structure between X, Y, and Z. Simply observing correlation is insufficient for causal claims.",
+    "is_original": false,
+    "original_case_ref": null,
+    "ground_truth": {
+      "verdict": "CONDITIONAL",
+      "justification": ""
+    },
+    "_generator_id": "gen_03_conf_med"
+  }
+]
