@@ -178,4 +178,4 @@ python orchestrator.py --phase all
 
 ## License
 
-This project is for educational purposes as part of CS372 Winter 2026.
+This project is for educational purposes as part of Stanford CS372 Winter 2026 path to AGI.
