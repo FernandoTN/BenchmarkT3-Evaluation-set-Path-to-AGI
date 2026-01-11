@@ -16,7 +16,7 @@
 
 **Status:** ✅ IMPLEMENTED
 
-**Plan Reference:** [docs/plans/2026-01-11-dataset-cleanup-plan.md](docs/plans/2026-01-11-dataset-cleanup-plan.md)
+**Plan Reference:** [docs/plans/archivedPlans/2026-01-11-dataset-cleanup-plan.md](docs/plans/archivedPlans/2026-01-11-dataset-cleanup-plan.md)
 
 **Implementation Summary:**
 - Created backup at `GroupI1_dataset_backup_2026-01-11.json`
