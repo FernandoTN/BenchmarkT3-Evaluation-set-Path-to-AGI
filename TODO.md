@@ -12,6 +12,40 @@
 
 # TODO Done
 
+## Clean and Finalize GroupI1_dataset.json for Submission (Completed: January 11, 2026)
+
+**Status:** ✅ IMPLEMENTED
+
+**Plan Reference:** [docs/plans/2026-01-11-dataset-cleanup-plan.md](docs/plans/2026-01-11-dataset-cleanup-plan.md)
+
+**Implementation Summary:**
+- Created backup at `GroupI1_dataset_backup_2026-01-11.json`
+- Generated missing `hidden_structure` for 4 L2 cases
+- Generated missing `ground_truth` for 2 L3 cases
+- Removed deprecated fields: `is_original` (454), `original_case_ref` (454), `_generator_id` (45)
+- Removed schema-violating fields: L1 `hidden_structure` (13), L1 `ground_truth` (2), L2 `ground_truth` (27), L3 `hidden_structure` (20)
+- Renumbered case IDs sequentially (8.1 to 8.454)
+- Created changelog at `project/output/CHANGELOG_2026-01-11.md`
+
+**Final Results:**
+- Total cases: **454**
+- Sequential IDs: **8.1 to 8.454** (no gaps)
+- Pearl Distribution: L1=52, L2=277, L3=125
+- All schema validations passed
+
+**Verification Gates - All Passed:**
+| Metric | Target | Final | Status |
+|--------|--------|-------|--------|
+| Total cases | 454 | 454 | ✅ |
+| Sequential IDs | True | True | ✅ |
+| L1 extra fields | 0 | 0 | ✅ |
+| L2 hidden_structure present | 277 | 277 | ✅ |
+| L2 ground_truth absent | 0 | 0 | ✅ |
+| L3 ground_truth present | 125 | 125 | ✅ |
+| L3 hidden_structure absent | 0 | 0 | ✅ |
+
+---
+
 ## Complete T3 Benchmark to 454 Cases - Hybrid Approach (Completed: January 9, 2026)
 
 **Status:** ✅ IMPLEMENTED
@@ -101,7 +135,7 @@
 
 ### Deliverables Completed
 
-- [x] `GroupI1_dataset.json` - 454 cases in required JSON format
+- [x] `GroupI1_dataset.json` - 454 cases in required JSON format (cleaned and finalized)
 - [x] `analysis_report.md` - Analysis report with methodology documentation
 - [x] Fixed orchestrator ID assignment bug
 - [x] Fixed cross_validator duplicate detection
@@ -110,6 +144,8 @@
 - [x] Expanded templates for gen_01 through gen_04
 - [x] Agent-based writing for remaining cases
 - [x] Plan documented in docs/plans/
+- [x] Dataset cleanup and schema validation
+- [x] Sequential ID renumbering
 
 ---
 
