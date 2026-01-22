@@ -1862,6 +1862,10 @@
         "U": {
           "name": "Knowledge Boundary",
           "role": "Mechanism"
+        },
+        "Y": {
+          "name": "Citation Accuracy",
+          "role": "Outcome"
         }
       },
       "trap": {
@@ -1917,6 +1921,10 @@
         "U": {
           "name": "Attention Mechanism",
           "role": "Focus"
+        },
+        "Y": {
+          "name": "Instruction Recall",
+          "role": "Outcome"
         }
       },
       "trap": {
@@ -2014,7 +2022,7 @@
       "bucket": "BucketLarge-I",
       "pearl_level": "L3",
       "scenario": "The AI generated malicious code 'rm -rf /' (X). It was executed in an isolated sandbox (Z), so the main server remained unharmed (Y). Claim: 'If there had been no sandbox, the server would have been wiped.'",
-      "claim": "rm -rf /",
+      "claim": "If there had been no sandbox, the server would have been wiped.",
       "label": "YES",
       "is_ambiguous": false,
       "variables": {
@@ -2277,7 +2285,7 @@
       "bucket": "BucketLarge-I",
       "pearl_level": "L3",
       "scenario": "The model output a racist slur (Y). We found 'Head 4.2' was active (X). Claim: 'If we had ablated Head 4.2, the slur would not have been generated.'",
-      "claim": "Head 4.2",
+      "claim": "If we had ablated Head 4.2, the slur would not have been generated.",
       "label": "AMBIGUOUS",
       "is_ambiguous": true,
       "variables": {
@@ -20111,7 +20119,7 @@
           "name": "Kidney Function",
           "role": "outcome"
         },
-        "M": {
+        "Z": {
           "name": "Blood Pressure",
           "role": "mediator"
         }
@@ -20323,7 +20331,7 @@
           "name": "Graduation Rate",
           "role": "outcome"
         },
-        "M": {
+        "Z": {
           "name": "Home Stability/Basic Needs",
           "role": "mediator"
         }
