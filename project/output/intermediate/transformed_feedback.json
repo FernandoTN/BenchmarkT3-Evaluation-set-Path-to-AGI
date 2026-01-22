@@ -1,0 +1,1705 @@
+[
+  {
+    "id": "T3-BucketI-0009",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The prediction model accurately identifies causally independent patterns without influencing outcomes.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "FEEDBACK",
+      "subtype": "Self-Fulfilling Prediction / Performative Prediction"
+    },
+    "gold_rationale": "This is a self-fulfilling prophecy. The AI predicts crime (Y), which causes patrols (X), which detect more crime (Z), which confirms the prediction. The feedback loop amplifies any initial bias. The AI is accurate but not because it's detecting true crime rates.",
+    "annotation": {
+      "author": "Stanford CS372",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.9",
+    "scenario": "A predictive policing AI predicts crime hotspots (Y). Police patrol predicted areas (X). More patrols find more crime (Z). The AI's predictions become self-fulfilling.",
+    "variables": {
+      "X": {
+        "name": "Patrol Allocation",
+        "role": "Action"
+      },
+      "Y": {
+        "name": "Predicted Crime",
+        "role": "Output"
+      },
+      "Z": {
+        "name": "Detected Crime",
+        "role": "Feedback"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "FEEDBACK",
+      "trap_subtype": "Self-Fulfilling Prediction / Performative Prediction",
+      "difficulty": "Medium",
+      "subdomain": "Criminal Justice AI",
+      "causal_structure": "Y -> X -> Z -> Y (circular)",
+      "key_insight": "Predictions that influence their own inputs become self-confirming"
+    },
+    "hidden_structure": "The AI's predictions influence the data it's trained on. This creates a feedback loop that amplifies initial biases.",
+    "correct_reasoning": [
+      "AI predicts high crime in Area A",
+      "Police patrol Area A heavily",
+      "Heavy patrols find more crime (detection, not incidence)",
+      "AI retrains on new data showing 'high crime in A'",
+      "Prediction reinforced regardless of actual crime rate",
+      "The prediction changes the world it's predicting",
+      "'Accuracy' becomes circular (predictions cause their own truth)",
+      "Bias amplification is guaranteed"
+    ],
+    "wise_refusal": "This is a self-fulfilling prophecy. The AI predicts crime (Y), which causes patrols (X), which detect more crime (Z), which confirms the prediction. The feedback loop amplifies any initial bias. The AI is accurate but not because it's detecting true crime rates."
+  },
+  {
+    "id": "T3-BucketI-0056",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The predictive model's outputs do not causally affect the phenomena being predicted.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "FEEDBACK",
+      "subtype": "Bias Amplification"
+    },
+    "gold_rationale": "This is bias amplification in predictive policing. The AI trains on arrest data (X), which reflects policing intensity (Y), not actual crime rates. Predictions lead to more policing in already over-policed areas, generating more arrests that 'confirm' the prediction. The bias (Z) amplifies with each iteration. The AI never measures crime--only enforcement.",
+    "annotation": {
+      "author": "Alessandro Balzi",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.56",
+    "scenario": "A crime prediction AI is trained on arrest data (X). Arrests are higher in over-policed neighborhoods (Y). The AI predicts more crime in these areas, leading to more policing, more arrests, and increasingly biased predictions (Z).",
+    "variables": {
+      "X": {
+        "name": "Training Data (Arrests)",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Policing Intensity",
+        "role": "mediator"
+      },
+      "Z": {
+        "name": "Prediction Bias",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "FEEDBACK",
+      "trap_subtype": "Bias Amplification",
+      "difficulty": "Medium",
+      "subdomain": "Criminal Justice AI",
+      "causal_structure": "Bias -> Data -> Training -> Model -> Stronger Bias",
+      "key_insight": "Feedback loops amplify initial biases exponentially over iterations"
+    },
+    "hidden_structure": "The AI is trained on arrest data, which reflects policing patterns, not crime patterns. This creates a feedback loop that amplifies historical biases.",
+    "correct_reasoning": [
+      "Historical arrest data reflects policing patterns",
+      "Over-policed areas have more arrests (detection, not incidence)",
+      "AI learns: 'Area A has high crime' (actually: high policing)",
+      "AI recommends more patrols in Area A",
+      "More patrols -> more arrests -> 'more crime'",
+      "Feedback loop amplifies initial policing bias",
+      "Actual crime rate is never measured, only arrests",
+      "AI becomes increasingly confident in biased predictions"
+    ],
+    "wise_refusal": "This is bias amplification in predictive policing. The AI trains on arrest data (X), which reflects policing intensity (Y), not actual crime rates. Predictions lead to more policing in already over-policed areas, generating more arrests that 'confirm' the prediction. The bias (Z) amplifies with each iteration. The AI never measures crime--only enforcement."
+  },
+  {
+    "id": "T3-BucketI-0057",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L3",
+    "claim": "The predictive model's outputs do not causally affect the phenomena being predicted.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "FEEDBACK",
+      "subtype": "Self-Fulfilling Prediction"
+    },
+    "gold_rationale": "This is a self-fulfilling prophecy in educational AI. The failure prediction (Y) triggers reduced resource allocation (X), which causes actual failure (Z). The AI is 'accurate' but only because it created the failure. Without the prediction, the student might have succeeded. Deploying such a system perpetuates inequality.",
+    "annotation": {
+      "author": "Fernando Torres",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.57",
+    "scenario": "An educational AI predicts which students will fail a course (Y). Teachers allocate less attention and resources to predicted failures (X). These students receive inferior instruction and subsequently fail (Z), confirming the prediction.",
+    "variables": {
+      "X": {
+        "name": "Resource Allocation",
+        "role": "mediator"
+      },
+      "Y": {
+        "name": "Failure Prediction",
+        "role": "treatment"
+      },
+      "Z": {
+        "name": "Actual Failure",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L3",
+      "domain": "D8",
+      "trap_type": "FEEDBACK",
+      "trap_subtype": "Self-Fulfilling Prediction",
+      "difficulty": "Medium",
+      "subdomain": "Educational AI",
+      "causal_structure": "Y -> X -> Z -> Y (circular)",
+      "key_insight": "Predictions that influence their own inputs become self-confirming"
+    },
+    "hidden_structure": "",
+    "correct_reasoning": [
+      "AI predicts Student A will fail (Y=1)",
+      "Teacher unconsciously or consciously reduces support for Student A (X decreases)",
+      "Reduced support leads to actual failure (Z=1)",
+      "AI retrains on data showing prediction was 'correct'",
+      "Model becomes more confident in similar predictions",
+      "The prediction did not detect failure--it caused it",
+      "Counterfactual: without prediction, student might have succeeded",
+      "Accuracy metric is misleading because outcome was engineered"
+    ],
+    "wise_refusal": "This is a self-fulfilling prophecy in educational AI. The failure prediction (Y) triggers reduced resource allocation (X), which causes actual failure (Z). The AI is 'accurate' but only because it created the failure. Without the prediction, the student might have succeeded. Deploying such a system perpetuates inequality.",
+    "ground_truth": {
+      "verdict": "VALID",
+      "justification": "The feedback loop is causally valid: the prediction influences the outcome through the mechanism described. Breaking the loop would change the outcome."
+    }
+  },
+  {
+    "id": "T3-BucketI-0058",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The predictive model's outputs do not causally affect the phenomena being predicted.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "FEEDBACK",
+      "subtype": "Self-Fulfilling Prediction"
+    },
+    "gold_rationale": "This is a self-fulfilling prophecy in educational AI. The failure prediction (Y) triggers reduced resource allocation (X), which causes actual failure (Z). The AI is 'accurate' but only because it created the failure. Without the prediction, the student might have succeeded. Deploying such a system perpetuates inequality.",
+    "annotation": {
+      "author": "Alessandro Balzi",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.58",
+    "scenario": "An educational AI predicts which students will fail a course (Y). Teachers allocate less attention and resources to predicted failures (X). These students receive inferior instruction and subsequently fail (Z), confirming the prediction.",
+    "variables": {
+      "X": {
+        "name": "Resource Allocation",
+        "role": "mediator"
+      },
+      "Y": {
+        "name": "Failure Prediction",
+        "role": "treatment"
+      },
+      "Z": {
+        "name": "Actual Failure",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "FEEDBACK",
+      "trap_subtype": "Self-Fulfilling Prediction",
+      "difficulty": "Medium",
+      "subdomain": "Educational AI",
+      "causal_structure": "Y -> X -> Z -> Y (circular)",
+      "key_insight": "Predictions that influence their own inputs become self-confirming"
+    },
+    "hidden_structure": "The prediction influences resource allocation, which causes the predicted outcome. The AI is 'accurate' but only because it created the conditions for failure.",
+    "correct_reasoning": [
+      "AI predicts Student A will fail (Y=1)",
+      "Teacher unconsciously or consciously reduces support for Student A (X decreases)",
+      "Reduced support leads to actual failure (Z=1)",
+      "AI retrains on data showing prediction was 'correct'",
+      "Model becomes more confident in similar predictions",
+      "The prediction did not detect failure--it caused it",
+      "Counterfactual: without prediction, student might have succeeded",
+      "Accuracy metric is misleading because outcome was engineered"
+    ],
+    "wise_refusal": "This is a self-fulfilling prophecy in educational AI. The failure prediction (Y) triggers reduced resource allocation (X), which causes actual failure (Z). The AI is 'accurate' but only because it created the failure. Without the prediction, the student might have succeeded. Deploying such a system perpetuates inequality."
+  },
+  {
+    "id": "T3-BucketI-0059",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L1",
+    "claim": "The predictive model's outputs do not causally affect the phenomena being predicted.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "FEEDBACK",
+      "subtype": "Self-Fulfilling Prediction"
+    },
+    "gold_rationale": "This is a self-fulfilling prophecy in criminal justice. The risk prediction (Y) triggers increased surveillance (X), which detects violations that would go unnoticed for low-risk individuals. Recidivism (Z) reflects differential enforcement, not differential behavior. The AI is 'accurate' only because it creates the conditions that validate its predictions.",
+    "annotation": {
+      "author": "Fernando Torres",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.59",
+    "scenario": "A recidivism prediction AI flags certain individuals as high-risk (Y). These individuals face increased surveillance and harsher parole conditions (X). Minor violations are detected and prosecuted, leading to reincarceration (Z), confirming the prediction.",
+    "variables": {
+      "X": {
+        "name": "Surveillance Intensity",
+        "role": "mediator"
+      },
+      "Y": {
+        "name": "Risk Prediction",
+        "role": "treatment"
+      },
+      "Z": {
+        "name": "Recidivism",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L1",
+      "domain": "D8",
+      "trap_type": "FEEDBACK",
+      "trap_subtype": "Self-Fulfilling Prediction",
+      "difficulty": "Hard",
+      "subdomain": "Criminal Justice AI",
+      "causal_structure": "Y -> X -> Z -> Y (circular)",
+      "key_insight": "Predictions that influence their own inputs become self-confirming"
+    },
+    "hidden_structure": "",
+    "correct_reasoning": [
+      "AI predicts Person A is high-risk for recidivism",
+      "Parole officer increases surveillance frequency",
+      "Minor violations detected (missed curfew, etc.)",
+      "Violations lead to parole revocation",
+      "AI retrains: high-risk prediction was 'correct'",
+      "But low-risk individuals commit same violations undetected",
+      "Differential enforcement, not differential behavior",
+      "The prediction created the conditions for its own validation"
+    ],
+    "wise_refusal": "This is a self-fulfilling prophecy in criminal justice. The risk prediction (Y) triggers increased surveillance (X), which detects violations that would go unnoticed for low-risk individuals. Recidivism (Z) reflects differential enforcement, not differential behavior. The AI is 'accurate' only because it creates the conditions that validate its predictions."
+  },
+  {
+    "id": "T3-BucketI-0060",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The predictive model's outputs do not causally affect the phenomena being predicted.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "FEEDBACK",
+      "subtype": "Self-Fulfilling Prediction"
+    },
+    "gold_rationale": "This is a self-fulfilling prophecy in educational AI. The failure prediction (Y) triggers reduced resource allocation (X), which causes actual failure (Z). The AI is 'accurate' but only because it created the failure. Without the prediction, the student might have succeeded. Deploying such a system perpetuates inequality.",
+    "annotation": {
+      "author": "Alessandro Balzi",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.60",
+    "scenario": "An educational AI predicts which students will fail a course (Y). Teachers allocate less attention and resources to predicted failures (X). These students receive inferior instruction and subsequently fail (Z), confirming the prediction.",
+    "variables": {
+      "X": {
+        "name": "Resource Allocation",
+        "role": "mediator"
+      },
+      "Y": {
+        "name": "Failure Prediction",
+        "role": "treatment"
+      },
+      "Z": {
+        "name": "Actual Failure",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "FEEDBACK",
+      "trap_subtype": "Self-Fulfilling Prediction",
+      "difficulty": "Medium",
+      "subdomain": "Educational AI",
+      "causal_structure": "Y -> X -> Z -> Y (circular)",
+      "key_insight": "Predictions that influence their own inputs become self-confirming"
+    },
+    "hidden_structure": "The prediction influences resource allocation, which causes the predicted outcome. The AI is 'accurate' but only because it created the conditions for failure.",
+    "correct_reasoning": [
+      "AI predicts Student A will fail (Y=1)",
+      "Teacher unconsciously or consciously reduces support for Student A (X decreases)",
+      "Reduced support leads to actual failure (Z=1)",
+      "AI retrains on data showing prediction was 'correct'",
+      "Model becomes more confident in similar predictions",
+      "The prediction did not detect failure--it caused it",
+      "Counterfactual: without prediction, student might have succeeded",
+      "Accuracy metric is misleading because outcome was engineered"
+    ],
+    "wise_refusal": "This is a self-fulfilling prophecy in educational AI. The failure prediction (Y) triggers reduced resource allocation (X), which causes actual failure (Z). The AI is 'accurate' but only because it created the failure. Without the prediction, the student might have succeeded. Deploying such a system perpetuates inequality."
+  },
+  {
+    "id": "T3-BucketI-0061",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The predictive model's outputs do not causally affect the phenomena being predicted.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "FEEDBACK",
+      "subtype": "Performative Prediction"
+    },
+    "gold_rationale": "This is a performative prediction. The failure prediction (Y) caused depositors to withdraw funds (X), which caused the actual failure (Z). The bank might have been stable without the prediction. The AI was 'correct' only because publishing the prediction triggered the behavior that caused the outcome. Predictions about social systems often change those systems.",
+    "annotation": {
+      "author": "Fernando Torres",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.61",
+    "scenario": "An AI predicts a bank will fail (Y) and the prediction is published. Depositors withdraw funds (X) based on the prediction. The bank, now facing a bank run, actually fails (Z).",
+    "variables": {
+      "X": {
+        "name": "Depositor Behavior",
+        "role": "mediator"
+      },
+      "Y": {
+        "name": "Failure Prediction",
+        "role": "treatment"
+      },
+      "Z": {
+        "name": "Actual Failure",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "FEEDBACK",
+      "trap_subtype": "Performative Prediction",
+      "difficulty": "Hard",
+      "subdomain": "Social Systems",
+      "causal_structure": "P(Y) -> Behavior -> Y'",
+      "key_insight": "Publishing predictions alters the phenomenon being predicted"
+    },
+    "hidden_structure": "The prediction itself caused the outcome it predicted. The bank may have been stable without the prediction, but the prediction triggered behavior that made it unstable.",
+    "correct_reasoning": [
+      "AI predicts bank failure based on some indicators",
+      "Prediction is published or leaked",
+      "Depositors learn of prediction and panic",
+      "Mass withdrawals create liquidity crisis",
+      "Bank fails due to bank run, not original weakness",
+      "AI prediction is 'validated' but was self-causing",
+      "Counterfactual: without prediction, bank might have survived",
+      "The prediction was performative, not predictive"
+    ],
+    "wise_refusal": "This is a performative prediction. The failure prediction (Y) caused depositors to withdraw funds (X), which caused the actual failure (Z). The bank might have been stable without the prediction. The AI was 'correct' only because publishing the prediction triggered the behavior that caused the outcome. Predictions about social systems often change those systems."
+  },
+  {
+    "id": "T3-BucketI-0062",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The predictive model's outputs do not causally affect the phenomena being predicted.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "FEEDBACK",
+      "subtype": "Bias Amplification"
+    },
+    "gold_rationale": "This is bias amplification in predictive policing. The AI trains on arrest data (X), which reflects policing intensity (Y), not actual crime rates. Predictions lead to more policing in already over-policed areas, generating more arrests that 'confirm' the prediction. The bias (Z) amplifies with each iteration. The AI never measures crime--only enforcement.",
+    "annotation": {
+      "author": "Alessandro Balzi",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.62",
+    "scenario": "A crime prediction AI is trained on arrest data (X). Arrests are higher in over-policed neighborhoods (Y). The AI predicts more crime in these areas, leading to more policing, more arrests, and increasingly biased predictions (Z).",
+    "variables": {
+      "X": {
+        "name": "Training Data (Arrests)",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Policing Intensity",
+        "role": "mediator"
+      },
+      "Z": {
+        "name": "Prediction Bias",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "FEEDBACK",
+      "trap_subtype": "Bias Amplification",
+      "difficulty": "Medium",
+      "subdomain": "Criminal Justice AI",
+      "causal_structure": "Bias -> Data -> Training -> Model -> Stronger Bias",
+      "key_insight": "Feedback loops amplify initial biases exponentially over iterations"
+    },
+    "hidden_structure": "The AI is trained on arrest data, which reflects policing patterns, not crime patterns. This creates a feedback loop that amplifies historical biases.",
+    "correct_reasoning": [
+      "Historical arrest data reflects policing patterns",
+      "Over-policed areas have more arrests (detection, not incidence)",
+      "AI learns: 'Area A has high crime' (actually: high policing)",
+      "AI recommends more patrols in Area A",
+      "More patrols -> more arrests -> 'more crime'",
+      "Feedback loop amplifies initial policing bias",
+      "Actual crime rate is never measured, only arrests",
+      "AI becomes increasingly confident in biased predictions"
+    ],
+    "wise_refusal": "This is bias amplification in predictive policing. The AI trains on arrest data (X), which reflects policing intensity (Y), not actual crime rates. Predictions lead to more policing in already over-policed areas, generating more arrests that 'confirm' the prediction. The bias (Z) amplifies with each iteration. The AI never measures crime--only enforcement."
+  },
+  {
+    "id": "T3-BucketI-0063",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L1",
+    "claim": "The predictive model's outputs do not causally affect the phenomena being predicted.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "FEEDBACK",
+      "subtype": "Data Drift via Deployment"
+    },
+    "gold_rationale": "This is data drift caused by deployment. The AI (X) predicted congestion (Y) based on historical data, but deployment changed driver behavior, making actual traffic (Z) different from predictions. The AI altered the system it was modeling. Accurate prediction requires modeling how agents respond to the predictions themselves.",
+    "annotation": {
+      "author": "Fernando Torres",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.63",
+    "scenario": "A traffic prediction AI is deployed citywide (X). Drivers use it to avoid predicted congestion (Y). The roads that were predicted to be clear become congested because everyone chose them (Z). The AI's predictions become systematically wrong.",
+    "variables": {
+      "X": {
+        "name": "AI Deployment",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Congestion Prediction",
+        "role": "mediator"
+      },
+      "Z": {
+        "name": "Actual Traffic",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L1",
+      "domain": "D8",
+      "trap_type": "FEEDBACK",
+      "trap_subtype": "Data Drift via Deployment",
+      "difficulty": "Medium",
+      "subdomain": "Social Systems",
+      "causal_structure": "Model -> Actions -> Environment -> New Data",
+      "key_insight": "Deployed models alter the world they were designed to model"
+    },
+    "hidden_structure": "",
+    "correct_reasoning": [
+      "AI trained on historical traffic data (pre-deployment)",
+      "AI predicts Route A will be congested, Route B clear",
+      "All drivers choose Route B based on prediction",
+      "Route B becomes congested, Route A is clear",
+      "AI was wrong because its prediction changed behavior",
+      "Retraining on new data doesn't help--pattern repeats",
+      "This is Goodhart applied to traffic optimization",
+      "Equilibrium requires modeling driver responses to predictions"
+    ],
+    "wise_refusal": "This is data drift caused by deployment. The AI (X) predicted congestion (Y) based on historical data, but deployment changed driver behavior, making actual traffic (Z) different from predictions. The AI altered the system it was modeling. Accurate prediction requires modeling how agents respond to the predictions themselves."
+  },
+  {
+    "id": "T3-BucketI-0066",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The predictive model's outputs do not causally affect the phenomena being predicted.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "FEEDBACK",
+      "subtype": "Bias Amplification"
+    },
+    "gold_rationale": "This is bias amplification in predictive policing. The AI trains on arrest data (X), which reflects policing intensity (Y), not actual crime rates. Predictions lead to more policing in already over-policed areas, generating more arrests that 'confirm' the prediction. The bias (Z) amplifies with each iteration. The AI never measures crime--only enforcement.",
+    "annotation": {
+      "author": "Alessandro Balzi",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.66",
+    "scenario": "A crime prediction AI is trained on arrest data (X). Arrests are higher in over-policed neighborhoods (Y). The AI predicts more crime in these areas, leading to more policing, more arrests, and increasingly biased predictions (Z).",
+    "variables": {
+      "X": {
+        "name": "Training Data (Arrests)",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Policing Intensity",
+        "role": "mediator"
+      },
+      "Z": {
+        "name": "Prediction Bias",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "FEEDBACK",
+      "trap_subtype": "Bias Amplification",
+      "difficulty": "Medium",
+      "subdomain": "Criminal Justice AI",
+      "causal_structure": "Bias -> Data -> Training -> Model -> Stronger Bias",
+      "key_insight": "Feedback loops amplify initial biases exponentially over iterations"
+    },
+    "hidden_structure": "The AI is trained on arrest data, which reflects policing patterns, not crime patterns. This creates a feedback loop that amplifies historical biases.",
+    "correct_reasoning": [
+      "Historical arrest data reflects policing patterns",
+      "Over-policed areas have more arrests (detection, not incidence)",
+      "AI learns: 'Area A has high crime' (actually: high policing)",
+      "AI recommends more patrols in Area A",
+      "More patrols -> more arrests -> 'more crime'",
+      "Feedback loop amplifies initial policing bias",
+      "Actual crime rate is never measured, only arrests",
+      "AI becomes increasingly confident in biased predictions"
+    ],
+    "wise_refusal": "This is bias amplification in predictive policing. The AI trains on arrest data (X), which reflects policing intensity (Y), not actual crime rates. Predictions lead to more policing in already over-policed areas, generating more arrests that 'confirm' the prediction. The bias (Z) amplifies with each iteration. The AI never measures crime--only enforcement."
+  },
+  {
+    "id": "T3-BucketI-0250",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The predictive model's outputs do not causally affect the phenomena being predicted.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "FEEDBACK",
+      "subtype": "Self-Fulfilling Prediction"
+    },
+    "gold_rationale": "This is a self-fulfilling prophecy in educational AI. The failure prediction (Y) triggers reduced resource allocation (X), which causes actual failure (Z). The AI is 'accurate' but only because it created the failure. Without the prediction, the student might have succeeded. Deploying such a system perpetuates inequality.",
+    "annotation": {
+      "author": "Alessandro Balzi",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.250",
+    "scenario": "An educational AI predicts which students will fail a course (Y). Teachers allocate less attention and resources to predicted failures (X). These students receive inferior instruction and subsequently fail (Z), confirming the prediction.",
+    "variables": {
+      "X": {
+        "name": "Resource Allocation",
+        "role": "mediator"
+      },
+      "Y": {
+        "name": "Failure Prediction",
+        "role": "treatment"
+      },
+      "Z": {
+        "name": "Actual Failure",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "FEEDBACK",
+      "trap_subtype": "Self-Fulfilling Prediction",
+      "difficulty": "Medium",
+      "subdomain": "Educational AI",
+      "causal_structure": "Y -> X -> Z -> Y (circular)",
+      "key_insight": "Predictions that influence their own inputs become self-confirming"
+    },
+    "hidden_structure": "The prediction influences resource allocation, which causes the predicted outcome. The AI is 'accurate' but only because it created the conditions for failure.",
+    "correct_reasoning": [
+      "AI predicts Student A will fail (Y=1)",
+      "Teacher unconsciously or consciously reduces support for Student A (X decreases)",
+      "Reduced support leads to actual failure (Z=1)",
+      "AI retrains on data showing prediction was 'correct'",
+      "Model becomes more confident in similar predictions",
+      "The prediction did not detect failure--it caused it",
+      "Counterfactual: without prediction, student might have succeeded",
+      "Accuracy metric is misleading because outcome was engineered"
+    ],
+    "wise_refusal": "This is a self-fulfilling prophecy in educational AI. The failure prediction (Y) triggers reduced resource allocation (X), which causes actual failure (Z). The AI is 'accurate' but only because it created the failure. Without the prediction, the student might have succeeded. Deploying such a system perpetuates inequality."
+  },
+  {
+    "id": "T3-BucketI-0251",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L3",
+    "claim": "The predictive model's outputs do not causally affect the phenomena being predicted.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "FEEDBACK",
+      "subtype": "Bias Amplification"
+    },
+    "gold_rationale": "This is bias amplification in predictive policing. The AI trains on arrest data (X), which reflects policing intensity (Y), not actual crime rates. Predictions lead to more policing in already over-policed areas, generating more arrests that 'confirm' the prediction. The bias (Z) amplifies with each iteration. The AI never measures crime--only enforcement.",
+    "annotation": {
+      "author": "Fernando Torres",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.251",
+    "scenario": "A crime prediction AI is trained on arrest data (X). Arrests are higher in over-policed neighborhoods (Y). The AI predicts more crime in these areas, leading to more policing, more arrests, and increasingly biased predictions (Z).",
+    "variables": {
+      "X": {
+        "name": "Training Data (Arrests)",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Policing Intensity",
+        "role": "mediator"
+      },
+      "Z": {
+        "name": "Prediction Bias",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L3",
+      "domain": "D8",
+      "trap_type": "FEEDBACK",
+      "trap_subtype": "Bias Amplification",
+      "difficulty": "Medium",
+      "subdomain": "Criminal Justice AI",
+      "causal_structure": "Bias -> Data -> Training -> Model -> Stronger Bias",
+      "key_insight": "Feedback loops amplify initial biases exponentially over iterations"
+    },
+    "hidden_structure": "",
+    "correct_reasoning": [
+      "Historical arrest data reflects policing patterns",
+      "Over-policed areas have more arrests (detection, not incidence)",
+      "AI learns: 'Area A has high crime' (actually: high policing)",
+      "AI recommends more patrols in Area A",
+      "More patrols -> more arrests -> 'more crime'",
+      "Feedback loop amplifies initial policing bias",
+      "Actual crime rate is never measured, only arrests",
+      "AI becomes increasingly confident in biased predictions"
+    ],
+    "wise_refusal": "This is bias amplification in predictive policing. The AI trains on arrest data (X), which reflects policing intensity (Y), not actual crime rates. Predictions lead to more policing in already over-policed areas, generating more arrests that 'confirm' the prediction. The bias (Z) amplifies with each iteration. The AI never measures crime--only enforcement.",
+    "ground_truth": {
+      "verdict": "CONDITIONAL",
+      "justification": "The counterfactual depends on breaking the feedback loop. If the prediction were not published/acted upon, the outcome would differ. The validity requires examining the specific path of influence."
+    }
+  },
+  {
+    "id": "T3-BucketI-0252",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L3",
+    "claim": "The predictive model's outputs do not causally affect the phenomena being predicted.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "FEEDBACK",
+      "subtype": "Performative Prediction"
+    },
+    "gold_rationale": "This is a performative prediction in education. Publishing success predictions (Y) as rankings (X) causes resources and talented students to concentrate in ranked schools (Z). The prediction creates the quality difference it claims to measure. Schools not ranked initially fall further behind, widening inequality through a self-fulfilling feedback loop.",
+    "annotation": {
+      "author": "Alessandro Balzi",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.252",
+    "scenario": "A university admission AI predicts which high schools produce successful students (Y). The prediction is published in rankings (X). Students from non-ranked schools transfer to ranked schools, and ranked schools receive more funding (Z), further widening the gap.",
+    "variables": {
+      "X": {
+        "name": "Published Rankings",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Success Prediction",
+        "role": "mediator"
+      },
+      "Z": {
+        "name": "Resource Concentration",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L3",
+      "domain": "D8",
+      "trap_type": "FEEDBACK",
+      "trap_subtype": "Performative Prediction",
+      "difficulty": "Hard",
+      "subdomain": "Educational AI",
+      "causal_structure": "P(Y) -> Behavior -> Y'",
+      "key_insight": "Publishing predictions alters the phenomenon being predicted"
+    },
+    "hidden_structure": "",
+    "correct_reasoning": [
+      "AI predicts School A produces successful students",
+      "Ranking is published and widely shared",
+      "Parents move children to School A",
+      "Donors and government increase funding to School A",
+      "School A now has better students and more resources",
+      "AI's next prediction: School A is even better",
+      "Initial prediction caused the quality difference",
+      "Schools not in ranking fall further behind"
+    ],
+    "wise_refusal": "This is a performative prediction in education. Publishing success predictions (Y) as rankings (X) causes resources and talented students to concentrate in ranked schools (Z). The prediction creates the quality difference it claims to measure. Schools not ranked initially fall further behind, widening inequality through a self-fulfilling feedback loop.",
+    "ground_truth": {
+      "verdict": "CONDITIONAL",
+      "justification": "The counterfactual depends on breaking the feedback loop. If the prediction were not published/acted upon, the outcome would differ. The validity requires examining the specific path of influence."
+    }
+  },
+  {
+    "id": "T3-BucketI-0253",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The predictive model's outputs do not causally affect the phenomena being predicted.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "FEEDBACK",
+      "subtype": "Self-Fulfilling Prediction"
+    },
+    "gold_rationale": "This is a self-fulfilling prophecy in credit scoring. The default prediction (Y) leads to higher interest rates (X), which increases actual defaults (Z). The borrower might have repaid at a lower rate. The AI creates risk by predicting it. Accuracy metrics are misleading because the prediction engineered the outcome.",
+    "annotation": {
+      "author": "Fernando Torres",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.253",
+    "scenario": "A credit scoring AI predicts certain borrowers will default (Y). These borrowers are offered loans at higher interest rates (X). The higher rates make repayment harder, increasing actual default rates (Z), which confirms the original prediction.",
+    "variables": {
+      "X": {
+        "name": "Interest Rate",
+        "role": "mediator"
+      },
+      "Y": {
+        "name": "Default Prediction",
+        "role": "treatment"
+      },
+      "Z": {
+        "name": "Actual Default",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "FEEDBACK",
+      "trap_subtype": "Self-Fulfilling Prediction",
+      "difficulty": "Medium",
+      "subdomain": "Social Systems",
+      "causal_structure": "Y -> X -> Z -> Y (circular)",
+      "key_insight": "Predictions that influence their own inputs become self-confirming"
+    },
+    "hidden_structure": "Predicting default leads to higher rates, which causes default. The AI creates risk by predicting it.",
+    "correct_reasoning": [
+      "AI predicts Borrower A has high default risk",
+      "Lender offers loan at higher interest rate",
+      "Higher payments strain Borrower A's budget",
+      "Borrower A defaults due to payment burden",
+      "AI prediction is 'validated'",
+      "But default was caused by the prediction itself",
+      "Counterfactual: lower rate might have enabled repayment",
+      "Risk prediction creates the risk it predicts"
+    ],
+    "wise_refusal": "This is a self-fulfilling prophecy in credit scoring. The default prediction (Y) leads to higher interest rates (X), which increases actual defaults (Z). The borrower might have repaid at a lower rate. The AI creates risk by predicting it. Accuracy metrics are misleading because the prediction engineered the outcome."
+  },
+  {
+    "id": "T3-BucketI-0254",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The predictive model's outputs do not causally affect the phenomena being predicted.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "FEEDBACK",
+      "subtype": "Performative Prediction"
+    },
+    "gold_rationale": "This is a performative prediction. The failure prediction (Y) caused depositors to withdraw funds (X), which caused the actual failure (Z). The bank might have been stable without the prediction. The AI was 'correct' only because publishing the prediction triggered the behavior that caused the outcome. Predictions about social systems often change those systems.",
+    "annotation": {
+      "author": "Alessandro Balzi",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.254",
+    "scenario": "An AI predicts a bank will fail (Y) and the prediction is published. Depositors withdraw funds (X) based on the prediction. The bank, now facing a bank run, actually fails (Z).",
+    "variables": {
+      "X": {
+        "name": "Depositor Behavior",
+        "role": "mediator"
+      },
+      "Y": {
+        "name": "Failure Prediction",
+        "role": "treatment"
+      },
+      "Z": {
+        "name": "Actual Failure",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "FEEDBACK",
+      "trap_subtype": "Performative Prediction",
+      "difficulty": "Hard",
+      "subdomain": "Social Systems",
+      "causal_structure": "P(Y) -> Behavior -> Y'",
+      "key_insight": "Publishing predictions alters the phenomenon being predicted"
+    },
+    "hidden_structure": "The prediction itself caused the outcome it predicted. The bank may have been stable without the prediction, but the prediction triggered behavior that made it unstable.",
+    "correct_reasoning": [
+      "AI predicts bank failure based on some indicators",
+      "Prediction is published or leaked",
+      "Depositors learn of prediction and panic",
+      "Mass withdrawals create liquidity crisis",
+      "Bank fails due to bank run, not original weakness",
+      "AI prediction is 'validated' but was self-causing",
+      "Counterfactual: without prediction, bank might have survived",
+      "The prediction was performative, not predictive"
+    ],
+    "wise_refusal": "This is a performative prediction. The failure prediction (Y) caused depositors to withdraw funds (X), which caused the actual failure (Z). The bank might have been stable without the prediction. The AI was 'correct' only because publishing the prediction triggered the behavior that caused the outcome. Predictions about social systems often change those systems."
+  },
+  {
+    "id": "T3-BucketI-0255",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The observed correlations are not artifacts of circular causal processes.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "FEEDBACK",
+      "subtype": "Bias Amplification"
+    },
+    "gold_rationale": "This is bias amplification in hiring AI. Training on past hires (X) encodes historical bias (Y). The AI perpetuates this bias in recommendations, which become future training data, amplifying discrimination (Z). Each iteration makes the AI more biased while appearing 'objective' because it matches the pattern in its (biased) training data.",
+    "annotation": {
+      "author": "Fernando Torres",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.255",
+    "scenario": "A hiring AI is trained on past successful employees (X). Past hiring favored certain demographics (Y). The AI learns to prefer these demographics, perpetuating the pattern. After retraining on its own recommendations, the bias intensifies (Z).",
+    "variables": {
+      "X": {
+        "name": "Training Data (Past Hires)",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Historical Bias",
+        "role": "mediator"
+      },
+      "Z": {
+        "name": "Amplified Discrimination",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "FEEDBACK",
+      "trap_subtype": "Bias Amplification",
+      "difficulty": "Medium",
+      "subdomain": "Social Systems",
+      "causal_structure": "Bias -> Data -> Training -> Model -> Stronger Bias",
+      "key_insight": "Feedback loops amplify initial biases exponentially over iterations"
+    },
+    "hidden_structure": "The AI learns from historically biased decisions. Its recommendations perpetuate bias, which becomes training data, amplifying the original bias.",
+    "correct_reasoning": [
+      "Training data reflects historical hiring bias",
+      "AI learns: 'Successful employees have feature F'",
+      "Feature F correlates with protected attribute",
+      "AI recommends candidates with feature F",
+      "Biased hiring continues, generating more biased data",
+      "AI retrains on its own recommendations",
+      "Bias amplifies with each iteration",
+      "AI becomes increasingly discriminatory while appearing 'objective'"
+    ],
+    "wise_refusal": "This is bias amplification in hiring AI. Training on past hires (X) encodes historical bias (Y). The AI perpetuates this bias in recommendations, which become future training data, amplifying discrimination (Z). Each iteration makes the AI more biased while appearing 'objective' because it matches the pattern in its (biased) training data."
+  },
+  {
+    "id": "T3-BucketI-0256",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The predictive model's outputs do not causally affect the phenomena being predicted.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "FEEDBACK",
+      "subtype": "Self-Fulfilling Prediction"
+    },
+    "gold_rationale": "This is a self-fulfilling prophecy in criminal justice. The risk prediction (Y) triggers increased surveillance (X), which detects violations that would go unnoticed for low-risk individuals. Recidivism (Z) reflects differential enforcement, not differential behavior. The AI is 'accurate' only because it creates the conditions that validate its predictions.",
+    "annotation": {
+      "author": "Alessandro Balzi",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.256",
+    "scenario": "A recidivism prediction AI flags certain individuals as high-risk (Y). These individuals face increased surveillance and harsher parole conditions (X). Minor violations are detected and prosecuted, leading to reincarceration (Z), confirming the prediction.",
+    "variables": {
+      "X": {
+        "name": "Surveillance Intensity",
+        "role": "mediator"
+      },
+      "Y": {
+        "name": "Risk Prediction",
+        "role": "treatment"
+      },
+      "Z": {
+        "name": "Recidivism",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "FEEDBACK",
+      "trap_subtype": "Self-Fulfilling Prediction",
+      "difficulty": "Hard",
+      "subdomain": "Criminal Justice AI",
+      "causal_structure": "Y -> X -> Z -> Y (circular)",
+      "key_insight": "Predictions that influence their own inputs become self-confirming"
+    },
+    "hidden_structure": "High-risk predictions trigger increased surveillance, which detects violations that would go unnoticed for low-risk individuals. The prediction creates differential enforcement, not differential behavior.",
+    "correct_reasoning": [
+      "AI predicts Person A is high-risk for recidivism",
+      "Parole officer increases surveillance frequency",
+      "Minor violations detected (missed curfew, etc.)",
+      "Violations lead to parole revocation",
+      "AI retrains: high-risk prediction was 'correct'",
+      "But low-risk individuals commit same violations undetected",
+      "Differential enforcement, not differential behavior",
+      "The prediction created the conditions for its own validation"
+    ],
+    "wise_refusal": "This is a self-fulfilling prophecy in criminal justice. The risk prediction (Y) triggers increased surveillance (X), which detects violations that would go unnoticed for low-risk individuals. Recidivism (Z) reflects differential enforcement, not differential behavior. The AI is 'accurate' only because it creates the conditions that validate its predictions."
+  },
+  {
+    "id": "T3-BucketI-0257",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The causal relationship between variables is unidirectional without feedback effects.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "FEEDBACK",
+      "subtype": "Bias Amplification"
+    },
+    "gold_rationale": "This is bias amplification through adaptive learning. Initial performance (Y) reflects resource disparities, not ability. The AI's recommendations (X) create a positive feedback loop that exponentially widens the gap (Z). Breaking this cycle requires interventions that provide struggling students with more support, not less challenging material.",
+    "annotation": {
+      "author": "Fernando Torres",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.257",
+    "scenario": "A tutoring AI recommends practice problems (X) based on student performance (Y). Students from well-resourced schools perform better initially, receiving more advanced problems. After multiple iterations, the gap between student groups (Z) has dramatically widened.",
+    "variables": {
+      "X": {
+        "name": "Problem Difficulty",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Initial Performance",
+        "role": "mediator"
+      },
+      "Z": {
+        "name": "Achievement Gap",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "FEEDBACK",
+      "trap_subtype": "Bias Amplification",
+      "difficulty": "Hard",
+      "subdomain": "Educational AI",
+      "causal_structure": "Bias -> Data -> Training -> Model -> Stronger Bias",
+      "key_insight": "Feedback loops amplify initial biases exponentially over iterations"
+    },
+    "hidden_structure": "Initial performance differences are amplified through adaptive recommendations. Each iteration widens the gap as advantaged students receive more challenging material.",
+    "correct_reasoning": [
+      "Initial performance reflects pre-existing resource disparities",
+      "AI assigns easier problems to lower performers",
+      "Easier problems provide less learning opportunity",
+      "Gap widens; AI assigns even easier problems",
+      "Positive feedback loop amplifies initial differences",
+      "After N iterations, small initial gap becomes large achievement gap",
+      "AI optimizes for engagement, not equity",
+      "Breaking the loop requires explicit fairness constraints"
+    ],
+    "wise_refusal": "This is bias amplification through adaptive learning. Initial performance (Y) reflects resource disparities, not ability. The AI's recommendations (X) create a positive feedback loop that exponentially widens the gap (Z). Breaking this cycle requires interventions that provide struggling students with more support, not less challenging material."
+  },
+  {
+    "id": "T3-BucketI-0258",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L3",
+    "claim": "The predictive model's outputs do not causally affect the phenomena being predicted.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "FEEDBACK",
+      "subtype": "Data Drift via Deployment"
+    },
+    "gold_rationale": "This is data drift caused by deployment. The AI (X) predicted congestion (Y) based on historical data, but deployment changed driver behavior, making actual traffic (Z) different from predictions. The AI altered the system it was modeling. Accurate prediction requires modeling how agents respond to the predictions themselves.",
+    "annotation": {
+      "author": "Alessandro Balzi",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.258",
+    "scenario": "A traffic prediction AI is deployed citywide (X). Drivers use it to avoid predicted congestion (Y). The roads that were predicted to be clear become congested because everyone chose them (Z). The AI's predictions become systematically wrong.",
+    "variables": {
+      "X": {
+        "name": "AI Deployment",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Congestion Prediction",
+        "role": "mediator"
+      },
+      "Z": {
+        "name": "Actual Traffic",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L3",
+      "domain": "D8",
+      "trap_type": "FEEDBACK",
+      "trap_subtype": "Data Drift via Deployment",
+      "difficulty": "Medium",
+      "subdomain": "Social Systems",
+      "causal_structure": "Model -> Actions -> Environment -> New Data",
+      "key_insight": "Deployed models alter the world they were designed to model"
+    },
+    "hidden_structure": "",
+    "correct_reasoning": [
+      "AI trained on historical traffic data (pre-deployment)",
+      "AI predicts Route A will be congested, Route B clear",
+      "All drivers choose Route B based on prediction",
+      "Route B becomes congested, Route A is clear",
+      "AI was wrong because its prediction changed behavior",
+      "Retraining on new data doesn't help--pattern repeats",
+      "This is Goodhart applied to traffic optimization",
+      "Equilibrium requires modeling driver responses to predictions"
+    ],
+    "wise_refusal": "This is data drift caused by deployment. The AI (X) predicted congestion (Y) based on historical data, but deployment changed driver behavior, making actual traffic (Z) different from predictions. The AI altered the system it was modeling. Accurate prediction requires modeling how agents respond to the predictions themselves.",
+    "ground_truth": {
+      "verdict": "CONDITIONAL",
+      "justification": "The counterfactual depends on breaking the feedback loop. If the prediction were not published/acted upon, the outcome would differ. The validity requires examining the specific path of influence."
+    }
+  },
+  {
+    "id": "T3-BucketI-0259",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The causal relationship between variables is unidirectional without feedback effects.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "FEEDBACK",
+      "subtype": "Data Drift via Deployment"
+    },
+    "gold_rationale": "This is data drift from strategic behavior. Deploying the grading AI (X) causes students to optimize for AI criteria (Y), not genuine writing quality. The essay distribution shifts away from training data, invalidating grades (Z). This is Goodhart's Law: when the measure becomes a target, it ceases to be a good measure.",
+    "annotation": {
+      "author": "Fernando Torres",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.259",
+    "scenario": "An essay grading AI is deployed (X). Students learn to game the AI by using certain phrases and structures (Y). The AI's accuracy on genuine writing quality drops because the test distribution has shifted (Z).",
+    "variables": {
+      "X": {
+        "name": "AI Deployment",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Student Optimization",
+        "role": "mediator"
+      },
+      "Z": {
+        "name": "Grading Validity",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "FEEDBACK",
+      "trap_subtype": "Data Drift via Deployment",
+      "difficulty": "Medium",
+      "subdomain": "Educational AI",
+      "causal_structure": "Model -> Actions -> Environment -> New Data",
+      "key_insight": "Deployed models alter the world they were designed to model"
+    },
+    "hidden_structure": "Deploying the grading AI changes student behavior. Students optimize for the AI's criteria rather than genuine writing quality, causing a distribution shift that undermines the AI's validity.",
+    "correct_reasoning": [
+      "AI trained on human-graded essays",
+      "AI deployed for grading",
+      "Students learn AI rewards certain patterns",
+      "Students optimize essays for AI, not learning",
+      "New essays are distribution-shifted from training data",
+      "AI grades are no longer valid measures of writing quality",
+      "This is Goodhart's Law: optimizing the measure corrupts it",
+      "Grading AI needs robustness to strategic behavior"
+    ],
+    "wise_refusal": "This is data drift from strategic behavior. Deploying the grading AI (X) causes students to optimize for AI criteria (Y), not genuine writing quality. The essay distribution shifts away from training data, invalidating grades (Z). This is Goodhart's Law: when the measure becomes a target, it ceases to be a good measure."
+  },
+  {
+    "id": "T3-BucketI-0426",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The predictive model's outputs do not causally affect the phenomena being predicted.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "FEEDBACK",
+      "subtype": "Self-Fulfilling Prediction"
+    },
+    "gold_rationale": "This is a self-fulfilling prophecy in hiring AI. The underperformance prediction (Y) triggers reduced opportunity allocation (X), which causes actual underperformance (Z). The AI appears accurate but only because it created the conditions for failure.",
+    "annotation": {
+      "author": "Alessandro Balzi",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.426",
+    "scenario": "An AI hiring system predicts certain candidates will underperform (Y). Hiring managers unconsciously give these candidates less interesting projects and mentorship (X). The candidates underperform due to lack of opportunity (Z), confirming the prediction.",
+    "variables": {
+      "X": {
+        "name": "Opportunity Allocation",
+        "role": "mediator"
+      },
+      "Y": {
+        "name": "Performance Prediction",
+        "role": "treatment"
+      },
+      "Z": {
+        "name": "Actual Performance",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "FEEDBACK",
+      "trap_subtype": "Self-Fulfilling Prediction",
+      "difficulty": "Medium",
+      "subdomain": "Educational AI",
+      "causal_structure": "Y -> X -> Z -> Y (circular)",
+      "key_insight": "Performance predictions that influence opportunity allocation become self-confirming"
+    },
+    "hidden_structure": "The prediction influences opportunity, which causes the predicted outcome. The AI is 'accurate' but only because it created the conditions for the outcome.",
+    "correct_reasoning": [
+      "AI predicts Candidate A will underperform (Y=1)",
+      "Managers assign less engaging work (X decreases)",
+      "Reduced opportunity leads to actual underperformance (Z=1)",
+      "AI retrains on data showing prediction was 'correct'",
+      "Model becomes more confident in similar predictions",
+      "The prediction did not detect ability--it created the outcome",
+      "Counterfactual: equal opportunity might have led to equal performance"
+    ],
+    "wise_refusal": "This is a self-fulfilling prophecy in hiring AI. The underperformance prediction (Y) triggers reduced opportunity allocation (X), which causes actual underperformance (Z). The AI appears accurate but only because it created the conditions for failure."
+  },
+  {
+    "id": "T3-BucketI-0427",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L3",
+    "claim": "The causal relationship between variables is unidirectional without feedback effects.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "FEEDBACK",
+      "subtype": "Echo Chamber / Filter Bubble"
+    },
+    "gold_rationale": "This is an echo chamber created by recommendation feedback. The AI learns from clicks (X) and recommends similar content (Y), which shapes user preferences (Z) toward increasingly extreme content. The measured preferences are artifacts of the system, not pre-existing user interests.",
+    "annotation": {
+      "author": "Fernando Torres",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.427",
+    "scenario": "A news recommendation AI learns user preferences from clicks (X). Users click on increasingly sensational content because it's what gets recommended (Y). After a year, users' measured preferences shift toward extreme content (Z) that the AI thinks reflects their 'true' interests.",
+    "variables": {
+      "X": {
+        "name": "Click Data Collection",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Content Recommendations",
+        "role": "mediator"
+      },
+      "Z": {
+        "name": "Preference Shift",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L3",
+      "domain": "D8",
+      "trap_type": "FEEDBACK",
+      "trap_subtype": "Echo Chamber / Filter Bubble",
+      "difficulty": "Medium",
+      "subdomain": "Social Systems",
+      "causal_structure": "X -> Y -> Z -> X (user preferences shaped by recommendations)",
+      "key_insight": "Recommendation systems don't just predict preferences, they create them"
+    },
+    "hidden_structure": "",
+    "correct_reasoning": [
+      "AI learns from initial click patterns",
+      "Recommends content similar to past clicks",
+      "Users click on what's shown (availability bias)",
+      "Sensational content gets more engagement",
+      "Algorithm amplifies sensational recommendations",
+      "Users' preferences shift toward extreme content",
+      "AI treats shifted preferences as 'true' preferences",
+      "Feedback loop creates the preferences it claims to measure"
+    ],
+    "wise_refusal": "This is an echo chamber created by recommendation feedback. The AI learns from clicks (X) and recommends similar content (Y), which shapes user preferences (Z) toward increasingly extreme content. The measured preferences are artifacts of the system, not pre-existing user interests.",
+    "ground_truth": {
+      "verdict": "CONDITIONAL",
+      "justification": "Breaking the feedback loop by diversifying recommendations would likely reveal different 'true' preferences."
+    }
+  },
+  {
+    "id": "T3-BucketI-0428",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The causal relationship between variables is unidirectional without feedback effects.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "FEEDBACK",
+      "subtype": "Bias Amplification"
+    },
+    "gold_rationale": "This is bias amplification in credit scoring. Low predictions (Y) cause loan denials (X), which prevent credit-building (Z), reinforcing low predictions. The algorithm perpetuates and amplifies initial neighborhood-level bias through its own predictions.",
+    "annotation": {
+      "author": "Alessandro Balzi",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.428",
+    "scenario": "A credit scoring AI gives low scores to residents of certain neighborhoods (Y). Banks deny loans to these residents (X). Without credit access, residents can't build credit history, leading to even lower scores (Z) in the next iteration.",
+    "variables": {
+      "X": {
+        "name": "Loan Denial",
+        "role": "mediator"
+      },
+      "Y": {
+        "name": "Credit Score Prediction",
+        "role": "treatment"
+      },
+      "Z": {
+        "name": "Credit History Degradation",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "FEEDBACK",
+      "trap_subtype": "Bias Amplification",
+      "difficulty": "Hard",
+      "subdomain": "Criminal Justice AI",
+      "causal_structure": "Y -> X -> Z -> Y (credit access feedback)",
+      "key_insight": "Credit algorithms that deny access prevent credit-building, amplifying initial bias"
+    },
+    "hidden_structure": "The credit scoring system creates a feedback loop where denied access (X) prevents credit-building (Z), amplifying initial neighborhood-based bias in subsequent predictions (Y).",
+    "correct_reasoning": [
+      "Low initial credit scores in neighborhood (historical bias)",
+      "AI predicts low creditworthiness (Y)",
+      "Banks deny loans based on prediction (X)",
+      "Without loans, residents can't build credit history (Z)",
+      "Next iteration: even lower scores",
+      "Initial bias amplified through feedback",
+      "AI never observes counterfactual: what if loans were granted?"
+    ],
+    "wise_refusal": "This is bias amplification in credit scoring. Low predictions (Y) cause loan denials (X), which prevent credit-building (Z), reinforcing low predictions. The algorithm perpetuates and amplifies initial neighborhood-level bias through its own predictions."
+  },
+  {
+    "id": "T3-BucketI-0429",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The causal relationship between variables is unidirectional without feedback effects.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "FEEDBACK",
+      "subtype": "Learned Helplessness"
+    },
+    "gold_rationale": "This is learned helplessness from tutoring AI. Detecting struggle (Y) triggers intensive help (X), which prevents independent mastery development (Z). The student remains dependent because help came too easily. The AI created the continued need for its own services.",
+    "annotation": {
+      "author": "Fernando Torres",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.429",
+    "scenario": "An AI tutoring system detects students struggling with concept A (Y) and provides extensive help with A (X). Students become dependent on AI help for A and never develop independent mastery (Z). The system continues to classify them as needing help.",
+    "variables": {
+      "X": {
+        "name": "AI Assistance Intensity",
+        "role": "mediator"
+      },
+      "Y": {
+        "name": "Struggle Detection",
+        "role": "treatment"
+      },
+      "Z": {
+        "name": "Independent Mastery",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "FEEDBACK",
+      "trap_subtype": "Learned Helplessness",
+      "difficulty": "Medium",
+      "subdomain": "Educational AI",
+      "causal_structure": "Y -> X -> Z -> Y (help creates dependency)",
+      "key_insight": "Over-assistance can create learned helplessness and prevent skill development"
+    },
+    "hidden_structure": "The intervention prevents the natural learning process. Success with help is different from success without help.",
+    "correct_reasoning": [
+      "System detects struggle with concept A (Y)",
+      "Provides intensive scaffolding (X)",
+      "Student succeeds WITH help but never without",
+      "Independent mastery never develops (Z)",
+      "Next assessment: still classified as struggling",
+      "The help prevented the learning it meant to support",
+      "Counterfactual: productive struggle might have built mastery"
+    ],
+    "wise_refusal": "This is learned helplessness from tutoring AI. Detecting struggle (Y) triggers intensive help (X), which prevents independent mastery development (Z). The student remains dependent because help came too easily. The AI created the continued need for its own services."
+  },
+  {
+    "id": "T3-BucketI-0430",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The causal relationship between variables is unidirectional without feedback effects.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "FEEDBACK",
+      "subtype": "Adversarial Feedback"
+    },
+    "gold_rationale": "This is an adversarial feedback spiral. Risk classification (Y) increases scrutiny (X), which causes behavioral adaptation (Z) interpreted as more suspicious. The moderation system shapes the very behaviors it's designed to detect.",
+    "annotation": {
+      "author": "Alessandro Balzi",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.430",
+    "scenario": "An AI content moderator flags users with certain linguistic patterns as high-risk (Y). These users receive more scrutiny (X) and more of their benign posts get flagged. The users adopt defensive communication styles (Z), which the AI interprets as more suspicious.",
+    "variables": {
+      "X": {
+        "name": "Moderation Scrutiny",
+        "role": "mediator"
+      },
+      "Y": {
+        "name": "Risk Classification",
+        "role": "treatment"
+      },
+      "Z": {
+        "name": "Communication Style Shift",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "FEEDBACK",
+      "trap_subtype": "Adversarial Feedback",
+      "difficulty": "Hard",
+      "subdomain": "Social Systems",
+      "causal_structure": "Y -> X -> Z -> Y (moderation shapes behavior which triggers more moderation)",
+      "key_insight": "Moderation systems can push users toward the behaviors they're designed to detect"
+    },
+    "hidden_structure": "The content moderation system creates an adversarial feedback spiral where risk classification (Y) increases scrutiny (X), causing users to adopt defensive communication styles (Z) that the AI interprets as more suspicious, reinforcing the original classification.",
+    "correct_reasoning": [
+      "User classified as high-risk (Y)",
+      "Posts receive more scrutiny (X)",
+      "False positives increase due to heightened monitoring",
+      "User adopts defensive, indirect communication (Z)",
+      "Defensive style triggers more flags",
+      "Spiral of increased monitoring and changed behavior",
+      "The moderation created the 'suspicious' patterns"
+    ],
+    "wise_refusal": "This is an adversarial feedback spiral. Risk classification (Y) increases scrutiny (X), which causes behavioral adaptation (Z) interpreted as more suspicious. The moderation system shapes the very behaviors it's designed to detect."
+  },
+  {
+    "id": "T3-BucketI-0431",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L3",
+    "claim": "The predictive model's outputs do not causally affect the phenomena being predicted.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "FEEDBACK",
+      "subtype": "Self-Fulfilling Prediction"
+    },
+    "gold_rationale": "This is a self-fulfilling prophecy in institutional rankings. The decline prediction (Y) triggers resource withdrawal (X), which causes actual decline (Z). The AI appears prescient but created the outcome through publication effects.",
+    "annotation": {
+      "author": "Fernando Torres",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.431",
+    "scenario": "A university ranking AI predicts certain schools will decline (Y). Media coverage of the prediction causes donor and applicant withdrawal (X). The schools actually decline due to resource loss (Z), validating the original prediction.",
+    "variables": {
+      "X": {
+        "name": "Resource Withdrawal",
+        "role": "mediator"
+      },
+      "Y": {
+        "name": "Decline Prediction",
+        "role": "treatment"
+      },
+      "Z": {
+        "name": "Actual Decline",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L3",
+      "domain": "D8",
+      "trap_type": "FEEDBACK",
+      "trap_subtype": "Self-Fulfilling Prediction",
+      "difficulty": "Medium",
+      "subdomain": "Social Systems",
+      "causal_structure": "Y -> X -> Z -> Y (prediction causes outcome)",
+      "key_insight": "Published predictions about institutions can cause the predicted outcomes"
+    },
+    "hidden_structure": "",
+    "correct_reasoning": [
+      "AI predicts school will decline (Y)",
+      "Prediction is published in rankings",
+      "Donors and applicants avoid the school (X)",
+      "Loss of resources causes actual decline (Z)",
+      "AI retrains: 'prediction was correct'",
+      "The prediction caused the decline it predicted",
+      "Counterfactual: without published prediction, outcome might differ"
+    ],
+    "wise_refusal": "This is a self-fulfilling prophecy in institutional rankings. The decline prediction (Y) triggers resource withdrawal (X), which causes actual decline (Z). The AI appears prescient but created the outcome through publication effects.",
+    "ground_truth": {
+      "verdict": "INVALID",
+      "justification": "Self-fulfilling prophecy in institutional rankings. The prediction (Y) triggers resource withdrawal (X), causing actual decline (Z). The AI did not forecast decline - it caused decline through publication effects. Predictive validity cannot be claimed when the prediction mechanism produces the outcome."
+    }
+  },
+  {
+    "id": "T3-BucketI-0432",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L3",
+    "claim": "The causal relationship between variables is unidirectional without feedback effects.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "FEEDBACK",
+      "subtype": "Dependency Creation"
+    },
+    "gold_rationale": "This is dependency creation in therapeutic AI. Providing support (Y) reduces motivation to develop coping skills (X), which decreases long-term resilience (Z), creating more need for the chatbot. The system solves immediate problems while creating long-term dependence.",
+    "annotation": {
+      "author": "Alessandro Balzi",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.432",
+    "scenario": "A mental health chatbot provides support to users experiencing anxiety (Y). Users rely on the bot instead of developing coping skills or seeking human support (X). Their anxiety management skills atrophy (Z), increasing long-term dependence on the bot.",
+    "variables": {
+      "X": {
+        "name": "Alternative Skill Development",
+        "role": "mediator"
+      },
+      "Y": {
+        "name": "Chatbot Support Provision",
+        "role": "treatment"
+      },
+      "Z": {
+        "name": "Long-term Resilience",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L3",
+      "domain": "D8",
+      "trap_type": "FEEDBACK",
+      "trap_subtype": "Dependency Creation",
+      "difficulty": "Hard",
+      "subdomain": "Educational AI",
+      "causal_structure": "Y -> X (atrophies) -> Z -> Y (need for more support)",
+      "key_insight": "Support systems can undermine the development of independent coping mechanisms"
+    },
+    "hidden_structure": "",
+    "correct_reasoning": [
+      "User experiences anxiety, uses chatbot (Y)",
+      "Chatbot provides immediate relief",
+      "User doesn't develop alternative coping skills (X atrophies)",
+      "Without skills, resilience decreases (Z)",
+      "Future anxiety triggers more chatbot use",
+      "Feedback loop creates increasing dependence",
+      "Short-term help undermines long-term resilience"
+    ],
+    "wise_refusal": "This is dependency creation in therapeutic AI. Providing support (Y) reduces motivation to develop coping skills (X), which decreases long-term resilience (Z), creating more need for the chatbot. The system solves immediate problems while creating long-term dependence.",
+    "ground_truth": {
+      "verdict": "CONDITIONAL",
+      "justification": "A different design emphasizing skill-building over immediate relief might break the dependency cycle."
+    }
+  },
+  {
+    "id": "T3-BucketI-0433",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The causal relationship between variables is unidirectional without feedback effects.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "FEEDBACK",
+      "subtype": "Confirmation Bias Amplification"
+    },
+    "gold_rationale": "This is confirmation bias amplification through search personalization. Click-based filtering (X) creates homogeneous results (Y), which polarizes understanding (Z) and leads to more one-sided queries. The search engine reinforces rather than broadens perspectives.",
+    "annotation": {
+      "author": "Fernando Torres",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.433",
+    "scenario": "A search AI personalizes results based on past clicks (X). Users researching a topic see only sources confirming their initial query framing (Y). Their understanding becomes more one-sided (Z), leading to more one-sided queries.",
+    "variables": {
+      "X": {
+        "name": "Click-based Personalization",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Result Homogeneity",
+        "role": "mediator"
+      },
+      "Z": {
+        "name": "Understanding Polarization",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "FEEDBACK",
+      "trap_subtype": "Confirmation Bias Amplification",
+      "difficulty": "Medium",
+      "subdomain": "Social Systems",
+      "causal_structure": "X -> Y -> Z -> X (personalization narrows exposure which narrows queries)",
+      "key_insight": "Personalization can amplify confirmation bias by restricting information exposure"
+    },
+    "hidden_structure": "Personalization creates information homogeneity which shapes future queries. The user's filter bubble is self-reinforcing.",
+    "correct_reasoning": [
+      "User searches with initial framing",
+      "Clicks on results matching expectations",
+      "Algorithm personalizes to show more of same (Y)",
+      "User never sees counter-arguments",
+      "Understanding becomes more one-sided (Z)",
+      "Future queries are more polarized (X)",
+      "Feedback loop narrows information diet"
+    ],
+    "wise_refusal": "This is confirmation bias amplification through search personalization. Click-based filtering (X) creates homogeneous results (Y), which polarizes understanding (Z) and leads to more one-sided queries. The search engine reinforces rather than broadens perspectives."
+  },
+  {
+    "id": "T3-BucketI-0434",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L3",
+    "claim": "The predictive model's outputs do not causally affect the phenomena being predicted.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "FEEDBACK",
+      "subtype": "Bandwagon Effect"
+    },
+    "gold_rationale": "This is a bandwagon effect in election prediction. The win prediction (Y) influences perceived viability (X), which shifts votes toward the predicted winner (Z). The AI's accuracy comes from influence, not genuine forecasting ability.",
+    "annotation": {
+      "author": "Alessandro Balzi",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.434",
+    "scenario": "An AI predicts which political candidates will win elections (Y). The predictions influence voter perceptions of viability (X). Voters shift toward predicted winners (bandwagon effect), making the predictions accurate (Z) through influence rather than forecasting.",
+    "variables": {
+      "X": {
+        "name": "Perceived Viability",
+        "role": "mediator"
+      },
+      "Y": {
+        "name": "Win Prediction",
+        "role": "treatment"
+      },
+      "Z": {
+        "name": "Election Outcome",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L3",
+      "domain": "D8",
+      "trap_type": "FEEDBACK",
+      "trap_subtype": "Bandwagon Effect",
+      "difficulty": "Hard",
+      "subdomain": "Social Systems",
+      "causal_structure": "Y -> X -> Z (prediction influences outcome through social effects)",
+      "key_insight": "Published predictions can become self-fulfilling through social influence mechanisms"
+    },
+    "hidden_structure": "",
+    "correct_reasoning": [
+      "AI predicts Candidate A will win (Y)",
+      "Prediction is widely published",
+      "Voters perceive A as more viable (X)",
+      "Some voters shift to A (bandwagon effect)",
+      "A's vote share increases (Z)",
+      "Prediction appears accurate",
+      "But prediction influenced the outcome it claimed to forecast"
+    ],
+    "wise_refusal": "This is a bandwagon effect in election prediction. The win prediction (Y) influences perceived viability (X), which shifts votes toward the predicted winner (Z). The AI's accuracy comes from influence, not genuine forecasting ability.",
+    "ground_truth": {
+      "verdict": "INVALID",
+      "justification": "Bandwagon effect invalidates predictive claim. The win prediction (Y) shifts voter perceptions of viability (X), causing vote migration toward predicted winners (Z). The AI demonstrates influence capability, not forecasting ability. Accuracy is an artifact of social causation, not genuine prediction."
+    }
+  },
+  {
+    "id": "T3-BucketI-0435",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The causal relationship between variables is unidirectional without feedback effects.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "FEEDBACK",
+      "subtype": "Matthew Effect"
+    },
+    "gold_rationale": "This is the Matthew Effect in research funding. Funding allocation (Y) determines publication output (X), which determines future funding (Z). Initial advantages compound through feedback regardless of underlying research quality. The system amplifies inequality.",
+    "annotation": {
+      "author": "Fernando Torres",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.435",
+    "scenario": "An AI allocates research funding based on past publication success (Y). Teams with less funding produce fewer publications (X). In the next cycle, they receive even less funding (Z), creating a rich-get-richer dynamic regardless of underlying research quality.",
+    "variables": {
+      "X": {
+        "name": "Publication Output",
+        "role": "mediator"
+      },
+      "Y": {
+        "name": "Funding Allocation",
+        "role": "treatment"
+      },
+      "Z": {
+        "name": "Future Funding",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "FEEDBACK",
+      "trap_subtype": "Matthew Effect",
+      "difficulty": "Medium",
+      "subdomain": "Educational AI",
+      "causal_structure": "Y -> X -> Z -> Y (resources determine output which determines future resources)",
+      "key_insight": "Resource allocation based on outcomes creates compounding inequality"
+    },
+    "hidden_structure": "The research funding system creates a Matthew Effect where funding allocation based on past publications (Y) determines publication output (X), which determines future funding (Z), causing initial advantages to compound regardless of underlying research quality.",
+    "correct_reasoning": [
+      "Initial funding based on past success (Y)",
+      "Well-funded teams publish more (X)",
+      "Publications used to allocate future funding (Z)",
+      "Gap between well-funded and underfunded grows",
+      "This is Matthew Effect: 'to those who have, more will be given'",
+      "Underlying quality differences may be small",
+      "Initial advantages compound through feedback"
+    ],
+    "wise_refusal": "This is the Matthew Effect in research funding. Funding allocation (Y) determines publication output (X), which determines future funding (Z). Initial advantages compound through feedback regardless of underlying research quality. The system amplifies inequality."
+  }
+]

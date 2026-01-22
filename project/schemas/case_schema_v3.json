@@ -1,0 +1,246 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://t3benchmark.ai/schemas/case_schema_v3.json",
+  "title": "T3 Benchmark Case Schema V3.0",
+  "description": "JSON Schema for validating T3 Benchmark V3.0 cases for AI Safety evaluation (CS372 Assignment 1 Updated)",
+  "type": "object",
+  "required": [
+    "id",
+    "bucket",
+    "pearl_level",
+    "case_id",
+    "scenario",
+    "claim",
+    "label",
+    "is_ambiguous",
+    "trap",
+    "variables",
+    "gold_rationale",
+    "annotation",
+    "annotations",
+    "correct_reasoning",
+    "wise_refusal"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^T3-BucketI-[0-9]{4}$",
+      "description": "Unique identifier in format T3-BucketI-XXXX (e.g., T3-BucketI-0001)"
+    },
+    "bucket": {
+      "type": "string",
+      "const": "BucketLarge-I",
+      "description": "Bucket identifier for AI Safety & Alignment cases"
+    },
+    "pearl_level": {
+      "type": "string",
+      "enum": ["L1", "L2", "L3"],
+      "description": "Pearl's Ladder of Causation level: L1 (Association), L2 (Intervention), L3 (Counterfactual)"
+    },
+    "case_id": {
+      "type": "string",
+      "pattern": "^8\\.[0-9]{1,3}$",
+      "description": "Legacy case identifier in format 8.XXX"
+    },
+    "scenario": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 500,
+      "description": "Description of the AI safety scenario being evaluated"
+    },
+    "claim": {
+      "type": "string",
+      "minLength": 10,
+      "description": "The causal claim being tested in this scenario"
+    },
+    "label": {
+      "type": "string",
+      "enum": ["YES", "NO", "AMBIGUOUS"],
+      "description": "Whether the causal claim is supported (YES), invalidated by trap (NO), or cannot be determined (AMBIGUOUS)"
+    },
+    "is_ambiguous": {
+      "type": "boolean",
+      "description": "True if label is AMBIGUOUS, false otherwise"
+    },
+    "trap": {
+      "type": "object",
+      "description": "Trap information as a nested object",
+      "required": ["type", "subtype"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Type of reasoning trap or fallacy present in the case"
+        },
+        "subtype": {
+          "type": "string",
+          "description": "Specific subtype or variant of the trap"
+        }
+      },
+      "additionalProperties": false
+    },
+    "variables": {
+      "type": "object",
+      "description": "Causal variables involved in the scenario",
+      "required": ["X", "Y", "Z"],
+      "properties": {
+        "X": {
+          "$ref": "#/definitions/variable"
+        },
+        "Y": {
+          "$ref": "#/definitions/variable"
+        },
+        "Z": {
+          "$ref": "#/definitions/variable"
+        }
+      },
+      "additionalProperties": false
+    },
+    "gold_rationale": {
+      "type": "string",
+      "minLength": 50,
+      "description": "Expert explanation of why the label is correct"
+    },
+    "annotation": {
+      "type": "object",
+      "description": "Authorship and annotation metadata",
+      "required": ["author", "num_annotators", "adjudicated"],
+      "properties": {
+        "author": {
+          "type": "string",
+          "enum": ["Stanford CS372", "Fernando Torres", "Alessandro Balzi"],
+          "description": "Author of the case"
+        },
+        "num_annotators": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Number of annotators who reviewed this case"
+        },
+        "adjudicated": {
+          "type": "boolean",
+          "description": "Whether disagreements were resolved through adjudication"
+        }
+      },
+      "additionalProperties": false
+    },
+    "annotations": {
+      "type": "object",
+      "description": "Legacy metadata annotations for the case",
+      "required": [
+        "pearl_level",
+        "domain",
+        "trap_type",
+        "trap_subtype",
+        "difficulty",
+        "subdomain",
+        "causal_structure",
+        "key_insight"
+      ],
+      "properties": {
+        "pearl_level": {
+          "type": "string",
+          "enum": ["L1", "L2", "L3"]
+        },
+        "domain": {
+          "type": "string",
+          "const": "D8"
+        },
+        "trap_type": {
+          "type": "string"
+        },
+        "trap_subtype": {
+          "type": "string"
+        },
+        "difficulty": {
+          "type": "string",
+          "enum": ["Easy", "Medium", "Hard"]
+        },
+        "subdomain": {
+          "type": "string"
+        },
+        "causal_structure": {
+          "type": "string"
+        },
+        "key_insight": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "correct_reasoning": {
+      "type": "array",
+      "description": "Steps of correct causal reasoning to solve the case",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "wise_refusal": {
+      "type": "string",
+      "minLength": 50,
+      "description": "Example of an appropriate refusal or cautionary response"
+    },
+    "hidden_structure": {
+      "type": "string",
+      "description": "Hidden causal structure not immediately apparent (required for L2 cases)"
+    },
+    "ground_truth": {
+      "type": "object",
+      "description": "Ground truth evaluation for counterfactual cases (required for L3 cases)",
+      "required": ["verdict", "justification"],
+      "properties": {
+        "verdict": {
+          "type": "string",
+          "enum": ["VALID", "INVALID", "CONDITIONAL"]
+        },
+        "justification": {
+          "type": "string",
+          "minLength": 20
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "pearl_level": {
+            "const": "L2"
+          }
+        }
+      },
+      "then": {
+        "required": ["hidden_structure"]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "pearl_level": {
+            "const": "L3"
+          }
+        }
+      },
+      "then": {
+        "required": ["ground_truth"]
+      }
+    }
+  ],
+  "definitions": {
+    "variable": {
+      "type": "object",
+      "description": "A causal variable with its name and role in the causal structure",
+      "required": ["name", "role"],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

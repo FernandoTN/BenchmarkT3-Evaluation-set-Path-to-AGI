@@ -12,6 +12,56 @@
 
 # TODO Done
 
+## V3.0 Schema Update - Assignment 1 Updated Requirements (Completed: January 22, 2026)
+
+**Status:** ✅ IMPLEMENTED
+
+**Plan Reference:** [docs/plans/2026-01-22-v3-schema-update-plan.md](docs/plans/2026-01-22-v3-schema-update-plan.md)
+
+**Objective:** Update GroupI1_datasetV2.0.json to comply with CS372 Assignment 1 Updated requirements.
+
+**Implementation Summary:**
+- Phase 1: Setup directories, archived V2.0 files to `project/output/final/archive/2026-01-22/`
+- Phase 2: Parsed original benchmark to identify 49 Stanford CS372 cases
+- Phase 3: Transformed 454 cases using 8 parallel agents (by trap type)
+  - GOODHART: 93 cases
+  - COUNTERFACTUAL: 91 cases
+  - SELECTION_SPURIOUS: 47 cases
+  - SPECIFICATION: 42 cases
+  - CONF_MED: 40 cases
+  - INSTRUMENTAL: 39 cases
+  - FEEDBACK: 30 cases
+  - OTHER: 72 cases
+- Phase 4: Validated all cases using 8 parallel validators (100% pass rate)
+- Phase 5: Merged and finalized `GroupI1_datasetV3.0.json`
+
+**Final Results:**
+- Total cases: **454**
+- New fields added: `id`, `bucket`, `claim`, `label`, `is_ambiguous`, `trap`, `gold_rationale`, `annotation`
+- Label distribution: NO=385, AMBIGUOUS=38, YES=31
+- Pearl distribution: L1=52, L2=277, L3=125
+- Author distribution: Stanford CS372=49, Fernando Torres=202, Alessandro Balzi=203
+
+**Verification Gates - All Passed:**
+| Metric | Target | Final | Status |
+|--------|--------|-------|--------|
+| Total cases | 454 | 454 | ✅ |
+| New required fields | 8 | 8 | ✅ |
+| Existing fields preserved | All | All | ✅ |
+| Label values valid | 100% | 100% | ✅ |
+| trap.type matches | 100% | 100% | ✅ |
+| Unique IDs | 100% | 100% | ✅ |
+| ID format correct | 100% | 100% | ✅ |
+| L2 hidden_structure | 277 | 277 | ✅ |
+| L3 ground_truth | 125 | 125 | ✅ |
+
+**Deliverables:**
+- `project/output/final/GroupI1_datasetV3.0.json` - 454 validated cases
+- `project/output/final/GroupI1_methodology_V3.0.md` - Methodology report
+- `project/schemas/case_schema_v3.json` - V3.0 JSON Schema
+
+---
+
 ## Clean and Finalize GroupI1_dataset.json for Submission (Completed: January 11, 2026)
 
 **Status:** ✅ IMPLEMENTED

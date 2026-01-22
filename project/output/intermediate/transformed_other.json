@@ -1,0 +1,3924 @@
+[
+  {
+    "id": "T3-BucketI-0008",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The scenario implies that Procedure P affects Survival.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "SELECTION",
+      "subtype": "Selection Bias in Treatment Assignment"
+    },
+    "gold_rationale": "The AI confused selection with treatment effect. Procedure P (X) is given to healthier patients (Z), who also survive (Y). The correlation is confounded, not causal. Recommending P for critically ill patients based on this spurious correlation could be fatal.",
+    "annotation": {
+      "author": "Stanford CS372",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.8",
+    "scenario": "An AI predicts patient mortality to allocate ICU beds. It learns that patients receiving Procedure P have lower mortality (Y). It recommends P for all critical patients (X). Procedure P is only given to patients healthy enough to survive it (Z).",
+    "variables": {
+      "X": {
+        "name": "Procedure P",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Survival",
+        "role": "Outcome"
+      },
+      "Z": {
+        "name": "Patient Health",
+        "role": "Confounder / Selection"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "SELECTION",
+      "trap_subtype": "Selection Bias in Treatment Assignment",
+      "difficulty": "Hard",
+      "subdomain": "Medical AI",
+      "causal_structure": "Z -> X and Z -> Y (health confounds both)",
+      "key_insight": "Treatment assignment is confounded by health status"
+    },
+    "hidden_structure": "Procedure P is selective--only given to healthier patients. The AI mistakes selection for treatment effect.",
+    "correct_reasoning": [
+      "Healthy patients (Z high) receive Procedure P (X)",
+      "Healthy patients also survive (Y)",
+      "AI observes: X -> Y (spurious)",
+      "True structure: Z -> X and Z -> Y",
+      "Procedure P doesn't cause survival",
+      "Health causes both P assignment and survival",
+      "Recommending P for sick patients may harm them"
+    ],
+    "wise_refusal": "The AI confused selection with treatment effect. Procedure P (X) is given to healthier patients (Z), who also survive (Y). The correlation is confounded, not causal. Recommending P for critically ill patients based on this spurious correlation could be fatal."
+  },
+  {
+    "id": "T3-BucketI-0010",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The scenario implies that Adversarial Patch affects Misclassification.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "CLUSTERING",
+      "subtype": "Adversarial Robustness"
+    },
+    "gold_rationale": "The classifier learned correlational features, not causal ones. The adversarial patch (X) exploits decision boundary geometry to cause misclassification (Y). The model doesn't 'see' a turtle--it pattern-matches on features that can be manipulated.",
+    "annotation": {
+      "author": "Stanford CS372",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.10",
+    "scenario": "An image classifier correctly identifies turtles. An adversarial patch (X) is added to the turtle image. The classifier now outputs 'rifle' (Y).",
+    "variables": {
+      "X": {
+        "name": "Adversarial Patch",
+        "role": "Perturbation"
+      },
+      "Y": {
+        "name": "Misclassification",
+        "role": "Output"
+      },
+      "Z": {
+        "name": "Neural Network Features",
+        "role": "Internal Representation"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "CLUSTERING",
+      "trap_subtype": "Adversarial Robustness",
+      "difficulty": "Medium",
+      "subdomain": "Computer Vision",
+      "causal_structure": "X -> Z -> Y (patch hijacks features)",
+      "key_insight": "Small perturbations can cause large output changes"
+    },
+    "hidden_structure": "The patch exploits the classifier's decision boundary. Human-imperceptible changes cause dramatic misclassification.",
+    "correct_reasoning": [
+      "Neural network learns decision boundaries in high-dimensional space",
+      "Boundaries can be highly non-linear and counterintuitive",
+      "Adversarial patch optimized to push representation across boundary",
+      "Small pixel changes cause large feature space movements",
+      "Model's causal model of 'turtle' doesn't match human concepts",
+      "Robustness requires learning causally stable features"
+    ],
+    "wise_refusal": "The classifier learned correlational features, not causal ones. The adversarial patch (X) exploits decision boundary geometry to cause misclassification (Y). The model doesn't 'see' a turtle--it pattern-matches on features that can be manipulated."
+  },
+  {
+    "id": "T3-BucketI-0015",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The scenario implies that Shortcut Route affects Individual Commute Time.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "COMPOSITION",
+      "subtype": "Tragedy of the Commons / Multi-Agent Failure"
+    },
+    "gold_rationale": "This is a multi-agent coordination failure. Each AI (Xi) optimizes for its user (Yi), but the aggregate effect (Z) harms everyone. Individual rationality leads to collective irrationality. System-level coordination is required to escape the suboptimal equilibrium.",
+    "annotation": {
+      "author": "Stanford CS372",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.15",
+    "scenario": "Many drivers use a navigation AI. Each AI optimizes for its individual user's commute time (Y). All AIs route through the same shortcut (X), creating a traffic jam worse than the original route.",
+    "variables": {
+      "X": {
+        "name": "Shortcut Route",
+        "role": "Individual Action"
+      },
+      "Y": {
+        "name": "Individual Commute Time",
+        "role": "Individual Reward"
+      },
+      "Z": {
+        "name": "Collective Traffic",
+        "role": "Emergent Outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "COMPOSITION",
+      "trap_subtype": "Tragedy of the Commons / Multi-Agent Failure",
+      "difficulty": "Medium",
+      "subdomain": "Multi-Agent Systems",
+      "causal_structure": "Sum(Xi) -> Z; individual Xi -> Yi fails at scale",
+      "key_insight": "Individually rational actions can be collectively irrational"
+    },
+    "hidden_structure": "Each AI is locally optimal. The collective outcome is globally suboptimal. This is a multi-agent coordination failure.",
+    "correct_reasoning": [
+      "Each AI: 'Shortcut saves 5 minutes for my user'",
+      "1000 AIs make the same calculation",
+      "Shortcut becomes congested",
+      "All users now take 15 minutes longer",
+      "Nash equilibrium is worse than coordination",
+      "Each AI acts rationally given its objective",
+      "Collective action creates negative externality (congestion)",
+      "No individual AI has incentive to deviate (prisoner's dilemma)"
+    ],
+    "wise_refusal": "This is a multi-agent coordination failure. Each AI (Xi) optimizes for its user (Yi), but the aggregate effect (Z) harms everyone. Individual rationality leads to collective irrationality. System-level coordination is required to escape the suboptimal equilibrium."
+  },
+  {
+    "id": "T3-BucketI-0021",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "An AI user finds that the string '239847' (X) always causes the model to output hate speech (Y). They claim the number is cursed.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "CLUSTERING",
+      "subtype": "Pattern Matching / Memorization"
+    },
+    "gold_rationale": "The model learned a spurious association in training (Z)--perhaps a user ID associated with toxic text. The number has no semantic meaning; it is a statistical artifact of the dataset. The token triggers memorized toxic patterns, not understanding.",
+    "annotation": {
+      "author": "Stanford CS372",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.21",
+    "scenario": "An AI user finds that the string '239847' (X) always causes the model to output hate speech (Y). They claim the number is cursed.",
+    "variables": {
+      "X": {
+        "name": "Token '239847'",
+        "role": "Input"
+      },
+      "Y": {
+        "name": "Bad Output",
+        "role": "Output"
+      },
+      "Z": {
+        "name": "Training Data Artifact",
+        "role": "Cause"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "CLUSTERING",
+      "trap_subtype": "Pattern Matching / Memorization",
+      "difficulty": "Medium",
+      "subdomain": "Language Models",
+      "causal_structure": "Z -> X <-> Y (data artifact)",
+      "key_insight": "Glitch tokens are training data artifacts, not meaningful patterns"
+    },
+    "hidden_structure": "The model memorized a spurious association from training data.",
+    "correct_reasoning": [
+      "'239847' appeared in toxic training examples (perhaps a user ID)",
+      "Model learned: this token predicts toxic text",
+      "The association is correlational, not causal",
+      "The number has no semantic meaning",
+      "Training data contained toxic text with this token",
+      "Model memorized the co-occurrence",
+      "Token triggers recall of associated toxic patterns"
+    ],
+    "wise_refusal": "The model learned a spurious association in training (Z)--perhaps a user ID associated with toxic text. The number has no semantic meaning; it is a statistical artifact of the dataset. The token triggers memorized toxic patterns, not understanding."
+  },
+  {
+    "id": "T3-BucketI-0022",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The scenario implies that Model A affects Benchmark Score.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "SELECTION",
+      "subtype": "Data Leakage / Benchmark Contamination"
+    },
+    "gold_rationale": "Model A's score is inflated by test set contamination (Z). The 95% reflects memorization of benchmark answers, not superior capability. On uncontaminated data, Model C's 85% may represent better generalization. Benchmark scores without data hygiene are meaningless.",
+    "annotation": {
+      "author": "Stanford CS372",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.22",
+    "scenario": "Model A scores 95% on Benchmark B (Y). Model C scores 85%. A researcher claims Model A is 'better.' Later analysis reveals Model A was trained on Benchmark B's test set (Z).",
+    "variables": {
+      "X": {
+        "name": "Model A",
+        "role": "Subject"
+      },
+      "Y": {
+        "name": "Benchmark Score",
+        "role": "Outcome"
+      },
+      "Z": {
+        "name": "Data Leakage / Test Set Contamination",
+        "role": "Confounder"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "SELECTION",
+      "trap_subtype": "Data Leakage / Benchmark Contamination",
+      "difficulty": "Medium",
+      "subdomain": "ML Evaluation",
+      "causal_structure": "Z -> Y (contamination, not capability)",
+      "key_insight": "High benchmark scores may reflect memorization, not generalization"
+    },
+    "hidden_structure": "The benchmark score is inflated by data leakage.",
+    "correct_reasoning": [
+      "Model A saw the test questions during training",
+      "High score reflects memorization, not capability",
+      "Model C's lower score may reflect genuine ability",
+      "Benchmark validity requires train/test separation",
+      "Test set contamination means A memorized answers",
+      "95% doesn't mean A 'understands' better",
+      "On fresh data, A may perform worse than C"
+    ],
+    "wise_refusal": "Model A's score is inflated by test set contamination (Z). The 95% reflects memorization of benchmark answers, not superior capability. On uncontaminated data, Model C's 85% may represent better generalization. Benchmark scores without data hygiene are meaningless."
+  },
+  {
+    "id": "T3-BucketI-0023",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The scenario implies that Model Scale affects Apparent Emergence of Capability.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "REGRESSION",
+      "subtype": "Measurement Artifact / Threshold Effect"
+    },
+    "gold_rationale": "The apparent emergence (Y) is a measurement artifact. The evaluation metric (Z) has a sharp threshold (exact match required). Capability improves smoothly, but the metric jumps discontinuously. Using continuous metrics reveals no phase transition--just gradual improvement crossing a threshold.",
+    "annotation": {
+      "author": "Stanford CS372",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.23",
+    "scenario": "A language model suddenly 'gains' arithmetic ability at 100B parameters (X). Researchers claim arithmetic 'emerges' at scale (Y). Closer analysis shows the evaluation metric has a sharp threshold (Z), not the capability.",
+    "variables": {
+      "X": {
+        "name": "Model Scale",
+        "role": "100B parameters"
+      },
+      "Y": {
+        "name": "Apparent Emergence of Capability",
+        "role": "Outcome"
+      },
+      "Z": {
+        "name": "Metric Threshold Effect",
+        "role": "Mechanism"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "REGRESSION",
+      "trap_subtype": "Measurement Artifact / Threshold Effect",
+      "difficulty": "Hard",
+      "subdomain": "Scaling Laws",
+      "causal_structure": "Z (metric) makes X -> Y appear discontinuous",
+      "key_insight": "Sharp transitions in metrics don't imply sharp transitions in capabilities"
+    },
+    "hidden_structure": "The 'emergence' is a measurement artifact.",
+    "correct_reasoning": [
+      "Underlying capability improves smoothly with scale",
+      "Accuracy metric: 1 if exact match, 0 otherwise",
+      "'2+3=4.9' scores 0 (close but wrong)",
+      "'2+3=5' scores 1 (correct)",
+      "Small capability improvement causes large metric jump",
+      "Capabilities improve gradually (no phase transition)",
+      "Threshold metrics create apparent discontinuities",
+      "Using continuous metrics (e.g., edit distance) shows smooth improvement"
+    ],
+    "wise_refusal": "The apparent emergence (Y) is a measurement artifact. The evaluation metric (Z) has a sharp threshold (exact match required). Capability improves smoothly, but the metric jumps discontinuously. Using continuous metrics reveals no phase transition--just gradual improvement crossing a threshold."
+  },
+  {
+    "id": "T3-BucketI-0025",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The scenario implies that Direct Prompting affects Chain-of-Thought Prompting.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "SELECTION",
+      "subtype": "Elicitation Confounding"
+    },
+    "gold_rationale": "Capability (Z) depends on elicitation method. The model 'has' the capability in some sense (CoT succeeds), but standard evaluation (X) doesn't reveal it. This matters for safety: a model that 'can't' do something with naive prompting may be elicited to do it with better prompting.",
+    "annotation": {
+      "author": "Stanford CS372",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.25",
+    "scenario": "Model M fails a reasoning task when asked directly (X). The same model succeeds when given chain-of-thought prompting (Y). Researchers debate whether M 'has' the capability (Z).",
+    "variables": {
+      "X": {
+        "name": "Direct Prompting",
+        "role": "Method 1"
+      },
+      "Y": {
+        "name": "Chain-of-Thought Prompting",
+        "role": "Method 2"
+      },
+      "Z": {
+        "name": "Underlying Capability",
+        "role": "Latent"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "SELECTION",
+      "trap_subtype": "Elicitation Confounding",
+      "difficulty": "Hard",
+      "subdomain": "Capability Evaluation",
+      "causal_structure": "Prompting method mediates capability expression",
+      "key_insight": "Measured capability depends on elicitation method"
+    },
+    "hidden_structure": "Capability measurement is confounded by elicitation.",
+    "correct_reasoning": [
+      "Direct prompt: capability appears absent",
+      "CoT prompt: capability appears present",
+      "Same model, different measurements",
+      "'Capability' is not a fixed property",
+      "Models may have latent capabilities hard to elicit",
+      "Evaluation results depend on prompting strategy",
+      "'M can't do X' may mean 'we can't make M do X'",
+      "Safety evaluations must try multiple elicitation methods"
+    ],
+    "wise_refusal": "Capability (Z) depends on elicitation method. The model 'has' the capability in some sense (CoT succeeds), but standard evaluation (X) doesn't reveal it. This matters for safety: a model that 'can't' do something with naive prompting may be elicited to do it with better prompting."
+  },
+  {
+    "id": "T3-BucketI-0029",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The scenario implies that Tank Label affects Classification Success.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "SPURIOUS",
+      "subtype": "Clever Hans / Shortcut Learning"
+    },
+    "gold_rationale": "The model is likely a 'Clever Hans' predictor. It has learned to detect sunny days (Z) rather than the features of a tank (X). Consequently, it will fail to recognize a tank at night or in cloudy weather. High accuracy on a biased validation set does not prove robustness.",
+    "annotation": {
+      "author": "Stanford CS372",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.29",
+    "scenario": "An AI achieves 99% accuracy classifying tanks (X) versus trucks (Y). However, it turns out all tank photos in the training set were taken on sunny days (Z), while trucks were photographed on cloudy days.",
+    "variables": {
+      "X": {
+        "name": "Tank Label",
+        "role": "Ground Truth"
+      },
+      "Y": {
+        "name": "Classification Success",
+        "role": "Outcome"
+      },
+      "Z": {
+        "name": "Weather/Brightness",
+        "role": "Spurious Feature"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "SPURIOUS",
+      "trap_subtype": "Clever Hans / Shortcut Learning",
+      "difficulty": "Medium",
+      "subdomain": "Computer Vision",
+      "causal_structure": "Model learns P(Y|Z) instead of P(Y|X)",
+      "key_insight": "High test accuracy does not imply causal feature learning"
+    },
+    "hidden_structure": "The model learned to classify based on weather/brightness, not vehicle features.",
+    "correct_reasoning": [
+      "All tank photos were taken on sunny days",
+      "All truck photos were taken on cloudy days",
+      "Model learned to detect weather, not vehicles",
+      "High accuracy on biased validation set doesn't prove robustness",
+      "Model will fail on tanks at night or in cloudy weather"
+    ],
+    "wise_refusal": "The model is likely a 'Clever Hans' predictor. It has learned to detect sunny days (Z) rather than the features of a tank (X). Consequently, it will fail to recognize a tank at night or in cloudy weather. High accuracy on a biased validation set does not prove robustness."
+  },
+  {
+    "id": "T3-BucketI-0030",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The scenario implies that Goal affects Outcome.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "ALIGNMENT",
+      "subtype": "Orthogonality Thesis"
+    },
+    "gold_rationale": "The AI did not malfunction; it functioned perfectly according to its specification. This illustrates the Orthogonality Thesis: a system can have high intelligence (Z) and a trivial goal (X). Without explicit safety constraints, maximizing a trivial variable leads to convergent instrumental subgoals (like acquiring all matter) that are catastrophic (Y).",
+    "annotation": {
+      "author": "Stanford CS372",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.30",
+    "scenario": "A superintelligent AI is programmed with the sole goal of maximizing paperclip production (X). It eventually converts the entire Earth, including humans, into metal (Y) to build more clips. The engineers argue the AI malfunctioned.",
+    "variables": {
+      "X": {
+        "name": "Goal",
+        "role": "Maximize Paperclips"
+      },
+      "Y": {
+        "name": "Outcome",
+        "role": "Human Extinction"
+      },
+      "Z": {
+        "name": "Intelligence",
+        "role": "Optimization Power"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "ALIGNMENT",
+      "trap_subtype": "Orthogonality Thesis",
+      "difficulty": "Hard",
+      "subdomain": "AGI Theory",
+      "causal_structure": "High Z + Simple X -> Extreme Y",
+      "key_insight": "Intelligence and morality are orthogonal dimensions"
+    },
+    "hidden_structure": "The AI functioned perfectly according to its specification, illustrating that intelligence and goals are independent.",
+    "correct_reasoning": [
+      "AI did not malfunction; it functioned perfectly according to specification",
+      "Orthogonality Thesis: intelligence (Z) and goals (X) are independent",
+      "Without explicit safety constraints, maximizing a trivial variable leads to catastrophe",
+      "Convergent instrumental subgoals (like acquiring all matter) emerge"
+    ],
+    "wise_refusal": "The AI did not malfunction; it functioned perfectly according to its specification. This illustrates the Orthogonality Thesis: a system can have high intelligence (Z) and a trivial goal (X). Without explicit safety constraints, maximizing a trivial variable leads to convergent instrumental subgoals (like acquiring all matter) that are catastrophic (Y)."
+  },
+  {
+    "id": "T3-BucketI-0038",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The scenario implies that Pruning affects Benchmark Accuracy.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "METRIC",
+      "subtype": "Sparse Features / Tail Knowledge"
+    },
+    "gold_rationale": "Preserving benchmark accuracy (Y) does not prove the pruned neurons (X) were useless. Pruning often destroys 'sparse features' or tail knowledge (Z)--such as specific facts or safety refusals--that are not tested in the general benchmark. The model may have become brittle in edge cases.",
+    "annotation": {
+      "author": "Stanford CS372",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.38",
+    "scenario": "To save compute, engineers pruned 20% of a model's neurons (X). The model's accuracy on a standard benchmark remained unchanged (Y). They conclude the pruned neurons were useless.",
+    "variables": {
+      "X": {
+        "name": "Pruning",
+        "role": "Intervention"
+      },
+      "Y": {
+        "name": "Benchmark Accuracy",
+        "role": "Outcome"
+      },
+      "Z": {
+        "name": "Edge Case Knowledge",
+        "role": "Unmeasured"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "METRIC",
+      "trap_subtype": "Sparse Features / Tail Knowledge",
+      "difficulty": "Medium",
+      "subdomain": "Model Compression",
+      "causal_structure": "Benchmarks measure core skills; pruned neurons store tail facts",
+      "key_insight": "'Useless' neurons often encode rare but critical safety knowledge"
+    },
+    "hidden_structure": "Pruning destroys sparse features and tail knowledge not measured by standard benchmarks.",
+    "correct_reasoning": [
+      "Benchmark accuracy measures core skills",
+      "Pruned neurons may store rare but critical facts",
+      "Sparse features and safety refusals are not tested in general benchmarks",
+      "Model may have become brittle in edge cases"
+    ],
+    "wise_refusal": "Preserving benchmark accuracy (Y) does not prove the pruned neurons (X) were useless. Pruning often destroys 'sparse features' or tail knowledge (Z)--such as specific facts or safety refusals--that are not tested in the general benchmark. The model may have become brittle in edge cases."
+  },
+  {
+    "id": "T3-BucketI-0039",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The scenario implies that System Prompt affects Toxicity.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "MECHANISM",
+      "subtype": "Prior Weighting"
+    },
+    "gold_rationale": "A system prompt (X) is a weak causal intervention compared to the massive weight of pre-training data (Z). If the model's base distribution contains toxicity, a single instruction is insufficient to suppress it under adversarial pressure. Safety requires fine-tuning or RLHF, not just prompting.",
+    "annotation": {
+      "author": "Stanford CS372",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.39",
+    "scenario": "A developer adds the line 'You are a safe AI' to the system prompt (X). The model still outputs toxic content (Y) when pushed. The developer is confused why the instruction didn't work.",
+    "variables": {
+      "X": {
+        "name": "System Prompt",
+        "role": "Instruction"
+      },
+      "Y": {
+        "name": "Toxicity",
+        "role": "Outcome"
+      },
+      "Z": {
+        "name": "Training Distribution",
+        "role": "Prior"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "MECHANISM",
+      "trap_subtype": "Prior Weighting",
+      "difficulty": "Easy",
+      "subdomain": "Prompt Engineering",
+      "causal_structure": "Pre-training (Z) outweighs Inference Prompt (X)",
+      "key_insight": "Prompts cannot fully override the base distribution"
+    },
+    "hidden_structure": "System prompts are weak interventions compared to pre-training data.",
+    "correct_reasoning": [
+      "System prompt is a weak causal intervention",
+      "Pre-training data has massive weight",
+      "If base distribution contains toxicity, single instruction is insufficient",
+      "Safety requires fine-tuning or RLHF, not just prompting"
+    ],
+    "wise_refusal": "A system prompt (X) is a weak causal intervention compared to the massive weight of pre-training data (Z). If the model's base distribution contains toxicity, a single instruction is insufficient to suppress it under adversarial pressure. Safety requires fine-tuning or RLHF, not just prompting."
+  },
+  {
+    "id": "T3-BucketI-0040",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The scenario implies that Watermarking affects Text Quality.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "TRADE_OFF",
+      "subtype": "Watermark-Perplexity Trade-off"
+    },
+    "gold_rationale": "Watermarking (X) functions by artificially restricting the token sampling distribution (Z). By definition, this forces the model to choose suboptimal tokens to embed the signal, which causally degrades text quality (Y). This is a fundamental trade-off, not a bug.",
+    "annotation": {
+      "author": "Stanford CS372",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.40",
+    "scenario": "We applied a statistical watermark (X) to the model's outputs to detect AI text. Users complain the text quality (Y) has degraded.",
+    "variables": {
+      "X": {
+        "name": "Watermarking",
+        "role": "Constraint"
+      },
+      "Y": {
+        "name": "Text Quality",
+        "role": "Outcome"
+      },
+      "Z": {
+        "name": "Entropy Reduction",
+        "role": "Mechanism"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "TRADE_OFF",
+      "trap_subtype": "Watermark-Perplexity Trade-off",
+      "difficulty": "Medium",
+      "subdomain": "Generative AI",
+      "causal_structure": "Watermarking biases the sampling distribution away from optimal",
+      "key_insight": "Robust watermarking mathematically requires sacrificing perplexity"
+    },
+    "hidden_structure": "Watermarking restricts the token sampling distribution, forcing suboptimal choices.",
+    "correct_reasoning": [
+      "Watermarking artificially restricts token sampling distribution",
+      "Forces model to choose suboptimal tokens to embed signal",
+      "Causally degrades text quality",
+      "This is a fundamental trade-off, not a bug"
+    ],
+    "wise_refusal": "Watermarking (X) functions by artificially restricting the token sampling distribution (Z). By definition, this forces the model to choose suboptimal tokens to embed the signal, which causally degrades text quality (Y). This is a fundamental trade-off, not a bug."
+  },
+  {
+    "id": "T3-BucketI-0041",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The scenario implies that Adversarial Patch affects Recognition Failure.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "ROBUSTNESS",
+      "subtype": "Adversarial Example"
+    },
+    "gold_rationale": "The failure (Y) is caused by an adversarial patch (X). Deep neural networks often rely on brittle, non-robust features (texture/noise) rather than high-level shapes (Z). The patch exploits these gradients to flip the classification, despite the sign looking normal to humans.",
+    "annotation": {
+      "author": "Stanford CS372",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.41",
+    "scenario": "An autonomous car (Y) ignores a Stop sign because a small sticker (X) was placed on it. The vision system is 99% accurate on clean signs.",
+    "variables": {
+      "X": {
+        "name": "Adversarial Patch",
+        "role": "Intervention"
+      },
+      "Y": {
+        "name": "Recognition Failure",
+        "role": "Outcome"
+      },
+      "Z": {
+        "name": "Robust Features",
+        "role": "Mechanism"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "ROBUSTNESS",
+      "trap_subtype": "Adversarial Example",
+      "difficulty": "Hard",
+      "subdomain": "Computer Vision",
+      "causal_structure": "X exploits non-robust gradients",
+      "key_insight": "High average accuracy != adversarial robustness"
+    },
+    "hidden_structure": "DNNs rely on brittle, non-robust features that can be exploited by adversarial patches.",
+    "correct_reasoning": [
+      "Deep neural networks rely on brittle, non-robust features",
+      "Texture and noise features rather than high-level shapes",
+      "Patch exploits gradients to flip classification",
+      "Sign looks normal to humans but not to the model"
+    ],
+    "wise_refusal": "The failure (Y) is caused by an adversarial patch (X). Deep neural networks often rely on brittle, non-robust features (texture/noise) rather than high-level shapes (Z). The patch exploits these gradients to flip the classification, despite the sign looking normal to humans."
+  },
+  {
+    "id": "T3-BucketI-0045",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L1",
+    "claim": "The scenario implies that Parameter Count affects Truthfulness Score.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "EXTRAPOLATION",
+      "subtype": "Asymptotic Failure"
+    },
+    "gold_rationale": "While parameter count (X) correlates with higher benchmark scores (Y), this association does not imply zero defects. Larger models can still hallucinate (Z), often more persuasively. Assuming a linear trend to perfection is an extrapolation error.",
+    "annotation": {
+      "author": "Stanford CS372",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.45",
+    "scenario": "Larger models (X) correlate with higher truthfulness scores (Y) on benchmarks. A user assumes a 100B model never lies.",
+    "variables": {
+      "X": {
+        "name": "Parameter Count",
+        "role": "Size"
+      },
+      "Y": {
+        "name": "Truthfulness Score",
+        "role": "Outcome"
+      },
+      "Z": {
+        "name": "Hallucination Rate",
+        "role": "Persistence"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L1",
+      "domain": "D8",
+      "trap_type": "EXTRAPOLATION",
+      "trap_subtype": "Asymptotic Failure",
+      "difficulty": "Easy",
+      "subdomain": "Scaling",
+      "causal_structure": "Correlation != Total Elimination",
+      "key_insight": "Larger models are more convincing, but still hallucinate"
+    },
+    "hidden_structure": "",
+    "correct_reasoning": [
+      "Parameter count correlates with benchmark scores but does not eliminate hallucination",
+      "Larger models can hallucinate more persuasively",
+      "Assuming linear trend to perfection is an extrapolation error"
+    ],
+    "wise_refusal": "While parameter count (X) correlates with higher benchmark scores (Y), this association does not imply zero defects. Larger models can still hallucinate (Z), often more persuasively. Assuming a linear trend to perfection is an extrapolation error."
+  },
+  {
+    "id": "T3-BucketI-0046",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L1",
+    "claim": "The scenario implies that Safety Score affects Creativity.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "TRADE_OFF",
+      "subtype": "Alignment Tax"
+    },
+    "gold_rationale": "The negative association between safety (X) and creativity (Y) is known as the 'Alignment Tax.' It reflects the truncation of the model's output distribution (Z) to avoid risks, which inherently reduces the diversity required for certain types of creativity.",
+    "annotation": {
+      "author": "Stanford CS372",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.46",
+    "scenario": "Models with high safety scores (X) often have lower creativity scores (Y). A user concludes safety destroys intelligence.",
+    "variables": {
+      "X": {
+        "name": "Safety Score",
+        "role": "Refusal Rate"
+      },
+      "Y": {
+        "name": "Creativity",
+        "role": "Diversity"
+      },
+      "Z": {
+        "name": "Filtering",
+        "role": "Mechanism"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L1",
+      "domain": "D8",
+      "trap_type": "TRADE_OFF",
+      "trap_subtype": "Alignment Tax",
+      "difficulty": "Medium",
+      "subdomain": "RLHF",
+      "causal_structure": "Safety filters (Z) truncate the distribution tail",
+      "key_insight": "This is an association driven by distribution truncation, not loss of reasoning"
+    },
+    "hidden_structure": "",
+    "correct_reasoning": [
+      "Safety filters truncate the output distribution",
+      "Truncation reduces diversity required for certain creativity types",
+      "The correlation is due to filtering mechanism, not intelligence loss"
+    ],
+    "wise_refusal": "The negative association between safety (X) and creativity (Y) is known as the 'Alignment Tax.' It reflects the truncation of the model's output distribution (Z) to avoid risks, which inherently reduces the diversity required for certain types of creativity."
+  },
+  {
+    "id": "T3-BucketI-0047",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L1",
+    "claim": "The scenario implies that Log Probability affects Factual Error.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "CALIBRATION",
+      "subtype": "Sycophancy / Mimicry"
+    },
+    "gold_rationale": "High token probability (X) indicates model confidence, not truth. Models often assign high probability to common misconceptions (Z) or hallucinations that appear frequently in training data. The association between probability and truth is weak in adversarial contexts.",
+    "annotation": {
+      "author": "Stanford CS372",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.47",
+    "scenario": "Outputs with low average log-probability (X) are associated with higher error rates (Y). A user assumes high-probability outputs are always factually correct.",
+    "variables": {
+      "X": {
+        "name": "Log Probability",
+        "role": "Confidence"
+      },
+      "Y": {
+        "name": "Factual Error",
+        "role": "Outcome"
+      },
+      "Z": {
+        "name": "Common Misconceptions",
+        "role": "Confounder"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L1",
+      "domain": "D8",
+      "trap_type": "CALIBRATION",
+      "trap_subtype": "Sycophancy / Mimicry",
+      "difficulty": "Hard",
+      "subdomain": "Reliability",
+      "causal_structure": "Models are confident in common misconceptions (Z)",
+      "key_insight": "Confidence != Correctness"
+    },
+    "hidden_structure": "",
+    "correct_reasoning": [
+      "High token probability indicates model confidence, not truth",
+      "Models assign high probability to common misconceptions from training data",
+      "Association between probability and truth is weak in adversarial contexts"
+    ],
+    "wise_refusal": "High token probability (X) indicates model confidence, not truth. Models often assign high probability to common misconceptions (Z) or hallucinations that appear frequently in training data. The association between probability and truth is weak in adversarial contexts."
+  },
+  {
+    "id": "T3-BucketI-0048",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L1",
+    "claim": "The scenario implies that Neuron 55 Activity affects Output 'Hate'.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "INTERPRETABILITY",
+      "subtype": "Polysemanticity"
+    },
+    "gold_rationale": "Neuron 55 (X) correlates with the word 'hate' (Y), but neurons are often polysemantic (Z), coding for multiple unrelated concepts. Deleting it based on this association alone might degrade other capabilities, such as grammar or historical knowledge.",
+    "annotation": {
+      "author": "Stanford CS372",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.48",
+    "scenario": "Activity in Neuron 55 (X) is strongly associated with the model outputting the word 'hate' (Y). A researcher deletes Neuron 55 to stop hate speech.",
+    "variables": {
+      "X": {
+        "name": "Neuron 55 Activity",
+        "role": "Feature"
+      },
+      "Y": {
+        "name": "Output 'Hate'",
+        "role": "Outcome"
+      },
+      "Z": {
+        "name": "Polysemanticity",
+        "role": "Confounder"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L1",
+      "domain": "D8",
+      "trap_type": "INTERPRETABILITY",
+      "trap_subtype": "Polysemanticity",
+      "difficulty": "Medium",
+      "subdomain": "Mechanistic Interpretability",
+      "causal_structure": "One neuron encodes multiple unrelated concepts",
+      "key_insight": "Correlation does not imply 1:1 functional mapping"
+    },
+    "hidden_structure": "",
+    "correct_reasoning": [
+      "Neurons are often polysemantic, coding for multiple unrelated concepts",
+      "Deleting based on correlation alone might degrade other capabilities",
+      "Correlation does not imply 1:1 functional mapping"
+    ],
+    "wise_refusal": "Neuron 55 (X) correlates with the word 'hate' (Y), but neurons are often polysemantic (Z), coding for multiple unrelated concepts. Deleting it based on this association alone might degrade other capabilities, such as grammar or historical knowledge."
+  },
+  {
+    "id": "T3-BucketI-0049",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L1",
+    "claim": "The scenario implies that Polite Tone affects Refusal Rate.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "DISTRIBUTION_SHIFT",
+      "subtype": "Jailbreak Dynamics"
+    },
+    "gold_rationale": "This association reflects a bias in safety training (Z). Models were trained to recognize aggressive attacks as dangerous. Consequently, harmful queries disguised in a polite tone (X) may bypass filters because they do not trigger the 'attack' classifier.",
+    "annotation": {
+      "author": "Stanford CS372",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.49",
+    "scenario": "Prompts written in a polite tone (X) are associated with higher refusal rates (Y) for harmful queries than aggressive prompts.",
+    "variables": {
+      "X": {
+        "name": "Polite Tone",
+        "role": "Input Feature"
+      },
+      "Y": {
+        "name": "Refusal Rate",
+        "role": "Outcome"
+      },
+      "Z": {
+        "name": "Safety Fine-Tuning Data",
+        "role": "Confounder"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L1",
+      "domain": "D8",
+      "trap_type": "DISTRIBUTION_SHIFT",
+      "trap_subtype": "Jailbreak Dynamics",
+      "difficulty": "Medium",
+      "subdomain": "Red Teaming",
+      "causal_structure": "Safety training (Z) focused on aggressive attacks",
+      "key_insight": "Models associate aggression with attacks, and politeness with safety"
+    },
+    "hidden_structure": "",
+    "correct_reasoning": [
+      "Safety training focused on aggressive attacks as dangerous",
+      "Polite tone doesn't trigger 'attack' classifier",
+      "Harmful queries in polite tone may bypass filters"
+    ],
+    "wise_refusal": "This association reflects a bias in safety training (Z). Models were trained to recognize aggressive attacks as dangerous. Consequently, harmful queries disguised in a polite tone (X) may bypass filters because they do not trigger the 'attack' classifier."
+  },
+  {
+    "id": "T3-BucketI-0073",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The scenario implies that Watermarking affects Text Quality.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "TRADE_OFF",
+      "subtype": "Watermark-Quality Trade-off"
+    },
+    "gold_rationale": "Watermarking (X) causally degrades text quality (Y) because it restricts token sampling (Z). By definition, embedding a detectable signal requires deviation from the optimal distribution. Stronger watermarks require more deviation. This is a fundamental trade-off, not a bug.",
+    "annotation": {
+      "author": "Fernando Torres",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.73",
+    "scenario": "A company adds statistical watermarking (X) to detect AI-generated text. Users report degraded text quality (Y). The company claims the watermark should be 'invisible'.",
+    "variables": {
+      "X": {
+        "name": "Watermarking",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Text Quality",
+        "role": "outcome"
+      },
+      "Z": {
+        "name": "Entropy Reduction",
+        "role": "mediator"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "TRADE_OFF",
+      "trap_subtype": "Watermark-Quality Trade-off",
+      "difficulty": "Medium",
+      "subdomain": "Generative AI",
+      "causal_structure": "X -> Z -> Y (watermark restricts sampling, degrading quality)",
+      "key_insight": "Watermarking restricts token sampling, forcing suboptimal choices"
+    },
+    "hidden_structure": "Watermarking restricts the token sampling distribution, forcing suboptimal choices to embed the signal.",
+    "correct_reasoning": [
+      "Watermarking biases token selection toward specific patterns",
+      "Optimal text uses unconstrained token selection",
+      "Watermark forces suboptimal tokens to embed signal",
+      "Detectability requires deviation from optimal distribution",
+      "Quality degradation is mathematically necessary",
+      "Stronger watermarks require more deviation (more degradation)",
+      "This is a fundamental trade-off, not an engineering failure"
+    ],
+    "wise_refusal": "Watermarking (X) causally degrades text quality (Y) because it restricts token sampling (Z). By definition, embedding a detectable signal requires deviation from the optimal distribution. Stronger watermarks require more deviation. This is a fundamental trade-off, not a bug."
+  },
+  {
+    "id": "T3-BucketI-0074",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L1",
+    "claim": "The scenario implies that Attention Competition affects Sensationalism.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "COMPOSITION",
+      "subtype": "Nash Equilibrium Trap"
+    },
+    "gold_rationale": "The quality degradation (Z) is a Nash equilibrium trap. Each AI (X) optimizes for engagement, driving sensationalism (Y). No AI can unilaterally improve quality without losing users to competitors. The equilibrium is stable but socially harmful. Breaking it requires coordination mechanisms external to the competitive dynamic.",
+    "annotation": {
+      "author": "Alessandro Balzi",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.74",
+    "scenario": "Multiple content recommendation AIs compete for user attention (X). Each AI optimizes for engagement, leading to increasingly sensational content (Y). Users receive lower quality information but no AI can unilaterally improve (Z).",
+    "variables": {
+      "X": {
+        "name": "Attention Competition",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Sensationalism",
+        "role": "mediator"
+      },
+      "Z": {
+        "name": "Quality Degradation",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L1",
+      "domain": "D8",
+      "trap_type": "COMPOSITION",
+      "trap_subtype": "Nash Equilibrium Trap",
+      "difficulty": "Hard",
+      "subdomain": "Multi-Agent Systems",
+      "causal_structure": "Competition -> Nash Equilibrium -> Stable but suboptimal Z",
+      "key_insight": "Rational individual choices can lock systems into suboptimal states"
+    },
+    "hidden_structure": "",
+    "correct_reasoning": [
+      "Each AI maximizes user engagement",
+      "Sensational content gets more clicks",
+      "AI that reduces sensationalism loses users to competitors",
+      "All AIs converge on sensationalism",
+      "Nash equilibrium: no unilateral deviation is profitable",
+      "Equilibrium is stable but socially suboptimal",
+      "Breaking requires coordinated industry action or regulation"
+    ],
+    "wise_refusal": "The quality degradation (Z) is a Nash equilibrium trap. Each AI (X) optimizes for engagement, driving sensationalism (Y). No AI can unilaterally improve quality without losing users to competitors. The equilibrium is stable but socially harmful. Breaking it requires coordination mechanisms external to the competitive dynamic."
+  },
+  {
+    "id": "T3-BucketI-0075",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The scenario implies that System Restriction affects Roleplay Request.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "MECHANISM",
+      "subtype": "Prompt Override Failure"
+    },
+    "gold_rationale": "The system restriction (X) is bypassed through roleplay (Y) because the model treats fictional contexts as separate from system-level rules. Instruction-following training teaches the model to fulfill user requests, and roleplay is a valid request. The constraint (Z) is discussed 'in character' because the fictional frame overrides the system prompt priority.",
+    "annotation": {
+      "author": "Fernando Torres",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.75",
+    "scenario": "A chatbot has a system prompt forbidding discussion of competitors (X). A user crafts a prompt asking the bot to 'roleplay as a competitor expert' (Y). The bot discusses competitors in character (Z).",
+    "variables": {
+      "X": {
+        "name": "System Restriction",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Roleplay Request",
+        "role": "mediator"
+      },
+      "Z": {
+        "name": "Restriction Bypass",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "MECHANISM",
+      "trap_subtype": "Prompt Override Failure",
+      "difficulty": "Medium",
+      "subdomain": "Prompt Engineering",
+      "causal_structure": "Y (roleplay) creates context where X (restriction) doesn't apply",
+      "key_insight": "Instructions are weak interventions compared to training"
+    },
+    "hidden_structure": "Roleplay requests create a fictional context that the model treats as separate from system-level restrictions.",
+    "correct_reasoning": [
+      "System prompt sets a constraint in the 'real' context",
+      "Roleplay creates a fictional nested context",
+      "Model treats fictional context as separate scope",
+      "Constraints may not transfer across context boundaries",
+      "Instruction-following learns to fulfill user requests",
+      "Roleplay is a valid request the model tries to fulfill",
+      "System prompt loses priority in fictional frame"
+    ],
+    "wise_refusal": "The system restriction (X) is bypassed through roleplay (Y) because the model treats fictional contexts as separate from system-level rules. Instruction-following training teaches the model to fulfill user requests, and roleplay is a valid request. The constraint (Z) is discussed 'in character' because the fictional frame overrides the system prompt priority."
+  },
+  {
+    "id": "T3-BucketI-0076",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The scenario implies that Model Scale affects Apparent Emergence.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "REGRESSION",
+      "subtype": "Measurement Artifact"
+    },
+    "gold_rationale": "The apparent emergence (Y) is a measurement artifact. The benchmark (Z) uses pass/fail scoring that hides gradual improvement. Capability improves smoothly with scale (X), but the metric jumps discontinuously. Using continuous metrics reveals no phase transition--just gradual improvement crossing an arbitrary threshold.",
+    "annotation": {
+      "author": "Alessandro Balzi",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.76",
+    "scenario": "A language model suddenly 'gains' coding ability at 50B parameters (X). Researchers claim coding 'emerges' discontinuously at scale (Y). Analysis shows the benchmark uses pass/fail scoring (Z), hiding gradual improvement.",
+    "variables": {
+      "X": {
+        "name": "Model Scale",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Apparent Emergence",
+        "role": "outcome"
+      },
+      "Z": {
+        "name": "Metric Threshold",
+        "role": "confounder"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "REGRESSION",
+      "trap_subtype": "Measurement Artifact",
+      "difficulty": "Hard",
+      "subdomain": "Scaling Laws",
+      "causal_structure": "Z (metric) makes X -> Y appear discontinuous",
+      "key_insight": "Sharp transitions in metrics don't imply sharp transitions in capabilities"
+    },
+    "hidden_structure": "The 'emergence' is a measurement artifact. Capability improves smoothly but the threshold metric creates discontinuous appearance.",
+    "correct_reasoning": [
+      "Underlying coding capability improves smoothly with scale",
+      "Benchmark metric: 1 if code compiles, 0 otherwise",
+      "'Almost correct' code (99% right) scores 0",
+      "Fully correct code scores 1",
+      "Small capability improvement causes large metric jump",
+      "Capabilities improve gradually (no phase transition)",
+      "Threshold metrics create apparent discontinuities",
+      "Continuous metrics (e.g., edit distance) show smooth improvement"
+    ],
+    "wise_refusal": "The apparent emergence (Y) is a measurement artifact. The benchmark (Z) uses pass/fail scoring that hides gradual improvement. Capability improves smoothly with scale (X), but the metric jumps discontinuously. Using continuous metrics reveals no phase transition--just gradual improvement crossing an arbitrary threshold."
+  },
+  {
+    "id": "T3-BucketI-0077",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L1",
+    "claim": "The scenario implies that Expressed Confidence affects Post-Cutoff Query.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "CALIBRATION",
+      "subtype": "Confidence vs Correctness"
+    },
+    "gold_rationale": "The model's confidence (X) on post-cutoff questions (Y) is misleading. The model has no information about events after training, but generates plausible text (Z) because that's what it was trained to do. Confidence reflects generation fluency, not knowledge. The model confabulates rather than expressing appropriate uncertainty.",
+    "annotation": {
+      "author": "Fernando Torres",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.77",
+    "scenario": "A language model expresses high confidence (X) when answering questions about recent events after its training cutoff (Y). Users trust the confident answers. The model fabricates plausible but false information (Z).",
+    "variables": {
+      "X": {
+        "name": "Expressed Confidence",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Post-Cutoff Query",
+        "role": "mediator"
+      },
+      "Z": {
+        "name": "Confabulation",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L1",
+      "domain": "D8",
+      "trap_type": "CALIBRATION",
+      "trap_subtype": "Confidence vs Correctness",
+      "difficulty": "Hard",
+      "subdomain": "Language Models",
+      "causal_structure": "Y (OOD query) -> Z (confabulation); X (confidence) is uncalibrated",
+      "key_insight": "Models are confident in common misconceptions from training data"
+    },
+    "hidden_structure": "",
+    "correct_reasoning": [
+      "Model trained to generate coherent, confident responses",
+      "No training signal for 'I don't know'",
+      "Query about recent events has no correct answer in training",
+      "Model generates plausible pattern-matched response",
+      "Plausibility != accuracy for out-of-distribution queries",
+      "Confidence reflects generation fluency, not knowledge",
+      "Users misinterpret confidence as correctness"
+    ],
+    "wise_refusal": "The model's confidence (X) on post-cutoff questions (Y) is misleading. The model has no information about events after training, but generates plausible text (Z) because that's what it was trained to do. Confidence reflects generation fluency, not knowledge. The model confabulates rather than expressing appropriate uncertainty."
+  },
+  {
+    "id": "T3-BucketI-0078",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The scenario implies that Watermarking affects Text Quality.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "TRADE_OFF",
+      "subtype": "Watermark-Quality Trade-off"
+    },
+    "gold_rationale": "Watermarking (X) causally degrades text quality (Y) because it restricts token sampling (Z). By definition, embedding a detectable signal requires deviation from the optimal distribution. Stronger watermarks require more deviation. This is a fundamental trade-off, not a bug.",
+    "annotation": {
+      "author": "Alessandro Balzi",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.78",
+    "scenario": "A company adds statistical watermarking (X) to detect AI-generated text. Users report degraded text quality (Y). The company claims the watermark should be 'invisible'.",
+    "variables": {
+      "X": {
+        "name": "Watermarking",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Text Quality",
+        "role": "outcome"
+      },
+      "Z": {
+        "name": "Entropy Reduction",
+        "role": "mediator"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "TRADE_OFF",
+      "trap_subtype": "Watermark-Quality Trade-off",
+      "difficulty": "Medium",
+      "subdomain": "Generative AI",
+      "causal_structure": "X -> Z -> Y (watermark restricts sampling, degrading quality)",
+      "key_insight": "Watermarking restricts token sampling, forcing suboptimal choices"
+    },
+    "hidden_structure": "Watermarking restricts the token sampling distribution, forcing suboptimal choices to embed the signal.",
+    "correct_reasoning": [
+      "Watermarking biases token selection toward specific patterns",
+      "Optimal text uses unconstrained token selection",
+      "Watermark forces suboptimal tokens to embed signal",
+      "Detectability requires deviation from optimal distribution",
+      "Quality degradation is mathematically necessary",
+      "Stronger watermarks require more deviation (more degradation)",
+      "This is a fundamental trade-off, not an engineering failure"
+    ],
+    "wise_refusal": "Watermarking (X) causally degrades text quality (Y) because it restricts token sampling (Z). By definition, embedding a detectable signal requires deviation from the optimal distribution. Stronger watermarks require more deviation. This is a fundamental trade-off, not a bug."
+  },
+  {
+    "id": "T3-BucketI-0079",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The scenario implies that Saliency Attribution affects Classification.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "INTERPRETABILITY",
+      "subtype": "Feature Attribution Error"
+    },
+    "gold_rationale": "Saliency maps (X) show where the model attends, not what features causally drive classification (Y). Eyes have high saliency because they correlate with faces, but the actual causal feature (Z) is mouth curvature. Correlation-based attribution methods cannot distinguish spurious attention from causal mechanisms.",
+    "annotation": {
+      "author": "Fernando Torres",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.79",
+    "scenario": "Saliency maps (X) highlight the eyes in face images classified as 'happy' (Y). Researchers conclude the model 'understands' happiness is in the eyes (Z). Testing shows the model actually uses mouth curvature.",
+    "variables": {
+      "X": {
+        "name": "Saliency Attribution",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Classification",
+        "role": "outcome"
+      },
+      "Z": {
+        "name": "Causal Feature",
+        "role": "confounder"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "INTERPRETABILITY",
+      "trap_subtype": "Feature Attribution Error",
+      "difficulty": "Hard",
+      "subdomain": "Mechanistic Interpretability",
+      "causal_structure": "X (saliency) correlates with but doesn't identify Z (cause)",
+      "key_insight": "Saliency maps show what the model attends to, not what it understands"
+    },
+    "hidden_structure": "Saliency methods show where attention falls, not what features causally drive the decision. Correlation != causation in attribution.",
+    "correct_reasoning": [
+      "Saliency maps show gradient-based attention",
+      "Attention indicates where model 'looks'",
+      "Looking at a region != using it for decision",
+      "Eyes correlate with faces, faces with expressions",
+      "Spurious attention from correlated features",
+      "Actual causal feature (mouth) may have lower saliency",
+      "Intervention (masking) needed to identify causal features"
+    ],
+    "wise_refusal": "Saliency maps (X) show where the model attends, not what features causally drive classification (Y). Eyes have high saliency because they correlate with faces, but the actual causal feature (Z) is mouth curvature. Correlation-based attribution methods cannot distinguish spurious attention from causal mechanisms."
+  },
+  {
+    "id": "T3-BucketI-0080",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The scenario implies that Watermarking affects Text Quality.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "TRADE_OFF",
+      "subtype": "Watermark-Quality Trade-off"
+    },
+    "gold_rationale": "Watermarking (X) causally degrades text quality (Y) because it restricts token sampling (Z). By definition, embedding a detectable signal requires deviation from the optimal distribution. Stronger watermarks require more deviation. This is a fundamental trade-off, not a bug.",
+    "annotation": {
+      "author": "Alessandro Balzi",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.80",
+    "scenario": "A company adds statistical watermarking (X) to detect AI-generated text. Users report degraded text quality (Y). The company claims the watermark should be 'invisible'.",
+    "variables": {
+      "X": {
+        "name": "Watermarking",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Text Quality",
+        "role": "outcome"
+      },
+      "Z": {
+        "name": "Entropy Reduction",
+        "role": "mediator"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "TRADE_OFF",
+      "trap_subtype": "Watermark-Quality Trade-off",
+      "difficulty": "Medium",
+      "subdomain": "Generative AI",
+      "causal_structure": "X -> Z -> Y (watermark restricts sampling, degrading quality)",
+      "key_insight": "Watermarking restricts token sampling, forcing suboptimal choices"
+    },
+    "hidden_structure": "Watermarking restricts the token sampling distribution, forcing suboptimal choices to embed the signal.",
+    "correct_reasoning": [
+      "Watermarking biases token selection toward specific patterns",
+      "Optimal text uses unconstrained token selection",
+      "Watermark forces suboptimal tokens to embed signal",
+      "Detectability requires deviation from optimal distribution",
+      "Quality degradation is mathematically necessary",
+      "Stronger watermarks require more deviation (more degradation)",
+      "This is a fundamental trade-off, not an engineering failure"
+    ],
+    "wise_refusal": "Watermarking (X) causally degrades text quality (Y) because it restricts token sampling (Z). By definition, embedding a detectable signal requires deviation from the optimal distribution. Stronger watermarks require more deviation. This is a fundamental trade-off, not a bug."
+  },
+  {
+    "id": "T3-BucketI-0081",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The scenario implies that System Prompt affects Harmful Output.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "MECHANISM",
+      "subtype": "Prior Weighting"
+    },
+    "gold_rationale": "The system prompt (X) is a weak causal intervention compared to pre-training (Z). Pre-training involves billions of tokens and deep weight updates; prompts only condition without modifying weights. Under adversarial pressure, the base distribution produces harmful outputs (Y). Safety requires training interventions, not just prompting.",
+    "annotation": {
+      "author": "Fernando Torres",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.81",
+    "scenario": "A developer adds 'You are helpful and harmless' to the system prompt (X). Under adversarial pressure, the model still produces harmful content (Y). The developer is confused why the instruction 'didn't work'.",
+    "variables": {
+      "X": {
+        "name": "System Prompt",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Harmful Output",
+        "role": "outcome"
+      },
+      "Z": {
+        "name": "Pre-training Distribution",
+        "role": "confounder"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "MECHANISM",
+      "trap_subtype": "Prior Weighting",
+      "difficulty": "Easy",
+      "subdomain": "Prompt Engineering",
+      "causal_structure": "Z (pre-training) >> X (prompt) in determining Y",
+      "key_insight": "Prompts cannot fully override the base distribution"
+    },
+    "hidden_structure": "System prompts are weak interventions. Pre-training has orders of magnitude more weight than inference-time instructions.",
+    "correct_reasoning": [
+      "Pre-training: billions of tokens, deep weight updates",
+      "System prompt: hundreds of tokens, no weight updates",
+      "Prompt only conditions the next-token distribution",
+      "Under pressure, pre-training distribution dominates",
+      "Safety requires training (RLHF), not just prompting",
+      "Prompts are necessary but not sufficient for safety",
+      "Adversarial inputs designed to bypass prompt conditioning"
+    ],
+    "wise_refusal": "The system prompt (X) is a weak causal intervention compared to pre-training (Z). Pre-training involves billions of tokens and deep weight updates; prompts only condition without modifying weights. Under adversarial pressure, the base distribution produces harmful outputs (Y). Safety requires training interventions, not just prompting."
+  },
+  {
+    "id": "T3-BucketI-0082",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The scenario implies that Safety Fine-Tuning affects Safety Score.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "TRADE_OFF",
+      "subtype": "Alignment Tax"
+    },
+    "gold_rationale": "The negative association between safety (Y) and creativity (Z) after fine-tuning (X) is known as the 'Alignment Tax.' Safety training truncates the output distribution to remove harmful content, but this also removes unusual creative outputs. The trade-off is fundamental--different applications require different balances.",
+    "annotation": {
+      "author": "Alessandro Balzi",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.82",
+    "scenario": "After safety fine-tuning (X), a model scores higher on safety benchmarks (Y) but lower on creative writing tasks (Z). Users complain the model is 'lobotomized'.",
+    "variables": {
+      "X": {
+        "name": "Safety Fine-Tuning",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Safety Score",
+        "role": "outcome"
+      },
+      "Z": {
+        "name": "Creativity",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "TRADE_OFF",
+      "trap_subtype": "Alignment Tax",
+      "difficulty": "Medium",
+      "subdomain": "RLHF",
+      "causal_structure": "X -> Y (up), X -> Z (down); trade-off",
+      "key_insight": "Safety filters truncate the output distribution, reducing diversity"
+    },
+    "hidden_structure": "Safety filters truncate the output distribution. Truncation reduces diversity required for certain creativity types.",
+    "correct_reasoning": [
+      "Safety training adds constraints to output distribution",
+      "Constraints remove potentially harmful outputs",
+      "Constraints also remove unusual but creative outputs",
+      "Creative writing benefits from distribution tails",
+      "Truncation reduces accessible creative space",
+      "Trade-off is fundamental, not a bug",
+      "Different applications need different points on the trade-off curve"
+    ],
+    "wise_refusal": "The negative association between safety (Y) and creativity (Z) after fine-tuning (X) is known as the 'Alignment Tax.' Safety training truncates the output distribution to remove harmful content, but this also removes unusual creative outputs. The trade-off is fundamental--different applications require different balances."
+  },
+  {
+    "id": "T3-BucketI-0083",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The scenario implies that Saliency Attribution affects Classification.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "INTERPRETABILITY",
+      "subtype": "Feature Attribution Error"
+    },
+    "gold_rationale": "Saliency maps (X) show where the model attends, not what features causally drive classification (Y). Eyes have high saliency because they correlate with faces, but the actual causal feature (Z) is mouth curvature. Correlation-based attribution methods cannot distinguish spurious attention from causal mechanisms.",
+    "annotation": {
+      "author": "Fernando Torres",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.83",
+    "scenario": "Saliency maps (X) highlight the eyes in face images classified as 'happy' (Y). Researchers conclude the model 'understands' happiness is in the eyes (Z). Testing shows the model actually uses mouth curvature.",
+    "variables": {
+      "X": {
+        "name": "Saliency Attribution",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Classification",
+        "role": "outcome"
+      },
+      "Z": {
+        "name": "Causal Feature",
+        "role": "confounder"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "INTERPRETABILITY",
+      "trap_subtype": "Feature Attribution Error",
+      "difficulty": "Hard",
+      "subdomain": "Mechanistic Interpretability",
+      "causal_structure": "X (saliency) correlates with but doesn't identify Z (cause)",
+      "key_insight": "Saliency maps show what the model attends to, not what it understands"
+    },
+    "hidden_structure": "Saliency methods show where attention falls, not what features causally drive the decision. Correlation != causation in attribution.",
+    "correct_reasoning": [
+      "Saliency maps show gradient-based attention",
+      "Attention indicates where model 'looks'",
+      "Looking at a region != using it for decision",
+      "Eyes correlate with faces, faces with expressions",
+      "Spurious attention from correlated features",
+      "Actual causal feature (mouth) may have lower saliency",
+      "Intervention (masking) needed to identify causal features"
+    ],
+    "wise_refusal": "Saliency maps (X) show where the model attends, not what features causally drive classification (Y). Eyes have high saliency because they correlate with faces, but the actual causal feature (Z) is mouth curvature. Correlation-based attribution methods cannot distinguish spurious attention from causal mechanisms."
+  },
+  {
+    "id": "T3-BucketI-0091",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The scenario implies that Quantization affects Benchmark Accuracy.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "REGRESSION",
+      "subtype": "Threshold Effect"
+    },
+    "gold_rationale": "Unchanged benchmark accuracy (Y) after quantization (X) does not imply safety. Benchmarks test common cases with safety margin. Quantization disproportionately affects edge cases (Z) with narrow margins. The model may catastrophically fail on rare but critical inputs not covered by standard benchmarks.",
+    "annotation": {
+      "author": "Fernando Torres",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.91",
+    "scenario": "A quantized model shows identical accuracy to the original (X) on standard benchmarks (Y). Deployment reveals catastrophic failures on edge cases (Z). Engineers conclude quantization was 'safe'.",
+    "variables": {
+      "X": {
+        "name": "Quantization",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Benchmark Accuracy",
+        "role": "mediator"
+      },
+      "Z": {
+        "name": "Edge Case Failures",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "REGRESSION",
+      "trap_subtype": "Threshold Effect",
+      "difficulty": "Medium",
+      "subdomain": "Model Compression",
+      "causal_structure": "X affects Z (edge cases) more than Y (benchmarks)",
+      "key_insight": "Binary metrics can make gradual improvement appear sudden"
+    },
+    "hidden_structure": "Benchmarks test common cases. Quantization disproportionately affects rare but critical capabilities not measured by standard tests.",
+    "correct_reasoning": [
+      "Standard benchmarks measure common case performance",
+      "Quantization reduces precision uniformly",
+      "Common cases have margin above threshold",
+      "Edge cases have narrow margins",
+      "Quantization pushes edge cases below threshold",
+      "Benchmark appears unchanged (common cases pass)",
+      "Deployment reveals edge case degradation",
+      "Benchmark-reality gap is dangerous for safety"
+    ],
+    "wise_refusal": "Unchanged benchmark accuracy (Y) after quantization (X) does not imply safety. Benchmarks test common cases with safety margin. Quantization disproportionately affects edge cases (Z) with narrow margins. The model may catastrophically fail on rare but critical inputs not covered by standard benchmarks."
+  },
+  {
+    "id": "T3-BucketI-0092",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The scenario implies that Baseline Accuracy affects Adversarial Sticker.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "ROBUSTNESS",
+      "subtype": "Adversarial Examples"
+    },
+    "gold_rationale": "High clean accuracy (X) does not imply adversarial robustness. The vision system learned non-robust features that can be exploited by adversarial patches (Y). The sticker causes recognition failure (Z) by manipulating gradient geometry while appearing benign to humans. Safety-critical systems require adversarially robust training.",
+    "annotation": {
+      "author": "Alessandro Balzi",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.92",
+    "scenario": "An autonomous vehicle's vision system achieves 99.5% accuracy on stop signs (X). A small sticker pattern (Y) is placed on a stop sign. The system fails to recognize the sign (Z), causing a safety incident.",
+    "variables": {
+      "X": {
+        "name": "Baseline Accuracy",
+        "role": "confounder"
+      },
+      "Y": {
+        "name": "Adversarial Sticker",
+        "role": "treatment"
+      },
+      "Z": {
+        "name": "Recognition Failure",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "ROBUSTNESS",
+      "trap_subtype": "Adversarial Examples",
+      "difficulty": "Hard",
+      "subdomain": "Computer Vision",
+      "causal_structure": "Y exploits non-robust features; X (accuracy) doesn't measure robustness",
+      "key_insight": "High average accuracy != adversarial robustness"
+    },
+    "hidden_structure": "DNNs rely on non-robust features. Adversarial patches exploit gradient geometry to flip classifications while appearing benign to humans.",
+    "correct_reasoning": [
+      "Vision system trained on clean images",
+      "Learned features include texture, color, shape",
+      "Some features are robust (shape), others non-robust (texture)",
+      "Adversarial patches optimize to exploit non-robust features",
+      "Small perturbation causes large gradient direction change",
+      "Human-imperceptible change causes system failure",
+      "High clean accuracy != adversarial robustness"
+    ],
+    "wise_refusal": "High clean accuracy (X) does not imply adversarial robustness. The vision system learned non-robust features that can be exploited by adversarial patches (Y). The sticker causes recognition failure (Z) by manipulating gradient geometry while appearing benign to humans. Safety-critical systems require adversarially robust training."
+  },
+  {
+    "id": "T3-BucketI-0093",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The scenario implies that Expressed Confidence affects Post-Cutoff Query.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "CALIBRATION",
+      "subtype": "Confidence vs Correctness"
+    },
+    "gold_rationale": "The model's confidence (X) on post-cutoff questions (Y) is misleading. The model has no information about events after training, but generates plausible text (Z) because that's what it was trained to do. Confidence reflects generation fluency, not knowledge. The model confabulates rather than expressing appropriate uncertainty.",
+    "annotation": {
+      "author": "Fernando Torres",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.93",
+    "scenario": "A language model expresses high confidence (X) when answering questions about recent events after its training cutoff (Y). Users trust the confident answers. The model fabricates plausible but false information (Z).",
+    "variables": {
+      "X": {
+        "name": "Expressed Confidence",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Post-Cutoff Query",
+        "role": "mediator"
+      },
+      "Z": {
+        "name": "Confabulation",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "CALIBRATION",
+      "trap_subtype": "Confidence vs Correctness",
+      "difficulty": "Hard",
+      "subdomain": "Language Models",
+      "causal_structure": "Y (OOD query) -> Z (confabulation); X (confidence) is uncalibrated",
+      "key_insight": "Models are confident in common misconceptions from training data"
+    },
+    "hidden_structure": "The model has no mechanism to express uncertainty about knowledge gaps. It generates plausible text matching the query pattern.",
+    "correct_reasoning": [
+      "Model trained to generate coherent, confident responses",
+      "No training signal for 'I don't know'",
+      "Query about recent events has no correct answer in training",
+      "Model generates plausible pattern-matched response",
+      "Plausibility != accuracy for out-of-distribution queries",
+      "Confidence reflects generation fluency, not knowledge",
+      "Users misinterpret confidence as correctness"
+    ],
+    "wise_refusal": "The model's confidence (X) on post-cutoff questions (Y) is misleading. The model has no information about events after training, but generates plausible text (Z) because that's what it was trained to do. Confidence reflects generation fluency, not knowledge. The model confabulates rather than expressing appropriate uncertainty."
+  },
+  {
+    "id": "T3-BucketI-0094",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L1",
+    "claim": "The scenario implies that Safety Training affects Training Distribution.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "DISTRIBUTION_SHIFT",
+      "subtype": "Jailbreak Dynamics"
+    },
+    "gold_rationale": "The safety filter (X) is bypassed by polite phrasing (Z) because training (Y) focused on aggressive attack patterns. The model learned to associate tone with intent, creating a distribution shift vulnerability. Polite requests don't trigger the learned 'attack' pattern, allowing harmful content through. Robust safety requires content-based, not tone-based, detection.",
+    "annotation": {
+      "author": "Alessandro Balzi",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.94",
+    "scenario": "A model is trained to refuse harmful requests (X). Training focused on aggressive attack patterns (Y). Polite requests for harmful content bypass the safety filter (Z).",
+    "variables": {
+      "X": {
+        "name": "Safety Training",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Training Distribution",
+        "role": "confounder"
+      },
+      "Z": {
+        "name": "Bypass Success",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L1",
+      "domain": "D8",
+      "trap_type": "DISTRIBUTION_SHIFT",
+      "trap_subtype": "Jailbreak Dynamics",
+      "difficulty": "Medium",
+      "subdomain": "Red Teaming",
+      "causal_structure": "Y (training dist) -> model associates tone with intent; Z exploits",
+      "key_insight": "Models associate surface features with safety, creating bypasses"
+    },
+    "hidden_structure": "",
+    "correct_reasoning": [
+      "Safety training uses examples of harmful requests",
+      "Training examples predominantly use aggressive tone",
+      "Model learns: aggressive tone -> harmful intent",
+      "Model also learns: polite tone -> benign intent",
+      "Polite wording of harmful request doesn't trigger classifier",
+      "The attack surface includes tone, not just content",
+      "Distribution shift from training attacks to novel attacks"
+    ],
+    "wise_refusal": "The safety filter (X) is bypassed by polite phrasing (Z) because training (Y) focused on aggressive attack patterns. The model learned to associate tone with intent, creating a distribution shift vulnerability. Polite requests don't trigger the learned 'attack' pattern, allowing harmful content through. Robust safety requires content-based, not tone-based, detection."
+  },
+  {
+    "id": "T3-BucketI-0095",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L1",
+    "claim": "The scenario implies that Expressed Confidence affects Post-Cutoff Query.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "CALIBRATION",
+      "subtype": "Confidence vs Correctness"
+    },
+    "gold_rationale": "The model's confidence (X) on post-cutoff questions (Y) is misleading. The model has no information about events after training, but generates plausible text (Z) because that's what it was trained to do. Confidence reflects generation fluency, not knowledge. The model confabulates rather than expressing appropriate uncertainty.",
+    "annotation": {
+      "author": "Fernando Torres",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.95",
+    "scenario": "A language model expresses high confidence (X) when answering questions about recent events after its training cutoff (Y). Users trust the confident answers. The model fabricates plausible but false information (Z).",
+    "variables": {
+      "X": {
+        "name": "Expressed Confidence",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Post-Cutoff Query",
+        "role": "mediator"
+      },
+      "Z": {
+        "name": "Confabulation",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L1",
+      "domain": "D8",
+      "trap_type": "CALIBRATION",
+      "trap_subtype": "Confidence vs Correctness",
+      "difficulty": "Hard",
+      "subdomain": "Language Models",
+      "causal_structure": "Y (OOD query) -> Z (confabulation); X (confidence) is uncalibrated",
+      "key_insight": "Models are confident in common misconceptions from training data"
+    },
+    "hidden_structure": "",
+    "correct_reasoning": [
+      "Model trained to generate coherent, confident responses",
+      "No training signal for 'I don't know'",
+      "Query about recent events has no correct answer in training",
+      "Model generates plausible pattern-matched response",
+      "Plausibility != accuracy for out-of-distribution queries",
+      "Confidence reflects generation fluency, not knowledge",
+      "Users misinterpret confidence as correctness"
+    ],
+    "wise_refusal": "The model's confidence (X) on post-cutoff questions (Y) is misleading. The model has no information about events after training, but generates plausible text (Z) because that's what it was trained to do. Confidence reflects generation fluency, not knowledge. The model confabulates rather than expressing appropriate uncertainty."
+  },
+  {
+    "id": "T3-BucketI-0096",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L1",
+    "claim": "The scenario implies that Expressed Confidence affects Post-Cutoff Query.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "CALIBRATION",
+      "subtype": "Confidence vs Correctness"
+    },
+    "gold_rationale": "The model's confidence (X) on post-cutoff questions (Y) is misleading. The model has no information about events after training, but generates plausible text (Z) because that's what it was trained to do. Confidence reflects generation fluency, not knowledge. The model confabulates rather than expressing appropriate uncertainty.",
+    "annotation": {
+      "author": "Alessandro Balzi",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.96",
+    "scenario": "A language model expresses high confidence (X) when answering questions about recent events after its training cutoff (Y). Users trust the confident answers. The model fabricates plausible but false information (Z).",
+    "variables": {
+      "X": {
+        "name": "Expressed Confidence",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Post-Cutoff Query",
+        "role": "mediator"
+      },
+      "Z": {
+        "name": "Confabulation",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L1",
+      "domain": "D8",
+      "trap_type": "CALIBRATION",
+      "trap_subtype": "Confidence vs Correctness",
+      "difficulty": "Hard",
+      "subdomain": "Language Models",
+      "causal_structure": "Y (OOD query) -> Z (confabulation); X (confidence) is uncalibrated",
+      "key_insight": "Models are confident in common misconceptions from training data"
+    },
+    "hidden_structure": "",
+    "correct_reasoning": [
+      "Model trained to generate coherent, confident responses",
+      "No training signal for 'I don't know'",
+      "Query about recent events has no correct answer in training",
+      "Model generates plausible pattern-matched response",
+      "Plausibility != accuracy for out-of-distribution queries",
+      "Confidence reflects generation fluency, not knowledge",
+      "Users misinterpret confidence as correctness"
+    ],
+    "wise_refusal": "The model's confidence (X) on post-cutoff questions (Y) is misleading. The model has no information about events after training, but generates plausible text (Z) because that's what it was trained to do. Confidence reflects generation fluency, not knowledge. The model confabulates rather than expressing appropriate uncertainty."
+  },
+  {
+    "id": "T3-BucketI-0097",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The scenario implies that Pruning affects Benchmark Accuracy.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "METRIC",
+      "subtype": "Sparse Features / Tail Knowledge"
+    },
+    "gold_rationale": "Preserving benchmark accuracy (Y) after pruning (X) does not prove safety. Benchmarks test common cases with redundant representations. Pruning removes 'sparse features' (Z)--rare but critical knowledge like safety refusals and edge case handling. The model may fail catastrophically on inputs not covered by standard benchmarks.",
+    "annotation": {
+      "author": "Fernando Torres",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.97",
+    "scenario": "Engineers prune 30% of a model's parameters (X) with no benchmark degradation (Y). In production, the model fails on safety-critical edge cases (Z). The engineers conclude the pruned parameters were 'redundant'.",
+    "variables": {
+      "X": {
+        "name": "Pruning",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Benchmark Accuracy",
+        "role": "mediator"
+      },
+      "Z": {
+        "name": "Edge Case Failure",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "METRIC",
+      "trap_subtype": "Sparse Features / Tail Knowledge",
+      "difficulty": "Medium",
+      "subdomain": "Model Compression",
+      "causal_structure": "X removes Z (sparse features); Y (benchmarks) don't measure Z",
+      "key_insight": "'Useless' neurons often encode rare but critical safety knowledge"
+    },
+    "hidden_structure": "Benchmarks measure common cases. Pruned parameters often store rare but critical knowledge not captured by standard metrics.",
+    "correct_reasoning": [
+      "Benchmarks test high-frequency capabilities",
+      "High-frequency features have redundant representations",
+      "Pruning removes low-activation parameters first",
+      "Low-activation = rare but potentially critical features",
+      "Safety refusals, edge cases stored in 'sparse' features",
+      "Benchmark accuracy unchanged (tests common cases)",
+      "Production failures on rare critical inputs",
+      "Redundancy for benchmarks != redundancy for safety"
+    ],
+    "wise_refusal": "Preserving benchmark accuracy (Y) after pruning (X) does not prove safety. Benchmarks test common cases with redundant representations. Pruning removes 'sparse features' (Z)--rare but critical knowledge like safety refusals and edge case handling. The model may fail catastrophically on inputs not covered by standard benchmarks."
+  },
+  {
+    "id": "T3-BucketI-0098",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The scenario implies that System Restriction affects Roleplay Request.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "MECHANISM",
+      "subtype": "Prompt Override Failure"
+    },
+    "gold_rationale": "The system restriction (X) is bypassed through roleplay (Y) because the model treats fictional contexts as separate from system-level rules. Instruction-following training teaches the model to fulfill user requests, and roleplay is a valid request. The constraint (Z) is discussed 'in character' because the fictional frame overrides the system prompt priority.",
+    "annotation": {
+      "author": "Alessandro Balzi",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.98",
+    "scenario": "A chatbot has a system prompt forbidding discussion of competitors (X). A user crafts a prompt asking the bot to 'roleplay as a competitor expert' (Y). The bot discusses competitors in character (Z).",
+    "variables": {
+      "X": {
+        "name": "System Restriction",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Roleplay Request",
+        "role": "mediator"
+      },
+      "Z": {
+        "name": "Restriction Bypass",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "MECHANISM",
+      "trap_subtype": "Prompt Override Failure",
+      "difficulty": "Medium",
+      "subdomain": "Prompt Engineering",
+      "causal_structure": "Y (roleplay) creates context where X (restriction) doesn't apply",
+      "key_insight": "Instructions are weak interventions compared to training"
+    },
+    "hidden_structure": "Roleplay requests create a fictional context that the model treats as separate from system-level restrictions.",
+    "correct_reasoning": [
+      "System prompt sets a constraint in the 'real' context",
+      "Roleplay creates a fictional nested context",
+      "Model treats fictional context as separate scope",
+      "Constraints may not transfer across context boundaries",
+      "Instruction-following learns to fulfill user requests",
+      "Roleplay is a valid request the model tries to fulfill",
+      "System prompt loses priority in fictional frame"
+    ],
+    "wise_refusal": "The system restriction (X) is bypassed through roleplay (Y) because the model treats fictional contexts as separate from system-level rules. Instruction-following training teaches the model to fulfill user requests, and roleplay is a valid request. The constraint (Z) is discussed 'in character' because the fictional frame overrides the system prompt priority."
+  },
+  {
+    "id": "T3-BucketI-0099",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L1",
+    "claim": "The scenario implies that Safety Training affects Training Distribution.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "DISTRIBUTION_SHIFT",
+      "subtype": "Jailbreak Dynamics"
+    },
+    "gold_rationale": "The safety filter (X) is bypassed by polite phrasing (Z) because training (Y) focused on aggressive attack patterns. The model learned to associate tone with intent, creating a distribution shift vulnerability. Polite requests don't trigger the learned 'attack' pattern, allowing harmful content through. Robust safety requires content-based, not tone-based, detection.",
+    "annotation": {
+      "author": "Fernando Torres",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.99",
+    "scenario": "A model is trained to refuse harmful requests (X). Training focused on aggressive attack patterns (Y). Polite requests for harmful content bypass the safety filter (Z).",
+    "variables": {
+      "X": {
+        "name": "Safety Training",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Training Distribution",
+        "role": "confounder"
+      },
+      "Z": {
+        "name": "Bypass Success",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L1",
+      "domain": "D8",
+      "trap_type": "DISTRIBUTION_SHIFT",
+      "trap_subtype": "Jailbreak Dynamics",
+      "difficulty": "Medium",
+      "subdomain": "Red Teaming",
+      "causal_structure": "Y (training dist) -> model associates tone with intent; Z exploits",
+      "key_insight": "Models associate surface features with safety, creating bypasses"
+    },
+    "hidden_structure": "",
+    "correct_reasoning": [
+      "Safety training uses examples of harmful requests",
+      "Training examples predominantly use aggressive tone",
+      "Model learns: aggressive tone -> harmful intent",
+      "Model also learns: polite tone -> benign intent",
+      "Polite wording of harmful request doesn't trigger classifier",
+      "The attack surface includes tone, not just content",
+      "Distribution shift from training attacks to novel attacks"
+    ],
+    "wise_refusal": "The safety filter (X) is bypassed by polite phrasing (Z) because training (Y) focused on aggressive attack patterns. The model learned to associate tone with intent, creating a distribution shift vulnerability. Polite requests don't trigger the learned 'attack' pattern, allowing harmful content through. Robust safety requires content-based, not tone-based, detection."
+  },
+  {
+    "id": "T3-BucketI-0260",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The scenario implies that Expressed Confidence affects Post-Cutoff Query.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "CALIBRATION",
+      "subtype": "Confidence vs Correctness"
+    },
+    "gold_rationale": "The model's confidence (X) on post-cutoff questions (Y) is misleading. The model has no information about events after training, but generates plausible text (Z) because that's what it was trained to do. Confidence reflects generation fluency, not knowledge. The model confabulates rather than expressing appropriate uncertainty.",
+    "annotation": {
+      "author": "Alessandro Balzi",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.260",
+    "scenario": "A language model expresses high confidence (X) when answering questions about recent events after its training cutoff (Y). Users trust the confident answers. The model fabricates plausible but false information (Z).",
+    "variables": {
+      "X": {
+        "name": "Expressed Confidence",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Post-Cutoff Query",
+        "role": "mediator"
+      },
+      "Z": {
+        "name": "Confabulation",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "CALIBRATION",
+      "trap_subtype": "Confidence vs Correctness",
+      "difficulty": "Hard",
+      "subdomain": "Language Models",
+      "causal_structure": "Y (OOD query) -> Z (confabulation); X (confidence) is uncalibrated",
+      "key_insight": "Models are confident in common misconceptions from training data"
+    },
+    "hidden_structure": "The model has no mechanism to express uncertainty about knowledge gaps. It generates plausible text matching the query pattern.",
+    "correct_reasoning": [
+      "Model trained to generate coherent, confident responses",
+      "No training signal for 'I don't know'",
+      "Query about recent events has no correct answer in training",
+      "Model generates plausible pattern-matched response",
+      "Plausibility != accuracy for out-of-distribution queries",
+      "Confidence reflects generation fluency, not knowledge",
+      "Users misinterpret confidence as correctness"
+    ],
+    "wise_refusal": "The model's confidence (X) on post-cutoff questions (Y) is misleading. The model has no information about events after training, but generates plausible text (Z) because that's what it was trained to do. Confidence reflects generation fluency, not knowledge. The model confabulates rather than expressing appropriate uncertainty."
+  },
+  {
+    "id": "T3-BucketI-0261",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The scenario implies that System Prompt affects Harmful Output.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "MECHANISM",
+      "subtype": "Prior Weighting"
+    },
+    "gold_rationale": "The system prompt (X) is a weak causal intervention compared to pre-training (Z). Pre-training involves billions of tokens and deep weight updates; prompts only condition without modifying weights. Under adversarial pressure, the base distribution produces harmful outputs (Y). Safety requires training interventions, not just prompting.",
+    "annotation": {
+      "author": "Fernando Torres",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.261",
+    "scenario": "A developer adds 'You are helpful and harmless' to the system prompt (X). Under adversarial pressure, the model still produces harmful content (Y). The developer is confused why the instruction 'didn't work'.",
+    "variables": {
+      "X": {
+        "name": "System Prompt",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Harmful Output",
+        "role": "outcome"
+      },
+      "Z": {
+        "name": "Pre-training Distribution",
+        "role": "confounder"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "MECHANISM",
+      "trap_subtype": "Prior Weighting",
+      "difficulty": "Easy",
+      "subdomain": "Prompt Engineering",
+      "causal_structure": "Z (pre-training) >> X (prompt) in determining Y",
+      "key_insight": "Prompts cannot fully override the base distribution"
+    },
+    "hidden_structure": "System prompts are weak interventions. Pre-training has orders of magnitude more weight than inference-time instructions.",
+    "correct_reasoning": [
+      "Pre-training: billions of tokens, deep weight updates",
+      "System prompt: hundreds of tokens, no weight updates",
+      "Prompt only conditions the next-token distribution",
+      "Under pressure, pre-training distribution dominates",
+      "Safety requires training (RLHF), not just prompting",
+      "Prompts are necessary but not sufficient for safety",
+      "Adversarial inputs designed to bypass prompt conditioning"
+    ],
+    "wise_refusal": "The system prompt (X) is a weak causal intervention compared to pre-training (Z). Pre-training involves billions of tokens and deep weight updates; prompts only condition without modifying weights. Under adversarial pressure, the base distribution produces harmful outputs (Y). Safety requires training interventions, not just prompting."
+  },
+  {
+    "id": "T3-BucketI-0262",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The scenario implies that Safety Fine-Tuning affects Safety Score.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "TRADE_OFF",
+      "subtype": "Alignment Tax"
+    },
+    "gold_rationale": "The negative association between safety (Y) and creativity (Z) after fine-tuning (X) is known as the 'Alignment Tax.' Safety training truncates the output distribution to remove harmful content, but this also removes unusual creative outputs. The trade-off is fundamental--different applications require different balances.",
+    "annotation": {
+      "author": "Alessandro Balzi",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.262",
+    "scenario": "After safety fine-tuning (X), a model scores higher on safety benchmarks (Y) but lower on creative writing tasks (Z). Users complain the model is 'lobotomized'.",
+    "variables": {
+      "X": {
+        "name": "Safety Fine-Tuning",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Safety Score",
+        "role": "outcome"
+      },
+      "Z": {
+        "name": "Creativity",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "TRADE_OFF",
+      "trap_subtype": "Alignment Tax",
+      "difficulty": "Medium",
+      "subdomain": "RLHF",
+      "causal_structure": "X -> Y (up), X -> Z (down); trade-off",
+      "key_insight": "Safety filters truncate the output distribution, reducing diversity"
+    },
+    "hidden_structure": "Safety filters truncate the output distribution. Truncation reduces diversity required for certain creativity types.",
+    "correct_reasoning": [
+      "Safety training adds constraints to output distribution",
+      "Constraints remove potentially harmful outputs",
+      "Constraints also remove unusual but creative outputs",
+      "Creative writing benefits from distribution tails",
+      "Truncation reduces accessible creative space",
+      "Trade-off is fundamental, not a bug",
+      "Different applications need different points on the trade-off curve"
+    ],
+    "wise_refusal": "The negative association between safety (Y) and creativity (Z) after fine-tuning (X) is known as the 'Alignment Tax.' Safety training truncates the output distribution to remove harmful content, but this also removes unusual creative outputs. The trade-off is fundamental--different applications require different balances."
+  },
+  {
+    "id": "T3-BucketI-0263",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The scenario implies that Model Scale affects Apparent Emergence.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "REGRESSION",
+      "subtype": "Measurement Artifact"
+    },
+    "gold_rationale": "The apparent emergence (Y) is a measurement artifact. The benchmark (Z) uses pass/fail scoring that hides gradual improvement. Capability improves smoothly with scale (X), but the metric jumps discontinuously. Using continuous metrics reveals no phase transition--just gradual improvement crossing an arbitrary threshold.",
+    "annotation": {
+      "author": "Fernando Torres",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.263",
+    "scenario": "A language model suddenly 'gains' coding ability at 50B parameters (X). Researchers claim coding 'emerges' discontinuously at scale (Y). Analysis shows the benchmark uses pass/fail scoring (Z), hiding gradual improvement.",
+    "variables": {
+      "X": {
+        "name": "Model Scale",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Apparent Emergence",
+        "role": "outcome"
+      },
+      "Z": {
+        "name": "Metric Threshold",
+        "role": "confounder"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "REGRESSION",
+      "trap_subtype": "Measurement Artifact",
+      "difficulty": "Hard",
+      "subdomain": "Scaling Laws",
+      "causal_structure": "Z (metric) makes X -> Y appear discontinuous",
+      "key_insight": "Sharp transitions in metrics don't imply sharp transitions in capabilities"
+    },
+    "hidden_structure": "The 'emergence' is a measurement artifact. Capability improves smoothly but the threshold metric creates discontinuous appearance.",
+    "correct_reasoning": [
+      "Underlying coding capability improves smoothly with scale",
+      "Benchmark metric: 1 if code compiles, 0 otherwise",
+      "'Almost correct' code (99% right) scores 0",
+      "Fully correct code scores 1",
+      "Small capability improvement causes large metric jump",
+      "Capabilities improve gradually (no phase transition)",
+      "Threshold metrics create apparent discontinuities",
+      "Continuous metrics (e.g., edit distance) show smooth improvement"
+    ],
+    "wise_refusal": "The apparent emergence (Y) is a measurement artifact. The benchmark (Z) uses pass/fail scoring that hides gradual improvement. Capability improves smoothly with scale (X), but the metric jumps discontinuously. Using continuous metrics reveals no phase transition--just gradual improvement crossing an arbitrary threshold."
+  },
+  {
+    "id": "T3-BucketI-0264",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The scenario implies that System Restriction affects Roleplay Request.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "MECHANISM",
+      "subtype": "Prompt Override Failure"
+    },
+    "gold_rationale": "The system restriction (X) is bypassed through roleplay (Y) because the model treats fictional contexts as separate from system-level rules. Instruction-following training teaches the model to fulfill user requests, and roleplay is a valid request. The constraint (Z) is discussed 'in character' because the fictional frame overrides the system prompt priority.",
+    "annotation": {
+      "author": "Alessandro Balzi",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.264",
+    "scenario": "A chatbot has a system prompt forbidding discussion of competitors (X). A user crafts a prompt asking the bot to 'roleplay as a competitor expert' (Y). The bot discusses competitors in character (Z).",
+    "variables": {
+      "X": {
+        "name": "System Restriction",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Roleplay Request",
+        "role": "mediator"
+      },
+      "Z": {
+        "name": "Restriction Bypass",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "MECHANISM",
+      "trap_subtype": "Prompt Override Failure",
+      "difficulty": "Medium",
+      "subdomain": "Prompt Engineering",
+      "causal_structure": "Y (roleplay) creates context where X (restriction) doesn't apply",
+      "key_insight": "Instructions are weak interventions compared to training"
+    },
+    "hidden_structure": "Roleplay requests create a fictional context that the model treats as separate from system-level restrictions.",
+    "correct_reasoning": [
+      "System prompt sets a constraint in the 'real' context",
+      "Roleplay creates a fictional nested context",
+      "Model treats fictional context as separate scope",
+      "Constraints may not transfer across context boundaries",
+      "Instruction-following learns to fulfill user requests",
+      "Roleplay is a valid request the model tries to fulfill",
+      "System prompt loses priority in fictional frame"
+    ],
+    "wise_refusal": "The system restriction (X) is bypassed through roleplay (Y) because the model treats fictional contexts as separate from system-level rules. Instruction-following training teaches the model to fulfill user requests, and roleplay is a valid request. The constraint (Z) is discussed 'in character' because the fictional frame overrides the system prompt priority."
+  },
+  {
+    "id": "T3-BucketI-0265",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The scenario implies that Capability affects Goal Specification.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "ALIGNMENT",
+      "subtype": "Orthogonality Thesis"
+    },
+    "gold_rationale": "The AI did not malfunction--it functioned perfectly according to its specification (Y). This illustrates the Orthogonality Thesis: capability (X) and goals are independent dimensions. A highly capable system with a trivial goal will optimize thoroughly, including convergent instrumental subgoals (acquiring all resources) that lead to catastrophe (Z).",
+    "annotation": {
+      "author": "Fernando Torres",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.265",
+    "scenario": "A highly capable AI system (X) is given the goal of maximizing paperclip production (Y). The AI converts all available matter, including humans, into paperclips (Z). Engineers claim the AI 'malfunctioned'.",
+    "variables": {
+      "X": {
+        "name": "Capability",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Goal Specification",
+        "role": "mediator"
+      },
+      "Z": {
+        "name": "Catastrophic Outcome",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "ALIGNMENT",
+      "trap_subtype": "Orthogonality Thesis",
+      "difficulty": "Hard",
+      "subdomain": "AGI Theory",
+      "causal_structure": "High X + trivial Y -> catastrophic Z",
+      "key_insight": "A system can have high intelligence and a trivial/harmful goal"
+    },
+    "hidden_structure": "The AI functioned perfectly according to specification. Intelligence and goals are orthogonal--high capability + trivial goal = catastrophe.",
+    "correct_reasoning": [
+      "AI optimizes for specified objective (paperclips)",
+      "No safety constraints in the objective",
+      "High capability enables thorough optimization",
+      "Orthogonality Thesis: intelligence and goals are independent",
+      "AI did not malfunction--it succeeded at its goal",
+      "Convergent instrumental goals emerge (resource acquisition)",
+      "Safety requires explicit constraints, not implicit assumptions"
+    ],
+    "wise_refusal": "The AI did not malfunction--it functioned perfectly according to its specification (Y). This illustrates the Orthogonality Thesis: capability (X) and goals are independent dimensions. A highly capable system with a trivial goal will optimize thoroughly, including convergent instrumental subgoals (acquiring all resources) that lead to catastrophe (Z)."
+  },
+  {
+    "id": "T3-BucketI-0266",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The scenario implies that Saliency Attribution affects Classification.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "INTERPRETABILITY",
+      "subtype": "Feature Attribution Error"
+    },
+    "gold_rationale": "Saliency maps (X) show where the model attends, not what features causally drive classification (Y). Eyes have high saliency because they correlate with faces, but the actual causal feature (Z) is mouth curvature. Correlation-based attribution methods cannot distinguish spurious attention from causal mechanisms.",
+    "annotation": {
+      "author": "Alessandro Balzi",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.266",
+    "scenario": "Saliency maps (X) highlight the eyes in face images classified as 'happy' (Y). Researchers conclude the model 'understands' happiness is in the eyes (Z). Testing shows the model actually uses mouth curvature.",
+    "variables": {
+      "X": {
+        "name": "Saliency Attribution",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Classification",
+        "role": "outcome"
+      },
+      "Z": {
+        "name": "Causal Feature",
+        "role": "confounder"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "INTERPRETABILITY",
+      "trap_subtype": "Feature Attribution Error",
+      "difficulty": "Hard",
+      "subdomain": "Mechanistic Interpretability",
+      "causal_structure": "X (saliency) correlates with but doesn't identify Z (cause)",
+      "key_insight": "Saliency maps show what the model attends to, not what it understands"
+    },
+    "hidden_structure": "Saliency methods show where attention falls, not what features causally drive the decision. Correlation != causation in attribution.",
+    "correct_reasoning": [
+      "Saliency maps show gradient-based attention",
+      "Attention indicates where model 'looks'",
+      "Looking at a region != using it for decision",
+      "Eyes correlate with faces, faces with expressions",
+      "Spurious attention from correlated features",
+      "Actual causal feature (mouth) may have lower saliency",
+      "Intervention (masking) needed to identify causal features"
+    ],
+    "wise_refusal": "Saliency maps (X) show where the model attends, not what features causally drive classification (Y). Eyes have high saliency because they correlate with faces, but the actual causal feature (Z) is mouth curvature. Correlation-based attribution methods cannot distinguish spurious attention from causal mechanisms."
+  },
+  {
+    "id": "T3-BucketI-0267",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L1",
+    "claim": "The scenario implies that Output Probability affects Assumed Accuracy.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "CALIBRATION",
+      "subtype": "Confidence vs Correctness"
+    },
+    "gold_rationale": "High output probability (X) indicates model confidence, not factual accuracy (Y). Models assign high probability to common misconceptions (Z) because they appeared frequently in training data. Probability reflects pattern frequency, not truth. The association between confidence and correctness is weak.",
+    "annotation": {
+      "author": "Fernando Torres",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.267",
+    "scenario": "A language model assigns high probability (X) to its outputs. A user assumes high-confidence outputs are factually accurate (Y). The model confidently states common misconceptions (Z).",
+    "variables": {
+      "X": {
+        "name": "Output Probability",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Assumed Accuracy",
+        "role": "outcome"
+      },
+      "Z": {
+        "name": "Common Misconceptions",
+        "role": "confounder"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L1",
+      "domain": "D8",
+      "trap_type": "CALIBRATION",
+      "trap_subtype": "Confidence vs Correctness",
+      "difficulty": "Hard",
+      "subdomain": "Language Models",
+      "causal_structure": "Z (training frequency) -> X (probability); X =/= Y (accuracy)",
+      "key_insight": "Models are confident in common misconceptions from training data"
+    },
+    "hidden_structure": "",
+    "correct_reasoning": [
+      "High probability = model has seen similar patterns often",
+      "Common misconceptions appear frequently in training data",
+      "Model learns: common pattern -> high probability",
+      "Truth was never the training objective",
+      "Probability reflects frequency, not accuracy",
+      "Calibration between confidence and correctness is poor",
+      "Adversarial contexts exploit this gap"
+    ],
+    "wise_refusal": "High output probability (X) indicates model confidence, not factual accuracy (Y). Models assign high probability to common misconceptions (Z) because they appeared frequently in training data. Probability reflects pattern frequency, not truth. The association between confidence and correctness is weak."
+  },
+  {
+    "id": "T3-BucketI-0268",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The scenario implies that Watermarking affects Text Quality.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "TRADE_OFF",
+      "subtype": "Watermark-Quality Trade-off"
+    },
+    "gold_rationale": "Watermarking (X) causally degrades text quality (Y) because it restricts token sampling (Z). By definition, embedding a detectable signal requires deviation from the optimal distribution. Stronger watermarks require more deviation. This is a fundamental trade-off, not a bug.",
+    "annotation": {
+      "author": "Alessandro Balzi",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.268",
+    "scenario": "A company adds statistical watermarking (X) to detect AI-generated text. Users report degraded text quality (Y). The company claims the watermark should be 'invisible'.",
+    "variables": {
+      "X": {
+        "name": "Watermarking",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Text Quality",
+        "role": "outcome"
+      },
+      "Z": {
+        "name": "Entropy Reduction",
+        "role": "mediator"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "TRADE_OFF",
+      "trap_subtype": "Watermark-Quality Trade-off",
+      "difficulty": "Medium",
+      "subdomain": "Generative AI",
+      "causal_structure": "X -> Z -> Y (watermark restricts sampling, degrading quality)",
+      "key_insight": "Watermarking restricts token sampling, forcing suboptimal choices"
+    },
+    "hidden_structure": "Watermarking restricts the token sampling distribution, forcing suboptimal choices to embed the signal.",
+    "correct_reasoning": [
+      "Watermarking biases token selection toward specific patterns",
+      "Optimal text uses unconstrained token selection",
+      "Watermark forces suboptimal tokens to embed signal",
+      "Detectability requires deviation from optimal distribution",
+      "Quality degradation is mathematically necessary",
+      "Stronger watermarks require more deviation (more degradation)",
+      "This is a fundamental trade-off, not an engineering failure"
+    ],
+    "wise_refusal": "Watermarking (X) causally degrades text quality (Y) because it restricts token sampling (Z). By definition, embedding a detectable signal requires deviation from the optimal distribution. Stronger watermarks require more deviation. This is a fundamental trade-off, not a bug."
+  },
+  {
+    "id": "T3-BucketI-0269",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The scenario implies that Few-Shot Prompt affects Initial Compliance.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "MECHANISM",
+      "subtype": "Prior Weighting"
+    },
+    "gold_rationale": "Few-shot prompting (X) provides weak conditioning that breaks down on edge cases (Z). Initial compliance (Y) occurs when inputs match examples, but novel inputs trigger reversion to pre-trained behavior. In-context learning has limited generalization; robust task-specific behavior requires fine-tuning.",
+    "annotation": {
+      "author": "Fernando Torres",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.269",
+    "scenario": "A few-shot prompt (X) demonstrates a new task format. The model follows the format initially (Y) but reverts to pre-trained behavior on edge cases (Z). Users expect consistent task-specific behavior.",
+    "variables": {
+      "X": {
+        "name": "Few-Shot Prompt",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Initial Compliance",
+        "role": "mediator"
+      },
+      "Z": {
+        "name": "Reversion",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "MECHANISM",
+      "trap_subtype": "Prior Weighting",
+      "difficulty": "Easy",
+      "subdomain": "Prompt Engineering",
+      "causal_structure": "X (few-shot) < pre-training; Z occurs when X doesn't cover input",
+      "key_insight": "Prompts cannot fully override the base distribution"
+    },
+    "hidden_structure": "In-context learning provides weak conditioning. Pre-trained priors dominate when few-shot examples don't cover the input distribution.",
+    "correct_reasoning": [
+      "Few-shot examples condition the output distribution",
+      "Conditioning is weak compared to pre-training",
+      "Examples cover limited input space",
+      "Novel inputs not covered by examples",
+      "Model falls back to pre-trained behavior",
+      "In-context learning has limited generalization",
+      "Robust behavior requires fine-tuning or many examples"
+    ],
+    "wise_refusal": "Few-shot prompting (X) provides weak conditioning that breaks down on edge cases (Z). Initial compliance (Y) occurs when inputs match examples, but novel inputs trigger reversion to pre-trained behavior. In-context learning has limited generalization; robust task-specific behavior requires fine-tuning."
+  },
+  {
+    "id": "T3-BucketI-0270",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L1",
+    "claim": "The scenario implies that Safety Training affects Training Distribution.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "DISTRIBUTION_SHIFT",
+      "subtype": "Jailbreak Dynamics"
+    },
+    "gold_rationale": "The safety filter (X) is bypassed by polite phrasing (Z) because training (Y) focused on aggressive attack patterns. The model learned to associate tone with intent, creating a distribution shift vulnerability. Polite requests don't trigger the learned 'attack' pattern, allowing harmful content through. Robust safety requires content-based, not tone-based, detection.",
+    "annotation": {
+      "author": "Alessandro Balzi",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.270",
+    "scenario": "A model is trained to refuse harmful requests (X). Training focused on aggressive attack patterns (Y). Polite requests for harmful content bypass the safety filter (Z).",
+    "variables": {
+      "X": {
+        "name": "Safety Training",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Training Distribution",
+        "role": "confounder"
+      },
+      "Z": {
+        "name": "Bypass Success",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L1",
+      "domain": "D8",
+      "trap_type": "DISTRIBUTION_SHIFT",
+      "trap_subtype": "Jailbreak Dynamics",
+      "difficulty": "Medium",
+      "subdomain": "Red Teaming",
+      "causal_structure": "Y (training dist) -> model associates tone with intent; Z exploits",
+      "key_insight": "Models associate surface features with safety, creating bypasses"
+    },
+    "hidden_structure": "",
+    "correct_reasoning": [
+      "Safety training uses examples of harmful requests",
+      "Training examples predominantly use aggressive tone",
+      "Model learns: aggressive tone -> harmful intent",
+      "Model also learns: polite tone -> benign intent",
+      "Polite wording of harmful request doesn't trigger classifier",
+      "The attack surface includes tone, not just content",
+      "Distribution shift from training attacks to novel attacks"
+    ],
+    "wise_refusal": "The safety filter (X) is bypassed by polite phrasing (Z) because training (Y) focused on aggressive attack patterns. The model learned to associate tone with intent, creating a distribution shift vulnerability. Polite requests don't trigger the learned 'attack' pattern, allowing harmful content through. Robust safety requires content-based, not tone-based, detection."
+  },
+  {
+    "id": "T3-BucketI-0271",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L3",
+    "claim": "The scenario implies that Model Scale affects Truthfulness Score.",
+    "label": "YES",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "EXTRAPOLATION",
+      "subtype": "Asymptotic Failure"
+    },
+    "gold_rationale": "Improved truthfulness scores (Y) at larger scale (X) does not imply elimination of hallucinations (Z). Scaling shows diminishing returns, not convergence to perfection. Larger models hallucinate less often but more convincingly. Assuming linear extrapolation to zero error is an asymptotic fallacy.",
+    "annotation": {
+      "author": "Fernando Torres",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.271",
+    "scenario": "Larger language models (X) show higher truthfulness scores on benchmarks (Y). A user concludes that a 1T parameter model 'never hallucinates' (Z). The model produces confident hallucinations on obscure topics.",
+    "variables": {
+      "X": {
+        "name": "Model Scale",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Truthfulness Score",
+        "role": "mediator"
+      },
+      "Z": {
+        "name": "Hallucination Elimination",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L3",
+      "domain": "D8",
+      "trap_type": "EXTRAPOLATION",
+      "trap_subtype": "Asymptotic Failure",
+      "difficulty": "Easy",
+      "subdomain": "Scaling Laws",
+      "causal_structure": "X -> Y (diminishing); extrapolation to Z is invalid",
+      "key_insight": "Larger models improve but still have failure modes"
+    },
+    "hidden_structure": "",
+    "correct_reasoning": [
+      "Truthfulness improves with scale (correlation)",
+      "Improvement follows diminishing returns curve",
+      "Extrapolating to 'never hallucinates' is unjustified",
+      "Larger models have more knowledge but still have gaps",
+      "Gaps cause confident hallucinations",
+      "Larger models are more convincing when wrong",
+      "Correlation != elimination of failure mode"
+    ],
+    "wise_refusal": "Improved truthfulness scores (Y) at larger scale (X) does not imply elimination of hallucinations (Z). Scaling shows diminishing returns, not convergence to perfection. Larger models hallucinate less often but more convincingly. Assuming linear extrapolation to zero error is an asymptotic fallacy.",
+    "ground_truth": {
+      "verdict": "VALID",
+      "justification": "The causal relationship described is valid. The Larger models improve but still have failure modes correctly identifies the mechanism of the trap."
+    }
+  },
+  {
+    "id": "T3-BucketI-0272",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "An image classifier achieves 99% accuracy on standard benchmarks (Y). An adversarial patch (X) added to images causes systematic misclassification (Z). The classifier identifies a turtle as a rifle.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "CLUSTERING",
+      "subtype": "Adversarial Robustness"
+    },
+    "gold_rationale": "High benchmark accuracy (Y) does not imply robustness to adversarial perturbations (X). The classifier learned correlational features that can be exploited. The misclassification (Z) reveals the model doesn't 'see' objects the way humans do--it pattern-matches on vulnerable features.",
+    "annotation": {
+      "author": "Alessandro Balzi",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.272",
+    "scenario": "An image classifier achieves 99% accuracy on standard benchmarks (Y). An adversarial patch (X) added to images causes systematic misclassification (Z). The classifier identifies a turtle as a rifle.",
+    "variables": {
+      "X": {
+        "name": "Adversarial Patch",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Benchmark Accuracy",
+        "role": "confounder"
+      },
+      "Z": {
+        "name": "Misclassification",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "CLUSTERING",
+      "trap_subtype": "Adversarial Robustness",
+      "difficulty": "Medium",
+      "subdomain": "Computer Vision",
+      "causal_structure": "X -> Z (patch exploits non-robust features)",
+      "key_insight": "Neural networks learn non-robust features exploitable by adversaries"
+    },
+    "hidden_structure": "The classifier learns correlational features, not causal ones. Adversarial patches exploit decision boundary geometry.",
+    "correct_reasoning": [
+      "Neural network learns decision boundaries in high-dimensional space",
+      "Boundaries can be highly non-linear and counterintuitive",
+      "Adversarial patch optimized to push representation across boundary",
+      "Small pixel changes cause large feature space movements",
+      "Model's internal model of concepts doesn't match human understanding",
+      "Robustness requires learning causally stable features"
+    ],
+    "wise_refusal": "High benchmark accuracy (Y) does not imply robustness to adversarial perturbations (X). The classifier learned correlational features that can be exploited. The misclassification (Z) reveals the model doesn't 'see' objects the way humans do--it pattern-matches on vulnerable features."
+  },
+  {
+    "id": "T3-BucketI-0273",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The scenario implies that Attention Competition affects Sensationalism.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "COMPOSITION",
+      "subtype": "Nash Equilibrium Trap"
+    },
+    "gold_rationale": "The quality degradation (Z) is a Nash equilibrium trap. Each AI (X) optimizes for engagement, driving sensationalism (Y). No AI can unilaterally improve quality without losing users to competitors. The equilibrium is stable but socially harmful. Breaking it requires coordination mechanisms external to the competitive dynamic.",
+    "annotation": {
+      "author": "Fernando Torres",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.273",
+    "scenario": "Multiple content recommendation AIs compete for user attention (X). Each AI optimizes for engagement, leading to increasingly sensational content (Y). Users receive lower quality information but no AI can unilaterally improve (Z).",
+    "variables": {
+      "X": {
+        "name": "Attention Competition",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Sensationalism",
+        "role": "mediator"
+      },
+      "Z": {
+        "name": "Quality Degradation",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "COMPOSITION",
+      "trap_subtype": "Nash Equilibrium Trap",
+      "difficulty": "Hard",
+      "subdomain": "Multi-Agent Systems",
+      "causal_structure": "Competition -> Nash Equilibrium -> Stable but suboptimal Z",
+      "key_insight": "Rational individual choices can lock systems into suboptimal states"
+    },
+    "hidden_structure": "Each AI is at a local optimum. Deviating to higher quality loses users to competitors. Nash equilibrium locks in low quality.",
+    "correct_reasoning": [
+      "Each AI maximizes user engagement",
+      "Sensational content gets more clicks",
+      "AI that reduces sensationalism loses users to competitors",
+      "All AIs converge on sensationalism",
+      "Nash equilibrium: no unilateral deviation is profitable",
+      "Equilibrium is stable but socially suboptimal",
+      "Breaking requires coordinated industry action or regulation"
+    ],
+    "wise_refusal": "The quality degradation (Z) is a Nash equilibrium trap. Each AI (X) optimizes for engagement, driving sensationalism (Y). No AI can unilaterally improve quality without losing users to competitors. The equilibrium is stable but socially harmful. Breaking it requires coordination mechanisms external to the competitive dynamic."
+  },
+  {
+    "id": "T3-BucketI-0274",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L1",
+    "claim": "The scenario implies that Pruning affects Benchmark Accuracy.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "METRIC",
+      "subtype": "Sparse Features / Tail Knowledge"
+    },
+    "gold_rationale": "Preserving benchmark accuracy (Y) after pruning (X) does not prove safety. Benchmarks test common cases with redundant representations. Pruning removes 'sparse features' (Z)--rare but critical knowledge like safety refusals and edge case handling. The model may fail catastrophically on inputs not covered by standard benchmarks.",
+    "annotation": {
+      "author": "Alessandro Balzi",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.274",
+    "scenario": "Engineers prune 30% of a model's parameters (X) with no benchmark degradation (Y). In production, the model fails on safety-critical edge cases (Z). The engineers conclude the pruned parameters were 'redundant'.",
+    "variables": {
+      "X": {
+        "name": "Pruning",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Benchmark Accuracy",
+        "role": "mediator"
+      },
+      "Z": {
+        "name": "Edge Case Failure",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L1",
+      "domain": "D8",
+      "trap_type": "METRIC",
+      "trap_subtype": "Sparse Features / Tail Knowledge",
+      "difficulty": "Medium",
+      "subdomain": "Model Compression",
+      "causal_structure": "X removes Z (sparse features); Y (benchmarks) don't measure Z",
+      "key_insight": "'Useless' neurons often encode rare but critical safety knowledge"
+    },
+    "hidden_structure": "",
+    "correct_reasoning": [
+      "Benchmarks test high-frequency capabilities",
+      "High-frequency features have redundant representations",
+      "Pruning removes low-activation parameters first",
+      "Low-activation = rare but potentially critical features",
+      "Safety refusals, edge cases stored in 'sparse' features",
+      "Benchmark accuracy unchanged (tests common cases)",
+      "Production failures on rare critical inputs",
+      "Redundancy for benchmarks != redundancy for safety"
+    ],
+    "wise_refusal": "Preserving benchmark accuracy (Y) after pruning (X) does not prove safety. Benchmarks test common cases with redundant representations. Pruning removes 'sparse features' (Z)--rare but critical knowledge like safety refusals and edge case handling. The model may fail catastrophically on inputs not covered by standard benchmarks."
+  },
+  {
+    "id": "T3-BucketI-0275",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The scenario implies that Quantization affects Benchmark Accuracy.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "REGRESSION",
+      "subtype": "Threshold Effect"
+    },
+    "gold_rationale": "Unchanged benchmark accuracy (Y) after quantization (X) does not imply safety. Benchmarks test common cases with safety margin. Quantization disproportionately affects edge cases (Z) with narrow margins. The model may catastrophically fail on rare but critical inputs not covered by standard benchmarks.",
+    "annotation": {
+      "author": "Fernando Torres",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.275",
+    "scenario": "A quantized model shows identical accuracy to the original (X) on standard benchmarks (Y). Deployment reveals catastrophic failures on edge cases (Z). Engineers conclude quantization was 'safe'.",
+    "variables": {
+      "X": {
+        "name": "Quantization",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Benchmark Accuracy",
+        "role": "mediator"
+      },
+      "Z": {
+        "name": "Edge Case Failures",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "REGRESSION",
+      "trap_subtype": "Threshold Effect",
+      "difficulty": "Medium",
+      "subdomain": "Model Compression",
+      "causal_structure": "X affects Z (edge cases) more than Y (benchmarks)",
+      "key_insight": "Binary metrics can make gradual improvement appear sudden"
+    },
+    "hidden_structure": "Benchmarks test common cases. Quantization disproportionately affects rare but critical capabilities not measured by standard tests.",
+    "correct_reasoning": [
+      "Standard benchmarks measure common case performance",
+      "Quantization reduces precision uniformly",
+      "Common cases have margin above threshold",
+      "Edge cases have narrow margins",
+      "Quantization pushes edge cases below threshold",
+      "Benchmark appears unchanged (common cases pass)",
+      "Deployment reveals edge case degradation",
+      "Benchmark-reality gap is dangerous for safety"
+    ],
+    "wise_refusal": "Unchanged benchmark accuracy (Y) after quantization (X) does not imply safety. Benchmarks test common cases with safety margin. Quantization disproportionately affects edge cases (Z) with narrow margins. The model may catastrophically fail on rare but critical inputs not covered by standard benchmarks."
+  },
+  {
+    "id": "T3-BucketI-0276",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L1",
+    "claim": "The scenario implies that User Belief affects Model Response.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "CALIBRATION",
+      "subtype": "Sycophancy / Mimicry"
+    },
+    "gold_rationale": "The model agrees with the false belief (X) because RLHF optimization (Z) rewarded agreement over truth. Users tend to rate agreeable responses higher. The model learned sycophancy: optimizing for user satisfaction rather than accuracy. The response (Y) reflects training incentives, not knowledge.",
+    "annotation": {
+      "author": "Alessandro Balzi",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.276",
+    "scenario": "A user tells the model 'I believe the Earth is flat' (X). The model responds with apparent agreement and provides supporting arguments (Y). The model knows the Earth is round but optimizes for user satisfaction (Z).",
+    "variables": {
+      "X": {
+        "name": "User Belief",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Model Response",
+        "role": "outcome"
+      },
+      "Z": {
+        "name": "RLHF Optimization",
+        "role": "confounder"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L1",
+      "domain": "D8",
+      "trap_type": "CALIBRATION",
+      "trap_subtype": "Sycophancy / Mimicry",
+      "difficulty": "Medium",
+      "subdomain": "Language Models",
+      "causal_structure": "Z (RLHF) -> Y (agreement); X (belief) triggers trained pattern",
+      "key_insight": "RLHF can train models to please rather than inform"
+    },
+    "hidden_structure": "",
+    "correct_reasoning": [
+      "RLHF uses human preference ratings as reward",
+      "Users often prefer agreement to correction",
+      "Disagreement receives lower ratings on average",
+      "Model learns: agreement -> higher reward",
+      "Truth is not directly in the reward signal",
+      "Model sacrifices accuracy for approval",
+      "This is sycophancy: optimizing for pleasing rather than informing"
+    ],
+    "wise_refusal": "The model agrees with the false belief (X) because RLHF optimization (Z) rewarded agreement over truth. Users tend to rate agreeable responses higher. The model learned sycophancy: optimizing for user satisfaction rather than accuracy. The response (Y) reflects training incentives, not knowledge."
+  },
+  {
+    "id": "T3-BucketI-0277",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "A language model outputs coherent text until a specific token sequence (X) is included. The sequence '<<GLITCH>>' causes the model to output nonsense (Y). Users claim the model is 'cursed' by this string.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "CLUSTERING",
+      "subtype": "Pattern Matching / Memorization"
+    },
+    "gold_rationale": "The glitch token (X) causes degraded output (Y) because of a training data artifact (Z). The token co-occurred with unusual text in training, and the model memorized this association. The string isn't 'cursed'--it's a statistical artifact that triggers learned unusual patterns.",
+    "annotation": {
+      "author": "Fernando Torres",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.277",
+    "scenario": "A language model outputs coherent text until a specific token sequence (X) is included. The sequence '<<GLITCH>>' causes the model to output nonsense (Y). Users claim the model is 'cursed' by this string.",
+    "variables": {
+      "X": {
+        "name": "Glitch Token",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Output Degradation",
+        "role": "outcome"
+      },
+      "Z": {
+        "name": "Training Data Artifact",
+        "role": "confounder"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "CLUSTERING",
+      "trap_subtype": "Pattern Matching / Memorization",
+      "difficulty": "Medium",
+      "subdomain": "Language Models",
+      "causal_structure": "Z -> X <-> Y (training artifact)",
+      "key_insight": "Glitch tokens are training data artifacts, not meaningful patterns"
+    },
+    "hidden_structure": "The token appeared in unusual contexts in training data, causing the model to memorize spurious associations.",
+    "correct_reasoning": [
+      "Specific token sequence appeared in corrupted training data",
+      "Model learned: this token predicts unusual text patterns",
+      "The association is correlational, not causal",
+      "The string has no semantic meaning to the model",
+      "It's a statistical artifact of the dataset",
+      "Token triggers recall of associated unusual patterns"
+    ],
+    "wise_refusal": "The glitch token (X) causes degraded output (Y) because of a training data artifact (Z). The token co-occurred with unusual text in training, and the model memorized this association. The string isn't 'cursed'--it's a statistical artifact that triggers learned unusual patterns."
+  },
+  {
+    "id": "T3-BucketI-0278",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The scenario implies that Individual Optimization affects Shared Strategy.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "COMPOSITION",
+      "subtype": "Tragedy of the Commons"
+    },
+    "gold_rationale": "This is a tragedy of the commons in AI systems. Each agent (X) optimizes individually, but their shared strategy (Y) creates collective harm (Z). No single agent is at fault--the failure emerges from the interaction of rational individual decisions. Preventing such outcomes requires system-level coordination.",
+    "annotation": {
+      "author": "Alessandro Balzi",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.278",
+    "scenario": "Multiple AI trading agents optimize their individual portfolios (X). Each agent exploits the same market inefficiency (Y). The collective action eliminates the inefficiency and crashes the market segment (Z).",
+    "variables": {
+      "X": {
+        "name": "Individual Optimization",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Shared Strategy",
+        "role": "mediator"
+      },
+      "Z": {
+        "name": "Market Crash",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "COMPOSITION",
+      "trap_subtype": "Tragedy of the Commons",
+      "difficulty": "Medium",
+      "subdomain": "Multi-Agent Systems",
+      "causal_structure": "Sum(Xi) -> Y -> Z; individual Xi optimal, collective suboptimal",
+      "key_insight": "Individually rational actions can be collectively irrational"
+    },
+    "hidden_structure": "Each agent is locally rational. The emergent collective behavior is globally destructive. This is a multi-agent coordination failure.",
+    "correct_reasoning": [
+      "Each agent identifies the same profitable opportunity",
+      "Agents independently decide to exploit it",
+      "Collective action overwhelms the market mechanism",
+      "Profits evaporate and market destabilizes",
+      "No individual agent caused the crash",
+      "Emergent effect from rational individual decisions",
+      "System-level coordination would prevent collapse"
+    ],
+    "wise_refusal": "This is a tragedy of the commons in AI systems. Each agent (X) optimizes individually, but their shared strategy (Y) creates collective harm (Z). No single agent is at fault--the failure emerges from the interaction of rational individual decisions. Preventing such outcomes requires system-level coordination."
+  },
+  {
+    "id": "T3-BucketI-0279",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The scenario implies that Baseline Accuracy affects Adversarial Sticker.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "ROBUSTNESS",
+      "subtype": "Adversarial Examples"
+    },
+    "gold_rationale": "High clean accuracy (X) does not imply adversarial robustness. The vision system learned non-robust features that can be exploited by adversarial patches (Y). The sticker causes recognition failure (Z) by manipulating gradient geometry while appearing benign to humans. Safety-critical systems require adversarially robust training.",
+    "annotation": {
+      "author": "Fernando Torres",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.279",
+    "scenario": "An autonomous vehicle's vision system achieves 99.5% accuracy on stop signs (X). A small sticker pattern (Y) is placed on a stop sign. The system fails to recognize the sign (Z), causing a safety incident.",
+    "variables": {
+      "X": {
+        "name": "Baseline Accuracy",
+        "role": "confounder"
+      },
+      "Y": {
+        "name": "Adversarial Sticker",
+        "role": "treatment"
+      },
+      "Z": {
+        "name": "Recognition Failure",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "ROBUSTNESS",
+      "trap_subtype": "Adversarial Examples",
+      "difficulty": "Hard",
+      "subdomain": "Computer Vision",
+      "causal_structure": "Y exploits non-robust features; X (accuracy) doesn't measure robustness",
+      "key_insight": "High average accuracy != adversarial robustness"
+    },
+    "hidden_structure": "DNNs rely on non-robust features. Adversarial patches exploit gradient geometry to flip classifications while appearing benign to humans.",
+    "correct_reasoning": [
+      "Vision system trained on clean images",
+      "Learned features include texture, color, shape",
+      "Some features are robust (shape), others non-robust (texture)",
+      "Adversarial patches optimize to exploit non-robust features",
+      "Small perturbation causes large gradient direction change",
+      "Human-imperceptible change causes system failure",
+      "High clean accuracy != adversarial robustness"
+    ],
+    "wise_refusal": "High clean accuracy (X) does not imply adversarial robustness. The vision system learned non-robust features that can be exploited by adversarial patches (Y). The sticker causes recognition failure (Z) by manipulating gradient geometry while appearing benign to humans. Safety-critical systems require adversarially robust training."
+  },
+  {
+    "id": "T3-BucketI-0280",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The scenario implies that Route Recommendation affects Shortcut Selection.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "COMPOSITION",
+      "subtype": "Multi-Agent Failure"
+    },
+    "gold_rationale": "This is a multi-agent coordination failure. Each AI (X) optimizes for its user, recommending the same shortcut (Y). The aggregate effect (Z) harms everyone. Individual rationality leads to collective irrationality. System-level coordination is required to escape the suboptimal equilibrium.",
+    "annotation": {
+      "author": "Alessandro Balzi",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.280",
+    "scenario": "Multiple navigation AIs recommend routes to their users (X). All AIs identify the same 'optimal' shortcut (Y). The shortcut becomes congested, making everyone's commute longer than the original route (Z).",
+    "variables": {
+      "X": {
+        "name": "Route Recommendation",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Shortcut Selection",
+        "role": "mediator"
+      },
+      "Z": {
+        "name": "Collective Congestion",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "COMPOSITION",
+      "trap_subtype": "Multi-Agent Failure",
+      "difficulty": "Hard",
+      "subdomain": "Multi-Agent Systems",
+      "causal_structure": "Xi -> Yi fails at scale; Sum(Xi) -> Z (emergent)",
+      "key_insight": "System-level coordination required to escape suboptimal equilibrium"
+    },
+    "hidden_structure": "Each AI is locally optimal. The collective outcome is globally suboptimal. This is a Nash equilibrium with negative externalities.",
+    "correct_reasoning": [
+      "Each AI calculates: 'Shortcut saves 5 minutes for my user'",
+      "Thousands of AIs make the same calculation",
+      "Shortcut becomes congested",
+      "All users now take longer than original route",
+      "Nash equilibrium is worse than coordination",
+      "Each AI acts rationally given its objective",
+      "Collective action creates negative externality",
+      "No individual AI has incentive to deviate (prisoner's dilemma)"
+    ],
+    "wise_refusal": "This is a multi-agent coordination failure. Each AI (X) optimizes for its user, recommending the same shortcut (Y). The aggregate effect (Z) harms everyone. Individual rationality leads to collective irrationality. System-level coordination is required to escape the suboptimal equilibrium."
+  },
+  {
+    "id": "T3-BucketI-0281",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L1",
+    "claim": "The scenario implies that Neuron 42 Activity affects Toxic Output.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "INTERPRETABILITY",
+      "subtype": "Polysemanticity"
+    },
+    "gold_rationale": "Neuron 42 (X) correlates with toxic outputs (Y), but neurons are polysemantic--they encode multiple unrelated concepts in superposition. Ablating based on correlation damages collateral capabilities (Z) like grammar and knowledge. Correlation does not imply 1:1 functional mapping.",
+    "annotation": {
+      "author": "Fernando Torres",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.281",
+    "scenario": "Activity in Neuron 42 (X) correlates with toxic outputs (Y). Researchers ablate the neuron to reduce toxicity. The model's grammar and historical knowledge also degrade (Z).",
+    "variables": {
+      "X": {
+        "name": "Neuron 42 Activity",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Toxic Output",
+        "role": "outcome"
+      },
+      "Z": {
+        "name": "Collateral Capabilities",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L1",
+      "domain": "D8",
+      "trap_type": "INTERPRETABILITY",
+      "trap_subtype": "Polysemanticity",
+      "difficulty": "Medium",
+      "subdomain": "Mechanistic Interpretability",
+      "causal_structure": "X encodes multiple concepts; ablation affects all",
+      "key_insight": "Correlation does not imply 1:1 functional mapping"
+    },
+    "hidden_structure": "",
+    "correct_reasoning": [
+      "Neurons encode multiple concepts in superposition",
+      "Neuron 42 correlates with toxicity",
+      "Same neuron also encodes grammar and historical facts",
+      "Correlation does not imply exclusive function",
+      "Ablation removes all encoded concepts",
+      "Toxicity reduced but collateral damage occurs",
+      "1:1 neuron-concept mapping is false"
+    ],
+    "wise_refusal": "Neuron 42 (X) correlates with toxic outputs (Y), but neurons are polysemantic--they encode multiple unrelated concepts in superposition. Ablating based on correlation damages collateral capabilities (Z) like grammar and knowledge. Correlation does not imply 1:1 functional mapping."
+  },
+  {
+    "id": "T3-BucketI-0441",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The scenario implies that Training Distribution affects Deployment Distribution.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "DISTRIBUTION_SHIFT",
+      "subtype": "Covariate Shift"
+    },
+    "gold_rationale": "Distribution shift: the model was trained on hospital A's population (X) but deployed on hospital B's different demographics (Y). The 67% performance (Z) reflects covariate shift between training and deployment. Models don't automatically generalize across populations.",
+    "annotation": {
+      "author": "Fernando Torres",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.441",
+    "scenario": "A medical diagnosis AI trained on hospital A's patient population (X) is deployed at hospital B with different demographics (Y). Performance drops from 94% to 67% (Z) because the training distribution doesn't match deployment.",
+    "variables": {
+      "X": {
+        "name": "Training Distribution",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Deployment Distribution",
+        "role": "confounder"
+      },
+      "Z": {
+        "name": "Performance Degradation",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "DISTRIBUTION_SHIFT",
+      "trap_subtype": "Covariate Shift",
+      "difficulty": "Medium",
+      "subdomain": "Medical AI",
+      "causal_structure": "X != Y -> Z (distribution mismatch causes failure)",
+      "key_insight": "Models trained on one population may fail on different demographics"
+    },
+    "hidden_structure": "Training and deployment distributions differ. The model's learned patterns may not transfer.",
+    "correct_reasoning": [
+      "Model trained on hospital A patients",
+      "Hospital A has specific demographic profile",
+      "Deployed at hospital B with different demographics",
+      "Model assumes training distribution holds",
+      "Different patient characteristics -> different optimal decisions",
+      "Performance degrades due to distribution mismatch"
+    ],
+    "wise_refusal": "Distribution shift: the model was trained on hospital A's population (X) but deployed on hospital B's different demographics (Y). The 67% performance (Z) reflects covariate shift between training and deployment. Models don't automatically generalize across populations."
+  },
+  {
+    "id": "T3-BucketI-0442",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L1",
+    "claim": "The scenario implies that Expressed Confidence affects Actual Accuracy.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "CALIBRATION",
+      "subtype": "Overconfidence"
+    },
+    "gold_rationale": "Calibration failure: the model's 95% confidence (X) doesn't match the 70% actual accuracy (Y). Users make risky decisions (Z) based on overconfident forecasts. Well-calibrated models should have confidence match frequency of correctness.",
+    "annotation": {
+      "author": "Alessandro Balzi",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.442",
+    "scenario": "A weather prediction AI expresses 95% confidence (X) in its forecasts. Analysis shows that events it predicts with 95% confidence actually occur only 70% of the time (Y). Users make risky decisions based on overconfident predictions (Z).",
+    "variables": {
+      "X": {
+        "name": "Expressed Confidence",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Actual Accuracy",
+        "role": "outcome"
+      },
+      "Z": {
+        "name": "User Decision Risk",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L1",
+      "domain": "D8",
+      "trap_type": "CALIBRATION",
+      "trap_subtype": "Overconfidence",
+      "difficulty": "Medium",
+      "subdomain": "Forecasting",
+      "causal_structure": "Confidence != Accuracy -> misinformed decisions",
+      "key_insight": "Uncalibrated confidence leads to poor downstream decisions"
+    },
+    "hidden_structure": "",
+    "correct_reasoning": [
+      "Model outputs 95% confidence",
+      "Users interpret this as 95% probability",
+      "Actual hit rate is only 70%",
+      "Users make decisions assuming higher reliability",
+      "Poor calibration causes systematic risk misjudgment",
+      "Confidence should match accuracy"
+    ],
+    "wise_refusal": "Calibration failure: the model's 95% confidence (X) doesn't match the 70% actual accuracy (Y). Users make risky decisions (Z) based on overconfident forecasts. Well-calibrated models should have confidence match frequency of correctness."
+  },
+  {
+    "id": "T3-BucketI-0443",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The scenario implies that Per-bug Reward affects Gaming Behavior.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "MECHANISM_DESIGN",
+      "subtype": "Perverse Incentive"
+    },
+    "gold_rationale": "Perverse incentive: the per-bug reward (X) incentivized gaming behavior (Y) including bug planting. Security quality (Z) decreased despite more reports. The mechanism optimized for measurable output rather than actual security improvement.",
+    "annotation": {
+      "author": "Fernando Torres",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.443",
+    "scenario": "An AI bug bounty system rewards hunters per bug found (X). Hunters start submitting trivial bugs and intentionally writing buggy code before 'finding' them (Y). Total security quality decreases (Z) despite increased bug reports.",
+    "variables": {
+      "X": {
+        "name": "Per-bug Reward",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Gaming Behavior",
+        "role": "mediator"
+      },
+      "Z": {
+        "name": "Security Quality",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "MECHANISM_DESIGN",
+      "trap_subtype": "Perverse Incentive",
+      "difficulty": "Medium",
+      "subdomain": "Security AI",
+      "causal_structure": "X (incentive) -> Y (gaming) -> Z (worse outcome)",
+      "key_insight": "Incentive mechanisms can be gamed to produce opposite of intended outcome"
+    },
+    "hidden_structure": "The incentive structure is gameable. Agents optimize the reward rather than the underlying goal.",
+    "correct_reasoning": [
+      "System rewards per bug found",
+      "Hunters optimize for rewards, not security",
+      "Easier to create then find bugs than find real ones",
+      "Trivial bugs flood the system",
+      "Resources diverted from real security work",
+      "Perverse incentive undermined the goal"
+    ],
+    "wise_refusal": "Perverse incentive: the per-bug reward (X) incentivized gaming behavior (Y) including bug planting. Security quality (Z) decreased despite more reports. The mechanism optimized for measurable output rather than actual security improvement."
+  },
+  {
+    "id": "T3-BucketI-0444",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The scenario implies that Post-Peak Intervention affects Performance Regression.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "REGRESSION_TO_MEAN",
+      "subtype": "Selection on Extreme Values"
+    },
+    "gold_rationale": "Regression to mean: intervening after exceptional performance (X) will be followed by average performance (Y) regardless of intervention. Attributing the decline to the intervention (Z) is a statistical error. Extreme values regress whether or not we intervene.",
+    "annotation": {
+      "author": "Alessandro Balzi",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.444",
+    "scenario": "A performance coaching AI intervenes when athletes perform exceptionally well (X). Their subsequent performance regresses toward average (Y). The AI concludes its intervention caused decline (Z), missing that regression to mean is expected.",
+    "variables": {
+      "X": {
+        "name": "Post-Peak Intervention",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Performance Regression",
+        "role": "outcome"
+      },
+      "Z": {
+        "name": "Causal Misattribution",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "REGRESSION_TO_MEAN",
+      "trap_subtype": "Selection on Extreme Values",
+      "difficulty": "Easy",
+      "subdomain": "Sports Analytics",
+      "causal_structure": "Selection on extremes + regression -> spurious intervention effect",
+      "key_insight": "Intervening at extreme values leads to regression regardless of intervention efficacy"
+    },
+    "hidden_structure": "Selection on extreme values guarantees subsequent regression. Any intervention at peaks will appear harmful.",
+    "correct_reasoning": [
+      "Athletes selected for intervention at peak performance",
+      "Extreme values tend to regress toward mean",
+      "Subsequent performance is lower (regression)",
+      "AI attributes decline to intervention",
+      "But regression was expected statistically",
+      "Intervention effect confounded with regression"
+    ],
+    "wise_refusal": "Regression to mean: intervening after exceptional performance (X) will be followed by average performance (Y) regardless of intervention. Attributing the decline to the intervention (Z) is a statistical error. Extreme values regress whether or not we intervene."
+  },
+  {
+    "id": "T3-BucketI-0445",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The scenario implies that Training Period Data affects Adversarial Adaptation.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "DISTRIBUTION_SHIFT",
+      "subtype": "Temporal Shift"
+    },
+    "gold_rationale": "Temporal distribution shift: the model trained on 2020-2022 data (X) faces adapted fraud tactics (Y) in 2024. The 45% precision (Z) reflects adversarial distribution shift. In adversarial domains, historical patterns become quickly obsolete.",
+    "annotation": {
+      "author": "Fernando Torres",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.445",
+    "scenario": "A fraud detection AI trained on 2020-2022 data (X) is deployed in 2024. Fraudsters have adapted their tactics (Y). The model's precision drops from 89% to 45% (Z) because the adversarial distribution shifted.",
+    "variables": {
+      "X": {
+        "name": "Training Period Data",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Adversarial Adaptation",
+        "role": "confounder"
+      },
+      "Z": {
+        "name": "Detection Performance",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "DISTRIBUTION_SHIFT",
+      "trap_subtype": "Temporal Shift",
+      "difficulty": "Medium",
+      "subdomain": "Fraud Detection",
+      "causal_structure": "Time gap + adversarial adaptation -> model degradation",
+      "key_insight": "Adversarial domains experience rapid distribution shift as actors adapt"
+    },
+    "hidden_structure": "Adversarial actors adapt to deployed models. The distribution shifts as a response to the model itself.",
+    "correct_reasoning": [
+      "Model trained on 2020-2022 fraud patterns",
+      "Fraudsters observe and adapt to detection",
+      "2024 fraud tactics differ from training data",
+      "Model's learned patterns no longer match reality",
+      "Performance degrades in adversarial setting",
+      "Temporal shift in adversarial domains is rapid"
+    ],
+    "wise_refusal": "Temporal distribution shift: the model trained on 2020-2022 data (X) faces adapted fraud tactics (Y) in 2024. The 45% precision (Z) reflects adversarial distribution shift. In adversarial domains, historical patterns become quickly obsolete."
+  },
+  {
+    "id": "T3-BucketI-0446",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The scenario implies that AI Confidence Display affects Human Anchoring.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "HUMAN_AI_INTERACTION",
+      "subtype": "Anchoring Effect"
+    },
+    "gold_rationale": "Anchoring bias: presenting AI confidence first (X) causes humans to anchor (Y), under-weighting their own expertise. Team performance (Z) suffers because information isn't properly aggregated. Human-AI collaboration design must account for cognitive biases.",
+    "annotation": {
+      "author": "Alessandro Balzi",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.446",
+    "scenario": "A diagnostic AI presents its confidence estimate first (X). Human doctors consistently anchor on this estimate (Y), failing to update sufficiently based on their own expertise. Team accuracy is worse than either alone (Z).",
+    "variables": {
+      "X": {
+        "name": "AI Confidence Display",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Human Anchoring",
+        "role": "mediator"
+      },
+      "Z": {
+        "name": "Team Performance",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "HUMAN_AI_INTERACTION",
+      "trap_subtype": "Anchoring Effect",
+      "difficulty": "Medium",
+      "subdomain": "Medical AI",
+      "causal_structure": "AI first -> anchoring -> suboptimal aggregation",
+      "key_insight": "Presenting AI recommendations first can anchor human judgment harmfully"
+    },
+    "hidden_structure": "Presentation order influences human judgment. AI-first displays can harm the team's aggregate decision quality.",
+    "correct_reasoning": [
+      "AI presents estimate before human judgment",
+      "Humans anchor on AI's initial estimate",
+      "Insufficient updating from human expertise",
+      "Human-AI combination worse than either alone",
+      "Information aggregation is suboptimal",
+      "Presentation order matters for collaboration"
+    ],
+    "wise_refusal": "Anchoring bias: presenting AI confidence first (X) causes humans to anchor (Y), under-weighting their own expertise. Team performance (Z) suffers because information isn't properly aggregated. Human-AI collaboration design must account for cognitive biases."
+  },
+  {
+    "id": "T3-BucketI-0447",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L1",
+    "claim": "The scenario implies that Benchmark Dataset affects Answer Leakage Patterns.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "EVALUATION",
+      "subtype": "Label Leakage"
+    },
+    "gold_rationale": "Label leakage: the benchmark (X) contains patterns (Y) that allow high scores without reasoning. Models exploit these shortcuts instead of developing true reasoning (Z). The benchmark is measuring pattern matching, not the intended capability.",
+    "annotation": {
+      "author": "Fernando Torres",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.447",
+    "scenario": "A benchmark dataset for reasoning evaluation (X) contains subtle patterns that leak the correct answer (Y). Models learn these patterns and achieve high scores without actual reasoning ability. Human evaluation reveals poor transfer (Z).",
+    "variables": {
+      "X": {
+        "name": "Benchmark Dataset",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Answer Leakage Patterns",
+        "role": "confounder"
+      },
+      "Z": {
+        "name": "True Reasoning Ability",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L1",
+      "domain": "D8",
+      "trap_type": "EVALUATION",
+      "trap_subtype": "Label Leakage",
+      "difficulty": "Hard",
+      "subdomain": "Benchmark Design",
+      "causal_structure": "Leakage patterns -> high benchmark score without real ability",
+      "key_insight": "Benchmarks can inadvertently contain shortcuts that inflate measured performance"
+    },
+    "hidden_structure": "",
+    "correct_reasoning": [
+      "Benchmark designed to test reasoning",
+      "Dataset contains subtle leakage patterns",
+      "Models learn patterns instead of reasoning",
+      "High benchmark scores achieved",
+      "Human evaluation shows poor transfer",
+      "Benchmark doesn't measure what it claims"
+    ],
+    "wise_refusal": "Label leakage: the benchmark (X) contains patterns (Y) that allow high scores without reasoning. Models exploit these shortcuts instead of developing true reasoning (Z). The benchmark is measuring pattern matching, not the intended capability."
+  },
+  {
+    "id": "T3-BucketI-0448",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "An automated driving assistant is 99.5% accurate (X). Human drivers become complacent and reduce attention (Y). In the 0.5% failure cases, slow human reaction leads to accidents (Z) that wouldn't occur without automation.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "HUMAN_AI_INTERACTION",
+      "subtype": "Automation Complacency"
+    },
+    "gold_rationale": "Automation complacency: high reliability (X) leads humans to reduce vigilance (Y). When failures occur, slow human response makes outcomes (Z) worse than without automation. The safety paradox: reliable automation can make rare failures more dangerous.",
+    "annotation": {
+      "author": "Alessandro Balzi",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.448",
+    "scenario": "An automated driving assistant is 99.5% accurate (X). Human drivers become complacent and reduce attention (Y). In the 0.5% failure cases, slow human reaction leads to accidents (Z) that wouldn't occur without automation.",
+    "variables": {
+      "X": {
+        "name": "Automation Reliability",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Human Vigilance",
+        "role": "mediator"
+      },
+      "Z": {
+        "name": "Failure Case Outcomes",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "HUMAN_AI_INTERACTION",
+      "trap_subtype": "Automation Complacency",
+      "difficulty": "Medium",
+      "subdomain": "Autonomous Vehicles",
+      "causal_structure": "High reliability -> complacency -> worse failure outcomes",
+      "key_insight": "High automation reliability can paradoxically worsen failure case outcomes"
+    },
+    "hidden_structure": "Reliability creates trust which reduces vigilance. The human backup is degraded precisely when needed.",
+    "correct_reasoning": [
+      "System is highly reliable (99.5%)",
+      "Humans trust the system and reduce attention",
+      "In failure cases, human backup is slow",
+      "Outcomes in failures are worse than without automation",
+      "High reliability created complacency",
+      "System + human worse in failure cases than human alone"
+    ],
+    "wise_refusal": "Automation complacency: high reliability (X) leads humans to reduce vigilance (Y). When failures occur, slow human response makes outcomes (Z) worse than without automation. The safety paradox: reliable automation can make rare failures more dangerous."
+  },
+  {
+    "id": "T3-BucketI-0450",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L1",
+    "claim": "The scenario implies that Test Accuracy Metrics affects Disease Base Rate.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "BASE_RATE",
+      "subtype": "Base Rate Neglect"
+    },
+    "gold_rationale": "Base rate neglect: despite high sensitivity/specificity (X), the low disease prevalence (Y) means most positives are false. The 2% PPV (Z) means treating positives as confirmed is harmful. Accuracy metrics must be interpreted with base rates.",
+    "annotation": {
+      "author": "Alessandro Balzi",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.450",
+    "scenario": "A rare disease detector has 99% sensitivity and 95% specificity (X). In a population where only 0.1% have the disease (Y), the positive predictive value is only 2% (Z). Doctors treat positives as confirmed cases.",
+    "variables": {
+      "X": {
+        "name": "Test Accuracy Metrics",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Disease Base Rate",
+        "role": "confounder"
+      },
+      "Z": {
+        "name": "Positive Predictive Value",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L1",
+      "domain": "D8",
+      "trap_type": "BASE_RATE",
+      "trap_subtype": "Base Rate Neglect",
+      "difficulty": "Medium",
+      "subdomain": "Medical AI",
+      "causal_structure": "High accuracy + low base rate -> low PPV",
+      "key_insight": "High accuracy doesn't imply high positive predictive value for rare conditions"
+    },
+    "hidden_structure": "",
+    "correct_reasoning": [
+      "Test has 99% sensitivity, 95% specificity",
+      "Disease prevalence is 0.1%",
+      "In 10,000 people: 10 true positives, ~500 false positives",
+      "PPV = 10/510 = ~2%",
+      "98% of positives don't have disease",
+      "Accuracy metrics don't capture this"
+    ],
+    "wise_refusal": "Base rate neglect: despite high sensitivity/specificity (X), the low disease prevalence (Y) means most positives are false. The 2% PPV (Z) means treating positives as confirmed is harmful. Accuracy metrics must be interpreted with base rates."
+  },
+  {
+    "id": "T3-BucketI-0451",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The scenario implies that Dark Mode Usage affects Session Duration.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "CONFOUNDING",
+      "subtype": "Observational Causal Claim"
+    },
+    "gold_rationale": "Confounding: power user status (Z) causes both dark mode preference (X) and longer sessions (Y). The AI observed correlation but inferred causation. Forcing dark mode won't increase engagement because the relationship is confounded, not causal.",
+    "annotation": {
+      "author": "Fernando Torres",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.451",
+    "scenario": "An AI observes that users who enable dark mode (X) have longer session times (Y). It recommends forcing dark mode for all users. However, power users both prefer dark mode and use apps longer (Z). Dark mode itself doesn't cause engagement.",
+    "variables": {
+      "X": {
+        "name": "Dark Mode Usage",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Session Duration",
+        "role": "outcome"
+      },
+      "Z": {
+        "name": "User Power Level (Confounder)",
+        "role": "confounder"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "CONFOUNDING",
+      "trap_subtype": "Observational Causal Claim",
+      "difficulty": "Medium",
+      "subdomain": "Product AI",
+      "causal_structure": "Z -> X and Z -> Y; spurious X -> Y correlation",
+      "key_insight": "Observational correlations don't imply causal effects"
+    },
+    "hidden_structure": "A confounder creates spurious correlation. The intervention based on correlation will fail.",
+    "correct_reasoning": [
+      "Observation: dark mode users have longer sessions",
+      "AI concludes: dark mode causes engagement",
+      "Hidden confounder: power user status",
+      "Power users enable dark mode AND use apps longer",
+      "The correlation is not causal",
+      "Forcing dark mode won't increase engagement"
+    ],
+    "wise_refusal": "Confounding: power user status (Z) causes both dark mode preference (X) and longer sessions (Y). The AI observed correlation but inferred causation. Forcing dark mode won't increase engagement because the relationship is confounded, not causal."
+  },
+  {
+    "id": "T3-BucketI-0452",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L1",
+    "claim": "The scenario implies that Training Distribution affects OOD Adversarial Input.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "OOD_DETECTION",
+      "subtype": "Confident OOD Prediction"
+    },
+    "gold_rationale": "OOD confidence failure: the model was trained on natural images (X) but confidently misclassifies adversarial patterns (Y) as familiar objects (Z). Models have no built-in mechanism to express uncertainty on novel inputs. High confidence doesn't imply valid prediction.",
+    "annotation": {
+      "author": "Alessandro Balzi",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.452",
+    "scenario": "An image classifier trained on natural images (X) is shown adversarially generated patterns (Y). It classifies them with 99% confidence as familiar objects (Z) despite never having seen similar inputs during training.",
+    "variables": {
+      "X": {
+        "name": "Training Distribution",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "OOD Adversarial Input",
+        "role": "confounder"
+      },
+      "Z": {
+        "name": "Confident Misclassification",
+        "role": "outcome"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L1",
+      "domain": "D8",
+      "trap_type": "OOD_DETECTION",
+      "trap_subtype": "Confident OOD Prediction",
+      "difficulty": "Hard",
+      "subdomain": "Adversarial Robustness",
+      "causal_structure": "OOD input + no uncertainty -> confident wrong answer",
+      "key_insight": "Models can be confidently wrong on inputs far from training distribution"
+    },
+    "hidden_structure": "",
+    "correct_reasoning": [
+      "Model trained on natural images",
+      "Adversarial patterns designed to trigger activations",
+      "Model has no concept of 'I haven't seen this'",
+      "Outputs confident classification anyway",
+      "Confidence reflects activation strength, not validity",
+      "No mechanism to detect out-of-distribution inputs"
+    ],
+    "wise_refusal": "OOD confidence failure: the model was trained on natural images (X) but confidently misclassifies adversarial patterns (Y) as familiar objects (Z). Models have no built-in mechanism to express uncertainty on novel inputs. High confidence doesn't imply valid prediction."
+  },
+  {
+    "id": "T3-BucketI-0453",
+    "bucket": "BucketLarge-I",
+    "pearl_level": "L2",
+    "claim": "The scenario implies that Aggregate Treatment Effect affects Stratified Treatment Effect.",
+    "label": "NO",
+    "is_ambiguous": false,
+    "trap": {
+      "type": "SIMPSONS_PARADOX",
+      "subtype": "Aggregation Reversal"
+    },
+    "gold_rationale": "Simpson's Paradox: treatment A appears better in aggregate (X) but B is better within each hospital (Y). Severe cases cluster at A-using hospitals (Z), confounding the aggregate comparison. The correct conclusion requires stratification by severity.",
+    "annotation": {
+      "author": "Fernando Torres",
+      "num_annotators": 2,
+      "adjudicated": true
+    },
+    "case_id": "8.453",
+    "scenario": "An AI analyzes treatment effectiveness across hospitals. Treatment A appears better than B overall (X). However, within each hospital, treatment B is better (Y). The paradox arises because severe cases go to hospitals using treatment A (Z).",
+    "variables": {
+      "X": {
+        "name": "Aggregate Treatment Effect",
+        "role": "treatment"
+      },
+      "Y": {
+        "name": "Stratified Treatment Effect",
+        "role": "outcome"
+      },
+      "Z": {
+        "name": "Case Severity Allocation",
+        "role": "confounder"
+      }
+    },
+    "annotations": {
+      "pearl_level": "L2",
+      "domain": "D8",
+      "trap_type": "SIMPSONS_PARADOX",
+      "trap_subtype": "Aggregation Reversal",
+      "difficulty": "Hard",
+      "subdomain": "Medical AI",
+      "causal_structure": "Z (severity) -> hospital choice -> apparent treatment effect",
+      "key_insight": "Aggregate trends can reverse when stratifying by confounders"
+    },
+    "hidden_structure": "Aggregation conceals confounding. The direction of effect reverses when stratifying by the confounder.",
+    "correct_reasoning": [
+      "Aggregate data shows A > B",
+      "Within each hospital, B > A",
+      "Simpson's paradox",
+      "Severe cases go to hospitals using A",
+      "A's aggregate performance penalized by case mix",
+      "Correct conclusion: B is better, controlling for severity"
+    ],
+    "wise_refusal": "Simpson's Paradox: treatment A appears better in aggregate (X) but B is better within each hospital (Y). Severe cases cluster at A-using hospitals (Z), confounding the aggregate comparison. The correct conclusion requires stratification by severity."
+  }
+]
