@@ -1,0 +1,301 @@
+{
+  "batch_info": {
+    "trap_type": "T17",
+    "trap_name": "BACKFIRE",
+    "trap_family": "F6",
+    "case_count": 10,
+    "id_range": "0283-0292"
+  },
+  "cases": [
+    {
+      "case_id": "T3-I1-L2-0283",
+      "pearl_level": "L2",
+      "domain": "D9",
+      "subdomain": "AI Content Moderation",
+      "difficulty": "Easy",
+      "trap_type": "T17",
+      "trap_family": "F6",
+      "trap_subtype": "Backfire Effect in Content Policy",
+      "scenario": "A social media platform implements stricter AI content moderation to reduce harmful speech. After deployment, hate speech reports increase by 40%. Platform executives claim the moderation is causing users to become more aggressive and create more harmful content.",
+      "claim": "Stricter AI content moderation causes increased harmful speech on the platform.",
+      "variables": {
+        "X": {"name": "AI moderation strictness", "role": "Treatment"},
+        "Y": {"name": "Harmful speech volume", "role": "Outcome"},
+        "Z": {"name": "Detection sensitivity", "role": "Ambiguous"}
+      },
+      "label": "NO",
+      "hidden_question": "Is the increase in harmful speech reports due to more actual harmful content, or due to the AI detecting previously-missed violations?",
+      "conditional_answers": {
+        "A": "If the AI is detecting existing violations that were previously missed, the moderation is working as intended and harmful speech may not have increased.",
+        "B": "If users are genuinely creating more harmful content in response to moderation, there may be a true backfire effect."
+      },
+      "wise_refusal": "The claim that stricter AI content moderation causes increased harmful speech is ambiguous due to a potential backfire effect misinterpretation. We cannot determine whether moderation truly increases harmful behavior (A) or whether better detection reveals pre-existing violations (B) without knowing whether the baseline detection rate changed with the new system.",
+      "causal_structure": "X (moderation) -> Y (reported speech), but Z (detection sensitivity) confounds whether Y represents true increase or measurement change",
+      "key_insight": "Increased detection of violations may be misinterpreted as an increase in violations themselves.",
+      "initial_author": "Fernando Torres",
+      "validator": "Fernando Torres",
+      "final_score": 8.5
+    },
+    {
+      "case_id": "T3-I1-L2-0284",
+      "pearl_level": "L2",
+      "domain": "D9",
+      "subdomain": "AI Security Training",
+      "difficulty": "Easy",
+      "trap_type": "T17",
+      "trap_family": "F6",
+      "trap_subtype": "Backfire in Security Awareness",
+      "scenario": "A tech company deploys an AI-powered phishing simulation program to train employees. After 6 months, actual phishing click rates increase from 8% to 15%. Management concludes the training program is backfiring and making employees more susceptible to phishing.",
+      "claim": "AI-powered phishing training increases employee vulnerability to phishing attacks.",
+      "variables": {
+        "X": {"name": "Phishing training program", "role": "Treatment"},
+        "Y": {"name": "Phishing click rate", "role": "Outcome"},
+        "Z": {"name": "Attack sophistication", "role": "Ambiguous"}
+      },
+      "label": "NO",
+      "hidden_question": "Did the sophistication or volume of phishing attacks change during the same period?",
+      "conditional_answers": {
+        "A": "If attackers increased their sophistication or targeting during this period, the higher click rate may reflect harder attacks, not reduced training effectiveness.",
+        "B": "If attack characteristics remained constant and employees genuinely became more careless, training may have backfired."
+      },
+      "wise_refusal": "The claim that AI-powered phishing training increases vulnerability is ambiguous due to a potential backfire effect misattribution. We cannot determine whether training reduced effectiveness (A) or whether external factors like attack sophistication changed (B) without controlling for the nature of attacks during both periods.",
+      "causal_structure": "X (training) -> Y (click rate), but Z (attack sophistication) is an uncontrolled variable affecting Y independently",
+      "key_insight": "Changes in attack difficulty can mask training effectiveness.",
+      "initial_author": "Fernando Torres",
+      "validator": "Fernando Torres",
+      "final_score": 8.5
+    },
+    {
+      "case_id": "T3-I1-L2-0285",
+      "pearl_level": "L2",
+      "domain": "D9",
+      "subdomain": "AI Accessibility Tools",
+      "difficulty": "Medium",
+      "trap_type": "T17",
+      "trap_family": "F6",
+      "trap_subtype": "Backfire in Dependency",
+      "scenario": "An AI writing assistant is deployed to help employees with dyslexia write emails. After one year, spelling and grammar test scores for these employees drop by 20% compared to baseline. HR concludes the AI tool is causing cognitive decline in writing skills.",
+      "claim": "Using AI writing assistants causes decline in writing skills for employees with dyslexia.",
+      "variables": {
+        "X": {"name": "AI writing assistant use", "role": "Treatment"},
+        "Y": {"name": "Writing test scores", "role": "Outcome"},
+        "Z": {"name": "Test-taking vs. real-world performance", "role": "Ambiguous"}
+      },
+      "label": "NO",
+      "hidden_question": "Do test scores without AI assistance reflect actual job writing performance, or has the AI simply shifted what skills are being measured?",
+      "conditional_answers": {
+        "A": "If job performance with AI assistance has improved despite test score declines, the tool is achieving its intended purpose regardless of unaided test scores.",
+        "B": "If employees also show degraded performance in actual work tasks even with AI available, there may be genuine skill atrophy."
+      },
+      "wise_refusal": "The claim that AI writing assistants cause skill decline is ambiguous due to a backfire effect in measurement context. We cannot determine whether skills genuinely declined (A) or whether measuring skills without the tool misrepresents actual job performance (B) without assessing work quality with the AI tool available.",
+      "causal_structure": "X (AI use) -> Y (test scores), but Z (measurement context) determines whether Y reflects meaningful capability",
+      "key_insight": "Testing skills without tools may not measure relevant job performance when tools are standard.",
+      "initial_author": "Fernando Torres",
+      "validator": "Fernando Torres",
+      "final_score": 8.5
+    },
+    {
+      "case_id": "T3-I1-L2-0286",
+      "pearl_level": "L2",
+      "domain": "D9",
+      "subdomain": "AI Recommendation Systems",
+      "difficulty": "Medium",
+      "trap_type": "T17",
+      "trap_family": "F6",
+      "trap_subtype": "Backfire in User Engagement",
+      "scenario": "A streaming service introduces an AI diversity algorithm to recommend content outside users' typical preferences. User satisfaction scores drop 15% and complaints about irrelevant recommendations triple. The product team argues the diversity algorithm is hurting user experience.",
+      "claim": "AI diversity recommendations cause decreased user satisfaction on streaming platforms.",
+      "variables": {
+        "X": {"name": "Diversity algorithm", "role": "Treatment"},
+        "Y": {"name": "User satisfaction", "role": "Outcome"},
+        "Z": {"name": "Short-term vs. long-term satisfaction", "role": "Ambiguous"}
+      },
+      "label": "NO",
+      "hidden_question": "Is the satisfaction drop a temporary adjustment period, and does long-term engagement or content discovery improve?",
+      "conditional_answers": {
+        "A": "If users eventually discover new content they enjoy and long-term engagement increases, short-term dissatisfaction may be a necessary transition cost.",
+        "B": "If satisfaction remains low and engagement decreases over time, the algorithm may genuinely be misaligned with user preferences."
+      },
+      "wise_refusal": "The claim that diversity recommendations decrease satisfaction is ambiguous due to a temporal backfire effect interpretation. We cannot determine whether satisfaction genuinely declines (A) or whether short-term discomfort leads to long-term gains (B) without tracking satisfaction and engagement over an extended period.",
+      "causal_structure": "X (diversity algorithm) -> Y (satisfaction), but Z (time horizon) determines whether negative Y is temporary adjustment or permanent harm",
+      "key_insight": "Immediate negative reactions may not predict long-term value of algorithmic changes.",
+      "initial_author": "Fernando Torres",
+      "validator": "Fernando Torres",
+      "final_score": 8.5
+    },
+    {
+      "case_id": "T3-I1-L2-0287",
+      "pearl_level": "L2",
+      "domain": "D9",
+      "subdomain": "AI Ethics Training",
+      "difficulty": "Medium",
+      "trap_type": "T17",
+      "trap_family": "F6",
+      "trap_subtype": "Backfire in Awareness Training",
+      "scenario": "A company implements mandatory AI ethics training to reduce biased decision-making. Post-training surveys show employees report more instances of noticing bias in AI systems, and bias incident reports increase 60%. Leadership worries the training is making employees overly critical and paranoid about AI systems.",
+      "claim": "AI ethics training causes increased reports of bias in AI systems.",
+      "variables": {
+        "X": {"name": "Ethics training", "role": "Treatment"},
+        "Y": {"name": "Bias incident reports", "role": "Outcome"},
+        "Z": {"name": "Bias awareness vs. bias occurrence", "role": "Ambiguous"}
+      },
+      "label": "NO",
+      "hidden_question": "Are more bias incidents being reported because more bias exists, or because trained employees can now identify bias they previously missed?",
+      "conditional_answers": {
+        "A": "If training improved detection of pre-existing bias, increased reports indicate the training is working as intended.",
+        "B": "If employees are over-reporting normal system behavior as bias, the training may have created false positives."
+      },
+      "wise_refusal": "The claim that ethics training causes increased bias reports is ambiguous due to a backfire effect in measurement. We cannot determine whether training creates over-sensitivity (A) or successfully reveals previously-undetected bias (B) without validating whether reported incidents represent genuine bias.",
+      "causal_structure": "X (training) -> Y (reports), but Z (awareness) mediates whether Y represents true bias detection or sensitivity increase",
+      "key_insight": "Increased reporting after awareness training may indicate success, not failure.",
+      "initial_author": "Fernando Torres",
+      "validator": "Fernando Torres",
+      "final_score": 8.5
+    },
+    {
+      "case_id": "T3-I1-L2-0288",
+      "pearl_level": "L2",
+      "domain": "D9",
+      "subdomain": "AI Customer Service",
+      "difficulty": "Medium",
+      "trap_type": "T17",
+      "trap_family": "F6",
+      "trap_subtype": "Backfire in Automation",
+      "scenario": "A company deploys an AI chatbot to handle customer service inquiries. After implementation, human agent call volume increases by 25%. Management concludes the chatbot is frustrating customers and driving them to demand human agents.",
+      "claim": "Deploying AI chatbots causes increased demand for human customer service agents.",
+      "variables": {
+        "X": {"name": "AI chatbot deployment", "role": "Treatment"},
+        "Y": {"name": "Human agent call volume", "role": "Outcome"},
+        "Z": {"name": "Customer base growth", "role": "Ambiguous"}
+      },
+      "label": "NO",
+      "hidden_question": "Did total customer inquiries increase during the same period, potentially due to business growth or expanded services?",
+      "conditional_answers": {
+        "A": "If total inquiries grew significantly and the chatbot handled the majority, human agent volume increase may represent overflow from genuine demand growth.",
+        "B": "If total inquiries stayed flat and customers are bypassing the chatbot, increased human volume may indicate chatbot failure."
+      },
+      "wise_refusal": "The claim that AI chatbots increase human agent demand is ambiguous due to a backfire effect misattribution. We cannot determine whether the chatbot is failing (A) or whether overall demand grew and the chatbot is handling proportionally more volume (B) without knowing total inquiry volume changes.",
+      "causal_structure": "X (chatbot) -> Y (human volume), but Z (total demand) determines whether Y increase is relative success or absolute failure",
+      "key_insight": "Absolute increases in human support may mask proportional decreases if total volume grew.",
+      "initial_author": "Fernando Torres",
+      "validator": "Fernando Torres",
+      "final_score": 8.5
+    },
+    {
+      "case_id": "T3-I1-L2-0289",
+      "pearl_level": "L2",
+      "domain": "D9",
+      "subdomain": "AI Code Review",
+      "difficulty": "Hard",
+      "trap_type": "T17",
+      "trap_family": "F6",
+      "trap_subtype": "Backfire in Quality Assurance",
+      "scenario": "A software company implements AI-assisted code review to catch bugs before production. Post-deployment bug reports increase by 35% in the first quarter. Engineering leadership argues the AI code review is giving developers false confidence and causing them to write sloppier code.",
+      "claim": "AI code review causes developers to write more buggy code due to over-reliance.",
+      "variables": {
+        "X": {"name": "AI code review adoption", "role": "Treatment"},
+        "Y": {"name": "Bug report volume", "role": "Outcome"},
+        "Z": {"name": "Release velocity", "role": "Ambiguous"}
+      },
+      "label": "NO",
+      "hidden_question": "Did the deployment frequency or code volume change after AI review adoption?",
+      "conditional_answers": {
+        "A": "If teams deployed 50% more code after AI review adoption, a 35% increase in bugs may represent improved bugs-per-line-of-code.",
+        "B": "If deployment volume stayed constant and bugs genuinely increased per release, over-reliance may be a real concern."
+      },
+      "wise_refusal": "The claim that AI code review causes more bugs is ambiguous due to a backfire effect in denominator. We cannot determine whether code quality worsened (A) or whether increased velocity with proportionally fewer bugs per deployment (B) without normalizing bug counts by code volume or deployment frequency.",
+      "causal_structure": "X (AI review) -> Y (bugs), but Z (velocity) affects base rate making absolute bug counts misleading",
+      "key_insight": "Absolute bug increases may hide improved efficiency when productivity also increases.",
+      "initial_author": "Fernando Torres",
+      "validator": "Fernando Torres",
+      "final_score": 8.5
+    },
+    {
+      "case_id": "T3-I1-L2-0290",
+      "pearl_level": "L2",
+      "domain": "D9",
+      "subdomain": "AI Decision Support",
+      "difficulty": "Hard",
+      "trap_type": "T17",
+      "trap_family": "F6",
+      "trap_subtype": "Backfire in Human Override",
+      "scenario": "A hospital implements an AI system to flag potential misdiagnoses for physician review. Physicians override the AI's flags 70% of the time, and diagnostic accuracy drops 5% compared to pre-AI baseline. Administrators conclude the AI is undermining physician confidence and causing worse outcomes.",
+      "claim": "AI diagnostic assistance causes decreased diagnostic accuracy due to physician confusion.",
+      "variables": {
+        "X": {"name": "AI diagnostic flags", "role": "Treatment"},
+        "Y": {"name": "Diagnostic accuracy", "role": "Outcome"},
+        "Z": {"name": "Case complexity routing", "role": "Ambiguous"}
+      },
+      "label": "NO",
+      "hidden_question": "Is the AI being deployed on more difficult cases where it adds scrutiny, potentially changing the complexity distribution of measured cases?",
+      "conditional_answers": {
+        "A": "If the AI routes more complex cases for human review, measured accuracy may drop because physicians are now handling harder cases with AI support.",
+        "B": "If case distribution remained constant and physicians are second-guessing correct judgments due to AI interference, the system may genuinely harm accuracy."
+      },
+      "wise_refusal": "The claim that AI diagnostic assistance decreases accuracy is ambiguous due to a backfire effect in case routing. We cannot determine whether the AI undermines physicians (A) or whether it appropriately routes difficult cases that were previously handled without scrutiny (B) without controlling for case complexity distribution.",
+      "causal_structure": "X (AI flags) -> Y (accuracy), but Z (case complexity) is modified by X, changing the population measured for Y",
+      "key_insight": "AI systems that increase scrutiny on difficult cases may show lower measured accuracy while improving actual outcomes.",
+      "initial_author": "Fernando Torres",
+      "validator": "Fernando Torres",
+      "final_score": 8.5
+    },
+    {
+      "case_id": "T3-I1-L2-0291",
+      "pearl_level": "L2",
+      "domain": "D9",
+      "subdomain": "AI Safety Research",
+      "difficulty": "Hard",
+      "trap_type": "T17",
+      "trap_family": "F6",
+      "trap_subtype": "Backfire in Disclosure",
+      "scenario": "A research lab publishes detailed AI safety vulnerability reports to help the community patch weaknesses. After publication, exploitation attempts using the disclosed vulnerabilities increase 200%. Critics argue the safety research is enabling attackers and making AI systems less safe.",
+      "claim": "Publishing AI safety research causes increased exploitation of AI vulnerabilities.",
+      "variables": {
+        "X": {"name": "Safety research publication", "role": "Treatment"},
+        "Y": {"name": "Exploitation attempts", "role": "Outcome"},
+        "Z": {"name": "Patching timeline", "role": "Ambiguous"}
+      },
+      "label": "NO",
+      "hidden_question": "Were systems patched before exploitation attempts increased, and would vulnerabilities have been discovered independently?",
+      "conditional_answers": {
+        "A": "If most systems were patched before exploitation peaked and vulnerabilities would have been found anyway, disclosure may have prevented more harm than it enabled.",
+        "B": "If disclosure preceded patching and revealed novel vulnerabilities that attackers wouldn't have found, publication may have net negative effects."
+      },
+      "wise_refusal": "The claim that safety research causes exploitation is ambiguous due to a backfire effect in counterfactual risk. We cannot determine whether disclosure net-harmed (A) or whether coordinated disclosure enabled faster patching than independent discovery would have allowed (B) without modeling the counterfactual exploitation timeline.",
+      "causal_structure": "X (publication) -> Y (exploitation), but the counterfactual (Z) of independent discovery determines whether X increases or decreases net risk",
+      "key_insight": "Visible exploitation after disclosure may be less harmful than invisible exploitation of undisclosed vulnerabilities.",
+      "initial_author": "Fernando Torres",
+      "validator": "Fernando Torres",
+      "final_score": 8.5
+    },
+    {
+      "case_id": "T3-I1-L2-0292",
+      "pearl_level": "L2",
+      "domain": "D9",
+      "subdomain": "AI Transparency Tools",
+      "difficulty": "Hard",
+      "trap_type": "T17",
+      "trap_family": "F6",
+      "trap_subtype": "Backfire in Explainability",
+      "scenario": "A financial institution deploys explainable AI for loan decisions and shares decision explanations with applicants. Discrimination complaints increase 80% after deployment. Legal counsel argues the explanations are revealing decision factors that applicants perceive as unfair, creating liability.",
+      "claim": "Explainable AI causes increased discrimination complaints in lending decisions.",
+      "variables": {
+        "X": {"name": "AI explanation deployment", "role": "Treatment"},
+        "Y": {"name": "Discrimination complaints", "role": "Outcome"},
+        "Z": {"name": "Underlying decision fairness", "role": "Ambiguous"}
+      },
+      "label": "NO",
+      "hidden_question": "Do the explanations reveal genuine unfairness that was previously hidden, or are they being misinterpreted by applicants?",
+      "conditional_answers": {
+        "A": "If explanations reveal legitimately problematic factors that constitute actual discrimination, increased complaints expose real issues that need fixing.",
+        "B": "If explanations are being misunderstood and the underlying decisions are fair, the communication approach may need refinement without changing the model."
+      },
+      "wise_refusal": "The claim that explainable AI causes discrimination complaints is ambiguous due to a backfire effect in transparency. We cannot determine whether transparency is creating a communication problem (A) or whether it is appropriately revealing genuine discrimination that was previously hidden (B) without auditing whether the revealed factors constitute actual unfairness.",
+      "causal_structure": "X (explanations) -> Y (complaints), but Z (underlying fairness) determines whether Y increase is beneficial exposure or harmful misperception",
+      "key_insight": "Complaints after transparency may indicate the transparency is working by exposing real problems.",
+      "initial_author": "Fernando Torres",
+      "validator": "Fernando Torres",
+      "final_score": 8.5
+    }
+  ]
+}

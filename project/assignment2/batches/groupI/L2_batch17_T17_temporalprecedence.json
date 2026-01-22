@@ -1,0 +1,495 @@
+[
+  {
+    "case_id": "T3-I1-L2-0280",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Development",
+    "difficulty": "Easy",
+    "trap_type": "T17",
+    "trap_family": "F6",
+    "trap_subtype": "Outcome-Defined Treatment",
+    "scenario": "A study shows that models selected for deployment have higher pre-deployment validation scores. They conclude high validation scores cause deployment decisions. However, deployment decisions are made at the same time as final validation, creating ambiguous temporal ordering.",
+    "claim": "High validation scores cause models to be selected for deployment.",
+    "variables": {
+      "X": {"name": "Validation Scores", "role": "Treatment"},
+      "Y": {"name": "Deployment Selection", "role": "Outcome"},
+      "Z": {"name": "Temporal Ordering", "role": "Time Ambiguity"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the validation score precede the deployment decision, or are they determined simultaneously?",
+    "conditional_answers": {
+      "A": "If validation scores are determined before deployment decisions, they may causally influence selection.",
+      "B": "If scores and selection are determined together, the relationship may be definitional rather than causal."
+    },
+    "wise_refusal": "The claim that high validation scores cause models to be selected for deployment is ambiguous due to temporal precedence issues. We cannot establish causation when the timing is unclear. Validation and deployment decisions may be made simultaneously as part of the same evaluation process. Without clear temporal ordering, the causal claim is not justified.",
+    "causal_structure": "Ambiguous: X -> Y or X and Y determined together",
+    "key_insight": "When treatment and outcome are measured together, causation cannot be established.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0281",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "ML Training",
+    "difficulty": "Easy",
+    "trap_type": "T17",
+    "trap_family": "F6",
+    "trap_subtype": "Lagged Effect Ambiguity",
+    "scenario": "A model shows degraded performance a week after a data pipeline change. Teams conclude the pipeline change caused degradation. However, model drift from other sources also accumulated during that week, and the timing makes attribution ambiguous.",
+    "claim": "The data pipeline change caused the model performance degradation.",
+    "variables": {
+      "X": {"name": "Pipeline Change", "role": "Treatment"},
+      "Y": {"name": "Performance Degradation", "role": "Outcome"},
+      "Z": {"name": "Time Lag", "role": "Time Ambiguity"}
+    },
+    "label": "NO",
+    "hidden_question": "Did the pipeline change cause degradation, or did other time-varying factors contribute?",
+    "conditional_answers": {
+      "A": "If degradation is directly linked to the pipeline change, the claim may be valid.",
+      "B": "If other changes occurred during the lag period, the temporal gap creates attribution ambiguity."
+    },
+    "wise_refusal": "The claim that the data pipeline change caused the model performance degradation is ambiguous due to temporal precedence issues. We cannot establish causation with a week-long gap when other factors may have changed. Model drift, data distribution shifts, or other updates during that period could explain degradation. Without isolating the temporal effect, the causal claim is not justified.",
+    "causal_structure": "X -> ... -> Y with confounding time-varying factors",
+    "key_insight": "Lagged effects create attribution challenges when other factors change over time.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0282",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Feature Engineering",
+    "difficulty": "Medium",
+    "trap_type": "T17",
+    "trap_family": "F6",
+    "trap_subtype": "Future Information Leakage",
+    "scenario": "A model using lagged features shows strong predictive performance. Teams conclude the features cause accurate predictions. However, the features may inadvertently include future information due to data processing errors, creating temporal leakage.",
+    "claim": "The lagged features cause accurate model predictions.",
+    "variables": {
+      "X": {"name": "Lagged Features", "role": "Treatment"},
+      "Y": {"name": "Prediction Accuracy", "role": "Outcome"},
+      "Z": {"name": "Temporal Integrity", "role": "Time Ambiguity"}
+    },
+    "label": "NO",
+    "hidden_question": "Are the features truly from the past, or do they leak future information?",
+    "conditional_answers": {
+      "A": "If features genuinely precede predictions, they may causally contribute to accuracy.",
+      "B": "If features contain future information, the strong performance is temporal leakage, not causation."
+    },
+    "wise_refusal": "The claim that the lagged features cause accurate model predictions is ambiguous due to temporal precedence concerns. We cannot establish causation without verifying temporal integrity. Data processing errors can inadvertently include future information in historical features. Without confirming features truly precede predictions, the causal claim is not justified.",
+    "causal_structure": "Claimed: Past X -> Future Y; Actual may be: Future info in X*",
+    "key_insight": "Temporal leakage violates precedence assumptions needed for causal claims.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0283",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "A/B Testing",
+    "difficulty": "Medium",
+    "trap_type": "T17",
+    "trap_family": "F6",
+    "trap_subtype": "Novelty Effect Confounding",
+    "scenario": "An A/B test shows the new UI increases engagement in the first week. Teams conclude the new UI causes higher engagement. However, the novelty of the change may drive early engagement, and the effect may disappear once users acclimate.",
+    "claim": "The new UI causes higher user engagement.",
+    "variables": {
+      "X": {"name": "New UI", "role": "Treatment"},
+      "Y": {"name": "Engagement Increase", "role": "Outcome"},
+      "Z": {"name": "Temporal Duration", "role": "Time Ambiguity"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the UI genuinely improve engagement, or is the effect from novelty that will fade?",
+    "conditional_answers": {
+      "A": "If engagement persists over time, the UI may causally improve engagement.",
+      "B": "If engagement is temporary, novelty rather than UI quality causes the short-term effect."
+    },
+    "wise_refusal": "The claim that the new UI causes higher user engagement is ambiguous due to temporal precedence concerns. We cannot establish lasting causation from short-term data when novelty effects are possible. Users may engage more initially because it's new, not better. Without long-term data, the causal claim is not justified.",
+    "causal_structure": "X -> Y at t=0, but X -> Y may weaken as t increases",
+    "key_insight": "Short-term effects may not persist; novelty can masquerade as causation.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0284",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Retraining",
+    "difficulty": "Medium",
+    "trap_type": "T17",
+    "trap_family": "F6",
+    "trap_subtype": "Delayed Effect Attribution",
+    "scenario": "A model retrained on new data shows improved performance two weeks later. Teams conclude the retraining caused improvement. However, the performance metric is based on user feedback that takes time to accumulate, making the temporal link unclear.",
+    "claim": "Model retraining caused the performance improvement.",
+    "variables": {
+      "X": {"name": "Model Retraining", "role": "Treatment"},
+      "Y": {"name": "Performance Improvement", "role": "Outcome"},
+      "Z": {"name": "Measurement Delay", "role": "Time Ambiguity"}
+    },
+    "label": "NO",
+    "hidden_question": "Did retraining cause improvement, or did the delayed measurement capture other changes?",
+    "conditional_answers": {
+      "A": "If the improvement is directly from retraining, the delayed effect may be valid.",
+      "B": "If other changes occurred during measurement delay, attribution is confounded."
+    },
+    "wise_refusal": "The claim that model retraining caused the performance improvement is ambiguous due to temporal precedence issues. We cannot establish causation when measurement delay introduces other variables. User behavior, seasonality, or other updates during the two weeks could affect the metric. Without controlling for time-varying factors, the causal claim is not justified.",
+    "causal_structure": "X at t=0 -> Y measured at t=2 weeks with intermediate confounders",
+    "key_insight": "Delayed measurement introduces time-varying confounders in causal attribution.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0285",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Research",
+    "difficulty": "Hard",
+    "trap_type": "T17",
+    "trap_family": "F6",
+    "trap_subtype": "Citation Temporal Reversal",
+    "scenario": "A study shows that papers citing foundational AI work have higher impact. They conclude citing foundational work causes impact. However, impactful papers may be more likely to cite foundational work retrospectively during revisions.",
+    "claim": "Citing foundational AI research causes papers to have higher impact.",
+    "variables": {
+      "X": {"name": "Foundational Citations", "role": "Treatment"},
+      "Y": {"name": "Paper Impact", "role": "Outcome"},
+      "Z": {"name": "Citation Timing", "role": "Time Ambiguity"}
+    },
+    "label": "NO",
+    "hidden_question": "Do citations cause impact, or do impactful papers add foundational citations during revision?",
+    "conditional_answers": {
+      "A": "If citations are added before impact is determined, they may contribute to visibility.",
+      "B": "If citations are added during revision after impact indicators appear, the temporal order is reversed."
+    },
+    "wise_refusal": "The claim that citing foundational AI research causes papers to have higher impact is ambiguous due to temporal precedence issues. We cannot establish causation without knowing when citations were added. Papers may add foundational references during revision after receiving positive reviews. Without establishing citation timing, the causal claim is not justified.",
+    "causal_structure": "Claimed: X -> Y; Possible reverse: Y process -> X addition",
+    "key_insight": "Citation addition during revision can reverse the apparent causal direction.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0286",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Online Learning",
+    "difficulty": "Easy",
+    "trap_type": "T17",
+    "trap_family": "F6",
+    "trap_subtype": "Simultaneous Update Ambiguity",
+    "scenario": "An online learning model shows improved accuracy after both algorithm update and data refresh occur together. Teams attribute improvement to the algorithm change. However, both happened simultaneously, making temporal attribution impossible.",
+    "claim": "The algorithm update caused the accuracy improvement.",
+    "variables": {
+      "X": {"name": "Algorithm Update", "role": "Treatment"},
+      "Y": {"name": "Accuracy Improvement", "role": "Outcome"},
+      "Z": {"name": "Concurrent Changes", "role": "Time Ambiguity"}
+    },
+    "label": "NO",
+    "hidden_question": "Did the algorithm cause improvement, or did the simultaneous data refresh?",
+    "conditional_answers": {
+      "A": "If the algorithm alone drove improvement, the attribution may be valid.",
+      "B": "If data refresh contributed, simultaneous changes prevent temporal attribution."
+    },
+    "wise_refusal": "The claim that the algorithm update caused the accuracy improvement is ambiguous due to temporal precedence issues. We cannot establish causation when multiple changes occur simultaneously. Both the algorithm and data refresh could contribute to improvement. Without isolated timing, the causal claim is not justified.",
+    "causal_structure": "X + Z -> Y (simultaneous, cannot separate)",
+    "key_insight": "Concurrent changes make temporal attribution to any single cause impossible.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0287",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Deployment",
+    "difficulty": "Medium",
+    "trap_type": "T17",
+    "trap_family": "F6",
+    "trap_subtype": "Anticipatory Behavior",
+    "scenario": "Customer support ticket volume drops before an AI chatbot deployment. Teams conclude the chatbot reduced support needs. However, marketing announced the chatbot deployment, and customers may have delayed contacting support in anticipation.",
+    "claim": "The AI chatbot deployment caused reduced support ticket volume.",
+    "variables": {
+      "X": {"name": "Chatbot Deployment", "role": "Treatment"},
+      "Y": {"name": "Ticket Reduction", "role": "Outcome"},
+      "Z": {"name": "Anticipation Effects", "role": "Time Ambiguity"}
+    },
+    "label": "NO",
+    "hidden_question": "Did the chatbot reduce tickets, or did announcement create anticipatory behavior?",
+    "conditional_answers": {
+      "A": "If tickets dropped only after deployment, the chatbot may have caused reduction.",
+      "B": "If tickets dropped before deployment due to announcement, anticipation caused the change."
+    },
+    "wise_refusal": "The claim that the AI chatbot deployment caused reduced support ticket volume is ambiguous due to temporal precedence issues. We cannot establish causation when effects appear before the cause. The announcement may have created anticipatory behavior where customers delayed contacting support. Without separating announcement from deployment effects, the causal claim is not justified.",
+    "causal_structure": "Announcement -> Anticipation -> Y, then X deployment occurs",
+    "key_insight": "Anticipatory behavior from announcements can create effects before causes are implemented.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0288",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Data Collection",
+    "difficulty": "Hard",
+    "trap_type": "T17",
+    "trap_family": "F6",
+    "trap_subtype": "Retroactive Labeling Bias",
+    "scenario": "A fraud detection model trained on retroactively labeled data shows high recall. Teams conclude the model accurately detects fraud. However, labels were assigned after investigation, and the model may learn investigation triggers rather than fraud patterns.",
+    "claim": "The fraud model causes accurate detection of fraudulent transactions.",
+    "variables": {
+      "X": {"name": "Model Predictions", "role": "Treatment"},
+      "Y": {"name": "Fraud Detection Accuracy", "role": "Outcome"},
+      "Z": {"name": "Label Timing", "role": "Time Ambiguity"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the model detect fraud, or does it learn what triggers investigations that lead to labels?",
+    "conditional_answers": {
+      "A": "If labels reflect true fraud status at transaction time, the model may genuinely detect fraud.",
+      "B": "If labels are assigned retroactively, the model may learn investigation patterns, not fraud."
+    },
+    "wise_refusal": "The claim that the fraud model causes accurate detection of fraudulent transactions is ambiguous due to temporal precedence issues. We cannot establish valid fraud detection when labels are retroactive. The model may learn what triggers investigations rather than what constitutes fraud. Without point-in-time labels, the causal claim about detection accuracy is not justified.",
+    "causal_structure": "Transaction -> Investigation -> Label; model learns investigation triggers",
+    "key_insight": "Retroactive labeling can make models learn label-generation processes, not underlying phenomena.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0289",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "User Behavior",
+    "difficulty": "Medium",
+    "trap_type": "T17",
+    "trap_family": "F6",
+    "trap_subtype": "Long-Term Habit Effect",
+    "scenario": "Users who engage with an AI assistant daily show higher long-term satisfaction. Teams conclude daily engagement causes satisfaction. However, the relationship develops over months, and third factors like user personality may cause both.",
+    "claim": "Daily AI assistant engagement causes higher long-term user satisfaction.",
+    "variables": {
+      "X": {"name": "Daily Engagement", "role": "Treatment"},
+      "Y": {"name": "Long-Term Satisfaction", "role": "Outcome"},
+      "Z": {"name": "Time Span", "role": "Time Ambiguity"}
+    },
+    "label": "NO",
+    "hidden_question": "Does engagement cause satisfaction over time, or do stable traits drive both?",
+    "conditional_answers": {
+      "A": "If engagement truly builds satisfaction over time, the causal claim may hold.",
+      "B": "If personality or preferences drive both engagement and satisfaction, the relationship is confounded."
+    },
+    "wise_refusal": "The claim that daily AI assistant engagement causes higher long-term user satisfaction is ambiguous due to temporal precedence issues. We cannot establish causation over long time spans without controlling for stable user traits. User personality may drive both consistent engagement and baseline satisfaction. Without controlling for time-invariant confounders, the causal claim is not justified.",
+    "causal_structure": "Possible: User traits -> Both X and Y over time",
+    "key_insight": "Long-term correlations may reflect stable traits rather than temporal causation.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0290",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Versioning",
+    "difficulty": "Hard",
+    "trap_type": "T17",
+    "trap_family": "F6",
+    "trap_subtype": "Gradual Rollout Confounding",
+    "scenario": "A new model version rolled out gradually shows better metrics in later cohorts. Teams conclude the model improves with deployment experience. However, later cohorts may differ systematically from earlier ones, confounding temporal effects.",
+    "claim": "Deployment experience causes the new model to perform better in later cohorts.",
+    "variables": {
+      "X": {"name": "Deployment Duration", "role": "Treatment"},
+      "Y": {"name": "Cohort Performance", "role": "Outcome"},
+      "Z": {"name": "Cohort Selection", "role": "Time Ambiguity"}
+    },
+    "label": "NO",
+    "hidden_question": "Does deployment experience improve performance, or are later cohorts systematically different?",
+    "conditional_answers": {
+      "A": "If cohorts are equivalent, improved performance may come from deployment refinement.",
+      "B": "If cohorts differ systematically, selection bias confounds the temporal pattern."
+    },
+    "wise_refusal": "The claim that deployment experience causes the new model to perform better in later cohorts is ambiguous due to temporal precedence issues. We cannot establish causation when cohorts may differ systematically. Later cohorts might include different user segments or face different conditions. Without controlling for cohort composition, the causal claim is not justified.",
+    "causal_structure": "Time -> Cohort Composition -> Performance, confounding X -> Y",
+    "key_insight": "Gradual rollouts create temporal patterns that may reflect selection rather than improvement.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0291",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Content Recommendation",
+    "difficulty": "Easy",
+    "trap_type": "T17",
+    "trap_family": "F6",
+    "trap_subtype": "Interest Crystallization",
+    "scenario": "Users who receive personalized recommendations develop stronger content preferences over time. Teams conclude recommendations cause preference formation. However, recommendations may accelerate expression of pre-existing preferences rather than create them.",
+    "claim": "Personalized recommendations cause users to develop stronger content preferences.",
+    "variables": {
+      "X": {"name": "Personalized Recommendations", "role": "Treatment"},
+      "Y": {"name": "Preference Strength", "role": "Outcome"},
+      "Z": {"name": "Preference Timing", "role": "Time Ambiguity"}
+    },
+    "label": "NO",
+    "hidden_question": "Do recommendations create preferences, or reveal pre-existing ones faster?",
+    "conditional_answers": {
+      "A": "If recommendations create new preferences, they causally shape user interests.",
+      "B": "If recommendations accelerate expression of existing preferences, the causal claim overstates creation."
+    },
+    "wise_refusal": "The claim that personalized recommendations cause users to develop stronger content preferences is ambiguous due to temporal precedence issues. We cannot determine if preferences are created or merely revealed without understanding their pre-existence. Recommendations may surface latent interests rather than create new ones. Without distinguishing creation from acceleration, the causal claim is not justified.",
+    "causal_structure": "Latent preferences -> X match -> Y expression; unclear if X creates Y",
+    "key_insight": "Revealed preferences may be pre-existing rather than caused by recommendations.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0292",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Benchmark Evolution",
+    "difficulty": "Medium",
+    "trap_type": "T17",
+    "trap_family": "F6",
+    "trap_subtype": "Benchmark Saturation Effect",
+    "scenario": "Models show slower benchmark improvement in recent years compared to early years. Teams conclude AI progress is slowing. However, benchmarks may be saturating, making progress harder to measure even if capability improvements continue.",
+    "claim": "Recent years show that AI capability improvement is slowing.",
+    "variables": {
+      "X": {"name": "Time Period", "role": "Treatment"},
+      "Y": {"name": "Measured Progress", "role": "Outcome"},
+      "Z": {"name": "Benchmark Saturation", "role": "Time Ambiguity"}
+    },
+    "label": "NO",
+    "hidden_question": "Is progress slowing, or are benchmarks becoming less sensitive to improvement?",
+    "conditional_answers": {
+      "A": "If benchmarks accurately measure capability, slower scores may indicate slowing progress.",
+      "B": "If benchmarks saturate, the measurement loses sensitivity, confounding temporal trends."
+    },
+    "wise_refusal": "The claim that recent years show AI capability improvement is slowing is ambiguous due to temporal precedence issues. We cannot establish slowing progress when measurement tools may be saturating. Benchmarks approaching ceiling effects become less sensitive to improvements. Without benchmark-independent measures, the causal claim about progress rate is not justified.",
+    "causal_structure": "Time -> Benchmark Saturation -> Measured Progress =/= True Progress",
+    "key_insight": "Temporal trends in benchmarks may reflect measurement saturation rather than true slowdown.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0293",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Debugging",
+    "difficulty": "Hard",
+    "trap_type": "T17",
+    "trap_family": "F6",
+    "trap_subtype": "Post-Hoc Debugging Attribution",
+    "scenario": "After a model failure, teams identify a specific bug through debugging. They conclude the bug caused the failure. However, debugging occurs after the failure, and the identified bug may be a symptom rather than the root cause.",
+    "claim": "The identified bug caused the model failure.",
+    "variables": {
+      "X": {"name": "Identified Bug", "role": "Treatment"},
+      "Y": {"name": "Model Failure", "role": "Outcome"},
+      "Z": {"name": "Debug Timing", "role": "Time Ambiguity"}
+    },
+    "label": "NO",
+    "hidden_question": "Did the bug cause failure, or did failure lead to finding this bug while missing root cause?",
+    "conditional_answers": {
+      "A": "If the bug genuinely preceded and caused failure, the attribution may be valid.",
+      "B": "If the bug is a symptom found through post-hoc analysis, the root cause may be different."
+    },
+    "wise_refusal": "The claim that the identified bug caused the model failure is ambiguous due to temporal precedence issues. We cannot establish causation through post-hoc debugging when the identified issue may be a symptom. Root cause analysis requires verifying the bug existed before failure. Without temporal verification, the causal claim is not justified.",
+    "causal_structure": "True cause -> Failure -> Investigation -> Bug found; bug may be symptom",
+    "key_insight": "Post-hoc bug identification may find symptoms rather than causes.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0294",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Governance",
+    "difficulty": "Hard",
+    "trap_type": "T17",
+    "trap_family": "F6",
+    "trap_subtype": "Regulation Timing Ambiguity",
+    "scenario": "AI companies in early-regulated industries show better safety practices. Teams conclude regulation caused safety adoption. However, safety-conscious companies may have voluntarily adopted practices before regulation codified them.",
+    "claim": "AI regulation caused companies to adopt better safety practices.",
+    "variables": {
+      "X": {"name": "AI Regulation", "role": "Treatment"},
+      "Y": {"name": "Safety Practices", "role": "Outcome"},
+      "Z": {"name": "Adoption Timing", "role": "Time Ambiguity"}
+    },
+    "label": "NO",
+    "hidden_question": "Did regulation cause safety adoption, or did voluntary adoption lead to regulation?",
+    "conditional_answers": {
+      "A": "If companies adopted practices only after regulation, regulation may have caused adoption.",
+      "B": "If practices preceded regulation, the causal direction may be reversed or regulation codified existing norms."
+    },
+    "wise_refusal": "The claim that AI regulation caused companies to adopt better safety practices is ambiguous due to temporal precedence issues. We cannot establish causation without knowing adoption timing relative to regulation. Industry leaders may have adopted practices that were later codified into regulation. Without temporal data, the causal claim is not justified.",
+    "causal_structure": "Possible: Industry practices -> Regulation vs Regulation -> Industry practices",
+    "key_insight": "Regulation may follow and codify existing practices rather than cause them.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0295",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Training Dynamics",
+    "difficulty": "Medium",
+    "trap_type": "T17",
+    "trap_family": "F6",
+    "trap_subtype": "Training Phase Attribution",
+    "scenario": "A model shows capability emergence at epoch 100. Teams conclude reaching epoch 100 causes emergence. However, multiple factors change simultaneously during training, and epoch number is a proxy for many underlying processes.",
+    "claim": "Reaching epoch 100 causes capability emergence in the model.",
+    "variables": {
+      "X": {"name": "Training Epoch", "role": "Treatment"},
+      "Y": {"name": "Capability Emergence", "role": "Outcome"},
+      "Z": {"name": "Training Dynamics", "role": "Time Ambiguity"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the epoch count cause emergence, or is it a proxy for other cumulative factors?",
+    "conditional_answers": {
+      "A": "If epoch count directly matters, time causes emergence.",
+      "B": "If accumulated gradient updates or data exposure cause emergence, epoch is just a proxy."
+    },
+    "wise_refusal": "The claim that reaching epoch 100 causes capability emergence in the model is ambiguous due to temporal precedence issues. We cannot attribute causation to epoch count when it's a proxy for multiple training dynamics. Loss landscape evolution, gradient accumulation, and data exposure all correlate with epochs. Without isolating the mechanism, the causal claim is not justified.",
+    "causal_structure": "Epoch -> (loss, gradients, data exposure, ...) -> Emergence; epoch is proxy",
+    "key_insight": "Training time is a proxy for many causal factors that are hard to disentangle.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0296",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Decay",
+    "difficulty": "Easy",
+    "trap_type": "T17",
+    "trap_family": "F6",
+    "trap_subtype": "Decay Attribution Error",
+    "scenario": "A deployed model shows declining performance over six months. Teams conclude model decay from data drift caused the decline. However, multiple factors changed over those months, including user behavior, seasonal effects, and competitive landscape.",
+    "claim": "Data drift caused the model's performance decline over six months.",
+    "variables": {
+      "X": {"name": "Data Drift", "role": "Treatment"},
+      "Y": {"name": "Performance Decline", "role": "Outcome"},
+      "Z": {"name": "Time-Varying Confounders", "role": "Time Ambiguity"}
+    },
+    "label": "NO",
+    "hidden_question": "Did data drift cause decline, or did other time-varying factors contribute?",
+    "conditional_answers": {
+      "A": "If data drift is isolated as the cause, it may have driven decline.",
+      "B": "If multiple factors changed over six months, attribution to drift alone is unjustified."
+    },
+    "wise_refusal": "The claim that data drift caused the model's performance decline over six months is ambiguous due to temporal precedence issues. We cannot attribute decline to drift alone when many factors changed. User behavior, seasonality, and market conditions all vary over time. Without isolating drift from other changes, the causal claim is not justified.",
+    "causal_structure": "Time -> (drift, seasonality, user changes, ...) -> Performance; multiple causes",
+    "key_insight": "Long-term decline has many potential causes that are hard to separate temporally.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  }
+]

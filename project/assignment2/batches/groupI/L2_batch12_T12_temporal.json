@@ -1,0 +1,408 @@
+[
+  {
+    "case_id": "T3-I1-L2-0199",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "ML Model Performance",
+    "difficulty": "Easy",
+    "trap_type": "T12",
+    "trap_family": "F4",
+    "trap_subtype": "Training-Test Temporal Leakage",
+    "scenario": "An ML model shows excellent performance predicting next-day stock movements. Teams celebrate the breakthrough. However, the training data included features computed using data that wouldn't have been available at prediction time, creating temporal leakage.",
+    "claim": "The model can accurately predict future stock movements.",
+    "variables": {
+      "X": {"name": "Model Features", "role": "Treatment"},
+      "Y": {"name": "Prediction Accuracy", "role": "Outcome"},
+      "Z": {"name": "Temporal Ordering", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Were features computed using information from after the prediction time?",
+    "conditional_answers": {
+      "A": "If features only used past information, prediction accuracy may be genuine.",
+      "B": "If features included future information, the model had access to the answer when making predictions."
+    },
+    "wise_refusal": "The claim that the model can accurately predict future stock movements is ambiguous due to temporal concerns. We cannot determine true predictive ability without knowing about feature timing. If features were properly time-stamped, accuracy may be genuine. If features included future information, the accuracy reflects leakage, not prediction. Without this information, the causal claim is not justified.",
+    "causal_structure": "Future info -> X features -> Y accuracy (temporal leakage)",
+    "key_insight": "Prediction accuracy is meaningless if the model has access to future information.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0200",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "A/B Testing",
+    "difficulty": "Easy",
+    "trap_type": "T12",
+    "trap_family": "F4",
+    "trap_subtype": "Delayed Outcome Measurement",
+    "scenario": "An A/B test shows the new AI feature increased 7-day retention. The team ships the feature. However, the test didn't wait long enough to measure 30-day retention, which may show different results due to novelty effects wearing off.",
+    "claim": "The AI feature improves long-term user retention.",
+    "variables": {
+      "X": {"name": "AI Feature", "role": "Treatment"},
+      "Y": {"name": "Retention", "role": "Outcome"},
+      "Z": {"name": "Measurement Window", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Was the measurement window long enough to capture the true long-term effect?",
+    "conditional_answers": {
+      "A": "If short-term and long-term effects align, 7-day results may predict long-term retention.",
+      "B": "If novelty effects inflate short-term metrics, 7-day results don't predict long-term outcomes."
+    },
+    "wise_refusal": "The claim that the AI feature improves long-term user retention is ambiguous due to temporal concerns. We cannot determine long-term effects without appropriate measurement windows. If short and long-term effects align, short-term results may generalize. If novelty effects exist, short-term gains may not persist. Without this information, the causal claim is not justified.",
+    "causal_structure": "X -> Short-term Y, but X -> ? Long-term Y (temporal effect uncertainty)",
+    "key_insight": "Short-term A/B test results may not predict long-term effects due to novelty or adaptation.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0201",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Training",
+    "difficulty": "Medium",
+    "trap_type": "T12",
+    "trap_family": "F4",
+    "trap_subtype": "Label Timing Leakage",
+    "scenario": "A fraud detection model uses transaction features to predict fraud labels. The model shows high accuracy. However, some features are derived from investigation outcomes that occur after the transaction, encoding the fraud label temporally.",
+    "claim": "The model can detect fraud at transaction time.",
+    "variables": {
+      "X": {"name": "Transaction Features", "role": "Treatment"},
+      "Y": {"name": "Fraud Detection", "role": "Outcome"},
+      "Z": {"name": "Feature Temporal Validity", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Are features available at prediction time, or do they encode post-transaction information?",
+    "conditional_answers": {
+      "A": "If features are available at transaction time, detection accuracy may be genuine.",
+      "B": "If features encode investigation outcomes, the model uses future information unavailable at prediction time."
+    },
+    "wise_refusal": "The claim that the model can detect fraud at transaction time is ambiguous due to temporal concerns. We cannot determine real-time detection ability without knowing feature availability. If features are timely, detection may work. If features encode future information, accuracy doesn't translate to deployment. Without this information, the causal claim is not justified.",
+    "causal_structure": "Post-transaction info -> X features -> Y accuracy (temporal impossibility)",
+    "key_insight": "Features derived from outcomes encode the label temporally, making prediction impossible in practice.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0202",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Time Series Forecasting",
+    "difficulty": "Medium",
+    "trap_type": "T12",
+    "trap_family": "F4",
+    "trap_subtype": "Look-Ahead Bias",
+    "scenario": "A demand forecasting model shows excellent performance on historical data. Teams deploy it. However, the model was trained with knowledge of which time periods had unusual events, allowing preprocessing that wouldn't be available in real forecasting.",
+    "claim": "The demand forecasting model will perform well in production.",
+    "variables": {
+      "X": {"name": "Forecasting Model", "role": "Treatment"},
+      "Y": {"name": "Forecast Accuracy", "role": "Outcome"},
+      "Z": {"name": "Hindsight Preprocessing", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Was preprocessing informed by hindsight knowledge unavailable in real forecasting?",
+    "conditional_answers": {
+      "A": "If preprocessing used only past information, historical accuracy may predict production performance.",
+      "B": "If preprocessing used hindsight, historical accuracy was artificially inflated by look-ahead bias."
+    },
+    "wise_refusal": "The claim that the demand forecasting model will perform well in production is ambiguous due to temporal concerns. We cannot determine production performance without knowing about preprocessing. If preprocessing was temporal, accuracy may transfer. If hindsight was used, production performance will be worse. Without this information, the causal claim is not justified.",
+    "causal_structure": "Hindsight -> Preprocessing -> X training -> Y historical accuracy (look-ahead bias)",
+    "key_insight": "Forecasting accuracy on historical data can be inflated by processing decisions informed by hindsight.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0203",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Churn Prediction",
+    "difficulty": "Medium",
+    "trap_type": "T12",
+    "trap_family": "F4",
+    "trap_subtype": "Censoring Bias",
+    "scenario": "A churn prediction model shows that certain user behaviors predict churn. The model is deployed for intervention. However, recent users haven't had enough time to churn, and treating their non-churn as negative labels biases the model toward patterns seen in older users.",
+    "claim": "The churn model accurately identifies users who will churn.",
+    "variables": {
+      "X": {"name": "User Behaviors", "role": "Treatment"},
+      "Y": {"name": "Churn Prediction", "role": "Outcome"},
+      "Z": {"name": "Observation Time", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Are recent users treated as non-churners simply because they haven't had time to churn yet?",
+    "conditional_answers": {
+      "A": "If all users have equal observation time, predictions may be valid.",
+      "B": "If recent users are censored, the model learns biased patterns that don't apply to new users."
+    },
+    "wise_refusal": "The claim that the churn model accurately identifies users who will churn is ambiguous due to temporal concerns. We cannot determine prediction validity without knowing about observation time. If observation is equal, predictions may be valid. If recent users are censored, the model is biased toward old-user patterns. Without this information, the causal claim is not justified.",
+    "causal_structure": "Limited observation time -> X appears non-churner -> Y biased model (censoring bias)",
+    "key_insight": "Time-to-event predictions can be biased by treating censored observations as negative examples.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0204",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Evaluation",
+    "difficulty": "Hard",
+    "trap_type": "T12",
+    "trap_family": "F4",
+    "trap_subtype": "Backtesting Bias",
+    "scenario": "A trading algorithm shows profitable backtesting results over 10 years. Traders deploy it. However, the algorithm was optimized on the same historical data it was tested on, allowing overfitting to past market conditions.",
+    "claim": "The trading algorithm will be profitable in future markets.",
+    "variables": {
+      "X": {"name": "Trading Algorithm", "role": "Treatment"},
+      "Y": {"name": "Profitability", "role": "Outcome"},
+      "Z": {"name": "Train-Test Contamination", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Was the algorithm developed using knowledge of the same period it was tested on?",
+    "conditional_answers": {
+      "A": "If development and testing used separate time periods, backtest may predict future performance.",
+      "B": "If the algorithm was optimized on test data, backtesting is contaminated and doesn't predict future results."
+    },
+    "wise_refusal": "The claim that the trading algorithm will be profitable in future markets is ambiguous due to temporal concerns. We cannot determine future performance without knowing about development process. If data was properly separated, backtests may be predictive. If algorithm was optimized on test data, backtesting is meaningless. Without this information, the causal claim is not justified.",
+    "causal_structure": "Test data knowledge -> Algorithm design -> Y backtest results (overfitting to history)",
+    "key_insight": "Backtesting is only valid if the algorithm couldn't have been influenced by test period knowledge.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0205",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Recommendation Systems",
+    "difficulty": "Easy",
+    "trap_type": "T12",
+    "trap_family": "F4",
+    "trap_subtype": "Future Rating Leakage",
+    "scenario": "A recommendation model shows high accuracy in predicting user preferences. The model uses average item ratings as features. However, average ratings include ratings made after the prediction point, leaking future information.",
+    "claim": "The recommendation model can accurately predict user preferences.",
+    "variables": {
+      "X": {"name": "Item Features", "role": "Treatment"},
+      "Y": {"name": "Preference Prediction", "role": "Outcome"},
+      "Z": {"name": "Rating Timestamp", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Do item rating features include ratings made after the prediction timestamp?",
+    "conditional_answers": {
+      "A": "If ratings only include past data, prediction accuracy may be genuine.",
+      "B": "If ratings include future data, the model has access to information unavailable at prediction time."
+    },
+    "wise_refusal": "The claim that the recommendation model can accurately predict user preferences is ambiguous due to temporal concerns. We cannot determine predictive ability without knowing rating timestamps. If ratings are historical, accuracy may be genuine. If ratings include future data, accuracy reflects leakage. Without this information, the causal claim is not justified.",
+    "causal_structure": "Future ratings -> X features -> Y accuracy (future leakage)",
+    "key_insight": "Aggregate features must be computed using only information available at prediction time.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0206",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Healthcare AI",
+    "difficulty": "Hard",
+    "trap_type": "T12",
+    "trap_family": "F4",
+    "trap_subtype": "Diagnosis Temporal Leakage",
+    "scenario": "A disease prediction model shows high accuracy using patient features. However, some features come from tests ordered because doctors suspected the disease, meaning the features encode diagnostic suspicion that temporally precedes formal diagnosis but follows symptom onset.",
+    "claim": "The model can predict disease before clinical suspicion.",
+    "variables": {
+      "X": {"name": "Patient Features", "role": "Treatment"},
+      "Y": {"name": "Disease Prediction", "role": "Outcome"},
+      "Z": {"name": "Feature Availability Timing", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Are features only available because doctors already suspected the disease?",
+    "conditional_answers": {
+      "A": "If features are routinely collected, the model may provide early warning.",
+      "B": "If features result from suspicion, the model can't predict before suspicion already exists."
+    },
+    "wise_refusal": "The claim that the model can predict disease before clinical suspicion is ambiguous due to temporal concerns. We cannot determine early prediction ability without knowing why features were collected. If routine, early prediction may work. If features result from suspicion, the model detects suspicion, not disease. Without this information, the causal claim is not justified.",
+    "causal_structure": "Suspicion -> Tests -> X features -> Y prediction (encoding existing suspicion)",
+    "key_insight": "Clinical features may encode diagnostic suspicion, making 'prediction' circular.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0207",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Anomaly Detection",
+    "difficulty": "Medium",
+    "trap_type": "T12",
+    "trap_family": "F4",
+    "trap_subtype": "Post-Incident Feature Bias",
+    "scenario": "An anomaly detection model shows excellent performance identifying security incidents. However, some features are derived from incident response data that only exists after an incident is detected, making them unavailable for real-time detection.",
+    "claim": "The anomaly detection model can identify incidents in real-time.",
+    "variables": {
+      "X": {"name": "Detection Features", "role": "Treatment"},
+      "Y": {"name": "Incident Detection", "role": "Outcome"},
+      "Z": {"name": "Feature Temporal Availability", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Are features derived from post-incident response that wouldn't be available in real-time?",
+    "conditional_answers": {
+      "A": "If features are available in real-time, detection accuracy may translate to deployment.",
+      "B": "If features require post-incident data, real-time detection is impossible despite model accuracy."
+    },
+    "wise_refusal": "The claim that the anomaly detection model can identify incidents in real-time is ambiguous due to temporal concerns. We cannot determine real-time capability without knowing feature availability. If features are timely, detection may work. If features require post-incident data, real-time detection is impossible. Without this information, the causal claim is not justified.",
+    "causal_structure": "Incident -> Response Data -> X features -> Y detection (retrospective features)",
+    "key_insight": "Detection systems trained on post-incident features cannot perform real-time detection.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0208",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "User Behavior Prediction",
+    "difficulty": "Easy",
+    "trap_type": "T12",
+    "trap_family": "F4",
+    "trap_subtype": "Session Leakage",
+    "scenario": "A user intent prediction model shows high accuracy within browsing sessions. However, the model uses features from the entire session including actions after the prediction point, leaking future intent signals.",
+    "claim": "The model can predict user intent at any point in a session.",
+    "variables": {
+      "X": {"name": "Session Features", "role": "Treatment"},
+      "Y": {"name": "Intent Prediction", "role": "Outcome"},
+      "Z": {"name": "Feature Temporal Scope", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Do session features include actions taken after the prediction timestamp?",
+    "conditional_answers": {
+      "A": "If features only include past session actions, prediction may be valid.",
+      "B": "If features include future session actions, the model has access to intent signals it's trying to predict."
+    },
+    "wise_refusal": "The claim that the model can predict user intent at any point in a session is ambiguous due to temporal concerns. We cannot determine predictive ability without knowing feature scope. If features are past-only, prediction may work. If features include future actions, accuracy is artificially inflated. Without this information, the causal claim is not justified.",
+    "causal_structure": "Future actions -> X session features -> Y intent prediction (session-level leakage)",
+    "key_insight": "Session-level features must be carefully scoped to exclude future actions within the session.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0209",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "ML Pipeline",
+    "difficulty": "Hard",
+    "trap_type": "T12",
+    "trap_family": "F4",
+    "trap_subtype": "Normalization Leakage",
+    "scenario": "A time series model shows excellent performance after feature normalization. However, normalization was computed using statistics from the entire dataset including future time points, leaking distributional information about the future.",
+    "claim": "The normalized features enable accurate time series prediction.",
+    "variables": {
+      "X": {"name": "Normalized Features", "role": "Treatment"},
+      "Y": {"name": "Prediction Accuracy", "role": "Outcome"},
+      "Z": {"name": "Normalization Scope", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Was normalization computed using future data that wouldn't be available at prediction time?",
+    "conditional_answers": {
+      "A": "If normalization used only past data, accuracy may generalize.",
+      "B": "If normalization used future data, the features encode distributional information about the future."
+    },
+    "wise_refusal": "The claim that the normalized features enable accurate time series prediction is ambiguous due to temporal concerns. We cannot determine real predictive ability without knowing normalization scope. If normalization was temporal, accuracy may be genuine. If future data was used, normalization leaks future information. Without this information, the causal claim is not justified.",
+    "causal_structure": "Future data -> Normalization stats -> X features -> Y accuracy (distributional leakage)",
+    "key_insight": "Preprocessing steps like normalization can introduce subtle temporal leakage through statistics.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0210",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Deployment",
+    "difficulty": "Medium",
+    "trap_type": "T12",
+    "trap_family": "F4",
+    "trap_subtype": "Distribution Shift Timing",
+    "scenario": "A model shows excellent offline performance on held-out test data. Teams deploy it. However, the test data was from the same time period as training data, and the distribution has shifted since then, making offline metrics unrepresentative.",
+    "claim": "The model's offline performance predicts production performance.",
+    "variables": {
+      "X": {"name": "Offline Evaluation", "role": "Treatment"},
+      "Y": {"name": "Production Performance", "role": "Outcome"},
+      "Z": {"name": "Temporal Distribution Shift", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Has the data distribution shifted between test data collection and deployment?",
+    "conditional_answers": {
+      "A": "If the distribution is stable, offline metrics may predict production performance.",
+      "B": "If distribution has shifted, offline metrics from old data don't predict current performance."
+    },
+    "wise_refusal": "The claim that the model's offline performance predicts production performance is ambiguous due to temporal concerns. We cannot determine production performance without knowing about distribution shift. If distribution is stable, offline metrics may transfer. If shift has occurred, old test data is unrepresentative. Without this information, the causal claim is not justified.",
+    "causal_structure": "Time -> Distribution change -> X old test invalid -> Y production differs (temporal invalidity)",
+    "key_insight": "Test data from the same time as training may not represent current deployment conditions.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0211",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Survival Analysis",
+    "difficulty": "Hard",
+    "trap_type": "T12",
+    "trap_family": "F4",
+    "trap_subtype": "Time-Varying Confounder",
+    "scenario": "A model predicts user lifetime value from features at sign-up. The model shows that certain sign-up behaviors predict high LTV. However, user characteristics change over time, and current features at sign-up may not reflect the behaviors that actually drove high LTV.",
+    "claim": "Sign-up behaviors cause higher user lifetime value.",
+    "variables": {
+      "X": {"name": "Sign-up Behaviors", "role": "Treatment"},
+      "Y": {"name": "Lifetime Value", "role": "Outcome"},
+      "Z": {"name": "Time-Varying Characteristics", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Do user characteristics change after sign-up in ways that actually drive LTV?",
+    "conditional_answers": {
+      "A": "If sign-up characteristics persist, they may causally relate to LTV.",
+      "B": "If characteristics change substantially, sign-up features may merely correlate with LTV-driving behaviors that develop later."
+    },
+    "wise_refusal": "The claim that sign-up behaviors cause higher user lifetime value is ambiguous due to temporal concerns. We cannot determine causal relationship without knowing about characteristic changes. If characteristics are stable, sign-up may predict LTV. If characteristics change, the correlation may be spurious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Sign-up X -> Time -> Evolved characteristics -> Y LTV (time-varying confounding)",
+    "key_insight": "Point-in-time features may not capture the evolved characteristics that actually drive long-term outcomes.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0212",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Feature Engineering",
+    "difficulty": "Medium",
+    "trap_type": "T12",
+    "trap_family": "F4",
+    "trap_subtype": "Cumulative Feature Leakage",
+    "scenario": "A customer scoring model uses cumulative purchase history. The model shows high accuracy predicting next purchase. However, the cumulative features include the outcome purchase, making cumulative totals off-by-one in including the purchase being predicted.",
+    "claim": "The model predicts next purchase based on past behavior.",
+    "variables": {
+      "X": {"name": "Cumulative Features", "role": "Treatment"},
+      "Y": {"name": "Purchase Prediction", "role": "Outcome"},
+      "Z": {"name": "Cumulative Boundary", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Do cumulative features include the transaction being predicted?",
+    "conditional_answers": {
+      "A": "If cumulatives exclude the predicted transaction, prediction may be genuine.",
+      "B": "If cumulatives include the predicted transaction, the model has partial access to the answer."
+    },
+    "wise_refusal": "The claim that the model predicts next purchase based on past behavior is ambiguous due to temporal concerns. We cannot determine predictive ability without knowing cumulative boundaries. If boundaries are correct, prediction may work. If the outcome is included, the model has leakage. Without this information, the causal claim is not justified.",
+    "causal_structure": "Current purchase -> X cumulative -> Y prediction (off-by-one leakage)",
+    "key_insight": "Cumulative features require careful boundary conditions to exclude the predicted outcome.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  }
+]

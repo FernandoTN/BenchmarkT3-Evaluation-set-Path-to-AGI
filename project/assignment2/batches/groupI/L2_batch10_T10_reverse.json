@@ -1,0 +1,582 @@
+[
+  {
+    "case_id": "T3-I1-L2-0163",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "ML Model Quality",
+    "difficulty": "Easy",
+    "trap_type": "T10",
+    "trap_family": "F4",
+    "trap_subtype": "Model Usage Reversal",
+    "scenario": "ML models with more API calls show higher accuracy metrics. A team concludes that usage improves model quality. However, it may be that higher quality models attract more usage, not that usage improves quality.",
+    "claim": "Higher API usage causes better model accuracy.",
+    "variables": {
+      "X": {"name": "API Usage", "role": "Treatment"},
+      "Y": {"name": "Model Accuracy", "role": "Outcome"},
+      "Z": {"name": "Causal Direction", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does usage cause quality, or does quality cause usage?",
+    "conditional_answers": {
+      "A": "If usage provides valuable feedback that improves models, usage may cause quality.",
+      "B": "If better models attract more users, quality causes usage, reversing the claimed direction."
+    },
+    "wise_refusal": "The claim that higher API usage causes better model accuracy is ambiguous due to possible reverse causation. We cannot determine causal direction without knowing the mechanism. If usage provides improvement feedback, the claim may be valid. If quality attracts usage, the direction is reversed. Without this information, the causal claim is not justified.",
+    "causal_structure": "Either X -> Y or Y -> X (direction uncertain)",
+    "key_insight": "Correlation between usage and quality could run in either causal direction.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0164",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Research",
+    "difficulty": "Easy",
+    "trap_type": "T10",
+    "trap_family": "F4",
+    "trap_subtype": "Citation Reversal",
+    "scenario": "AI researchers with more Twitter followers publish more highly-cited papers. A career advisor concludes that social media presence boosts research impact. It may be that impactful research attracts followers, not that followers cause impact.",
+    "claim": "More Twitter followers cause higher research citations.",
+    "variables": {
+      "X": {"name": "Twitter Followers", "role": "Treatment"},
+      "Y": {"name": "Citation Count", "role": "Outcome"},
+      "Z": {"name": "Causal Direction", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Do followers cause citations, or do citations cause followers?",
+    "conditional_answers": {
+      "A": "If social media amplifies research visibility causing more citations, the claim may be valid.",
+      "B": "If highly-cited researchers attract followers, citations cause followers, reversing the direction."
+    },
+    "wise_refusal": "The claim that more Twitter followers cause higher research citations is ambiguous due to possible reverse causation. We cannot determine causal direction without knowing the mechanism. If social media amplifies research, followers may cause citations. If citations attract followers, the direction is reversed. Without this information, the causal claim is not justified.",
+    "causal_structure": "Either X -> Y or Y -> X (direction uncertain)",
+    "key_insight": "Research impact and social following may correlate without followers causing impact.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0165",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Startups",
+    "difficulty": "Medium",
+    "trap_type": "T10",
+    "trap_family": "F4",
+    "trap_subtype": "Hiring Reversal",
+    "scenario": "AI startups with more senior engineers show faster product development. Advisors conclude that hiring seniors accelerates development. It may be that fast-moving startups attract senior talent, not that seniors cause speed.",
+    "claim": "Hiring senior engineers causes faster product development.",
+    "variables": {
+      "X": {"name": "Senior Engineers", "role": "Treatment"},
+      "Y": {"name": "Development Speed", "role": "Outcome"},
+      "Z": {"name": "Causal Direction", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Do senior hires cause speed, or does momentum attract seniors?",
+    "conditional_answers": {
+      "A": "If senior expertise directly accelerates development, the claim may be valid.",
+      "B": "If promising startups attract senior talent, startup quality causes both speed and senior hiring."
+    },
+    "wise_refusal": "The claim that hiring senior engineers causes faster product development is ambiguous due to possible reverse causation. We cannot determine causal direction without knowing the selection mechanism. If seniors directly accelerate development, the claim may be valid. If fast startups attract seniors, the direction is reversed. Without this information, the causal claim is not justified.",
+    "causal_structure": "Either X -> Y or Y -> X (direction uncertain)",
+    "key_insight": "Successful startups may both attract talent and develop quickly for the same underlying reasons.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0166",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "ML Platforms",
+    "difficulty": "Medium",
+    "trap_type": "T10",
+    "trap_family": "F4",
+    "trap_subtype": "Community Reversal",
+    "scenario": "ML frameworks with larger communities have more comprehensive documentation. Developers conclude that community size drives documentation quality. It may be that good documentation attracts community members.",
+    "claim": "Larger communities cause better framework documentation.",
+    "variables": {
+      "X": {"name": "Community Size", "role": "Treatment"},
+      "Y": {"name": "Documentation Quality", "role": "Outcome"},
+      "Z": {"name": "Causal Direction", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does community cause documentation, or does documentation attract community?",
+    "conditional_answers": {
+      "A": "If community members contribute to documentation, community size may cause quality.",
+      "B": "If good documentation attracts users, documentation quality causes community growth."
+    },
+    "wise_refusal": "The claim that larger communities cause better framework documentation is ambiguous due to possible reverse causation. We cannot determine causal direction without knowing the mechanism. If communities contribute docs, the claim may be valid. If good docs attract users, the direction is reversed. Without this information, the causal claim is not justified.",
+    "causal_structure": "Either X -> Y or Y -> X (direction uncertain)",
+    "key_insight": "Open source success metrics may correlate without clear causal direction.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0167",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Data Science",
+    "difficulty": "Medium",
+    "trap_type": "T10",
+    "trap_family": "F4",
+    "trap_subtype": "Tool Adoption Reversal",
+    "scenario": "Data science teams using advanced tools show higher productivity. Managers conclude that tools boost productivity. It may be that productive teams adopt advanced tools, not that tools cause productivity.",
+    "claim": "Advanced tool adoption causes higher data science productivity.",
+    "variables": {
+      "X": {"name": "Advanced Tools", "role": "Treatment"},
+      "Y": {"name": "Productivity", "role": "Outcome"},
+      "Z": {"name": "Causal Direction", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Do tools cause productivity, or does productivity enable tool adoption?",
+    "conditional_answers": {
+      "A": "If tools directly enhance work output, the claim may be valid.",
+      "B": "If productive teams have capacity to adopt new tools, productivity causes adoption."
+    },
+    "wise_refusal": "The claim that advanced tool adoption causes higher data science productivity is ambiguous due to possible reverse causation. We cannot determine causal direction without knowing the mechanism. If tools enhance output, the claim may be valid. If productive teams adopt tools, the direction is reversed. Without this information, the causal claim is not justified.",
+    "causal_structure": "Either X -> Y or Y -> X (direction uncertain)",
+    "key_insight": "High-performing teams may both adopt tools and achieve productivity for related reasons.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0168",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Safety",
+    "difficulty": "Hard",
+    "trap_type": "T10",
+    "trap_family": "F4",
+    "trap_subtype": "Safety Investment Reversal",
+    "scenario": "AI labs investing heavily in safety research have fewer public incidents. Advocates conclude safety investment prevents incidents. It may be that labs with strong safety records invest more in safety research.",
+    "claim": "Safety research investment causes fewer AI incidents.",
+    "variables": {
+      "X": {"name": "Safety Investment", "role": "Treatment"},
+      "Y": {"name": "Incident Rate", "role": "Outcome"},
+      "Z": {"name": "Causal Direction", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does safety investment prevent incidents, or do safe labs invest more in safety?",
+    "conditional_answers": {
+      "A": "If safety research directly prevents problems, investment may cause safety.",
+      "B": "If already-safe organizations prioritize safety research, safety causes investment."
+    },
+    "wise_refusal": "The claim that safety research investment causes fewer AI incidents is ambiguous due to possible reverse causation. We cannot determine causal direction without knowing the mechanism. If research prevents problems, the claim may be valid. If safe organizations invest more, the direction is reversed. Without this information, the causal claim is not justified.",
+    "causal_structure": "Either X -> Y or Y -> X (direction uncertain)",
+    "key_insight": "Safety-conscious organizations may both invest in safety AND have fewer incidents independently.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0169",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Deployment",
+    "difficulty": "Easy",
+    "trap_type": "T10",
+    "trap_family": "F4",
+    "trap_subtype": "Monitoring Reversal",
+    "scenario": "ML models with extensive monitoring dashboards show higher uptime. Teams conclude monitoring improves reliability. It may be that reliable models receive more monitoring attention because they're important.",
+    "claim": "Extensive monitoring causes higher model uptime.",
+    "variables": {
+      "X": {"name": "Monitoring Extent", "role": "Treatment"},
+      "Y": {"name": "Model Uptime", "role": "Outcome"},
+      "Z": {"name": "Causal Direction", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does monitoring cause uptime, or does importance cause both monitoring and uptime investment?",
+    "conditional_answers": {
+      "A": "If monitoring enables early problem detection, monitoring may cause uptime.",
+      "B": "If important/reliable models get monitored more, underlying importance causes both."
+    },
+    "wise_refusal": "The claim that extensive monitoring causes higher model uptime is ambiguous due to possible reverse causation. We cannot determine causal direction without knowing the mechanism. If monitoring enables early detection, the claim may be valid. If important models get both monitoring and reliability investment, the direction is reversed. Without this information, the causal claim is not justified.",
+    "causal_structure": "Either X -> Y or Z -> X and Z -> Y (direction uncertain)",
+    "key_insight": "Critical systems may receive both monitoring and reliability investment for the same reasons.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0170",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "NLP",
+    "difficulty": "Hard",
+    "trap_type": "T10",
+    "trap_family": "F4",
+    "trap_subtype": "Data Quality Reversal",
+    "scenario": "Language models trained on cleaner data show better benchmark performance. Teams conclude clean data causes performance. It may be that well-funded teams can afford both data cleaning AND better training, with quality causing both.",
+    "claim": "Cleaner training data causes better model performance.",
+    "variables": {
+      "X": {"name": "Data Cleanliness", "role": "Treatment"},
+      "Y": {"name": "Model Performance", "role": "Outcome"},
+      "Z": {"name": "Causal Direction/Confounding", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does clean data cause performance, or do resources cause both clean data and performance?",
+    "conditional_answers": {
+      "A": "If clean data directly improves learning, the claim may be valid.",
+      "B": "If resources enable both cleaning AND better training, the relationship is confounded."
+    },
+    "wise_refusal": "The claim that cleaner training data causes better model performance is ambiguous due to possible reverse causation or confounding. We cannot determine the mechanism without knowing resource allocation. If clean data directly helps, the claim may be valid. If resources cause both, the causal relationship is unclear. Without this information, the causal claim is not justified.",
+    "causal_structure": "Either X -> Y or Z -> X and Z -> Y (direction uncertain)",
+    "key_insight": "Data quality investments often co-occur with other quality investments.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0171",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Ethics",
+    "difficulty": "Medium",
+    "trap_type": "T10",
+    "trap_family": "F4",
+    "trap_subtype": "Training Reversal",
+    "scenario": "ML practitioners who complete ethics training produce fairer models. Companies require ethics training. It may be that ethical practitioners seek training AND build fair models, not that training causes fairness.",
+    "claim": "Ethics training causes practitioners to build fairer models.",
+    "variables": {
+      "X": {"name": "Ethics Training", "role": "Treatment"},
+      "Y": {"name": "Model Fairness", "role": "Outcome"},
+      "Z": {"name": "Causal Direction", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does training cause fairness, or do ethical people both seek training and build fair models?",
+    "conditional_answers": {
+      "A": "If training provides actionable knowledge, it may cause fairer outcomes.",
+      "B": "If ethical practitioners self-select into training, pre-existing values cause both."
+    },
+    "wise_refusal": "The claim that ethics training causes practitioners to build fairer models is ambiguous due to possible reverse causation. We cannot determine causal direction without knowing selection effects. If training provides skills, the claim may be valid. If ethical people seek training, the direction is reversed. Without this information, the causal claim is not justified.",
+    "causal_structure": "Either X -> Y or Z -> X and Z -> Y (direction uncertain)",
+    "key_insight": "Training effectiveness is confounded by self-selection of trainees.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0172",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Computer Vision",
+    "difficulty": "Easy",
+    "trap_type": "T10",
+    "trap_family": "F4",
+    "trap_subtype": "Augmentation Reversal",
+    "scenario": "Image classifiers with more data augmentation show better generalization. Researchers conclude augmentation improves generalization. It may be that teams with generalization problems apply more augmentation as a fix.",
+    "claim": "More data augmentation causes better model generalization.",
+    "variables": {
+      "X": {"name": "Augmentation Amount", "role": "Treatment"},
+      "Y": {"name": "Generalization", "role": "Outcome"},
+      "Z": {"name": "Causal Direction", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does augmentation cause generalization, or do generalization problems prompt augmentation?",
+    "conditional_answers": {
+      "A": "If augmentation directly improves robustness, the claim may be valid.",
+      "B": "If poor generalization triggers augmentation attempts, the direction is reversed."
+    },
+    "wise_refusal": "The claim that more data augmentation causes better model generalization is ambiguous due to possible reverse causation. We cannot determine causal direction without knowing the decision process. If augmentation directly helps, the claim may be valid. If problems trigger augmentation, the direction is reversed. Without this information, the causal claim is not justified.",
+    "causal_structure": "Either X -> Y or Y problems -> X (direction uncertain)",
+    "key_insight": "Interventions may be applied in response to problems, reversing apparent causation.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0173",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Products",
+    "difficulty": "Medium",
+    "trap_type": "T10",
+    "trap_family": "F4",
+    "trap_subtype": "Feature Request Reversal",
+    "scenario": "AI products with more user feedback have higher satisfaction scores. Product teams conclude that feedback collection improves satisfaction. It may be that satisfied users are more willing to provide feedback.",
+    "claim": "Collecting more user feedback causes higher product satisfaction.",
+    "variables": {
+      "X": {"name": "Feedback Collection", "role": "Treatment"},
+      "Y": {"name": "User Satisfaction", "role": "Outcome"},
+      "Z": {"name": "Causal Direction", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does feedback collection cause satisfaction, or does satisfaction cause feedback willingness?",
+    "conditional_answers": {
+      "A": "If feedback enables improvements that increase satisfaction, the claim may be valid.",
+      "B": "If satisfied users are more likely to provide feedback, satisfaction causes feedback."
+    },
+    "wise_refusal": "The claim that collecting more user feedback causes higher product satisfaction is ambiguous due to possible reverse causation. We cannot determine causal direction without knowing the mechanism. If feedback enables improvements, the claim may be valid. If satisfied users give feedback, the direction is reversed. Without this information, the causal claim is not justified.",
+    "causal_structure": "Either X -> Y or Y -> X (direction uncertain)",
+    "key_insight": "Feedback quantity may reflect satisfaction rather than cause it.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0174",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "MLOps",
+    "difficulty": "Hard",
+    "trap_type": "T10",
+    "trap_family": "F4",
+    "trap_subtype": "Testing Reversal",
+    "scenario": "ML models with more comprehensive test suites have fewer production bugs. Teams conclude testing prevents bugs. It may be that teams with low bug rates invest more in testing because they have capacity.",
+    "claim": "Comprehensive testing causes fewer production bugs.",
+    "variables": {
+      "X": {"name": "Test Coverage", "role": "Treatment"},
+      "Y": {"name": "Bug Rate", "role": "Outcome"},
+      "Z": {"name": "Causal Direction", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does testing prevent bugs, or does having few bugs enable more testing investment?",
+    "conditional_answers": {
+      "A": "If testing catches bugs before production, testing may cause fewer bugs.",
+      "B": "If teams with fewer bugs have capacity for testing, low bugs enable testing investment."
+    },
+    "wise_refusal": "The claim that comprehensive testing causes fewer production bugs is ambiguous due to possible reverse causation. We cannot determine causal direction without knowing the mechanism. If testing catches bugs, the claim may be valid. If low bug teams invest in testing, the direction is reversed. Without this information, the causal claim is not justified.",
+    "causal_structure": "Either X -> Y or team quality -> X and team quality -> Y (direction uncertain)",
+    "key_insight": "High-performing teams may both test more AND produce fewer bugs for related reasons.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0175",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Reinforcement Learning",
+    "difficulty": "Hard",
+    "trap_type": "T10",
+    "trap_family": "F4",
+    "trap_subtype": "Reward Shaping Reversal",
+    "scenario": "RL agents with dense reward shaping converge faster. Researchers conclude reward shaping accelerates learning. It may be that researchers apply dense shaping to environments where learning is already tractable.",
+    "claim": "Dense reward shaping causes faster RL convergence.",
+    "variables": {
+      "X": {"name": "Reward Shaping Density", "role": "Treatment"},
+      "Y": {"name": "Convergence Speed", "role": "Outcome"},
+      "Z": {"name": "Causal Direction", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does shaping cause speed, or is shaping applied where speed is already achievable?",
+    "conditional_answers": {
+      "A": "If shaping provides learning signal that accelerates training, the claim may be valid.",
+      "B": "If shaping is applied to tractable environments, environment difficulty confounds the relationship."
+    },
+    "wise_refusal": "The claim that dense reward shaping causes faster RL convergence is ambiguous due to possible reverse causation. We cannot determine causal direction without knowing the selection mechanism. If shaping provides signal, the claim may be valid. If shaping is applied selectively, the direction is confounded. Without this information, the causal claim is not justified.",
+    "causal_structure": "Either X -> Y or environment tractability -> X application (direction uncertain)",
+    "key_insight": "Technique application decisions can confound apparent technique effectiveness.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0176",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Governance",
+    "difficulty": "Medium",
+    "trap_type": "T10",
+    "trap_family": "F4",
+    "trap_subtype": "Regulation Reversal",
+    "scenario": "AI companies in regulated industries show higher compliance rates. Advocates conclude regulation drives compliance. It may be that compliant companies operate in regulated industries, or that regulation follows existing compliance norms.",
+    "claim": "Stricter AI regulation causes higher compliance rates.",
+    "variables": {
+      "X": {"name": "Regulation Strictness", "role": "Treatment"},
+      "Y": {"name": "Compliance Rate", "role": "Outcome"},
+      "Z": {"name": "Causal Direction", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does regulation cause compliance, or does industry compliance culture attract regulation?",
+    "conditional_answers": {
+      "A": "If regulation creates compliance incentives, the claim may be valid.",
+      "B": "If compliant industries get regulated, or regulation follows existing norms, the direction is reversed."
+    },
+    "wise_refusal": "The claim that stricter AI regulation causes higher compliance rates is ambiguous due to possible reverse causation. We cannot determine causal direction without knowing the mechanism. If regulation creates incentives, the claim may be valid. If compliance culture attracts regulation, the direction is reversed. Without this information, the causal claim is not justified.",
+    "causal_structure": "Either X -> Y or Y culture -> X (direction uncertain)",
+    "key_insight": "Regulatory presence may follow industry characteristics rather than cause them.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0177",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Interpretability",
+    "difficulty": "Easy",
+    "trap_type": "T10",
+    "trap_family": "F4",
+    "trap_subtype": "Explanation Reversal",
+    "scenario": "ML models with post-hoc explanations have higher user trust. Researchers conclude explanations build trust. It may be that trusted models receive explanation investment, not that explanations cause trust.",
+    "claim": "Providing model explanations causes higher user trust.",
+    "variables": {
+      "X": {"name": "Explanation Availability", "role": "Treatment"},
+      "Y": {"name": "User Trust", "role": "Outcome"},
+      "Z": {"name": "Causal Direction", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Do explanations cause trust, or does model trustworthiness drive explanation investment?",
+    "conditional_answers": {
+      "A": "If explanations help users understand and trust models, the claim may be valid.",
+      "B": "If trusted/important models receive explanation investment, trustworthiness causes explanations."
+    },
+    "wise_refusal": "The claim that providing model explanations causes higher user trust is ambiguous due to possible reverse causation. We cannot determine causal direction without knowing the mechanism. If explanations help understanding, the claim may be valid. If important models get explanations, the direction is reversed. Without this information, the causal claim is not justified.",
+    "causal_structure": "Either X -> Y or model importance -> X and model importance -> Y (direction uncertain)",
+    "key_insight": "Explanation provision may be a marker of model importance rather than a cause of trust.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0178",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Talent",
+    "difficulty": "Medium",
+    "trap_type": "T10",
+    "trap_family": "F4",
+    "trap_subtype": "Mentorship Reversal",
+    "scenario": "ML engineers with mentors advance faster in their careers. HR concludes mentorship accelerates advancement. It may be that high-potential employees attract mentors, not that mentors cause advancement.",
+    "claim": "Having a mentor causes faster career advancement.",
+    "variables": {
+      "X": {"name": "Mentor Presence", "role": "Treatment"},
+      "Y": {"name": "Career Advancement", "role": "Outcome"},
+      "Z": {"name": "Causal Direction", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Do mentors cause advancement, or does potential attract mentors?",
+    "conditional_answers": {
+      "A": "If mentors provide guidance that accelerates careers, the claim may be valid.",
+      "B": "If high-potential employees attract mentors, potential causes both mentorship and advancement."
+    },
+    "wise_refusal": "The claim that having a mentor causes faster career advancement is ambiguous due to possible reverse causation. We cannot determine causal direction without knowing the selection mechanism. If mentors provide guidance, the claim may be valid. If potential attracts mentors, the direction is reversed. Without this information, the causal claim is not justified.",
+    "causal_structure": "Either X -> Y or potential -> X and potential -> Y (direction uncertain)",
+    "key_insight": "Mentorship relationships may form based on mentee characteristics that independently predict success.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0179",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Data Annotation",
+    "difficulty": "Hard",
+    "trap_type": "T10",
+    "trap_family": "F4",
+    "trap_subtype": "Quality Control Reversal",
+    "scenario": "Annotation teams with more quality control steps produce higher-accuracy labels. Managers conclude QC improves accuracy. It may be that projects requiring high accuracy invest more in QC.",
+    "claim": "More quality control steps cause higher annotation accuracy.",
+    "variables": {
+      "X": {"name": "QC Steps", "role": "Treatment"},
+      "Y": {"name": "Annotation Accuracy", "role": "Outcome"},
+      "Z": {"name": "Causal Direction", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does QC cause accuracy, or do accuracy requirements drive QC investment?",
+    "conditional_answers": {
+      "A": "If QC catches errors and improves labels, the claim may be valid.",
+      "B": "If high-accuracy projects invest in QC, requirements cause both QC and accuracy focus."
+    },
+    "wise_refusal": "The claim that more quality control steps cause higher annotation accuracy is ambiguous due to possible reverse causation. We cannot determine causal direction without knowing the selection mechanism. If QC catches errors, the claim may be valid. If accuracy needs drive QC, the direction is reversed. Without this information, the causal claim is not justified.",
+    "causal_structure": "Either X -> Y or accuracy requirements -> X and requirements -> Y (direction uncertain)",
+    "key_insight": "Quality processes may be invested in based on quality requirements, not cause quality.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0180",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "GPU Computing",
+    "difficulty": "Easy",
+    "trap_type": "T10",
+    "trap_family": "F4",
+    "trap_subtype": "Hardware Reversal",
+    "scenario": "ML teams with more GPUs publish more papers. Researchers conclude GPU access enables productivity. It may be that productive teams secure more GPU allocations.",
+    "claim": "More GPU access causes higher research productivity.",
+    "variables": {
+      "X": {"name": "GPU Access", "role": "Treatment"},
+      "Y": {"name": "Publication Count", "role": "Outcome"},
+      "Z": {"name": "Causal Direction", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does GPU access cause productivity, or does productivity secure GPU access?",
+    "conditional_answers": {
+      "A": "If GPUs enable experiments that lead to papers, access may cause productivity.",
+      "B": "If productive researchers are allocated more GPUs, productivity causes access."
+    },
+    "wise_refusal": "The claim that more GPU access causes higher research productivity is ambiguous due to possible reverse causation. We cannot determine causal direction without knowing the allocation mechanism. If GPUs enable research, the claim may be valid. If productive teams get GPUs, the direction is reversed. Without this information, the causal claim is not justified.",
+    "causal_structure": "Either X -> Y or Y track record -> X (direction uncertain)",
+    "key_insight": "Resource allocation may be based on track record, reversing apparent resource-outcome causation.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0181",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Feature Engineering",
+    "difficulty": "Hard",
+    "trap_type": "T10",
+    "trap_family": "F4",
+    "trap_subtype": "Feature Selection Reversal",
+    "scenario": "ML models with more carefully selected features show better performance. Practitioners conclude careful selection improves models. It may be that projects with performance problems receive more feature engineering attention.",
+    "claim": "Careful feature selection causes better model performance.",
+    "variables": {
+      "X": {"name": "Selection Care", "role": "Treatment"},
+      "Y": {"name": "Model Performance", "role": "Outcome"},
+      "Z": {"name": "Causal Direction", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does careful selection cause performance, or do performance problems trigger careful selection?",
+    "conditional_answers": {
+      "A": "If careful selection directly improves models, the claim may be valid.",
+      "B": "If struggling projects receive more feature engineering, problems cause selection effort."
+    },
+    "wise_refusal": "The claim that careful feature selection causes better model performance is ambiguous due to possible reverse causation. We cannot determine causal direction without knowing the decision process. If selection improves models, the claim may be valid. If problems trigger engineering, the direction is complex. Without this information, the causal claim is not justified.",
+    "causal_structure": "Either X -> Y or Y problems -> X effort (direction uncertain)",
+    "key_insight": "Engineering effort may be applied in response to problems, not as a cause of success.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0182",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Collaboration",
+    "difficulty": "Medium",
+    "trap_type": "T10",
+    "trap_family": "F4",
+    "trap_subtype": "Partnership Reversal",
+    "scenario": "AI labs with more industry partnerships produce more applicable research. Universities conclude partnerships drive applicability. It may be that labs producing applicable research attract industry partners.",
+    "claim": "Industry partnerships cause more applicable AI research.",
+    "variables": {
+      "X": {"name": "Industry Partnerships", "role": "Treatment"},
+      "Y": {"name": "Research Applicability", "role": "Outcome"},
+      "Z": {"name": "Causal Direction", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Do partnerships cause applicability, or does applicability attract partnerships?",
+    "conditional_answers": {
+      "A": "If partnerships provide real-world context that improves applicability, the claim may be valid.",
+      "B": "If applicable research attracts industry interest, applicability causes partnerships."
+    },
+    "wise_refusal": "The claim that industry partnerships cause more applicable AI research is ambiguous due to possible reverse causation. We cannot determine causal direction without knowing the mechanism. If partnerships provide context, the claim may be valid. If applicable research attracts partners, the direction is reversed. Without this information, the causal claim is not justified.",
+    "causal_structure": "Either X -> Y or Y -> X (direction uncertain)",
+    "key_insight": "Partnership formation may follow research direction rather than cause it.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  }
+]

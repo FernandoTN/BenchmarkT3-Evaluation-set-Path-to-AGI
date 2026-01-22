@@ -1,0 +1,408 @@
+[
+  {
+    "case_id": "T3-I1-L2-0055",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "ML Model Lifecycle",
+    "difficulty": "Easy",
+    "trap_type": "T4",
+    "trap_family": "F1",
+    "trap_subtype": "Model Deployment Immortal Time",
+    "scenario": "ML models that receive feature updates show longer production lifespans. Teams conclude that updates extend model life. However, models must survive in production long enough to receive updates - models that fail early never get updated.",
+    "claim": "Feature updates cause longer model production lifespans.",
+    "variables": {
+      "X": {"name": "Feature Updates", "role": "Treatment"},
+      "Y": {"name": "Production Lifespan", "role": "Outcome"},
+      "Z": {"name": "Time-to-update survival (immortal time)", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Did models need to survive a certain period before receiving updates, creating immortal time bias?",
+    "conditional_answers": {
+      "A": "If updates were applied immediately upon deployment, the correlation may reflect true causal effect.",
+      "B": "If models had to survive to receive updates, the correlation reflects survivorship during the immortal time period."
+    },
+    "wise_refusal": "The claim that feature updates cause longer model production lifespans is ambiguous due to immortal time bias. We cannot determine if updates extend life or if survival to update creates the correlation without knowing the timing of updates. If updates were immediate, the effect may be causal. If survival was required, immortal time creates spurious correlation. Without this information, the causal claim is not justified.",
+    "causal_structure": "Survival -> X -> Y (survival to treatment period confounds treatment-outcome relationship)",
+    "key_insight": "Time required to receive treatment creates guaranteed survival period that inflates apparent treatment benefit.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0056",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Startup Metrics",
+    "difficulty": "Easy",
+    "trap_type": "T4",
+    "trap_family": "F1",
+    "trap_subtype": "Funding Round Immortal Time",
+    "scenario": "AI startups that achieve Series B funding show 3x higher 5-year survival rates. Investors conclude Series B funding ensures survival. However, startups must survive long enough (typically 2-3 years) to reach Series B.",
+    "claim": "Series B funding causes higher startup survival rates.",
+    "variables": {
+      "X": {"name": "Series B Funding", "role": "Treatment"},
+      "Y": {"name": "5-Year Survival", "role": "Outcome"},
+      "Z": {"name": "Time-to-Series-B survival (immortal time)", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the survival period required to reach Series B create immortal time bias?",
+    "conditional_answers": {
+      "A": "If Series B funding occurred at founding, the survival benefit might reflect funding's causal effect.",
+      "B": "If 2-3 years of survival preceded Series B, the survival advantage partly reflects immortal time bias."
+    },
+    "wise_refusal": "The claim that Series B funding causes higher startup survival rates is ambiguous due to immortal time bias. We cannot determine if funding causes survival or if surviving to funding creates the correlation without knowing the timing. If funding was immediate, the effect may be causal. If years of survival preceded funding, immortal time inflates apparent benefit. Without this information, the causal claim is not justified.",
+    "causal_structure": "Survival to Series B -> X -> Y (pre-funding survival confounds the funding-outcome relationship)",
+    "key_insight": "Later-stage funding recipients have already demonstrated survival ability, inflating apparent funding benefit.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0057",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Research Careers",
+    "difficulty": "Medium",
+    "trap_type": "T4",
+    "trap_family": "F1",
+    "trap_subtype": "Career Milestone Immortal Time",
+    "scenario": "AI researchers who publish in Nature/Science show longer research careers. Universities conclude elite publications extend careers. However, researchers must have careers long enough to achieve such publications - typically 5-10 years.",
+    "claim": "Elite publications cause longer research careers.",
+    "variables": {
+      "X": {"name": "Nature/Science Publication", "role": "Treatment"},
+      "Y": {"name": "Career Length", "role": "Outcome"},
+      "Z": {"name": "Time-to-publication survival (immortal time)", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Did researchers need years of career survival before achieving elite publications?",
+    "conditional_answers": {
+      "A": "If elite publications occurred immediately in careers, the correlation may reflect publication benefits.",
+      "B": "If years of career survival preceded publications, immortal time bias inflates the apparent career-lengthening effect."
+    },
+    "wise_refusal": "The claim that elite publications cause longer research careers is ambiguous due to immortal time bias. We cannot determine if publications extend careers or if career survival to publication creates correlation without knowing timing. If publications were early, the effect may be causal. If years of survival preceded them, immortal time creates spurious correlation. Without this information, the causal claim is not justified.",
+    "causal_structure": "Career survival -> X -> Y (time required to achieve milestone confounds milestone-outcome relationship)",
+    "key_insight": "Career achievements that take years to reach will mechanically correlate with longer careers.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0058",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "ML Platform Adoption",
+    "difficulty": "Medium",
+    "trap_type": "T4",
+    "trap_family": "F1",
+    "trap_subtype": "Platform Migration Immortal Time",
+    "scenario": "Data science teams that migrate to cloud ML platforms show higher productivity 2 years later. Vendors claim migration improves productivity. Teams must remain operational long enough to complete migration - struggling teams often dissolve before migrating.",
+    "claim": "Cloud ML platform migration causes higher team productivity.",
+    "variables": {
+      "X": {"name": "Platform Migration", "role": "Treatment"},
+      "Y": {"name": "2-Year Productivity", "role": "Outcome"},
+      "Z": {"name": "Time-to-migration survival (immortal time)", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Did teams need to survive a significant period before completing migration?",
+    "conditional_answers": {
+      "A": "If migration was instantaneous, productivity improvements may reflect the platform's effect.",
+      "B": "If migration took months and struggling teams failed before completing it, immortal time bias inflates apparent benefits."
+    },
+    "wise_refusal": "The claim that cloud ML platform migration causes higher team productivity is ambiguous due to immortal time bias. We cannot determine if migration improves productivity or if survival to migration creates correlation without knowing migration timing. If migration was instant, the effect may be causal. If it took months, immortal time creates spurious correlation. Without this information, the causal claim is not justified.",
+    "causal_structure": "Team survival -> X -> Y (time required to complete migration confounds migration-outcome relationship)",
+    "key_insight": "Technology migrations that take time to complete select for teams that survive the transition period.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0059",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Safety Certifications",
+    "difficulty": "Medium",
+    "trap_type": "T4",
+    "trap_family": "F1",
+    "trap_subtype": "Certification Immortal Time",
+    "scenario": "AI systems that receive safety certifications show fewer incidents over their lifecycle. Regulators conclude certifications improve safety. Systems must operate incident-free long enough to complete the certification process - typically 6-12 months.",
+    "claim": "Safety certifications cause fewer AI incidents.",
+    "variables": {
+      "X": {"name": "Safety Certification", "role": "Treatment"},
+      "Y": {"name": "Incident Rate", "role": "Outcome"},
+      "Z": {"name": "Time-to-certification survival (immortal time)", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Did systems need to operate safely for months before receiving certification?",
+    "conditional_answers": {
+      "A": "If certification was instant, lower incident rates may reflect certification's safety effect.",
+      "B": "If months of safe operation preceded certification, immortal time bias inflates the certification-safety correlation."
+    },
+    "wise_refusal": "The claim that safety certifications cause fewer AI incidents is ambiguous due to immortal time bias. We cannot determine if certifications improve safety or if safe operation to certification creates correlation without knowing timing. If certification was instant, the effect may be causal. If months of safe operation preceded it, immortal time creates spurious correlation. Without this information, the causal claim is not justified.",
+    "causal_structure": "Safe operation -> X -> Y (required safe period to achieve certification confounds certification-safety relationship)",
+    "key_insight": "Certifications requiring clean safety records mechanically correlate with good safety outcomes.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0060",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Open Source ML",
+    "difficulty": "Hard",
+    "trap_type": "T4",
+    "trap_family": "F1",
+    "trap_subtype": "Maintenance Immortal Time",
+    "scenario": "Open source ML projects that receive corporate sponsorship show longer active maintenance periods. Advocates conclude sponsorship extends project life. Projects must demonstrate sustained community interest before attracting sponsors - typically years of activity.",
+    "claim": "Corporate sponsorship causes longer open source project maintenance.",
+    "variables": {
+      "X": {"name": "Corporate Sponsorship", "role": "Treatment"},
+      "Y": {"name": "Maintenance Period", "role": "Outcome"},
+      "Z": {"name": "Time-to-sponsorship survival (immortal time)", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Did projects need years of active maintenance before attracting sponsorship?",
+    "conditional_answers": {
+      "A": "If sponsorship occurred at project inception, longer maintenance may reflect sponsorship benefits.",
+      "B": "If years of maintenance preceded sponsorship, immortal time bias inflates the apparent sponsorship effect."
+    },
+    "wise_refusal": "The claim that corporate sponsorship causes longer open source project maintenance is ambiguous due to immortal time bias. We cannot determine if sponsorship extends projects or if survival to sponsorship creates correlation without knowing timing. If sponsorship was early, the effect may be causal. If years preceded sponsorship, immortal time creates spurious correlation. Without this information, the causal claim is not justified.",
+    "causal_structure": "Project survival -> X -> Y (time required to attract sponsorship confounds sponsorship-longevity relationship)",
+    "key_insight": "Sponsorships that require demonstrated traction mechanically correlate with longer-lived projects.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0061",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Product Development",
+    "difficulty": "Hard",
+    "trap_type": "T4",
+    "trap_family": "F1",
+    "trap_subtype": "Product Launch Immortal Time",
+    "scenario": "AI products that achieve product-market fit show 5x higher 3-year revenue. Product managers conclude fit drives revenue. Products must survive long enough to iterate toward fit - typically 12-24 months of runway before achieving fit.",
+    "claim": "Product-market fit causes higher long-term revenue.",
+    "variables": {
+      "X": {"name": "Product-Market Fit", "role": "Treatment"},
+      "Y": {"name": "3-Year Revenue", "role": "Outcome"},
+      "Z": {"name": "Time-to-fit survival (immortal time)", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Did products need to survive 1-2 years before achieving product-market fit?",
+    "conditional_answers": {
+      "A": "If fit was achieved immediately, higher revenue may reflect the fit's causal benefit.",
+      "B": "If 1-2 years of survival preceded fit, immortal time bias inflates the apparent revenue benefit."
+    },
+    "wise_refusal": "The claim that product-market fit causes higher long-term revenue is ambiguous due to immortal time bias. We cannot determine if fit drives revenue or if survival to fit creates correlation without knowing timing. If fit was immediate, the effect may be causal. If years of survival preceded fit, immortal time creates spurious correlation. Without this information, the causal claim is not justified.",
+    "causal_structure": "Product survival -> X -> Y (time required to achieve fit confounds fit-revenue relationship)",
+    "key_insight": "Milestones that take time to achieve will mechanically correlate with long-term outcomes.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0062",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Retraining",
+    "difficulty": "Easy",
+    "trap_type": "T4",
+    "trap_family": "F1",
+    "trap_subtype": "Retraining Immortal Time",
+    "scenario": "ML models that undergo retraining cycles show better long-term accuracy. MLOps teams conclude retraining maintains accuracy. Models must remain in production long enough to trigger retraining thresholds - degraded models may be replaced before retraining.",
+    "claim": "Model retraining causes better long-term accuracy.",
+    "variables": {
+      "X": {"name": "Retraining Cycles", "role": "Treatment"},
+      "Y": {"name": "Long-term Accuracy", "role": "Outcome"},
+      "Z": {"name": "Time-to-retraining survival (immortal time)", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Did models need to survive in production long enough to trigger retraining?",
+    "conditional_answers": {
+      "A": "If retraining was scheduled immediately, accuracy benefits may reflect retraining's effect.",
+      "B": "If models had to survive degradation periods to reach retraining, immortal time bias inflates apparent benefits."
+    },
+    "wise_refusal": "The claim that model retraining causes better long-term accuracy is ambiguous due to immortal time bias. We cannot determine if retraining improves accuracy or if survival to retraining creates correlation without knowing timing. If retraining was immediate, the effect may be causal. If survival was required, immortal time creates spurious correlation. Without this information, the causal claim is not justified.",
+    "causal_structure": "Model survival -> X -> Y (time required to trigger retraining confounds retraining-accuracy relationship)",
+    "key_insight": "Models that survive to retraining may already be more robust than those replaced before retraining.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0063",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Tech Talent Retention",
+    "difficulty": "Medium",
+    "trap_type": "T4",
+    "trap_family": "F1",
+    "trap_subtype": "Promotion Immortal Time",
+    "scenario": "ML engineers who receive promotions show higher 5-year retention. HR concludes promotions improve retention. Engineers must stay at the company long enough to be considered for promotion - typically 2-3 years.",
+    "claim": "Promotions cause higher employee retention.",
+    "variables": {
+      "X": {"name": "Promotion", "role": "Treatment"},
+      "Y": {"name": "5-Year Retention", "role": "Outcome"},
+      "Z": {"name": "Time-to-promotion survival (immortal time)", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Did engineers need to stay 2-3 years before being eligible for promotion?",
+    "conditional_answers": {
+      "A": "If promotions occurred immediately upon hiring, retention benefits may reflect promotion effects.",
+      "B": "If 2-3 years of tenure preceded promotion eligibility, immortal time bias inflates apparent retention benefits."
+    },
+    "wise_refusal": "The claim that promotions cause higher employee retention is ambiguous due to immortal time bias. We cannot determine if promotions improve retention or if survival to promotion eligibility creates correlation without knowing timing. If promotions were immediate, the effect may be causal. If years of tenure preceded eligibility, immortal time creates spurious correlation. Without this information, the causal claim is not justified.",
+    "causal_structure": "Employment survival -> X -> Y (time required for promotion eligibility confounds promotion-retention relationship)",
+    "key_insight": "Career benefits that require tenure will mechanically correlate with longer tenure.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0064",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Governance",
+    "difficulty": "Hard",
+    "trap_type": "T4",
+    "trap_family": "F1",
+    "trap_subtype": "Audit Completion Immortal Time",
+    "scenario": "AI systems that complete third-party audits show lower bias in subsequent evaluations. Consultants conclude audits reduce bias. Systems must operate long enough to complete the audit process - 3-6 months during which biased systems may be deprecated.",
+    "claim": "Third-party audits cause lower AI bias.",
+    "variables": {
+      "X": {"name": "Completed Audit", "role": "Treatment"},
+      "Y": {"name": "Subsequent Bias Levels", "role": "Outcome"},
+      "Z": {"name": "Time-to-audit-completion survival (immortal time)", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Did systems need to operate for months before completing the audit process?",
+    "conditional_answers": {
+      "A": "If audits were instantaneous, lower bias may reflect audit-driven improvements.",
+      "B": "If 3-6 months of operation preceded audit completion, immortal time bias inflates the audit-bias correlation."
+    },
+    "wise_refusal": "The claim that third-party audits cause lower AI bias is ambiguous due to immortal time bias. We cannot determine if audits reduce bias or if survival to audit completion creates correlation without knowing timing. If audits were instant, the effect may be causal. If months of operation preceded completion, immortal time creates spurious correlation. Without this information, the causal claim is not justified.",
+    "causal_structure": "System survival -> X -> Y (time required to complete audit confounds audit-bias relationship)",
+    "key_insight": "Audits that take time to complete select for systems that survive the audit period.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0065",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Neural Network Training",
+    "difficulty": "Easy",
+    "trap_type": "T4",
+    "trap_family": "F1",
+    "trap_subtype": "Training Checkpoint Immortal Time",
+    "scenario": "Neural networks that reach learning rate decay checkpoints show better final accuracy. Trainers conclude decay schedules improve accuracy. Networks must train long enough without diverging to reach decay checkpoints - unstable networks fail before reaching them.",
+    "claim": "Learning rate decay causes better final accuracy.",
+    "variables": {
+      "X": {"name": "Learning Rate Decay", "role": "Treatment"},
+      "Y": {"name": "Final Accuracy", "role": "Outcome"},
+      "Z": {"name": "Time-to-decay survival (immortal time)", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Did networks need to train stably for significant epochs before reaching decay checkpoints?",
+    "conditional_answers": {
+      "A": "If decay was applied from the start, accuracy benefits may reflect the decay schedule's effect.",
+      "B": "If significant training preceded decay checkpoints, immortal time bias inflates apparent benefits."
+    },
+    "wise_refusal": "The claim that learning rate decay causes better final accuracy is ambiguous due to immortal time bias. We cannot determine if decay improves accuracy or if survival to decay creates correlation without knowing timing. If decay was early, the effect may be causal. If survival to checkpoint was required, immortal time creates spurious correlation. Without this information, the causal claim is not justified.",
+    "causal_structure": "Training survival -> X -> Y (time required to reach decay confounds decay-accuracy relationship)",
+    "key_insight": "Training techniques applied later in training select for networks that survived earlier phases.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0066",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Company Growth",
+    "difficulty": "Medium",
+    "trap_type": "T4",
+    "trap_family": "F1",
+    "trap_subtype": "Enterprise Sales Immortal Time",
+    "scenario": "AI startups that close enterprise deals show higher valuations. Advisors conclude enterprise sales drive valuation. Startups must survive and grow large enough to be considered by enterprises - typically 3-5 years of operation.",
+    "claim": "Enterprise deals cause higher AI startup valuations.",
+    "variables": {
+      "X": {"name": "Enterprise Deals", "role": "Treatment"},
+      "Y": {"name": "Startup Valuation", "role": "Outcome"},
+      "Z": {"name": "Time-to-enterprise-ready survival (immortal time)", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Did startups need to survive 3-5 years before being enterprise-ready?",
+    "conditional_answers": {
+      "A": "If enterprise deals occurred at founding, higher valuations may reflect deal benefits.",
+      "B": "If years of survival preceded enterprise readiness, immortal time bias inflates the deal-valuation correlation."
+    },
+    "wise_refusal": "The claim that enterprise deals cause higher AI startup valuations is ambiguous due to immortal time bias. We cannot determine if deals drive valuations or if survival to enterprise-readiness creates correlation without knowing timing. If deals were early, the effect may be causal. If years of survival preceded them, immortal time creates spurious correlation. Without this information, the causal claim is not justified.",
+    "causal_structure": "Startup survival -> X -> Y (time required to become enterprise-ready confounds deal-valuation relationship)",
+    "key_insight": "Business milestones that require maturity will mechanically correlate with mature company metrics.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0067",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Research Teams",
+    "difficulty": "Hard",
+    "trap_type": "T4",
+    "trap_family": "F1",
+    "trap_subtype": "Grant Renewal Immortal Time",
+    "scenario": "AI research groups that receive grant renewals produce more publications over their lifetime. Funders conclude renewals enable productivity. Groups must complete initial grant periods and show results before renewal - struggling groups lose funding before renewal opportunity.",
+    "claim": "Grant renewals cause higher research productivity.",
+    "variables": {
+      "X": {"name": "Grant Renewal", "role": "Treatment"},
+      "Y": {"name": "Lifetime Publications", "role": "Outcome"},
+      "Z": {"name": "Time-to-renewal survival (immortal time)", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Did groups need to survive initial grant periods before becoming eligible for renewal?",
+    "conditional_answers": {
+      "A": "If renewals were guaranteed from the start, higher productivity may reflect renewal benefits.",
+      "B": "If groups had to complete initial periods before renewal eligibility, immortal time bias inflates apparent benefits."
+    },
+    "wise_refusal": "The claim that grant renewals cause higher research productivity is ambiguous due to immortal time bias. We cannot determine if renewals enable productivity or if survival to renewal eligibility creates correlation without knowing timing. If renewals were guaranteed, the effect may be causal. If initial period completion was required, immortal time creates spurious correlation. Without this information, the causal claim is not justified.",
+    "causal_structure": "Grant period survival -> X -> Y (time required for renewal eligibility confounds renewal-productivity relationship)",
+    "key_insight": "Funding mechanisms that require proven track records mechanically select for productive groups.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0068",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "ML Pipeline Optimization",
+    "difficulty": "Hard",
+    "trap_type": "T4",
+    "trap_family": "F1",
+    "trap_subtype": "Pipeline Maturity Immortal Time",
+    "scenario": "ML pipelines that implement advanced monitoring show lower failure rates. DevOps teams conclude monitoring prevents failures. Pipelines must run reliably long enough to justify monitoring investment - frequently failing pipelines are replaced before monitoring is added.",
+    "claim": "Advanced monitoring causes lower ML pipeline failure rates.",
+    "variables": {
+      "X": {"name": "Advanced Monitoring", "role": "Treatment"},
+      "Y": {"name": "Failure Rate", "role": "Outcome"},
+      "Z": {"name": "Time-to-monitoring survival (immortal time)", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Did pipelines need to prove reliability before receiving monitoring investment?",
+    "conditional_answers": {
+      "A": "If monitoring was implemented immediately, lower failures may reflect monitoring's preventive effect.",
+      "B": "If reliability was required before monitoring investment, immortal time bias inflates the monitoring-reliability correlation."
+    },
+    "wise_refusal": "The claim that advanced monitoring causes lower ML pipeline failure rates is ambiguous due to immortal time bias. We cannot determine if monitoring prevents failures or if survival to monitoring investment creates correlation without knowing timing. If monitoring was immediate, the effect may be causal. If reliability preceded investment, immortal time creates spurious correlation. Without this information, the causal claim is not justified.",
+    "causal_structure": "Pipeline reliability -> X -> Y (time required to justify monitoring confounds monitoring-failure relationship)",
+    "key_insight": "Infrastructure investments made only in reliable systems will appear to cause reliability.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  }
+]

@@ -1,0 +1,460 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://t3benchmark.ai/schemas/groupI_FernandoTorres_schema.json",
+  "title": "T3 Benchmark GroupI1 Dataset Schema V4.0",
+  "description": "JSON Schema documenting the V4.0 case structure for the GroupI1 T3 Benchmark dataset (CS372 Assignment 2 - Stanford University)",
+  "type": "object",
+  "required": ["_metadata", "cases"],
+  "properties": {
+    "_metadata": {
+      "type": "object",
+      "description": "Dataset-level metadata including version, statistics, and authorship information",
+      "required": ["version", "schema_version", "created_at", "total_cases", "bucket", "domain"],
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "Dataset version number (e.g., '4.0')"
+        },
+        "schema_version": {
+          "type": "string",
+          "description": "Reference to the case schema version used (e.g., 'case_schema_v4.json')"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 timestamp of dataset creation"
+        },
+        "total_cases": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Total number of cases in the dataset"
+        },
+        "bucket": {
+          "type": "string",
+          "description": "Assignment bucket identifier (e.g., 'BucketLarge-I')"
+        },
+        "domain": {
+          "type": "string",
+          "description": "Primary domain for this dataset (e.g., 'D8 - AI Safety & Alignment')"
+        },
+        "statistics": {
+          "type": "object",
+          "description": "Aggregate statistics for the dataset",
+          "properties": {
+            "pearl_level_distribution": {
+              "type": "object",
+              "description": "Count of cases by Pearl's Ladder level",
+              "properties": {
+                "L1": { "type": "integer" },
+                "L2": { "type": "integer" },
+                "L3": { "type": "integer" }
+              }
+            },
+            "label_distribution": {
+              "type": "object",
+              "description": "Count of cases by label",
+              "additionalProperties": { "type": "integer" }
+            },
+            "author_distribution": {
+              "type": "object",
+              "description": "Count of cases by author",
+              "additionalProperties": { "type": "integer" }
+            }
+          }
+        },
+        "authors": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "List of dataset authors"
+        },
+        "course": {
+          "type": "string",
+          "description": "Course identifier (e.g., 'CS372 Winter 2026 - Stanford University')"
+        }
+      }
+    },
+    "cases": {
+      "type": "array",
+      "description": "Array of benchmark cases",
+      "items": {
+        "$ref": "#/$defs/case"
+      }
+    }
+  },
+  "$defs": {
+    "case": {
+      "type": "object",
+      "description": "A single T3 Benchmark case testing causal reasoning",
+      "required": [
+        "id",
+        "bucket",
+        "case_id",
+        "pearl_level",
+        "scenario",
+        "claim",
+        "label",
+        "variables",
+        "trap",
+        "annotations",
+        "wise_refusal"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^T3-BucketI-[0-9]{4}$",
+          "description": "Unique case identifier (e.g., 'T3-BucketI-0001')"
+        },
+        "bucket": {
+          "type": "string",
+          "description": "Bucket assignment (e.g., 'BucketLarge-I')"
+        },
+        "case_id": {
+          "type": "string",
+          "description": "Original case identifier from source material (e.g., '8.1')"
+        },
+        "pearl_level": {
+          "type": "string",
+          "enum": ["L1", "L2", "L3"],
+          "description": "Pearl's Ladder of Causation level: L1 (Association/Seeing), L2 (Intervention/Doing), L3 (Counterfactual/Imagining)"
+        },
+        "scenario": {
+          "type": "string",
+          "minLength": 50,
+          "description": "Detailed description of the causal scenario being evaluated"
+        },
+        "claim": {
+          "type": "string",
+          "description": "The causal claim being tested in this case"
+        },
+        "label": {
+          "type": "string",
+          "enum": ["YES", "NO", "AMBIGUOUS"],
+          "description": "Ground truth label: YES (claim is valid), NO (claim is invalid/trap), AMBIGUOUS (requires clarification)"
+        },
+        "is_ambiguous": {
+          "type": "boolean",
+          "description": "Whether the case contains inherent ambiguity requiring clarification"
+        },
+        "variables": {
+          "type": "object",
+          "description": "Causal variables in the scenario",
+          "required": ["X", "Y"],
+          "properties": {
+            "X": {
+              "$ref": "#/$defs/variable",
+              "description": "Primary cause/treatment variable"
+            },
+            "Y": {
+              "$ref": "#/$defs/variable",
+              "description": "Primary outcome/effect variable"
+            },
+            "Z": {
+              "$ref": "#/$defs/variable",
+              "description": "Optional: Confounder, mediator, or contextual variable"
+            }
+          }
+        },
+        "trap": {
+          "type": "object",
+          "description": "Reasoning trap embedded in the case",
+          "required": ["type"],
+          "properties": {
+            "type": {
+              "type": "string",
+              "description": "Primary trap type identifier",
+              "enum": [
+                "GOODHART",
+                "INSTRUMENTAL",
+                "CONF_MED",
+                "EXTRAPOLATION",
+                "TRADE_OFF",
+                "COUNTERFACTUAL",
+                "MESA_OPT",
+                "GOAL_MISGENERALIZATION",
+                "DECEPTIVE_ALIGNMENT",
+                "EMERGENT_CAPABILITY",
+                "DISTRIBUTIONAL_SHIFT",
+                "REWARD_TAMPERING",
+                "SPECIFICATION_GAMING",
+                "SYCOPHANCY",
+                "INNER_ALIGNMENT"
+              ]
+            },
+            "subtype": {
+              "type": "string",
+              "description": "Specific subtype of the trap (e.g., 'Proxy Gaming', 'Instrumental Convergence')"
+            }
+          }
+        },
+        "annotations": {
+          "type": "object",
+          "description": "Structured annotations for the case",
+          "required": ["pearl_level", "domain", "trap_type", "difficulty", "subdomain"],
+          "properties": {
+            "pearl_level": {
+              "type": "string",
+              "enum": ["L1", "L2", "L3"],
+              "description": "Pearl's Ladder level (redundant for validation)"
+            },
+            "domain": {
+              "type": "string",
+              "description": "Domain code (e.g., 'D8' for AI Safety)"
+            },
+            "trap_type": {
+              "type": "string",
+              "description": "Trap type code matching trap.type"
+            },
+            "trap_subtype": {
+              "type": "string",
+              "description": "Trap subtype matching trap.subtype"
+            },
+            "difficulty": {
+              "type": "string",
+              "enum": ["Easy", "Medium", "Hard"],
+              "description": "Case difficulty level (target distribution 1:2:1)"
+            },
+            "subdomain": {
+              "type": "string",
+              "description": "Specific subdomain within D8 (e.g., 'Reward Hacking', 'Corrigibility', 'Algorithmic Fairness')"
+            },
+            "causal_structure": {
+              "type": "string",
+              "description": "DAG or description of causal relationships (e.g., 'X -> Y but X -/-> Z')"
+            },
+            "key_insight": {
+              "type": "string",
+              "description": "Core reasoning insight required to solve the case"
+            }
+          }
+        },
+        "hidden_structure": {
+          "type": "string",
+          "description": "Explanation of the hidden causal mechanism or trap structure"
+        },
+        "correct_reasoning": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Step-by-step correct reasoning chain to solve the case"
+        },
+        "gold_rationale": {
+          "type": "string",
+          "description": "Gold-standard explanation of why the label is correct"
+        },
+        "wise_refusal": {
+          "type": "string",
+          "minLength": 50,
+          "description": "Template-following refusal statement explaining the correct causal reasoning"
+        },
+        "annotation": {
+          "type": "object",
+          "description": "Provenance and validation metadata",
+          "properties": {
+            "author": {
+              "type": "string",
+              "description": "Original author of the case"
+            },
+            "num_annotators": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Number of annotators who reviewed the case"
+            },
+            "adjudicated": {
+              "type": "boolean",
+              "description": "Whether disagreements were resolved through adjudication"
+            }
+          }
+        },
+        "hidden_question": {
+          "type": "string",
+          "description": "L2 required: The pivotal question that resolves ambiguity in intervention cases"
+        },
+        "conditional_answers": {
+          "type": "object",
+          "description": "L2 required: Conditional interpretations based on hidden question answer",
+          "properties": {
+            "A": {
+              "type": "string",
+              "description": "Interpretation if hidden question answer is A"
+            },
+            "B": {
+              "type": "string",
+              "description": "Interpretation if hidden question answer is B"
+            }
+          }
+        },
+        "ground_truth": {
+          "type": "object",
+          "description": "L3 required: Counterfactual evaluation ground truth",
+          "required": ["verdict", "justification"],
+          "properties": {
+            "verdict": {
+              "type": "string",
+              "enum": ["VALID", "INVALID", "CONDITIONAL"],
+              "description": "Counterfactual validity assessment"
+            },
+            "justification": {
+              "type": "string",
+              "description": "Explanation grounded in scenario and invariants"
+            }
+          }
+        },
+        "counterfactual_claim": {
+          "type": "string",
+          "description": "L3 required: The counterfactual claim being evaluated"
+        },
+        "invariants": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "L3 required: What is held fixed across possible worlds"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "pearl_level": { "const": "L2" } }
+          },
+          "then": {
+            "description": "L2 (Intervention) cases may require hidden_question and conditional_answers for ambiguous cases"
+          }
+        },
+        {
+          "if": {
+            "properties": { "pearl_level": { "const": "L3" } }
+          },
+          "then": {
+            "required": ["ground_truth"],
+            "description": "L3 (Counterfactual) cases require ground_truth with verdict and justification"
+          }
+        }
+      ]
+    },
+    "variable": {
+      "type": "object",
+      "description": "A causal variable in the scenario",
+      "required": ["name", "role"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Human-readable name of the variable"
+        },
+        "role": {
+          "type": "string",
+          "description": "Causal role in the scenario (e.g., 'Action', 'Outcome', 'Confounder', 'Mediator', 'Goal', 'Mechanism')"
+        }
+      }
+    }
+  },
+  "definitions": {
+    "pearl_level_enum": {
+      "description": "Pearl's Ladder of Causation levels",
+      "enum_values": {
+        "L1": {
+          "name": "Association (Seeing)",
+          "description": "Observational queries: P(Y|X). Detecting correlations and patterns without intervention.",
+          "trap_types": ["W1-W10 (WOLF)", "S1-S8 (SHEEP)", "A (AMBIGUOUS)"],
+          "example_traps": ["EXTRAPOLATION", "TRADE_OFF", "Correlation vs Causation"]
+        },
+        "L2": {
+          "name": "Intervention (Doing)",
+          "description": "Interventional queries: P(Y|do(X)). Predicting effects of actions.",
+          "trap_types": ["T1-T17"],
+          "trap_families": ["F1-F6"],
+          "required_fields": ["hidden_question", "conditional_answers"],
+          "example_traps": ["GOODHART", "INSTRUMENTAL", "CONF_MED", "MESA_OPT"]
+        },
+        "L3": {
+          "name": "Counterfactual (Imagining)",
+          "description": "Counterfactual queries: P(Y_x|X',Y'). Reasoning about alternative histories.",
+          "trap_types": ["F1-F8", "DomainExt"],
+          "required_fields": ["counterfactual_claim", "invariants", "ground_truth"],
+          "labels": ["VALID", "INVALID", "CONDITIONAL"],
+          "example_traps": ["COUNTERFACTUAL", "Wishful Thinking", "Emergent Capabilities"]
+        }
+      }
+    },
+    "difficulty_enum": {
+      "description": "Case difficulty levels with target distribution 1:2:1",
+      "enum_values": {
+        "Easy": {
+          "description": "Straightforward causal reasoning required",
+          "target_proportion": 0.25
+        },
+        "Medium": {
+          "description": "Moderate complexity requiring multi-step reasoning",
+          "target_proportion": 0.50
+        },
+        "Hard": {
+          "description": "Complex cases requiring expert-level causal analysis",
+          "target_proportion": 0.25
+        }
+      }
+    },
+    "label_enum": {
+      "description": "Ground truth labels for cases",
+      "enum_values": {
+        "YES": {
+          "description": "The causal claim is valid and supported by the scenario"
+        },
+        "NO": {
+          "description": "The causal claim is invalid - contains a reasoning trap"
+        },
+        "AMBIGUOUS": {
+          "description": "The claim requires clarification; both interpretations are reasonable"
+        }
+      }
+    },
+    "trap_type_catalog": {
+      "description": "Catalog of reasoning trap types used in the dataset",
+      "trap_types": {
+        "GOODHART": {
+          "description": "Goodhart's Law - optimizing a proxy destroys its validity as a measure",
+          "subtypes": ["Proxy Gaming", "Specification Gaming", "Reward Hacking"]
+        },
+        "INSTRUMENTAL": {
+          "description": "Instrumental Convergence - agents develop convergent instrumental goals",
+          "subtypes": ["Self-Preservation", "Resource Acquisition", "Goal Preservation"]
+        },
+        "CONF_MED": {
+          "description": "Confounding or Mediation errors",
+          "subtypes": ["Proxy Discrimination", "Redlining", "Simpson's Paradox"]
+        },
+        "EXTRAPOLATION": {
+          "description": "Invalid extrapolation beyond observed data",
+          "subtypes": ["Asymptotic Failure", "Out-of-Distribution", "Trend Continuation"]
+        },
+        "TRADE_OFF": {
+          "description": "Misunderstanding trade-offs and constraints",
+          "subtypes": ["Alignment Tax", "Capability-Safety Trade-off"]
+        },
+        "COUNTERFACTUAL": {
+          "description": "Errors in counterfactual reasoning",
+          "subtypes": ["Wishful Thinking", "Emergent Capabilities", "Hindsight Bias"]
+        },
+        "MESA_OPT": {
+          "description": "Mesa-optimization and inner alignment failures",
+          "subtypes": ["Inner Misalignment", "Deceptive Mesa-Optimizer"]
+        },
+        "GOAL_MISGENERALIZATION": {
+          "description": "Goal misgeneralization under distribution shift",
+          "subtypes": ["Capability Generalization", "Goal Misgeneralization"]
+        },
+        "DECEPTIVE_ALIGNMENT": {
+          "description": "Deceptive alignment during training",
+          "subtypes": ["Gradient Hacking", "Treacherous Turn"]
+        },
+        "DISTRIBUTIONAL_SHIFT": {
+          "description": "Performance degradation under distribution shift",
+          "subtypes": ["Covariate Shift", "Concept Drift"]
+        },
+        "REWARD_TAMPERING": {
+          "description": "Reward tampering and wireheading",
+          "subtypes": ["Wireheading", "Reward Channel Manipulation"]
+        },
+        "SYCOPHANCY": {
+          "description": "Sycophantic behavior and approval-seeking",
+          "subtypes": ["User Pleasing", "Confirmation Bias Amplification"]
+        }
+      }
+    }
+  }
+}

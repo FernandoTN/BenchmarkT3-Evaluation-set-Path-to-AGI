@@ -1,0 +1,466 @@
+[
+  {
+    "case_id": "T3-I1-L2-0231",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Evaluation",
+    "difficulty": "Easy",
+    "trap_type": "T14",
+    "trap_family": "F6",
+    "trap_subtype": "Benchmark Noise",
+    "scenario": "A model shows 2% better accuracy than baseline on a benchmark. Teams conclude the new architecture improves performance. However, the benchmark has high variance due to random test splits, and the improvement may be within measurement noise rather than a true causal effect.",
+    "claim": "The new architecture causes improved model accuracy.",
+    "variables": {
+      "X": {"name": "New Architecture", "role": "Treatment"},
+      "Y": {"name": "Accuracy Improvement", "role": "Outcome"},
+      "Z": {"name": "Measurement Noise", "role": "Error Source"}
+    },
+    "label": "NO",
+    "hidden_question": "Is the improvement real, or is it within the measurement noise of the benchmark?",
+    "conditional_answers": {
+      "A": "If the improvement exceeds measurement error bounds, the architecture may genuinely help.",
+      "B": "If the improvement is within benchmark variance, it may be noise rather than a true effect."
+    },
+    "wise_refusal": "The claim that the new architecture causes improved model accuracy is ambiguous due to measurement error. We cannot determine if the improvement is real without knowing the benchmark's variance. If the 2% improvement is within typical test set variance, it may be noise. Without error bounds or statistical significance testing, the causal claim is not justified.",
+    "causal_structure": "X -> Y* (Y* is noisy measurement of true Y)",
+    "key_insight": "Small benchmark improvements may be indistinguishable from measurement noise.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0232",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "User Engagement",
+    "difficulty": "Easy",
+    "trap_type": "T14",
+    "trap_family": "F6",
+    "trap_subtype": "Proxy Measurement Error",
+    "scenario": "An AI product shows increased session duration after a UI change. Teams conclude the change improved user satisfaction. However, session duration is a noisy proxy for satisfaction, and longer sessions might indicate confusion rather than engagement.",
+    "claim": "The UI change causes improved user satisfaction.",
+    "variables": {
+      "X": {"name": "UI Change", "role": "Treatment"},
+      "Y": {"name": "User Satisfaction", "role": "Outcome"},
+      "Z": {"name": "Measurement Proxy Error", "role": "Error Source"}
+    },
+    "label": "NO",
+    "hidden_question": "Does session duration accurately measure satisfaction, or is it a noisy proxy?",
+    "conditional_answers": {
+      "A": "If session duration reliably indicates satisfaction, the claim may be valid.",
+      "B": "If longer sessions could indicate confusion, the proxy measurement may mislead."
+    },
+    "wise_refusal": "The claim that the UI change causes improved user satisfaction is ambiguous due to measurement error. We cannot determine satisfaction from session duration alone because it's a noisy proxy. Longer sessions might indicate either engagement or confusion. Without direct satisfaction measures, the causal claim is not justified.",
+    "causal_structure": "X -> Y, but we measure Y* (proxy with error)",
+    "key_insight": "Proxy metrics can be directionally ambiguous about the underlying construct.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0233",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "ML Monitoring",
+    "difficulty": "Medium",
+    "trap_type": "T14",
+    "trap_family": "F6",
+    "trap_subtype": "Drift Detection Noise",
+    "scenario": "A model monitoring system detects a 5% distribution drift and triggers retraining. The team concludes the data distribution changed. However, the drift detector has inherent noise, and the detected drift may be a false positive from sampling variance.",
+    "claim": "Data distribution change caused the detected drift signal.",
+    "variables": {
+      "X": {"name": "Distribution Change", "role": "Treatment"},
+      "Y": {"name": "Drift Detection", "role": "Outcome"},
+      "Z": {"name": "Detector Noise", "role": "Error Source"}
+    },
+    "label": "NO",
+    "hidden_question": "Is the detected drift real, or is it within the detector's false positive range?",
+    "conditional_answers": {
+      "A": "If drift exceeds the detector's noise threshold, real distribution change may exist.",
+      "B": "If drift is within detector variance, it may be a false positive from sampling noise."
+    },
+    "wise_refusal": "The claim that data distribution change caused the detected drift signal is ambiguous due to measurement error. We cannot determine if drift is real without knowing the detector's noise characteristics. The 5% drift may be within normal sampling variance. Without understanding the measurement error, the causal claim is not justified.",
+    "causal_structure": "X -> Y*, where Y* has detection noise",
+    "key_insight": "Drift detection systems have their own noise that can generate false positives.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0234",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Ethics Audits",
+    "difficulty": "Medium",
+    "trap_type": "T14",
+    "trap_family": "F6",
+    "trap_subtype": "Fairness Metric Noise",
+    "scenario": "A fairness audit shows a model has 3% demographic parity violation. Auditors conclude the model is biased. However, fairness metrics computed on finite samples have statistical variance, and 3% may be within measurement uncertainty.",
+    "claim": "The model causes demographic disparities in outcomes.",
+    "variables": {
+      "X": {"name": "Model", "role": "Treatment"},
+      "Y": {"name": "Demographic Disparity", "role": "Outcome"},
+      "Z": {"name": "Metric Variance", "role": "Error Source"}
+    },
+    "label": "NO",
+    "hidden_question": "Is the disparity real, or is it within the statistical variance of the fairness metric?",
+    "conditional_answers": {
+      "A": "If the disparity exceeds confidence intervals, the model may genuinely be biased.",
+      "B": "If the disparity is within sampling variance, it may be measurement noise."
+    },
+    "wise_refusal": "The claim that the model causes demographic disparities in outcomes is ambiguous due to measurement error. We cannot determine true disparity without knowing the fairness metric's confidence interval. A 3% violation may be within sampling variance for the audit's sample size. Without statistical significance analysis, the causal claim is not justified.",
+    "causal_structure": "X -> Y*, where Y* is noisy fairness estimate",
+    "key_insight": "Fairness metrics on finite samples have confidence intervals that affect interpretation.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0235",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "A/B Testing",
+    "difficulty": "Medium",
+    "trap_type": "T14",
+    "trap_family": "F6",
+    "trap_subtype": "Metric Instrumentation Error",
+    "scenario": "An A/B test shows the treatment group has 4% higher click-through rate. Teams conclude the change improves CTR. However, the tracking instrumentation has known data collection issues, and some clicks may be incorrectly attributed or missing.",
+    "claim": "The product change causes higher click-through rate.",
+    "variables": {
+      "X": {"name": "Product Change", "role": "Treatment"},
+      "Y": {"name": "Click-Through Rate", "role": "Outcome"},
+      "Z": {"name": "Instrumentation Error", "role": "Error Source"}
+    },
+    "label": "NO",
+    "hidden_question": "Is the CTR difference real, or is it affected by instrumentation errors?",
+    "conditional_answers": {
+      "A": "If tracking is accurate, the change may genuinely improve CTR.",
+      "B": "If instrumentation errors differ between groups, the measured difference may be artifactual."
+    },
+    "wise_refusal": "The claim that the product change causes higher click-through rate is ambiguous due to measurement error. We cannot determine the true CTR difference without knowing the instrumentation reliability. Data collection issues could create artificial differences between groups. Without verifying measurement quality, the causal claim is not justified.",
+    "causal_structure": "X -> Y, but we measure Y* with instrumentation error",
+    "key_insight": "A/B test validity depends on identical measurement quality across treatment groups.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0236",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "NLP Evaluation",
+    "difficulty": "Hard",
+    "trap_type": "T14",
+    "trap_family": "F6",
+    "trap_subtype": "Human Evaluation Noise",
+    "scenario": "A language model shows higher human preference scores than baseline. Teams conclude the model generates better text. However, human evaluators have high inter-rater variance, and the preference scores may reflect rater noise rather than genuine quality differences.",
+    "claim": "The new model causes higher quality text generation.",
+    "variables": {
+      "X": {"name": "New Model", "role": "Treatment"},
+      "Y": {"name": "Text Quality", "role": "Outcome"},
+      "Z": {"name": "Rater Variance", "role": "Error Source"}
+    },
+    "label": "NO",
+    "hidden_question": "Is the preference difference real, or is it within inter-rater noise?",
+    "conditional_answers": {
+      "A": "If preferences exceed rater variance, the model may genuinely be better.",
+      "B": "If preferences are within rater noise, the difference may not reflect true quality."
+    },
+    "wise_refusal": "The claim that the new model causes higher quality text generation is ambiguous due to measurement error. We cannot determine true quality differences without accounting for human rater variance. Preference scores may reflect rater subjectivity rather than model differences. Without inter-rater reliability analysis, the causal claim is not justified.",
+    "causal_structure": "X -> Y, but we measure Y* through noisy human ratings",
+    "key_insight": "Human evaluation requires accounting for rater variance as measurement noise.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0237",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Annotation Quality",
+    "difficulty": "Easy",
+    "trap_type": "T14",
+    "trap_family": "F6",
+    "trap_subtype": "Label Noise",
+    "scenario": "A model trained on cleaned labels shows better performance than one trained on original labels. Teams conclude label cleaning improves models. However, the 'cleaned' labels may still contain errors, and improvements might partially reflect lucky error patterns rather than true label quality.",
+    "claim": "Label cleaning causes better model performance.",
+    "variables": {
+      "X": {"name": "Label Cleaning", "role": "Treatment"},
+      "Y": {"name": "Model Performance", "role": "Outcome"},
+      "Z": {"name": "Residual Label Noise", "role": "Error Source"}
+    },
+    "label": "NO",
+    "hidden_question": "Is the improvement from true label quality, or could remaining noise affect results?",
+    "conditional_answers": {
+      "A": "If cleaning removes most errors, improvements may reflect better labels.",
+      "B": "If significant noise remains, improvements may partially reflect noise patterns."
+    },
+    "wise_refusal": "The claim that label cleaning causes better model performance is ambiguous due to measurement error. We cannot determine if improvements are from genuine label quality without knowing residual noise levels. Some improvement may come from noise patterns that happen to help the model. Without quantifying remaining label error, the causal claim is not fully justified.",
+    "causal_structure": "X -> Y*, where both labels X and performance Y have noise",
+    "key_insight": "Label cleaning effectiveness depends on residual noise that affects both training and evaluation.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0238",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Latency Measurement",
+    "difficulty": "Medium",
+    "trap_type": "T14",
+    "trap_family": "F6",
+    "trap_subtype": "Timing Measurement Error",
+    "scenario": "A model optimization shows 15ms lower inference latency. Teams conclude the optimization improves speed. However, latency measurements have variance from system load, garbage collection, and caching effects, and 15ms may be within measurement noise.",
+    "claim": "The optimization causes lower model inference latency.",
+    "variables": {
+      "X": {"name": "Model Optimization", "role": "Treatment"},
+      "Y": {"name": "Inference Latency", "role": "Outcome"},
+      "Z": {"name": "Timing Variance", "role": "Error Source"}
+    },
+    "label": "NO",
+    "hidden_question": "Is the latency reduction real, or is it within system timing variance?",
+    "conditional_answers": {
+      "A": "If 15ms exceeds timing variance, the optimization may genuinely improve speed.",
+      "B": "If 15ms is within normal variance, the improvement may be measurement noise."
+    },
+    "wise_refusal": "The claim that the optimization causes lower model inference latency is ambiguous due to measurement error. We cannot determine true latency improvement without knowing timing variance from system factors. The 15ms improvement may be within normal measurement noise. Without confidence intervals on latency, the causal claim is not justified.",
+    "causal_structure": "X -> Y*, where Y* is noisy latency measurement",
+    "key_insight": "Latency benchmarks must account for system-level timing variance.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0239",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Feature Attribution",
+    "difficulty": "Hard",
+    "trap_type": "T14",
+    "trap_family": "F6",
+    "trap_subtype": "Attribution Estimation Error",
+    "scenario": "SHAP values show that a feature has high importance for model predictions. Teams conclude the feature causally drives outcomes. However, SHAP estimates have variance from sampling, and importance scores may be noisy estimates of true feature influence.",
+    "claim": "The feature causes the model's predictions.",
+    "variables": {
+      "X": {"name": "Feature", "role": "Treatment"},
+      "Y": {"name": "Model Predictions", "role": "Outcome"},
+      "Z": {"name": "Attribution Noise", "role": "Error Source"}
+    },
+    "label": "NO",
+    "hidden_question": "Is the importance score accurate, or is it within SHAP estimation variance?",
+    "conditional_answers": {
+      "A": "If importance exceeds estimation variance, the feature may genuinely drive predictions.",
+      "B": "If importance is within sampling noise, it may be a noisy estimate."
+    },
+    "wise_refusal": "The claim that the feature causes the model's predictions is ambiguous due to measurement error. We cannot determine true feature importance without accounting for SHAP estimation variance. Importance scores are estimates with confidence intervals. Without understanding the measurement uncertainty, the causal claim is not justified.",
+    "causal_structure": "X -> Y, but importance(X,Y)* is a noisy estimate",
+    "key_insight": "Feature attribution methods produce estimates with variance that affects interpretation.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0240",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "GPU Utilization",
+    "difficulty": "Medium",
+    "trap_type": "T14",
+    "trap_family": "F6",
+    "trap_subtype": "Resource Monitoring Error",
+    "scenario": "GPU monitoring shows 95% utilization during training. Teams conclude the workload efficiently uses compute. However, monitoring tools sample utilization at intervals, and the 95% figure may miss idle periods between samples, overstating true utilization.",
+    "claim": "The training workload causes efficient GPU utilization.",
+    "variables": {
+      "X": {"name": "Training Workload", "role": "Treatment"},
+      "Y": {"name": "GPU Utilization", "role": "Outcome"},
+      "Z": {"name": "Monitoring Sampling Error", "role": "Error Source"}
+    },
+    "label": "NO",
+    "hidden_question": "Does 95% reported utilization reflect true utilization, or is it affected by sampling?",
+    "conditional_answers": {
+      "A": "If monitoring sampling is fine-grained, 95% may reflect true utilization.",
+      "B": "If monitoring misses idle periods, reported utilization overstates actual efficiency."
+    },
+    "wise_refusal": "The claim that the training workload causes efficient GPU utilization is ambiguous due to measurement error. We cannot determine true utilization without knowing the monitoring tool's sampling resolution. The 95% figure may miss idle periods between samples. Without understanding the measurement methodology, the causal claim is not justified.",
+    "causal_structure": "X -> Y, but we measure Y* with sampling error",
+    "key_insight": "Resource monitoring metrics depend on sampling frequency that can miss transient states.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0241",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Compression",
+    "difficulty": "Easy",
+    "trap_type": "T14",
+    "trap_family": "F6",
+    "trap_subtype": "Size Measurement Error",
+    "scenario": "A compressed model shows 40% smaller size than the original. Teams conclude quantization effectively reduces model size. However, size measurements vary by serialization format and compression, and the 40% reduction may depend on measurement methodology.",
+    "claim": "Quantization causes 40% model size reduction.",
+    "variables": {
+      "X": {"name": "Quantization", "role": "Treatment"},
+      "Y": {"name": "Model Size Reduction", "role": "Outcome"},
+      "Z": {"name": "Size Measurement Method", "role": "Error Source"}
+    },
+    "label": "NO",
+    "hidden_question": "Is the 40% reduction a true effect, or does it depend on how size is measured?",
+    "conditional_answers": {
+      "A": "If size measurement is consistent and uncompressed, the reduction may be valid.",
+      "B": "If measurement includes serialization artifacts, the reduction may be overstated or understated."
+    },
+    "wise_refusal": "The claim that quantization causes 40% model size reduction is ambiguous due to measurement methodology. We cannot determine true size reduction without standardizing how model size is measured. Different serialization formats and compression methods give different size readings. Without consistent measurement, the causal claim is not fully justified.",
+    "causal_structure": "X -> Y, but Y* depends on measurement method",
+    "key_insight": "Model size comparisons require consistent measurement methodology.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0242",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Data Quality",
+    "difficulty": "Medium",
+    "trap_type": "T14",
+    "trap_family": "F6",
+    "trap_subtype": "Completeness Measurement Error",
+    "scenario": "A data quality tool reports 98% completeness for a dataset. Teams conclude the data is ready for training. However, completeness metrics only measure missing values in recorded fields, not whether the fields themselves are the right ones to capture.",
+    "claim": "High completeness score causes data to be suitable for training.",
+    "variables": {
+      "X": {"name": "Completeness Score", "role": "Treatment"},
+      "Y": {"name": "Training Suitability", "role": "Outcome"},
+      "Z": {"name": "Completeness Definition", "role": "Error Source"}
+    },
+    "label": "NO",
+    "hidden_question": "Does 98% completeness mean the data is suitable, or does completeness miss other quality issues?",
+    "conditional_answers": {
+      "A": "If completeness fully captures data quality, high scores may indicate suitability.",
+      "B": "If completeness misses systematic gaps, high scores don't ensure suitability."
+    },
+    "wise_refusal": "The claim that high completeness score causes data to be suitable for training is ambiguous due to measurement error. We cannot determine suitability from completeness alone because it only measures known fields. Systematic data collection gaps aren't captured by completeness metrics. Without broader quality assessment, the causal claim is not justified.",
+    "causal_structure": "X -> Y*, where Y* is incomplete measure of suitability",
+    "key_insight": "Data quality metrics measure what's present, not what's missing from the design.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0243",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Embedding Quality",
+    "difficulty": "Hard",
+    "trap_type": "T14",
+    "trap_family": "F6",
+    "trap_subtype": "Similarity Measurement Error",
+    "scenario": "Embedding similarity analysis shows two concepts have 0.85 cosine similarity. Teams conclude the concepts are semantically related. However, embedding similarity is a noisy proxy for semantic relatedness, and high similarity might reflect surface-level patterns rather than meaning.",
+    "claim": "Embedding similarity indicates the concepts are semantically related.",
+    "variables": {
+      "X": {"name": "Embedding Similarity", "role": "Treatment"},
+      "Y": {"name": "Semantic Relatedness", "role": "Outcome"},
+      "Z": {"name": "Proxy Measurement Error", "role": "Error Source"}
+    },
+    "label": "NO",
+    "hidden_question": "Does 0.85 similarity indicate semantic relatedness, or is it a noisy proxy?",
+    "conditional_answers": {
+      "A": "If embeddings reliably capture semantics, high similarity may indicate relatedness.",
+      "B": "If embeddings encode surface patterns, high similarity may not mean semantic connection."
+    },
+    "wise_refusal": "The claim that embedding similarity indicates the concepts are semantically related is ambiguous due to measurement error. We cannot determine semantic relatedness from embedding similarity alone because it's a noisy proxy. High similarity might reflect training corpus artifacts rather than meaning. Without validation against human semantic judgments, the causal claim is not justified.",
+    "causal_structure": "X* -> Y* (both are noisy measures of underlying concepts)",
+    "key_insight": "Embedding similarity is a proxy for semantic relatedness with unknown fidelity.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0244",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Uncertainty",
+    "difficulty": "Hard",
+    "trap_type": "T14",
+    "trap_family": "F6",
+    "trap_subtype": "Confidence Calibration Error",
+    "scenario": "A model predicts with 90% confidence and teams use this for downstream decisions. They conclude high confidence indicates reliable predictions. However, model confidence scores are often miscalibrated and don't reflect true prediction accuracy.",
+    "claim": "High model confidence causes reliable predictions.",
+    "variables": {
+      "X": {"name": "Confidence Score", "role": "Treatment"},
+      "Y": {"name": "Prediction Reliability", "role": "Outcome"},
+      "Z": {"name": "Calibration Error", "role": "Error Source"}
+    },
+    "label": "NO",
+    "hidden_question": "Does 90% confidence reflect 90% accuracy, or is the model miscalibrated?",
+    "conditional_answers": {
+      "A": "If confidence is well-calibrated, high scores may indicate reliable predictions.",
+      "B": "If confidence is miscalibrated, the score doesn't reflect true reliability."
+    },
+    "wise_refusal": "The claim that high model confidence causes reliable predictions is ambiguous due to measurement error. We cannot determine reliability from confidence scores without knowing calibration. Many models are overconfident, so 90% confidence may not mean 90% accuracy. Without calibration analysis, the causal claim is not justified.",
+    "causal_structure": "X* -> Y, where X* is miscalibrated measure of X",
+    "key_insight": "Model confidence requires calibration to meaningfully indicate reliability.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0245",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Perplexity Evaluation",
+    "difficulty": "Medium",
+    "trap_type": "T14",
+    "trap_family": "F6",
+    "trap_subtype": "Perplexity Variance",
+    "scenario": "A language model shows 5 points lower perplexity than baseline. Teams conclude the model is better at language modeling. However, perplexity on finite test sets has variance, and 5 points may be within measurement uncertainty for the evaluation set size.",
+    "claim": "The new model causes better language modeling performance.",
+    "variables": {
+      "X": {"name": "New Model", "role": "Treatment"},
+      "Y": {"name": "Language Modeling Performance", "role": "Outcome"},
+      "Z": {"name": "Perplexity Variance", "role": "Error Source"}
+    },
+    "label": "NO",
+    "hidden_question": "Is the 5-point improvement real, or within perplexity measurement variance?",
+    "conditional_answers": {
+      "A": "If the improvement exceeds test set variance, the model may genuinely be better.",
+      "B": "If the improvement is within variance, it may be measurement noise."
+    },
+    "wise_refusal": "The claim that the new model causes better language modeling performance is ambiguous due to measurement error. We cannot determine true improvement without knowing perplexity variance on the test set. A 5-point difference may be within measurement uncertainty for typical evaluation sizes. Without confidence intervals, the causal claim is not justified.",
+    "causal_structure": "X -> Y*, where Y* is perplexity with variance",
+    "key_insight": "Perplexity comparisons require understanding test set variance.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0246",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Carbon Footprint",
+    "difficulty": "Hard",
+    "trap_type": "T14",
+    "trap_family": "F6",
+    "trap_subtype": "Carbon Estimation Error",
+    "scenario": "A carbon footprint tool estimates model training emitted 50kg CO2. Teams conclude the training had significant environmental impact. However, carbon estimation depends on regional grid mix, hardware efficiency, and PUE estimates, all of which have significant uncertainty.",
+    "claim": "Model training caused 50kg CO2 emissions.",
+    "variables": {
+      "X": {"name": "Model Training", "role": "Treatment"},
+      "Y": {"name": "CO2 Emissions", "role": "Outcome"},
+      "Z": {"name": "Estimation Uncertainty", "role": "Error Source"}
+    },
+    "label": "NO",
+    "hidden_question": "Is 50kg CO2 an accurate estimate, or does it have high uncertainty?",
+    "conditional_answers": {
+      "A": "If estimation factors are accurate, 50kg may reflect true emissions.",
+      "B": "If estimation factors have high uncertainty, the true emissions could differ significantly."
+    },
+    "wise_refusal": "The claim that model training caused 50kg CO2 emissions is ambiguous due to measurement error. We cannot determine true emissions without knowing the uncertainty in grid mix, hardware efficiency, and PUE estimates. The 50kg figure may have wide confidence intervals. Without quantifying estimation uncertainty, the causal claim is not precisely justified.",
+    "causal_structure": "X -> Y*, where Y* has compound estimation errors",
+    "key_insight": "Carbon footprint estimates compound multiple uncertain factors.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  }
+]

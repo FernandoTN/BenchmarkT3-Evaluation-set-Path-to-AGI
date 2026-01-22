@@ -1,0 +1,466 @@
+[
+  {
+    "case_id": "T3-I1-L2-0087",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "ML Adoption",
+    "difficulty": "Easy",
+    "trap_type": "T6",
+    "trap_family": "F2",
+    "trap_subtype": "Country-Level ML Adoption",
+    "scenario": "Countries with higher AI research funding show higher average citizen tech literacy. A policy think tank concludes that AI funding improves individual tech literacy. However, the analysis uses country-level aggregates, and within each country, AI funding recipients may not be the same people who show high literacy.",
+    "claim": "AI research funding causes higher individual tech literacy.",
+    "variables": {
+      "X": {"name": "AI Research Funding", "role": "Treatment"},
+      "Y": {"name": "Tech Literacy", "role": "Outcome"},
+      "Z": {"name": "Level of Analysis", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the relationship observed at the country level hold at the individual level?",
+    "conditional_answers": {
+      "A": "If the correlation holds at the individual level, AI funding may causally improve literacy.",
+      "B": "If the correlation only exists at aggregate level, this is ecological fallacy - individuals may show no such relationship."
+    },
+    "wise_refusal": "The claim that AI research funding causes higher individual tech literacy is ambiguous due to ecological fallacy. We cannot determine if the aggregate relationship holds for individuals without individual-level data. If individual-level correlation exists, the claim may be valid. If the correlation only exists at country level, applying it to individuals is fallacious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Aggregate correlation does not imply individual-level causation",
+    "key_insight": "Correlations at aggregate levels may not apply to individuals within those aggregates.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0088",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Tech Industry",
+    "difficulty": "Easy",
+    "trap_type": "T6",
+    "trap_family": "F2",
+    "trap_subtype": "Company-Level Productivity",
+    "scenario": "Companies with more AI tools deployed show higher revenue per employee. A consulting firm advises individual employees to use more AI tools to boost their productivity. The analysis uses company-level data, not individual employee data.",
+    "claim": "Individual employees using more AI tools will increase their productivity.",
+    "variables": {
+      "X": {"name": "AI Tool Usage", "role": "Treatment"},
+      "Y": {"name": "Productivity", "role": "Outcome"},
+      "Z": {"name": "Level of Analysis", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the company-level relationship between AI tools and revenue apply to individual employees?",
+    "conditional_answers": {
+      "A": "If the correlation holds at the individual level, AI tool use may improve individual productivity.",
+      "B": "If the correlation only exists at company level, individual predictions are ecological fallacy."
+    },
+    "wise_refusal": "The claim that individual employees using more AI tools will increase their productivity is ambiguous due to ecological fallacy. We cannot determine if the company-level relationship holds for individuals without individual-level data. If individual-level correlation exists, the claim may be valid. If the correlation only exists at company level, applying it to individuals is fallacious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Aggregate correlation does not imply individual-level causation",
+    "key_insight": "Company productivity gains from AI may come from specific roles, not apply uniformly to all employees.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0089",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "ML Education",
+    "difficulty": "Medium",
+    "trap_type": "T6",
+    "trap_family": "F2",
+    "trap_subtype": "University-Level Outcomes",
+    "scenario": "Universities with higher ML course enrollments show higher graduate starting salaries. A student concludes that taking more ML courses will increase their salary. The analysis uses university-level aggregates, not individual student data.",
+    "claim": "Taking more ML courses causes higher individual starting salaries.",
+    "variables": {
+      "X": {"name": "ML Course Enrollment", "role": "Treatment"},
+      "Y": {"name": "Starting Salary", "role": "Outcome"},
+      "Z": {"name": "Level of Analysis", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the university-level relationship between ML enrollment and salaries apply to individual students?",
+    "conditional_answers": {
+      "A": "If the correlation holds at the individual level, ML courses may causally increase salary.",
+      "B": "If the correlation only exists at university level, individual predictions are ecological fallacy."
+    },
+    "wise_refusal": "The claim that taking more ML courses causes higher individual starting salaries is ambiguous due to ecological fallacy. We cannot determine if the university-level relationship holds for individuals without individual-level data. If individual-level correlation exists, the claim may be valid. If the correlation only exists at university level, applying it to individuals is fallacious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Aggregate correlation does not imply individual-level causation",
+    "key_insight": "Universities with high ML enrollment may attract high-achieving students regardless of course choices.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0090",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Ethics",
+    "difficulty": "Medium",
+    "trap_type": "T6",
+    "trap_family": "F2",
+    "trap_subtype": "Industry-Level Ethics",
+    "scenario": "Industries with more AI ethics guidelines show fewer discrimination lawsuits per company. Advocates conclude that individual companies adopting ethics guidelines will reduce their lawsuit risk. The analysis uses industry-level data, not company-level data.",
+    "claim": "Individual companies adopting AI ethics guidelines will reduce their discrimination lawsuit risk.",
+    "variables": {
+      "X": {"name": "Ethics Guidelines Adoption", "role": "Treatment"},
+      "Y": {"name": "Lawsuit Risk", "role": "Outcome"},
+      "Z": {"name": "Level of Analysis", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the industry-level relationship between guidelines and lawsuits apply to individual companies?",
+    "conditional_answers": {
+      "A": "If the correlation holds at the company level, guidelines may causally reduce lawsuit risk.",
+      "B": "If the correlation only exists at industry level, individual company predictions are ecological fallacy."
+    },
+    "wise_refusal": "The claim that individual companies adopting AI ethics guidelines will reduce their discrimination lawsuit risk is ambiguous due to ecological fallacy. We cannot determine if the industry-level relationship holds for individual companies without company-level data. If company-level correlation exists, the claim may be valid. If the correlation only exists at industry level, applying it to companies is fallacious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Aggregate correlation does not imply individual-level causation",
+    "key_insight": "Industry-wide ethics cultures may reduce lawsuits through mechanisms other than individual company guidelines.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0091",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "GPU Computing",
+    "difficulty": "Medium",
+    "trap_type": "T6",
+    "trap_family": "F2",
+    "trap_subtype": "Datacenter-Level Efficiency",
+    "scenario": "Datacenters with more GPUs show lower cost per FLOP. A researcher concludes that adding more GPUs to any individual workload will reduce its cost. The analysis uses datacenter-level aggregates, not workload-level data.",
+    "claim": "Adding more GPUs to individual workloads reduces cost per FLOP.",
+    "variables": {
+      "X": {"name": "GPU Count", "role": "Treatment"},
+      "Y": {"name": "Cost per FLOP", "role": "Outcome"},
+      "Z": {"name": "Level of Analysis", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the datacenter-level relationship between GPUs and cost apply to individual workloads?",
+    "conditional_answers": {
+      "A": "If the correlation holds at the workload level, more GPUs may causally reduce cost.",
+      "B": "If the correlation only exists at datacenter level, individual workload predictions are ecological fallacy."
+    },
+    "wise_refusal": "The claim that adding more GPUs to individual workloads reduces cost per FLOP is ambiguous due to ecological fallacy. We cannot determine if the datacenter-level relationship holds for individual workloads without workload-level data. If workload-level correlation exists, the claim may be valid. If the correlation only exists at datacenter level, applying it to workloads is fallacious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Aggregate correlation does not imply individual-level causation",
+    "key_insight": "Datacenter efficiency gains may come from economies of scale, not from any individual workload getting more GPUs.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0092",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Workforce",
+    "difficulty": "Hard",
+    "trap_type": "T6",
+    "trap_family": "F2",
+    "trap_subtype": "Regional Employment Fallacy",
+    "scenario": "Regions with more AI companies show lower unemployment rates. A laid-off worker concludes that moving to a region with more AI companies will improve their employment prospects. The analysis uses regional aggregates, not individual job-seeker data.",
+    "claim": "Moving to regions with more AI companies improves individual employment prospects.",
+    "variables": {
+      "X": {"name": "Regional AI Company Density", "role": "Treatment"},
+      "Y": {"name": "Employment Prospect", "role": "Outcome"},
+      "Z": {"name": "Level of Analysis", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the regional relationship between AI companies and unemployment apply to individual job seekers?",
+    "conditional_answers": {
+      "A": "If the correlation holds at the individual level, moving may improve employment prospects.",
+      "B": "If the correlation only exists at regional level, individual predictions are ecological fallacy."
+    },
+    "wise_refusal": "The claim that moving to regions with more AI companies improves individual employment prospects is ambiguous due to ecological fallacy. We cannot determine if the regional relationship holds for individuals without individual-level data. If individual-level correlation exists, the claim may be valid. If the correlation only exists at regional level, applying it to individuals is fallacious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Aggregate correlation does not imply individual-level causation",
+    "key_insight": "Regional employment advantages may benefit existing residents, not newcomers seeking jobs.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0093",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "ML Platforms",
+    "difficulty": "Easy",
+    "trap_type": "T6",
+    "trap_family": "F2",
+    "trap_subtype": "Platform-Level Performance",
+    "scenario": "ML platforms with more users show higher model accuracy on average. A new user concludes that joining a popular platform will improve their model's accuracy. The analysis uses platform-level aggregates, not individual user data.",
+    "claim": "Joining a popular ML platform causes higher individual model accuracy.",
+    "variables": {
+      "X": {"name": "Platform Popularity", "role": "Treatment"},
+      "Y": {"name": "Model Accuracy", "role": "Outcome"},
+      "Z": {"name": "Level of Analysis", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the platform-level relationship between users and accuracy apply to individual models?",
+    "conditional_answers": {
+      "A": "If the correlation holds at the individual level, joining may improve model accuracy.",
+      "B": "If the correlation only exists at platform level, individual predictions are ecological fallacy."
+    },
+    "wise_refusal": "The claim that joining a popular ML platform causes higher individual model accuracy is ambiguous due to ecological fallacy. We cannot determine if the platform-level relationship holds for individuals without individual-level data. If individual-level correlation exists, the claim may be valid. If the correlation only exists at platform level, applying it to individuals is fallacious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Aggregate correlation does not imply individual-level causation",
+    "key_insight": "Popular platforms may attract skilled users, not make all users skilled.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0094",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Open Source AI",
+    "difficulty": "Medium",
+    "trap_type": "T6",
+    "trap_family": "F2",
+    "trap_subtype": "Repository-Level Contribution",
+    "scenario": "Open source AI projects with more contributors show fewer bugs per line of code. A developer concludes that any individual contributor joining a project will reduce bugs. The analysis uses project-level aggregates, not individual contribution data.",
+    "claim": "Individual contributors joining projects reduce bug rates.",
+    "variables": {
+      "X": {"name": "Contributor Count", "role": "Treatment"},
+      "Y": {"name": "Bug Rate", "role": "Outcome"},
+      "Z": {"name": "Level of Analysis", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the project-level relationship between contributors and bugs apply to individual contributions?",
+    "conditional_answers": {
+      "A": "If the correlation holds at the contribution level, adding contributors may reduce bugs.",
+      "B": "If the correlation only exists at project level, individual contribution predictions are ecological fallacy."
+    },
+    "wise_refusal": "The claim that individual contributors joining projects reduce bug rates is ambiguous due to ecological fallacy. We cannot determine if the project-level relationship holds for individual contributions without contribution-level data. If contribution-level correlation exists, the claim may be valid. If the correlation only exists at project level, applying it to individuals is fallacious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Aggregate correlation does not imply individual-level causation",
+    "key_insight": "Successful projects may attract contributors AND have low bug rates for independent reasons.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0095",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Conferences",
+    "difficulty": "Hard",
+    "trap_type": "T6",
+    "trap_family": "F2",
+    "trap_subtype": "Conference-Level Citation",
+    "scenario": "AI conferences with higher acceptance rates show lower average paper citations. A researcher concludes that submitting to selective conferences will increase their individual paper's citations. The analysis uses conference-level aggregates, not individual paper data.",
+    "claim": "Submitting to selective conferences increases individual paper citations.",
+    "variables": {
+      "X": {"name": "Conference Selectivity", "role": "Treatment"},
+      "Y": {"name": "Paper Citations", "role": "Outcome"},
+      "Z": {"name": "Level of Analysis", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the conference-level relationship between selectivity and citations apply to individual papers?",
+    "conditional_answers": {
+      "A": "If the correlation holds at the paper level, selective venues may causally increase citations.",
+      "B": "If the correlation only exists at conference level, individual paper predictions are ecological fallacy."
+    },
+    "wise_refusal": "The claim that submitting to selective conferences increases individual paper citations is ambiguous due to ecological fallacy. We cannot determine if the conference-level relationship holds for individual papers without paper-level data. If paper-level correlation exists, the claim may be valid. If the correlation only exists at conference level, applying it to papers is fallacious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Aggregate correlation does not imply individual-level causation",
+    "key_insight": "Selective conferences may have higher citations because they attract better papers, not because venue causes citations.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0096",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Hardware",
+    "difficulty": "Hard",
+    "trap_type": "T6",
+    "trap_family": "F2",
+    "trap_subtype": "Chip Generation Fallacy",
+    "scenario": "GPU generations with higher transistor counts show better price-performance ratios on average. A buyer concludes that purchasing a chip with more transistors will give them better price-performance. The analysis uses generation-level aggregates, not individual chip data.",
+    "claim": "Purchasing chips with more transistors provides better individual price-performance.",
+    "variables": {
+      "X": {"name": "Transistor Count", "role": "Treatment"},
+      "Y": {"name": "Price-Performance", "role": "Outcome"},
+      "Z": {"name": "Level of Analysis", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the generation-level relationship between transistors and price-performance apply to individual chips?",
+    "conditional_answers": {
+      "A": "If the correlation holds at the chip level, more transistors may improve price-performance.",
+      "B": "If the correlation only exists at generation level, individual chip predictions are ecological fallacy."
+    },
+    "wise_refusal": "The claim that purchasing chips with more transistors provides better individual price-performance is ambiguous due to ecological fallacy. We cannot determine if the generation-level relationship holds for individual chips without chip-level data. If chip-level correlation exists, the claim may be valid. If the correlation only exists at generation level, applying it to individual chips is fallacious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Aggregate correlation does not imply individual-level causation",
+    "key_insight": "Generation improvements may come from architecture, not just transistor count.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0097",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "ML Teams",
+    "difficulty": "Medium",
+    "trap_type": "T6",
+    "trap_family": "F2",
+    "trap_subtype": "Team-Level Diversity",
+    "scenario": "ML teams with more diverse backgrounds show higher innovation metrics on average. An HR manager concludes that hiring any individual diverse candidate will increase team innovation. The analysis uses team-level aggregates, not individual contribution data.",
+    "claim": "Hiring individual diverse candidates increases team innovation.",
+    "variables": {
+      "X": {"name": "Individual Diverse Hire", "role": "Treatment"},
+      "Y": {"name": "Innovation Contribution", "role": "Outcome"},
+      "Z": {"name": "Level of Analysis", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the team-level relationship between diversity and innovation apply to individual hiring decisions?",
+    "conditional_answers": {
+      "A": "If the correlation holds at the individual level, diverse hires may causally increase innovation.",
+      "B": "If the correlation only exists at team level, individual hiring predictions are ecological fallacy."
+    },
+    "wise_refusal": "The claim that hiring individual diverse candidates increases team innovation is ambiguous due to ecological fallacy. We cannot determine if the team-level relationship holds for individual hires without individual-level data. If individual-level correlation exists, the claim may be valid. If the correlation only exists at team level, applying it to individual hires is fallacious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Aggregate correlation does not imply individual-level causation",
+    "key_insight": "Team diversity benefits may emerge from composition effects, not individual candidate characteristics.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0098",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Investment",
+    "difficulty": "Easy",
+    "trap_type": "T6",
+    "trap_family": "F2",
+    "trap_subtype": "Sector-Level Returns",
+    "scenario": "Tech sectors with more AI investment show higher stock returns on average. An investor concludes that investing in any individual AI company will yield higher returns. The analysis uses sector-level aggregates, not individual company data.",
+    "claim": "Investing in individual AI companies yields higher returns.",
+    "variables": {
+      "X": {"name": "AI Company Investment", "role": "Treatment"},
+      "Y": {"name": "Stock Returns", "role": "Outcome"},
+      "Z": {"name": "Level of Analysis", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the sector-level relationship between AI investment and returns apply to individual companies?",
+    "conditional_answers": {
+      "A": "If the correlation holds at the company level, AI investments may yield higher returns.",
+      "B": "If the correlation only exists at sector level, individual company predictions are ecological fallacy."
+    },
+    "wise_refusal": "The claim that investing in individual AI companies yields higher returns is ambiguous due to ecological fallacy. We cannot determine if the sector-level relationship holds for individual companies without company-level data. If company-level correlation exists, the claim may be valid. If the correlation only exists at sector level, applying it to individual companies is fallacious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Aggregate correlation does not imply individual-level causation",
+    "key_insight": "Sector returns may be driven by a few winners while most individual companies underperform.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0099",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Data Science",
+    "difficulty": "Hard",
+    "trap_type": "T6",
+    "trap_family": "F2",
+    "trap_subtype": "Department-Level ROI",
+    "scenario": "Data science departments with larger budgets show higher ROI on average. A data scientist concludes that increasing their individual project's budget will increase its ROI. The analysis uses department-level aggregates, not project-level data.",
+    "claim": "Increasing individual project budgets increases project ROI.",
+    "variables": {
+      "X": {"name": "Project Budget", "role": "Treatment"},
+      "Y": {"name": "Project ROI", "role": "Outcome"},
+      "Z": {"name": "Level of Analysis", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the department-level relationship between budget and ROI apply to individual projects?",
+    "conditional_answers": {
+      "A": "If the correlation holds at the project level, bigger budgets may improve ROI.",
+      "B": "If the correlation only exists at department level, individual project predictions are ecological fallacy."
+    },
+    "wise_refusal": "The claim that increasing individual project budgets increases project ROI is ambiguous due to ecological fallacy. We cannot determine if the department-level relationship holds for individual projects without project-level data. If project-level correlation exists, the claim may be valid. If the correlation only exists at department level, applying it to individual projects is fallacious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Aggregate correlation does not imply individual-level causation",
+    "key_insight": "Department budget-ROI correlation may reflect portfolio effects, not individual project economics.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0100",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Regulation",
+    "difficulty": "Medium",
+    "trap_type": "T6",
+    "trap_family": "F2",
+    "trap_subtype": "Jurisdiction-Level Safety",
+    "scenario": "Jurisdictions with stricter AI regulations show fewer AI-related accidents per capita. A safety advocate concludes that stricter regulations on any individual AI system will reduce its accident risk. The analysis uses jurisdiction-level aggregates, not system-level data.",
+    "claim": "Stricter regulation of individual AI systems reduces their accident risk.",
+    "variables": {
+      "X": {"name": "Regulatory Strictness", "role": "Treatment"},
+      "Y": {"name": "Accident Risk", "role": "Outcome"},
+      "Z": {"name": "Level of Analysis", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the jurisdiction-level relationship between regulation and accidents apply to individual AI systems?",
+    "conditional_answers": {
+      "A": "If the correlation holds at the system level, regulation may reduce individual system accidents.",
+      "B": "If the correlation only exists at jurisdiction level, individual system predictions are ecological fallacy."
+    },
+    "wise_refusal": "The claim that stricter regulation of individual AI systems reduces their accident risk is ambiguous due to ecological fallacy. We cannot determine if the jurisdiction-level relationship holds for individual systems without system-level data. If system-level correlation exists, the claim may be valid. If the correlation only exists at jurisdiction level, applying it to systems is fallacious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Aggregate correlation does not imply individual-level causation",
+    "key_insight": "Jurisdiction safety may come from deployment restrictions, not improvements to individual system safety.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0101",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Cloud ML",
+    "difficulty": "Hard",
+    "trap_type": "T6",
+    "trap_family": "F2",
+    "trap_subtype": "Provider-Level Reliability",
+    "scenario": "Cloud ML providers with more enterprise customers show higher uptime percentages on average. A startup concludes that choosing a provider with more customers will improve their individual service reliability. The analysis uses provider-level aggregates, not individual customer data.",
+    "claim": "Choosing providers with more customers improves individual service reliability.",
+    "variables": {
+      "X": {"name": "Provider Customer Count", "role": "Treatment"},
+      "Y": {"name": "Service Reliability", "role": "Outcome"},
+      "Z": {"name": "Level of Analysis", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the provider-level relationship between customers and uptime apply to individual customer experiences?",
+    "conditional_answers": {
+      "A": "If the correlation holds at the customer level, popular providers may offer better individual reliability.",
+      "B": "If the correlation only exists at provider level, individual customer predictions are ecological fallacy."
+    },
+    "wise_refusal": "The claim that choosing providers with more customers improves individual service reliability is ambiguous due to ecological fallacy. We cannot determine if the provider-level relationship holds for individual customers without customer-level data. If customer-level correlation exists, the claim may be valid. If the correlation only exists at provider level, applying it to individual customers is fallacious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Aggregate correlation does not imply individual-level causation",
+    "key_insight": "Provider-level uptime averages may mask significant variance in individual customer experiences.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0102",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Research Labs",
+    "difficulty": "Medium",
+    "trap_type": "T6",
+    "trap_family": "F2",
+    "trap_subtype": "Lab-Level Impact",
+    "scenario": "AI research labs with more publications show higher average patent filings. A researcher concludes that publishing more will increase their individual patent output. The analysis uses lab-level aggregates, not individual researcher data.",
+    "claim": "Publishing more increases individual researcher patent output.",
+    "variables": {
+      "X": {"name": "Individual Publications", "role": "Treatment"},
+      "Y": {"name": "Patent Output", "role": "Outcome"},
+      "Z": {"name": "Level of Analysis", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the lab-level relationship between publications and patents apply to individual researchers?",
+    "conditional_answers": {
+      "A": "If the correlation holds at the researcher level, publishing may increase patent output.",
+      "B": "If the correlation only exists at lab level, individual researcher predictions are ecological fallacy."
+    },
+    "wise_refusal": "The claim that publishing more increases individual researcher patent output is ambiguous due to ecological fallacy. We cannot determine if the lab-level relationship holds for individual researchers without individual-level data. If individual-level correlation exists, the claim may be valid. If the correlation only exists at lab level, applying it to individuals is fallacious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Aggregate correlation does not imply individual-level causation",
+    "key_insight": "Lab publication-patent correlation may reflect lab culture and resources, not individual researcher behavior.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  }
+]

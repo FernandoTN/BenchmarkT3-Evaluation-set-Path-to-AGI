@@ -12,6 +12,50 @@
 
 # TODO Done
 
+## CS372 Assignment 2: T3 Benchmark Expansion (Completed: January 22, 2026)
+
+**Status:** ✅ IMPLEMENTED
+
+**Plan Reference:** [docs/plans/precious-napping-sundae.md](docs/plans/precious-napping-sundae.md)
+
+**Objective:** Expand GroupI1 and GroupJ1 datasets to 500 validated cases each using a highly parallelized multi-agent workflow.
+
+**Implementation Summary:**
+- Phase 0: Created V4.0 schema and validation infrastructure
+- Phase 1: Transformed 16 existing GroupI1 cases and 240 GroupJ1 cases to V4.0 format
+- Phase 2: Generated cases using parallel agents:
+  - GroupI1: Generated 45 L1 + 344 L2 + 147 L3 cases
+  - GroupJ1: Generated 23 L1 + 138 L2 + 198 L3 cases
+- Phase 3: Merged batches, selected top 500 cases per group by score
+- Phase 4: Validated all 1000 cases (100% pass rate)
+- Phase 5: Generated 8 deliverable files (4 per group)
+
+**Final Results:**
+- GroupI1 (AI & Tech): **500 cases** (50 L1 + 300 L2 + 150 L3)
+- GroupJ1 (Social Science): **500 cases** (50 L1 + 300 L2 + 150 L3)
+- Combined total: **1000 validated cases**
+- Mean quality score: 8.5/10
+- Schema compliance: 100%
+- Validation pass rate: 100%
+
+**Deliverables:**
+- [x] `project/assignment2/submissions/groupI_FernandoTorres/groupI_FernandoTorres_dataset.json` (500 cases)
+- [x] `project/assignment2/submissions/groupI_FernandoTorres/groupI_FernandoTorres_schema.json`
+- [x] `project/assignment2/submissions/groupI_FernandoTorres/groupI_FernandoTorres_score.json`
+- [x] `project/assignment2/submissions/groupI_FernandoTorres/groupI_FernandoTorres_methodology.md`
+- [x] `project/assignment2/submissions/groupJ_FernandoTorres/groupJ_FernandoTorres_dataset.json` (500 cases)
+- [x] `project/assignment2/submissions/groupJ_FernandoTorres/groupJ_FernandoTorres_schema.json`
+- [x] `project/assignment2/submissions/groupJ_FernandoTorres/groupJ_FernandoTorres_score.json`
+- [x] `project/assignment2/submissions/groupJ_FernandoTorres/groupJ_FernandoTorres_methodology.md`
+
+**Lessons Learned:**
+- Large case generation (100+ cases) should be split across 6-8 agents instead of 1-2
+- Each agent should write to non-overlapping files (e.g., by trap type)
+- Pre-assign case ID ranges to prevent duplicates
+- See Section 11 of the plan for detailed parallelization recommendations
+
+---
+
 ## V3.0 Schema Update - Assignment 1 Updated Requirements (Completed: January 22, 2026)
 
 **Status:** ✅ IMPLEMENTED

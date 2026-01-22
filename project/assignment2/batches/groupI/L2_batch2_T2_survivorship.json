@@ -1,0 +1,524 @@
+[
+  {
+    "case_id": "T3-I1-L2-0021",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "ML Startups",
+    "difficulty": "Easy",
+    "trap_type": "T2",
+    "trap_family": "F1",
+    "trap_subtype": "Startup Survivorship",
+    "scenario": "Successful AI startups commonly report using agile development practices. Investors conclude that agile practices lead to startup success. However, many failed AI startups also used agile practices but are no longer around to be surveyed.",
+    "claim": "Agile development practices cause AI startup success.",
+    "variables": {
+      "X": {"name": "Agile Practices", "role": "Treatment"},
+      "Y": {"name": "Startup Success", "role": "Outcome"},
+      "Z": {"name": "Failed Startups (unobserved)", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "What proportion of failed AI startups also used agile practices?",
+    "conditional_answers": {
+      "A": "If failed startups rarely used agile practices, the correlation between agile and success may be causal.",
+      "B": "If failed startups equally used agile practices, the observed correlation is survivorship bias - we only see survivors."
+    },
+    "wise_refusal": "The claim that agile development practices cause AI startup success is ambiguous due to survivorship bias. We cannot determine whether agile practices drive success without knowing about failed startups that also used agile. If failed startups didn't use agile, the effect may be causal. If they did use agile, we're only seeing survivors. Without this information, the causal claim is not justified.",
+    "causal_structure": "Selection on Y -> observation of X (we only observe X among survivors)",
+    "key_insight": "Studying only successful cases ignores failures that may share the same characteristics.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0022",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Deep Learning",
+    "difficulty": "Easy",
+    "trap_type": "T2",
+    "trap_family": "F1",
+    "trap_subtype": "Model Architecture Survivorship",
+    "scenario": "Published deep learning papers predominantly feature ResNet-style skip connections. Researchers conclude skip connections are essential for good performance. Unpublished experiments with alternative architectures that also worked well never made it to publication.",
+    "claim": "Skip connections cause superior deep learning performance.",
+    "variables": {
+      "X": {"name": "Skip Connections", "role": "Treatment"},
+      "Y": {"name": "Model Performance", "role": "Outcome"},
+      "Z": {"name": "Unpublished Successful Alternatives", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "How many unpublished architectures without skip connections achieved comparable performance?",
+    "conditional_answers": {
+      "A": "If alternatives without skip connections consistently failed, skip connections may be causally necessary.",
+      "B": "If successful alternatives exist but weren't published, the prominence of skip connections reflects publication bias."
+    },
+    "wise_refusal": "The claim that skip connections cause superior deep learning performance is ambiguous due to survivorship bias. We cannot determine if skip connections are necessary without knowing about unpublished successful alternatives. If alternatives failed, skip connections may be causal. If alternatives succeeded but weren't published, we're seeing publication survivorship. Without this information, the causal claim is not justified.",
+    "causal_structure": "Selection on publication -> observation of X (we see skip connections because those papers got published)",
+    "key_insight": "Published architectures may not represent all successful approaches, just the ones that gained attention.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0023",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Companies",
+    "difficulty": "Medium",
+    "trap_type": "T2",
+    "trap_family": "F1",
+    "trap_subtype": "Corporate Survivorship",
+    "scenario": "Long-standing AI companies all have strong patent portfolios. Business analysts conclude that patents protect AI companies. Many AI companies with patents still failed and no longer exist to be studied.",
+    "claim": "Strong patent portfolios cause AI company longevity.",
+    "variables": {
+      "X": {"name": "Patent Portfolio", "role": "Treatment"},
+      "Y": {"name": "Company Longevity", "role": "Outcome"},
+      "Z": {"name": "Failed Companies with Patents", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Did failed AI companies also have strong patent portfolios?",
+    "conditional_answers": {
+      "A": "If failed companies lacked patents, patents may causally contribute to survival.",
+      "B": "If failed companies also had strong patents, the correlation among survivors is spurious."
+    },
+    "wise_refusal": "The claim that strong patent portfolios cause AI company longevity is ambiguous due to survivorship bias. We cannot determine if patents cause survival without data on failed companies' patent portfolios. If failures lacked patents, the effect may be causal. If failures also had patents, we're only seeing survivors. Without this information, the causal claim is not justified.",
+    "causal_structure": "Selection on Y (survival) -> observation of X among survivors only",
+    "key_insight": "Corporate success studies that ignore failures commit survivorship bias.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0024",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "ML Research",
+    "difficulty": "Medium",
+    "trap_type": "T2",
+    "trap_family": "F1",
+    "trap_subtype": "Research Method Survivorship",
+    "scenario": "Highly-cited ML papers commonly use specific experimental protocols. New researchers adopt these protocols assuming they lead to success. Many papers using identical protocols were rejected or ignored and are not visible in citation databases.",
+    "claim": "These experimental protocols cause research success.",
+    "variables": {
+      "X": {"name": "Experimental Protocols", "role": "Treatment"},
+      "Y": {"name": "Citation Success", "role": "Outcome"},
+      "Z": {"name": "Rejected/Ignored Papers with Same Protocols", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "How many papers using identical protocols failed to gain citations or were rejected?",
+    "conditional_answers": {
+      "A": "If papers with these protocols consistently succeeded, the protocols may be causally effective.",
+      "B": "If many papers with these protocols also failed, the correlation among cited papers is survivorship bias."
+    },
+    "wise_refusal": "The claim that these experimental protocols cause research success is ambiguous due to survivorship bias. We cannot determine if protocols drive success without knowing about failures using the same protocols. If failures used different protocols, the effect may be causal. If failures used identical protocols, we're seeing citation survivorship. Without this information, the causal claim is not justified.",
+    "causal_structure": "Selection on Y (citation) -> observation of X in cited papers only",
+    "key_insight": "Successful research practices may be common among failures too, but failures are invisible.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0025",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Algorithm Design",
+    "difficulty": "Medium",
+    "trap_type": "T2",
+    "trap_family": "F1",
+    "trap_subtype": "Algorithm Survivorship",
+    "scenario": "Popular open-source ML algorithms share certain design patterns. Developers assume these patterns are best practices. Many algorithms with identical patterns failed to gain adoption and were abandoned or deleted from repositories.",
+    "claim": "These design patterns cause algorithm popularity.",
+    "variables": {
+      "X": {"name": "Design Patterns", "role": "Treatment"},
+      "Y": {"name": "Algorithm Popularity", "role": "Outcome"},
+      "Z": {"name": "Abandoned Algorithms with Same Patterns", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "How many abandoned algorithms also used these design patterns?",
+    "conditional_answers": {
+      "A": "If abandoned algorithms used different patterns, these patterns may causally drive popularity.",
+      "B": "If abandoned algorithms used identical patterns, the correlation among popular algorithms is survivorship bias."
+    },
+    "wise_refusal": "The claim that these design patterns cause algorithm popularity is ambiguous due to survivorship bias. We cannot determine if patterns drive popularity without knowing about abandoned algorithms. If failures used different patterns, the effect may be causal. If failures used identical patterns, we're only seeing survivors. Without this information, the causal claim is not justified.",
+    "causal_structure": "Selection on Y (popularity) -> observation of X in popular algorithms only",
+    "key_insight": "Open-source success studies ignore the graveyard of abandoned projects with similar characteristics.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0026",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Product Development",
+    "difficulty": "Hard",
+    "trap_type": "T2",
+    "trap_family": "F1",
+    "trap_subtype": "Product Survivorship",
+    "scenario": "Successful AI products in production all underwent extensive user testing. Product managers conclude user testing is essential for AI product success. Many AI products that underwent identical user testing still failed and were discontinued.",
+    "claim": "Extensive user testing causes AI product success.",
+    "variables": {
+      "X": {"name": "User Testing", "role": "Treatment"},
+      "Y": {"name": "Product Success", "role": "Outcome"},
+      "Z": {"name": "Failed Products with User Testing", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "What proportion of failed AI products also underwent extensive user testing?",
+    "conditional_answers": {
+      "A": "If failed products skipped user testing, the testing-success link may be causal.",
+      "B": "If failed products also had extensive testing, the correlation among successes is survivorship bias."
+    },
+    "wise_refusal": "The claim that extensive user testing causes AI product success is ambiguous due to survivorship bias. We cannot determine if testing causes success without knowing about failed products' testing practices. If failures skipped testing, the effect may be causal. If failures also tested extensively, we're only seeing survivors. Without this information, the causal claim is not justified.",
+    "causal_structure": "Selection on Y (product survival) -> observation of X in surviving products",
+    "key_insight": "Product development best practices derived from successes may be equally common among failures.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0027",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Neural Architecture Search",
+    "difficulty": "Hard",
+    "trap_type": "T2",
+    "trap_family": "F1",
+    "trap_subtype": "Architecture Survivorship",
+    "scenario": "Neural Architecture Search discovers architectures that all share certain motifs. Researchers conclude these motifs are fundamentally superior. The search process discarded many architectures with identical motifs that happened to perform poorly due to random initialization.",
+    "claim": "These architectural motifs cause superior performance.",
+    "variables": {
+      "X": {"name": "Architectural Motifs", "role": "Treatment"},
+      "Y": {"name": "Performance", "role": "Outcome"},
+      "Z": {"name": "Discarded Architectures with Same Motifs", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "How many architectures with identical motifs were discarded during the search due to poor performance?",
+    "conditional_answers": {
+      "A": "If architectures with these motifs consistently performed well, the motifs may be causally superior.",
+      "B": "If many architectures with these motifs also failed, the surviving architectures represent lucky random seeds."
+    },
+    "wise_refusal": "The claim that these architectural motifs cause superior performance is ambiguous due to survivorship bias. We cannot determine if motifs cause performance without knowing about discarded architectures with the same motifs. If such architectures consistently succeeded, the effect may be causal. If many were discarded, we're seeing search survivorship. Without this information, the causal claim is not justified.",
+    "causal_structure": "Selection on Y (search survival) -> observation of X in final architectures",
+    "key_insight": "NAS discoveries may reflect random seed luck rather than fundamental architectural advantages.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0028",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Tech Leadership",
+    "difficulty": "Easy",
+    "trap_type": "T2",
+    "trap_family": "F1",
+    "trap_subtype": "Career Survivorship",
+    "scenario": "Successful AI researchers at top labs all have certain educational backgrounds. Career advisors recommend these educational paths. Many researchers with identical backgrounds failed to secure positions at top labs and left the field.",
+    "claim": "These educational backgrounds cause AI research success.",
+    "variables": {
+      "X": {"name": "Educational Background", "role": "Treatment"},
+      "Y": {"name": "Top Lab Position", "role": "Outcome"},
+      "Z": {"name": "Failed Candidates with Same Background", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "How many researchers with identical educational backgrounds failed to achieve similar positions?",
+    "conditional_answers": {
+      "A": "If researchers with different backgrounds consistently failed, this education may causally help.",
+      "B": "If many with identical backgrounds also failed, the correlation among successes is survivorship bias."
+    },
+    "wise_refusal": "The claim that these educational backgrounds cause AI research success is ambiguous due to survivorship bias. We cannot determine if education causes success without knowing about those who failed with similar backgrounds. If failures had different backgrounds, the effect may be causal. If failures had identical backgrounds, we're only seeing survivors. Without this information, the causal claim is not justified.",
+    "causal_structure": "Selection on Y (career success) -> observation of X in successful researchers",
+    "key_insight": "Career advice based on successful people ignores those with identical qualifications who didn't succeed.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0029",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Deployment",
+    "difficulty": "Medium",
+    "trap_type": "T2",
+    "trap_family": "F1",
+    "trap_subtype": "Deployment Survivorship",
+    "scenario": "ML models that remain in production all have comprehensive monitoring dashboards. DevOps teams conclude monitoring prevents model degradation. Many models with identical monitoring were quietly deprecated when they degraded and are no longer observable.",
+    "claim": "Comprehensive monitoring causes ML model longevity in production.",
+    "variables": {
+      "X": {"name": "Monitoring Dashboards", "role": "Treatment"},
+      "Y": {"name": "Production Longevity", "role": "Outcome"},
+      "Z": {"name": "Deprecated Models with Monitoring", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "What proportion of deprecated models also had comprehensive monitoring?",
+    "conditional_answers": {
+      "A": "If deprecated models lacked monitoring, monitoring may causally extend model life.",
+      "B": "If deprecated models also had monitoring, the correlation among surviving models is spurious."
+    },
+    "wise_refusal": "The claim that comprehensive monitoring causes ML model longevity in production is ambiguous due to survivorship bias. We cannot determine if monitoring extends model life without knowing about deprecated models' monitoring status. If deprecations lacked monitoring, the effect may be causal. If deprecations also had monitoring, we're only seeing survivors. Without this information, the causal claim is not justified.",
+    "causal_structure": "Selection on Y (still in production) -> observation of X in active models",
+    "key_insight": "Studying only currently-deployed models ignores those that failed despite having similar characteristics.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0030",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Data Pipelines",
+    "difficulty": "Hard",
+    "trap_type": "T2",
+    "trap_family": "F1",
+    "trap_subtype": "Pipeline Survivorship",
+    "scenario": "Reliable data pipelines all use specific orchestration tools. Data engineers conclude these tools ensure reliability. Many pipelines using identical tools experienced failures and were rebuilt or abandoned, leaving no trace in current infrastructure.",
+    "claim": "These orchestration tools cause data pipeline reliability.",
+    "variables": {
+      "X": {"name": "Orchestration Tools", "role": "Treatment"},
+      "Y": {"name": "Pipeline Reliability", "role": "Outcome"},
+      "Z": {"name": "Failed Pipelines with Same Tools", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "How many failed pipelines also used these orchestration tools?",
+    "conditional_answers": {
+      "A": "If failed pipelines used different tools, these tools may causally improve reliability.",
+      "B": "If failed pipelines used identical tools, the correlation among reliable pipelines is survivorship bias."
+    },
+    "wise_refusal": "The claim that these orchestration tools cause data pipeline reliability is ambiguous due to survivorship bias. We cannot determine if tools cause reliability without knowing about failed pipelines' tool choices. If failures used different tools, the effect may be causal. If failures used identical tools, we're only seeing survivors. Without this information, the causal claim is not justified.",
+    "causal_structure": "Selection on Y (reliability/survival) -> observation of X in surviving pipelines",
+    "key_insight": "Infrastructure recommendations based on current systems ignore the history of failures with similar setups.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0031",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Conferences",
+    "difficulty": "Easy",
+    "trap_type": "T2",
+    "trap_family": "F1",
+    "trap_subtype": "Publication Survivorship",
+    "scenario": "Award-winning papers at top AI conferences all report results on specific benchmark datasets. New researchers focus on these benchmarks assuming they lead to recognition. Many papers using identical benchmarks were rejected and never seen by the community.",
+    "claim": "Using these benchmark datasets causes publication success.",
+    "variables": {
+      "X": {"name": "Benchmark Datasets", "role": "Treatment"},
+      "Y": {"name": "Publication/Award Success", "role": "Outcome"},
+      "Z": {"name": "Rejected Papers with Same Benchmarks", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "How many rejected papers also used these same benchmark datasets?",
+    "conditional_answers": {
+      "A": "If rejected papers used different benchmarks, these benchmarks may causally improve acceptance chances.",
+      "B": "If rejected papers used identical benchmarks, the correlation among accepted papers is survivorship bias."
+    },
+    "wise_refusal": "The claim that using these benchmark datasets causes publication success is ambiguous due to survivorship bias. We cannot determine if benchmarks cause success without knowing about rejected papers' benchmark choices. If rejections used different benchmarks, the effect may be causal. If rejections used identical benchmarks, we're only seeing accepted papers. Without this information, the causal claim is not justified.",
+    "causal_structure": "Selection on Y (acceptance) -> observation of X in accepted papers",
+    "key_insight": "Academic success patterns visible in accepted papers may be equally common in the rejection pile.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0032",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Open Source AI",
+    "difficulty": "Medium",
+    "trap_type": "T2",
+    "trap_family": "F1",
+    "trap_subtype": "Repository Survivorship",
+    "scenario": "Popular GitHub AI repositories all have detailed documentation. Developers conclude good documentation drives repository popularity. Many repositories with excellent documentation were never discovered and remain with zero stars.",
+    "claim": "Detailed documentation causes GitHub repository popularity.",
+    "variables": {
+      "X": {"name": "Documentation Quality", "role": "Treatment"},
+      "Y": {"name": "Repository Popularity", "role": "Outcome"},
+      "Z": {"name": "Unknown Repos with Good Documentation", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "How many unpopular repositories also have detailed documentation?",
+    "conditional_answers": {
+      "A": "If unpopular repositories lack documentation, documentation may causally drive popularity.",
+      "B": "If many unpopular repositories have excellent documentation, the correlation among popular repos is survivorship bias."
+    },
+    "wise_refusal": "The claim that detailed documentation causes GitHub repository popularity is ambiguous due to survivorship bias. We cannot determine if documentation causes popularity without knowing about unknown repositories' documentation quality. If unknowns lack documentation, the effect may be causal. If unknowns also have good docs, we're only seeing discovered projects. Without this information, the causal claim is not justified.",
+    "causal_structure": "Selection on Y (popularity/discovery) -> observation of X in discovered repos",
+    "key_insight": "Studying visible open-source projects ignores the dark matter of undiscovered quality projects.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0033",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Hardware",
+    "difficulty": "Hard",
+    "trap_type": "T2",
+    "trap_family": "F1",
+    "trap_subtype": "Hardware Survivorship",
+    "scenario": "Successful AI chip companies all started with FPGA prototypes before moving to ASICs. Investors advise this prototyping path. Many companies that followed identical paths failed before reaching market and are no longer around.",
+    "claim": "FPGA prototyping causes AI chip company success.",
+    "variables": {
+      "X": {"name": "FPGA Prototyping", "role": "Treatment"},
+      "Y": {"name": "Company Success", "role": "Outcome"},
+      "Z": {"name": "Failed Companies with FPGA Path", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "How many failed AI chip companies also used FPGA prototyping?",
+    "conditional_answers": {
+      "A": "If failed companies skipped FPGA prototyping, this path may causally contribute to success.",
+      "B": "If failed companies also used FPGA prototyping, the correlation among successes is survivorship bias."
+    },
+    "wise_refusal": "The claim that FPGA prototyping causes AI chip company success is ambiguous due to survivorship bias. We cannot determine if prototyping path causes success without knowing about failed companies' approaches. If failures skipped FPGA, the effect may be causal. If failures also used FPGA, we're only seeing survivors. Without this information, the causal claim is not justified.",
+    "causal_structure": "Selection on Y (survival) -> observation of X in surviving companies",
+    "key_insight": "Hardware startup advice based on survivors ignores identical paths that led to failure.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0034",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Kaggle Competitions",
+    "difficulty": "Easy",
+    "trap_type": "T2",
+    "trap_family": "F1",
+    "trap_subtype": "Competition Survivorship",
+    "scenario": "Top Kaggle competitors all use ensemble methods in their winning solutions. New competitors adopt ensemble approaches hoping to win. Many competitors who used identical ensemble methods finished poorly and their solutions are not publicized.",
+    "claim": "Ensemble methods cause Kaggle competition success.",
+    "variables": {
+      "X": {"name": "Ensemble Methods", "role": "Treatment"},
+      "Y": {"name": "Competition Ranking", "role": "Outcome"},
+      "Z": {"name": "Low-Ranking Solutions with Ensembles", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "How many low-ranking competitors also used ensemble methods?",
+    "conditional_answers": {
+      "A": "If low-ranking competitors didn't use ensembles, ensembles may causally improve rankings.",
+      "B": "If low-ranking competitors also used ensembles, the correlation among winners is survivorship bias."
+    },
+    "wise_refusal": "The claim that ensemble methods cause Kaggle competition success is ambiguous due to survivorship bias. We cannot determine if ensembles cause success without knowing about low-ranking competitors' methods. If low-rankers didn't use ensembles, the effect may be causal. If they did, we're only seeing winners. Without this information, the causal claim is not justified.",
+    "causal_structure": "Selection on Y (winning) -> observation of X in publicized solutions",
+    "key_insight": "Competition winning strategies may be equally common among losing entries that aren't shared.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0035",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "MLOps",
+    "difficulty": "Medium",
+    "trap_type": "T2",
+    "trap_family": "F1",
+    "trap_subtype": "Tool Survivorship",
+    "scenario": "Successful MLOps teams all use containerization with Kubernetes. Industry reports recommend this stack. Many teams that adopted identical infrastructure still failed to deliver and quietly disbanded or pivoted away.",
+    "claim": "Kubernetes containerization causes MLOps team success.",
+    "variables": {
+      "X": {"name": "Kubernetes Stack", "role": "Treatment"},
+      "Y": {"name": "Team Success", "role": "Outcome"},
+      "Z": {"name": "Failed Teams with Kubernetes", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "What proportion of failed MLOps teams also used Kubernetes containerization?",
+    "conditional_answers": {
+      "A": "If failed teams used different infrastructure, Kubernetes may causally enable success.",
+      "B": "If failed teams also used Kubernetes, the correlation among successful teams is survivorship bias."
+    },
+    "wise_refusal": "The claim that Kubernetes containerization causes MLOps team success is ambiguous due to survivorship bias. We cannot determine if infrastructure causes success without knowing about failed teams' setups. If failures used different stacks, the effect may be causal. If failures used Kubernetes too, we're only seeing survivors. Without this information, the causal claim is not justified.",
+    "causal_structure": "Selection on Y (success) -> observation of X in successful teams",
+    "key_insight": "Technology stack recommendations based on successful teams ignore failures with identical stacks.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0036",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Funding",
+    "difficulty": "Hard",
+    "trap_type": "T2",
+    "trap_family": "F1",
+    "trap_subtype": "Investment Survivorship",
+    "scenario": "Successful AI companies that IPO'd all had specific investor profiles on their cap tables. VCs recommend seeking these investor types. Many companies with identical investor profiles failed before exit and liquidated.",
+    "claim": "Having these investor types causes AI company IPO success.",
+    "variables": {
+      "X": {"name": "Investor Profile", "role": "Treatment"},
+      "Y": {"name": "IPO Success", "role": "Outcome"},
+      "Z": {"name": "Failed Companies with Same Investors", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "How many failed AI companies had identical investor profiles?",
+    "conditional_answers": {
+      "A": "If failed companies had different investor profiles, these investors may causally contribute to success.",
+      "B": "If failed companies had identical investor profiles, the correlation among IPO'd companies is survivorship bias."
+    },
+    "wise_refusal": "The claim that having these investor types causes AI company IPO success is ambiguous due to survivorship bias. We cannot determine if investors cause success without knowing about failed companies' cap tables. If failures had different investors, the effect may be causal. If failures had identical investors, we're only seeing survivors. Without this information, the causal claim is not justified.",
+    "causal_structure": "Selection on Y (IPO) -> observation of X in exited companies",
+    "key_insight": "Investor pattern analysis limited to exits ignores identical patterns in failures.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0037",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Feature Engineering",
+    "difficulty": "Medium",
+    "trap_type": "T2",
+    "trap_family": "F1",
+    "trap_subtype": "Feature Survivorship",
+    "scenario": "Production ML models that perform well all use certain feature transformation techniques. Data scientists recommend these techniques as best practices. Many models using identical transformations performed poorly and were never deployed.",
+    "claim": "These feature transformation techniques cause model performance.",
+    "variables": {
+      "X": {"name": "Feature Transformations", "role": "Treatment"},
+      "Y": {"name": "Model Performance", "role": "Outcome"},
+      "Z": {"name": "Failed Models with Same Techniques", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "How many failed models also used these feature transformation techniques?",
+    "conditional_answers": {
+      "A": "If failed models used different techniques, these transformations may causally improve performance.",
+      "B": "If failed models used identical techniques, the correlation among successful models is survivorship bias."
+    },
+    "wise_refusal": "The claim that these feature transformation techniques cause model performance is ambiguous due to survivorship bias. We cannot determine if techniques cause performance without knowing about failed models' feature engineering. If failures used different techniques, the effect may be causal. If failures used identical techniques, we're only seeing survivors. Without this information, the causal claim is not justified.",
+    "causal_structure": "Selection on Y (deployment) -> observation of X in deployed models",
+    "key_insight": "ML best practices derived from deployed models may be equally common in failed experiments.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0038",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Safety Research",
+    "difficulty": "Hard",
+    "trap_type": "T2",
+    "trap_family": "F1",
+    "trap_subtype": "Research Direction Survivorship",
+    "scenario": "Influential AI safety papers all focus on certain threat models. New researchers focus on these threats assuming they're the most important. Many researchers who studied identical threats produced work that was ignored and left the field.",
+    "claim": "Focusing on these threat models causes AI safety research impact.",
+    "variables": {
+      "X": {"name": "Threat Model Focus", "role": "Treatment"},
+      "Y": {"name": "Research Impact", "role": "Outcome"},
+      "Z": {"name": "Ignored Research on Same Threats", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "How much research on identical threat models was ignored or produced no impact?",
+    "conditional_answers": {
+      "A": "If ignored research focused on different threats, these threat models may causally lead to impact.",
+      "B": "If ignored research focused on identical threats, the correlation among influential papers is survivorship bias."
+    },
+    "wise_refusal": "The claim that focusing on these threat models causes AI safety research impact is ambiguous due to survivorship bias. We cannot determine if threat focus causes impact without knowing about ignored research on the same topics. If ignored work covered different threats, the effect may be causal. If ignored work covered identical threats, we're only seeing impactful survivors. Without this information, the causal claim is not justified.",
+    "causal_structure": "Selection on Y (impact) -> observation of X in influential papers",
+    "key_insight": "Research topic recommendations based on influential work ignore identical topics that produced no impact.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  }
+]

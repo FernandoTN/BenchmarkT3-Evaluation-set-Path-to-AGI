@@ -1,0 +1,466 @@
+[
+  {
+    "case_id": "T3-I1-L2-0231",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "ML Model Debugging",
+    "difficulty": "Easy",
+    "trap_type": "T14",
+    "trap_family": "F5",
+    "trap_subtype": "Failure Recall Bias",
+    "scenario": "Users report that an AI system fails frequently on a certain type of input. Teams investigate and confirm failures on reported cases. However, users may disproportionately remember and report failures rather than successes, biasing the failure rate estimate.",
+    "claim": "The AI system fails frequently on this input type.",
+    "variables": {
+      "X": {"name": "Reported Failures", "role": "Treatment"},
+      "Y": {"name": "True Failure Rate", "role": "Outcome"},
+      "Z": {"name": "Reporting Bias", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Do users report failures and successes equally, or do they disproportionately report failures?",
+    "conditional_answers": {
+      "A": "If reporting is balanced, reported failure rate may reflect true rate.",
+      "B": "If users over-report failures, the true failure rate is lower than reports suggest."
+    },
+    "wise_refusal": "The claim that the AI system fails frequently on this input type is ambiguous due to recall bias. We cannot determine true failure rate without knowing reporting patterns. If reporting is balanced, reports may be accurate. If failures are over-reported, the true rate is lower. Without this information, the causal claim is not justified.",
+    "causal_structure": "X reports -> Y estimated rate only if reporting is unbiased",
+    "key_insight": "Users remember and report negative experiences more readily than positive ones.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0232",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Research",
+    "difficulty": "Easy",
+    "trap_type": "T14",
+    "trap_family": "F5",
+    "trap_subtype": "Success Recall Bias",
+    "scenario": "Researchers retrospectively identify that successful ML projects had certain characteristics. They conclude these characteristics cause success. However, researchers may better remember details of successful projects, making these characteristics seem more common in successes.",
+    "claim": "These project characteristics cause ML research success.",
+    "variables": {
+      "X": {"name": "Recalled Characteristics", "role": "Treatment"},
+      "Y": {"name": "Project Success", "role": "Outcome"},
+      "Z": {"name": "Differential Recall", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Are project characteristics equally recalled for successes and failures?",
+    "conditional_answers": {
+      "A": "If recall is equal, characteristics may genuinely differ between successes and failures.",
+      "B": "If successes are recalled better, the characteristics may be artifacts of memory bias."
+    },
+    "wise_refusal": "The claim that these project characteristics cause ML research success is ambiguous due to recall bias. We cannot determine true differences without knowing recall patterns. If recall is balanced, differences may be real. If successes are recalled better, characteristics are memory artifacts. Without this information, the causal claim is not justified.",
+    "causal_structure": "X recalled characteristics -> Y success only if recall is unbiased",
+    "key_insight": "Retrospective analysis of success factors is confounded by differential memory of successes vs failures.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0233",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Incident Analysis",
+    "difficulty": "Medium",
+    "trap_type": "T14",
+    "trap_family": "F5",
+    "trap_subtype": "Incident Recall Bias",
+    "scenario": "Analysis of reported AI incidents shows certain failure modes are common. Regulators conclude these are the primary risks. However, spectacular failures are more likely to be reported and remembered than mundane ones, skewing the risk assessment.",
+    "claim": "Reported failure modes represent the primary AI risks.",
+    "variables": {
+      "X": {"name": "Reported Incidents", "role": "Treatment"},
+      "Y": {"name": "True Risk Distribution", "role": "Outcome"},
+      "Z": {"name": "Reporting/Recall Bias", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Are all failure types equally likely to be reported and remembered?",
+    "conditional_answers": {
+      "A": "If reporting is unbiased, incident reports may reflect true risk distribution.",
+      "B": "If spectacular failures are over-reported, mundane but frequent risks are underestimated."
+    },
+    "wise_refusal": "The claim that reported failure modes represent the primary AI risks is ambiguous due to recall bias. We cannot determine true risk distribution without knowing reporting patterns. If reporting is balanced, reports may reflect reality. If spectacular failures are over-reported, risk assessment is skewed. Without this information, the causal claim is not justified.",
+    "causal_structure": "X reports -> Y risk estimate only if reporting is unbiased",
+    "key_insight": "Incident databases over-represent memorable failures, underestimating mundane risks.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0234",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "User Experience Research",
+    "difficulty": "Medium",
+    "trap_type": "T14",
+    "trap_family": "F5",
+    "trap_subtype": "Usability Recall Bias",
+    "scenario": "User interviews reveal that people remember having difficulty with certain AI features. Product teams prioritize fixing these issues. However, users may recall frustrating moments more vividly than smooth interactions, overweighting these issues.",
+    "claim": "Recalled difficulties represent the most important usability issues.",
+    "variables": {
+      "X": {"name": "Recalled Difficulties", "role": "Treatment"},
+      "Y": {"name": "Actual Usability Impact", "role": "Outcome"},
+      "Z": {"name": "Memory Vividness Bias", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Do users recall difficulties and smooth experiences equally well?",
+    "conditional_answers": {
+      "A": "If recall is balanced, recalled issues may represent actual priorities.",
+      "B": "If frustrations are recalled more vividly, minor issues may be overweighted."
+    },
+    "wise_refusal": "The claim that recalled difficulties represent the most important usability issues is ambiguous due to recall bias. We cannot determine true priorities without knowing recall patterns. If recall is balanced, reported issues may be important. If frustrations are over-recalled, priorities are distorted. Without this information, the causal claim is not justified.",
+    "causal_structure": "X recalled issues -> Y priorities only if recall is unbiased",
+    "key_insight": "User research based on recall overweights vivid negative experiences.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0235",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "ML Career Advice",
+    "difficulty": "Easy",
+    "trap_type": "T14",
+    "trap_family": "F5",
+    "trap_subtype": "Career Path Recall Bias",
+    "scenario": "Successful ML researchers describe their career paths in interviews. Aspiring researchers try to follow these paths. However, successful researchers may reconstruct their histories to fit narratives, forgetting luck and dead ends.",
+    "claim": "Following described career paths leads to ML research success.",
+    "variables": {
+      "X": {"name": "Recalled Career Paths", "role": "Treatment"},
+      "Y": {"name": "Career Success", "role": "Outcome"},
+      "Z": {"name": "Narrative Reconstruction Bias", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Do career narratives accurately reflect the paths taken, or are they reconstructed post-hoc?",
+    "conditional_answers": {
+      "A": "If narratives are accurate, following paths may help.",
+      "B": "If narratives are reconstructed to fit success stories, they omit crucial details and luck."
+    },
+    "wise_refusal": "The claim that following described career paths leads to ML research success is ambiguous due to recall bias. We cannot determine path effectiveness without knowing narrative accuracy. If narratives are accurate, paths may help. If reconstructed post-hoc, they're misleading. Without this information, the causal claim is not justified.",
+    "causal_structure": "X recalled paths -> Y success only if memories are accurate",
+    "key_insight": "Success stories are often post-hoc narratives that omit luck and failed attempts.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0236",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Ethics",
+    "difficulty": "Hard",
+    "trap_type": "T14",
+    "trap_family": "F5",
+    "trap_subtype": "Harm Recall Bias",
+    "scenario": "Surveys of AI practitioners find they recall specific harms from AI systems. Ethicists conclude these are the primary ethical concerns. However, practitioners may recall harms that affected them personally or received media attention, missing systemic issues.",
+    "claim": "Recalled harms represent the primary ethical concerns in AI.",
+    "variables": {
+      "X": {"name": "Recalled Harms", "role": "Treatment"},
+      "Y": {"name": "Actual Ethical Priorities", "role": "Outcome"},
+      "Z": {"name": "Availability Bias", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Are all types of harms equally likely to be recalled by practitioners?",
+    "conditional_answers": {
+      "A": "If recall is comprehensive, recalled harms may represent true concerns.",
+      "B": "If recall is biased toward salient/personal harms, systemic issues are underweighted."
+    },
+    "wise_refusal": "The claim that recalled harms represent the primary ethical concerns in AI is ambiguous due to recall bias. We cannot determine true priorities without knowing recall patterns. If recall is comprehensive, concerns may be valid. If biased toward salient events, systemic harms are missed. Without this information, the causal claim is not justified.",
+    "causal_structure": "X recalled harms -> Y priorities only if recall is comprehensive",
+    "key_insight": "Ethics priorities based on recalled harms may miss less visible systemic issues.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0237",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Development",
+    "difficulty": "Medium",
+    "trap_type": "T14",
+    "trap_family": "F5",
+    "trap_subtype": "Experiment Recall Bias",
+    "scenario": "ML engineers recall that certain hyperparameter choices worked well in past projects. They apply these to new projects. However, they may recall successful experiments better than failed ones, leading to overconfidence in these choices.",
+    "claim": "Recalled hyperparameter choices are effective for new projects.",
+    "variables": {
+      "X": {"name": "Recalled Experiments", "role": "Treatment"},
+      "Y": {"name": "Effectiveness", "role": "Outcome"},
+      "Z": {"name": "Success-Failure Recall Asymmetry", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Are successful and failed experiments with these hyperparameters recalled equally?",
+    "conditional_answers": {
+      "A": "If recall is balanced, recalled choices may genuinely be effective.",
+      "B": "If successes are recalled better, effectiveness is overestimated due to selective memory."
+    },
+    "wise_refusal": "The claim that recalled hyperparameter choices are effective for new projects is ambiguous due to recall bias. We cannot determine true effectiveness without knowing recall patterns. If recall is balanced, choices may be effective. If failures are forgotten, effectiveness is overestimated. Without this information, the causal claim is not justified.",
+    "causal_structure": "X recalled successes -> Y estimated effectiveness only if recall is unbiased",
+    "key_insight": "Engineering intuition based on memory overweights remembered successes.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0238",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Product Feedback",
+    "difficulty": "Easy",
+    "trap_type": "T14",
+    "trap_family": "F5",
+    "trap_subtype": "Feature Request Recall Bias",
+    "scenario": "Product teams collect feature requests for an AI product. Certain features are requested frequently. However, users requesting features may disproportionately remember when they needed something, not when existing features worked well.",
+    "claim": "Frequently requested features represent the most impactful improvements.",
+    "variables": {
+      "X": {"name": "Feature Requests", "role": "Treatment"},
+      "Y": {"name": "Feature Impact", "role": "Outcome"},
+      "Z": {"name": "Need Recall Bias", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Do users recall needs and satisfactions equally when providing feedback?",
+    "conditional_answers": {
+      "A": "If needs and satisfactions are recalled equally, requests may indicate impact.",
+      "B": "If needs are recalled more readily, requests overweight gaps relative to improvements."
+    },
+    "wise_refusal": "The claim that frequently requested features represent the most impactful improvements is ambiguous due to recall bias. We cannot determine true impact without knowing recall patterns. If recall is balanced, requests may indicate importance. If needs are over-recalled, impact is misjudged. Without this information, the causal claim is not justified.",
+    "causal_structure": "X requests -> Y impact only if recall is unbiased",
+    "key_insight": "Feature requests reflect what users remember wanting, not necessarily what would help most.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0239",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Safety Research",
+    "difficulty": "Hard",
+    "trap_type": "T14",
+    "trap_family": "F5",
+    "trap_subtype": "Risk Example Recall Bias",
+    "scenario": "AI safety researchers cite specific examples of AI risks in their papers. Readers conclude these examples represent the primary risks. However, researchers may recall and cite dramatic examples that illustrate their points, missing common but mundane risks.",
+    "claim": "Cited risk examples represent the most important AI risks.",
+    "variables": {
+      "X": {"name": "Cited Examples", "role": "Treatment"},
+      "Y": {"name": "Risk Importance", "role": "Outcome"},
+      "Z": {"name": "Illustrative Selection Bias", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Are cited examples representative, or selected for being illustrative/dramatic?",
+    "conditional_answers": {
+      "A": "If examples are representative, they may indicate important risks.",
+      "B": "If examples are selected for illustration, common risks may be underrepresented."
+    },
+    "wise_refusal": "The claim that cited risk examples represent the most important AI risks is ambiguous due to recall bias. We cannot determine true importance without knowing selection criteria. If examples are representative, they may indicate priorities. If selected for drama, common risks are missed. Without this information, the causal claim is not justified.",
+    "causal_structure": "X cited examples -> Y importance only if selection is representative",
+    "key_insight": "Academic examples are selected for illustration, not representativeness of actual risks.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0240",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "ML Debugging",
+    "difficulty": "Medium",
+    "trap_type": "T14",
+    "trap_family": "F5",
+    "trap_subtype": "Bug Source Recall Bias",
+    "scenario": "Engineers recall that bugs in ML systems usually came from data quality issues. New teams focus debugging efforts on data. However, engineers may recall data bugs more easily because they're concrete, while subtle algorithmic issues are harder to remember.",
+    "claim": "Data quality is the primary source of ML bugs.",
+    "variables": {
+      "X": {"name": "Recalled Bug Sources", "role": "Treatment"},
+      "Y": {"name": "Actual Bug Distribution", "role": "Outcome"},
+      "Z": {"name": "Concreteness Recall Bias", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Are all bug types equally memorable, or are some easier to recall than others?",
+    "conditional_answers": {
+      "A": "If all bugs are equally memorable, recalled distribution may be accurate.",
+      "B": "If concrete bugs are recalled better, abstract bugs are underrepresented in memory."
+    },
+    "wise_refusal": "The claim that data quality is the primary source of ML bugs is ambiguous due to recall bias. We cannot determine true distribution without knowing recall patterns. If recall is unbiased, data issues may dominate. If concrete bugs are over-recalled, the distribution is skewed. Without this information, the causal claim is not justified.",
+    "causal_structure": "X recalled bugs -> Y distribution only if recall is unbiased",
+    "key_insight": "Bug recall is biased toward concrete, easily identified issues over subtle algorithmic problems.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0241",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Governance",
+    "difficulty": "Hard",
+    "trap_type": "T14",
+    "trap_family": "F5",
+    "trap_subtype": "Policy Impact Recall Bias",
+    "scenario": "Policymakers recall specific AI incidents when designing regulations. They conclude these incidents define the regulatory priorities. However, they may recall high-profile incidents that received media coverage, missing widespread but unreported issues.",
+    "claim": "Recalled incidents define the appropriate regulatory priorities.",
+    "variables": {
+      "X": {"name": "Recalled Incidents", "role": "Treatment"},
+      "Y": {"name": "Regulatory Priorities", "role": "Outcome"},
+      "Z": {"name": "Media Coverage Bias", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Do recalled incidents reflect true prevalence or media coverage?",
+    "conditional_answers": {
+      "A": "If recall reflects prevalence, incidents may guide appropriate priorities.",
+      "B": "If recall reflects media coverage, regulations target visible rather than common issues."
+    },
+    "wise_refusal": "The claim that recalled incidents define the appropriate regulatory priorities is ambiguous due to recall bias. We cannot determine appropriate priorities without knowing recall sources. If recall reflects prevalence, priorities may be appropriate. If recall reflects media, regulations miss common issues. Without this information, the causal claim is not justified.",
+    "causal_structure": "X recalled incidents -> Y priorities only if recall is representative",
+    "key_insight": "Policy based on memorable incidents may address newsworthy rather than prevalent problems.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0242",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Research Directions",
+    "difficulty": "Medium",
+    "trap_type": "T14",
+    "trap_family": "F5",
+    "trap_subtype": "Breakthrough Recall Bias",
+    "scenario": "AI researchers recall that breakthroughs came from specific approaches. Students focus on these approaches. However, researchers may recall successful approaches that led to breakthroughs while forgetting identical approaches that led nowhere.",
+    "claim": "Recalled breakthrough approaches are more likely to yield future breakthroughs.",
+    "variables": {
+      "X": {"name": "Recalled Approaches", "role": "Treatment"},
+      "Y": {"name": "Breakthrough Probability", "role": "Outcome"},
+      "Z": {"name": "Outcome-Dependent Recall", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Are approaches recalled because they worked, or would they have been remembered if they hadn't?",
+    "conditional_answers": {
+      "A": "If approaches are recalled regardless of outcome, they may genuinely predict success.",
+      "B": "If only successful applications are remembered, the approach's value is overestimated."
+    },
+    "wise_refusal": "The claim that recalled breakthrough approaches are more likely to yield future breakthroughs is ambiguous due to recall bias. We cannot determine true probability without knowing recall patterns. If recall is outcome-independent, approaches may predict success. If only successes are recalled, probability is overestimated. Without this information, the causal claim is not justified.",
+    "causal_structure": "X recalled approaches -> Y success only if recall is outcome-independent",
+    "key_insight": "Scientific memory emphasizes successful applications of methods, forgetting unsuccessful ones.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0243",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Startup Post-Mortems",
+    "difficulty": "Easy",
+    "trap_type": "T14",
+    "trap_family": "F5",
+    "trap_subtype": "Failure Attribution Recall Bias",
+    "scenario": "Failed AI startups report reasons for their failure in post-mortems. Analysts identify common failure patterns. However, founders may recall and report causes that are socially acceptable or that they understood, missing deeper issues.",
+    "claim": "Reported failure causes represent the true reasons AI startups fail.",
+    "variables": {
+      "X": {"name": "Reported Causes", "role": "Treatment"},
+      "Y": {"name": "True Failure Causes", "role": "Outcome"},
+      "Z": {"name": "Self-Serving Recall", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Do founders accurately recall and report failure causes, or is recall biased?",
+    "conditional_answers": {
+      "A": "If recall is accurate, reported causes may reflect true reasons.",
+      "B": "If recall is self-serving or limited, reported causes miss important factors."
+    },
+    "wise_refusal": "The claim that reported failure causes represent the true reasons AI startups fail is ambiguous due to recall bias. We cannot determine true causes without knowing recall accuracy. If recall is accurate, reports may be informative. If biased or limited, important factors are missed. Without this information, the causal claim is not justified.",
+    "causal_structure": "X reported causes -> Y true causes only if recall is accurate",
+    "key_insight": "Post-mortems reflect what founders remember and are willing to share, not objective causes.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0244",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Development Practices",
+    "difficulty": "Medium",
+    "trap_type": "T14",
+    "trap_family": "F5",
+    "trap_subtype": "Best Practice Recall Bias",
+    "scenario": "Senior ML engineers share best practices they recall using in successful projects. Junior engineers adopt these practices. However, seniors may recall practices that stood out as different, not the common practices that actually mattered.",
+    "claim": "Recalled best practices are the key factors in ML project success.",
+    "variables": {
+      "X": {"name": "Recalled Practices", "role": "Treatment"},
+      "Y": {"name": "Practice Importance", "role": "Outcome"},
+      "Z": {"name": "Distinctiveness Recall Bias", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Are recalled practices the important ones, or just the memorable/distinctive ones?",
+    "conditional_answers": {
+      "A": "If important practices are memorable, recalled practices may be key factors.",
+      "B": "If distinctive practices are over-recalled, mundane important practices are missed."
+    },
+    "wise_refusal": "The claim that recalled best practices are the key factors in ML project success is ambiguous due to recall bias. We cannot determine true importance without knowing recall patterns. If importance drives recall, practices may matter. If distinctiveness drives recall, common important practices are missed. Without this information, the causal claim is not justified.",
+    "causal_structure": "X recalled practices -> Y importance only if recall reflects importance",
+    "key_insight": "Best practices recalled from memory emphasize distinctive over mundane-but-important.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0245",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Tool Selection",
+    "difficulty": "Hard",
+    "trap_type": "T14",
+    "trap_family": "F5",
+    "trap_subtype": "Tool Experience Recall Bias",
+    "scenario": "Engineers recall experiences with ML tools when making recommendations. They recommend tools they remember positively. However, they may recall tools used in successful projects and forget the same tools used in failed projects.",
+    "claim": "Recalled positive experiences indicate tool quality.",
+    "variables": {
+      "X": {"name": "Recalled Tool Experiences", "role": "Treatment"},
+      "Y": {"name": "Tool Quality", "role": "Outcome"},
+      "Z": {"name": "Project Outcome Recall Bias", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Are tool experiences recalled independently of project outcome?",
+    "conditional_answers": {
+      "A": "If recall is outcome-independent, positive experiences may indicate quality.",
+      "B": "If tools in successful projects are recalled positively, tool quality is confounded with project success."
+    },
+    "wise_refusal": "The claim that recalled positive experiences indicate tool quality is ambiguous due to recall bias. We cannot determine tool quality without knowing recall patterns. If recall is outcome-independent, experiences may indicate quality. If project success biases recall, tool quality is confounded. Without this information, the causal claim is not justified.",
+    "causal_structure": "X recalled experiences -> Y quality only if recall is outcome-independent",
+    "key_insight": "Tool recommendations are colored by project outcomes that affected tool perception.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0246",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Benchmark Creation",
+    "difficulty": "Hard",
+    "trap_type": "T14",
+    "trap_family": "F5",
+    "trap_subtype": "Test Case Recall Bias",
+    "scenario": "Benchmark creators include test cases based on known failure modes they recall. They claim the benchmark is comprehensive. However, they may recall failure modes that were dramatic or recent, missing systematic issues that never became memorable incidents.",
+    "claim": "The benchmark comprehensively tests for AI failures.",
+    "variables": {
+      "X": {"name": "Recalled Failure Modes", "role": "Treatment"},
+      "Y": {"name": "Benchmark Comprehensiveness", "role": "Outcome"},
+      "Z": {"name": "Failure Mode Recall Coverage", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Do recalled failure modes cover all important failures, or just memorable ones?",
+    "conditional_answers": {
+      "A": "If recall covers all important failures, the benchmark may be comprehensive.",
+      "B": "If recall is biased toward dramatic failures, systematic issues are missed."
+    },
+    "wise_refusal": "The claim that the benchmark comprehensively tests for AI failures is ambiguous due to recall bias. We cannot determine comprehensiveness without knowing recall coverage. If recall is complete, the benchmark may be comprehensive. If recall misses systematic issues, the benchmark has gaps. Without this information, the causal claim is not justified.",
+    "causal_structure": "X recalled failures -> Y comprehensiveness only if recall is complete",
+    "key_insight": "Benchmarks based on recalled failures systematically miss issues that never became memorable incidents.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  }
+]

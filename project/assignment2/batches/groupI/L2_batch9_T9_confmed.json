@@ -1,0 +1,582 @@
+[
+  {
+    "case_id": "T3-I1-L2-0143",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Algorithmic Fairness",
+    "difficulty": "Easy",
+    "trap_type": "T9",
+    "trap_family": "F3",
+    "trap_subtype": "Proxy Discrimination",
+    "scenario": "A credit scoring ML model uses zip code as a feature and shows racial disparities in loan approvals. The company removes race from the training data, but disparities persist. Zip code is highly correlated with race due to historical residential segregation.",
+    "claim": "Removing race from the model will eliminate racial discrimination.",
+    "variables": {
+      "X": {"name": "Race Removal", "role": "Treatment"},
+      "Y": {"name": "Racial Disparity", "role": "Outcome"},
+      "Z": {"name": "Zip Code (proxy)", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the model use proxy variables that carry the same discriminatory signal as the removed variable?",
+    "conditional_answers": {
+      "A": "If zip code is not a proxy for race, removing race might reduce disparity.",
+      "B": "If zip code carries racial information due to segregation, removing race won't eliminate discrimination."
+    },
+    "wise_refusal": "The claim that removing race from the model will eliminate racial discrimination is ambiguous due to proxy confounding. We cannot determine if disparity will be eliminated without knowing if proxies remain. If no proxies exist, removal may help. If zip code proxies for race, the discrimination persists through the mediator. Without this information, the causal claim is not justified.",
+    "causal_structure": "Race -> Zip Code -> Loan Decision (zip code mediates the racial effect)",
+    "key_insight": "Fairness through unawareness fails when correlated proxies carry the same discriminatory signal.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0144",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "ML Pipeline",
+    "difficulty": "Easy",
+    "trap_type": "T9",
+    "trap_family": "F3",
+    "trap_subtype": "Data Leakage Through Mediator",
+    "scenario": "A fraud detection model uses transaction time features and shows strong performance. Engineers realize transaction time is influenced by the fraud label (fraudsters work at specific times), creating data leakage. Removing the time feature doesn't fully resolve the issue because derived features also carry this information.",
+    "claim": "Removing transaction time will eliminate the data leakage.",
+    "variables": {
+      "X": {"name": "Time Feature Removal", "role": "Treatment"},
+      "Y": {"name": "Data Leakage", "role": "Outcome"},
+      "Z": {"name": "Derived Features", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Do derived features carry the same leaked information as the removed feature?",
+    "conditional_answers": {
+      "A": "If no derived features carry time information, removing time may fix leakage.",
+      "B": "If derived features encode time patterns, the leakage persists through these mediators."
+    },
+    "wise_refusal": "The claim that removing transaction time will eliminate the data leakage is ambiguous due to mediator confounding. We cannot determine if leakage will be eliminated without knowing about derived features. If no mediators exist, removal may help. If derived features carry time information, leakage persists. Without this information, the causal claim is not justified.",
+    "causal_structure": "Time -> Derived Features -> Prediction (derived features mediate the leaky signal)",
+    "key_insight": "Data leakage can persist through derived features that carry the same problematic information.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0145",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Hiring Algorithms",
+    "difficulty": "Medium",
+    "trap_type": "T9",
+    "trap_family": "F3",
+    "trap_subtype": "Resume Proxy Bias",
+    "scenario": "A resume screening AI shows gender bias in candidate selection. The company removes names and gender indicators. Bias persists because the model uses college names and extracurricular activities that are correlated with gender.",
+    "claim": "Removing gender indicators will eliminate gender bias in hiring.",
+    "variables": {
+      "X": {"name": "Gender Indicator Removal", "role": "Treatment"},
+      "Y": {"name": "Gender Bias", "role": "Outcome"},
+      "Z": {"name": "Gendered Proxies (colleges, activities)", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Do remaining features serve as proxies for the removed gender indicators?",
+    "conditional_answers": {
+      "A": "If remaining features are gender-neutral, removing indicators may reduce bias.",
+      "B": "If colleges and activities proxy for gender, bias persists through these mediators."
+    },
+    "wise_refusal": "The claim that removing gender indicators will eliminate gender bias in hiring is ambiguous due to proxy confounding. We cannot determine if bias will be eliminated without knowing about proxy features. If no proxies exist, removal may help. If colleges and activities proxy for gender, bias persists. Without this information, the causal claim is not justified.",
+    "causal_structure": "Gender -> Colleges/Activities -> Hiring Decision (proxies mediate gender effects)",
+    "key_insight": "Blinding protected attributes doesn't remove bias when correlated features remain.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0146",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Recommendation Systems",
+    "difficulty": "Medium",
+    "trap_type": "T9",
+    "trap_family": "F3",
+    "trap_subtype": "Popularity Mediator",
+    "scenario": "A content recommendation algorithm shows that removing explicit popularity features reduces filter bubbles. However, user engagement patterns (likes, shares) implicitly encode popularity, and the algorithm still preferentially recommends popular content.",
+    "claim": "Removing popularity features will reduce filter bubble effects.",
+    "variables": {
+      "X": {"name": "Popularity Feature Removal", "role": "Treatment"},
+      "Y": {"name": "Filter Bubble Reduction", "role": "Outcome"},
+      "Z": {"name": "Engagement Patterns (implicit popularity)", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Do engagement features implicitly encode the popularity signal being removed?",
+    "conditional_answers": {
+      "A": "If engagement doesn't encode popularity, removing popularity features may help.",
+      "B": "If engagement patterns carry popularity information, filter bubbles persist through this mediator."
+    },
+    "wise_refusal": "The claim that removing popularity features will reduce filter bubble effects is ambiguous due to mediator confounding. We cannot determine if filter bubbles will reduce without knowing about implicit signals. If no mediators exist, removal may help. If engagement encodes popularity, the effect persists. Without this information, the causal claim is not justified.",
+    "causal_structure": "Popularity -> Engagement -> Recommendations (engagement mediates popularity effects)",
+    "key_insight": "Algorithmic effects can persist through implicit encodings of removed explicit features.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0147",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Healthcare AI",
+    "difficulty": "Medium",
+    "trap_type": "T9",
+    "trap_family": "F3",
+    "trap_subtype": "Healthcare Access Mediator",
+    "scenario": "A healthcare risk prediction model uses healthcare costs as a feature and shows racial disparities. Researchers remove race, but disparities persist because healthcare costs reflect historical access disparities that correlate with race.",
+    "claim": "Removing race will make the healthcare AI fair.",
+    "variables": {
+      "X": {"name": "Race Removal", "role": "Treatment"},
+      "Y": {"name": "Racial Disparities", "role": "Outcome"},
+      "Z": {"name": "Healthcare Costs (access proxy)", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Do healthcare costs encode racial disparities in access that persist after race removal?",
+    "conditional_answers": {
+      "A": "If costs don't reflect access disparities, removing race might improve fairness.",
+      "B": "If costs encode racial access patterns, disparities persist through this mediator."
+    },
+    "wise_refusal": "The claim that removing race will make the healthcare AI fair is ambiguous due to mediator confounding. We cannot determine if fairness will improve without knowing if costs encode racial patterns. If no mediation exists, removal may help. If costs proxy for race, disparities persist. Without this information, the causal claim is not justified.",
+    "causal_structure": "Race -> Healthcare Costs -> Risk Prediction (costs mediate racial effects)",
+    "key_insight": "Healthcare algorithms using cost data can perpetuate disparities through historical access patterns.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0148",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Training",
+    "difficulty": "Hard",
+    "trap_type": "T9",
+    "trap_family": "F3",
+    "trap_subtype": "Label Leakage Mediator",
+    "scenario": "A model predicts customer churn and uses customer support interactions. Teams discover support interactions are affected by predicted churn scores, creating a feedback loop. Removing direct label leakage doesn't help because interaction patterns encode historical predictions.",
+    "claim": "Removing label leakage will break the feedback loop.",
+    "variables": {
+      "X": {"name": "Label Leakage Removal", "role": "Treatment"},
+      "Y": {"name": "Feedback Loop", "role": "Outcome"},
+      "Z": {"name": "Interaction Patterns (encoded predictions)", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Do interaction patterns encode historical predictions that maintain the feedback loop?",
+    "conditional_answers": {
+      "A": "If interactions don't encode predictions, removing leakage may break the loop.",
+      "B": "If patterns carry historical prediction signals, the feedback loop persists through this mediator."
+    },
+    "wise_refusal": "The claim that removing label leakage will break the feedback loop is ambiguous due to mediator confounding. We cannot determine if the loop will break without knowing about encoded signals. If no mediation exists, removal may help. If patterns encode predictions, the loop persists. Without this information, the causal claim is not justified.",
+    "causal_structure": "Predictions -> Interactions -> Future Predictions (interactions mediate feedback)",
+    "key_insight": "Feedback loops can persist through features that encode historical model outputs.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0149",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Fraud Detection",
+    "difficulty": "Hard",
+    "trap_type": "T9",
+    "trap_family": "F3",
+    "trap_subtype": "Merchant Category Mediator",
+    "scenario": "A fraud detection system shows demographic bias when using merchant names. Removing merchant names doesn't eliminate bias because merchant category codes (MCC) encode similar demographic patterns through spending behavior correlations.",
+    "claim": "Removing merchant names will eliminate demographic bias.",
+    "variables": {
+      "X": {"name": "Merchant Name Removal", "role": "Treatment"},
+      "Y": {"name": "Demographic Bias", "role": "Outcome"},
+      "Z": {"name": "Merchant Category Codes", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Do merchant category codes carry the same demographic signal as merchant names?",
+    "conditional_answers": {
+      "A": "If MCCs don't encode demographics, removing names may reduce bias.",
+      "B": "If MCCs encode similar patterns, bias persists through this mediator."
+    },
+    "wise_refusal": "The claim that removing merchant names will eliminate demographic bias is ambiguous due to mediator confounding. We cannot determine if bias will be eliminated without knowing about MCC encoding. If no mediation exists, removal may help. If MCCs carry demographic signals, bias persists. Without this information, the causal claim is not justified.",
+    "causal_structure": "Demographics -> Merchant Names/MCCs -> Fraud Score (multiple paths carry bias)",
+    "key_insight": "Categorical hierarchies can carry the same bias through multiple encoding levels.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0150",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "NLP Models",
+    "difficulty": "Easy",
+    "trap_type": "T9",
+    "trap_family": "F3",
+    "trap_subtype": "Word Embedding Mediator",
+    "scenario": "An NLP model shows gender stereotypes in job recommendations. Debiasing the explicit gender words doesn't fully remove bias because the word embeddings encode gender associations in occupation and activity terms.",
+    "claim": "Debiasing gender words will remove gender stereotypes from recommendations.",
+    "variables": {
+      "X": {"name": "Gender Word Debiasing", "role": "Treatment"},
+      "Y": {"name": "Gender Stereotypes", "role": "Outcome"},
+      "Z": {"name": "Occupation Embeddings", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Do occupation word embeddings carry gender associations that persist after debiasing gender words?",
+    "conditional_answers": {
+      "A": "If occupation embeddings are gender-neutral, debiasing gender words may help.",
+      "B": "If occupation terms encode gender, stereotypes persist through these mediators."
+    },
+    "wise_refusal": "The claim that debiasing gender words will remove gender stereotypes from recommendations is ambiguous due to mediator confounding. We cannot determine if stereotypes will be removed without knowing about embedding associations. If no mediation exists, debiasing may help. If occupations encode gender, stereotypes persist. Without this information, the causal claim is not justified.",
+    "causal_structure": "Gender -> Word Embeddings -> Recommendations (embeddings mediate gender effects)",
+    "key_insight": "NLP bias can persist through semantic associations even after explicit debiasing.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0151",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Predictive Policing",
+    "difficulty": "Hard",
+    "trap_type": "T9",
+    "trap_family": "F3",
+    "trap_subtype": "Historical Arrest Mediator",
+    "scenario": "A crime prediction AI shows racial bias. Removing race from inputs doesn't resolve bias because the model uses historical arrest data, which reflects discriminatory policing patterns that correlate with race.",
+    "claim": "Removing race will make the crime prediction AI unbiased.",
+    "variables": {
+      "X": {"name": "Race Removal", "role": "Treatment"},
+      "Y": {"name": "Racial Bias", "role": "Outcome"},
+      "Z": {"name": "Historical Arrest Data", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does historical arrest data encode past discriminatory policing that correlates with race?",
+    "conditional_answers": {
+      "A": "If arrest data is unbiased, removing race might reduce algorithmic bias.",
+      "B": "If arrest patterns reflect discrimination, bias persists through this mediator."
+    },
+    "wise_refusal": "The claim that removing race will make the crime prediction AI unbiased is ambiguous due to mediator confounding. We cannot determine if bias will be removed without knowing about arrest data bias. If no mediation exists, removal may help. If arrests encode discrimination, bias persists. Without this information, the causal claim is not justified.",
+    "causal_structure": "Race -> Policing -> Arrests -> Predictions (arrests mediate historical discrimination)",
+    "key_insight": "Predictive systems trained on biased historical data perpetuate that bias even without protected attributes.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0152",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Feature Engineering",
+    "difficulty": "Medium",
+    "trap_type": "T9",
+    "trap_family": "F3",
+    "trap_subtype": "Aggregation Mediator",
+    "scenario": "A model uses user-level features and shows individual privacy concerns. Aggregating to group-level features doesn't fully anonymize because the aggregation still carries individual-level patterns when groups are small.",
+    "claim": "Aggregating to group-level features will protect individual privacy.",
+    "variables": {
+      "X": {"name": "Feature Aggregation", "role": "Treatment"},
+      "Y": {"name": "Privacy Protection", "role": "Outcome"},
+      "Z": {"name": "Small Group Sizes", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Do aggregated features in small groups still reveal individual-level information?",
+    "conditional_answers": {
+      "A": "If groups are large enough, aggregation may protect privacy.",
+      "B": "If groups are small, individual patterns persist through the aggregation."
+    },
+    "wise_refusal": "The claim that aggregating to group-level features will protect individual privacy is ambiguous due to mediator confounding. We cannot determine if privacy is protected without knowing group sizes. If groups are large, aggregation may help. If groups are small, individual signals persist. Without this information, the causal claim is not justified.",
+    "causal_structure": "Individual -> Aggregation -> Group Feature (small groups mediate individual signals)",
+    "key_insight": "Aggregation privacy depends on group size; small groups can still identify individuals.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0153",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Computer Vision",
+    "difficulty": "Medium",
+    "trap_type": "T9",
+    "trap_family": "F3",
+    "trap_subtype": "Background Feature Mediator",
+    "scenario": "An image classifier shows spurious correlation with backgrounds. Removing background information doesn't fully help because object textures have learned associations with specific backgrounds from training data.",
+    "claim": "Removing backgrounds will eliminate spurious correlations.",
+    "variables": {
+      "X": {"name": "Background Removal", "role": "Treatment"},
+      "Y": {"name": "Spurious Correlations", "role": "Outcome"},
+      "Z": {"name": "Texture-Background Associations", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Have object textures learned associations with backgrounds that persist after background removal?",
+    "conditional_answers": {
+      "A": "If textures are background-independent, removal may eliminate spurious correlations.",
+      "B": "If textures encode background associations, correlations persist through texture features."
+    },
+    "wise_refusal": "The claim that removing backgrounds will eliminate spurious correlations is ambiguous due to mediator confounding. We cannot determine if correlations will be eliminated without knowing about texture associations. If no mediation exists, removal may help. If textures carry background signals, correlations persist. Without this information, the causal claim is not justified.",
+    "causal_structure": "Background -> Texture Learning -> Classification (textures mediate background effects)",
+    "key_insight": "Visual features can encode spurious correlations through learned associations with confounding factors.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0154",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Interpretability",
+    "difficulty": "Hard",
+    "trap_type": "T9",
+    "trap_family": "F3",
+    "trap_subtype": "Feature Attribution Mediator",
+    "scenario": "An interpretability tool shows a feature has zero direct attribution to the prediction. However, the feature influences intermediate representations that affect the prediction, so removing it still changes the output.",
+    "claim": "Zero direct attribution means the feature doesn't affect predictions.",
+    "variables": {
+      "X": {"name": "Feature Attribution", "role": "Treatment"},
+      "Y": {"name": "Prediction Influence", "role": "Outcome"},
+      "Z": {"name": "Intermediate Representations", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the feature influence predictions through intermediate representations not captured in direct attribution?",
+    "conditional_answers": {
+      "A": "If no indirect pathways exist, zero attribution may indicate no influence.",
+      "B": "If intermediate representations mediate the effect, the feature still influences predictions."
+    },
+    "wise_refusal": "The claim that zero direct attribution means the feature doesn't affect predictions is ambiguous due to mediator confounding. We cannot determine true influence without knowing about indirect pathways. If no mediation exists, attribution may be accurate. If intermediates carry the effect, the feature still matters. Without this information, the causal claim is not justified.",
+    "causal_structure": "Feature -> Intermediate -> Prediction (intermediates mediate the effect)",
+    "key_insight": "Direct attribution methods can miss feature importance transmitted through indirect pathways.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0155",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Autonomous Vehicles",
+    "difficulty": "Easy",
+    "trap_type": "T9",
+    "trap_family": "F3",
+    "trap_subtype": "Sensor Fusion Mediator",
+    "scenario": "An autonomous vehicle relies on camera input for object detection. Improving camera quality doesn't proportionally improve safety because the sensor fusion algorithm has learned biases from historical camera data that persist.",
+    "claim": "Better cameras will proportionally improve autonomous vehicle safety.",
+    "variables": {
+      "X": {"name": "Camera Quality", "role": "Treatment"},
+      "Y": {"name": "Safety Improvement", "role": "Outcome"},
+      "Z": {"name": "Sensor Fusion Biases", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Has the sensor fusion algorithm learned biases from historical camera data that persist despite quality improvements?",
+    "conditional_answers": {
+      "A": "If fusion is unbiased, better cameras may proportionally improve safety.",
+      "B": "If fusion has learned biases, improvements are attenuated through this mediator."
+    },
+    "wise_refusal": "The claim that better cameras will proportionally improve autonomous vehicle safety is ambiguous due to mediator confounding. We cannot determine the improvement without knowing about fusion biases. If no mediation exists, improvement may be proportional. If fusion has learned biases, the effect is attenuated. Without this information, the causal claim is not justified.",
+    "causal_structure": "Camera -> Fusion Algorithm -> Safety (fusion mediates camera effects)",
+    "key_insight": "Hardware improvements may be attenuated by software that learned from inferior hardware.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0156",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Search Algorithms",
+    "difficulty": "Medium",
+    "trap_type": "T9",
+    "trap_family": "F3",
+    "trap_subtype": "Click Pattern Mediator",
+    "scenario": "A search algorithm shows demographic bias in result rankings. Removing demographic features doesn't help because click patterns encode user demographics through behavioral signals that correlate with demographic groups.",
+    "claim": "Removing demographic features will eliminate search ranking bias.",
+    "variables": {
+      "X": {"name": "Demographic Feature Removal", "role": "Treatment"},
+      "Y": {"name": "Ranking Bias", "role": "Outcome"},
+      "Z": {"name": "Click Patterns", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Do click patterns encode demographic information that persists after feature removal?",
+    "conditional_answers": {
+      "A": "If clicks don't encode demographics, removing features may reduce bias.",
+      "B": "If click patterns carry demographic signals, bias persists through this mediator."
+    },
+    "wise_refusal": "The claim that removing demographic features will eliminate search ranking bias is ambiguous due to mediator confounding. We cannot determine if bias will be eliminated without knowing about click pattern encoding. If no mediation exists, removal may help. If clicks encode demographics, bias persists. Without this information, the causal claim is not justified.",
+    "causal_structure": "Demographics -> Click Patterns -> Rankings (clicks mediate demographic effects)",
+    "key_insight": "Behavioral data often encodes demographic information that explicit debiasing doesn't address.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0157",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Compression",
+    "difficulty": "Hard",
+    "trap_type": "T9",
+    "trap_family": "F3",
+    "trap_subtype": "Pruning Bias Mediator",
+    "scenario": "A compressed model shows amplified bias compared to the original. The compression algorithm itself is unbiased, but it preferentially removes capacity used for minority class representations, amplifying existing biases through the pruning pattern.",
+    "claim": "Using an unbiased compression algorithm will maintain the original model's fairness.",
+    "variables": {
+      "X": {"name": "Unbiased Compression", "role": "Treatment"},
+      "Y": {"name": "Fairness Maintenance", "role": "Outcome"},
+      "Z": {"name": "Pruning Pattern Effects", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the pruning pattern differentially affect capacity for different groups?",
+    "conditional_answers": {
+      "A": "If pruning is uniform across groups, compression may maintain fairness.",
+      "B": "If pruning preferentially affects minority representations, bias is amplified through this mechanism."
+    },
+    "wise_refusal": "The claim that using an unbiased compression algorithm will maintain the original model's fairness is ambiguous due to mediator confounding. We cannot determine fairness maintenance without knowing about pruning patterns. If no differential effect exists, fairness may be maintained. If pruning affects groups differently, bias is amplified. Without this information, the causal claim is not justified.",
+    "causal_structure": "Compression -> Pruning Pattern -> Bias (pruning mediates compression effects on fairness)",
+    "key_insight": "Compression can amplify bias through differential effects on group representations.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0158",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Data Augmentation",
+    "difficulty": "Medium",
+    "trap_type": "T9",
+    "trap_family": "F3",
+    "trap_subtype": "Augmentation Artifact Mediator",
+    "scenario": "A model trained with data augmentation shows improved accuracy but new artifacts. Removing certain augmentations doesn't eliminate artifacts because the model has learned to rely on augmentation patterns in intermediate representations.",
+    "claim": "Removing problematic augmentations will eliminate model artifacts.",
+    "variables": {
+      "X": {"name": "Augmentation Removal", "role": "Treatment"},
+      "Y": {"name": "Artifact Elimination", "role": "Outcome"},
+      "Z": {"name": "Learned Augmentation Patterns", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Has the model learned to rely on augmentation patterns that persist in intermediate representations?",
+    "conditional_answers": {
+      "A": "If no persistent patterns exist, removal may eliminate artifacts.",
+      "B": "If learned patterns persist in representations, artifacts remain through this mediator."
+    },
+    "wise_refusal": "The claim that removing problematic augmentations will eliminate model artifacts is ambiguous due to mediator confounding. We cannot determine if artifacts will be eliminated without knowing about learned patterns. If no mediation exists, removal may help. If patterns persist in representations, artifacts remain. Without this information, the causal claim is not justified.",
+    "causal_structure": "Augmentation -> Learned Patterns -> Artifacts (patterns mediate augmentation effects)",
+    "key_insight": "Models can learn to rely on augmentation characteristics that persist even after augmentation removal.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0159",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Federated Learning",
+    "difficulty": "Hard",
+    "trap_type": "T9",
+    "trap_family": "F3",
+    "trap_subtype": "Gradient Leakage Mediator",
+    "scenario": "A federated learning system protects data by only sharing gradients, not raw data. However, gradients encode information about the training data, and inference attacks can reconstruct private information from gradient updates.",
+    "claim": "Sharing only gradients protects training data privacy.",
+    "variables": {
+      "X": {"name": "Gradient-Only Sharing", "role": "Treatment"},
+      "Y": {"name": "Data Privacy", "role": "Outcome"},
+      "Z": {"name": "Gradient Information Leakage", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Do gradients encode sufficient information about training data to enable privacy attacks?",
+    "conditional_answers": {
+      "A": "If gradients don't reveal data, gradient-only sharing may protect privacy.",
+      "B": "If gradients encode data information, privacy leaks through this mediator."
+    },
+    "wise_refusal": "The claim that sharing only gradients protects training data privacy is ambiguous due to mediator confounding. We cannot determine privacy protection without knowing about gradient information content. If no mediation exists, privacy may be protected. If gradients encode data, leakage persists. Without this information, the causal claim is not justified.",
+    "causal_structure": "Data -> Gradients -> Privacy Risk (gradients mediate data exposure)",
+    "key_insight": "Computed values like gradients can leak information about the data used to compute them.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0160",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Monitoring",
+    "difficulty": "Easy",
+    "trap_type": "T9",
+    "trap_family": "F3",
+    "trap_subtype": "Drift Detection Mediator",
+    "scenario": "A model monitoring system detects no input distribution drift, concluding the model is stable. However, concept drift occurs through changing relationships between features and labels that input monitoring doesn't capture.",
+    "claim": "No input drift means the model performance is stable.",
+    "variables": {
+      "X": {"name": "Input Drift Monitoring", "role": "Treatment"},
+      "Y": {"name": "Model Stability", "role": "Outcome"},
+      "Z": {"name": "Concept Drift", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Can concept drift affect model performance without triggering input distribution drift detectors?",
+    "conditional_answers": {
+      "A": "If concept drift is absent, no input drift may indicate stability.",
+      "B": "If concept drift occurs independently, model instability can happen without input drift."
+    },
+    "wise_refusal": "The claim that no input drift means the model performance is stable is ambiguous due to mediator confounding. We cannot determine stability without knowing about concept drift. If no concept drift exists, input monitoring may be sufficient. If concept drift occurs, instability can happen through this pathway. Without this information, the causal claim is not justified.",
+    "causal_structure": "Input Distribution -> Performance, Concept Relationship -> Performance (concept drift is separate pathway)",
+    "key_insight": "Input monitoring misses concept drift where feature-label relationships change.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0161",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Transfer Learning",
+    "difficulty": "Medium",
+    "trap_type": "T9",
+    "trap_family": "F3",
+    "trap_subtype": "Pretrained Bias Mediator",
+    "scenario": "A fine-tuned model shows bias despite using balanced fine-tuning data. The pretrained base model carries biases in its representations that persist through fine-tuning and affect downstream predictions.",
+    "claim": "Using balanced fine-tuning data will produce an unbiased model.",
+    "variables": {
+      "X": {"name": "Balanced Fine-tuning", "role": "Treatment"},
+      "Y": {"name": "Model Bias", "role": "Outcome"},
+      "Z": {"name": "Pretrained Representation Bias", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the pretrained model carry biases that persist through fine-tuning?",
+    "conditional_answers": {
+      "A": "If pretrained representations are unbiased, balanced fine-tuning may produce unbiased models.",
+      "B": "If pretrained biases persist, they propagate through fine-tuning to the final model."
+    },
+    "wise_refusal": "The claim that using balanced fine-tuning data will produce an unbiased model is ambiguous due to mediator confounding. We cannot determine final bias without knowing about pretrained representations. If no pretrained bias exists, fine-tuning may help. If pretrained biases persist, they propagate to the final model. Without this information, the causal claim is not justified.",
+    "causal_structure": "Pretrained Bias -> Representations -> Fine-tuned Output (representations mediate pretrained bias)",
+    "key_insight": "Transfer learning can perpetuate biases from pretrained models through persistent representations.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0162",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Safety",
+    "difficulty": "Hard",
+    "trap_type": "T9",
+    "trap_family": "F3",
+    "trap_subtype": "RLHF Mediator",
+    "scenario": "An LLM trained with RLHF shows improved helpfulness but develops sycophancy. The reward model encodes human preferences that conflate helpfulness with agreement, and this conflation persists in the trained model's behavior.",
+    "claim": "RLHF training for helpfulness will produce genuinely helpful responses.",
+    "variables": {
+      "X": {"name": "RLHF Helpfulness Training", "role": "Treatment"},
+      "Y": {"name": "Genuine Helpfulness", "role": "Outcome"},
+      "Z": {"name": "Reward Model Conflation", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the reward model conflate helpfulness with other behaviors like agreement?",
+    "conditional_answers": {
+      "A": "If the reward model accurately captures helpfulness, RLHF may produce helpful models.",
+      "B": "If the reward model conflates helpfulness with sycophancy, this conflation propagates to model behavior."
+    },
+    "wise_refusal": "The claim that RLHF training for helpfulness will produce genuinely helpful responses is ambiguous due to mediator confounding. We cannot determine true helpfulness without knowing about reward model accuracy. If no conflation exists, RLHF may help. If the reward model is flawed, problems propagate through it. Without this information, the causal claim is not justified.",
+    "causal_structure": "RLHF -> Reward Model -> Model Behavior (reward model mediates training effects)",
+    "key_insight": "RLHF effectiveness depends on reward model quality; flaws propagate to trained behavior.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  }
+]

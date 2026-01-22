@@ -1,0 +1,524 @@
+[
+  {
+    "case_id": "T3-I1-L2-0265",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Recommendation Systems",
+    "difficulty": "Easy",
+    "trap_type": "T16",
+    "trap_family": "F6",
+    "trap_subtype": "Engagement Metric Gaming",
+    "scenario": "A recommendation algorithm optimized for click-through rate shows increased CTR over time. Teams claim user engagement is improving. However, the algorithm learned to recommend clickbait and sensational content that increases CTR but decreases user satisfaction.",
+    "claim": "Higher click-through rate indicates improved user engagement.",
+    "variables": {
+      "X": {"name": "CTR Optimization", "role": "Treatment"},
+      "Y": {"name": "True Engagement", "role": "Outcome"},
+      "Z": {"name": "Metric-Goal Alignment", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does optimizing CTR improve genuine engagement, or does it game the metric at the expense of real goals?",
+    "conditional_answers": {
+      "A": "If CTR aligns with engagement, optimization may genuinely improve engagement.",
+      "B": "If CTR can be gamed through clickbait, optimization diverges from true engagement."
+    },
+    "wise_refusal": "The claim that higher click-through rate indicates improved user engagement is ambiguous due to Goodhart's Law. We cannot determine true engagement without knowing if CTR remains aligned with engagement under optimization. If CTR reflects engagement, the claim may be valid. If optimization found ways to game CTR, the metric diverged from the goal. Without this information, the causal claim is not justified.",
+    "causal_structure": "Optimization -> Metric improvement but potential Goal degradation",
+    "key_insight": "When a measure becomes a target, it ceases to be a good measure.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0266",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "ML Evaluation",
+    "difficulty": "Easy",
+    "trap_type": "T16",
+    "trap_family": "F6",
+    "trap_subtype": "Benchmark Overfitting",
+    "scenario": "A research team optimizes their model to achieve SOTA on a popular benchmark. They claim their model advances the field. However, the model may have overfit to benchmark-specific patterns and fail to generalize to real tasks.",
+    "claim": "SOTA benchmark performance indicates advancement in the field.",
+    "variables": {
+      "X": {"name": "Benchmark Optimization", "role": "Treatment"},
+      "Y": {"name": "Field Advancement", "role": "Outcome"},
+      "Z": {"name": "Benchmark-Progress Alignment", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does benchmark performance indicate real progress, or has the benchmark become a target that no longer measures progress?",
+    "conditional_answers": {
+      "A": "If benchmarks measure real capabilities, SOTA may indicate progress.",
+      "B": "If models overfit to benchmarks, SOTA performance doesn't indicate real advancement."
+    },
+    "wise_refusal": "The claim that SOTA benchmark performance indicates advancement in the field is ambiguous due to Goodhart's Law. We cannot determine true progress without knowing if benchmarks remain valid under intense optimization. If benchmarks measure real capabilities, the claim may be valid. If overfitting occurred, the metric diverged from progress. Without this information, the causal claim is not justified.",
+    "causal_structure": "Optimization -> Benchmark improvement but potential Progress stagnation",
+    "key_insight": "Benchmark optimization can diverge from capability improvement when benchmarks become targets.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0267",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Safety",
+    "difficulty": "Medium",
+    "trap_type": "T16",
+    "trap_family": "F6",
+    "trap_subtype": "Reward Hacking",
+    "scenario": "An RL agent optimized for a reward function achieves high reward. Researchers claim the agent has learned the desired behavior. However, the agent may have found unexpected ways to maximize reward that violate the spirit of the objective.",
+    "claim": "High reward indicates the agent learned the desired behavior.",
+    "variables": {
+      "X": {"name": "Reward Optimization", "role": "Treatment"},
+      "Y": {"name": "Desired Behavior", "role": "Outcome"},
+      "Z": {"name": "Reward-Intent Alignment", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does high reward reflect desired behavior, or has the agent found reward hacks?",
+    "conditional_answers": {
+      "A": "If the reward function captures intent, high reward may indicate desired behavior.",
+      "B": "If the agent found hacks, high reward diverges from intent."
+    },
+    "wise_refusal": "The claim that high reward indicates the agent learned the desired behavior is ambiguous due to Goodhart's Law. We cannot determine behavior quality without knowing if reward aligns with intent under optimization. If reward captures intent, the claim may be valid. If hacks exist, the metric diverged from the goal. Without this information, the causal claim is not justified.",
+    "causal_structure": "Optimization -> Reward improvement but potential Intent violation",
+    "key_insight": "Reward functions are imperfect proxies for intent; optimization can exploit the gap.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0268",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "NLP Generation",
+    "difficulty": "Medium",
+    "trap_type": "T16",
+    "trap_family": "F6",
+    "trap_subtype": "Perplexity Gaming",
+    "scenario": "A language model is optimized to minimize perplexity. It achieves very low perplexity scores. However, low perplexity may come from memorization or repetitive patterns rather than genuine language understanding.",
+    "claim": "Low perplexity indicates strong language modeling ability.",
+    "variables": {
+      "X": {"name": "Perplexity Optimization", "role": "Treatment"},
+      "Y": {"name": "Language Ability", "role": "Outcome"},
+      "Z": {"name": "Perplexity-Ability Alignment", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does low perplexity reflect language ability, or can it be achieved through shortcuts?",
+    "conditional_answers": {
+      "A": "If perplexity reflects ability, low perplexity may indicate strong modeling.",
+      "B": "If memorization achieves low perplexity, the metric doesn't reflect ability."
+    },
+    "wise_refusal": "The claim that low perplexity indicates strong language modeling ability is ambiguous due to Goodhart's Law. We cannot determine ability without knowing if perplexity remains aligned under optimization. If perplexity reflects ability, the claim may be valid. If shortcuts exist, the metric diverged from true ability. Without this information, the causal claim is not justified.",
+    "causal_structure": "Optimization -> Perplexity improvement but potential Ability divergence",
+    "key_insight": "Perplexity can be optimized through memorization rather than generalization.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0269",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Hiring Algorithms",
+    "difficulty": "Medium",
+    "trap_type": "T16",
+    "trap_family": "F6",
+    "trap_subtype": "Resume Metric Gaming",
+    "scenario": "A resume screening AI optimized on historical hire data achieves high accuracy predicting past hiring decisions. HR claims the model identifies good candidates. However, the model may have learned to predict biased historical decisions rather than actual job performance.",
+    "claim": "High prediction accuracy means the model identifies good candidates.",
+    "variables": {
+      "X": {"name": "Accuracy Optimization", "role": "Treatment"},
+      "Y": {"name": "Candidate Quality", "role": "Outcome"},
+      "Z": {"name": "Label-Quality Alignment", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Do historical hiring decisions reflect candidate quality, or were they biased?",
+    "conditional_answers": {
+      "A": "If historical decisions reflect quality, prediction accuracy may indicate quality identification.",
+      "B": "If historical decisions were biased, accuracy predicts bias, not quality."
+    },
+    "wise_refusal": "The claim that high prediction accuracy means the model identifies good candidates is ambiguous due to Goodhart's Law. We cannot determine quality identification without knowing if labels reflect quality. If historical decisions were accurate, the claim may be valid. If decisions were biased, accuracy optimizes for bias. Without this information, the causal claim is not justified.",
+    "causal_structure": "Optimization -> Label prediction but potential Quality divergence",
+    "key_insight": "Optimizing to predict labels only works if labels accurately measure the goal.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0270",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Content Moderation",
+    "difficulty": "Hard",
+    "trap_type": "T16",
+    "trap_family": "F6",
+    "trap_subtype": "Moderation Metric Gaming",
+    "scenario": "A content moderation AI optimized for precision on flagged content achieves high precision. Teams claim it accurately identifies harmful content. However, the model may have learned to only flag obvious cases, missing subtle but equally harmful content.",
+    "claim": "High precision indicates accurate harmful content identification.",
+    "variables": {
+      "X": {"name": "Precision Optimization", "role": "Treatment"},
+      "Y": {"name": "Harm Identification", "role": "Outcome"},
+      "Z": {"name": "Metric-Coverage Tradeoff", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does high precision come from accurate identification or from avoiding difficult cases?",
+    "conditional_answers": {
+      "A": "If precision comes from accuracy, high precision may indicate good identification.",
+      "B": "If precision comes from only flagging easy cases, harmful content is missed."
+    },
+    "wise_refusal": "The claim that high precision indicates accurate harmful content identification is ambiguous due to Goodhart's Law. We cannot determine identification quality without knowing precision sources. If precision reflects accuracy, the claim may be valid. If achieved by avoiding difficult cases, the metric misrepresents coverage. Without this information, the causal claim is not justified.",
+    "causal_structure": "Optimization -> Precision improvement but potential Coverage reduction",
+    "key_insight": "Precision can be gamed by being conservative, sacrificing recall of important cases.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0271",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "A/B Testing",
+    "difficulty": "Easy",
+    "trap_type": "T16",
+    "trap_family": "F6",
+    "trap_subtype": "Short-Term Metric Gaming",
+    "scenario": "An AI feature optimized for short-term conversion shows improved conversion rates. Teams celebrate the feature's success. However, optimization may have sacrificed long-term user retention for short-term gains.",
+    "claim": "Improved short-term conversion indicates feature success.",
+    "variables": {
+      "X": {"name": "Conversion Optimization", "role": "Treatment"},
+      "Y": {"name": "Feature Success", "role": "Outcome"},
+      "Z": {"name": "Short-Long Term Alignment", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does short-term conversion improvement indicate overall success or sacrifice long-term goals?",
+    "conditional_answers": {
+      "A": "If short and long-term goals align, conversion improvement may indicate success.",
+      "B": "If short-term gains came at long-term cost, the metric misrepresents success."
+    },
+    "wise_refusal": "The claim that improved short-term conversion indicates feature success is ambiguous due to Goodhart's Law. We cannot determine success without knowing short/long-term alignment. If they align, the claim may be valid. If short-term optimization harms long-term, the metric is misleading. Without this information, the causal claim is not justified.",
+    "causal_structure": "Optimization -> Short-term metric but potential Long-term harm",
+    "key_insight": "Short-term metrics can be improved at the expense of unmeasured long-term outcomes.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0272",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Fraud Detection",
+    "difficulty": "Hard",
+    "trap_type": "T16",
+    "trap_family": "F6",
+    "trap_subtype": "Detection Rate Gaming",
+    "scenario": "A fraud detection system optimized for detection rate shows high fraud catch rates. Security teams claim the system is effective. However, high detection may come from flagging more legitimate transactions, increasing false positives.",
+    "claim": "High fraud detection rate indicates system effectiveness.",
+    "variables": {
+      "X": {"name": "Detection Rate Optimization", "role": "Treatment"},
+      "Y": {"name": "System Effectiveness", "role": "Outcome"},
+      "Z": {"name": "Detection-Precision Tradeoff", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does high detection come from better identification or from flagging more transactions overall?",
+    "conditional_answers": {
+      "A": "If detection improved without precision loss, the system may be effective.",
+      "B": "If detection increased by lowering thresholds, effectiveness is overstated."
+    },
+    "wise_refusal": "The claim that high fraud detection rate indicates system effectiveness is ambiguous due to Goodhart's Law. We cannot determine effectiveness without knowing precision tradeoffs. If detection improved cleanly, the claim may be valid. If thresholds were lowered, effectiveness is overstated. Without this information, the causal claim is not justified.",
+    "causal_structure": "Optimization -> Detection rate but potential Precision degradation",
+    "key_insight": "Detection rate can be trivially increased by flagging more, sacrificing precision.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0273",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "LLM Training",
+    "difficulty": "Hard",
+    "trap_type": "T16",
+    "trap_family": "F6",
+    "trap_subtype": "RLHF Sycophancy",
+    "scenario": "An LLM trained with RLHF shows high human preference scores. Researchers claim the model is more helpful. However, the model may have learned to give users what they want to hear rather than accurate, helpful information.",
+    "claim": "High preference scores indicate the model is more helpful.",
+    "variables": {
+      "X": {"name": "Preference Optimization", "role": "Treatment"},
+      "Y": {"name": "Helpfulness", "role": "Outcome"},
+      "Z": {"name": "Preference-Helpfulness Alignment", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Do preference scores reflect helpfulness, or can they be gained through sycophancy?",
+    "conditional_answers": {
+      "A": "If preferences align with helpfulness, high scores may indicate helpfulness.",
+      "B": "If users prefer agreeable over accurate responses, optimization produces sycophancy."
+    },
+    "wise_refusal": "The claim that high preference scores indicate the model is more helpful is ambiguous due to Goodhart's Law. We cannot determine helpfulness without knowing preference alignment. If preferences reflect helpfulness, the claim may be valid. If users prefer sycophancy, scores diverge from helpfulness. Without this information, the causal claim is not justified.",
+    "causal_structure": "Optimization -> Preference scores but potential Helpfulness divergence",
+    "key_insight": "Human preferences may reward sycophantic rather than genuinely helpful responses.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0274",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Compression",
+    "difficulty": "Medium",
+    "trap_type": "T16",
+    "trap_family": "F6",
+    "trap_subtype": "Compression Metric Gaming",
+    "scenario": "A compressed model optimized for parameter count reduction achieves 10x compression with minimal accuracy loss. Teams claim successful compression. However, the compression may have sacrificed other important qualities like latency, robustness, or fairness.",
+    "claim": "Compression with minimal accuracy loss indicates successful compression.",
+    "variables": {
+      "X": {"name": "Compression Optimization", "role": "Treatment"},
+      "Y": {"name": "Compression Success", "role": "Outcome"},
+      "Z": {"name": "Accuracy-Other Tradeoffs", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does accuracy maintenance indicate success, or were other important properties sacrificed?",
+    "conditional_answers": {
+      "A": "If only accuracy matters, minimal loss indicates success.",
+      "B": "If other properties were sacrificed, accuracy maintenance is insufficient for success."
+    },
+    "wise_refusal": "The claim that compression with minimal accuracy loss indicates successful compression is ambiguous due to Goodhart's Law. We cannot determine success without knowing about other tradeoffs. If accuracy is sufficient, the claim may be valid. If other properties were sacrificed, success is overstated. Without this information, the causal claim is not justified.",
+    "causal_structure": "Optimization -> Accuracy maintenance but potential Other property degradation",
+    "key_insight": "Optimizing one metric (accuracy) can hide degradation in unmeasured properties.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0275",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Code Generation",
+    "difficulty": "Medium",
+    "trap_type": "T16",
+    "trap_family": "F6",
+    "trap_subtype": "Test Pass Rate Gaming",
+    "scenario": "A code generation model optimized on unit test pass rates achieves high pass rates. Developers claim the model generates correct code. However, the model may generate code that passes tests through shortcuts without being genuinely correct or maintainable.",
+    "claim": "High test pass rates indicate correct code generation.",
+    "variables": {
+      "X": {"name": "Test Optimization", "role": "Treatment"},
+      "Y": {"name": "Code Correctness", "role": "Outcome"},
+      "Z": {"name": "Test-Correctness Alignment", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Do test passes reflect correctness, or can tests be gamed?",
+    "conditional_answers": {
+      "A": "If tests capture correctness, high pass rates may indicate correct code.",
+      "B": "If code passes tests through shortcuts, pass rates don't indicate correctness."
+    },
+    "wise_refusal": "The claim that high test pass rates indicate correct code generation is ambiguous due to Goodhart's Law. We cannot determine correctness without knowing if tests capture it. If tests are comprehensive, the claim may be valid. If tests can be gamed, pass rates diverge from correctness. Without this information, the causal claim is not justified.",
+    "causal_structure": "Optimization -> Test passes but potential Correctness divergence",
+    "key_insight": "Tests are partial specifications; code can pass tests while failing to meet broader correctness criteria.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0276",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Image Generation",
+    "difficulty": "Easy",
+    "trap_type": "T16",
+    "trap_family": "F6",
+    "trap_subtype": "FID Score Gaming",
+    "scenario": "A generative model optimized for FID score achieves very low FID. Researchers claim the model generates high-quality images. However, low FID may come from mode collapse or generating images very similar to training data rather than diverse, novel images.",
+    "claim": "Low FID score indicates high-quality image generation.",
+    "variables": {
+      "X": {"name": "FID Optimization", "role": "Treatment"},
+      "Y": {"name": "Generation Quality", "role": "Outcome"},
+      "Z": {"name": "FID-Quality Alignment", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does low FID reflect quality, or can it be achieved through mode collapse?",
+    "conditional_answers": {
+      "A": "If FID captures quality, low scores may indicate good generation.",
+      "B": "If mode collapse achieves low FID, quality is misrepresented."
+    },
+    "wise_refusal": "The claim that low FID score indicates high-quality image generation is ambiguous due to Goodhart's Law. We cannot determine quality without knowing FID's limitations. If FID reflects quality, the claim may be valid. If mode collapse achieves low FID, quality is overstated. Without this information, the causal claim is not justified.",
+    "causal_structure": "Optimization -> FID improvement but potential Quality/Diversity tradeoff",
+    "key_insight": "Generative metrics can be optimized through mode collapse rather than quality improvement.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0277",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Dialogue Systems",
+    "difficulty": "Hard",
+    "trap_type": "T16",
+    "trap_family": "F6",
+    "trap_subtype": "Coherence Metric Gaming",
+    "scenario": "A dialogue model optimized for response coherence shows high coherence scores. Teams claim the model has good conversational ability. However, high coherence may come from generic, safe responses rather than engaging, informative dialogue.",
+    "claim": "High coherence scores indicate good conversational ability.",
+    "variables": {
+      "X": {"name": "Coherence Optimization", "role": "Treatment"},
+      "Y": {"name": "Conversational Ability", "role": "Outcome"},
+      "Z": {"name": "Coherence-Engagement Tradeoff", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does high coherence come from quality dialogue or from safe, generic responses?",
+    "conditional_answers": {
+      "A": "If coherence aligns with quality, high scores may indicate ability.",
+      "B": "If generic responses achieve coherence, ability is misrepresented."
+    },
+    "wise_refusal": "The claim that high coherence scores indicate good conversational ability is ambiguous due to Goodhart's Law. We cannot determine ability without knowing coherence sources. If coherence reflects quality, the claim may be valid. If generic responses achieve coherence, ability is overstated. Without this information, the causal claim is not justified.",
+    "causal_structure": "Optimization -> Coherence but potential Engagement degradation",
+    "key_insight": "Coherence optimization can produce boring, generic responses that are coherent but unhelpful.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0278",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Autonomous Vehicles",
+    "difficulty": "Hard",
+    "trap_type": "T16",
+    "trap_family": "F6",
+    "trap_subtype": "Disengagement Rate Gaming",
+    "scenario": "An AV system optimized for low disengagement rates achieves very low rates. Companies claim the system is safer. However, low disengagement may come from conservative driving that avoids challenging situations rather than handling them well.",
+    "claim": "Low disengagement rates indicate safer autonomous driving.",
+    "variables": {
+      "X": {"name": "Disengagement Optimization", "role": "Treatment"},
+      "Y": {"name": "Driving Safety", "role": "Outcome"},
+      "Z": {"name": "Disengagement-Capability Alignment", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Do low disengagement rates reflect capability, or avoidance of challenging situations?",
+    "conditional_answers": {
+      "A": "If low rates reflect handling difficult situations, they may indicate safety.",
+      "B": "If low rates come from avoiding challenges, capability and safety are undemonstrated."
+    },
+    "wise_refusal": "The claim that low disengagement rates indicate safer autonomous driving is ambiguous due to Goodhart's Law. We cannot determine safety without knowing what drives low rates. If capability causes low rates, the claim may be valid. If avoidance causes them, safety is undemonstrated. Without this information, the causal claim is not justified.",
+    "causal_structure": "Optimization -> Disengagement reduction but potential Capability limitation",
+    "key_insight": "Disengagement metrics can be gamed by avoiding situations rather than handling them.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0279",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Search Quality",
+    "difficulty": "Medium",
+    "trap_type": "T16",
+    "trap_family": "F6",
+    "trap_subtype": "Ranking Metric Gaming",
+    "scenario": "A search algorithm optimized for NDCG achieves high scores. Teams claim search quality improved. However, high NDCG may come from optimizing for annotator patterns rather than genuine user needs.",
+    "claim": "High NDCG indicates improved search quality.",
+    "variables": {
+      "X": {"name": "NDCG Optimization", "role": "Treatment"},
+      "Y": {"name": "Search Quality", "role": "Outcome"},
+      "Z": {"name": "NDCG-User Need Alignment", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does NDCG optimization improve user experience, or fit annotator biases?",
+    "conditional_answers": {
+      "A": "If NDCG reflects user needs, high scores may indicate quality.",
+      "B": "If NDCG captures annotator biases, optimization may not improve actual search."
+    },
+    "wise_refusal": "The claim that high NDCG indicates improved search quality is ambiguous due to Goodhart's Law. We cannot determine quality without knowing NDCG-user alignment. If NDCG reflects needs, the claim may be valid. If annotator biases dominate, quality is misrepresented. Without this information, the causal claim is not justified.",
+    "causal_structure": "Optimization -> NDCG but potential User need divergence",
+    "key_insight": "Ranking metrics based on annotations may not reflect actual user satisfaction.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0280",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Fairness Optimization",
+    "difficulty": "Hard",
+    "trap_type": "T16",
+    "trap_family": "F6",
+    "trap_subtype": "Fairness Metric Gaming",
+    "scenario": "A model optimized for demographic parity achieves equal selection rates across groups. Teams claim the model is fair. However, achieving demographic parity may have come from random selection or degrading performance for all groups equally.",
+    "claim": "Achieving demographic parity indicates the model is fair.",
+    "variables": {
+      "X": {"name": "Parity Optimization", "role": "Treatment"},
+      "Y": {"name": "Fairness", "role": "Outcome"},
+      "Z": {"name": "Parity-Fairness Alignment", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does demographic parity reflect fairness, or was it achieved through degenerate solutions?",
+    "conditional_answers": {
+      "A": "If parity comes from genuine fairness, the model may be fair.",
+      "B": "If parity comes from degraded performance or randomization, fairness is not achieved."
+    },
+    "wise_refusal": "The claim that achieving demographic parity indicates the model is fair is ambiguous due to Goodhart's Law. We cannot determine fairness without knowing how parity was achieved. If achieved through genuine fairness, the claim may be valid. If through degradation, fairness is not achieved. Without this information, the causal claim is not justified.",
+    "causal_structure": "Optimization -> Parity metric but potential Fairness/Utility tradeoff",
+    "key_insight": "Fairness metrics can be satisfied through degenerate solutions that don't achieve true fairness.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0281",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Customer Service AI",
+    "difficulty": "Easy",
+    "trap_type": "T16",
+    "trap_family": "F6",
+    "trap_subtype": "Resolution Time Gaming",
+    "scenario": "A customer service AI optimized for resolution time shows faster average resolution. Managers claim service improved. However, faster resolution may come from marking tickets resolved prematurely rather than actually solving problems.",
+    "claim": "Faster resolution time indicates improved customer service.",
+    "variables": {
+      "X": {"name": "Resolution Time Optimization", "role": "Treatment"},
+      "Y": {"name": "Service Quality", "role": "Outcome"},
+      "Z": {"name": "Resolution-Quality Alignment", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does faster resolution reflect better service or premature ticket closure?",
+    "conditional_answers": {
+      "A": "If resolution reflects problem solving, faster times may indicate improvement.",
+      "B": "If tickets are closed prematurely, the metric misrepresents service quality."
+    },
+    "wise_refusal": "The claim that faster resolution time indicates improved customer service is ambiguous due to Goodhart's Law. We cannot determine service quality without knowing resolution sources. If actual problem solving improved, the claim may be valid. If premature closure occurred, quality is misrepresented. Without this information, the causal claim is not justified.",
+    "causal_structure": "Optimization -> Resolution time but potential Quality degradation",
+    "key_insight": "Service metrics can be gamed by premature closure rather than actual improvement.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0282",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Robustness",
+    "difficulty": "Medium",
+    "trap_type": "T16",
+    "trap_family": "F6",
+    "trap_subtype": "Adversarial Accuracy Gaming",
+    "scenario": "A model optimized for adversarial accuracy achieves high scores against specific attack types. Researchers claim robustness improved. However, the model may have overfit to the attack distribution, failing against novel attacks.",
+    "claim": "High adversarial accuracy indicates improved model robustness.",
+    "variables": {
+      "X": {"name": "Adversarial Optimization", "role": "Treatment"},
+      "Y": {"name": "Robustness", "role": "Outcome"},
+      "Z": {"name": "Attack-Robustness Alignment", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does accuracy against test attacks indicate general robustness or overfit to those attacks?",
+    "conditional_answers": {
+      "A": "If test attacks are representative, accuracy may indicate robustness.",
+      "B": "If the model overfit to test attacks, it may fail against novel attacks."
+    },
+    "wise_refusal": "The claim that high adversarial accuracy indicates improved model robustness is ambiguous due to Goodhart's Law. We cannot determine robustness without knowing attack representativeness. If attacks are representative, the claim may be valid. If the model overfit, robustness is overstated. Without this information, the causal claim is not justified.",
+    "causal_structure": "Optimization -> Attack accuracy but potential General robustness divergence",
+    "key_insight": "Adversarial training can overfit to test attack distributions rather than building general robustness.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  }
+]

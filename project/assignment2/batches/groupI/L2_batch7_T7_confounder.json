@@ -1,0 +1,640 @@
+[
+  {
+    "case_id": "T3-I1-L2-0103",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "ML Research",
+    "difficulty": "Easy",
+    "trap_type": "T7",
+    "trap_family": "F3",
+    "trap_subtype": "Funding Confounder",
+    "scenario": "Research groups using larger neural networks publish more influential papers. A researcher concludes larger networks produce better research. However, well-funded labs can afford both larger networks AND have better researchers, more compute, and stronger review processes.",
+    "claim": "Larger neural networks cause more influential research.",
+    "variables": {
+      "X": {"name": "Network Size", "role": "Treatment"},
+      "Y": {"name": "Research Influence", "role": "Outcome"},
+      "Z": {"name": "Lab Funding/Resources", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Is lab funding/resources a confounding variable affecting both network size choice and research influence?",
+    "conditional_answers": {
+      "A": "If network size is independent of lab resources, larger networks may causally improve influence.",
+      "B": "If well-funded labs both use larger networks AND produce better research independently, funding confounds the relationship."
+    },
+    "wise_refusal": "The claim that larger neural networks cause more influential research is ambiguous due to confounding. We cannot determine if network size causally affects influence without controlling for lab funding. If funding doesn't confound, the effect may be causal. If funding causes both larger networks and influence, the correlation is spurious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z -> X, Z -> Y (funding causes both network size and research quality)",
+    "key_insight": "Resources that enable larger experiments may independently improve research quality.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0104",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Deployment",
+    "difficulty": "Easy",
+    "trap_type": "T7",
+    "trap_family": "F3",
+    "trap_subtype": "Technical Debt Confounder",
+    "scenario": "Companies that use microservices architecture for their ML systems show faster deployment cycles. Teams conclude microservices speed up ML deployment. However, companies with mature engineering practices adopt both microservices AND have streamlined deployment pipelines.",
+    "claim": "Microservices architecture causes faster ML deployment cycles.",
+    "variables": {
+      "X": {"name": "Microservices Architecture", "role": "Treatment"},
+      "Y": {"name": "Deployment Speed", "role": "Outcome"},
+      "Z": {"name": "Engineering Maturity", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Is engineering maturity a confounding variable affecting both architecture choice and deployment speed?",
+    "conditional_answers": {
+      "A": "If microservices adoption is independent of engineering maturity, it may causally improve deployment speed.",
+      "B": "If mature teams both adopt microservices AND have fast deployments independently, maturity confounds the relationship."
+    },
+    "wise_refusal": "The claim that microservices architecture causes faster ML deployment cycles is ambiguous due to confounding. We cannot determine if architecture causally affects speed without controlling for engineering maturity. If maturity doesn't confound, the effect may be causal. If maturity causes both, the correlation is spurious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z -> X, Z -> Y (engineering maturity causes both architecture choice and deployment speed)",
+    "key_insight": "Organizational capabilities that enable architecture choices may independently affect deployment outcomes.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0105",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Training",
+    "difficulty": "Medium",
+    "trap_type": "T7",
+    "trap_family": "F3",
+    "trap_subtype": "Compute Confounder",
+    "scenario": "Models trained with larger batch sizes show better generalization. Researchers conclude larger batches improve generalization. However, larger batch sizes require more compute, and teams with more compute also use better hyperparameter tuning and data processing.",
+    "claim": "Larger batch sizes cause better model generalization.",
+    "variables": {
+      "X": {"name": "Batch Size", "role": "Treatment"},
+      "Y": {"name": "Generalization", "role": "Outcome"},
+      "Z": {"name": "Compute Resources", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Is compute availability a confounding variable affecting both batch size and generalization quality?",
+    "conditional_answers": {
+      "A": "If batch size is independent of compute-enabled practices, larger batches may causally improve generalization.",
+      "B": "If compute-rich teams both use larger batches AND achieve better generalization through other means, compute confounds the relationship."
+    },
+    "wise_refusal": "The claim that larger batch sizes cause better model generalization is ambiguous due to confounding. We cannot determine if batch size causally affects generalization without controlling for compute resources. If compute doesn't confound, the effect may be causal. If compute enables both larger batches and better practices, the correlation is spurious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z -> X, Z -> Y (compute causes both batch size capability and research quality)",
+    "key_insight": "Training hyperparameters are often confounded by the resources that enable their exploration.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0106",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Data Science Teams",
+    "difficulty": "Medium",
+    "trap_type": "T7",
+    "trap_family": "F3",
+    "trap_subtype": "Team Size Confounder",
+    "scenario": "Data science teams using Python show higher productivity than teams using R. Managers recommend switching to Python. However, larger companies prefer Python AND have better tooling, clearer requirements, and more structured processes.",
+    "claim": "Using Python causes higher data science productivity.",
+    "variables": {
+      "X": {"name": "Python Usage", "role": "Treatment"},
+      "Y": {"name": "Team Productivity", "role": "Outcome"},
+      "Z": {"name": "Company Size/Maturity", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Is company size/maturity a confounding variable affecting both language choice and productivity?",
+    "conditional_answers": {
+      "A": "If Python adoption is independent of company characteristics, it may causally improve productivity.",
+      "B": "If large companies both prefer Python AND have productivity advantages for other reasons, company size confounds the relationship."
+    },
+    "wise_refusal": "The claim that using Python causes higher data science productivity is ambiguous due to confounding. We cannot determine if language causally affects productivity without controlling for company characteristics. If company size doesn't confound, the effect may be causal. If company size causes both, the correlation is spurious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z -> X, Z -> Y (company maturity causes both language preference and productivity)",
+    "key_insight": "Technology choices are often confounded by organizational factors that independently affect outcomes.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0107",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "ML Experimentation",
+    "difficulty": "Medium",
+    "trap_type": "T7",
+    "trap_family": "F3",
+    "trap_subtype": "Experience Confounder",
+    "scenario": "Researchers who use advanced regularization techniques achieve state-of-the-art results. Students conclude these techniques are the key to success. However, experienced researchers both know about advanced techniques AND have developed intuitions about problem-solving that lead to success.",
+    "claim": "Advanced regularization techniques cause state-of-the-art results.",
+    "variables": {
+      "X": {"name": "Advanced Regularization", "role": "Treatment"},
+      "Y": {"name": "SOTA Results", "role": "Outcome"},
+      "Z": {"name": "Researcher Experience", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Is researcher experience a confounding variable affecting both technique knowledge and result quality?",
+    "conditional_answers": {
+      "A": "If technique use is independent of experience, advanced regularization may causally improve results.",
+      "B": "If experienced researchers both use advanced techniques AND achieve success through other skills, experience confounds the relationship."
+    },
+    "wise_refusal": "The claim that advanced regularization techniques cause state-of-the-art results is ambiguous due to confounding. We cannot determine if techniques causally affect results without controlling for researcher experience. If experience doesn't confound, the effect may be causal. If experience causes both, the correlation is spurious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z -> X, Z -> Y (experience causes both technique knowledge and research ability)",
+    "key_insight": "Technical choices of successful researchers may correlate with their skills rather than cause their success.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0108",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Product",
+    "difficulty": "Hard",
+    "trap_type": "T7",
+    "trap_family": "F3",
+    "trap_subtype": "Market Position Confounder",
+    "scenario": "AI products with more explainable models show higher customer retention. Product managers conclude explainability drives retention. However, established companies with strong brands invest in both explainability AND have loyal customer bases.",
+    "claim": "Model explainability causes higher customer retention.",
+    "variables": {
+      "X": {"name": "Model Explainability", "role": "Treatment"},
+      "Y": {"name": "Customer Retention", "role": "Outcome"},
+      "Z": {"name": "Company Brand Strength", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Is brand strength a confounding variable affecting both explainability investment and retention?",
+    "conditional_answers": {
+      "A": "If explainability is independent of brand strength, it may causally improve retention.",
+      "B": "If strong brands both invest in explainability AND have loyal customers for other reasons, brand strength confounds the relationship."
+    },
+    "wise_refusal": "The claim that model explainability causes higher customer retention is ambiguous due to confounding. We cannot determine if explainability causally affects retention without controlling for brand strength. If brand doesn't confound, the effect may be causal. If brand causes both, the correlation is spurious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z -> X, Z -> Y (brand strength causes both explainability investment and customer loyalty)",
+    "key_insight": "Product features adopted by successful companies may not be what causes their success.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0109",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Safety",
+    "difficulty": "Hard",
+    "trap_type": "T7",
+    "trap_family": "F3",
+    "trap_subtype": "Culture Confounder",
+    "scenario": "AI labs with formal red-teaming processes report fewer alignment failures. Safety advocates conclude red-teaming prevents failures. However, labs with strong safety cultures implement both red-teaming AND other practices that prevent failures.",
+    "claim": "Formal red-teaming processes cause fewer alignment failures.",
+    "variables": {
+      "X": {"name": "Red-Teaming", "role": "Treatment"},
+      "Y": {"name": "Alignment Failures", "role": "Outcome"},
+      "Z": {"name": "Safety Culture", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Is safety culture a confounding variable affecting both red-teaming adoption and alignment outcomes?",
+    "conditional_answers": {
+      "A": "If red-teaming is independent of broader safety culture, it may causally prevent failures.",
+      "B": "If safety-conscious labs both red-team AND prevent failures through other practices, culture confounds the relationship."
+    },
+    "wise_refusal": "The claim that formal red-teaming processes cause fewer alignment failures is ambiguous due to confounding. We cannot determine if red-teaming causally prevents failures without controlling for safety culture. If culture doesn't confound, the effect may be causal. If culture causes both, the correlation is spurious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z -> X, Z -> Y (safety culture causes both practice adoption and safety outcomes)",
+    "key_insight": "Safety practices may be markers of safety-conscious organizations rather than causes of safety.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0110",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "NLP",
+    "difficulty": "Easy",
+    "trap_type": "T7",
+    "trap_family": "F3",
+    "trap_subtype": "Dataset Quality Confounder",
+    "scenario": "Language models trained on curated datasets show better performance on downstream tasks. Teams conclude curation improves performance. However, well-resourced teams can afford both curation AND better models, more training, and expert tuning.",
+    "claim": "Dataset curation causes better language model performance.",
+    "variables": {
+      "X": {"name": "Dataset Curation", "role": "Treatment"},
+      "Y": {"name": "Model Performance", "role": "Outcome"},
+      "Z": {"name": "Team Resources", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Are team resources a confounding variable affecting both curation capability and model quality?",
+    "conditional_answers": {
+      "A": "If curation is independent of other resource advantages, it may causally improve performance.",
+      "B": "If resourced teams both curate AND achieve performance through other means, resources confound the relationship."
+    },
+    "wise_refusal": "The claim that dataset curation causes better language model performance is ambiguous due to confounding. We cannot determine if curation causally affects performance without controlling for team resources. If resources don't confound, the effect may be causal. If resources cause both, the correlation is spurious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z -> X, Z -> Y (resources cause both curation capability and model quality)",
+    "key_insight": "Data quality investments are often confounded by other investments that improve outcomes.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0111",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "MLOps",
+    "difficulty": "Medium",
+    "trap_type": "T7",
+    "trap_family": "F3",
+    "trap_subtype": "Tooling Confounder",
+    "scenario": "Teams using CI/CD for ML show fewer production bugs. DevOps advocates conclude CI/CD prevents ML bugs. However, teams with strong software engineering backgrounds implement both CI/CD AND write better code with better testing practices.",
+    "claim": "CI/CD implementation causes fewer ML production bugs.",
+    "variables": {
+      "X": {"name": "CI/CD Implementation", "role": "Treatment"},
+      "Y": {"name": "Production Bugs", "role": "Outcome"},
+      "Z": {"name": "Engineering Background", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Is engineering background a confounding variable affecting both CI/CD adoption and code quality?",
+    "conditional_answers": {
+      "A": "If CI/CD adoption is independent of team background, it may causally reduce bugs.",
+      "B": "If skilled teams both use CI/CD AND write fewer bugs independently, background confounds the relationship."
+    },
+    "wise_refusal": "The claim that CI/CD implementation causes fewer ML production bugs is ambiguous due to confounding. We cannot determine if CI/CD causally reduces bugs without controlling for engineering background. If background doesn't confound, the effect may be causal. If background causes both, the correlation is spurious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z -> X, Z -> Y (engineering skills cause both practice adoption and code quality)",
+    "key_insight": "Development practices adopted by skilled teams may not cause their success.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0112",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Startups",
+    "difficulty": "Hard",
+    "trap_type": "T7",
+    "trap_family": "F3",
+    "trap_subtype": "Network Confounder",
+    "scenario": "AI startups with founding teams from top universities show higher funding success. Advisors recommend recruiting from elite schools. However, elite university alumni have both credentials AND access to investor networks and experienced mentors.",
+    "claim": "Elite university credentials cause higher startup funding success.",
+    "variables": {
+      "X": {"name": "Elite Credentials", "role": "Treatment"},
+      "Y": {"name": "Funding Success", "role": "Outcome"},
+      "Z": {"name": "Network Access", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Is network access a confounding variable affecting both elite credentials and funding success?",
+    "conditional_answers": {
+      "A": "If credentials are independent of network advantages, they may causally improve funding success.",
+      "B": "If elite schools provide both credentials AND networks that independently improve funding, networks confound the relationship."
+    },
+    "wise_refusal": "The claim that elite university credentials cause higher startup funding success is ambiguous due to confounding. We cannot determine if credentials causally affect funding without controlling for network access. If networks don't confound, the effect may be causal. If elite schools provide both credentials and networks, the correlation is spurious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z -> X, Z -> Y (elite education provides both credentials and networks)",
+    "key_insight": "Educational credentials are bundled with network advantages that may independently affect outcomes.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0113",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Computer Vision",
+    "difficulty": "Easy",
+    "trap_type": "T7",
+    "trap_family": "F3",
+    "trap_subtype": "Architecture Confounder",
+    "scenario": "Vision models using attention mechanisms show better accuracy than CNNs. Researchers conclude attention is superior. However, attention-based architectures receive more research attention, hyperparameter tuning, and are trained on better hardware.",
+    "claim": "Attention mechanisms cause better vision model accuracy.",
+    "variables": {
+      "X": {"name": "Attention Mechanism", "role": "Treatment"},
+      "Y": {"name": "Model Accuracy", "role": "Outcome"},
+      "Z": {"name": "Research Investment", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Is research investment a confounding variable affecting both architecture popularity and apparent performance?",
+    "conditional_answers": {
+      "A": "If attention receives equal tuning effort as alternatives, its superiority may be causal.",
+      "B": "If attention-based models receive more investment AND that investment independently improves performance, investment confounds the relationship."
+    },
+    "wise_refusal": "The claim that attention mechanisms cause better vision model accuracy is ambiguous due to confounding. We cannot determine if attention causally improves accuracy without controlling for research investment. If investment doesn't confound, the effect may be causal. If popular architectures receive more investment, the correlation is spurious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z -> X (popularity), Z -> Y (investment improves performance)",
+    "key_insight": "Popular techniques receive disproportionate optimization that may explain their apparent superiority.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0114",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Recommender Systems",
+    "difficulty": "Medium",
+    "trap_type": "T7",
+    "trap_family": "F3",
+    "trap_subtype": "User Base Confounder",
+    "scenario": "Recommendation systems using deep learning show higher click-through rates. Teams conclude deep learning improves recommendations. However, companies deploying deep learning have larger user bases, more data, and can personalize better regardless of algorithm.",
+    "claim": "Deep learning causes better recommendation performance.",
+    "variables": {
+      "X": {"name": "Deep Learning", "role": "Treatment"},
+      "Y": {"name": "Click-Through Rate", "role": "Outcome"},
+      "Z": {"name": "Data Scale", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Is data scale a confounding variable affecting both algorithm choice and recommendation quality?",
+    "conditional_answers": {
+      "A": "If deep learning is independent of data scale advantages, it may causally improve CTR.",
+      "B": "If data-rich companies both use deep learning AND achieve better CTR through scale, scale confounds the relationship."
+    },
+    "wise_refusal": "The claim that deep learning causes better recommendation performance is ambiguous due to confounding. We cannot determine if deep learning causally improves CTR without controlling for data scale. If scale doesn't confound, the effect may be causal. If scale enables both deep learning and better performance, the correlation is spurious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z -> X, Z -> Y (data scale enables both deep learning and performance)",
+    "key_insight": "Advanced techniques often require scale that independently improves outcomes.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0115",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Governance",
+    "difficulty": "Hard",
+    "trap_type": "T7",
+    "trap_family": "F3",
+    "trap_subtype": "Regulation Confounder",
+    "scenario": "Companies with AI ethics officers show fewer regulatory violations. Industry groups conclude ethics officers prevent violations. However, companies in heavily regulated industries hire both ethics officers AND have robust compliance departments.",
+    "claim": "AI ethics officers cause fewer regulatory violations.",
+    "variables": {
+      "X": {"name": "Ethics Officers", "role": "Treatment"},
+      "Y": {"name": "Regulatory Violations", "role": "Outcome"},
+      "Z": {"name": "Regulatory Pressure", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Is regulatory pressure a confounding variable affecting both ethics hiring and compliance outcomes?",
+    "conditional_answers": {
+      "A": "If ethics officers are independent of compliance infrastructure, they may causally reduce violations.",
+      "B": "If regulated companies both hire ethics officers AND prevent violations through compliance departments, regulation confounds the relationship."
+    },
+    "wise_refusal": "The claim that AI ethics officers cause fewer regulatory violations is ambiguous due to confounding. We cannot determine if ethics officers causally reduce violations without controlling for regulatory pressure. If pressure doesn't confound, the effect may be causal. If regulated industries have both, the correlation is spurious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z -> X, Z -> Y (regulatory pressure causes both hiring and compliance focus)",
+    "key_insight": "Governance positions may be markers of compliance-focused organizations rather than causes of compliance.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0116",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Evaluation",
+    "difficulty": "Medium",
+    "trap_type": "T7",
+    "trap_family": "F3",
+    "trap_subtype": "Benchmark Selection Confounder",
+    "scenario": "Models evaluated on multiple benchmarks show better real-world performance. Researchers recommend multi-benchmark evaluation. However, well-resourced projects both evaluate on more benchmarks AND have better models, more compute, and expert practitioners.",
+    "claim": "Multi-benchmark evaluation causes better real-world performance.",
+    "variables": {
+      "X": {"name": "Multi-Benchmark Evaluation", "role": "Treatment"},
+      "Y": {"name": "Real-World Performance", "role": "Outcome"},
+      "Z": {"name": "Project Resources", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Are project resources a confounding variable affecting both evaluation breadth and model quality?",
+    "conditional_answers": {
+      "A": "If evaluation breadth is independent of other resources, it may causally indicate performance.",
+      "B": "If resourced projects both evaluate more AND perform better for other reasons, resources confound the relationship."
+    },
+    "wise_refusal": "The claim that multi-benchmark evaluation causes better real-world performance is ambiguous due to confounding. We cannot determine if evaluation breadth causally predicts performance without controlling for project resources. If resources don't confound, the correlation may be meaningful. If resources cause both, the correlation is spurious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z -> X, Z -> Y (resources enable both broad evaluation and better models)",
+    "key_insight": "Evaluation thoroughness may correlate with project quality for reasons beyond the evaluation itself.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0117",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Research",
+    "difficulty": "Easy",
+    "trap_type": "T7",
+    "trap_family": "F3",
+    "trap_subtype": "Preprint Confounder",
+    "scenario": "Research papers posted to arXiv before peer review receive more citations. Researchers conclude early sharing boosts impact. However, confident researchers with strong results both post early AND have papers that would attract citations anyway.",
+    "claim": "Early arXiv posting causes higher citation counts.",
+    "variables": {
+      "X": {"name": "Early arXiv Posting", "role": "Treatment"},
+      "Y": {"name": "Citation Count", "role": "Outcome"},
+      "Z": {"name": "Paper Quality/Confidence", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Is paper quality/researcher confidence a confounding variable affecting both posting behavior and citations?",
+    "conditional_answers": {
+      "A": "If posting timing is independent of paper quality, early posting may causally increase citations.",
+      "B": "If high-quality papers are both posted early AND attract citations independently, quality confounds the relationship."
+    },
+    "wise_refusal": "The claim that early arXiv posting causes higher citation counts is ambiguous due to confounding. We cannot determine if posting timing causally affects citations without controlling for paper quality. If quality doesn't confound, the effect may be causal. If quality causes both early posting and citations, the correlation is spurious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z -> X, Z -> Y (quality causes both posting confidence and citation attraction)",
+    "key_insight": "Researcher behaviors may reflect underlying quality that independently affects outcomes.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0118",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Data Engineering",
+    "difficulty": "Hard",
+    "trap_type": "T7",
+    "trap_family": "F3",
+    "trap_subtype": "Infrastructure Confounder",
+    "scenario": "Data teams using feature stores show faster model iteration. Vendors conclude feature stores accelerate ML development. However, companies with mature data infrastructure implement both feature stores AND have clean data, good documentation, and skilled data engineers.",
+    "claim": "Feature stores cause faster ML model iteration.",
+    "variables": {
+      "X": {"name": "Feature Store Usage", "role": "Treatment"},
+      "Y": {"name": "Iteration Speed", "role": "Outcome"},
+      "Z": {"name": "Data Infrastructure Maturity", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Is data infrastructure maturity a confounding variable affecting both feature store adoption and iteration speed?",
+    "conditional_answers": {
+      "A": "If feature stores are independent of broader infrastructure, they may causally improve iteration speed.",
+      "B": "If mature organizations both use feature stores AND iterate faster for other reasons, maturity confounds the relationship."
+    },
+    "wise_refusal": "The claim that feature stores cause faster ML model iteration is ambiguous due to confounding. We cannot determine if feature stores causally affect speed without controlling for infrastructure maturity. If maturity doesn't confound, the effect may be causal. If maturity causes both, the correlation is spurious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z -> X, Z -> Y (infrastructure maturity causes both tool adoption and development speed)",
+    "key_insight": "Enterprise tool benefits may be confounded by the organizational maturity required to adopt them.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0119",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Careers",
+    "difficulty": "Medium",
+    "trap_type": "T7",
+    "trap_family": "F3",
+    "trap_subtype": "Publication Confounder",
+    "scenario": "ML researchers with more GitHub contributions get more job offers. Career advisors recommend increasing GitHub activity. However, skilled researchers both contribute more to GitHub AND have skills that attract job offers.",
+    "claim": "More GitHub contributions cause more job offers.",
+    "variables": {
+      "X": {"name": "GitHub Contributions", "role": "Treatment"},
+      "Y": {"name": "Job Offers", "role": "Outcome"},
+      "Z": {"name": "Technical Skill", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Is technical skill a confounding variable affecting both contribution activity and job offers?",
+    "conditional_answers": {
+      "A": "If contributions are independent of underlying skill, they may causally increase job offers.",
+      "B": "If skilled people both contribute more AND attract offers independently, skill confounds the relationship."
+    },
+    "wise_refusal": "The claim that more GitHub contributions cause more job offers is ambiguous due to confounding. We cannot determine if contributions causally affect job offers without controlling for technical skill. If skill doesn't confound, the effect may be causal. If skill causes both, the correlation is spurious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z -> X, Z -> Y (skill causes both activity and employability)",
+    "key_insight": "Observable activities may be proxies for underlying abilities that drive outcomes.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0120",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Compression",
+    "difficulty": "Hard",
+    "trap_type": "T7",
+    "trap_family": "F3",
+    "trap_subtype": "Hardware Confounder",
+    "scenario": "Quantized models show comparable accuracy to full-precision models. Teams conclude quantization preserves accuracy. However, researchers studying quantization have access to modern hardware that handles quantization well AND have expertise in training techniques.",
+    "claim": "Quantization preserves model accuracy without loss.",
+    "variables": {
+      "X": {"name": "Quantization", "role": "Treatment"},
+      "Y": {"name": "Accuracy Preservation", "role": "Outcome"},
+      "Z": {"name": "Hardware/Expertise Quality", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Is hardware/expertise a confounding variable affecting both quantization success and accuracy preservation?",
+    "conditional_answers": {
+      "A": "If quantization works regardless of hardware/expertise, it may reliably preserve accuracy.",
+      "B": "If quantization success requires specific conditions that researchers have, hardware/expertise confounds the relationship."
+    },
+    "wise_refusal": "The claim that quantization preserves model accuracy without loss is ambiguous due to confounding. We cannot determine if quantization reliably preserves accuracy without controlling for hardware/expertise. If these don't confound, the preservation may be general. If special conditions are needed, the correlation is specific to certain contexts. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z -> X success, Z -> Y (hardware/expertise enable both successful quantization and accuracy)",
+    "key_insight": "Technique efficacy demonstrated by experts may not generalize to typical practitioners.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0121",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Ethics",
+    "difficulty": "Easy",
+    "trap_type": "T7",
+    "trap_family": "F3",
+    "trap_subtype": "Training Confounder",
+    "scenario": "ML practitioners who complete ethics training show fewer bias incidents in their models. Companies require ethics training. However, conscientious practitioners both seek ethics training AND naturally consider fairness in their work.",
+    "claim": "Ethics training causes fewer bias incidents.",
+    "variables": {
+      "X": {"name": "Ethics Training", "role": "Treatment"},
+      "Y": {"name": "Bias Incidents", "role": "Outcome"},
+      "Z": {"name": "Practitioner Conscientiousness", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Is conscientiousness a confounding variable affecting both training seeking and bias prevention?",
+    "conditional_answers": {
+      "A": "If training is independent of practitioner characteristics, it may causally reduce bias.",
+      "B": "If conscientious practitioners both train AND prevent bias independently, conscientiousness confounds the relationship."
+    },
+    "wise_refusal": "The claim that ethics training causes fewer bias incidents is ambiguous due to confounding. We cannot determine if training causally reduces bias without controlling for practitioner conscientiousness. If conscientiousness doesn't confound, the effect may be causal. If conscientiousness causes both, the correlation is spurious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z -> X, Z -> Y (conscientiousness causes both training seeking and ethical behavior)",
+    "key_insight": "Training outcomes may reflect who chooses training rather than training effectiveness.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0122",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Deployment",
+    "difficulty": "Medium",
+    "trap_type": "T7",
+    "trap_family": "F3",
+    "trap_subtype": "Monitoring Confounder",
+    "scenario": "AI systems with real-time monitoring show higher uptime. Infrastructure teams conclude monitoring improves reliability. However, critical systems receive both monitoring AND redundancy, better testing, and dedicated support teams.",
+    "claim": "Real-time monitoring causes higher AI system uptime.",
+    "variables": {
+      "X": {"name": "Real-Time Monitoring", "role": "Treatment"},
+      "Y": {"name": "System Uptime", "role": "Outcome"},
+      "Z": {"name": "System Criticality/Investment", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Is system criticality a confounding variable affecting both monitoring investment and uptime?",
+    "conditional_answers": {
+      "A": "If monitoring is independent of other reliability investments, it may causally improve uptime.",
+      "B": "If critical systems receive both monitoring AND other reliability measures, criticality confounds the relationship."
+    },
+    "wise_refusal": "The claim that real-time monitoring causes higher AI system uptime is ambiguous due to confounding. We cannot determine if monitoring causally affects uptime without controlling for system criticality. If criticality doesn't confound, the effect may be causal. If critical systems receive multiple investments, the correlation is spurious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z -> X, Z -> Y (criticality causes both monitoring investment and reliability focus)",
+    "key_insight": "Reliability investments are often bundled, making individual investment effects hard to isolate.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0123",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Reinforcement Learning",
+    "difficulty": "Hard",
+    "trap_type": "T7",
+    "trap_family": "F3",
+    "trap_subtype": "Algorithm Confounder",
+    "scenario": "RL agents trained with curriculum learning solve more complex environments. Researchers conclude curriculum learning is essential. However, teams using curriculum learning also have more experience, better reward shaping, and run more extensive experiments.",
+    "claim": "Curriculum learning causes better RL agent performance.",
+    "variables": {
+      "X": {"name": "Curriculum Learning", "role": "Treatment"},
+      "Y": {"name": "Environment Complexity Solved", "role": "Outcome"},
+      "Z": {"name": "Team Expertise", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Is team expertise a confounding variable affecting both curriculum usage and RL success?",
+    "conditional_answers": {
+      "A": "If curriculum is independent of other expertise factors, it may causally improve RL performance.",
+      "B": "If expert teams both use curriculum AND succeed through other practices, expertise confounds the relationship."
+    },
+    "wise_refusal": "The claim that curriculum learning causes better RL agent performance is ambiguous due to confounding. We cannot determine if curriculum causally improves performance without controlling for team expertise. If expertise doesn't confound, the effect may be causal. If expertise causes both, the correlation is spurious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z -> X, Z -> Y (expertise causes both advanced technique usage and success)",
+    "key_insight": "Advanced techniques are often used by advanced practitioners who succeed for multiple reasons.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0124",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Product",
+    "difficulty": "Hard",
+    "trap_type": "T7",
+    "trap_family": "F3",
+    "trap_subtype": "User Research Confounder",
+    "scenario": "AI products developed with extensive user research show higher satisfaction scores. Product teams conclude user research improves products. However, well-funded products receive both user research AND better engineering, marketing, and support.",
+    "claim": "Extensive user research causes higher product satisfaction.",
+    "variables": {
+      "X": {"name": "User Research", "role": "Treatment"},
+      "Y": {"name": "Satisfaction Scores", "role": "Outcome"},
+      "Z": {"name": "Product Budget", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Is product budget a confounding variable affecting both research investment and satisfaction?",
+    "conditional_answers": {
+      "A": "If user research is independent of other budget effects, it may causally improve satisfaction.",
+      "B": "If well-funded products receive both research AND other improvements, budget confounds the relationship."
+    },
+    "wise_refusal": "The claim that extensive user research causes higher product satisfaction is ambiguous due to confounding. We cannot determine if research causally improves satisfaction without controlling for product budget. If budget doesn't confound, the effect may be causal. If budget causes both, the correlation is spurious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z -> X, Z -> Y (budget enables both research and product quality)",
+    "key_insight": "Product development investments are often correlated, making individual investment effects unclear.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  }
+]

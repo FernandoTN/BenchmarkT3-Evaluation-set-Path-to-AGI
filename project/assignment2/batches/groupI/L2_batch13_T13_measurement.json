@@ -1,0 +1,524 @@
+[
+  {
+    "case_id": "T3-I1-L2-0213",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Evaluation",
+    "difficulty": "Easy",
+    "trap_type": "T13",
+    "trap_family": "F5",
+    "trap_subtype": "Metric Misspecification",
+    "scenario": "An ML model shows excellent accuracy on a benchmark. Teams claim the model solves the target problem. However, the benchmark metric doesn't capture important aspects of real-world performance like latency, fairness, or robustness to distribution shift.",
+    "claim": "High benchmark accuracy means the model solves the real-world problem.",
+    "variables": {
+      "X": {"name": "Benchmark Accuracy", "role": "Treatment"},
+      "Y": {"name": "Real-World Performance", "role": "Outcome"},
+      "Z": {"name": "Metric Alignment", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the benchmark metric capture the dimensions of performance that matter in deployment?",
+    "conditional_answers": {
+      "A": "If the metric captures deployment requirements, high accuracy may indicate real success.",
+      "B": "If the metric misses important dimensions, high accuracy doesn't guarantee real-world effectiveness."
+    },
+    "wise_refusal": "The claim that high benchmark accuracy means the model solves the real-world problem is ambiguous due to measurement concerns. We cannot determine real effectiveness without knowing metric alignment. If the metric captures requirements, accuracy may indicate success. If important dimensions are missing, accuracy is misleading. Without this information, the causal claim is not justified.",
+    "causal_structure": "X metric -> Y real performance only if metric captures relevant dimensions",
+    "key_insight": "Benchmark metrics may not measure what matters for real-world deployment.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0214",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Safety",
+    "difficulty": "Medium",
+    "trap_type": "T13",
+    "trap_family": "F5",
+    "trap_subtype": "Safety Metric Validity",
+    "scenario": "An LLM passes safety evaluations with high scores. Developers claim the model is safe. However, the safety benchmarks test known failure modes and may not capture novel or subtle safety issues that emerge in deployment.",
+    "claim": "Passing safety benchmarks means the model is safe for deployment.",
+    "variables": {
+      "X": {"name": "Safety Benchmark Score", "role": "Treatment"},
+      "Y": {"name": "Deployment Safety", "role": "Outcome"},
+      "Z": {"name": "Benchmark Completeness", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Do safety benchmarks cover all relevant failure modes or just known ones?",
+    "conditional_answers": {
+      "A": "If benchmarks are comprehensive, passing may indicate safety.",
+      "B": "If benchmarks miss novel failure modes, passing doesn't guarantee deployment safety."
+    },
+    "wise_refusal": "The claim that passing safety benchmarks means the model is safe for deployment is ambiguous due to measurement concerns. We cannot determine true safety without knowing benchmark completeness. If benchmarks are comprehensive, scores may indicate safety. If novel failures are possible, benchmark scores are insufficient. Without this information, the causal claim is not justified.",
+    "causal_structure": "X benchmark -> Y safety only if benchmarks are complete",
+    "key_insight": "Safety benchmarks can only test for known failure modes, missing novel risks.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0215",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "ML Fairness",
+    "difficulty": "Medium",
+    "trap_type": "T13",
+    "trap_family": "F5",
+    "trap_subtype": "Fairness Metric Validity",
+    "scenario": "A hiring algorithm achieves demographic parity in selection rates. Teams claim the algorithm is fair. However, demographic parity may conflict with other fairness notions like calibration or individual fairness, and the metric choice affects the conclusion.",
+    "claim": "Achieving demographic parity means the hiring algorithm is fair.",
+    "variables": {
+      "X": {"name": "Demographic Parity", "role": "Treatment"},
+      "Y": {"name": "Algorithmic Fairness", "role": "Outcome"},
+      "Z": {"name": "Fairness Definition Choice", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Is demographic parity the right fairness notion, or do other metrics show unfairness?",
+    "conditional_answers": {
+      "A": "If demographic parity captures the relevant fairness concern, the algorithm may be fair.",
+      "B": "If other fairness metrics reveal unfairness, demographic parity alone is insufficient evidence."
+    },
+    "wise_refusal": "The claim that achieving demographic parity means the hiring algorithm is fair is ambiguous due to measurement concerns. We cannot determine fairness without knowing which fairness notion is appropriate. If demographic parity is sufficient, the claim may hold. If other notions matter, the algorithm may still be unfair. Without this information, the causal claim is not justified.",
+    "causal_structure": "X demographic parity -> Y fairness only under certain fairness definitions",
+    "key_insight": "Different fairness metrics can conflict, and satisfying one doesn't guarantee satisfying others.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0216",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "User Research",
+    "difficulty": "Easy",
+    "trap_type": "T13",
+    "trap_family": "F5",
+    "trap_subtype": "Survey Response Validity",
+    "scenario": "Users report high satisfaction with an AI assistant in surveys. The product team claims the assistant is successful. However, survey responses may not reflect actual behavior - users say they like it but usage logs show they rarely use it.",
+    "claim": "High survey satisfaction means users find the AI assistant valuable.",
+    "variables": {
+      "X": {"name": "Survey Satisfaction", "role": "Treatment"},
+      "Y": {"name": "User Value", "role": "Outcome"},
+      "Z": {"name": "Survey-Behavior Gap", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Do survey responses accurately reflect actual user behavior and perceived value?",
+    "conditional_answers": {
+      "A": "If surveys correlate with behavior, satisfaction may indicate value.",
+      "B": "If users overreport satisfaction or behavior differs, surveys are misleading."
+    },
+    "wise_refusal": "The claim that high survey satisfaction means users find the AI assistant valuable is ambiguous due to measurement concerns. We cannot determine true value without knowing about survey-behavior alignment. If surveys reflect behavior, satisfaction may indicate value. If a gap exists, survey data is misleading. Without this information, the causal claim is not justified.",
+    "causal_structure": "X survey -> Y value only if surveys reflect actual behavior",
+    "key_insight": "Stated preferences in surveys often diverge from revealed preferences in behavior.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0217",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "NLP Evaluation",
+    "difficulty": "Medium",
+    "trap_type": "T13",
+    "trap_family": "F5",
+    "trap_subtype": "Automatic Metric Validity",
+    "scenario": "A text generation model achieves high BLEU scores compared to reference texts. Researchers claim the model generates high-quality text. However, BLEU measures n-gram overlap and may not capture semantic quality, coherence, or factual accuracy.",
+    "claim": "High BLEU scores mean the model generates high-quality text.",
+    "variables": {
+      "X": {"name": "BLEU Score", "role": "Treatment"},
+      "Y": {"name": "Text Quality", "role": "Outcome"},
+      "Z": {"name": "Metric-Quality Alignment", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does BLEU capture the dimensions of text quality that matter?",
+    "conditional_answers": {
+      "A": "If BLEU correlates with human quality judgments, high scores may indicate quality.",
+      "B": "If BLEU misses semantic, coherence, or factual dimensions, high scores don't guarantee quality."
+    },
+    "wise_refusal": "The claim that high BLEU scores mean the model generates high-quality text is ambiguous due to measurement concerns. We cannot determine text quality without knowing if BLEU captures relevant dimensions. If BLEU aligns with quality, scores may be meaningful. If BLEU misses important aspects, scores are misleading. Without this information, the causal claim is not justified.",
+    "causal_structure": "X BLEU -> Y quality only if BLEU captures quality dimensions",
+    "key_insight": "Automatic metrics may optimize for measurable proxies that don't capture true quality.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0218",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Robustness",
+    "difficulty": "Hard",
+    "trap_type": "T13",
+    "trap_family": "F5",
+    "trap_subtype": "Robustness Metric Validity",
+    "scenario": "A model shows high robustness to perturbations measured by specific adversarial attacks. Teams claim the model is robust. However, robustness to tested attacks may not generalize to untested attack types or natural distribution shifts.",
+    "claim": "High adversarial robustness means the model is robust overall.",
+    "variables": {
+      "X": {"name": "Adversarial Robustness", "role": "Treatment"},
+      "Y": {"name": "General Robustness", "role": "Outcome"},
+      "Z": {"name": "Attack Coverage", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does robustness to tested attacks imply robustness to untested attacks and natural shifts?",
+    "conditional_answers": {
+      "A": "If tested attacks are representative, high robustness may generalize.",
+      "B": "If untested attacks or natural shifts behave differently, robustness is overestimated."
+    },
+    "wise_refusal": "The claim that high adversarial robustness means the model is robust overall is ambiguous due to measurement concerns. We cannot determine general robustness without knowing attack coverage. If attacks are representative, robustness may generalize. If they're not, the model may fail under untested conditions. Without this information, the causal claim is not justified.",
+    "causal_structure": "X adversarial robustness -> Y general robustness only if attacks are comprehensive",
+    "key_insight": "Robustness to specific attacks doesn't guarantee robustness to novel attack types.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0219",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Data Quality",
+    "difficulty": "Easy",
+    "trap_type": "T13",
+    "trap_family": "F5",
+    "trap_subtype": "Label Noise Bias",
+    "scenario": "A model shows high agreement with human labels. Teams claim the model is accurate. However, the human labels themselves contain systematic errors, and the model may be learning these errors rather than ground truth.",
+    "claim": "High agreement with labels means the model is accurate.",
+    "variables": {
+      "X": {"name": "Label Agreement", "role": "Treatment"},
+      "Y": {"name": "True Accuracy", "role": "Outcome"},
+      "Z": {"name": "Label Quality", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Are the labels themselves accurate, or do they contain systematic errors?",
+    "conditional_answers": {
+      "A": "If labels are accurate, agreement indicates model accuracy.",
+      "B": "If labels contain errors, high agreement means the model learned those errors."
+    },
+    "wise_refusal": "The claim that high agreement with labels means the model is accurate is ambiguous due to measurement concerns. We cannot determine true accuracy without knowing label quality. If labels are accurate, agreement is meaningful. If labels have errors, agreement indicates learning those errors. Without this information, the causal claim is not justified.",
+    "causal_structure": "X agreement -> Y accuracy only if labels are accurate",
+    "key_insight": "Agreement with labels is only meaningful if the labels themselves are accurate.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0220",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Engagement Metrics",
+    "difficulty": "Medium",
+    "trap_type": "T13",
+    "trap_family": "F5",
+    "trap_subtype": "Engagement-Value Mismatch",
+    "scenario": "An AI recommendation system shows increased user engagement (time spent, clicks). Teams claim the system improves user experience. However, engagement may be driven by addictive patterns rather than genuine value to users.",
+    "claim": "Higher engagement means better user experience.",
+    "variables": {
+      "X": {"name": "Engagement Metrics", "role": "Treatment"},
+      "Y": {"name": "User Experience Quality", "role": "Outcome"},
+      "Z": {"name": "Engagement-Value Alignment", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does engagement reflect genuine value or potentially addictive design patterns?",
+    "conditional_answers": {
+      "A": "If engagement reflects genuine value, higher engagement indicates better experience.",
+      "B": "If engagement is driven by addictive patterns, high engagement may harm users."
+    },
+    "wise_refusal": "The claim that higher engagement means better user experience is ambiguous due to measurement concerns. We cannot determine experience quality without knowing engagement sources. If engagement reflects value, metrics may be meaningful. If addictive patterns drive engagement, high metrics may indicate harm. Without this information, the causal claim is not justified.",
+    "causal_structure": "X engagement -> Y experience only if engagement sources are healthy",
+    "key_insight": "Engagement metrics can increase through addictive design that harms user welfare.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0221",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Interpretability",
+    "difficulty": "Hard",
+    "trap_type": "T13",
+    "trap_family": "F5",
+    "trap_subtype": "Explanation Fidelity",
+    "scenario": "An interpretability tool provides explanations that users find helpful. Teams claim the explanations reveal model reasoning. However, the explanations may be post-hoc rationalizations that don't accurately reflect the model's actual decision process.",
+    "claim": "Helpful explanations accurately reveal model reasoning.",
+    "variables": {
+      "X": {"name": "Explanation Helpfulness", "role": "Treatment"},
+      "Y": {"name": "Model Reasoning Accuracy", "role": "Outcome"},
+      "Z": {"name": "Explanation Fidelity", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Do explanations faithfully represent the model's actual decision process?",
+    "conditional_answers": {
+      "A": "If explanations are faithful to model reasoning, helpfulness indicates understanding.",
+      "B": "If explanations are plausible rationalizations, helpfulness doesn't mean they're accurate."
+    },
+    "wise_refusal": "The claim that helpful explanations accurately reveal model reasoning is ambiguous due to measurement concerns. We cannot determine reasoning accuracy without knowing explanation fidelity. If explanations are faithful, helpfulness may indicate understanding. If they're rationalizations, helpfulness is misleading. Without this information, the causal claim is not justified.",
+    "causal_structure": "X helpfulness -> Y accuracy only if explanations are faithful to model internals",
+    "key_insight": "Explanations can be helpful and plausible while being unfaithful to actual model reasoning.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0222",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "A/B Testing",
+    "difficulty": "Easy",
+    "trap_type": "T13",
+    "trap_family": "F5",
+    "trap_subtype": "Short-Term Proxy Validity",
+    "scenario": "An A/B test shows that a new AI feature improves a proxy metric (clicks). Teams ship the feature claiming it improves the north star metric (revenue). However, the proxy may not correlate with the actual business outcome.",
+    "claim": "Improving the proxy metric will improve the north star metric.",
+    "variables": {
+      "X": {"name": "Proxy Metric", "role": "Treatment"},
+      "Y": {"name": "North Star Metric", "role": "Outcome"},
+      "Z": {"name": "Proxy-Outcome Correlation", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the proxy metric correlate with the actual business outcome being optimized?",
+    "conditional_answers": {
+      "A": "If proxy and north star are correlated, proxy improvement may predict outcome improvement.",
+      "B": "If proxy and north star diverge, optimizing the proxy may not help or may hurt the outcome."
+    },
+    "wise_refusal": "The claim that improving the proxy metric will improve the north star metric is ambiguous due to measurement concerns. We cannot determine outcome improvement without knowing proxy correlation. If they correlate, proxy improvement may transfer. If they diverge, proxy optimization may be counterproductive. Without this information, the causal claim is not justified.",
+    "causal_structure": "X proxy -> Y north star only if metrics are correlated",
+    "key_insight": "Proxy metrics may not predict business outcomes if the correlation is weak or unstable.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0223",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Performance",
+    "difficulty": "Medium",
+    "trap_type": "T13",
+    "trap_family": "F5",
+    "trap_subtype": "Test Set Contamination",
+    "scenario": "A model shows excellent performance on held-out test data. Researchers claim generalization is demonstrated. However, information from the test set may have leaked into model development through hyperparameter tuning or architecture decisions.",
+    "claim": "High test performance demonstrates true generalization.",
+    "variables": {
+      "X": {"name": "Test Performance", "role": "Treatment"},
+      "Y": {"name": "Generalization", "role": "Outcome"},
+      "Z": {"name": "Test Set Independence", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Was model development truly independent of test set information?",
+    "conditional_answers": {
+      "A": "If test set was never used in development, test performance indicates generalization.",
+      "B": "If test set influenced development decisions, test performance is optimistic."
+    },
+    "wise_refusal": "The claim that high test performance demonstrates true generalization is ambiguous due to measurement concerns. We cannot determine generalization without knowing about test set independence. If independent, test performance may indicate generalization. If test set influenced development, performance is overestimated. Without this information, the causal claim is not justified.",
+    "causal_structure": "X test performance -> Y generalization only if test set was truly held out",
+    "key_insight": "Adaptive use of test data during development compromises its validity for generalization claims.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0224",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Conversational AI",
+    "difficulty": "Hard",
+    "trap_type": "T13",
+    "trap_family": "F5",
+    "trap_subtype": "Human Evaluation Validity",
+    "scenario": "Human raters judge a chatbot's responses as high quality. Developers claim the chatbot is effective. However, raters may have been primed by the task setup, use superficial criteria, or be influenced by response fluency rather than accuracy.",
+    "claim": "High human ratings mean the chatbot provides effective responses.",
+    "variables": {
+      "X": {"name": "Human Ratings", "role": "Treatment"},
+      "Y": {"name": "Response Effectiveness", "role": "Outcome"},
+      "Z": {"name": "Evaluation Protocol Quality", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Did the evaluation protocol capture the dimensions of effectiveness that matter?",
+    "conditional_answers": {
+      "A": "If evaluation was well-designed, ratings may indicate effectiveness.",
+      "B": "If raters used superficial criteria or were primed, ratings don't reflect true effectiveness."
+    },
+    "wise_refusal": "The claim that high human ratings mean the chatbot provides effective responses is ambiguous due to measurement concerns. We cannot determine effectiveness without knowing evaluation protocol quality. If well-designed, ratings may be meaningful. If flawed, ratings may reflect superficial features. Without this information, the causal claim is not justified.",
+    "causal_structure": "X ratings -> Y effectiveness only if evaluation protocol is valid",
+    "key_insight": "Human evaluation quality depends critically on evaluation protocol design.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0225",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Computer Vision",
+    "difficulty": "Medium",
+    "trap_type": "T13",
+    "trap_family": "F5",
+    "trap_subtype": "IoU Threshold Sensitivity",
+    "scenario": "An object detection model shows high mAP scores at IoU threshold 0.5. Teams claim accurate detection. However, performance drops significantly at stricter thresholds, and applications may require tighter localization than the evaluation captures.",
+    "claim": "High mAP@0.5 means accurate object detection for the application.",
+    "variables": {
+      "X": {"name": "mAP@0.5", "role": "Treatment"},
+      "Y": {"name": "Application Accuracy", "role": "Outcome"},
+      "Z": {"name": "Threshold Appropriateness", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the application require tighter localization than IoU 0.5 captures?",
+    "conditional_answers": {
+      "A": "If IoU 0.5 matches application needs, mAP@0.5 indicates accuracy.",
+      "B": "If the application needs tighter localization, mAP@0.5 overestimates useful accuracy."
+    },
+    "wise_refusal": "The claim that high mAP@0.5 means accurate object detection for the application is ambiguous due to measurement concerns. We cannot determine application accuracy without knowing localization requirements. If IoU 0.5 suffices, mAP may be meaningful. If tighter localization is needed, mAP@0.5 is misleading. Without this information, the causal claim is not justified.",
+    "causal_structure": "X mAP@0.5 -> Y application accuracy only if threshold matches requirements",
+    "key_insight": "Detection metrics at loose thresholds may not reflect precision requirements of applications.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0226",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Recommendation Evaluation",
+    "difficulty": "Easy",
+    "trap_type": "T13",
+    "trap_family": "F5",
+    "trap_subtype": "Offline-Online Gap",
+    "scenario": "A recommendation model shows high offline metrics (NDCG, recall). Teams expect similar online performance. However, offline metrics are computed on historical data and may not predict how users respond to recommendations in practice.",
+    "claim": "High offline metrics predict strong online performance.",
+    "variables": {
+      "X": {"name": "Offline Metrics", "role": "Treatment"},
+      "Y": {"name": "Online Performance", "role": "Outcome"},
+      "Z": {"name": "Offline-Online Correlation", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Do offline metrics correlate with online performance for this system?",
+    "conditional_answers": {
+      "A": "If offline and online metrics correlate, offline improvement may predict online gains.",
+      "B": "If correlation is weak, offline metrics don't predict online performance."
+    },
+    "wise_refusal": "The claim that high offline metrics predict strong online performance is ambiguous due to measurement concerns. We cannot determine online performance without knowing offline-online correlation. If metrics correlate, offline may predict online. If they don't, offline optimization may not help online. Without this information, the causal claim is not justified.",
+    "causal_structure": "X offline -> Y online only if metrics are correlated",
+    "key_insight": "Offline evaluation on historical data may not predict user response to new recommendations.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0227",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Compression",
+    "difficulty": "Hard",
+    "trap_type": "T13",
+    "trap_family": "F5",
+    "trap_subtype": "Compression Metric Validity",
+    "scenario": "A compressed model maintains 99% of the original's accuracy. Teams deploy the compressed model. However, the 1% accuracy drop may be concentrated in critical edge cases, making the compressed model unsuitable despite high aggregate accuracy.",
+    "claim": "99% accuracy retention means the compressed model is production-ready.",
+    "variables": {
+      "X": {"name": "Aggregate Accuracy Retention", "role": "Treatment"},
+      "Y": {"name": "Production Suitability", "role": "Outcome"},
+      "Z": {"name": "Error Distribution", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Is the accuracy loss uniformly distributed or concentrated in critical cases?",
+    "conditional_answers": {
+      "A": "If accuracy loss is uniform, 99% retention may indicate suitability.",
+      "B": "If loss is concentrated in critical cases, the model may fail when it matters most."
+    },
+    "wise_refusal": "The claim that 99% accuracy retention means the compressed model is production-ready is ambiguous due to measurement concerns. We cannot determine suitability without knowing error distribution. If loss is uniform, retention may indicate readiness. If loss is concentrated in critical cases, the model may be unsuitable. Without this information, the causal claim is not justified.",
+    "causal_structure": "X aggregate retention -> Y suitability only if errors are uniformly distributed",
+    "key_insight": "Aggregate accuracy retention can mask concentrated failures in critical scenarios.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0228",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Capability",
+    "difficulty": "Hard",
+    "trap_type": "T13",
+    "trap_family": "F5",
+    "trap_subtype": "Capability Measurement Validity",
+    "scenario": "An LLM scores highly on reasoning benchmarks. Researchers claim it has strong reasoning abilities. However, the benchmarks may test pattern matching on training-like examples rather than genuine novel reasoning.",
+    "claim": "High benchmark scores indicate genuine reasoning capability.",
+    "variables": {
+      "X": {"name": "Reasoning Benchmark Scores", "role": "Treatment"},
+      "Y": {"name": "Reasoning Capability", "role": "Outcome"},
+      "Z": {"name": "Benchmark Validity", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Do benchmarks test genuine reasoning or pattern matching on familiar problem types?",
+    "conditional_answers": {
+      "A": "If benchmarks require novel reasoning, high scores may indicate capability.",
+      "B": "If benchmarks test familiar patterns, high scores may reflect memorization rather than reasoning."
+    },
+    "wise_refusal": "The claim that high benchmark scores indicate genuine reasoning capability is ambiguous due to measurement concerns. We cannot determine true capability without knowing benchmark validity. If benchmarks test novel reasoning, scores may indicate capability. If they test familiar patterns, scores reflect something else. Without this information, the causal claim is not justified.",
+    "causal_structure": "X benchmark scores -> Y capability only if benchmarks measure what they claim",
+    "key_insight": "Capability benchmarks may measure task-specific pattern matching rather than general abilities.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0229",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Debugging",
+    "difficulty": "Medium",
+    "trap_type": "T13",
+    "trap_family": "F5",
+    "trap_subtype": "Error Analysis Validity",
+    "scenario": "Error analysis shows the model fails on examples with certain characteristics. Teams address these failure modes. However, the visible errors may not represent the full error distribution if some errors are harder to detect than others.",
+    "claim": "Fixing identified failure modes will substantially improve model quality.",
+    "variables": {
+      "X": {"name": "Identified Failures", "role": "Treatment"},
+      "Y": {"name": "Total Error Reduction", "role": "Outcome"},
+      "Z": {"name": "Error Visibility Bias", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Are identified errors representative of all errors, or are some errors harder to detect?",
+    "conditional_answers": {
+      "A": "If identified errors are representative, fixing them may substantially improve quality.",
+      "B": "If harder-to-detect errors dominate, fixing visible errors may not help much."
+    },
+    "wise_refusal": "The claim that fixing identified failure modes will substantially improve model quality is ambiguous due to measurement concerns. We cannot determine improvement without knowing error visibility. If identified errors are representative, fixes may help. If many errors are hidden, fixing visible ones has limited impact. Without this information, the causal claim is not justified.",
+    "causal_structure": "X visible errors -> Y total improvement only if errors are uniformly visible",
+    "key_insight": "Error analysis may be biased toward easily detectable errors, missing harder-to-find issues.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0230",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "LLM Evaluation",
+    "difficulty": "Medium",
+    "trap_type": "T13",
+    "trap_family": "F5",
+    "trap_subtype": "Perplexity Validity",
+    "scenario": "A language model achieves low perplexity on held-out text. Researchers claim the model understands language well. However, perplexity measures prediction of next tokens and may not capture understanding, factual accuracy, or coherence.",
+    "claim": "Low perplexity indicates strong language understanding.",
+    "variables": {
+      "X": {"name": "Perplexity", "role": "Treatment"},
+      "Y": {"name": "Language Understanding", "role": "Outcome"},
+      "Z": {"name": "Perplexity-Understanding Link", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does perplexity capture the dimensions of language understanding that matter?",
+    "conditional_answers": {
+      "A": "If perplexity correlates with understanding, low perplexity may indicate capability.",
+      "B": "If understanding requires more than prediction, low perplexity doesn't guarantee understanding."
+    },
+    "wise_refusal": "The claim that low perplexity indicates strong language understanding is ambiguous due to measurement concerns. We cannot determine understanding without knowing what perplexity captures. If perplexity reflects understanding, low scores may be meaningful. If understanding requires more, perplexity is insufficient. Without this information, the causal claim is not justified.",
+    "causal_structure": "X perplexity -> Y understanding only if perplexity captures understanding",
+    "key_insight": "Perplexity measures prediction ability, which may diverge from semantic understanding.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  }
+]

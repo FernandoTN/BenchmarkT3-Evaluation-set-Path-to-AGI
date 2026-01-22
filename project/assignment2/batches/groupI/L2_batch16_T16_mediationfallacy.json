@@ -1,0 +1,495 @@
+[
+  {
+    "case_id": "T3-I1-L2-0263",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Training",
+    "difficulty": "Easy",
+    "trap_type": "T16",
+    "trap_family": "F6",
+    "trap_subtype": "Ignoring Training Time Mediator",
+    "scenario": "Researchers find that larger models achieve better final accuracy. They conclude model size directly causes accuracy. However, larger models also train for more compute time, and the improvement might come through the mediator of increased training rather than size directly.",
+    "claim": "Larger model size directly causes higher accuracy.",
+    "variables": {
+      "X": {"name": "Model Size", "role": "Treatment"},
+      "Y": {"name": "Accuracy", "role": "Outcome"},
+      "M": {"name": "Training Compute", "role": "Mediator"}
+    },
+    "label": "NO",
+    "hidden_question": "Does size directly cause accuracy, or does it work through increased training compute?",
+    "conditional_answers": {
+      "A": "If size has direct effects beyond training compute, the claim may be partially valid.",
+      "B": "If size only helps through enabling more compute, the effect is fully mediated, not direct."
+    },
+    "wise_refusal": "The claim that larger model size directly causes higher accuracy is ambiguous due to mediation fallacy. We cannot determine the direct effect without controlling for training compute. Larger models typically train for more time, so improvements may come through the training mediator rather than size itself. Without mediation analysis, the direct causal claim is not justified.",
+    "causal_structure": "X -> M -> Y (mediated path) with possible X -> Y (direct path)",
+    "key_insight": "Model size benefits may be fully mediated by training compute rather than direct.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0264",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Transfer Learning",
+    "difficulty": "Easy",
+    "trap_type": "T16",
+    "trap_family": "F6",
+    "trap_subtype": "Ignoring Representation Mediator",
+    "scenario": "A study shows that pretraining on ImageNet improves medical image classification. They conclude ImageNet pretraining directly helps medical tasks. The effect might be fully mediated by learning general visual features, not specific ImageNet knowledge.",
+    "claim": "ImageNet pretraining directly causes better medical image classification.",
+    "variables": {
+      "X": {"name": "ImageNet Pretraining", "role": "Treatment"},
+      "Y": {"name": "Medical Classification", "role": "Outcome"},
+      "M": {"name": "General Visual Features", "role": "Mediator"}
+    },
+    "label": "NO",
+    "hidden_question": "Does ImageNet directly help, or does it work through general feature learning?",
+    "conditional_answers": {
+      "A": "If ImageNet-specific knowledge transfers, the direct effect claim may be valid.",
+      "B": "If benefit comes from general features any large dataset provides, the effect is fully mediated."
+    },
+    "wise_refusal": "The claim that ImageNet pretraining directly causes better medical image classification is ambiguous due to mediation fallacy. We cannot determine if ImageNet-specific knowledge helps without controlling for general feature learning. The benefit might come entirely through the mediator of learning general visual representations. Without mediation analysis, the direct causal claim is not justified.",
+    "causal_structure": "X -> M -> Y (mediated by general features) with possible X -> Y (direct domain transfer)",
+    "key_insight": "Transfer learning benefits may be fully mediated by general representations, not domain-specific knowledge.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0265",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Data Collection",
+    "difficulty": "Medium",
+    "trap_type": "T16",
+    "trap_family": "F6",
+    "trap_subtype": "Ignoring Diversity Mediator",
+    "scenario": "A team finds that larger datasets improve model generalization. They conclude dataset size directly causes generalization. The effect might be mediated by increased diversity that comes with larger datasets.",
+    "claim": "Larger dataset size directly causes better model generalization.",
+    "variables": {
+      "X": {"name": "Dataset Size", "role": "Treatment"},
+      "Y": {"name": "Generalization", "role": "Outcome"},
+      "M": {"name": "Data Diversity", "role": "Mediator"}
+    },
+    "label": "NO",
+    "hidden_question": "Does size directly cause generalization, or is diversity the mediator?",
+    "conditional_answers": {
+      "A": "If size helps beyond diversity effects, there may be a direct causal effect.",
+      "B": "If size only helps through increased diversity, the effect is fully mediated."
+    },
+    "wise_refusal": "The claim that larger dataset size directly causes better model generalization is ambiguous due to mediation fallacy. We cannot determine if size has direct effects without controlling for diversity. Larger datasets typically have more diversity, so improvements may be fully mediated by diversity rather than size itself. Without mediation analysis, the direct causal claim is not justified.",
+    "causal_structure": "X -> M -> Y (mediated by diversity) with possible X -> Y (direct size effect)",
+    "key_insight": "Dataset size benefits may be fully mediated by diversity, not quantity alone.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0266",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Architecture",
+    "difficulty": "Medium",
+    "trap_type": "T16",
+    "trap_family": "F6",
+    "trap_subtype": "Ignoring Capacity Mediator",
+    "scenario": "Researchers find deeper networks achieve better performance. They conclude depth directly causes performance gains. However, depth also increases model capacity, and benefits might come through the capacity mediator.",
+    "claim": "Network depth directly causes better model performance.",
+    "variables": {
+      "X": {"name": "Network Depth", "role": "Treatment"},
+      "Y": {"name": "Performance", "role": "Outcome"},
+      "M": {"name": "Model Capacity", "role": "Mediator"}
+    },
+    "label": "NO",
+    "hidden_question": "Does depth directly improve performance, or does it work through increased capacity?",
+    "conditional_answers": {
+      "A": "If depth helps beyond capacity effects, there may be compositional learning benefits.",
+      "B": "If depth only helps through capacity, the effect is fully mediated by parameter count."
+    },
+    "wise_refusal": "The claim that network depth directly causes better model performance is ambiguous due to mediation fallacy. We cannot determine if depth has direct compositional benefits without controlling for capacity. Deeper networks have more parameters, so improvements may be fully mediated by increased capacity. Without mediation analysis, the direct causal claim is not justified.",
+    "causal_structure": "X -> M -> Y (mediated by capacity) with possible X -> Y (direct compositional benefit)",
+    "key_insight": "Depth benefits may be fully mediated by capacity rather than hierarchical composition.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0267",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Team Productivity",
+    "difficulty": "Medium",
+    "trap_type": "T16",
+    "trap_family": "F6",
+    "trap_subtype": "Ignoring Communication Mediator",
+    "scenario": "A study finds that collocated ML teams produce better models than distributed teams. They conclude collocation directly causes quality. The effect might be fully mediated by improved communication that collocation enables.",
+    "claim": "Team collocation directly causes better ML model quality.",
+    "variables": {
+      "X": {"name": "Collocation", "role": "Treatment"},
+      "Y": {"name": "Model Quality", "role": "Outcome"},
+      "M": {"name": "Communication Quality", "role": "Mediator"}
+    },
+    "label": "NO",
+    "hidden_question": "Does collocation directly help, or does it work through better communication?",
+    "conditional_answers": {
+      "A": "If collocation helps beyond communication effects, there may be direct benefits.",
+      "B": "If collocation only helps through communication, the effect is fully mediated."
+    },
+    "wise_refusal": "The claim that team collocation directly causes better ML model quality is ambiguous due to mediation fallacy. We cannot determine if collocation has direct effects without controlling for communication quality. Collocated teams typically communicate better, so improvements may be fully mediated by communication. Without mediation analysis, the direct causal claim is not justified.",
+    "causal_structure": "X -> M -> Y (mediated by communication) with possible X -> Y (direct co-presence effect)",
+    "key_insight": "Collocation benefits may be fully mediated by communication improvements.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0268",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Hyperparameter Tuning",
+    "difficulty": "Hard",
+    "trap_type": "T16",
+    "trap_family": "F6",
+    "trap_subtype": "Ignoring Selection Mediator",
+    "scenario": "A paper shows that Bayesian optimization achieves better final models than random search. They conclude Bayesian optimization directly causes better outcomes. The effect might be mediated by efficient exploration of the hyperparameter space.",
+    "claim": "Bayesian optimization directly causes better final model performance.",
+    "variables": {
+      "X": {"name": "Bayesian Optimization", "role": "Treatment"},
+      "Y": {"name": "Final Performance", "role": "Outcome"},
+      "M": {"name": "Efficient Exploration", "role": "Mediator"}
+    },
+    "label": "NO",
+    "hidden_question": "Does Bayesian optimization directly help, or does it work through efficient exploration?",
+    "conditional_answers": {
+      "A": "If Bayesian optimization has direct benefits beyond exploration efficiency, the claim may hold.",
+      "B": "If it only helps through efficient space coverage, the effect is fully mediated."
+    },
+    "wise_refusal": "The claim that Bayesian optimization directly causes better final model performance is ambiguous due to mediation fallacy. We cannot determine if Bayesian optimization has direct effects without controlling for exploration efficiency. Benefits may come entirely through efficiently finding good hyperparameter regions. Without mediation analysis, the direct causal claim is not justified.",
+    "causal_structure": "X -> M -> Y (mediated by exploration) with possible X -> Y (direct selection benefit)",
+    "key_insight": "Optimization method benefits may be fully mediated by search efficiency.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0269",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Code Quality",
+    "difficulty": "Easy",
+    "trap_type": "T16",
+    "trap_family": "F6",
+    "trap_subtype": "Ignoring Review Mediator",
+    "scenario": "A study shows that experienced ML engineers produce fewer bugs. They conclude experience directly causes code quality. The effect might be fully mediated by better code review practices that experienced engineers implement.",
+    "claim": "Engineering experience directly causes fewer ML code bugs.",
+    "variables": {
+      "X": {"name": "Engineer Experience", "role": "Treatment"},
+      "Y": {"name": "Code Quality", "role": "Outcome"},
+      "M": {"name": "Review Practices", "role": "Mediator"}
+    },
+    "label": "NO",
+    "hidden_question": "Does experience directly reduce bugs, or does it work through better practices?",
+    "conditional_answers": {
+      "A": "If experience directly prevents bugs beyond practice improvements, the claim may hold.",
+      "B": "If experience only helps through better practices, the effect is fully mediated."
+    },
+    "wise_refusal": "The claim that engineering experience directly causes fewer ML code bugs is ambiguous due to mediation fallacy. We cannot determine if experience has direct effects without controlling for review practices. Experienced engineers typically have better development practices, so improvements may be fully mediated. Without mediation analysis, the direct causal claim is not justified.",
+    "causal_structure": "X -> M -> Y (mediated by practices) with possible X -> Y (direct skill effect)",
+    "key_insight": "Experience benefits may be fully mediated by learned practices rather than innate skill.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0270",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "GPU Hardware",
+    "difficulty": "Medium",
+    "trap_type": "T16",
+    "trap_family": "F6",
+    "trap_subtype": "Ignoring Memory Mediator",
+    "scenario": "Researchers find that newer GPUs enable better model performance. They conclude GPU generation directly causes performance. The effect might be fully mediated by increased memory allowing larger batch sizes.",
+    "claim": "Newer GPU hardware directly causes better ML model performance.",
+    "variables": {
+      "X": {"name": "GPU Generation", "role": "Treatment"},
+      "Y": {"name": "Model Performance", "role": "Outcome"},
+      "M": {"name": "Memory Capacity", "role": "Mediator"}
+    },
+    "label": "NO",
+    "hidden_question": "Does GPU generation directly help, or does it work through memory/batch size?",
+    "conditional_answers": {
+      "A": "If newer GPUs help beyond memory effects, there may be direct compute benefits.",
+      "B": "If benefits come through memory enabling larger batches, the effect is fully mediated."
+    },
+    "wise_refusal": "The claim that newer GPU hardware directly causes better ML model performance is ambiguous due to mediation fallacy. We cannot determine if GPU generation has direct effects without controlling for memory capacity. Newer GPUs have more memory, enabling larger batches that improve training. Without mediation analysis, the direct causal claim is not justified.",
+    "causal_structure": "X -> M -> Y (mediated by memory) with possible X -> Y (direct compute benefit)",
+    "key_insight": "Hardware generation benefits may be fully mediated by capacity improvements.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0271",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Research Culture",
+    "difficulty": "Hard",
+    "trap_type": "T16",
+    "trap_family": "F6",
+    "trap_subtype": "Ignoring Resource Mediator",
+    "scenario": "A study shows that top AI labs produce more breakthrough papers. They conclude lab reputation directly causes breakthroughs. The effect might be fully mediated by better resources that prestigious labs have.",
+    "claim": "Lab reputation directly causes research breakthroughs.",
+    "variables": {
+      "X": {"name": "Lab Reputation", "role": "Treatment"},
+      "Y": {"name": "Research Breakthroughs", "role": "Outcome"},
+      "M": {"name": "Resource Access", "role": "Mediator"}
+    },
+    "label": "NO",
+    "hidden_question": "Does reputation directly cause breakthroughs, or does it work through resources?",
+    "conditional_answers": {
+      "A": "If reputation helps beyond resource access, there may be direct knowledge effects.",
+      "B": "If reputation only helps through resources, the effect is fully mediated."
+    },
+    "wise_refusal": "The claim that lab reputation directly causes research breakthroughs is ambiguous due to mediation fallacy. We cannot determine if reputation has direct effects without controlling for resource access. Prestigious labs have more compute, data, and talent, so breakthroughs may be fully mediated by resources. Without mediation analysis, the direct causal claim is not justified.",
+    "causal_structure": "X -> M -> Y (mediated by resources) with possible X -> Y (direct knowledge effect)",
+    "key_insight": "Lab quality outcomes may be fully mediated by resource access.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0272",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Ensembling",
+    "difficulty": "Medium",
+    "trap_type": "T16",
+    "trap_family": "F6",
+    "trap_subtype": "Ignoring Diversity Mediator",
+    "scenario": "A study shows that ensembling multiple models improves accuracy. They conclude ensembling directly causes improvement. The effect might be fully mediated by diversity among ensemble members.",
+    "claim": "Ensembling multiple models directly causes accuracy improvement.",
+    "variables": {
+      "X": {"name": "Model Ensembling", "role": "Treatment"},
+      "Y": {"name": "Accuracy Improvement", "role": "Outcome"},
+      "M": {"name": "Prediction Diversity", "role": "Mediator"}
+    },
+    "label": "NO",
+    "hidden_question": "Does ensembling directly help, or does it work through member diversity?",
+    "conditional_answers": {
+      "A": "If ensembling helps beyond diversity effects, there may be direct averaging benefits.",
+      "B": "If ensembling only helps when members are diverse, the effect is fully mediated."
+    },
+    "wise_refusal": "The claim that ensembling multiple models directly causes accuracy improvement is ambiguous due to mediation fallacy. We cannot determine if ensembling has direct effects without controlling for diversity. Ensemble gains require diverse members; identical models won't improve through averaging. Without mediation analysis showing the diversity pathway, the direct causal claim is not justified.",
+    "causal_structure": "X -> M -> Y (mediated by diversity) with possible X -> Y (direct averaging)",
+    "key_insight": "Ensemble benefits are fully mediated by member diversity; without diversity, ensembling doesn't help.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0273",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Feature Engineering",
+    "difficulty": "Easy",
+    "trap_type": "T16",
+    "trap_family": "F6",
+    "trap_subtype": "Ignoring Representation Mediator",
+    "scenario": "A study shows that feature engineering improves model performance. They conclude engineering directly causes improvement. The effect might be fully mediated by creating better representations that capture relevant patterns.",
+    "claim": "Feature engineering directly causes better model performance.",
+    "variables": {
+      "X": {"name": "Feature Engineering", "role": "Treatment"},
+      "Y": {"name": "Model Performance", "role": "Outcome"},
+      "M": {"name": "Representation Quality", "role": "Mediator"}
+    },
+    "label": "NO",
+    "hidden_question": "Does engineering directly help, or does it work through representation quality?",
+    "conditional_answers": {
+      "A": "If engineering has direct effects beyond representation, the claim may hold.",
+      "B": "If engineering only helps through better representations, the effect is fully mediated."
+    },
+    "wise_refusal": "The claim that feature engineering directly causes better model performance is ambiguous due to mediation fallacy. We cannot determine if engineering has direct effects without controlling for representation quality. Engineering that doesn't improve representations doesn't help models. Without mediation analysis, the direct causal claim is not justified.",
+    "causal_structure": "X -> M -> Y (mediated by representations) with possible X -> Y (direct effect)",
+    "key_insight": "Feature engineering benefits are mediated by representation improvement.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0274",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Debugging",
+    "difficulty": "Hard",
+    "trap_type": "T16",
+    "trap_family": "F6",
+    "trap_subtype": "Ignoring Understanding Mediator",
+    "scenario": "A study shows that interpretability tools help ML practitioners fix bugs. They conclude interpretability directly causes bug fixes. The effect might be fully mediated by improved understanding of model behavior.",
+    "claim": "Interpretability tools directly cause more effective debugging.",
+    "variables": {
+      "X": {"name": "Interpretability Tools", "role": "Treatment"},
+      "Y": {"name": "Debugging Effectiveness", "role": "Outcome"},
+      "M": {"name": "Model Understanding", "role": "Mediator"}
+    },
+    "label": "NO",
+    "hidden_question": "Do tools directly enable debugging, or do they work through understanding?",
+    "conditional_answers": {
+      "A": "If tools have direct effects beyond understanding, the claim may hold.",
+      "B": "If tools only help through improving understanding, the effect is fully mediated."
+    },
+    "wise_refusal": "The claim that interpretability tools directly cause more effective debugging is ambiguous due to mediation fallacy. We cannot determine if tools have direct effects without controlling for understanding improvement. Tools that don't improve understanding may not help debugging. Without mediation analysis, the direct causal claim is not justified.",
+    "causal_structure": "X -> M -> Y (mediated by understanding) with possible X -> Y (direct tool effect)",
+    "key_insight": "Interpretability tool benefits may be fully mediated by understanding gains.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0275",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Data Labeling",
+    "difficulty": "Medium",
+    "trap_type": "T16",
+    "trap_family": "F6",
+    "trap_subtype": "Ignoring Consistency Mediator",
+    "scenario": "A study shows that expert annotators produce better training data. They conclude expertise directly causes data quality. The effect might be fully mediated by annotation consistency that expertise enables.",
+    "claim": "Annotator expertise directly causes higher data quality.",
+    "variables": {
+      "X": {"name": "Annotator Expertise", "role": "Treatment"},
+      "Y": {"name": "Data Quality", "role": "Outcome"},
+      "M": {"name": "Label Consistency", "role": "Mediator"}
+    },
+    "label": "NO",
+    "hidden_question": "Does expertise directly improve quality, or does it work through consistency?",
+    "conditional_answers": {
+      "A": "If expertise helps beyond consistency effects, there may be direct accuracy benefits.",
+      "B": "If expertise only helps through consistency, the effect is fully mediated."
+    },
+    "wise_refusal": "The claim that annotator expertise directly causes higher data quality is ambiguous due to mediation fallacy. We cannot determine if expertise has direct effects without controlling for consistency. Expert annotators may primarily provide value through consistent labeling. Without mediation analysis, the direct causal claim is not justified.",
+    "causal_structure": "X -> M -> Y (mediated by consistency) with possible X -> Y (direct accuracy)",
+    "key_insight": "Expertise benefits may be fully mediated by annotation consistency improvements.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0276",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "CI/CD Pipelines",
+    "difficulty": "Medium",
+    "trap_type": "T16",
+    "trap_family": "F6",
+    "trap_subtype": "Ignoring Feedback Speed Mediator",
+    "scenario": "A study shows that ML teams with CI/CD pipelines ship better models. They conclude CI/CD directly causes quality. The effect might be fully mediated by faster feedback loops that catch issues early.",
+    "claim": "CI/CD pipelines directly cause better deployed model quality.",
+    "variables": {
+      "X": {"name": "CI/CD Pipeline", "role": "Treatment"},
+      "Y": {"name": "Model Quality", "role": "Outcome"},
+      "M": {"name": "Feedback Loop Speed", "role": "Mediator"}
+    },
+    "label": "NO",
+    "hidden_question": "Does CI/CD directly improve quality, or does it work through faster feedback?",
+    "conditional_answers": {
+      "A": "If CI/CD helps beyond feedback speed, there may be direct automation benefits.",
+      "B": "If CI/CD only helps through faster feedback, the effect is fully mediated."
+    },
+    "wise_refusal": "The claim that CI/CD pipelines directly cause better deployed model quality is ambiguous due to mediation fallacy. We cannot determine if CI/CD has direct effects without controlling for feedback speed. CI/CD may primarily help by catching issues faster. Without mediation analysis, the direct causal claim is not justified.",
+    "causal_structure": "X -> M -> Y (mediated by feedback) with possible X -> Y (direct automation benefit)",
+    "key_insight": "CI/CD benefits may be fully mediated by feedback loop improvements.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0277",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Monitoring",
+    "difficulty": "Hard",
+    "trap_type": "T16",
+    "trap_family": "F6",
+    "trap_subtype": "Ignoring Intervention Mediator",
+    "scenario": "A study shows that model monitoring reduces production failures. They conclude monitoring directly prevents failures. The effect might be fully mediated by timely interventions that monitoring enables.",
+    "claim": "Model monitoring directly causes fewer production failures.",
+    "variables": {
+      "X": {"name": "Model Monitoring", "role": "Treatment"},
+      "Y": {"name": "Production Reliability", "role": "Outcome"},
+      "M": {"name": "Timely Interventions", "role": "Mediator"}
+    },
+    "label": "NO",
+    "hidden_question": "Does monitoring directly prevent failures, or does it work through enabling interventions?",
+    "conditional_answers": {
+      "A": "If monitoring helps beyond enabling interventions, there may be direct prevention effects.",
+      "B": "If monitoring only helps when interventions occur, the effect is fully mediated."
+    },
+    "wise_refusal": "The claim that model monitoring directly causes fewer production failures is ambiguous due to mediation fallacy. We cannot determine if monitoring has direct effects without controlling for interventions. Monitoring alone doesn't prevent failures; interventions do. Without mediation analysis, the direct causal claim is not justified.",
+    "causal_structure": "X -> M -> Y (mediated by intervention) with possible X -> Y (direct awareness effect)",
+    "key_insight": "Monitoring benefits are fully mediated by the interventions monitoring enables.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0278",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Neural Architecture Search",
+    "difficulty": "Hard",
+    "trap_type": "T16",
+    "trap_family": "F6",
+    "trap_subtype": "Ignoring Compute Mediator",
+    "scenario": "A study shows that NAS-discovered architectures outperform hand-designed ones. They conclude NAS directly causes better architectures. The effect might be fully mediated by the massive compute NAS uses to search the architecture space.",
+    "claim": "Neural architecture search directly causes better architecture discovery.",
+    "variables": {
+      "X": {"name": "NAS Method", "role": "Treatment"},
+      "Y": {"name": "Architecture Quality", "role": "Outcome"},
+      "M": {"name": "Search Compute", "role": "Mediator"}
+    },
+    "label": "NO",
+    "hidden_question": "Does NAS directly find better architectures, or does it work through massive compute?",
+    "conditional_answers": {
+      "A": "If NAS finds better architectures with similar compute to manual design, the claim may hold.",
+      "B": "If NAS requires orders of magnitude more compute, the effect is mediated by search extent."
+    },
+    "wise_refusal": "The claim that neural architecture search directly causes better architecture discovery is ambiguous due to mediation fallacy. We cannot determine if NAS has direct benefits without controlling for compute. NAS often uses thousands of GPU-hours, so improvements may be fully mediated by extensive search. Without compute-controlled comparison, the direct causal claim is not justified.",
+    "causal_structure": "X -> M -> Y (mediated by compute) with possible X -> Y (direct search benefit)",
+    "key_insight": "NAS benefits may be fully mediated by massive compute rather than search algorithm quality.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0279",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Active Learning",
+    "difficulty": "Medium",
+    "trap_type": "T16",
+    "trap_family": "F6",
+    "trap_subtype": "Ignoring Informativeness Mediator",
+    "scenario": "A study shows that active learning achieves target accuracy with less labeled data. They conclude active selection directly causes efficiency. The effect might be fully mediated by selecting more informative examples.",
+    "claim": "Active learning directly causes label-efficient training.",
+    "variables": {
+      "X": {"name": "Active Learning", "role": "Treatment"},
+      "Y": {"name": "Label Efficiency", "role": "Outcome"},
+      "M": {"name": "Example Informativeness", "role": "Mediator"}
+    },
+    "label": "NO",
+    "hidden_question": "Does active selection directly improve efficiency, or does it work through informativeness?",
+    "conditional_answers": {
+      "A": "If active learning helps beyond informativeness, there may be direct curriculum effects.",
+      "B": "If active learning only helps through selecting informative examples, the effect is fully mediated."
+    },
+    "wise_refusal": "The claim that active learning directly causes label-efficient training is ambiguous due to mediation fallacy. We cannot determine if active selection has direct effects without controlling for example informativeness. Random selection of equally informative examples should yield similar efficiency. Without mediation analysis, the direct causal claim is not justified.",
+    "causal_structure": "X -> M -> Y (mediated by informativeness) with possible X -> Y (direct selection benefit)",
+    "key_insight": "Active learning benefits may be fully mediated by informativeness of selected examples.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  }
+]

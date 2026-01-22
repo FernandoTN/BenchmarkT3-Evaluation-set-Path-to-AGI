@@ -1,0 +1,466 @@
+[
+  {
+    "case_id": "T3-I1-L2-0199",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Hiring",
+    "difficulty": "Easy",
+    "trap_type": "T12",
+    "trap_family": "F5",
+    "trap_subtype": "Hired Employee Collider",
+    "scenario": "A tech company analyzes hired employees and finds that coding skill and communication skill are negatively correlated. Managers conclude coding hurts communication ability. However, both skills independently lead to being hired, and analyzing only hired employees (the common effect) creates a spurious negative correlation.",
+    "claim": "Better coding skills cause worse communication skills in tech employees.",
+    "variables": {
+      "X": {"name": "Coding Skills", "role": "Treatment"},
+      "Y": {"name": "Communication Skills", "role": "Outcome"},
+      "Z": {"name": "Hired Status (collider)", "role": "Collider"}
+    },
+    "label": "NO",
+    "hidden_question": "Is the negative correlation real, or does conditioning on being hired create a spurious association?",
+    "conditional_answers": {
+      "A": "If coding genuinely affects communication, the claim may be valid.",
+      "B": "If both skills independently lead to hiring, conditioning on hired status creates collider bias."
+    },
+    "wise_refusal": "The claim that better coding skills cause worse communication skills in tech employees is ambiguous due to collider bias. We cannot determine the true relationship by analyzing only hired employees when both skills independently influence hiring. Conditioning on the common effect creates spurious associations. Without data from the broader population, the causal claim is not justified.",
+    "causal_structure": "X -> Z <- Y (collider bias from conditioning on Z)",
+    "key_insight": "Analyzing only hired employees conditions on a collider, creating spurious skill correlations.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0200",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "ML Research",
+    "difficulty": "Easy",
+    "trap_type": "T12",
+    "trap_family": "F5",
+    "trap_subtype": "Publication Collider",
+    "scenario": "Researchers analyze published ML papers and find novelty and rigor are negatively correlated. They conclude novel ideas lack rigor. However, both novelty and rigor independently increase publication probability, and conditioning on publication creates a spurious negative correlation.",
+    "claim": "More novel ML research tends to be less rigorous.",
+    "variables": {
+      "X": {"name": "Research Novelty", "role": "Treatment"},
+      "Y": {"name": "Research Rigor", "role": "Outcome"},
+      "Z": {"name": "Publication Status (collider)", "role": "Collider"}
+    },
+    "label": "NO",
+    "hidden_question": "Is the negative correlation real, or does conditioning on publication create collider bias?",
+    "conditional_answers": {
+      "A": "If novelty genuinely trades off with rigor, the claim may be valid.",
+      "B": "If both independently increase publication chances, conditioning on publication creates bias."
+    },
+    "wise_refusal": "The claim that more novel ML research tends to be less rigorous is ambiguous due to collider bias. We cannot determine the true relationship by analyzing only published papers when both novelty and rigor independently influence publication. Conditioning on this common effect creates spurious associations. Without data from all submissions, the causal claim is not justified.",
+    "causal_structure": "X -> Z <- Y (collider bias from conditioning on published papers)",
+    "key_insight": "Publication selection creates collider bias that can show spurious tradeoffs.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0201",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Startup Funding",
+    "difficulty": "Medium",
+    "trap_type": "T12",
+    "trap_family": "F5",
+    "trap_subtype": "Funded Startup Collider",
+    "scenario": "Analysts study funded AI startups and find technical innovation and market timing are negatively correlated among successful raises. They conclude innovation hurts fundraising timing. However, both factors independently lead to funding, and analyzing only funded startups creates collider bias.",
+    "claim": "Technical innovation causes worse market timing in funded AI startups.",
+    "variables": {
+      "X": {"name": "Technical Innovation", "role": "Treatment"},
+      "Y": {"name": "Market Timing", "role": "Outcome"},
+      "Z": {"name": "Funding Status (collider)", "role": "Collider"}
+    },
+    "label": "NO",
+    "hidden_question": "Is the negative correlation genuine, or an artifact of conditioning on funding?",
+    "conditional_answers": {
+      "A": "If innovation actually trades off with timing, the claim may be valid.",
+      "B": "If both independently lead to funding, conditioning on funded status creates spurious correlation."
+    },
+    "wise_refusal": "The claim that technical innovation causes worse market timing in funded AI startups is ambiguous due to collider bias. We cannot determine the true relationship by analyzing only funded startups when both factors independently influence funding decisions. Conditioning on this common effect creates spurious associations. Without data from all startups, the causal claim is not justified.",
+    "causal_structure": "X -> Z <- Y (collider bias from conditioning on funding)",
+    "key_insight": "Funding selection can create spurious negative correlations between success factors.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0202",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Deployment",
+    "difficulty": "Medium",
+    "trap_type": "T12",
+    "trap_family": "F5",
+    "trap_subtype": "Deployed Model Collider",
+    "scenario": "A company analyzes production ML models and finds that accuracy and latency optimization are negatively correlated. Engineers conclude accuracy work hurts latency. However, models need both adequate accuracy AND acceptable latency to be deployed, creating collider bias.",
+    "claim": "Higher accuracy optimization causes worse latency in deployed models.",
+    "variables": {
+      "X": {"name": "Accuracy Optimization", "role": "Treatment"},
+      "Y": {"name": "Latency Optimization", "role": "Outcome"},
+      "Z": {"name": "Deployment Status (collider)", "role": "Collider"}
+    },
+    "label": "NO",
+    "hidden_question": "Is the tradeoff real, or does deployment selection create spurious correlation?",
+    "conditional_answers": {
+      "A": "If accuracy optimization genuinely hurts latency, the claim may be valid.",
+      "B": "If both are deployment requirements, conditioning on deployed status creates bias."
+    },
+    "wise_refusal": "The claim that higher accuracy optimization causes worse latency in deployed models is ambiguous due to collider bias. We cannot determine the true relationship by analyzing only deployed models when both accuracy and latency independently influence deployment. Conditioning on this common effect creates spurious associations. Without data from all models, the causal claim is not justified.",
+    "causal_structure": "X -> Z <- Y (collider bias from conditioning on deployment)",
+    "key_insight": "Deployment criteria create selection effects that can show artificial tradeoffs.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0203",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Product Reviews",
+    "difficulty": "Medium",
+    "trap_type": "T12",
+    "trap_family": "F5",
+    "trap_subtype": "Review Collider",
+    "scenario": "Analysts study AI product reviews and find that strong positive sentiment and detailed feedback are negatively correlated. They conclude enthusiasm reduces detail. However, only users who feel strongly enough to write reviews are analyzed, and both factors independently motivate reviewing.",
+    "claim": "Higher positive sentiment causes less detailed AI product feedback.",
+    "variables": {
+      "X": {"name": "Positive Sentiment", "role": "Treatment"},
+      "Y": {"name": "Feedback Detail", "role": "Outcome"},
+      "Z": {"name": "Review Writing (collider)", "role": "Collider"}
+    },
+    "label": "NO",
+    "hidden_question": "Is the correlation real, or does conditioning on review-writers create bias?",
+    "conditional_answers": {
+      "A": "If enthusiasm genuinely reduces detail, the claim may be valid.",
+      "B": "If both motivate reviewing, conditioning on reviewers creates spurious correlation."
+    },
+    "wise_refusal": "The claim that higher positive sentiment causes less detailed AI product feedback is ambiguous due to collider bias. We cannot determine the true relationship by analyzing only review-writers when both enthusiasm and analytical tendency independently motivate reviewing. Conditioning on this common effect creates spurious associations. Without data from non-reviewers, the causal claim is not justified.",
+    "causal_structure": "X -> Z <- Y (collider bias from conditioning on reviewing)",
+    "key_insight": "Self-selection into reviewing creates collider bias in feedback analysis.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0204",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Safety Incidents",
+    "difficulty": "Hard",
+    "trap_type": "T12",
+    "trap_family": "F5",
+    "trap_subtype": "Detected Incident Collider",
+    "scenario": "Researchers analyze detected AI safety incidents and find system complexity and monitoring quality are negatively correlated. They conclude complexity hurts monitoring. However, both complexity and monitoring failure independently lead to detectable incidents, creating collider bias.",
+    "claim": "System complexity causes lower monitoring quality in AI incidents.",
+    "variables": {
+      "X": {"name": "System Complexity", "role": "Treatment"},
+      "Y": {"name": "Monitoring Quality", "role": "Outcome"},
+      "Z": {"name": "Incident Detection (collider)", "role": "Collider"}
+    },
+    "label": "NO",
+    "hidden_question": "Is the correlation real, or does conditioning on detected incidents create bias?",
+    "conditional_answers": {
+      "A": "If complexity genuinely degrades monitoring, the claim may be valid.",
+      "B": "If both independently contribute to incidents being detected, conditioning on incidents creates bias."
+    },
+    "wise_refusal": "The claim that system complexity causes lower monitoring quality in AI incidents is ambiguous due to collider bias. We cannot determine the true relationship by analyzing only detected incidents when both factors independently contribute to incident occurrence. Conditioning on this common effect creates spurious associations. Without baseline data, the causal claim is not justified.",
+    "causal_structure": "X -> Z <- Y (collider bias from conditioning on detected incidents)",
+    "key_insight": "Incident detection depends on multiple factors that become spuriously correlated when conditioning on detection.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0205",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Open Source AI",
+    "difficulty": "Easy",
+    "trap_type": "T12",
+    "trap_family": "F5",
+    "trap_subtype": "Star Collider",
+    "scenario": "Analysts study GitHub ML projects with high stars and find code quality and marketing effort are negatively correlated. They conclude quality reduces marketing. However, both quality and marketing independently increase stars, and conditioning on starred projects creates collider bias.",
+    "claim": "Higher code quality causes less marketing effort in popular ML projects.",
+    "variables": {
+      "X": {"name": "Code Quality", "role": "Treatment"},
+      "Y": {"name": "Marketing Effort", "role": "Outcome"},
+      "Z": {"name": "High Star Count (collider)", "role": "Collider"}
+    },
+    "label": "NO",
+    "hidden_question": "Is the negative correlation genuine, or an artifact of conditioning on popularity?",
+    "conditional_answers": {
+      "A": "If quality genuinely trades off with marketing, the claim may be valid.",
+      "B": "If both independently drive popularity, conditioning on stars creates spurious correlation."
+    },
+    "wise_refusal": "The claim that higher code quality causes less marketing effort in popular ML projects is ambiguous due to collider bias. We cannot determine the true relationship by analyzing only popular projects when both factors independently contribute to popularity. Conditioning on this common effect creates spurious associations. Without data from all projects, the causal claim is not justified.",
+    "causal_structure": "X -> Z <- Y (collider bias from conditioning on star count)",
+    "key_insight": "Popularity metrics act as colliders that create spurious correlations between success factors.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0206",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Conference Submissions",
+    "difficulty": "Medium",
+    "trap_type": "T12",
+    "trap_family": "F5",
+    "trap_subtype": "Accepted Paper Collider",
+    "scenario": "Reviewers analyze accepted NeurIPS papers and find that theoretical depth and empirical breadth are negatively correlated. They conclude depth hurts breadth. However, papers need sufficient strength in either theory OR experiments to be accepted, conditioning on acceptance creates collider bias.",
+    "claim": "Greater theoretical depth causes narrower empirical coverage in accepted papers.",
+    "variables": {
+      "X": {"name": "Theoretical Depth", "role": "Treatment"},
+      "Y": {"name": "Empirical Breadth", "role": "Outcome"},
+      "Z": {"name": "Acceptance Status (collider)", "role": "Collider"}
+    },
+    "label": "NO",
+    "hidden_question": "Is the tradeoff real, or does acceptance selection create spurious correlation?",
+    "conditional_answers": {
+      "A": "If depth genuinely trades off with breadth, the claim may be valid.",
+      "B": "If both independently contribute to acceptance, conditioning on accepted papers creates bias."
+    },
+    "wise_refusal": "The claim that greater theoretical depth causes narrower empirical coverage in accepted papers is ambiguous due to collider bias. We cannot determine the true relationship by analyzing only accepted papers when both factors independently influence acceptance. Conditioning on this common effect creates spurious associations. Without data from all submissions, the causal claim is not justified.",
+    "causal_structure": "X -> Z <- Y (collider bias from conditioning on acceptance)",
+    "key_insight": "Paper acceptance acts as a collider that can show artificial depth-breadth tradeoffs.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0207",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "ML Job Market",
+    "difficulty": "Easy",
+    "trap_type": "T12",
+    "trap_family": "F5",
+    "trap_subtype": "Employment Collider",
+    "scenario": "A survey of employed ML engineers finds that formal education and practical experience are negatively correlated. HR concludes education substitutes for experience. However, employers accept either strong education OR strong experience, and conditioning on employment creates collider bias.",
+    "claim": "More formal ML education causes less practical experience in employed engineers.",
+    "variables": {
+      "X": {"name": "Formal Education", "role": "Treatment"},
+      "Y": {"name": "Practical Experience", "role": "Outcome"},
+      "Z": {"name": "Employment Status (collider)", "role": "Collider"}
+    },
+    "label": "NO",
+    "hidden_question": "Is the negative correlation genuine, or does employment selection create bias?",
+    "conditional_answers": {
+      "A": "If education genuinely reduces experience accumulation, the claim may be valid.",
+      "B": "If both independently qualify for employment, conditioning on employed status creates bias."
+    },
+    "wise_refusal": "The claim that more formal ML education causes less practical experience in employed engineers is ambiguous due to collider bias. We cannot determine the true relationship by analyzing only employed engineers when both factors independently qualify candidates for employment. Conditioning on this common effect creates spurious associations. Without data from all candidates, the causal claim is not justified.",
+    "causal_structure": "X -> Z <- Y (collider bias from conditioning on employment)",
+    "key_insight": "Employment selection can show spurious tradeoffs between equally valid qualifications.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0208",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Bug Reports",
+    "difficulty": "Medium",
+    "trap_type": "T12",
+    "trap_family": "F5",
+    "trap_subtype": "Reported Bug Collider",
+    "scenario": "Analyzing ML framework bug reports, developers find that bug severity and user technical sophistication are negatively correlated. They conclude severe bugs happen to novices. However, both severity and sophistication independently lead to reporting, and conditioning on reports creates collider bias.",
+    "claim": "More severe bugs are caused by less sophisticated user behavior.",
+    "variables": {
+      "X": {"name": "Bug Severity", "role": "Treatment"},
+      "Y": {"name": "User Sophistication", "role": "Outcome"},
+      "Z": {"name": "Bug Report (collider)", "role": "Collider"}
+    },
+    "label": "NO",
+    "hidden_question": "Is the correlation real, or does conditioning on reported bugs create bias?",
+    "conditional_answers": {
+      "A": "If severity genuinely relates to user sophistication, the claim may be valid.",
+      "B": "If both independently motivate reporting, conditioning on reports creates spurious correlation."
+    },
+    "wise_refusal": "The claim that more severe bugs are caused by less sophisticated user behavior is ambiguous due to collider bias. We cannot determine the true relationship by analyzing only reported bugs when both factors independently influence reporting. Conditioning on this common effect creates spurious associations. Without data from unreported bugs, the causal claim is not justified.",
+    "causal_structure": "X -> Z <- Y (collider bias from conditioning on reporting)",
+    "key_insight": "Bug reporting selection creates collider bias between severity and reporter characteristics.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0209",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Interpretability",
+    "difficulty": "Hard",
+    "trap_type": "T12",
+    "trap_family": "F5",
+    "trap_subtype": "Explained Model Collider",
+    "scenario": "Researchers study ML models that received interpretability analysis and find model complexity and explanation quality are negatively correlated. They conclude complex models resist explanation. However, models receive analysis when either complex enough to need it OR when explanations are valuable, conditioning on analyzed models creates bias.",
+    "claim": "Higher model complexity causes lower explanation quality.",
+    "variables": {
+      "X": {"name": "Model Complexity", "role": "Treatment"},
+      "Y": {"name": "Explanation Quality", "role": "Outcome"},
+      "Z": {"name": "Received Analysis (collider)", "role": "Collider"}
+    },
+    "label": "NO",
+    "hidden_question": "Is the tradeoff real, or does selection for analysis create spurious correlation?",
+    "conditional_answers": {
+      "A": "If complexity genuinely degrades explanations, the claim may be valid.",
+      "B": "If both independently trigger analysis, conditioning on analyzed models creates bias."
+    },
+    "wise_refusal": "The claim that higher model complexity causes lower explanation quality is ambiguous due to collider bias. We cannot determine the true relationship by analyzing only models that received interpretability analysis when both factors independently influence analysis selection. Conditioning on this common effect creates spurious associations. Without data from all models, the causal claim is not justified.",
+    "causal_structure": "X -> Z <- Y (collider bias from conditioning on analysis)",
+    "key_insight": "Models selected for interpretability analysis may show artificial complexity-explanation tradeoffs.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0210",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Regulation",
+    "difficulty": "Hard",
+    "trap_type": "T12",
+    "trap_family": "F5",
+    "trap_subtype": "Regulated System Collider",
+    "scenario": "Analyzing AI systems under regulatory review, auditors find system capability and transparency are negatively correlated. They conclude capable systems are less transparent. However, systems face review when either very capable OR raising transparency concerns, conditioning on regulated systems creates collider bias.",
+    "claim": "Higher AI capability causes lower system transparency in regulated systems.",
+    "variables": {
+      "X": {"name": "System Capability", "role": "Treatment"},
+      "Y": {"name": "System Transparency", "role": "Outcome"},
+      "Z": {"name": "Regulatory Review (collider)", "role": "Collider"}
+    },
+    "label": "NO",
+    "hidden_question": "Is the tradeoff genuine, or does regulatory selection create bias?",
+    "conditional_answers": {
+      "A": "If capability genuinely trades off with transparency, the claim may be valid.",
+      "B": "If both independently trigger review, conditioning on reviewed systems creates bias."
+    },
+    "wise_refusal": "The claim that higher AI capability causes lower system transparency in regulated systems is ambiguous due to collider bias. We cannot determine the true relationship by analyzing only systems under regulatory review when both factors independently trigger scrutiny. Conditioning on this common effect creates spurious associations. Without data from all systems, the causal claim is not justified.",
+    "causal_structure": "X -> Z <- Y (collider bias from conditioning on review)",
+    "key_insight": "Regulatory attention can create spurious correlations between factors that independently trigger oversight.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0211",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Ethics",
+    "difficulty": "Medium",
+    "trap_type": "T12",
+    "trap_family": "F5",
+    "trap_subtype": "Ethics Review Collider",
+    "scenario": "Studying AI projects that underwent ethics review, researchers find innovation level and ethical concerns are negatively correlated. They conclude innovative projects are more ethical. However, projects face review when either highly innovative OR ethically questionable, conditioning on reviewed projects creates collider bias.",
+    "claim": "More innovative AI projects have fewer ethical concerns.",
+    "variables": {
+      "X": {"name": "Innovation Level", "role": "Treatment"},
+      "Y": {"name": "Ethical Concerns", "role": "Outcome"},
+      "Z": {"name": "Ethics Review (collider)", "role": "Collider"}
+    },
+    "label": "NO",
+    "hidden_question": "Is the correlation real, or does ethics review selection create bias?",
+    "conditional_answers": {
+      "A": "If innovation genuinely correlates with ethical design, the claim may be valid.",
+      "B": "If both independently trigger review, conditioning on reviewed projects creates spurious correlation."
+    },
+    "wise_refusal": "The claim that more innovative AI projects have fewer ethical concerns is ambiguous due to collider bias. We cannot determine the true relationship by analyzing only projects that underwent ethics review when both factors independently trigger scrutiny. Conditioning on this common effect creates spurious associations. Without data from all projects, the causal claim is not justified.",
+    "causal_structure": "X -> Z <- Y (collider bias from conditioning on ethics review)",
+    "key_insight": "Ethics review selection can show artificial correlations between reviewed project characteristics.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0212",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Hardware",
+    "difficulty": "Easy",
+    "trap_type": "T12",
+    "trap_family": "F5",
+    "trap_subtype": "Purchased Hardware Collider",
+    "scenario": "Analyzing purchased AI accelerators, buyers find compute power and energy efficiency are negatively correlated. They conclude faster chips waste energy. However, customers buy chips that excel in either compute OR efficiency, and conditioning on purchases creates collider bias.",
+    "claim": "Higher compute power causes lower energy efficiency in AI accelerators.",
+    "variables": {
+      "X": {"name": "Compute Power", "role": "Treatment"},
+      "Y": {"name": "Energy Efficiency", "role": "Outcome"},
+      "Z": {"name": "Purchase Decision (collider)", "role": "Collider"}
+    },
+    "label": "NO",
+    "hidden_question": "Is the tradeoff real, or does purchase selection create spurious correlation?",
+    "conditional_answers": {
+      "A": "If compute genuinely trades off with efficiency, the claim may be valid.",
+      "B": "If both independently drive purchases, conditioning on purchased chips creates bias."
+    },
+    "wise_refusal": "The claim that higher compute power causes lower energy efficiency in AI accelerators is ambiguous due to collider bias. We cannot determine the true relationship by analyzing only purchased accelerators when both factors independently influence purchase decisions. Conditioning on this common effect creates spurious associations. Without data from all available chips, the causal claim is not justified.",
+    "causal_structure": "X -> Z <- Y (collider bias from conditioning on purchase)",
+    "key_insight": "Purchase decisions create colliders that can show artificial product attribute tradeoffs.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0213",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Media Coverage",
+    "difficulty": "Medium",
+    "trap_type": "T12",
+    "trap_family": "F5",
+    "trap_subtype": "News Coverage Collider",
+    "scenario": "Analyzing AI developments in news, journalists find technical significance and controversy are negatively correlated in covered stories. They conclude significant work is uncontroversial. However, stories get coverage when either technically significant OR controversial, conditioning on coverage creates collider bias.",
+    "claim": "Technically significant AI developments are less controversial.",
+    "variables": {
+      "X": {"name": "Technical Significance", "role": "Treatment"},
+      "Y": {"name": "Controversy Level", "role": "Outcome"},
+      "Z": {"name": "News Coverage (collider)", "role": "Collider"}
+    },
+    "label": "NO",
+    "hidden_question": "Is the correlation genuine, or does news selection create bias?",
+    "conditional_answers": {
+      "A": "If significance genuinely reduces controversy, the claim may be valid.",
+      "B": "If both independently drive coverage, conditioning on covered stories creates spurious correlation."
+    },
+    "wise_refusal": "The claim that technically significant AI developments are less controversial is ambiguous due to collider bias. We cannot determine the true relationship by analyzing only covered stories when both factors independently influence newsworthiness. Conditioning on this common effect creates spurious associations. Without data from all developments, the causal claim is not justified.",
+    "causal_structure": "X -> Z <- Y (collider bias from conditioning on coverage)",
+    "key_insight": "Media coverage selection creates colliders that distort perception of AI development characteristics.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0214",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Cards",
+    "difficulty": "Hard",
+    "trap_type": "T12",
+    "trap_family": "F5",
+    "trap_subtype": "Documented Model Collider",
+    "scenario": "Researchers analyze models with published model cards and find model size and documentation quality are negatively correlated. They conclude large models get poor documentation. However, models get documented when either large enough to matter OR when documentation is prioritized, conditioning on documented models creates bias.",
+    "claim": "Larger model size causes lower documentation quality.",
+    "variables": {
+      "X": {"name": "Model Size", "role": "Treatment"},
+      "Y": {"name": "Documentation Quality", "role": "Outcome"},
+      "Z": {"name": "Has Model Card (collider)", "role": "Collider"}
+    },
+    "label": "NO",
+    "hidden_question": "Is the correlation real, or does documentation selection create bias?",
+    "conditional_answers": {
+      "A": "If size genuinely hurts documentation, the claim may be valid.",
+      "B": "If both independently lead to documentation, conditioning on documented models creates spurious correlation."
+    },
+    "wise_refusal": "The claim that larger model size causes lower documentation quality is ambiguous due to collider bias. We cannot determine the true relationship by analyzing only documented models when both factors independently influence documentation decisions. Conditioning on this common effect creates spurious associations. Without data from all models, the causal claim is not justified.",
+    "causal_structure": "X -> Z <- Y (collider bias from conditioning on documentation)",
+    "key_insight": "Model documentation practices create selection effects that can show artificial size-quality tradeoffs.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  }
+]

@@ -1,0 +1,524 @@
+[
+  {
+    "case_id": "T3-I1-L2-0069",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Performance",
+    "difficulty": "Easy",
+    "trap_type": "T5",
+    "trap_family": "F2",
+    "trap_subtype": "Model Accuracy Regression",
+    "scenario": "ML models that performed exceptionally well in week 1 show decreased accuracy in week 2. Teams implement 'performance boosting' interventions. The models were selected for intervention based on extreme initial performance, and regression to the mean would occur naturally.",
+    "claim": "Performance boosting interventions are failing.",
+    "variables": {
+      "X": {"name": "Boosting Intervention", "role": "Treatment"},
+      "Y": {"name": "Accuracy Change", "role": "Outcome"},
+      "Z": {"name": "Regression to Mean", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Were models selected for intervention based on extreme initial performance that would naturally regress?",
+    "conditional_answers": {
+      "A": "If models were randomly selected, declining performance might indicate intervention failure.",
+      "B": "If models were selected for extreme high performance, the decline is regression to the mean, not intervention failure."
+    },
+    "wise_refusal": "The claim that performance boosting interventions are failing is ambiguous due to regression to the mean. We cannot determine if the decline reflects intervention failure or natural regression without knowing the selection criteria. If models were random, the decline may be meaningful. If models were selected for extreme performance, the decline is expected regression. Without this information, the causal claim is not justified.",
+    "causal_structure": "Extreme Y1 -> Selection -> Natural regression toward mean Y2",
+    "key_insight": "Extreme values tend to be followed by less extreme values, regardless of any intervention.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0070",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "A/B Testing",
+    "difficulty": "Easy",
+    "trap_type": "T5",
+    "trap_family": "F2",
+    "trap_subtype": "Conversion Rate Regression",
+    "scenario": "Products with unusually low conversion rates in Q1 show improved conversion in Q2 after implementing an AI recommendation engine. The team celebrates the AI's success. Products were selected for the AI engine precisely because their Q1 rates were anomalously low.",
+    "claim": "The AI recommendation engine improved conversion rates.",
+    "variables": {
+      "X": {"name": "AI Recommendation Engine", "role": "Treatment"},
+      "Y": {"name": "Conversion Rate Change", "role": "Outcome"},
+      "Z": {"name": "Regression to Mean", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Were products selected for the AI engine based on anomalously low initial conversion rates?",
+    "conditional_answers": {
+      "A": "If products were randomly assigned to receive the AI engine, improvement may reflect its causal effect.",
+      "B": "If products were selected for extremely low rates, improvement is regression to the mean."
+    },
+    "wise_refusal": "The claim that the AI recommendation engine improved conversion rates is ambiguous due to regression to the mean. We cannot determine if improvement reflects the AI's effect or natural regression without knowing selection criteria. If products were random, improvement may be causal. If selected for low rates, improvement is expected regression. Without this information, the causal claim is not justified.",
+    "causal_structure": "Extreme low Y1 -> Selection -> Natural regression toward mean Y2",
+    "key_insight": "Selecting cases with extreme low values virtually guarantees improvement, regardless of intervention.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0071",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Training",
+    "difficulty": "Medium",
+    "trap_type": "T5",
+    "trap_family": "F2",
+    "trap_subtype": "Training Loss Regression",
+    "scenario": "Neural networks showing unusually high training loss early in training show dramatic loss reduction after applying a new optimizer. Researchers credit the optimizer. Networks were selected for the new optimizer specifically because their initial loss was anomalously high.",
+    "claim": "The new optimizer dramatically reduces training loss.",
+    "variables": {
+      "X": {"name": "New Optimizer", "role": "Treatment"},
+      "Y": {"name": "Loss Reduction", "role": "Outcome"},
+      "Z": {"name": "Regression to Mean", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Were networks selected for the optimizer based on anomalously high initial loss?",
+    "conditional_answers": {
+      "A": "If networks were randomly assigned to the optimizer, loss reduction may reflect optimizer effectiveness.",
+      "B": "If networks were selected for extreme high loss, the dramatic reduction is regression to the mean."
+    },
+    "wise_refusal": "The claim that the new optimizer dramatically reduces training loss is ambiguous due to regression to the mean. We cannot determine if reduction reflects optimizer effectiveness or natural regression without knowing selection criteria. If networks were random, reduction may be causal. If selected for high loss, reduction is expected regression. Without this information, the causal claim is not justified.",
+    "causal_structure": "Extreme high Y1 -> Selection -> Natural regression toward mean Y2",
+    "key_insight": "High initial loss often reflects unlucky initialization and would improve with any reasonable training.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0072",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Safety Metrics",
+    "difficulty": "Medium",
+    "trap_type": "T5",
+    "trap_family": "F2",
+    "trap_subtype": "Safety Score Regression",
+    "scenario": "AI systems with exceptionally high safety scores in audit 1 show lower scores in audit 2. Safety teams conclude the systems are degrading. Systems were highlighted for monitoring based on their unusually high initial scores.",
+    "claim": "High-performing AI systems are experiencing safety degradation.",
+    "variables": {
+      "X": {"name": "Safety Monitoring", "role": "Treatment"},
+      "Y": {"name": "Safety Score Change", "role": "Outcome"},
+      "Z": {"name": "Regression to Mean", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Were systems selected for monitoring based on unusually high initial safety scores?",
+    "conditional_answers": {
+      "A": "If systems were randomly selected, score decline might indicate actual degradation.",
+      "B": "If systems were selected for extreme high scores, decline is regression to the mean, not degradation."
+    },
+    "wise_refusal": "The claim that high-performing AI systems are experiencing safety degradation is ambiguous due to regression to the mean. We cannot determine if decline reflects degradation or natural regression without knowing selection criteria. If systems were random, decline may be meaningful. If selected for high scores, decline is expected regression. Without this information, the causal claim is not justified.",
+    "causal_structure": "Extreme high Y1 -> Selection -> Natural regression toward mean Y2",
+    "key_insight": "Exceptional performance is often partly due to measurement luck that won't repeat.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0073",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "ML Engineer Performance",
+    "difficulty": "Medium",
+    "trap_type": "T5",
+    "trap_family": "F2",
+    "trap_subtype": "Employee Performance Regression",
+    "scenario": "ML engineers who received exceptionally low performance reviews are given additional training. Their subsequent reviews improve. HR credits the training program. Engineers were selected for training precisely because their initial reviews were anomalously poor.",
+    "claim": "The additional training program improves engineer performance.",
+    "variables": {
+      "X": {"name": "Training Program", "role": "Treatment"},
+      "Y": {"name": "Performance Improvement", "role": "Outcome"},
+      "Z": {"name": "Regression to Mean", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Were engineers selected for training based on anomalously low initial performance?",
+    "conditional_answers": {
+      "A": "If engineers were randomly selected for training, improvement may reflect training effectiveness.",
+      "B": "If engineers were selected for extremely poor reviews, improvement is regression to the mean."
+    },
+    "wise_refusal": "The claim that the additional training program improves engineer performance is ambiguous due to regression to the mean. We cannot determine if improvement reflects training effectiveness or natural regression without knowing selection criteria. If engineers were random, improvement may be causal. If selected for poor reviews, improvement is expected regression. Without this information, the causal claim is not justified.",
+    "causal_structure": "Extreme low Y1 -> Selection -> Natural regression toward mean Y2",
+    "key_insight": "Performance that's unusually bad often reflects temporary factors that resolve naturally.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0074",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Data Quality",
+    "difficulty": "Hard",
+    "trap_type": "T5",
+    "trap_family": "F2",
+    "trap_subtype": "Data Quality Regression",
+    "scenario": "Data pipelines with unusually high error rates in month 1 show dramatically lower error rates in month 2 after implementing automated quality checks. Teams credit the automation. Pipelines were selected for automation based on their extremely high initial error rates.",
+    "claim": "Automated quality checks dramatically reduce pipeline errors.",
+    "variables": {
+      "X": {"name": "Automated Quality Checks", "role": "Treatment"},
+      "Y": {"name": "Error Rate Reduction", "role": "Outcome"},
+      "Z": {"name": "Regression to Mean", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Were pipelines selected for automation based on anomalously high initial error rates?",
+    "conditional_answers": {
+      "A": "If pipelines were randomly selected, error reduction may reflect automation effectiveness.",
+      "B": "If pipelines were selected for extreme high errors, the dramatic reduction is regression to the mean."
+    },
+    "wise_refusal": "The claim that automated quality checks dramatically reduce pipeline errors is ambiguous due to regression to the mean. We cannot determine if reduction reflects automation effectiveness or natural regression without knowing selection criteria. If pipelines were random, reduction may be causal. If selected for high errors, reduction is expected regression. Without this information, the causal claim is not justified.",
+    "causal_structure": "Extreme high Y1 -> Selection -> Natural regression toward mean Y2",
+    "key_insight": "Extreme error rates often reflect temporary issues that resolve independently of interventions.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0075",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "NLP Model Evaluation",
+    "difficulty": "Easy",
+    "trap_type": "T5",
+    "trap_family": "F2",
+    "trap_subtype": "Benchmark Score Regression",
+    "scenario": "NLP models that achieved record-breaking benchmark scores in evaluation 1 show lower scores in evaluation 2. Critics claim the models are overfit. Models were retested specifically because their initial scores were unusually high.",
+    "claim": "The models are overfit and their initial scores were misleading.",
+    "variables": {
+      "X": {"name": "Model Characteristics", "role": "Treatment"},
+      "Y": {"name": "Benchmark Score Change", "role": "Outcome"},
+      "Z": {"name": "Regression to Mean", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Were models selected for re-evaluation based on unusually high initial scores?",
+    "conditional_answers": {
+      "A": "If all models were re-evaluated regardless of initial scores, decline might indicate overfitting.",
+      "B": "If only record-breaking models were retested, score decline is regression to the mean."
+    },
+    "wise_refusal": "The claim that the models are overfit and their initial scores were misleading is ambiguous due to regression to the mean. We cannot determine if decline reflects overfitting or natural regression without knowing selection criteria. If all models were retested, decline may indicate overfitting. If only high scorers were retested, decline is expected regression. Without this information, the causal claim is not justified.",
+    "causal_structure": "Extreme high Y1 -> Selection for retest -> Natural regression toward mean Y2",
+    "key_insight": "Record-breaking performance often includes favorable measurement variance that won't replicate.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0076",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "API Performance",
+    "difficulty": "Medium",
+    "trap_type": "T5",
+    "trap_family": "F2",
+    "trap_subtype": "Latency Regression",
+    "scenario": "ML APIs showing unusually high latency spikes are migrated to new infrastructure. Latency improves dramatically. Infrastructure teams credit the migration. APIs were selected for migration specifically because their latency was anomalously high.",
+    "claim": "The infrastructure migration dramatically improved API latency.",
+    "variables": {
+      "X": {"name": "Infrastructure Migration", "role": "Treatment"},
+      "Y": {"name": "Latency Improvement", "role": "Outcome"},
+      "Z": {"name": "Regression to Mean", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Were APIs selected for migration based on anomalously high latency measurements?",
+    "conditional_answers": {
+      "A": "If APIs were randomly selected, latency improvement may reflect migration benefits.",
+      "B": "If APIs were selected for extreme high latency, improvement is regression to the mean."
+    },
+    "wise_refusal": "The claim that the infrastructure migration dramatically improved API latency is ambiguous due to regression to the mean. We cannot determine if improvement reflects migration benefits or natural regression without knowing selection criteria. If APIs were random, improvement may be causal. If selected for high latency, improvement is expected regression. Without this information, the causal claim is not justified.",
+    "causal_structure": "Extreme high Y1 -> Selection -> Natural regression toward mean Y2",
+    "key_insight": "Latency spikes often result from transient issues that resolve without infrastructure changes.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0077",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Fairness",
+    "difficulty": "Hard",
+    "trap_type": "T5",
+    "trap_family": "F2",
+    "trap_subtype": "Fairness Metric Regression",
+    "scenario": "ML models showing extremely poor fairness metrics undergo debiasing interventions and show improved fairness afterward. Teams credit the debiasing techniques. Models were selected for debiasing based on their anomalously bad fairness scores.",
+    "claim": "Debiasing interventions improve model fairness.",
+    "variables": {
+      "X": {"name": "Debiasing Intervention", "role": "Treatment"},
+      "Y": {"name": "Fairness Improvement", "role": "Outcome"},
+      "Z": {"name": "Regression to Mean", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Were models selected for debiasing based on anomalously poor fairness metrics?",
+    "conditional_answers": {
+      "A": "If models were randomly selected, fairness improvement may reflect debiasing effectiveness.",
+      "B": "If models were selected for extremely poor metrics, improvement is regression to the mean."
+    },
+    "wise_refusal": "The claim that debiasing interventions improve model fairness is ambiguous due to regression to the mean. We cannot determine if improvement reflects debiasing effectiveness or natural regression without knowing selection criteria. If models were random, improvement may be causal. If selected for poor metrics, improvement is expected regression. Without this information, the causal claim is not justified.",
+    "causal_structure": "Extreme low Y1 -> Selection -> Natural regression toward mean Y2",
+    "key_insight": "Extreme unfairness measurements may partly reflect measurement noise that won't persist.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0078",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Feature Engineering",
+    "difficulty": "Easy",
+    "trap_type": "T5",
+    "trap_family": "F2",
+    "trap_subtype": "Feature Importance Regression",
+    "scenario": "Features that showed exceptionally high importance in model 1 show lower importance in model 2. Data scientists remove these features, claiming they were 'overfitting signals.' Features were re-evaluated specifically because their initial importance was unusually high.",
+    "claim": "These features are overfitting signals that should be removed.",
+    "variables": {
+      "X": {"name": "Feature Selection Decision", "role": "Treatment"},
+      "Y": {"name": "Feature Importance Change", "role": "Outcome"},
+      "Z": {"name": "Regression to Mean", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Were features re-evaluated based on their unusually high initial importance scores?",
+    "conditional_answers": {
+      "A": "If all features were re-evaluated, importance decline might indicate overfitting.",
+      "B": "If only high-importance features were re-evaluated, decline is regression to the mean."
+    },
+    "wise_refusal": "The claim that these features are overfitting signals that should be removed is ambiguous due to regression to the mean. We cannot determine if decline reflects overfitting or natural regression without knowing selection criteria. If all features were re-evaluated, decline may indicate overfitting. If only high-importance features were checked, decline is expected regression. Without this information, the causal claim is not justified.",
+    "causal_structure": "Extreme high Y1 -> Selection -> Natural regression toward mean Y2",
+    "key_insight": "Feature importance estimates have variance; extreme values naturally moderate on re-measurement.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0079",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "User Engagement",
+    "difficulty": "Medium",
+    "trap_type": "T5",
+    "trap_family": "F2",
+    "trap_subtype": "Engagement Regression",
+    "scenario": "Users with extremely low engagement receive personalized AI-driven nudges and show improved engagement afterward. Product teams credit the nudge system. Users were selected for nudging based on their anomalously low initial engagement.",
+    "claim": "AI-driven nudges improve user engagement.",
+    "variables": {
+      "X": {"name": "AI Nudge System", "role": "Treatment"},
+      "Y": {"name": "Engagement Improvement", "role": "Outcome"},
+      "Z": {"name": "Regression to Mean", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Were users selected for nudging based on anomalously low initial engagement?",
+    "conditional_answers": {
+      "A": "If users were randomly selected, engagement improvement may reflect nudge effectiveness.",
+      "B": "If users were selected for extremely low engagement, improvement is regression to the mean."
+    },
+    "wise_refusal": "The claim that AI-driven nudges improve user engagement is ambiguous due to regression to the mean. We cannot determine if improvement reflects nudge effectiveness or natural regression without knowing selection criteria. If users were random, improvement may be causal. If selected for low engagement, improvement is expected regression. Without this information, the causal claim is not justified.",
+    "causal_structure": "Extreme low Y1 -> Selection -> Natural regression toward mean Y2",
+    "key_insight": "Low engagement periods are often temporary dips that recover naturally.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0080",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Fraud Detection",
+    "difficulty": "Hard",
+    "trap_type": "T5",
+    "trap_family": "F2",
+    "trap_subtype": "False Positive Regression",
+    "scenario": "Fraud detection models with unusually high false positive rates receive threshold adjustments and show improved precision afterward. Teams credit the adjustment methodology. Models were selected for adjustment based on their anomalously high false positive rates.",
+    "claim": "The threshold adjustment methodology improves fraud detection precision.",
+    "variables": {
+      "X": {"name": "Threshold Adjustment", "role": "Treatment"},
+      "Y": {"name": "Precision Improvement", "role": "Outcome"},
+      "Z": {"name": "Regression to Mean", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Were models selected for adjustment based on anomalously high false positive rates?",
+    "conditional_answers": {
+      "A": "If models were randomly selected, precision improvement may reflect adjustment effectiveness.",
+      "B": "If models were selected for extreme false positive rates, improvement is regression to the mean."
+    },
+    "wise_refusal": "The claim that the threshold adjustment methodology improves fraud detection precision is ambiguous due to regression to the mean. We cannot determine if improvement reflects adjustment effectiveness or natural regression without knowing selection criteria. If models were random, improvement may be causal. If selected for high rates, improvement is expected regression. Without this information, the causal claim is not justified.",
+    "causal_structure": "Extreme high Y1 -> Selection -> Natural regression toward mean Y2",
+    "key_insight": "Extreme false positive rates may reflect unusual data periods that naturally normalize.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0081",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Robustness",
+    "difficulty": "Medium",
+    "trap_type": "T5",
+    "trap_family": "F2",
+    "trap_subtype": "Robustness Score Regression",
+    "scenario": "ML models with exceptionally poor robustness test scores undergo adversarial training and show improved robustness afterward. Researchers credit adversarial training. Models were selected for training based on their anomalously poor initial robustness.",
+    "claim": "Adversarial training improves model robustness.",
+    "variables": {
+      "X": {"name": "Adversarial Training", "role": "Treatment"},
+      "Y": {"name": "Robustness Improvement", "role": "Outcome"},
+      "Z": {"name": "Regression to Mean", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Were models selected for adversarial training based on anomalously poor robustness scores?",
+    "conditional_answers": {
+      "A": "If models were randomly selected, robustness improvement may reflect training effectiveness.",
+      "B": "If models were selected for extremely poor scores, improvement is regression to the mean."
+    },
+    "wise_refusal": "The claim that adversarial training improves model robustness is ambiguous due to regression to the mean. We cannot determine if improvement reflects training effectiveness or natural regression without knowing selection criteria. If models were random, improvement may be causal. If selected for poor scores, improvement is expected regression. Without this information, the causal claim is not justified.",
+    "causal_structure": "Extreme low Y1 -> Selection -> Natural regression toward mean Y2",
+    "key_insight": "Robustness test performance has variance; extreme failures often improve on retest.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0082",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Recommendation Quality",
+    "difficulty": "Hard",
+    "trap_type": "T5",
+    "trap_family": "F2",
+    "trap_subtype": "Recommendation Regression",
+    "scenario": "Recommendation algorithms with exceptionally high click-through rates in week 1 show lower rates in week 2. Teams conclude the algorithms are suffering from user fatigue. Algorithms were monitored specifically because their initial rates were unusually high.",
+    "claim": "Users are experiencing recommendation fatigue causing declining engagement.",
+    "variables": {
+      "X": {"name": "Continued Exposure", "role": "Treatment"},
+      "Y": {"name": "CTR Decline", "role": "Outcome"},
+      "Z": {"name": "Regression to Mean", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Were algorithms monitored for decline based on their unusually high initial click-through rates?",
+    "conditional_answers": {
+      "A": "If all algorithms were monitored equally, CTR decline might indicate user fatigue.",
+      "B": "If only high-performing algorithms were monitored, decline is regression to the mean."
+    },
+    "wise_refusal": "The claim that users are experiencing recommendation fatigue causing declining engagement is ambiguous due to regression to the mean. We cannot determine if decline reflects fatigue or natural regression without knowing selection criteria. If all algorithms were monitored, decline may indicate fatigue. If only high performers were monitored, decline is expected regression. Without this information, the causal claim is not justified.",
+    "causal_structure": "Extreme high Y1 -> Selection -> Natural regression toward mean Y2",
+    "key_insight": "Exceptional engagement metrics often include favorable noise that won't sustain.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0083",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Inference",
+    "difficulty": "Easy",
+    "trap_type": "T5",
+    "trap_family": "F2",
+    "trap_subtype": "Inference Speed Regression",
+    "scenario": "ML models with unusually slow inference times receive optimization passes and show faster inference afterward. Teams credit the optimization. Models were selected for optimization based on their anomalously slow initial inference times.",
+    "claim": "The optimization passes improve model inference speed.",
+    "variables": {
+      "X": {"name": "Optimization Pass", "role": "Treatment"},
+      "Y": {"name": "Inference Speed Improvement", "role": "Outcome"},
+      "Z": {"name": "Regression to Mean", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Were models selected for optimization based on anomalously slow initial inference times?",
+    "conditional_answers": {
+      "A": "If models were randomly selected, speed improvement may reflect optimization effectiveness.",
+      "B": "If models were selected for extremely slow times, improvement is regression to the mean."
+    },
+    "wise_refusal": "The claim that the optimization passes improve model inference speed is ambiguous due to regression to the mean. We cannot determine if improvement reflects optimization effectiveness or natural regression without knowing selection criteria. If models were random, improvement may be causal. If selected for slow times, improvement is expected regression. Without this information, the causal claim is not justified.",
+    "causal_structure": "Extreme high Y1 (slow) -> Selection -> Natural regression toward mean Y2",
+    "key_insight": "Unusually slow inference often reflects temporary system issues, not inherent model problems.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0084",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Annotation Quality",
+    "difficulty": "Medium",
+    "trap_type": "T5",
+    "trap_family": "F2",
+    "trap_subtype": "Annotator Agreement Regression",
+    "scenario": "Annotation teams with unusually low inter-annotator agreement receive additional training and show improved agreement afterward. Managers credit the training. Teams were selected for training based on their anomalously low initial agreement scores.",
+    "claim": "Additional training improves annotation agreement.",
+    "variables": {
+      "X": {"name": "Additional Training", "role": "Treatment"},
+      "Y": {"name": "Agreement Improvement", "role": "Outcome"},
+      "Z": {"name": "Regression to Mean", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Were teams selected for training based on anomalously low initial agreement scores?",
+    "conditional_answers": {
+      "A": "If teams were randomly selected, agreement improvement may reflect training effectiveness.",
+      "B": "If teams were selected for extremely low agreement, improvement is regression to the mean."
+    },
+    "wise_refusal": "The claim that additional training improves annotation agreement is ambiguous due to regression to the mean. We cannot determine if improvement reflects training effectiveness or natural regression without knowing selection criteria. If teams were random, improvement may be causal. If selected for low agreement, improvement is expected regression. Without this information, the causal claim is not justified.",
+    "causal_structure": "Extreme low Y1 -> Selection -> Natural regression toward mean Y2",
+    "key_insight": "Low agreement periods may reflect difficult batches or temporary factors that naturally resolve.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0085",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "GPU Utilization",
+    "difficulty": "Hard",
+    "trap_type": "T5",
+    "trap_family": "F2",
+    "trap_subtype": "Resource Utilization Regression",
+    "scenario": "ML training jobs with unusually low GPU utilization receive workload rebalancing and show improved utilization afterward. Infrastructure teams credit the rebalancing. Jobs were selected for rebalancing based on their anomalously low initial utilization.",
+    "claim": "Workload rebalancing improves GPU utilization.",
+    "variables": {
+      "X": {"name": "Workload Rebalancing", "role": "Treatment"},
+      "Y": {"name": "Utilization Improvement", "role": "Outcome"},
+      "Z": {"name": "Regression to Mean", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Were jobs selected for rebalancing based on anomalously low initial GPU utilization?",
+    "conditional_answers": {
+      "A": "If jobs were randomly selected, utilization improvement may reflect rebalancing effectiveness.",
+      "B": "If jobs were selected for extremely low utilization, improvement is regression to the mean."
+    },
+    "wise_refusal": "The claim that workload rebalancing improves GPU utilization is ambiguous due to regression to the mean. We cannot determine if improvement reflects rebalancing effectiveness or natural regression without knowing selection criteria. If jobs were random, improvement may be causal. If selected for low utilization, improvement is expected regression. Without this information, the causal claim is not justified.",
+    "causal_structure": "Extreme low Y1 -> Selection -> Natural regression toward mean Y2",
+    "key_insight": "Low utilization often reflects initialization phases or temporary bottlenecks that naturally resolve.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0086",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Calibration",
+    "difficulty": "Hard",
+    "trap_type": "T5",
+    "trap_family": "F2",
+    "trap_subtype": "Calibration Regression",
+    "scenario": "ML models with exceptionally poor calibration scores undergo temperature scaling and show improved calibration afterward. Researchers credit temperature scaling. Models were selected for scaling based on their anomalously poor initial calibration.",
+    "claim": "Temperature scaling improves model calibration.",
+    "variables": {
+      "X": {"name": "Temperature Scaling", "role": "Treatment"},
+      "Y": {"name": "Calibration Improvement", "role": "Outcome"},
+      "Z": {"name": "Regression to Mean", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Were models selected for temperature scaling based on anomalously poor initial calibration?",
+    "conditional_answers": {
+      "A": "If models were randomly selected, calibration improvement may reflect temperature scaling effectiveness.",
+      "B": "If models were selected for extremely poor calibration, improvement is regression to the mean."
+    },
+    "wise_refusal": "The claim that temperature scaling improves model calibration is ambiguous due to regression to the mean. We cannot determine if improvement reflects temperature scaling effectiveness or natural regression without knowing selection criteria. If models were random, improvement may be causal. If selected for poor calibration, improvement is expected regression. Without this information, the causal claim is not justified.",
+    "causal_structure": "Extreme low Y1 -> Selection -> Natural regression toward mean Y2",
+    "key_insight": "Calibration measurements have variance; extreme values naturally moderate on re-evaluation.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  }
+]

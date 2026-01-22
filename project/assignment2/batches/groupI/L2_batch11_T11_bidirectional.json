@@ -1,0 +1,466 @@
+[
+  {
+    "case_id": "T3-I1-L2-0183",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Social Media AI",
+    "difficulty": "Easy",
+    "trap_type": "T11",
+    "trap_family": "F4",
+    "trap_subtype": "Engagement Loop",
+    "scenario": "AI recommendation systems show users content they engage with, and users who engage more receive more personalized recommendations. A researcher claims the algorithm causes engagement. However, user engagement also shapes algorithm behavior, creating bidirectional causation.",
+    "claim": "The recommendation algorithm causes higher user engagement.",
+    "variables": {
+      "X": {"name": "Algorithm Personalization", "role": "Treatment"},
+      "Y": {"name": "User Engagement", "role": "Outcome"},
+      "Z": {"name": "Mutual Causation", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Is the causation unidirectional from algorithm to engagement, or bidirectional?",
+    "conditional_answers": {
+      "A": "If only the algorithm affects engagement, the unidirectional claim may be valid.",
+      "B": "If engagement also shapes algorithm behavior, bidirectional causation makes the claim incomplete."
+    },
+    "wise_refusal": "The claim that the recommendation algorithm causes higher user engagement is ambiguous due to possible bidirectional causation. We cannot determine the causal direction without disentangling mutual influence. The algorithm affects engagement, but engagement also shapes recommendations, creating a feedback loop. Without isolating one direction, the causal claim is not justified.",
+    "causal_structure": "X <-> Y (bidirectional causation with feedback loop)",
+    "key_insight": "Recommendation systems and user behavior mutually influence each other in real-time.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0184",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "LLM Development",
+    "difficulty": "Easy",
+    "trap_type": "T11",
+    "trap_family": "F4",
+    "trap_subtype": "RLHF Feedback Loop",
+    "scenario": "An LLM trained with RLHF learns from human preferences, and humans provide preferences based on model outputs. Teams claim human feedback improves model quality. But model outputs also shape what feedback humans can provide, creating bidirectional causation.",
+    "claim": "Human feedback in RLHF causes model quality improvements.",
+    "variables": {
+      "X": {"name": "Human Feedback", "role": "Treatment"},
+      "Y": {"name": "Model Quality", "role": "Outcome"},
+      "Z": {"name": "Mutual Causation", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does feedback unidirectionally cause quality, or do quality and feedback mutually influence each other?",
+    "conditional_answers": {
+      "A": "If feedback independently improves models, the claim may be valid.",
+      "B": "If model outputs constrain available feedback options, bidirectional causation complicates the claim."
+    },
+    "wise_refusal": "The claim that human feedback in RLHF causes model quality improvements is ambiguous due to possible bidirectional causation. We cannot determine the causal direction without accounting for how model outputs shape feedback options. Feedback affects model training, but model capabilities also constrain what feedback is possible. Without isolating one direction, the causal claim is not justified.",
+    "causal_structure": "X <-> Y (bidirectional causation in iterative training)",
+    "key_insight": "RLHF creates mutual influence between model outputs and training signal.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0185",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Autonomous Systems",
+    "difficulty": "Medium",
+    "trap_type": "T11",
+    "trap_family": "F4",
+    "trap_subtype": "Adaptive Control Loop",
+    "scenario": "An autonomous vehicle's control system adapts to road conditions, and the vehicle's actions change the road state (tire marks, traffic flow). Engineers claim the control algorithm causes safety improvements. But vehicle behavior also modifies the environment it navigates.",
+    "claim": "The adaptive control algorithm causes improved driving safety.",
+    "variables": {
+      "X": {"name": "Control Algorithm", "role": "Treatment"},
+      "Y": {"name": "Driving Safety", "role": "Outcome"},
+      "Z": {"name": "Mutual Causation", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the algorithm unidirectionally cause safety, or does the vehicle-environment interaction create bidirectional causation?",
+    "conditional_answers": {
+      "A": "If the algorithm independently determines safety outcomes, the claim may be valid.",
+      "B": "If vehicle actions modify the environment which then affects safety, bidirectional causation applies."
+    },
+    "wise_refusal": "The claim that the adaptive control algorithm causes improved driving safety is ambiguous due to possible bidirectional causation. We cannot isolate the algorithm's effect without accounting for how vehicle behavior modifies the environment. The algorithm responds to conditions, but also changes them. Without disentangling this feedback, the causal claim is not justified.",
+    "causal_structure": "X <-> Y through environment mediation (bidirectional)",
+    "key_insight": "Autonomous systems both respond to and modify their operating environment.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0186",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Market Prediction",
+    "difficulty": "Medium",
+    "trap_type": "T11",
+    "trap_family": "F4",
+    "trap_subtype": "Self-Fulfilling Prediction",
+    "scenario": "An AI trading system predicts market movements and executes trades based on predictions. The system shows profitable returns. Analysts claim prediction accuracy causes profits. But the trades themselves move prices, making predictions self-fulfilling.",
+    "claim": "Better AI prediction accuracy causes higher trading profits.",
+    "variables": {
+      "X": {"name": "Prediction Accuracy", "role": "Treatment"},
+      "Y": {"name": "Trading Profits", "role": "Outcome"},
+      "Z": {"name": "Mutual Causation", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does prediction accuracy independently cause profits, or does trading create market movements that validate predictions?",
+    "conditional_answers": {
+      "A": "If predictions are validated by independent market movements, accuracy may cause profits.",
+      "B": "If trades cause price movements that confirm predictions, the relationship is circular."
+    },
+    "wise_refusal": "The claim that better AI prediction accuracy causes higher trading profits is ambiguous due to possible bidirectional causation. We cannot determine if predictions are accurate or self-fulfilling without isolating market movements from trades. Predictions drive trades, but large trades move prices. Without accounting for this feedback, the causal claim is not justified.",
+    "causal_structure": "X <-> Y through market price mediation (bidirectional)",
+    "key_insight": "High-frequency trading predictions can become self-fulfilling through market impact.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0187",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Content Moderation",
+    "difficulty": "Medium",
+    "trap_type": "T11",
+    "trap_family": "F4",
+    "trap_subtype": "Adversarial Adaptation",
+    "scenario": "AI content moderation systems detect and remove harmful content. As detection improves, harmful actors modify their strategies. Teams claim better AI causes reduced harmful content. But content creator adaptation also shapes what AI learns to detect.",
+    "claim": "Better content moderation AI causes reduction in harmful content.",
+    "variables": {
+      "X": {"name": "Moderation AI Quality", "role": "Treatment"},
+      "Y": {"name": "Harmful Content Levels", "role": "Outcome"},
+      "Z": {"name": "Mutual Causation", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does AI quality unidirectionally cause content reduction, or does content evolution also shape AI development?",
+    "conditional_answers": {
+      "A": "If AI independently reduces harm regardless of adversarial adaptation, the claim may be valid.",
+      "B": "If content evolution shapes AI training data and priorities, bidirectional causation exists."
+    },
+    "wise_refusal": "The claim that better content moderation AI causes reduction in harmful content is ambiguous due to possible bidirectional causation. We cannot isolate the AI's effect without accounting for how content creators adapt to moderation, which in turn shapes AI training. The AI affects content, but content evolution affects AI development. Without disentangling this arms race, the causal claim is not justified.",
+    "causal_structure": "X <-> Y (adversarial co-evolution)",
+    "key_insight": "Moderation systems and adversarial content creators co-evolve in an arms race.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0188",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Search Engines",
+    "difficulty": "Easy",
+    "trap_type": "T11",
+    "trap_family": "F4",
+    "trap_subtype": "Ranking-Click Loop",
+    "scenario": "Search engine rankings are based on click-through rates, and users click on highly-ranked results. Analysts claim the ranking algorithm causes user clicks. But clicks also determine future rankings, creating circular causation.",
+    "claim": "Search ranking algorithms cause user click patterns.",
+    "variables": {
+      "X": {"name": "Ranking Algorithm", "role": "Treatment"},
+      "Y": {"name": "Click Patterns", "role": "Outcome"},
+      "Z": {"name": "Mutual Causation", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the ranking algorithm unidirectionally cause clicks, or do clicks also determine rankings?",
+    "conditional_answers": {
+      "A": "If rankings are determined independently of clicks, the algorithm may cause click patterns.",
+      "B": "If click data feeds back into rankings, bidirectional causation creates a circular relationship."
+    },
+    "wise_refusal": "The claim that search ranking algorithms cause user click patterns is ambiguous due to bidirectional causation. We cannot isolate the algorithm's causal effect when clicks both result from and determine rankings. The algorithm affects what users see, but user behavior shapes future algorithms. Without disentangling this feedback loop, the causal claim is not justified.",
+    "causal_structure": "X <-> Y (feedback loop through click data)",
+    "key_insight": "Search rankings and click behavior form a self-reinforcing feedback system.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0189",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Robotics",
+    "difficulty": "Hard",
+    "trap_type": "T11",
+    "trap_family": "F4",
+    "trap_subtype": "Human-Robot Interaction Loop",
+    "scenario": "A collaborative robot learns from human demonstrations and adapts its behavior. Humans adjust their demonstrations based on robot performance. Researchers claim robot learning causes task efficiency. But human adaptation to robot behavior also shapes what the robot learns.",
+    "claim": "Robot learning from demonstrations causes improved task efficiency.",
+    "variables": {
+      "X": {"name": "Robot Learning", "role": "Treatment"},
+      "Y": {"name": "Task Efficiency", "role": "Outcome"},
+      "Z": {"name": "Mutual Causation", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does robot learning independently cause efficiency, or do humans adapt demonstrations based on robot capability?",
+    "conditional_answers": {
+      "A": "If robot learning improves regardless of human adaptation, the claim may be valid.",
+      "B": "If humans adjust demonstrations to robot capabilities, bidirectional influence affects outcomes."
+    },
+    "wise_refusal": "The claim that robot learning from demonstrations causes improved task efficiency is ambiguous due to bidirectional causation. We cannot isolate robot learning's effect when humans adapt their teaching to robot capabilities. The robot learns from humans, but humans adjust to the robot. Without disentangling this co-adaptation, the causal claim is not justified.",
+    "causal_structure": "X <-> Y through human adaptation (bidirectional)",
+    "key_insight": "Human-robot collaboration involves mutual adaptation that confounds learning attribution.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0190",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Fraud Detection",
+    "difficulty": "Hard",
+    "trap_type": "T11",
+    "trap_family": "F4",
+    "trap_subtype": "Detection-Evasion Loop",
+    "scenario": "AI fraud detection systems improve detection rates. As detection improves, fraudsters develop more sophisticated evasion techniques. Teams claim better AI causes fraud reduction. But fraud evolution also drives AI development priorities.",
+    "claim": "Better fraud detection AI causes lower fraud rates.",
+    "variables": {
+      "X": {"name": "Detection AI Quality", "role": "Treatment"},
+      "Y": {"name": "Fraud Rates", "role": "Outcome"},
+      "Z": {"name": "Mutual Causation", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does AI quality independently reduce fraud, or does fraud sophistication also shape AI development?",
+    "conditional_answers": {
+      "A": "If AI reduces fraud regardless of adversarial adaptation, the claim may be valid.",
+      "B": "If fraud evolution shapes AI training and priorities, bidirectional causation exists."
+    },
+    "wise_refusal": "The claim that better fraud detection AI causes lower fraud rates is ambiguous due to bidirectional causation. We cannot isolate the AI's effect without accounting for how fraudster adaptation shapes AI development. The AI affects fraud success, but fraud patterns shape AI training. Without disentangling this co-evolution, the causal claim is not justified.",
+    "causal_structure": "X <-> Y (adversarial co-evolution)",
+    "key_insight": "Fraud detection and fraud tactics co-evolve in a continuous arms race.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0191",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "E-commerce",
+    "difficulty": "Medium",
+    "trap_type": "T11",
+    "trap_family": "F4",
+    "trap_subtype": "Pricing-Demand Loop",
+    "scenario": "Dynamic pricing algorithms adjust prices based on demand, and demand responds to prices. Analysts claim the pricing algorithm causes optimal revenue. But demand patterns shaped by prices also determine future algorithmic decisions.",
+    "claim": "Dynamic pricing algorithms cause optimal revenue outcomes.",
+    "variables": {
+      "X": {"name": "Pricing Algorithm", "role": "Treatment"},
+      "Y": {"name": "Revenue", "role": "Outcome"},
+      "Z": {"name": "Mutual Causation", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the pricing algorithm independently cause revenue, or does demand response shape algorithm behavior?",
+    "conditional_answers": {
+      "A": "If the algorithm optimizes independently of demand feedback, the claim may be valid.",
+      "B": "If demand responses train the algorithm, bidirectional causation creates circular optimization."
+    },
+    "wise_refusal": "The claim that dynamic pricing algorithms cause optimal revenue outcomes is ambiguous due to bidirectional causation. We cannot determine the algorithm's causal effect when demand both results from and informs pricing decisions. The algorithm sets prices, but demand shapes future algorithms. Without disentangling this feedback, the causal claim is not justified.",
+    "causal_structure": "X <-> Y through demand mediation (bidirectional)",
+    "key_insight": "Dynamic pricing creates feedback loops where prices and demand mutually determine each other.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0192",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Online Learning",
+    "difficulty": "Easy",
+    "trap_type": "T11",
+    "trap_family": "F4",
+    "trap_subtype": "Adaptive Assessment Loop",
+    "scenario": "AI tutoring systems adapt difficulty based on student performance, and student performance responds to difficulty levels. Educators claim adaptive systems cause learning gains. But student responses also shape system behavior.",
+    "claim": "Adaptive AI tutoring causes improved student learning.",
+    "variables": {
+      "X": {"name": "Adaptive Tutoring", "role": "Treatment"},
+      "Y": {"name": "Learning Gains", "role": "Outcome"},
+      "Z": {"name": "Mutual Causation", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does adaptation unidirectionally cause learning, or does student behavior also shape adaptation?",
+    "conditional_answers": {
+      "A": "If adaptation independently improves learning, the claim may be valid.",
+      "B": "If student responses shape system adaptation, bidirectional causation affects outcomes."
+    },
+    "wise_refusal": "The claim that adaptive AI tutoring causes improved student learning is ambiguous due to bidirectional causation. We cannot isolate the tutoring system's effect when student performance both results from and determines system adaptations. The system shapes learning, but learning shapes the system. Without disentangling this feedback, the causal claim is not justified.",
+    "causal_structure": "X <-> Y (bidirectional adaptation)",
+    "key_insight": "Adaptive educational systems and student performance form a feedback loop.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0193",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Network Security",
+    "difficulty": "Hard",
+    "trap_type": "T11",
+    "trap_family": "F4",
+    "trap_subtype": "Attack-Defense Loop",
+    "scenario": "AI intrusion detection systems identify attack patterns and block threats. Attackers modify strategies based on what gets blocked. Security teams claim better AI causes improved security. But attack evolution shapes what the AI learns to defend against.",
+    "claim": "Better intrusion detection AI causes improved network security.",
+    "variables": {
+      "X": {"name": "Detection AI Quality", "role": "Treatment"},
+      "Y": {"name": "Network Security", "role": "Outcome"},
+      "Z": {"name": "Mutual Causation", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does AI quality independently improve security, or does attacker adaptation also shape AI development?",
+    "conditional_answers": {
+      "A": "If AI improves security regardless of attack evolution, the claim may be valid.",
+      "B": "If attack patterns shape AI training priorities, bidirectional causation exists."
+    },
+    "wise_refusal": "The claim that better intrusion detection AI causes improved network security is ambiguous due to bidirectional causation. We cannot isolate the AI's effect without accounting for how attacker adaptation shapes AI development. The AI affects attack success, but attack patterns shape AI training. Without disentangling this co-evolution, the causal claim is not justified.",
+    "causal_structure": "X <-> Y (adversarial co-evolution)",
+    "key_insight": "Security AI and attack strategies co-evolve in an ongoing adversarial relationship.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0194",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Smart Grids",
+    "difficulty": "Medium",
+    "trap_type": "T11",
+    "trap_family": "F4",
+    "trap_subtype": "Load-Prediction Loop",
+    "scenario": "AI systems predict electricity demand and utilities adjust generation accordingly. Consumer behavior responds to pricing signals that result from predictions. Analysts claim prediction accuracy causes grid efficiency. But consumer responses also validate or invalidate predictions.",
+    "claim": "AI demand prediction causes improved grid efficiency.",
+    "variables": {
+      "X": {"name": "Prediction Accuracy", "role": "Treatment"},
+      "Y": {"name": "Grid Efficiency", "role": "Outcome"},
+      "Z": {"name": "Mutual Causation", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does prediction accuracy independently cause efficiency, or does consumer response create feedback?",
+    "conditional_answers": {
+      "A": "If predictions are accurate independent of consumer response, the claim may be valid.",
+      "B": "If consumer behavior responds to prediction-based pricing, bidirectional causation applies."
+    },
+    "wise_refusal": "The claim that AI demand prediction causes improved grid efficiency is ambiguous due to bidirectional causation. We cannot isolate prediction's effect when consumer behavior both results from and shapes predictions. Predictions inform operations, but operations affect consumer behavior which affects future predictions. Without disentangling this feedback, the causal claim is not justified.",
+    "causal_structure": "X <-> Y through consumer behavior (bidirectional)",
+    "key_insight": "Smart grid predictions and consumer responses form an interconnected feedback system.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0195",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Recommendation Systems",
+    "difficulty": "Medium",
+    "trap_type": "T11",
+    "trap_family": "F4",
+    "trap_subtype": "Creator-Platform Loop",
+    "scenario": "Platform algorithms promote certain content creators, and creators optimize their content for algorithm visibility. Analysts claim algorithm quality causes creator success. But creator optimization also shapes what the algorithm learns to promote.",
+    "claim": "Platform algorithms cause content creator success.",
+    "variables": {
+      "X": {"name": "Algorithm Promotion", "role": "Treatment"},
+      "Y": {"name": "Creator Success", "role": "Outcome"},
+      "Z": {"name": "Mutual Causation", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the algorithm independently cause success, or does creator optimization shape algorithm behavior?",
+    "conditional_answers": {
+      "A": "If algorithm promotion independently determines success, the claim may be valid.",
+      "B": "If creator optimization shapes what gets promoted, bidirectional causation exists."
+    },
+    "wise_refusal": "The claim that platform algorithms cause content creator success is ambiguous due to bidirectional causation. We cannot isolate the algorithm's effect when creator behavior both results from and shapes algorithm training. The algorithm promotes content, but creator optimization shapes what the algorithm learns. Without disentangling this co-evolution, the causal claim is not justified.",
+    "causal_structure": "X <-> Y through creator adaptation (bidirectional)",
+    "key_insight": "Platform algorithms and creator strategies mutually shape each other over time.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0196",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Healthcare AI",
+    "difficulty": "Hard",
+    "trap_type": "T11",
+    "trap_family": "F4",
+    "trap_subtype": "Diagnosis-Treatment Loop",
+    "scenario": "Clinical decision support AI recommends treatments based on patient data, and treatment outcomes feed back into the training data. Researchers claim the AI causes better outcomes. But outcome data also shapes future AI recommendations.",
+    "claim": "Clinical decision support AI causes improved patient outcomes.",
+    "variables": {
+      "X": {"name": "AI Recommendations", "role": "Treatment"},
+      "Y": {"name": "Patient Outcomes", "role": "Outcome"},
+      "Z": {"name": "Mutual Causation", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Do AI recommendations independently cause outcomes, or do outcomes shape future recommendations?",
+    "conditional_answers": {
+      "A": "If AI recommendations improve outcomes independent of feedback, the claim may be valid.",
+      "B": "If outcomes shape future training data, bidirectional causation affects the relationship."
+    },
+    "wise_refusal": "The claim that clinical decision support AI causes improved patient outcomes is ambiguous due to bidirectional causation. We cannot isolate the AI's causal effect when outcomes both result from and train the system. Recommendations affect outcomes, but outcomes shape future recommendations. Without disentangling this feedback, the causal claim is not justified.",
+    "causal_structure": "X <-> Y through training data (bidirectional)",
+    "key_insight": "Healthcare AI systems that learn from outcomes create feedback loops between recommendations and results.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0197",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Natural Language Processing",
+    "difficulty": "Easy",
+    "trap_type": "T11",
+    "trap_family": "F4",
+    "trap_subtype": "Autocomplete-Usage Loop",
+    "scenario": "Autocomplete systems learn from user selections, and users select from autocomplete suggestions. Researchers claim autocomplete quality causes user efficiency. But user selections also determine what autocomplete learns to suggest.",
+    "claim": "Better autocomplete AI causes higher user typing efficiency.",
+    "variables": {
+      "X": {"name": "Autocomplete Quality", "role": "Treatment"},
+      "Y": {"name": "User Efficiency", "role": "Outcome"},
+      "Z": {"name": "Mutual Causation", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does autocomplete quality independently cause efficiency, or do user selections shape suggestions?",
+    "conditional_answers": {
+      "A": "If autocomplete improves efficiency independent of user feedback, the claim may be valid.",
+      "B": "If user selections train the system, bidirectional causation affects outcomes."
+    },
+    "wise_refusal": "The claim that better autocomplete AI causes higher user typing efficiency is ambiguous due to bidirectional causation. We cannot isolate autocomplete's effect when user behavior both results from and determines suggestions. The system shapes typing, but typing shapes the system. Without disentangling this feedback, the causal claim is not justified.",
+    "causal_structure": "X <-> Y through user selections (bidirectional)",
+    "key_insight": "Autocomplete systems and user behavior form a self-reinforcing feedback loop.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0198",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Traffic Management",
+    "difficulty": "Medium",
+    "trap_type": "T11",
+    "trap_family": "F4",
+    "trap_subtype": "Navigation-Traffic Loop",
+    "scenario": "AI navigation systems route drivers around traffic, and driver routing choices affect traffic patterns. Analysts claim navigation AI causes reduced congestion. But driver responses to navigation also create new congestion patterns.",
+    "claim": "AI navigation systems cause reduced traffic congestion.",
+    "variables": {
+      "X": {"name": "Navigation AI", "role": "Treatment"},
+      "Y": {"name": "Traffic Congestion", "role": "Outcome"},
+      "Z": {"name": "Mutual Causation", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does navigation AI independently reduce congestion, or do driver responses create new patterns?",
+    "conditional_answers": {
+      "A": "If navigation improves traffic regardless of collective behavior, the claim may be valid.",
+      "B": "If mass driver responses create new congestion, bidirectional causation affects outcomes."
+    },
+    "wise_refusal": "The claim that AI navigation systems cause reduced traffic congestion is ambiguous due to bidirectional causation. We cannot isolate navigation's effect when driver responses both result from and shape traffic patterns. The AI routes drivers, but collective responses can create new congestion. Without disentangling this feedback, the causal claim is not justified.",
+    "causal_structure": "X <-> Y through collective driver behavior (bidirectional)",
+    "key_insight": "Navigation systems and traffic patterns co-evolve through collective driver responses.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  }
+]

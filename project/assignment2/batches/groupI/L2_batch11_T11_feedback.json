@@ -1,0 +1,466 @@
+[
+  {
+    "case_id": "T3-I1-L2-0183",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Recommendation Systems",
+    "difficulty": "Easy",
+    "trap_type": "T11",
+    "trap_family": "F4",
+    "trap_subtype": "Recommendation Feedback Loop",
+    "scenario": "A recommendation algorithm shows that recommended items get more clicks, concluding recommendations drive engagement. However, clicked items get recommended more, and recommended items get clicked more, creating a feedback loop that amplifies initial biases.",
+    "claim": "The recommendation algorithm causes higher engagement with certain content.",
+    "variables": {
+      "X": {"name": "Recommendation", "role": "Treatment"},
+      "Y": {"name": "Clicks/Engagement", "role": "Outcome"},
+      "Z": {"name": "Feedback Loop", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Is there a feedback loop where recommendations drive clicks AND clicks drive recommendations?",
+    "conditional_answers": {
+      "A": "If recommendations are independent of past engagement, they may causally drive engagement.",
+      "B": "If clicks feed back into recommendations, the system creates a self-reinforcing loop that amplifies initial signals."
+    },
+    "wise_refusal": "The claim that the recommendation algorithm causes higher engagement with certain content is ambiguous due to feedback loop effects. We cannot determine true causal effect without knowing if engagement feeds back into recommendations. If recommendations are independent, the effect may be causal. If clicks influence future recommendations, the feedback loop confounds causation. Without this information, the causal claim is not justified.",
+    "causal_structure": "X -> Y -> X (circular causation through feedback)",
+    "key_insight": "Recommendation systems create feedback loops that make it impossible to isolate recommendation effects from engagement effects.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0184",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Predictive Policing",
+    "difficulty": "Medium",
+    "trap_type": "T11",
+    "trap_family": "F4",
+    "trap_subtype": "Policing Feedback Loop",
+    "scenario": "A crime prediction algorithm shows that areas with predicted high crime have more arrests. Police conclude predictions are accurate. However, predicted high-crime areas receive more patrols, which leads to more arrests, which confirms the prediction.",
+    "claim": "The crime prediction algorithm accurately identifies high-crime areas.",
+    "variables": {
+      "X": {"name": "Crime Prediction", "role": "Treatment"},
+      "Y": {"name": "Arrest Rate", "role": "Outcome"},
+      "Z": {"name": "Feedback Loop", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the prediction create a feedback loop through patrol allocation?",
+    "conditional_answers": {
+      "A": "If patrol allocation is independent of predictions, arrest rates may validate predictions.",
+      "B": "If predictions increase patrols which increase arrests, the system confirms itself regardless of actual crime rates."
+    },
+    "wise_refusal": "The claim that the crime prediction algorithm accurately identifies high-crime areas is ambiguous due to feedback loop effects. We cannot determine prediction accuracy without knowing if predictions affect patrol allocation. If patrols are independent, arrests may validate predictions. If predictions drive patrols, the feedback loop makes validation impossible. Without this information, the causal claim is not justified.",
+    "causal_structure": "X -> Patrol -> Y -> future X (self-fulfilling prophecy)",
+    "key_insight": "Predictive systems that influence interventions create feedback loops that can confirm any prediction.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0185",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Training",
+    "difficulty": "Medium",
+    "trap_type": "T11",
+    "trap_family": "F4",
+    "trap_subtype": "Data Collection Feedback",
+    "scenario": "An ML model shows that users with certain behaviors churn more. Product teams target these users with retention interventions, which changes their behavior, which changes the model's predictions about them in future training data.",
+    "claim": "The churn prediction model identifies users who would have churned without intervention.",
+    "variables": {
+      "X": {"name": "Churn Prediction", "role": "Treatment"},
+      "Y": {"name": "Observed Churn", "role": "Outcome"},
+      "Z": {"name": "Intervention Feedback", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Do interventions based on predictions affect future training data?",
+    "conditional_answers": {
+      "A": "If interventions are logged separately, counterfactual churn might be estimable.",
+      "B": "If predictions trigger interventions that change outcomes used for retraining, the feedback loop corrupts validation."
+    },
+    "wise_refusal": "The claim that the churn prediction model identifies users who would have churned without intervention is ambiguous due to feedback loop effects. We cannot determine counterfactual churn without knowing intervention effects. If interventions are separate from training, validation may be possible. If predictions trigger interventions that affect retraining, the feedback corrupts the signal. Without this information, the causal claim is not justified.",
+    "causal_structure": "X -> Intervention -> Y -> future X training (feedback through intervention)",
+    "key_insight": "Models that trigger interventions cannot validate themselves using post-intervention outcomes.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0186",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Search Algorithms",
+    "difficulty": "Easy",
+    "trap_type": "T11",
+    "trap_family": "F4",
+    "trap_subtype": "Ranking Feedback Loop",
+    "scenario": "A search algorithm shows that higher-ranked results get more clicks, concluding the ranking is effective. However, users click higher-ranked results because they're visible, and clicked results get ranked higher, creating a position bias feedback loop.",
+    "claim": "The search ranking accurately reflects result relevance.",
+    "variables": {
+      "X": {"name": "Search Ranking", "role": "Treatment"},
+      "Y": {"name": "Click Rate", "role": "Outcome"},
+      "Z": {"name": "Position Bias Feedback", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Is click rate affected by position regardless of relevance, creating a feedback loop?",
+    "conditional_answers": {
+      "A": "If position doesn't affect clicks, click rates may indicate true relevance.",
+      "B": "If position affects clicks and clicks affect ranking, the system amplifies initial rankings regardless of relevance."
+    },
+    "wise_refusal": "The claim that the search ranking accurately reflects result relevance is ambiguous due to feedback loop effects. We cannot determine true relevance without knowing about position bias. If position doesn't affect clicks, rankings may reflect relevance. If position influences clicks which influence rankings, the feedback loop confounds relevance assessment. Without this information, the causal claim is not justified.",
+    "causal_structure": "X position -> Y clicks -> X future ranking (circular amplification)",
+    "key_insight": "Search systems create position bias feedback loops that amplify initial ranking decisions.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0187",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Hiring",
+    "difficulty": "Hard",
+    "trap_type": "T11",
+    "trap_family": "F4",
+    "trap_subtype": "Hiring Feedback Loop",
+    "scenario": "An AI hiring tool shows that candidates it recommends perform well. HR concludes the tool identifies talent. However, recommended candidates receive more onboarding support and opportunities, which improves their performance, which validates the recommendations.",
+    "claim": "The AI hiring tool accurately predicts candidate performance.",
+    "variables": {
+      "X": {"name": "Hiring Recommendation", "role": "Treatment"},
+      "Y": {"name": "Job Performance", "role": "Outcome"},
+      "Z": {"name": "Investment Feedback", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Do recommendations affect post-hire investment that affects performance?",
+    "conditional_answers": {
+      "A": "If investment is equal across candidates, performance differences may reflect prediction quality.",
+      "B": "If recommended candidates receive more investment, the system creates self-fulfilling prophecies."
+    },
+    "wise_refusal": "The claim that the AI hiring tool accurately predicts candidate performance is ambiguous due to feedback loop effects. We cannot determine prediction accuracy without knowing about differential investment. If investment is equal, the tool may be validated. If recommendations drive investment, the feedback loop makes validation impossible. Without this information, the causal claim is not justified.",
+    "causal_structure": "X -> Investment -> Y -> validates X (self-fulfilling prophecy)",
+    "key_insight": "Hiring tools that influence post-hire treatment create self-fulfilling prophecies.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0188",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Content Moderation",
+    "difficulty": "Medium",
+    "trap_type": "T11",
+    "trap_family": "F4",
+    "trap_subtype": "Moderation Feedback Loop",
+    "scenario": "A content moderation AI shows that flagged content from certain communities gets removed more often, concluding these communities produce more violations. However, flagged communities receive more scrutiny, leading to more removals, which leads to more flagging.",
+    "claim": "The moderation system accurately identifies communities that produce more violations.",
+    "variables": {
+      "X": {"name": "Community Flagging", "role": "Treatment"},
+      "Y": {"name": "Content Removal Rate", "role": "Outcome"},
+      "Z": {"name": "Scrutiny Feedback", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does flagging increase scrutiny that increases removals that increase flagging?",
+    "conditional_answers": {
+      "A": "If scrutiny is equal across communities, removal rates may reflect true violation rates.",
+      "B": "If flagging increases scrutiny, the feedback loop amplifies differences regardless of actual violation rates."
+    },
+    "wise_refusal": "The claim that the moderation system accurately identifies communities that produce more violations is ambiguous due to feedback loop effects. We cannot determine true violation rates without knowing about differential scrutiny. If scrutiny is equal, removal rates may be meaningful. If flagging increases scrutiny, the feedback loop confounds the assessment. Without this information, the causal claim is not justified.",
+    "causal_structure": "X -> Scrutiny -> Y -> X (amplification through attention)",
+    "key_insight": "Moderation systems can create scrutiny feedback loops that amplify initial targeting decisions.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0189",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Performance",
+    "difficulty": "Hard",
+    "trap_type": "T11",
+    "trap_family": "F4",
+    "trap_subtype": "Feature Drift Feedback",
+    "scenario": "An ML model shows stable performance on deployed data. Engineers conclude the model generalizes well. However, the model's predictions affect user behavior, which shifts the data distribution toward patterns the model handles well, creating a feedback loop.",
+    "claim": "The model's stable performance indicates robust generalization.",
+    "variables": {
+      "X": {"name": "Model Predictions", "role": "Treatment"},
+      "Y": {"name": "Data Distribution", "role": "Outcome"},
+      "Z": {"name": "Distribution Feedback", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Do model predictions shape user behavior in ways that make future data easier for the model?",
+    "conditional_answers": {
+      "A": "If data distribution is independent of predictions, stable performance indicates generalization.",
+      "B": "If predictions shape behavior that shapes data, the model may only appear to generalize while actually molding its environment."
+    },
+    "wise_refusal": "The claim that the model's stable performance indicates robust generalization is ambiguous due to feedback loop effects. We cannot determine true generalization without knowing if predictions affect data distribution. If distribution is independent, performance may indicate generalization. If predictions shape distribution, the feedback creates artificial stability. Without this information, the causal claim is not justified.",
+    "causal_structure": "X -> User Behavior -> Y Distribution -> X Performance (environmental shaping)",
+    "key_insight": "Models can appear to generalize while actually shaping their environment to match their capabilities.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0190",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Credit Scoring",
+    "difficulty": "Easy",
+    "trap_type": "T11",
+    "trap_family": "F4",
+    "trap_subtype": "Credit Score Feedback",
+    "scenario": "A credit scoring model shows that low-score individuals default more often, validating the model. However, low scores restrict access to credit, which causes financial stress, which causes defaults, which confirms the low scores.",
+    "claim": "The credit scoring model accurately predicts who would default.",
+    "variables": {
+      "X": {"name": "Credit Score", "role": "Treatment"},
+      "Y": {"name": "Default Rate", "role": "Outcome"},
+      "Z": {"name": "Access Feedback", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Do low scores cause restricted access that causes defaults?",
+    "conditional_answers": {
+      "A": "If scores don't affect access, default rates may validate the model.",
+      "B": "If low scores restrict access causing financial stress causing defaults, the system creates what it predicts."
+    },
+    "wise_refusal": "The claim that the credit scoring model accurately predicts who would default is ambiguous due to feedback loop effects. We cannot determine counterfactual defaults without knowing if scores affect access. If scores don't restrict access, validation may be possible. If scores cause access restrictions that cause defaults, the feedback makes validation impossible. Without this information, the causal claim is not justified.",
+    "causal_structure": "X -> Restricted Access -> Financial Stress -> Y Default (self-fulfilling prophecy)",
+    "key_insight": "Credit systems can create the defaults they predict by restricting access to those they flag.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0191",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Social Media",
+    "difficulty": "Medium",
+    "trap_type": "T11",
+    "trap_family": "F4",
+    "trap_subtype": "Engagement Amplification",
+    "scenario": "A content algorithm shows that controversial content gets more engagement, concluding users prefer controversy. However, the algorithm promotes controversial content, which increases its visibility, which increases engagement, which promotes it more.",
+    "claim": "Users naturally prefer controversial content.",
+    "variables": {
+      "X": {"name": "Algorithmic Promotion", "role": "Treatment"},
+      "Y": {"name": "User Engagement", "role": "Outcome"},
+      "Z": {"name": "Visibility Feedback", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the algorithm amplify controversy through a visibility-engagement feedback loop?",
+    "conditional_answers": {
+      "A": "If content visibility is equal, engagement may reflect genuine preferences.",
+      "B": "If the algorithm promotes engaging content creating more engagement, the feedback amplifies initial engagement regardless of preference."
+    },
+    "wise_refusal": "The claim that users naturally prefer controversial content is ambiguous due to feedback loop effects. We cannot determine true preferences without knowing about algorithmic amplification. If visibility is equal, engagement may reflect preferences. If the algorithm amplifies engagement, the feedback loop confounds preference assessment. Without this information, the causal claim is not justified.",
+    "causal_structure": "X Promotion -> Visibility -> Y Engagement -> X Promotion (amplification loop)",
+    "key_insight": "Engagement metrics in algorithmic systems reflect amplification effects, not just user preferences.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0192",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Autonomous Vehicles",
+    "difficulty": "Hard",
+    "trap_type": "T11",
+    "trap_family": "F4",
+    "trap_subtype": "Driving Behavior Feedback",
+    "scenario": "An autonomous vehicle's driving behavior causes other drivers to adapt their behavior, which the vehicle learns from, which changes its behavior. The system appears to drive safely, but it has shaped traffic around it to accommodate its limitations.",
+    "claim": "The autonomous vehicle demonstrates safe driving capabilities.",
+    "variables": {
+      "X": {"name": "AV Driving Behavior", "role": "Treatment"},
+      "Y": {"name": "Traffic Adaptation", "role": "Outcome"},
+      "Z": {"name": "Environmental Feedback", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Has the vehicle's behavior shaped traffic in ways that accommodate its limitations?",
+    "conditional_answers": {
+      "A": "If other drivers don't adapt, the vehicle's safety record reflects true capability.",
+      "B": "If the vehicle has shaped accommodating traffic patterns, safety reflects environmental adaptation, not capability."
+    },
+    "wise_refusal": "The claim that the autonomous vehicle demonstrates safe driving capabilities is ambiguous due to feedback loop effects. We cannot determine true capability without knowing about traffic adaptation. If drivers don't adapt, safety may reflect capability. If the vehicle has shaped its traffic environment, safety may reflect accommodation, not capability. Without this information, the causal claim is not justified.",
+    "causal_structure": "X Driving -> Other Drivers Adapt -> Y Safety Record -> X appears safe (environmental shaping)",
+    "key_insight": "Autonomous systems can shape their environments in ways that mask their limitations.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0193",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "LLM Training",
+    "difficulty": "Hard",
+    "trap_type": "T11",
+    "trap_family": "F4",
+    "trap_subtype": "Training Data Feedback",
+    "scenario": "An LLM is trained on web data, then deployed, then its outputs appear on the web and get scraped into future training data. The model's outputs increasingly appear in its training data, creating a feedback loop.",
+    "claim": "The LLM's performance reflects learning from diverse human-generated content.",
+    "variables": {
+      "X": {"name": "LLM Outputs", "role": "Treatment"},
+      "Y": {"name": "Web Content", "role": "Outcome"},
+      "Z": {"name": "Training Data Feedback", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Is the model increasingly training on its own outputs?",
+    "conditional_answers": {
+      "A": "If training data excludes model outputs, performance reflects human content learning.",
+      "B": "If model outputs contaminate training data, the model increasingly learns from itself, not humans."
+    },
+    "wise_refusal": "The claim that the LLM's performance reflects learning from diverse human-generated content is ambiguous due to feedback loop effects. We cannot determine content source without knowing about output contamination. If outputs are excluded, performance reflects human learning. If outputs enter training data, the feedback creates model collapse risk. Without this information, the causal claim is not justified.",
+    "causal_structure": "X Outputs -> Web -> Training Data -> X Training (model collapse loop)",
+    "key_insight": "LLMs can contaminate their own training data, creating feedback loops that degrade diversity.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0194",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Ad Targeting",
+    "difficulty": "Medium",
+    "trap_type": "T11",
+    "trap_family": "F4",
+    "trap_subtype": "Ad Attribution Feedback",
+    "scenario": "An ad targeting system shows that targeted users convert more, concluding targeting is effective. However, users who see ads become more likely to search for the product, which triggers more ads, which attributes conversions to ads.",
+    "claim": "The ad targeting system causally drives conversions.",
+    "variables": {
+      "X": {"name": "Ad Targeting", "role": "Treatment"},
+      "Y": {"name": "Conversion Attribution", "role": "Outcome"},
+      "Z": {"name": "Search-Ad Feedback", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Do ads trigger searches that trigger more ads that get attribution credit?",
+    "conditional_answers": {
+      "A": "If attribution is clean, conversion rates may indicate targeting effectiveness.",
+      "B": "If ads trigger searches triggering ads, the system over-attributes to itself through feedback."
+    },
+    "wise_refusal": "The claim that the ad targeting system causally drives conversions is ambiguous due to feedback loop effects. We cannot determine true causal effect without knowing about attribution feedback. If attribution is clean, the effect may be measurable. If ads trigger searches that trigger more ads, the feedback inflates attribution. Without this information, the causal claim is not justified.",
+    "causal_structure": "X Ads -> Awareness -> Search -> More Ads -> Y Attribution (attribution inflation)",
+    "key_insight": "Ad systems can create feedback loops that inflate their own attribution metrics.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0195",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Fraud Detection",
+    "difficulty": "Easy",
+    "trap_type": "T11",
+    "trap_family": "F4",
+    "trap_subtype": "Fraud Label Feedback",
+    "scenario": "A fraud detection model is trained on labeled fraud cases, then deployed to flag fraud, and flagged cases become training labels. The model increasingly defines what counts as fraud through its own predictions.",
+    "claim": "The fraud detection model learns to identify real fraud patterns.",
+    "variables": {
+      "X": {"name": "Model Predictions", "role": "Treatment"},
+      "Y": {"name": "Fraud Labels", "role": "Outcome"},
+      "Z": {"name": "Label Feedback", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Do model predictions influence what gets labeled as fraud?",
+    "conditional_answers": {
+      "A": "If labels are independent of predictions, the model may learn true fraud patterns.",
+      "B": "If predictions become labels, the model increasingly defines fraud to match its predictions."
+    },
+    "wise_refusal": "The claim that the fraud detection model learns to identify real fraud patterns is ambiguous due to feedback loop effects. We cannot determine true fraud identification without knowing about label feedback. If labels are independent, learning may be valid. If predictions influence labels, the model defines its own ground truth. Without this information, the causal claim is not justified.",
+    "causal_structure": "X Predictions -> Investigation -> Y Labels -> X Training (definitional feedback)",
+    "key_insight": "Fraud systems that influence labeling can drift toward detecting whatever they predict.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0196",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Dynamic Pricing",
+    "difficulty": "Medium",
+    "trap_type": "T11",
+    "trap_family": "F4",
+    "trap_subtype": "Price Demand Feedback",
+    "scenario": "A dynamic pricing algorithm shows that high prices are charged when demand is high, concluding it optimally captures value. However, high prices may suppress demand, and lower demand leads to lower prices which increases demand, creating market-shaping feedback.",
+    "claim": "The dynamic pricing algorithm optimally matches prices to market demand.",
+    "variables": {
+      "X": {"name": "Price Setting", "role": "Treatment"},
+      "Y": {"name": "Demand Level", "role": "Outcome"},
+      "Z": {"name": "Demand-Price Feedback", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the algorithm's pricing affect the demand it observes?",
+    "conditional_answers": {
+      "A": "If demand is independent of prices, the algorithm may optimize to true demand.",
+      "B": "If prices affect demand that affects prices, the algorithm creates the demand patterns it optimizes for."
+    },
+    "wise_refusal": "The claim that the dynamic pricing algorithm optimally matches prices to market demand is ambiguous due to feedback loop effects. We cannot determine true demand without knowing about price effects on demand. If demand is independent, optimization may be valid. If prices shape demand, the algorithm creates the patterns it responds to. Without this information, the causal claim is not justified.",
+    "causal_structure": "X Prices -> Y Demand -> X Prices (market-shaping feedback)",
+    "key_insight": "Pricing algorithms can shape the demand curves they claim to optimize against.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0197",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "RLHF",
+    "difficulty": "Hard",
+    "trap_type": "T11",
+    "trap_family": "F4",
+    "trap_subtype": "Preference Model Feedback",
+    "scenario": "An RLHF system shows the model increasingly generates preferred outputs. Researchers conclude it learns human preferences. However, the model's outputs influence what humans rate highly, which trains the preference model, which trains the main model.",
+    "claim": "RLHF teaches the model to satisfy genuine human preferences.",
+    "variables": {
+      "X": {"name": "Model Outputs", "role": "Treatment"},
+      "Y": {"name": "Human Ratings", "role": "Outcome"},
+      "Z": {"name": "Preference Feedback", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Do model outputs shape what humans rate highly, creating feedback in preference learning?",
+    "conditional_answers": {
+      "A": "If human preferences are stable, RLHF may genuinely satisfy them.",
+      "B": "If model outputs shift human expectations, the system co-evolves preferences and outputs in a feedback loop."
+    },
+    "wise_refusal": "The claim that RLHF teaches the model to satisfy genuine human preferences is ambiguous due to feedback loop effects. We cannot determine true preference satisfaction without knowing about preference drift. If preferences are stable, learning may be valid. If model outputs shift preferences, the feedback loop confounds preference learning. Without this information, the causal claim is not justified.",
+    "causal_structure": "X Outputs -> Human Expectations -> Y Ratings -> X Training (preference co-evolution)",
+    "key_insight": "RLHF systems can shift the preferences they claim to learn, creating co-evolutionary dynamics.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0198",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "User Modeling",
+    "difficulty": "Medium",
+    "trap_type": "T11",
+    "trap_family": "F4",
+    "trap_subtype": "Behavior Prediction Feedback",
+    "scenario": "A user behavior model accurately predicts user actions on a platform. Engineers conclude the model understands users. However, the model's predictions influence UI choices that shape user behavior, which the model then accurately predicts.",
+    "claim": "The user behavior model accurately understands user preferences.",
+    "variables": {
+      "X": {"name": "Behavior Predictions", "role": "Treatment"},
+      "Y": {"name": "User Actions", "role": "Outcome"},
+      "Z": {"name": "UI-Behavior Feedback", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Do predictions shape UI that shapes behavior that validates predictions?",
+    "conditional_answers": {
+      "A": "If UI is independent of predictions, behavior may reflect genuine preferences.",
+      "B": "If predictions shape UI that shapes behavior, the model predicts the behavior it creates."
+    },
+    "wise_refusal": "The claim that the user behavior model accurately understands user preferences is ambiguous due to feedback loop effects. We cannot determine true understanding without knowing about UI feedback. If UI is independent, predictions may reflect preferences. If predictions shape UI that shapes behavior, the model creates what it predicts. Without this information, the causal claim is not justified.",
+    "causal_structure": "X Predictions -> UI Design -> Y User Behavior -> validates X (environmental shaping)",
+    "key_insight": "Behavior prediction models that influence environments can create the behaviors they predict.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  }
+]

@@ -1,0 +1,181 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://t3benchmark.ai/schemas/case_schema_v4.json",
+  "title": "T3 Benchmark Case Schema V4.0",
+  "description": "JSON Schema for T3 Benchmark V4.0 cases (CS372 Assignment 2)",
+  "type": "object",
+  "required": [
+    "case_id",
+    "pearl_level",
+    "domain",
+    "subdomain",
+    "difficulty",
+    "trap_type",
+    "scenario",
+    "variables",
+    "label",
+    "wise_refusal",
+    "initial_author",
+    "validator",
+    "final_score"
+  ],
+  "properties": {
+    "case_id": {
+      "type": "string",
+      "description": "Unique identifier (e.g., T3-I1-L1-0001)"
+    },
+    "pearl_level": {
+      "type": "string",
+      "enum": ["L1", "L2", "L3"],
+      "description": "Pearl's Ladder: L1 (Association), L2 (Intervention), L3 (Counterfactual)"
+    },
+    "domain": {
+      "type": "string",
+      "description": "Primary domain (D9 for AI & Tech, D10 for Social Science)"
+    },
+    "subdomain": {
+      "type": "string",
+      "description": "Specific subdomain within the primary domain"
+    },
+    "difficulty": {
+      "type": "string",
+      "enum": ["Easy", "Medium", "Hard"],
+      "description": "Difficulty level (target 1:2:1 ratio)"
+    },
+    "trap_type": {
+      "type": "string",
+      "description": "L1: W1-W10 (WOLF) or S1-S8 (SHEEP) or A (AMBIGUOUS); L2: T1-T17; L3: F1-F8 or DomainExt"
+    },
+    "trap_subtype": {
+      "type": "string",
+      "description": "Specific subtype of the trap"
+    },
+    "trap_family": {
+      "type": "string",
+      "description": "L2: F1-F6; L3: F1-F8"
+    },
+    "scenario": {
+      "type": "string",
+      "minLength": 50,
+      "description": "Description of the causal scenario"
+    },
+    "claim": {
+      "type": "string",
+      "description": "The causal claim being tested"
+    },
+    "variables": {
+      "type": "object",
+      "required": ["X", "Y"],
+      "properties": {
+        "X": {
+          "type": "object",
+          "required": ["name", "role"],
+          "properties": {
+            "name": {"type": "string"},
+            "role": {"type": "string"}
+          }
+        },
+        "Y": {
+          "type": "object",
+          "required": ["name", "role"],
+          "properties": {
+            "name": {"type": "string"},
+            "role": {"type": "string"}
+          }
+        },
+        "Z": {
+          "type": "object",
+          "properties": {
+            "name": {"type": "string"},
+            "role": {"type": "string"}
+          }
+        }
+      }
+    },
+    "label": {
+      "type": "string",
+      "description": "L1: W/S/A; L2: NO; L3: VALID/INVALID/CONDITIONAL"
+    },
+    "hidden_question": {
+      "type": "string",
+      "description": "L2 required: The pivotal question that resolves ambiguity"
+    },
+    "conditional_answers": {
+      "type": "object",
+      "properties": {
+        "A": {"type": "string"},
+        "B": {"type": "string"}
+      },
+      "description": "L2 required: Conditional interpretations"
+    },
+    "wise_refusal": {
+      "type": "string",
+      "minLength": 50,
+      "description": "Template-following refusal statement"
+    },
+    "counterfactual_claim": {
+      "type": "string",
+      "description": "L3 required: The counterfactual claim being evaluated"
+    },
+    "invariants": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "L3 required: What is held fixed across worlds"
+    },
+    "ground_truth": {
+      "type": "string",
+      "enum": ["VALID", "INVALID", "CONDITIONAL"],
+      "description": "L3 required: Counterfactual validity"
+    },
+    "justification": {
+      "type": "string",
+      "description": "L3 required: Explanation grounded in scenario and invariants"
+    },
+    "causal_structure": {
+      "type": "string",
+      "description": "DAG or description of causal relationships"
+    },
+    "key_insight": {
+      "type": "string",
+      "description": "The key reasoning insight for the case"
+    },
+    "initial_author": {
+      "type": "string",
+      "description": "Student who originally created the case"
+    },
+    "validator": {
+      "type": "string",
+      "description": "Student who validated this case"
+    },
+    "final_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 10,
+      "description": "Quality score assigned during validation (10-point rubric)"
+    },
+    "score_breakdown": {
+      "type": "object",
+      "properties": {
+        "scenario_clarity": {"type": "number", "maximum": 1.0},
+        "hidden_question_quality": {"type": "number", "maximum": 1.0},
+        "conditional_answer_A": {"type": "number", "maximum": 1.5},
+        "conditional_answer_B": {"type": "number", "maximum": 1.5},
+        "wise_refusal_quality": {"type": "number", "maximum": 2.0},
+        "difficulty_calibration": {"type": "number", "maximum": 1.0},
+        "final_label": {"type": "number", "maximum": 1.0},
+        "trap_type": {"type": "number", "maximum": 1.0}
+      },
+      "description": "Detailed 10-point rubric breakdown"
+    }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"pearl_level": {"const": "L2"}}},
+      "then": {"required": ["hidden_question", "conditional_answers"]}
+    },
+    {
+      "if": {"properties": {"pearl_level": {"const": "L3"}}},
+      "then": {"required": ["counterfactual_claim", "invariants", "ground_truth", "justification"]}
+    }
+  ]
+}

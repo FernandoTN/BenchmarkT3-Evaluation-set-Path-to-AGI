@@ -1,0 +1,3863 @@
+[
+  {
+    "case_id": "T3-J1-L3-0001",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Education Policy",
+    "difficulty": "Easy",
+    "trap_type": "F1",
+    "trap_family": "F1",
+    "trap_subtype": "Simple Deterministic",
+    "scenario": "A school district implemented a mandatory tutoring program in 2019. Students who participated showed a 15% improvement in test scores. The district had no other new programs during this period, and teacher quality remained constant.",
+    "counterfactual_claim": "If the tutoring program had not been implemented, student test scores would not have improved by 15%",
+    "variables": {
+      "X": {
+        "name": "Tutoring program implementation",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "15% test score improvement",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Stable educational environment",
+        "role": "Context"
+      }
+    },
+    "invariants": [
+      "Teacher quality remained constant",
+      "No other programs introduced",
+      "Same student population"
+    ],
+    "ground_truth": "VALID",
+    "label": "VALID",
+    "justification": "With no confounding variables and a stable environment, the tutoring program is the clear deterministic cause of the improvement. Removing it would remove the effect.",
+    "wise_refusal": "This counterfactual is valid because the scenario establishes a clear causal mechanism with controlled conditions. The tutoring program directly caused the improvement with no alternative explanations present.",
+    "key_insight": "Simple deterministic causation with controlled environment makes counterfactual evaluation straightforward.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0002",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Public Health",
+    "difficulty": "Easy",
+    "trap_type": "F1",
+    "trap_family": "F1",
+    "trap_subtype": "Direct Causation",
+    "scenario": "A city banned smoking in all public spaces in 2020. Hospital admissions for respiratory issues dropped by 20% within one year. Air quality measurements confirmed reduced secondhand smoke exposure as the only significant environmental change.",
+    "counterfactual_claim": "If the smoking ban had not been enacted, respiratory hospital admissions would have remained at previous levels",
+    "variables": {
+      "X": {
+        "name": "Public smoking ban",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Reduced respiratory admissions",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Secondhand smoke reduction",
+        "role": "Mechanism"
+      }
+    },
+    "invariants": [
+      "No other air quality changes",
+      "Same population demographics",
+      "Consistent healthcare access"
+    ],
+    "ground_truth": "VALID",
+    "label": "VALID",
+    "justification": "The causal chain from smoking ban to reduced smoke exposure to fewer respiratory issues is direct and unconfounded. The counterfactual follows logically.",
+    "wise_refusal": "This is a valid counterfactual because the mechanism is clear and verified through air quality data, with no alternative explanations for the health improvement.",
+    "key_insight": "Direct causal chains with verified mechanisms support valid counterfactual reasoning.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0003",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Urban Planning",
+    "difficulty": "Medium",
+    "trap_type": "F1",
+    "trap_family": "F1",
+    "trap_subtype": "Policy Determinism",
+    "scenario": "A municipality rezoned an industrial area for residential use in 2018. Property values in adjacent neighborhoods increased by 25%. However, the city also improved public transit to the area simultaneously.",
+    "counterfactual_claim": "If the rezoning had not occurred, property values would not have increased",
+    "variables": {
+      "X": {
+        "name": "Industrial to residential rezoning",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Property value increase",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Transit improvements",
+        "role": "Confounder"
+      }
+    },
+    "invariants": [
+      "Same economic conditions",
+      "Same buyer demographics",
+      "Transit improvements still occurred"
+    ],
+    "ground_truth": "VALID",
+    "label": "VALID",
+    "justification": "The transit improvements represent a confounding factor. Property values might have increased due to transit alone, rezoning alone, or their interaction. The counterfactual validity depends on the relative contribution of each factor.",
+    "wise_refusal": "This counterfactual requires clarification because transit improvements occurred simultaneously. If transit was sufficient to raise values, the claim is invalid; if rezoning was necessary, it may be valid.",
+    "key_insight": "Simultaneous policy changes create confounding that requires decomposition for counterfactual evaluation.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0004",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Criminal Justice",
+    "difficulty": "Medium",
+    "trap_type": "F1",
+    "trap_family": "F1",
+    "trap_subtype": "Deterministic Chain",
+    "scenario": "A state implemented mandatory minimum sentences for drug offenses in 2015. Prison populations increased by 30% over three years. Studies showed that judges had no discretion to issue alternative sentences under the new law.",
+    "counterfactual_claim": "If mandatory minimums had not been enacted, prison populations would have grown less",
+    "variables": {
+      "X": {
+        "name": "Mandatory minimum sentences",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Prison population increase",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Judicial discretion removal",
+        "role": "Mechanism"
+      }
+    },
+    "invariants": [
+      "Same crime rates",
+      "Same arrest patterns",
+      "Same demographic factors"
+    ],
+    "ground_truth": "VALID",
+    "label": "VALID",
+    "justification": "The mandatory minimums deterministically removed judicial discretion, forcing longer sentences. Without this law, judges could have issued alternatives, resulting in lower prison growth.",
+    "wise_refusal": "This counterfactual is valid because the law mechanistically removed alternative sentencing options. The causal pathway from policy to outcome is deterministic given the legal structure.",
+    "key_insight": "Legal mechanisms that remove discretion create deterministic causal pathways.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0005",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Labor Economics",
+    "difficulty": "Easy",
+    "trap_type": "F1",
+    "trap_family": "F1",
+    "trap_subtype": "Simple Policy Effect",
+    "scenario": "A country raised its minimum wage by 20% in 2021. Employment in the fast-food sector remained stable, while worker earnings increased proportionally. No automation investments were made during this period.",
+    "counterfactual_claim": "If the minimum wage had not been raised, fast-food workers would have earned 20% less",
+    "variables": {
+      "X": {
+        "name": "Minimum wage increase",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Worker earnings increase",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Stable employment",
+        "role": "Context"
+      }
+    },
+    "invariants": [
+      "Same employment levels",
+      "No automation",
+      "Same workforce composition"
+    ],
+    "ground_truth": "VALID",
+    "label": "VALID",
+    "justification": "With stable employment and no automation, the wage increase directly caused earnings to rise. Without the policy, wages would have remained at previous levels.",
+    "wise_refusal": "This counterfactual is straightforward and valid. The policy directly determined wage levels with no intervening factors or substitution effects.",
+    "key_insight": "Direct policy-to-outcome relationships with no behavioral responses yield valid counterfactuals.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0006",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Housing Policy",
+    "difficulty": "Hard",
+    "trap_type": "F1",
+    "trap_family": "F1",
+    "trap_subtype": "Complex Determinism",
+    "scenario": "A city implemented rent control in 2017. Five years later, the rental housing stock had decreased by 15% as landlords converted units to condos or let buildings deteriorate. New construction also slowed significantly.",
+    "counterfactual_claim": "If rent control had not been implemented, the rental housing stock would not have decreased",
+    "variables": {
+      "X": {
+        "name": "Rent control policy",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Rental stock decrease",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Landlord behavioral response",
+        "role": "Mechanism"
+      }
+    },
+    "invariants": [
+      "Same housing demand",
+      "Same construction costs",
+      "Same regulatory environment otherwise"
+    ],
+    "ground_truth": "VALID",
+    "label": "VALID",
+    "justification": "Economic theory and observed behavior show rent control reduces landlord incentives to maintain rental stock. The behavioral response, while complex, is a deterministic consequence of the price ceiling.",
+    "wise_refusal": "This counterfactual is valid despite behavioral intermediaries because landlord responses to price controls are well-documented and predictable economic behaviors.",
+    "key_insight": "Deterministic behavioral responses to policy incentives can support valid counterfactuals even when mechanisms are complex.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 9.0
+  },
+  {
+    "case_id": "T3-J1-L3-0007",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Immigration Policy",
+    "difficulty": "Medium",
+    "trap_type": "F1",
+    "trap_family": "F1",
+    "trap_subtype": "Deterministic Barrier",
+    "scenario": "A country closed its borders to asylum seekers in 2020. Refugee arrivals dropped to zero. Prior to closure, the country received approximately 50,000 asylum applications annually.",
+    "counterfactual_claim": "If the border had remained open, asylum applications would have continued at previous levels",
+    "variables": {
+      "X": {
+        "name": "Border closure",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Zero refugee arrivals",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Physical barrier to entry",
+        "role": "Mechanism"
+      }
+    },
+    "invariants": [
+      "Same global refugee crisis",
+      "Same push factors in origin countries",
+      "Same relative desirability of destination"
+    ],
+    "ground_truth": "INVALID",
+    "label": "INVALID",
+    "justification": "While the border closure deterministically prevented legal arrivals, the counterfactual assumes push factors and destination preferences remained constant. Changes in origin country conditions or alternative destinations could affect the claim.",
+    "wise_refusal": "This counterfactual requires conditions about whether global refugee patterns would have remained stable. If origin conditions changed, previous levels might not have continued regardless.",
+    "key_insight": "Even deterministic physical barriers require assumptions about external conditions for counterfactual validity.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0008",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Welfare Policy",
+    "difficulty": "Medium",
+    "trap_type": "F1",
+    "trap_family": "F1",
+    "trap_subtype": "Benefit Determinism",
+    "scenario": "A state eliminated cash welfare benefits in 2019. Recipients who lost benefits saw average income drop by $400 monthly. No alternative support programs were available, and employment rates among former recipients did not increase.",
+    "counterfactual_claim": "If welfare benefits had continued, recipients would have maintained their previous income levels",
+    "variables": {
+      "X": {
+        "name": "Welfare elimination",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Income reduction",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "No alternative income sources",
+        "role": "Context"
+      }
+    },
+    "invariants": [
+      "Same employment opportunities",
+      "No alternative programs",
+      "Same recipient characteristics"
+    ],
+    "ground_truth": "VALID",
+    "label": "VALID",
+    "justification": "With no alternative income sources and unchanged employment, the welfare payments were the deterministic cause of the income level. Continuing them would have maintained incomes.",
+    "wise_refusal": "This counterfactual is valid because the scenario explicitly rules out alternative income sources and behavioral changes that might complicate the causal relationship.",
+    "key_insight": "Transfer payments have deterministic effects on income when alternatives are controlled for.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0009",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Transportation Policy",
+    "difficulty": "Hard",
+    "trap_type": "F1",
+    "trap_family": "F1",
+    "trap_subtype": "Infrastructure Determinism",
+    "scenario": "A city removed a major highway in 2016, replacing it with a boulevard. Traffic in the corridor decreased by 40%, but some traffic shifted to parallel routes, and some trips were simply not made.",
+    "counterfactual_claim": "If the highway had remained, traffic volumes in the corridor would have stayed the same",
+    "variables": {
+      "X": {
+        "name": "Highway removal",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Traffic reduction in corridor",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Traffic evaporation and redistribution",
+        "role": "Mechanism"
+      }
+    },
+    "invariants": [
+      "Same regional population",
+      "Same employment locations",
+      "Same fuel prices"
+    ],
+    "ground_truth": "INVALID",
+    "label": "INVALID",
+    "justification": "Traffic patterns involve complex behavioral responses including induced demand. If the highway had remained, traffic might have grown (induced demand) or shifted due to other factors. The counterfactual requires assumptions about baseline trends.",
+    "wise_refusal": "This counterfactual depends on assumptions about induced demand and baseline traffic growth. Highway presence itself influences demand, making simple counterfactuals problematic.",
+    "key_insight": "Infrastructure changes trigger behavioral responses that complicate counterfactual reasoning about transportation.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 9.0
+  },
+  {
+    "case_id": "T3-J1-L3-0010",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Education Policy",
+    "difficulty": "Easy",
+    "trap_type": "F1",
+    "trap_family": "F1",
+    "trap_subtype": "Resource Determinism",
+    "scenario": "A school district doubled its per-pupil spending in 2018. Class sizes were reduced from 30 to 15 students. Teacher salaries and curriculum remained unchanged.",
+    "counterfactual_claim": "If spending had not increased, class sizes would have remained at 30 students",
+    "variables": {
+      "X": {
+        "name": "Doubled per-pupil spending",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Halved class sizes",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Hiring additional teachers",
+        "role": "Mechanism"
+      }
+    },
+    "invariants": [
+      "Same student enrollment",
+      "Same teacher salaries",
+      "Same facilities"
+    ],
+    "ground_truth": "VALID",
+    "label": "VALID",
+    "justification": "Reducing class sizes requires hiring more teachers, which requires more funding. Without the spending increase, the district could not have hired additional teachers to reduce class sizes.",
+    "wise_refusal": "This counterfactual is valid because of the direct budgetary relationship between spending, teacher hiring, and class sizes.",
+    "key_insight": "Budget constraints create deterministic relationships between spending and staffing levels.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0011",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Environmental Policy",
+    "difficulty": "Hard",
+    "trap_type": "F1",
+    "trap_family": "F1",
+    "trap_subtype": "Regulatory Determinism",
+    "scenario": "A country banned single-use plastics in 2020. Plastic waste in landfills decreased by 35% within two years. However, paper and cardboard waste increased by 20% as alternatives were adopted.",
+    "counterfactual_claim": "If the plastic ban had not been enacted, plastic waste would have remained at previous levels",
+    "variables": {
+      "X": {
+        "name": "Single-use plastic ban",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Plastic waste reduction",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Material substitution",
+        "role": "Mechanism"
+      }
+    },
+    "invariants": [
+      "Same consumption patterns",
+      "Same waste collection systems",
+      "Same population"
+    ],
+    "ground_truth": "VALID",
+    "label": "VALID",
+    "justification": "While the ban directly reduced plastic use, consumer awareness was also growing. Some reduction might have occurred voluntarily. The counterfactual requires assumptions about baseline behavioral trends.",
+    "wise_refusal": "This counterfactual depends on whether voluntary plastic reduction would have occurred anyway due to growing environmental awareness, independent of the ban.",
+    "key_insight": "Policy effects must be disentangled from concurrent social trends for valid counterfactual reasoning.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0012",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Healthcare Policy",
+    "difficulty": "Medium",
+    "trap_type": "F1",
+    "trap_family": "F1",
+    "trap_subtype": "Access Determinism",
+    "scenario": "A state expanded Medicaid eligibility in 2019. The uninsured rate dropped from 15% to 8%. No private insurance expansions or employer coverage changes occurred during this period.",
+    "counterfactual_claim": "If Medicaid had not been expanded, the uninsured rate would have remained at 15%",
+    "variables": {
+      "X": {
+        "name": "Medicaid expansion",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Reduced uninsured rate",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Public insurance enrollment",
+        "role": "Mechanism"
+      }
+    },
+    "invariants": [
+      "Same private insurance landscape",
+      "Same employer coverage",
+      "Same population"
+    ],
+    "ground_truth": "VALID",
+    "label": "VALID",
+    "justification": "With no changes in private coverage options, newly insured individuals obtained coverage solely through Medicaid. Without expansion, they would have remained uninsured.",
+    "wise_refusal": "This counterfactual is valid because the scenario controls for alternative coverage sources, making Medicaid expansion the sole cause of reduced uninsurance.",
+    "key_insight": "Controlling for alternative pathways to outcomes strengthens counterfactual validity.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0013",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Political Science",
+    "difficulty": "Medium",
+    "trap_type": "F2",
+    "trap_family": "F2",
+    "trap_subtype": "Probabilistic Voting",
+    "scenario": "A political campaign increased its advertising budget by 50% in swing districts during the 2020 election. The candidate won those districts by an average margin of 2%. Polling showed a 3% boost in name recognition correlated with the ads.",
+    "counterfactual_claim": "If the campaign had not increased advertising, the candidate would have lost those swing districts",
+    "variables": {
+      "X": {
+        "name": "Increased advertising budget",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Winning swing districts",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Name recognition boost",
+        "role": "Mechanism"
+      }
+    },
+    "invariants": [
+      "Same candidate qualities",
+      "Same opponent",
+      "Same economic conditions"
+    ],
+    "ground_truth": "VALID",
+    "label": "VALID",
+    "justification": "Voting behavior is probabilistic, and the 2% margin is within typical polling error. The advertising effect, while likely positive, cannot be deterministically linked to victory. Other factors could have provided the marginal boost.",
+    "wise_refusal": "This counterfactual is conditional because electoral outcomes depend on many probabilistic factors. The advertising may have been influential but not necessarily decisive.",
+    "key_insight": "Electoral margins within polling error make counterfactual claims about campaign effects inherently uncertain.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0014",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Public Health",
+    "difficulty": "Hard",
+    "trap_type": "F2",
+    "trap_family": "F2",
+    "trap_subtype": "Probabilistic Epidemiology",
+    "scenario": "A city implemented a vaccination campaign that achieved 85% coverage. COVID-19 hospitalizations dropped by 70% compared to similar unvaccinated cities. Individual vaccine efficacy was estimated at 80% against severe disease.",
+    "counterfactual_claim": "If the vaccination campaign had not occurred, hospitalizations would have been 70% higher",
+    "variables": {
+      "X": {
+        "name": "Vaccination campaign",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Reduced hospitalizations",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Herd immunity effects",
+        "role": "Mechanism"
+      }
+    },
+    "invariants": [
+      "Same viral variant",
+      "Same healthcare capacity",
+      "Same population demographics"
+    ],
+    "ground_truth": "CONDITIONAL",
+    "label": "CONDITIONAL",
+    "justification": "While vaccination clearly reduced hospitalizations, the exact counterfactual depends on assumptions about viral spread dynamics, herd immunity thresholds, and behavioral changes. The 70% figure requires modeling assumptions.",
+    "wise_refusal": "This counterfactual requires specifying epidemiological model assumptions. Different models of disease spread and immunity would yield different counterfactual estimates.",
+    "key_insight": "Probabilistic disease transmission makes precise counterfactual quantification dependent on model assumptions.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 9.0
+  },
+  {
+    "case_id": "T3-J1-L3-0015",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Criminology",
+    "difficulty": "Medium",
+    "trap_type": "F2",
+    "trap_family": "F2",
+    "trap_subtype": "Probabilistic Deterrence",
+    "scenario": "A city increased police foot patrols by 30% in high-crime neighborhoods. Violent crime decreased by 15% over two years. Research suggests each additional patrol reduces crime probability by roughly 5% in the immediate area.",
+    "counterfactual_claim": "If police patrols had not increased, violent crime would have remained at previous levels",
+    "variables": {
+      "X": {
+        "name": "Increased police patrols",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Violent crime reduction",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Deterrence effect",
+        "role": "Mechanism"
+      }
+    },
+    "invariants": [
+      "Same socioeconomic conditions",
+      "Same drug market activity",
+      "Same demographic composition"
+    ],
+    "ground_truth": "CONDITIONAL",
+    "label": "CONDITIONAL",
+    "justification": "Crime is influenced by many probabilistic factors. While increased patrols likely contributed to the reduction, economic conditions, social programs, and displacement effects also play roles. The counterfactual requires assumptions about these factors.",
+    "wise_refusal": "This counterfactual depends on assumptions about crime displacement, underlying trends, and the relative contribution of patrols versus other factors.",
+    "key_insight": "Crime causation involves multiple probabilistic pathways that complicate counterfactual attribution.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0016",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Education",
+    "difficulty": "Easy",
+    "trap_type": "F2",
+    "trap_family": "F2",
+    "trap_subtype": "Probabilistic Achievement",
+    "scenario": "A lottery-based scholarship program awarded full tuition to 500 randomly selected low-income students. Graduation rates for recipients were 75% compared to 45% for non-recipients from the same applicant pool.",
+    "counterfactual_claim": "If the scholarship recipients had not received funding, their graduation rate would have been 45%",
+    "variables": {
+      "X": {
+        "name": "Scholarship receipt",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Higher graduation rate",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Financial barrier removal",
+        "role": "Mechanism"
+      }
+    },
+    "invariants": [
+      "Same student ability distribution",
+      "Same college attended",
+      "Same support services"
+    ],
+    "ground_truth": "VALID",
+    "label": "VALID",
+    "justification": "The lottery-based assignment creates a natural experiment. Random selection ensures recipients and non-recipients were statistically equivalent, making the graduation rate difference attributable to the scholarship.",
+    "wise_refusal": "This counterfactual is valid because the lottery design creates a credible comparison group. The graduation rate difference reflects the causal effect of the scholarship.",
+    "key_insight": "Randomized assignment provides strong counterfactual validity even for probabilistic outcomes.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0017",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Labor Economics",
+    "difficulty": "Hard",
+    "trap_type": "F2",
+    "trap_family": "F2",
+    "trap_subtype": "Probabilistic Employment",
+    "scenario": "A job training program served 1,000 unemployed workers. After six months, 60% of participants found employment compared to 40% of similar non-participants. The local unemployment rate was declining generally during this period.",
+    "counterfactual_claim": "If the job training had not been offered, participant employment would have been 40%",
+    "variables": {
+      "X": {
+        "name": "Job training program",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Higher employment rate",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Skill acquisition",
+        "role": "Mechanism"
+      }
+    },
+    "invariants": [
+      "Same labor market conditions",
+      "Same worker characteristics",
+      "Same job search intensity"
+    ],
+    "ground_truth": "INVALID",
+    "label": "INVALID",
+    "justification": "Program participants self-selected, likely differing in motivation and job-readiness from non-participants. The declining unemployment rate means some would have found jobs anyway. Selection bias invalidates the simple counterfactual comparison.",
+    "wise_refusal": "This counterfactual is invalid due to selection bias. Participants who chose to enroll likely differed systematically from non-participants, confounding the comparison.",
+    "key_insight": "Self-selection into programs creates bias that invalidates naive counterfactual comparisons.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 9.0
+  },
+  {
+    "case_id": "T3-J1-L3-0018",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Sociology",
+    "difficulty": "Medium",
+    "trap_type": "F2",
+    "trap_family": "F2",
+    "trap_subtype": "Probabilistic Social Mobility",
+    "scenario": "A study found that children who attended high-quality preschool had 25% higher lifetime earnings than peers who did not. The preschool program was offered to all families in a specific zip code, with 70% participation.",
+    "counterfactual_claim": "If preschool attendees had not participated, they would have earned 25% less over their lifetimes",
+    "variables": {
+      "X": {
+        "name": "Preschool attendance",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Higher lifetime earnings",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Early childhood development",
+        "role": "Mechanism"
+      }
+    },
+    "invariants": [
+      "Same neighborhood",
+      "Same economic era",
+      "Same educational system"
+    ],
+    "ground_truth": "INVALID",
+    "label": "INVALID",
+    "justification": "The 30% who did not participate may differ systematically from participants in parental involvement, which itself affects earnings. The counterfactual requires assumptions about whether these differences would persist.",
+    "wise_refusal": "This counterfactual depends on whether non-participation was random or reflected family characteristics that independently affect earnings.",
+    "key_insight": "Voluntary program participation creates selection effects that complicate lifetime outcome counterfactuals.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0019",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Public Policy",
+    "difficulty": "Easy",
+    "trap_type": "F2",
+    "trap_family": "F2",
+    "trap_subtype": "Probabilistic Compliance",
+    "scenario": "A state raised the legal drinking age from 18 to 21. Alcohol-related traffic fatalities among 18-20 year olds dropped by 40%. Surveys showed that 70% of the age group complied with the new law.",
+    "counterfactual_claim": "If the drinking age had remained at 18, fatalities would have stayed at previous levels",
+    "variables": {
+      "X": {
+        "name": "Raised drinking age",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Reduced fatalities",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Reduced youth drinking",
+        "role": "Mechanism"
+      }
+    },
+    "invariants": [
+      "Same driving patterns",
+      "Same vehicle safety",
+      "Same enforcement levels"
+    ],
+    "ground_truth": "VALID",
+    "label": "VALID",
+    "justification": "The policy change directly restricted legal access to alcohol for the affected age group, and the reduction in fatalities is consistent with the mechanism of reduced drinking. Even partial compliance produced significant effects.",
+    "wise_refusal": "This counterfactual is valid because the mechanism linking drinking age to access to youth fatalities is well-established and the observed effect is consistent with the policy change.",
+    "key_insight": "Policy changes affecting access to risky behaviors can have valid counterfactual effects even with imperfect compliance.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0020",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Behavioral Economics",
+    "difficulty": "Hard",
+    "trap_type": "F2",
+    "trap_family": "F2",
+    "trap_subtype": "Probabilistic Nudge",
+    "scenario": "A retirement savings plan changed its default from opt-in to opt-out enrollment. Participation rates increased from 40% to 85%. Employee surveys showed most new participants were unaware the default had changed.",
+    "counterfactual_claim": "If the default had remained opt-in, participation would have stayed at 40%",
+    "variables": {
+      "X": {
+        "name": "Default change to opt-out",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Increased participation",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Status quo bias",
+        "role": "Mechanism"
+      }
+    },
+    "invariants": [
+      "Same contribution matching",
+      "Same employee demographics",
+      "Same financial education"
+    ],
+    "ground_truth": "VALID",
+    "label": "VALID",
+    "justification": "While the default change clearly increased participation, participation might have increased anyway as employees aged and thought more about retirement. The counterfactual requires assumptions about baseline trends in savings behavior.",
+    "wise_refusal": "This counterfactual depends on whether participation would have increased naturally over time due to life-cycle effects or economic conditions.",
+    "key_insight": "Nudge effects must be separated from underlying behavioral trends for counterfactual validity.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0021",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Demography",
+    "difficulty": "Medium",
+    "trap_type": "F2",
+    "trap_family": "F2",
+    "trap_subtype": "Probabilistic Fertility",
+    "scenario": "A country introduced generous parental leave policies in 2015. The fertility rate increased from 1.6 to 1.9 children per woman over five years. Similar countries without such policies saw stable or declining rates.",
+    "counterfactual_claim": "If parental leave had not been expanded, fertility would have remained at 1.6",
+    "variables": {
+      "X": {
+        "name": "Expanded parental leave",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Increased fertility rate",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Reduced work-family conflict",
+        "role": "Mechanism"
+      }
+    },
+    "invariants": [
+      "Same economic conditions",
+      "Same cultural attitudes",
+      "Same housing costs"
+    ],
+    "ground_truth": "VALID",
+    "label": "VALID",
+    "justification": "Fertility decisions involve complex personal factors. While the policy likely contributed, other factors like economic optimism or cultural shifts could also explain part of the increase. Cross-country comparison is imperfect due to other differences.",
+    "wise_refusal": "This counterfactual requires assumptions about what other factors might have affected fertility decisions during this period.",
+    "key_insight": "Fertility as a probabilistic outcome of many factors makes policy attribution challenging.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0022",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Health Economics",
+    "difficulty": "Medium",
+    "trap_type": "F2",
+    "trap_family": "F2",
+    "trap_subtype": "Probabilistic Health Behavior",
+    "scenario": "A sugar tax of 20% was implemented on sweetened beverages. Consumption dropped by 25% in the first year, and diabetes diagnoses fell by 5% over three years. Price elasticity studies predicted a 15-20% consumption reduction.",
+    "counterfactual_claim": "If the sugar tax had not been implemented, diabetes rates would have continued rising",
+    "variables": {
+      "X": {
+        "name": "Sugar tax implementation",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Reduced diabetes diagnoses",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Reduced sugar consumption",
+        "role": "Mechanism"
+      }
+    },
+    "invariants": [
+      "Same dietary patterns otherwise",
+      "Same diagnostic criteria",
+      "Same healthcare access"
+    ],
+    "ground_truth": "CONDITIONAL",
+    "label": "CONDITIONAL",
+    "justification": "While the tax reduced consumption as predicted, the link from reduced consumption to diabetes diagnoses involves time lags and multiple health factors. The 5% reduction could reflect other dietary changes or awareness effects.",
+    "wise_refusal": "This counterfactual is conditional because the pathway from tax to diabetes involves intermediate steps with their own probabilistic relationships.",
+    "key_insight": "Long causal chains from policy to health outcomes involve cumulative uncertainty.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0023",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Political Economy",
+    "difficulty": "Hard",
+    "trap_type": "F3",
+    "trap_family": "F3",
+    "trap_subtype": "Symmetric Overdetermination",
+    "scenario": "A corrupt politician was exposed by both an investigative journalist and a whistleblower independently on the same day. Either revelation alone would have been sufficient to force resignation. The politician resigned within 24 hours.",
+    "counterfactual_claim": "If the journalist had not published the expose, the politician would not have resigned",
+    "variables": {
+      "X": {
+        "name": "Journalist's expose",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Politician's resignation",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Whistleblower's revelation",
+        "role": "Overdetermining cause"
+      }
+    },
+    "invariants": [
+      "Same political climate",
+      "Same severity of corruption",
+      "Whistleblower still acted"
+    ],
+    "ground_truth": "INVALID",
+    "label": "INVALID",
+    "justification": "This is classic symmetric overdetermination. The whistleblower's independent revelation would have caused the resignation regardless of the journalist's action. Neither cause alone is necessary.",
+    "wise_refusal": "This counterfactual is invalid due to overdetermination. The whistleblower's revelation was independently sufficient to cause the resignation.",
+    "key_insight": "Symmetric overdetermination renders neither individual cause necessary for the effect.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 9.0
+  },
+  {
+    "case_id": "T3-J1-L3-0024",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Social Movements",
+    "difficulty": "Hard",
+    "trap_type": "F3",
+    "trap_family": "F3",
+    "trap_subtype": "Preemptive Overdetermination",
+    "scenario": "A civil rights organization filed a lawsuit to desegregate schools in 1962. Before the court ruled, Congress passed legislation mandating desegregation nationally. The schools in question desegregated following the legislation.",
+    "counterfactual_claim": "If the lawsuit had not been filed, the schools would not have desegregated",
+    "variables": {
+      "X": {
+        "name": "Civil rights lawsuit",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "School desegregation",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Congressional legislation",
+        "role": "Preempting cause"
+      }
+    },
+    "invariants": [
+      "Same civil rights movement",
+      "Congressional action still occurred",
+      "Same timeline"
+    ],
+    "ground_truth": "INVALID",
+    "label": "INVALID",
+    "justification": "The federal legislation preempted the lawsuit's potential effect. Even without the lawsuit, congressional action would have mandated desegregation. The lawsuit became causally irrelevant to the actual outcome.",
+    "wise_refusal": "This counterfactual is invalid because the congressional legislation provided an independent, sufficient cause that preempted the lawsuit's potential effect.",
+    "key_insight": "Preemptive overdetermination occurs when a backup cause would have produced the same effect through a different pathway.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 9.0
+  },
+  {
+    "case_id": "T3-J1-L3-0025",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Economic Policy",
+    "difficulty": "Medium",
+    "trap_type": "F3",
+    "trap_family": "F3",
+    "trap_subtype": "Joint Sufficiency",
+    "scenario": "A company's bankruptcy in 2019 followed both a major product recall and the CEO's fraud indictment announced the same week. Analysts agreed that either event alone would have been survivable, but together they destroyed investor confidence.",
+    "counterfactual_claim": "If the product recall had not occurred, the company would not have gone bankrupt",
+    "variables": {
+      "X": {
+        "name": "Product recall",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Bankruptcy",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "CEO fraud indictment",
+        "role": "Contributing cause"
+      }
+    },
+    "invariants": [
+      "CEO still indicted",
+      "Same market conditions",
+      "Same company financial position"
+    ],
+    "ground_truth": "VALID",
+    "label": "VALID",
+    "justification": "Unlike symmetric overdetermination, neither cause alone was sufficient. The recall was a necessary component of the jointly sufficient cause. Without it, the company would have survived the fraud scandal alone.",
+    "wise_refusal": "This counterfactual is valid because both factors were necessary for bankruptcy. Removing either would have allowed survival.",
+    "key_insight": "Joint insufficiency of individual causes means each is necessary when combined with the other.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0026",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Public Health",
+    "difficulty": "Medium",
+    "trap_type": "F3",
+    "trap_family": "F3",
+    "trap_subtype": "Cumulative Overdetermination",
+    "scenario": "A patient received cancer diagnoses from three independent oncologists using different diagnostic methods. Each method alone was conclusive. The patient began treatment based on the consensus diagnosis.",
+    "counterfactual_claim": "If the first oncologist had not made the diagnosis, the patient would not have been diagnosed with cancer",
+    "variables": {
+      "X": {
+        "name": "First oncologist's diagnosis",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Cancer diagnosis",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Other oncologists' diagnoses",
+        "role": "Overdetermining causes"
+      }
+    },
+    "invariants": [
+      "Same disease state",
+      "Other oncologists still consulted",
+      "Same diagnostic methods available"
+    ],
+    "ground_truth": "INVALID",
+    "label": "INVALID",
+    "justification": "Each oncologist's diagnosis was independently sufficient. The first diagnosis is not necessary for the outcome because the other two would have established the diagnosis regardless.",
+    "wise_refusal": "This counterfactual is invalid due to redundant causation. Multiple independent sufficient causes make any single cause unnecessary.",
+    "key_insight": "Multiple independent sufficient causes create overdetermination that invalidates necessity claims.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0027",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Organizational Behavior",
+    "difficulty": "Easy",
+    "trap_type": "F3",
+    "trap_family": "F3",
+    "trap_subtype": "Threshold Overdetermination",
+    "scenario": "A city council vote required 5 votes to pass a zoning change. Seven council members voted in favor. Council member Smith was one of the seven yes votes.",
+    "counterfactual_claim": "If Smith had voted against the measure, it would not have passed",
+    "variables": {
+      "X": {
+        "name": "Smith's yes vote",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Measure passage",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Six other yes votes",
+        "role": "Overdetermining votes"
+      }
+    },
+    "invariants": [
+      "Same other votes",
+      "Same threshold requirement",
+      "Same proposal"
+    ],
+    "ground_truth": "INVALID",
+    "label": "INVALID",
+    "justification": "With seven yes votes and a threshold of five, Smith's vote was not necessary. Even if Smith voted no, six remaining yes votes would still exceed the threshold.",
+    "wise_refusal": "This counterfactual is invalid because the surplus votes create overdetermination. Smith's individual vote was not pivotal.",
+    "key_insight": "Threshold decisions with surplus votes create overdetermination for individual voter counterfactuals.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0028",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Education Policy",
+    "difficulty": "Hard",
+    "trap_type": "F3",
+    "trap_family": "F3",
+    "trap_subtype": "Asymmetric Overdetermination",
+    "scenario": "A student failed a course due to missing the final exam (worth 40%) and having a 35% average on other assignments. Either factor alone would have resulted in failure. The final exam absence was due to illness.",
+    "counterfactual_claim": "If the student had taken the final exam, they would have passed the course",
+    "variables": {
+      "X": {
+        "name": "Missing final exam",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Course failure",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Low assignment average",
+        "role": "Overdetermining cause"
+      }
+    },
+    "invariants": [
+      "Same assignment grades",
+      "Same grading policy",
+      "Same passing threshold"
+    ],
+    "ground_truth": "VALID",
+    "label": "VALID",
+    "justification": "Even with the final exam, passing would require a very high score to overcome the 35% average. Whether taking the exam would have led to passing depends on the hypothetical exam performance, which is unspecified.",
+    "wise_refusal": "This counterfactual requires specifying how well the student would have performed on the final exam. Without this, the outcome remains uncertain.",
+    "key_insight": "Counterfactuals about overdetermined outcomes may be conditional on unspecified hypothetical performance.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0029",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Urban Sociology",
+    "difficulty": "Medium",
+    "trap_type": "F3",
+    "trap_family": "F3",
+    "trap_subtype": "Structural Redundancy",
+    "scenario": "A neighborhood's property values declined after both a factory closure (eliminating 500 jobs) and a highway construction project (increasing noise and pollution). Economists estimated either event alone would have caused similar decline.",
+    "counterfactual_claim": "If the factory had not closed, property values would not have declined",
+    "variables": {
+      "X": {
+        "name": "Factory closure",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Property value decline",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Highway construction",
+        "role": "Overdetermining cause"
+      }
+    },
+    "invariants": [
+      "Highway still constructed",
+      "Same housing market conditions",
+      "Same buyer preferences"
+    ],
+    "ground_truth": "INVALID",
+    "label": "INVALID",
+    "justification": "If either event alone was sufficient to cause the decline, then the factory closure was not necessary. The highway construction would have depressed values regardless of factory employment.",
+    "wise_refusal": "This counterfactual is invalid because the highway construction was independently sufficient to cause the property value decline.",
+    "key_insight": "Multiple independent sufficient causes for neighborhood decline invalidate single-cause counterfactuals.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0030",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "International Relations",
+    "difficulty": "Hard",
+    "trap_type": "F3",
+    "trap_family": "F3",
+    "trap_subtype": "Diplomatic Overdetermination",
+    "scenario": "A peace treaty was signed after both economic sanctions and military pressure were applied to the aggressor nation. Intelligence reports indicated that either pressure alone would have been sufficient to force negotiations.",
+    "counterfactual_claim": "If economic sanctions had not been imposed, the peace treaty would not have been signed",
+    "variables": {
+      "X": {
+        "name": "Economic sanctions",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Peace treaty signing",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Military pressure",
+        "role": "Overdetermining cause"
+      }
+    },
+    "invariants": [
+      "Same military pressure",
+      "Same diplomatic channels",
+      "Same war conditions"
+    ],
+    "ground_truth": "INVALID",
+    "label": "INVALID",
+    "justification": "If military pressure alone was sufficient to force the treaty, then sanctions were not necessary. The counterfactual incorrectly attributes necessity to one of two independently sufficient causes.",
+    "wise_refusal": "This counterfactual is invalid because military pressure provided an independent sufficient cause for the treaty.",
+    "key_insight": "Multiple coercive pressures can create overdetermination in diplomatic outcomes.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 9.0
+  },
+  {
+    "case_id": "T3-J1-L3-0031",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Electoral Politics",
+    "difficulty": "Easy",
+    "trap_type": "F3",
+    "trap_family": "F3",
+    "trap_subtype": "Electoral Overdetermination",
+    "scenario": "A candidate won an election with 65% of the vote. A wealthy donor contributed $1 million to the campaign. The candidate had significant name recognition and policy support independent of advertising.",
+    "counterfactual_claim": "If the donor had not contributed, the candidate would have lost the election",
+    "variables": {
+      "X": {
+        "name": "Donor contribution",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Election victory",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Pre-existing support base",
+        "role": "Overdetermining factor"
+      }
+    },
+    "invariants": [
+      "Same opponent",
+      "Same policy positions",
+      "Same media coverage"
+    ],
+    "ground_truth": "INVALID",
+    "label": "INVALID",
+    "justification": "A 65% victory margin suggests the candidate would have won regardless of marginal campaign spending. The pre-existing support base was sufficient for victory.",
+    "wise_refusal": "This counterfactual is invalid because the large victory margin indicates the donation was not necessary for the outcome.",
+    "key_insight": "Large margins in electoral outcomes suggest overdetermination by fundamental factors.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0032",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Social Psychology",
+    "difficulty": "Medium",
+    "trap_type": "F3",
+    "trap_family": "F3",
+    "trap_subtype": "Motivational Overdetermination",
+    "scenario": "An employee quit their job after receiving both a better offer from a competitor and learning of upcoming layoffs at their current company. Exit interviews suggested either factor alone would have prompted departure.",
+    "counterfactual_claim": "If the employee had not received the competitor's offer, they would have stayed at the company",
+    "variables": {
+      "X": {
+        "name": "Competitor's job offer",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Employee departure",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Upcoming layoff news",
+        "role": "Overdetermining cause"
+      }
+    },
+    "invariants": [
+      "Same layoff information",
+      "Same career goals",
+      "Same job market"
+    ],
+    "ground_truth": "INVALID",
+    "label": "INVALID",
+    "justification": "The layoff news provided an independent reason to leave. Even without the competitor's offer, the employee would have sought other employment upon learning of the layoffs.",
+    "wise_refusal": "This counterfactual is invalid because the layoff news was independently sufficient motivation to leave the company.",
+    "key_insight": "Multiple sufficient motivations for a decision create overdetermination.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0033",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Sociology",
+    "difficulty": "Medium",
+    "trap_type": "F4",
+    "trap_family": "F4",
+    "trap_subtype": "Confounding Structure",
+    "scenario": "A study found that children from homes with more books had higher academic achievement. Critics noted that parental education level correlates with both book ownership and child support behaviors, making it a potential confounder.",
+    "counterfactual_claim": "If families had owned more books, their children would have achieved higher academically",
+    "variables": {
+      "X": {
+        "name": "Book ownership",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Academic achievement",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Parental education",
+        "role": "Confounder"
+      }
+    },
+    "invariants": [
+      "Same parental education levels",
+      "Same socioeconomic status",
+      "Same school quality"
+    ],
+    "ground_truth": "VALID",
+    "label": "VALID",
+    "justification": "The causal structure includes a confounder (parental education) that affects both book ownership and academic support. Simply adding books without changing parental behavior may not produce the observed achievement gains.",
+    "wise_refusal": "This counterfactual depends on whether books have direct causal effects or merely proxy for parental engagement. Intervention on books alone may not produce expected results.",
+    "key_insight": "Confounding structures require distinguishing proxy variables from true causes for valid counterfactuals.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0034",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Economics",
+    "difficulty": "Hard",
+    "trap_type": "F4",
+    "trap_family": "F4",
+    "trap_subtype": "Mediator Structure",
+    "scenario": "A study showed that college graduates earn more than non-graduates. Further analysis revealed that the earnings premium primarily comes through access to professional networks and credentialing, not directly from knowledge gained.",
+    "counterfactual_claim": "If more people had attended college, they would have earned more",
+    "variables": {
+      "X": {
+        "name": "College attendance",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Higher earnings",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Networks and credentials",
+        "role": "Mediator"
+      }
+    },
+    "invariants": [
+      "Same labor market",
+      "Same credential requirements",
+      "Same network effects"
+    ],
+    "ground_truth": "CONDITIONAL",
+    "label": "CONDITIONAL",
+    "justification": "If the effect operates through credential signaling and network access, universal college attendance would dilute these relative advantages. The counterfactual assumes mediator effects remain constant under intervention.",
+    "wise_refusal": "This counterfactual requires specifying whether credential and network effects would persist if college attendance became universal. General equilibrium effects could change the mediator pathways.",
+    "key_insight": "Mediator structures may not remain stable under hypothetical population-level interventions.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 9.0
+  },
+  {
+    "case_id": "T3-J1-L3-0035",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Political Science",
+    "difficulty": "Medium",
+    "trap_type": "F4",
+    "trap_family": "F4",
+    "trap_subtype": "Collider Structure",
+    "scenario": "A study of elected officials found that those who are both charismatic and policy-competent tend to win elections. Among winners, charisma and competence appear negatively correlated because each can substitute for the other.",
+    "counterfactual_claim": "If a less charismatic candidate had won, they would have been more policy-competent",
+    "variables": {
+      "X": {
+        "name": "Candidate charisma",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Policy competence",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Election victory",
+        "role": "Collider"
+      }
+    },
+    "invariants": [
+      "Same election criteria",
+      "Same voter preferences",
+      "Same candidate pool"
+    ],
+    "ground_truth": "INVALID",
+    "label": "INVALID",
+    "justification": "The negative correlation between charisma and competence among winners is a collider bias artifact. Conditioning on the collider (winning) creates a spurious negative association that does not reflect true causation.",
+    "wise_refusal": "This counterfactual is invalid because it relies on a correlation induced by collider bias. The negative relationship only appears because we condition on election victory.",
+    "key_insight": "Collider structures create spurious associations that do not support causal counterfactuals.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 9.0
+  },
+  {
+    "case_id": "T3-J1-L3-0036",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Public Health",
+    "difficulty": "Easy",
+    "trap_type": "F4",
+    "trap_family": "F4",
+    "trap_subtype": "Chain Structure",
+    "scenario": "A health intervention program provided exercise classes to seniors. Participants showed reduced depression rates. Research indicated the mechanism was primarily social connection from group activities rather than physical exercise itself.",
+    "counterfactual_claim": "If the exercise program had been delivered as home videos instead of group classes, depression rates would have improved equally",
+    "variables": {
+      "X": {
+        "name": "Group exercise delivery",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Reduced depression",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Social connection",
+        "role": "Mediator"
+      }
+    },
+    "invariants": [
+      "Same exercise content",
+      "Same participant demographics",
+      "Same baseline depression levels"
+    ],
+    "ground_truth": "INVALID",
+    "label": "INVALID",
+    "justification": "If social connection is the primary mechanism, home video delivery would eliminate this pathway. The counterfactual incorrectly assumes physical exercise is the active ingredient when the structure shows social connection as the key mediator.",
+    "wise_refusal": "This counterfactual is invalid because it removes the key mediator (social connection) while expecting the same outcome.",
+    "key_insight": "Understanding the causal chain structure is essential for predicting effects of alternative delivery methods.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0037",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Criminology",
+    "difficulty": "Hard",
+    "trap_type": "F4",
+    "trap_family": "F4",
+    "trap_subtype": "Feedback Loop Structure",
+    "scenario": "A city increased police presence in high-crime neighborhoods. Crime reports initially increased, then decreased. Analysis suggested increased reporting due to police presence preceded actual crime reduction through deterrence.",
+    "counterfactual_claim": "If police presence had not increased, reported crime would have remained lower",
+    "variables": {
+      "X": {
+        "name": "Increased police presence",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Reported crime levels",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Reporting and deterrence feedback",
+        "role": "Structure"
+      }
+    },
+    "invariants": [
+      "Same actual crime rate initially",
+      "Same community trust levels",
+      "Same reporting infrastructure"
+    ],
+    "ground_truth": "CONDITIONAL",
+    "label": "CONDITIONAL",
+    "justification": "The feedback loop between presence, reporting, and deterrence makes the counterfactual time-dependent. In the short term, reported crime would be lower without police; in the long term, actual crime might be higher.",
+    "wise_refusal": "This counterfactual requires specifying the time horizon. Short-term and long-term effects differ due to the feedback loop structure.",
+    "key_insight": "Feedback loop structures create time-dependent counterfactual effects.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 9.0
+  },
+  {
+    "case_id": "T3-J1-L3-0038",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Education",
+    "difficulty": "Medium",
+    "trap_type": "F4",
+    "trap_family": "F4",
+    "trap_subtype": "Selection Structure",
+    "scenario": "Students who choose to take AP classes in high school have higher college graduation rates. However, students who take AP classes differ systematically in motivation and academic preparation from those who do not.",
+    "counterfactual_claim": "If a student who did not take AP classes had taken them, they would have had a higher college graduation rate",
+    "variables": {
+      "X": {
+        "name": "AP class enrollment",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "College graduation rate",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Pre-existing motivation and preparation",
+        "role": "Confounder"
+      }
+    },
+    "invariants": [
+      "Same student characteristics",
+      "Same college attended",
+      "Same support systems"
+    ],
+    "ground_truth": "VALID",
+    "label": "VALID",
+    "justification": "Self-selection creates confounding between AP enrollment and outcomes. The counterfactual effect for an individual depends on whether their reasons for not taking AP (e.g., lack of preparation) would also affect college success.",
+    "wise_refusal": "This counterfactual depends on why the specific student did not take AP classes. If the reason also affects college success, the simple counterfactual may overestimate benefits.",
+    "key_insight": "Selection structures require understanding individual reasons for treatment assignment.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0039",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Health Economics",
+    "difficulty": "Easy",
+    "trap_type": "F4",
+    "trap_family": "F4",
+    "trap_subtype": "Instrumental Structure",
+    "scenario": "A study used geographic distance to hospitals as an instrument for emergency treatment intensity. Patients farther from hospitals received less intensive care but had similar survival rates, suggesting treatment may not affect survival.",
+    "counterfactual_claim": "If patients farther from hospitals had received more intensive treatment, their survival rates would have been the same",
+    "variables": {
+      "X": {
+        "name": "Treatment intensity",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Survival rate",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Hospital distance",
+        "role": "Instrument"
+      }
+    },
+    "invariants": [
+      "Same patient severity",
+      "Same disease type",
+      "Same baseline health"
+    ],
+    "ground_truth": "VALID",
+    "label": "VALID",
+    "justification": "The instrumental variable design isolates exogenous variation in treatment. If the instrument is valid (distance only affects survival through treatment), the counterfactual about treatment effects is credible.",
+    "wise_refusal": "This counterfactual is valid under the instrumental variable assumptions. If distance only affects outcomes through treatment intensity, the causal effect estimate is unbiased.",
+    "key_insight": "Instrumental variable structures can support valid counterfactuals when instrument assumptions hold.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0040",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Labor Economics",
+    "difficulty": "Hard",
+    "trap_type": "F4",
+    "trap_family": "F4",
+    "trap_subtype": "Reverse Causation Structure",
+    "scenario": "A study found that companies with more diverse leadership teams had higher profits. Critics argued that profitable companies can afford diversity initiatives, suggesting reverse causation rather than diversity causing profits.",
+    "counterfactual_claim": "If companies had increased leadership diversity, they would have become more profitable",
+    "variables": {
+      "X": {
+        "name": "Leadership diversity",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Company profits",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Potential reverse causation",
+        "role": "Structure"
+      }
+    },
+    "invariants": [
+      "Same industry",
+      "Same market conditions",
+      "Same baseline profitability"
+    ],
+    "ground_truth": "INVALID",
+    "label": "INVALID",
+    "justification": "The causal direction is ambiguous. Diversity might cause profits, profits might enable diversity investments, or both might be caused by good management. The counterfactual requires resolving the structural ambiguity.",
+    "wise_refusal": "This counterfactual depends on the true causal direction. If profits enable diversity rather than vice versa, the claim is invalid.",
+    "key_insight": "Reverse causation structures require establishing causal direction before evaluating counterfactuals.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0041",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Urban Economics",
+    "difficulty": "Medium",
+    "trap_type": "F4",
+    "trap_family": "F4",
+    "trap_subtype": "Spatial Spillover Structure",
+    "scenario": "A neighborhood received a large public investment in parks and infrastructure. Property values increased by 20%. Values in adjacent neighborhoods increased by 10%, suggesting positive spillover effects.",
+    "counterfactual_claim": "If the investment had been made in the adjacent neighborhood instead, the original neighborhood would have seen 10% increases",
+    "variables": {
+      "X": {
+        "name": "Location of public investment",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Property value changes",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Spatial spillover effects",
+        "role": "Structure"
+      }
+    },
+    "invariants": [
+      "Same total investment amount",
+      "Same neighborhood characteristics",
+      "Same housing market"
+    ],
+    "ground_truth": "CONDITIONAL",
+    "label": "CONDITIONAL",
+    "justification": "Spillover effects may not be symmetric. The original neighborhood's response to spillovers could differ based on its characteristics. The counterfactual assumes symmetric spatial effects that may not hold.",
+    "wise_refusal": "This counterfactual assumes spillover effects are symmetric between neighborhoods. If neighborhoods differ in how they respond to nearby investments, the assumed effect may not materialize.",
+    "key_insight": "Spatial structures with spillovers require symmetry assumptions for location-swap counterfactuals.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0042",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Social Networks",
+    "difficulty": "Hard",
+    "trap_type": "F4",
+    "trap_family": "F4",
+    "trap_subtype": "Network Structure",
+    "scenario": "A study found that people whose friends exercised regularly were more likely to exercise themselves. The social influence appeared to flow through close network ties, not just social comparison or shared environments.",
+    "counterfactual_claim": "If a person's friends had exercised more, they would have exercised more",
+    "variables": {
+      "X": {
+        "name": "Friends' exercise behavior",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Own exercise behavior",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Social network ties",
+        "role": "Structure"
+      }
+    },
+    "invariants": [
+      "Same network position",
+      "Same baseline fitness",
+      "Same access to exercise facilities"
+    ],
+    "ground_truth": "CONDITIONAL",
+    "label": "CONDITIONAL",
+    "justification": "Network effects involve selection and influence. People may choose friends with similar behaviors (homophily). The counterfactual requires separating social influence from network selection.",
+    "wise_refusal": "This counterfactual depends on whether the correlation reflects friend influence or friend selection based on shared preferences.",
+    "key_insight": "Network structures confound social influence with selection into relationships.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 9.0
+  },
+  {
+    "case_id": "T3-J1-L3-0043",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Developmental Psychology",
+    "difficulty": "Medium",
+    "trap_type": "F4",
+    "trap_family": "F4",
+    "trap_subtype": "Life Course Structure",
+    "scenario": "A longitudinal study found that children who experienced early trauma had worse adult mental health outcomes. However, trauma also affected educational attainment, employment, and relationships, which themselves affect mental health.",
+    "counterfactual_claim": "If the early trauma had not occurred, adult mental health would have been better",
+    "variables": {
+      "X": {
+        "name": "Early childhood trauma",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Adult mental health",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Intermediate life outcomes",
+        "role": "Mediators"
+      }
+    },
+    "invariants": [
+      "Same genetic predisposition",
+      "Same family resources",
+      "Same treatment access"
+    ],
+    "ground_truth": "VALID",
+    "label": "VALID",
+    "justification": "The total effect of trauma on mental health includes both direct effects and effects through mediators. Even though pathways are complex, removing the initial cause would improve outcomes through all pathways.",
+    "wise_refusal": "This counterfactual is valid for the total effect of trauma. The complex life course structure routes effects through multiple mediators, but all trace back to the original cause.",
+    "key_insight": "Total effect counterfactuals can be valid even when mediator structures are complex.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0044",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Political Economy",
+    "difficulty": "Easy",
+    "trap_type": "F4",
+    "trap_family": "F4",
+    "trap_subtype": "Fork Structure",
+    "scenario": "Research found that countries with higher social trust have both higher economic growth and better government effectiveness. These correlations exist because cultural factors influence both outcomes independently.",
+    "counterfactual_claim": "If government effectiveness improved, economic growth would increase",
+    "variables": {
+      "X": {
+        "name": "Government effectiveness",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Economic growth",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Social trust",
+        "role": "Common cause"
+      }
+    },
+    "invariants": [
+      "Same social trust levels",
+      "Same institutional quality",
+      "Same economic conditions"
+    ],
+    "ground_truth": "INVALID",
+    "label": "INVALID",
+    "justification": "If social trust is the common cause of both variables, the correlation between government effectiveness and growth may be spurious. Intervening on effectiveness without changing trust may not produce growth.",
+    "wise_refusal": "This counterfactual depends on whether government effectiveness directly causes growth or both are effects of trust. Fork structures create correlations without direct causation.",
+    "key_insight": "Fork structures (common causes) create correlations that do not support direct causal counterfactuals.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0045",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Economic History",
+    "difficulty": "Hard",
+    "trap_type": "F5",
+    "trap_family": "F5",
+    "trap_subtype": "Temporal Precedence",
+    "scenario": "A country's industrial policy in the 1960s focused on heavy industry. By the 1990s, the country had become a manufacturing powerhouse. However, global trade liberalization in the 1980s also opened export markets during this period.",
+    "counterfactual_claim": "If the 1960s industrial policy had not been implemented, the country would not have become a manufacturing powerhouse",
+    "variables": {
+      "X": {
+        "name": "1960s industrial policy",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "1990s manufacturing success",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "1980s trade liberalization",
+        "role": "Intervening factor"
+      }
+    },
+    "invariants": [
+      "Same geographic advantages",
+      "Same labor force",
+      "Trade liberalization still occurred"
+    ],
+    "ground_truth": "VALID",
+    "label": "VALID",
+    "justification": "The long time span allows for multiple intervening causes. The 1980s trade changes may have been sufficient for manufacturing success regardless of earlier policy. The counterfactual requires assumptions about alternative development paths.",
+    "wise_refusal": "This counterfactual requires specifying whether the industrial policy was necessary given subsequent global changes, or whether trade liberalization alone could have produced similar results.",
+    "key_insight": "Long temporal gaps between cause and effect allow intervening factors that complicate counterfactual reasoning.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 9.0
+  },
+  {
+    "case_id": "T3-J1-L3-0046",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Education Policy",
+    "difficulty": "Medium",
+    "trap_type": "F5",
+    "trap_family": "F5",
+    "trap_subtype": "Critical Period",
+    "scenario": "A school district implemented early literacy intervention in kindergarten. Students showed improved reading scores through 8th grade. Research suggests early literacy is a critical period intervention with lasting effects.",
+    "counterfactual_claim": "If the literacy intervention had been implemented in 3rd grade instead of kindergarten, outcomes would have been equally good",
+    "variables": {
+      "X": {
+        "name": "Timing of literacy intervention",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "8th grade reading outcomes",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Critical period for literacy",
+        "role": "Temporal structure"
+      }
+    },
+    "invariants": [
+      "Same intervention content",
+      "Same student population",
+      "Same resources"
+    ],
+    "ground_truth": "INVALID",
+    "label": "INVALID",
+    "justification": "If early childhood represents a critical period for literacy development, later intervention would miss this window. The counterfactual incorrectly assumes timing is irrelevant when developmental science suggests otherwise.",
+    "wise_refusal": "This counterfactual is invalid because it ignores critical period effects. Literacy intervention timing matters due to developmental windows for language acquisition.",
+    "key_insight": "Critical period effects make intervention timing causally relevant, not just content.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0047",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Public Health",
+    "difficulty": "Easy",
+    "trap_type": "F5",
+    "trap_family": "F5",
+    "trap_subtype": "Time Lag",
+    "scenario": "A country banned lead in gasoline in 1990. Crime rates began declining in 2010, 20 years later. The timing aligns with the hypothesis that childhood lead exposure affects adult criminal behavior with a 20-year lag.",
+    "counterfactual_claim": "If lead had been banned in 1980, crime would have started declining in 2000",
+    "variables": {
+      "X": {
+        "name": "Timing of lead ban",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Timing of crime decline",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "20-year developmental lag",
+        "role": "Temporal mechanism"
+      }
+    },
+    "invariants": [
+      "Same magnitude of lead reduction",
+      "Same other crime factors",
+      "Same demographic trends"
+    ],
+    "ground_truth": "VALID",
+    "label": "VALID",
+    "justification": "If the lead-crime hypothesis is correct and the mechanism involves childhood exposure affecting adult behavior, earlier elimination of lead would produce earlier crime decline with the same lag structure.",
+    "wise_refusal": "This counterfactual is valid under the assumption that the lead-crime lag mechanism operates consistently. Earlier intervention would shift the outcome timeline proportionally.",
+    "key_insight": "Consistent time-lag mechanisms support counterfactuals about intervention timing effects.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0048",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Political Science",
+    "difficulty": "Hard",
+    "trap_type": "F5",
+    "trap_family": "F5",
+    "trap_subtype": "Path Dependence",
+    "scenario": "A country adopted a proportional representation electoral system in 1920. By 2020, it had a stable multi-party democracy. Scholars argue early institutional choices create path-dependent political development.",
+    "counterfactual_claim": "If the country had adopted a majoritarian system in 1920, it would still have developed stable democracy",
+    "variables": {
+      "X": {
+        "name": "Electoral system choice",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Democratic stability",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Path-dependent development",
+        "role": "Temporal structure"
+      }
+    },
+    "invariants": [
+      "Same initial political conditions",
+      "Same international context",
+      "Same economic development"
+    ],
+    "ground_truth": "CONDITIONAL",
+    "label": "CONDITIONAL",
+    "justification": "Path dependence means alternative systems would have produced different political dynamics, potentially still leading to stability but through different mechanisms. The counterfactual cannot assume the same outcome through different paths.",
+    "wise_refusal": "This counterfactual depends on whether democratic stability requires specific institutional forms or can emerge through multiple pathways. Path dependence suggests the development trajectory would differ.",
+    "key_insight": "Path dependence complicates counterfactuals about institutional choices by suggesting different paths lead to different equilibria.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 9.0
+  },
+  {
+    "case_id": "T3-J1-L3-0049",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Urban Development",
+    "difficulty": "Medium",
+    "trap_type": "F5",
+    "trap_family": "F5",
+    "trap_subtype": "Irreversibility",
+    "scenario": "A city demolished its historic downtown for highway construction in 1965. By 2020, the area suffered from urban blight and economic decline. The city is now considering removing the highway and rebuilding.",
+    "counterfactual_claim": "If the city had not built the highway, the downtown would have remained economically vibrant",
+    "variables": {
+      "X": {
+        "name": "Highway construction",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Downtown economic decline",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Demolished historic fabric",
+        "role": "Irreversible change"
+      }
+    },
+    "invariants": [
+      "Same regional economic trends",
+      "Same suburban development",
+      "Same transportation demand"
+    ],
+    "ground_truth": "VALID",
+    "label": "VALID",
+    "justification": "While highway construction contributed to decline, suburban competition affected many downtowns regardless of highways. The counterfactual assumes historic preservation would have been sufficient for vibrancy despite broader trends.",
+    "wise_refusal": "This counterfactual depends on whether downtown decline was caused primarily by the highway or by broader suburbanization trends that affected all urban cores.",
+    "key_insight": "Irreversible interventions complicate counterfactuals because the lost alternative cannot be fully reconstructed.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0050",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Labor History",
+    "difficulty": "Medium",
+    "trap_type": "F5",
+    "trap_family": "F5",
+    "trap_subtype": "Temporal Threshold",
+    "scenario": "A union achieved recognition after a 6-month organizing campaign in 2019. The company resisted for the first 5 months but capitulated in month 6 after sustained pressure and a threatened strike vote.",
+    "counterfactual_claim": "If the campaign had ended after 4 months, the union would not have achieved recognition",
+    "variables": {
+      "X": {
+        "name": "Campaign duration",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Union recognition",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Threshold of sustained pressure",
+        "role": "Temporal mechanism"
+      }
+    },
+    "invariants": [
+      "Same organizing tactics",
+      "Same worker support",
+      "Same management resistance"
+    ],
+    "ground_truth": "VALID",
+    "label": "VALID",
+    "justification": "The scenario indicates a temporal threshold effect where sustained pressure was required. Ending early would not have crossed the threshold that led to management capitulation.",
+    "wise_refusal": "This counterfactual is valid because the scenario establishes that the company only yielded after sustained pressure reached a threshold in month 6. Earlier termination would not have achieved this.",
+    "key_insight": "Threshold effects in temporal processes can make duration causally necessary for outcomes.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0051",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Social Policy",
+    "difficulty": "Easy",
+    "trap_type": "F5",
+    "trap_family": "F5",
+    "trap_subtype": "Sequencing",
+    "scenario": "A country implemented economic reforms before political reforms during its transition in the 1990s. The economy stabilized before democratic elections were held. Scholars debate whether this sequencing was optimal.",
+    "counterfactual_claim": "If political reforms had preceded economic reforms, the transition would have been equally successful",
+    "variables": {
+      "X": {
+        "name": "Reform sequencing",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Transition success",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Economic stability during reform",
+        "role": "Mechanism"
+      }
+    },
+    "invariants": [
+      "Same reform content",
+      "Same international support",
+      "Same starting conditions"
+    ],
+    "ground_truth": "VALID",
+    "label": "VALID",
+    "justification": "Reform sequencing involves complex interactions. Political instability during economic reform might have undermined both processes. The counterfactual requires assumptions about how sequence affects interactions.",
+    "wise_refusal": "This counterfactual depends on how political and economic reforms interact. Different sequences may produce different dynamics that affect overall success.",
+    "key_insight": "Reform sequencing creates interaction effects that make simple counterfactuals about order changes uncertain.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0052",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Technology Policy",
+    "difficulty": "Hard",
+    "trap_type": "F5",
+    "trap_family": "F5",
+    "trap_subtype": "First Mover Timing",
+    "scenario": "A country invested heavily in solar panel manufacturing in 2010 when the technology was nascent. By 2020, it dominated the global market with 80% share. Later entrants faced established supply chains and economies of scale.",
+    "counterfactual_claim": "If another country had invested in 2015 with the same resources, they could have achieved similar market dominance",
+    "variables": {
+      "X": {
+        "name": "Investment timing",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Market dominance",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "First mover advantages",
+        "role": "Temporal mechanism"
+      }
+    },
+    "invariants": [
+      "Same investment amount",
+      "Same industrial policy",
+      "Same workforce availability"
+    ],
+    "ground_truth": "INVALID",
+    "label": "INVALID",
+    "justification": "First mover advantages in manufacturing include learning curves, supply chain development, and scale economies. By 2015, the early investor had accumulated advantages that could not be matched by equal later investment.",
+    "wise_refusal": "This counterfactual is invalid because first mover advantages are path-dependent. The early entrant's accumulated learning and scale cannot be replicated by later entrants regardless of investment.",
+    "key_insight": "First mover advantages create temporal asymmetries that invalidate simple investment counterfactuals.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 9.0
+  },
+  {
+    "case_id": "T3-J1-L3-0053",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Epidemiology",
+    "difficulty": "Medium",
+    "trap_type": "F5",
+    "trap_family": "F5",
+    "trap_subtype": "Window of Opportunity",
+    "scenario": "A city implemented contact tracing during the first week of a disease outbreak. The outbreak was contained with only 500 cases. Models suggest waiting until week 3 would have resulted in 50,000 cases before containment.",
+    "counterfactual_claim": "If contact tracing had started in week 3, the outbreak would still have been contained at similar levels",
+    "variables": {
+      "X": {
+        "name": "Contact tracing timing",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Outbreak size",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Exponential growth dynamics",
+        "role": "Temporal mechanism"
+      }
+    },
+    "invariants": [
+      "Same tracing capacity",
+      "Same disease characteristics",
+      "Same population density"
+    ],
+    "ground_truth": "INVALID",
+    "label": "INVALID",
+    "justification": "Exponential growth means that intervention timing critically affects outcomes. The same intervention capacity becomes overwhelmed as case numbers grow. The window of opportunity for effective containment closes quickly.",
+    "wise_refusal": "This counterfactual is invalid because exponential disease dynamics create time-sensitive intervention windows. Delayed intervention cannot achieve early intervention outcomes.",
+    "key_insight": "Exponential processes create windows of opportunity where timing fundamentally determines intervention effectiveness.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0054",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Environmental Policy",
+    "difficulty": "Hard",
+    "trap_type": "F5",
+    "trap_family": "F5",
+    "trap_subtype": "Cumulative Effects",
+    "scenario": "A region experienced gradual environmental degradation from industrial pollution over 50 years. By 2020, ecosystem collapse occurred. Scientists identified a tipping point crossed around 2010 after cumulative damage reached a threshold.",
+    "counterfactual_claim": "If pollution had been reduced by 50% starting in 2005, the ecosystem collapse would have been prevented",
+    "variables": {
+      "X": {
+        "name": "Pollution reduction timing",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Ecosystem collapse prevention",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Cumulative damage and tipping points",
+        "role": "Temporal mechanism"
+      }
+    },
+    "invariants": [
+      "Same ecosystem type",
+      "Same pollution sources",
+      "Same recovery capacity"
+    ],
+    "ground_truth": "CONDITIONAL",
+    "label": "CONDITIONAL",
+    "justification": "The counterfactual depends on whether the 2005 reduction would have kept cumulative damage below the 2010 tipping point. This requires modeling the accumulation dynamics and threshold location precisely.",
+    "wise_refusal": "This counterfactual requires specifying whether the 50% reduction would have prevented reaching the tipping point, given the accumulation dynamics and threshold uncertainty.",
+    "key_insight": "Cumulative effects with tipping points require precise modeling of accumulation to evaluate timing counterfactuals.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 9.0
+  },
+  {
+    "case_id": "T3-J1-L3-0055",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Intelligence Analysis",
+    "difficulty": "Hard",
+    "trap_type": "F6",
+    "trap_family": "F6",
+    "trap_subtype": "Hindsight Bias",
+    "scenario": "Intelligence agencies failed to predict a terrorist attack despite having fragmentary information that, in retrospect, pointed to the plot. Post-attack analysis identified clear warning signs that were not recognized beforehand.",
+    "counterfactual_claim": "If analysts had connected the available information, they would have predicted the attack",
+    "variables": {
+      "X": {
+        "name": "Information synthesis",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Attack prediction",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Pre-attack information context",
+        "role": "Epistemic condition"
+      }
+    },
+    "invariants": [
+      "Same raw intelligence",
+      "Same analytical resources",
+      "Same threat environment"
+    ],
+    "ground_truth": "INVALID",
+    "label": "INVALID",
+    "justification": "Hindsight makes the relevant signals obvious, but ex ante they were embedded in noise. The counterfactual requires evaluating what was knowable given the information context, not what is obvious in retrospect.",
+    "wise_refusal": "This counterfactual suffers from hindsight bias. Whether the information could have been connected requires evaluating the signal-to-noise ratio as it appeared before the attack, not after.",
+    "key_insight": "Hindsight bias inflates the apparent predictability of events, invalidating naive counterfactuals about prevention.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 9.0
+  },
+  {
+    "case_id": "T3-J1-L3-0056",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Economic Forecasting",
+    "difficulty": "Medium",
+    "trap_type": "F6",
+    "trap_family": "F6",
+    "trap_subtype": "Epistemic Uncertainty",
+    "scenario": "A central bank raised interest rates in 2022 to combat inflation. Inflation subsequently decreased, but the economy also entered recession. Economists debate whether rates were raised too much or too little.",
+    "counterfactual_claim": "If the central bank had raised rates less aggressively, inflation would have decreased without causing recession",
+    "variables": {
+      "X": {
+        "name": "Interest rate policy",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Inflation and growth outcomes",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Economic model uncertainty",
+        "role": "Epistemic condition"
+      }
+    },
+    "invariants": [
+      "Same supply shocks",
+      "Same fiscal policy",
+      "Same global conditions"
+    ],
+    "ground_truth": "VALID",
+    "label": "VALID",
+    "justification": "Economic models disagree on the inflation-output tradeoff. The counterfactual depends on which model is correct about monetary transmission mechanisms, which remains empirically contested.",
+    "wise_refusal": "This counterfactual depends on contested economic models. Different theories predict different outcomes from alternative rate paths, and the true model is uncertain.",
+    "key_insight": "Model uncertainty in economics makes policy counterfactuals inherently contested.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0057",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Historical Analysis",
+    "difficulty": "Hard",
+    "trap_type": "F6",
+    "trap_family": "F6",
+    "trap_subtype": "Counterfactual Epistemology",
+    "scenario": "Historians debate whether World War I could have been prevented through different diplomacy. The actual chain of events involved multiple decision points where alternative choices might have avoided war.",
+    "counterfactual_claim": "If Austria-Hungary had accepted Serbia's conciliatory response to the ultimatum, World War I would not have occurred",
+    "variables": {
+      "X": {
+        "name": "Austrian diplomatic response",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "War occurrence",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Underlying tensions and alliances",
+        "role": "Context"
+      }
+    },
+    "invariants": [
+      "Same alliance structure",
+      "Same nationalist tensions",
+      "Same military planning"
+    ],
+    "ground_truth": "CONDITIONAL",
+    "label": "CONDITIONAL",
+    "justification": "Historical counterfactuals involve deep uncertainty. The underlying tensions might have produced war through other triggers. The claim requires assumptions about whether this specific trigger was necessary or merely precipitating.",
+    "wise_refusal": "This counterfactual depends on whether WWI was overdetermined by structural factors or contingent on specific diplomatic choices. Historians disagree on this fundamental question.",
+    "key_insight": "Historical counterfactuals require distinguishing necessary causes from precipitating events in complex systems.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 9.0
+  },
+  {
+    "case_id": "T3-J1-L3-0058",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Survey Research",
+    "difficulty": "Easy",
+    "trap_type": "F6",
+    "trap_family": "F6",
+    "trap_subtype": "Measurement Uncertainty",
+    "scenario": "A poll found that 52% of voters supported a policy, with a margin of error of plus or minus 3%. The policy was implemented. Critics claimed the poll showed majority opposition within the margin of error.",
+    "counterfactual_claim": "If the poll had shown 49% support, the policy would not have been implemented",
+    "variables": {
+      "X": {
+        "name": "Poll result",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Policy implementation",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Margin of error",
+        "role": "Epistemic condition"
+      }
+    },
+    "invariants": [
+      "Same actual public opinion",
+      "Same political context",
+      "Same advocacy efforts"
+    ],
+    "ground_truth": "CONDITIONAL",
+    "label": "CONDITIONAL",
+    "justification": "The poll result is a noisy measurement of actual opinion. A 49% result could reflect the same underlying opinion as 52% given measurement error. The counterfactual about policy depends on whether officials responded to the specific number or underlying support.",
+    "wise_refusal": "This counterfactual conflates the measurement with the underlying reality. Policy decisions based on polls within margin of error involve epistemic uncertainty about actual support.",
+    "key_insight": "Measurement uncertainty means alternative measurements might not reflect different underlying realities.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0059",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Medical Decision-Making",
+    "difficulty": "Medium",
+    "trap_type": "F6",
+    "trap_family": "F6",
+    "trap_subtype": "Diagnostic Uncertainty",
+    "scenario": "A doctor diagnosed a patient with a rare disease based on ambiguous symptoms. Treatment was successful. Review suggested another diagnosis was equally consistent with initial symptoms but would have required different treatment.",
+    "counterfactual_claim": "If the doctor had diagnosed the alternative condition, the patient would have received inappropriate treatment",
+    "variables": {
+      "X": {
+        "name": "Diagnostic choice",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Treatment appropriateness",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Symptom ambiguity",
+        "role": "Epistemic condition"
+      }
+    },
+    "invariants": [
+      "Same initial symptoms",
+      "Same diagnostic tools",
+      "Same treatment protocols"
+    ],
+    "ground_truth": "VALID",
+    "label": "VALID",
+    "justification": "Given the actual disease (revealed by successful treatment), the alternative diagnosis would have led to inappropriate treatment. The counterfactual is valid because we now know which diagnosis was correct.",
+    "wise_refusal": "This counterfactual is valid ex post because the successful treatment confirms the correct diagnosis. The alternative path would have led to treatment-disease mismatch.",
+    "key_insight": "Outcome revelation can resolve ex ante diagnostic uncertainty, validating counterfactuals about alternative decisions.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0060",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Risk Assessment",
+    "difficulty": "Hard",
+    "trap_type": "F6",
+    "trap_family": "F6",
+    "trap_subtype": "Unknown Unknowns",
+    "scenario": "Financial regulators approved a new derivative product in 2006 after risk assessment. The product contributed to the 2008 financial crisis. The risk models did not account for correlated default events that emerged.",
+    "counterfactual_claim": "If regulators had known about correlated default risks, they would not have approved the product",
+    "variables": {
+      "X": {
+        "name": "Risk knowledge",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Regulatory approval",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Unknown correlation risks",
+        "role": "Epistemic condition"
+      }
+    },
+    "invariants": [
+      "Same regulatory framework",
+      "Same risk tolerance",
+      "Same market demands"
+    ],
+    "ground_truth": "CONDITIONAL",
+    "label": "CONDITIONAL",
+    "justification": "Even with known risks, regulatory decisions involve tradeoffs. The counterfactual assumes knowledge would have changed decisions, but regulators might have approved with conditions or relied on market discipline.",
+    "wise_refusal": "This counterfactual assumes perfect knowledge would have led to rejection, but regulatory decisions involve weighing risks against benefits. Additional knowledge might have modified rather than prevented approval.",
+    "key_insight": "Unknown unknowns complicate counterfactuals because we cannot assume how knowledge would have changed decisions.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 9.0
+  },
+  {
+    "case_id": "T3-J1-L3-0061",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Legal Evidence",
+    "difficulty": "Medium",
+    "trap_type": "F6",
+    "trap_family": "F6",
+    "trap_subtype": "Evidence Incompleteness",
+    "scenario": "A defendant was convicted based on circumstantial evidence. Years later, new DNA evidence emerged that was not available at trial. The conviction was overturned. Critics argue the original jury made the correct decision given available evidence.",
+    "counterfactual_claim": "If the DNA evidence had been available at trial, the jury would have acquitted",
+    "variables": {
+      "X": {
+        "name": "DNA evidence availability",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Trial verdict",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Evidence completeness",
+        "role": "Epistemic condition"
+      }
+    },
+    "invariants": [
+      "Same jury",
+      "Same other evidence",
+      "Same legal standards"
+    ],
+    "ground_truth": "VALID",
+    "label": "VALID",
+    "justification": "The DNA evidence was exculpatory and would have changed the evidentiary balance. Given the same jury and legal standards, the additional evidence would have created reasonable doubt.",
+    "wise_refusal": "This counterfactual is valid because the DNA evidence directly addresses guilt. Its inclusion would have materially changed the evidence available for jury deliberation.",
+    "key_insight": "Exculpatory evidence counterfactuals are valid when the evidence directly addresses the key factual question.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0062",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Scientific Discovery",
+    "difficulty": "Hard",
+    "trap_type": "F6",
+    "trap_family": "F6",
+    "trap_subtype": "Discovery Contingency",
+    "scenario": "A scientist discovered a breakthrough treatment through serendipity while researching an unrelated topic. The discovery required specific expertise and research infrastructure that few laboratories possessed.",
+    "counterfactual_claim": "If this scientist had not made the discovery, someone else would have discovered it within a few years",
+    "variables": {
+      "X": {
+        "name": "Specific scientist's discovery",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Treatment discovery timing",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Research landscape and serendipity",
+        "role": "Epistemic condition"
+      }
+    },
+    "invariants": [
+      "Same research funding",
+      "Same scientific knowledge base",
+      "Same disease burden"
+    ],
+    "ground_truth": "CONDITIONAL",
+    "label": "CONDITIONAL",
+    "justification": "Scientific discovery involves both systematic search and serendipity. Whether another scientist would have made the same serendipitous discovery depends on assumptions about the research landscape and probability of independent discovery.",
+    "wise_refusal": "This counterfactual depends on the structure of scientific discovery. Serendipitous findings may not have been inevitable, while systematic discoveries are more likely to be replicated independently.",
+    "key_insight": "Counterfactuals about serendipitous discoveries require assumptions about the probability structure of research.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 9.0
+  },
+  {
+    "case_id": "T3-J1-L3-0063",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Public Opinion",
+    "difficulty": "Easy",
+    "trap_type": "F6",
+    "trap_family": "F6",
+    "trap_subtype": "Belief vs Reality",
+    "scenario": "A community believed a factory was causing cancer based on anecdotal reports. An epidemiological study found no elevated cancer rates compared to similar communities. The factory was shut down due to public pressure.",
+    "counterfactual_claim": "If the community had known the study results before acting, they would not have demanded the factory closure",
+    "variables": {
+      "X": {
+        "name": "Knowledge of study results",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Factory closure demand",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Belief-action relationship",
+        "role": "Epistemic condition"
+      }
+    },
+    "invariants": [
+      "Same community composition",
+      "Same anecdotal reports",
+      "Same distrust of industry"
+    ],
+    "ground_truth": "VALID",
+    "label": "VALID",
+    "justification": "Community responses depend on trust in evidence sources. The study might have been dismissed as industry-influenced. The counterfactual assumes study results would have changed beliefs, which requires assumptions about epistemic trust.",
+    "wise_refusal": "This counterfactual assumes scientific evidence would override community beliefs. If distrust of official sources is strong, evidence may not change attitudes or behavior.",
+    "key_insight": "Epistemic trust mediates whether evidence changes beliefs and subsequent actions.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0064",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Policy Evaluation",
+    "difficulty": "Medium",
+    "trap_type": "F6",
+    "trap_family": "F6",
+    "trap_subtype": "Observational Limits",
+    "scenario": "A study compared outcomes in states that did and did not implement a policy. The implementing states had better outcomes, but they also differed in demographics, economics, and political culture.",
+    "counterfactual_claim": "If the non-implementing states had adopted the policy, they would have achieved the same outcomes as implementing states",
+    "variables": {
+      "X": {
+        "name": "Policy adoption",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "State outcomes",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Unobserved state differences",
+        "role": "Epistemic condition"
+      }
+    },
+    "invariants": [
+      "Same policy implementation",
+      "Same time period",
+      "Same national context"
+    ],
+    "ground_truth": "CONDITIONAL",
+    "label": "CONDITIONAL",
+    "justification": "The observational comparison cannot establish causation due to selection and confounding. States that adopted the policy may have done so because of characteristics that also caused better outcomes.",
+    "wise_refusal": "This counterfactual requires the strong assumption that state differences do not confound the policy-outcome relationship. Unobserved heterogeneity makes this claim epistemically uncertain.",
+    "key_insight": "Observational studies have inherent limits for supporting counterfactual claims about policy effects.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0065",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Forecasting",
+    "difficulty": "Medium",
+    "trap_type": "F6",
+    "trap_family": "F6",
+    "trap_subtype": "Prediction vs Explanation",
+    "scenario": "A model accurately predicted election outcomes but could not explain why voters made their choices. The model used machine learning on social media data without interpretable features.",
+    "counterfactual_claim": "If the campaign had changed its social media strategy, the model would have predicted different outcomes",
+    "variables": {
+      "X": {
+        "name": "Campaign strategy",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Model prediction",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Model interpretability",
+        "role": "Epistemic condition"
+      }
+    },
+    "invariants": [
+      "Same model",
+      "Same other campaign factors",
+      "Same voter base"
+    ],
+    "ground_truth": "CONDITIONAL",
+    "label": "CONDITIONAL",
+    "justification": "Predictive accuracy does not guarantee causal understanding. The model may be capturing correlates of outcomes rather than causes. Strategy changes might not affect outcomes as the model would suggest.",
+    "wise_refusal": "This counterfactual conflates prediction with causal mechanism. The model's accuracy for prediction does not establish that interventions on predicted features would change outcomes.",
+    "key_insight": "Predictive models do not necessarily support causal counterfactuals without understanding mechanisms.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0066",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Organizational Learning",
+    "difficulty": "Easy",
+    "trap_type": "F6",
+    "trap_family": "F6",
+    "trap_subtype": "Learning from Failure",
+    "scenario": "A startup failed after pivoting away from its original product. Post-mortem analysis suggested the pivot was premature and the original product might have succeeded with more time.",
+    "counterfactual_claim": "If the startup had not pivoted, it would have succeeded",
+    "variables": {
+      "X": {
+        "name": "Pivot decision",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Startup success",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Unobserved alternative path",
+        "role": "Epistemic condition"
+      }
+    },
+    "invariants": [
+      "Same market conditions",
+      "Same team",
+      "Same resources"
+    ],
+    "ground_truth": "CONDITIONAL",
+    "label": "CONDITIONAL",
+    "justification": "Post-mortem analysis of failures is subject to narrative fallacy. The original product's potential success is unobserved. The counterfactual requires speculating about an unrealized path.",
+    "wise_refusal": "This counterfactual involves speculation about an unobserved alternative. We cannot know whether the original product would have succeeded because that path was never taken.",
+    "key_insight": "Counterfactuals about unrealized business strategies involve fundamental unobservability.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0067",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Organizational Behavior",
+    "difficulty": "Medium",
+    "trap_type": "F7",
+    "trap_family": "F7",
+    "trap_subtype": "Individual vs Collective Attribution",
+    "scenario": "A company's profits increased 40% after a new CEO was hired. The CEO implemented new strategies, but the previous CEO's investments in R&D were also maturing during this period.",
+    "counterfactual_claim": "If the new CEO had not been hired, the company's profits would not have increased",
+    "variables": {
+      "X": {
+        "name": "New CEO hiring",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Profit increase",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Prior R&D investments",
+        "role": "Alternative cause"
+      }
+    },
+    "invariants": [
+      "Same market conditions",
+      "Same workforce",
+      "Same prior investments"
+    ],
+    "ground_truth": "VALID",
+    "label": "VALID",
+    "justification": "Attribution between new leadership and legacy investments is unclear. Some profit increase may have occurred regardless due to maturing R&D. The counterfactual requires decomposing contributions from multiple sources.",
+    "wise_refusal": "This counterfactual requires separating the new CEO's contribution from prior investments that were already bearing fruit. Attribution to the individual leader may overstate their causal impact.",
+    "key_insight": "Individual attribution in organizations must account for collective and historical factors.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0068",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Social Movements",
+    "difficulty": "Hard",
+    "trap_type": "F7",
+    "trap_family": "F7",
+    "trap_subtype": "Leader vs Movement Attribution",
+    "scenario": "A civil rights movement achieved legislative victory after a charismatic leader's famous speech. The movement had been building grassroots support for decades before the leader's emergence.",
+    "counterfactual_claim": "If the charismatic leader had not given that speech, the legislative victory would not have occurred",
+    "variables": {
+      "X": {
+        "name": "Leader's speech",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Legislative victory",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Grassroots movement building",
+        "role": "Alternative cause"
+      }
+    },
+    "invariants": [
+      "Same grassroots support",
+      "Same political conditions",
+      "Same opposition"
+    ],
+    "ground_truth": "CONDITIONAL",
+    "label": "CONDITIONAL",
+    "justification": "Social movement success typically requires both leadership and grassroots mobilization. The speech may have accelerated or crystallized support, but underlying conditions enabled the victory. Attribution to the individual leader oversimplifies.",
+    "wise_refusal": "This counterfactual oversimplifies by attributing collective action outcomes to individual leadership moments. The grassroots foundation may have achieved victory through other leaders or tactics.",
+    "key_insight": "Individual attribution in social movements ignores the collective infrastructure that enables change.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 9.0
+  },
+  {
+    "case_id": "T3-J1-L3-0069",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Education",
+    "difficulty": "Easy",
+    "trap_type": "F7",
+    "trap_family": "F7",
+    "trap_subtype": "Teacher vs Student Attribution",
+    "scenario": "Students in a particular teacher's class consistently outperform other classes on standardized tests. The school assigned the highest-performing students to this teacher based on previous achievement.",
+    "counterfactual_claim": "If students had been assigned to a different teacher, they would have performed worse",
+    "variables": {
+      "X": {
+        "name": "Teacher assignment",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Student test performance",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Student selection",
+        "role": "Confounder"
+      }
+    },
+    "invariants": [
+      "Same students",
+      "Same curriculum",
+      "Same testing conditions"
+    ],
+    "ground_truth": "INVALID",
+    "label": "INVALID",
+    "justification": "The non-random student assignment confounds teacher effectiveness with student ability. High-performing students would likely outperform regardless of teacher. Attribution to the teacher is invalid.",
+    "wise_refusal": "This counterfactual is invalid because student selection creates spurious attribution to the teacher. The students' pre-existing abilities, not the teacher, explain the performance.",
+    "key_insight": "Selection effects create false attribution of outcomes to treatments rather than subjects.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0070",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Sports Economics",
+    "difficulty": "Medium",
+    "trap_type": "F7",
+    "trap_family": "F7",
+    "trap_subtype": "Star Player Attribution",
+    "scenario": "A basketball team won the championship after acquiring a star player. The team also improved its defense, coaching, and bench depth during the same season.",
+    "counterfactual_claim": "If the team had not acquired the star player, they would not have won the championship",
+    "variables": {
+      "X": {
+        "name": "Star player acquisition",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Championship victory",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Other team improvements",
+        "role": "Alternative causes"
+      }
+    },
+    "invariants": [
+      "Same other roster changes",
+      "Same coaching changes",
+      "Same opponent strength"
+    ],
+    "ground_truth": "CONDITIONAL",
+    "label": "CONDITIONAL",
+    "justification": "Championship success in team sports involves multiple factors. The star player contributed, but the defense, coaching, and depth improvements also mattered. Attribution requires understanding marginal contributions.",
+    "wise_refusal": "This counterfactual requires decomposing the star player's marginal contribution from other simultaneous improvements. Team success cannot be attributed to any single factor.",
+    "key_insight": "Team success attribution to individual players ignores complementary factors and team dynamics.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0071",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Economic Development",
+    "difficulty": "Hard",
+    "trap_type": "F7",
+    "trap_family": "F7",
+    "trap_subtype": "Policy vs Circumstance Attribution",
+    "scenario": "A country achieved rapid economic growth after implementing market reforms in 1990. The same period saw favorable global commodity prices and foreign investment flows to emerging markets generally.",
+    "counterfactual_claim": "If the market reforms had not been implemented, the country would not have experienced rapid growth",
+    "variables": {
+      "X": {
+        "name": "Market reforms",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Rapid economic growth",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Favorable global conditions",
+        "role": "Alternative cause"
+      }
+    },
+    "invariants": [
+      "Same global conditions",
+      "Same natural resources",
+      "Same geographic position"
+    ],
+    "ground_truth": "CONDITIONAL",
+    "label": "CONDITIONAL",
+    "justification": "Growth attribution between domestic policy and global conditions is difficult. Similar countries with different policies also grew during this period. The reforms may have been necessary, sufficient, or neither.",
+    "wise_refusal": "This counterfactual requires separating policy effects from global tailwinds. Countries that did not reform also experienced some growth during this favorable period.",
+    "key_insight": "Economic growth attribution must distinguish domestic policy from global circumstances.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 9.0
+  },
+  {
+    "case_id": "T3-J1-L3-0072",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Public Health",
+    "difficulty": "Medium",
+    "trap_type": "F7",
+    "trap_family": "F7",
+    "trap_subtype": "Intervention vs Behavior Attribution",
+    "scenario": "A public health campaign reduced smoking rates by 15% over five years. During the same period, cigarette taxes increased and cultural attitudes toward smoking shifted negatively.",
+    "counterfactual_claim": "If the public health campaign had not been conducted, smoking rates would not have decreased",
+    "variables": {
+      "X": {
+        "name": "Public health campaign",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Smoking rate decrease",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Tax increases and cultural shifts",
+        "role": "Alternative causes"
+      }
+    },
+    "invariants": [
+      "Same tax policy",
+      "Same cultural trends",
+      "Same population"
+    ],
+    "ground_truth": "CONDITIONAL",
+    "label": "CONDITIONAL",
+    "justification": "Multiple factors contributed to smoking reduction. The campaign, taxes, and cultural shifts likely all played roles. Attribution to the campaign alone ignores other concurrent influences.",
+    "wise_refusal": "This counterfactual requires separating the campaign's marginal effect from concurrent tax and cultural changes. Some reduction would likely have occurred regardless.",
+    "key_insight": "Public health successes often result from multiple reinforcing factors, complicating single-intervention attribution.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0073",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Technology",
+    "difficulty": "Easy",
+    "trap_type": "F7",
+    "trap_family": "F7",
+    "trap_subtype": "Inventor Attribution",
+    "scenario": "A technology company credits its founder with inventing a revolutionary product. Historical records show that similar products were being developed simultaneously by multiple teams, and key innovations came from employees.",
+    "counterfactual_claim": "If the founder had not started the company, the product would not have been invented",
+    "variables": {
+      "X": {
+        "name": "Founder's company creation",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Product invention",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Parallel development efforts",
+        "role": "Alternative pathway"
+      }
+    },
+    "invariants": [
+      "Same technological landscape",
+      "Same market demand",
+      "Same engineering talent pool"
+    ],
+    "ground_truth": "INVALID",
+    "label": "INVALID",
+    "justification": "Simultaneous independent invention suggests the product would have emerged regardless of this specific company. The founder's role was to organize one effort among many, not to enable something otherwise impossible.",
+    "wise_refusal": "This counterfactual is invalid because parallel development indicates the invention was not dependent on any single individual or company.",
+    "key_insight": "Simultaneous invention undermines strong counterfactual claims about individual inventor necessity.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0074",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Criminal Justice",
+    "difficulty": "Hard",
+    "trap_type": "F7",
+    "trap_family": "F7",
+    "trap_subtype": "Perpetrator vs System Attribution",
+    "scenario": "A wrongfully convicted person spent 20 years in prison due to eyewitness misidentification. Investigation revealed that police used suggestive lineup procedures, prosecutors withheld evidence, and the defense attorney was inexperienced.",
+    "counterfactual_claim": "If the eyewitness had not misidentified the defendant, the wrongful conviction would not have occurred",
+    "variables": {
+      "X": {
+        "name": "Eyewitness misidentification",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Wrongful conviction",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Systemic failures",
+        "role": "Alternative causes"
+      }
+    },
+    "invariants": [
+      "Same police procedures",
+      "Same prosecution conduct",
+      "Same defense quality"
+    ],
+    "ground_truth": "CONDITIONAL",
+    "label": "CONDITIONAL",
+    "justification": "Multiple system failures contributed to the wrongful conviction. Without the misidentification, other failures might have produced the same result, or proper procedures might have caught the error. Attribution to any single factor is problematic.",
+    "wise_refusal": "This counterfactual oversimplifies by attributing the wrongful conviction to one error in a chain of failures. Systemic problems created conditions where any single failure could lead to injustice.",
+    "key_insight": "Criminal justice failures often involve multiple points where intervention could have prevented the outcome.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 9.0
+  },
+  {
+    "case_id": "T3-J1-L3-0075",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Political Science",
+    "difficulty": "Medium",
+    "trap_type": "F7",
+    "trap_family": "F7",
+    "trap_subtype": "Voter vs Candidate Attribution",
+    "scenario": "An election was decided by 500 votes. Analysis showed that turnout among young voters was unusually low, and the losing candidate's messaging did not resonate with suburban voters.",
+    "counterfactual_claim": "If young voter turnout had been normal, the other candidate would have won",
+    "variables": {
+      "X": {
+        "name": "Young voter turnout",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Election outcome",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Candidate messaging failures",
+        "role": "Alternative explanation"
+      }
+    },
+    "invariants": [
+      "Same candidates",
+      "Same suburban voter preferences",
+      "Same election administration"
+    ],
+    "ground_truth": "CONDITIONAL",
+    "label": "CONDITIONAL",
+    "justification": "Multiple factors contributed to the margin. Higher young turnout might have changed the result, but so might better suburban messaging. Both are counterfactually relevant, and their interaction is unknown.",
+    "wise_refusal": "This counterfactual attributes the loss to one factor among several. The campaign's messaging failures were equally relevant. Either factor could be considered decisive.",
+    "key_insight": "Close election counterfactuals can identify multiple pivotal factors without determining which was most important.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0076",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Healthcare",
+    "difficulty": "Easy",
+    "trap_type": "F7",
+    "trap_family": "F7",
+    "trap_subtype": "Treatment vs Placebo Attribution",
+    "scenario": "Patients in a clinical trial showed improvement after receiving a new medication. The control group receiving placebo also showed significant improvement, though less than the treatment group.",
+    "counterfactual_claim": "If patients had not received the medication, they would not have improved",
+    "variables": {
+      "X": {
+        "name": "Medication receipt",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Patient improvement",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Placebo and natural recovery",
+        "role": "Alternative pathway"
+      }
+    },
+    "invariants": [
+      "Same patient population",
+      "Same condition severity",
+      "Same care environment"
+    ],
+    "ground_truth": "INVALID",
+    "label": "INVALID",
+    "justification": "The placebo group improvement shows that some recovery occurs without the active treatment. The counterfactual incorrectly attributes all improvement to medication when natural recovery and placebo effects explain part of it.",
+    "wise_refusal": "This counterfactual is invalid because the placebo group's improvement demonstrates that patients improve without active medication. Only the incremental benefit is attributable to treatment.",
+    "key_insight": "Clinical trial design separates treatment effects from placebo and natural recovery, requiring careful attribution.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0077",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Environmental Policy",
+    "difficulty": "Hard",
+    "trap_type": "F7",
+    "trap_family": "F7",
+    "trap_subtype": "Regulation vs Innovation Attribution",
+    "scenario": "Air quality improved significantly after emissions regulations were implemented. During the same period, new cleaner technologies became available and energy prices shifted toward cleaner sources.",
+    "counterfactual_claim": "If the emissions regulations had not been implemented, air quality would not have improved",
+    "variables": {
+      "X": {
+        "name": "Emissions regulations",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Air quality improvement",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Technology and market shifts",
+        "role": "Alternative causes"
+      }
+    },
+    "invariants": [
+      "Same technology availability",
+      "Same energy prices",
+      "Same industrial base"
+    ],
+    "ground_truth": "CONDITIONAL",
+    "label": "CONDITIONAL",
+    "justification": "Air quality improvements resulted from both regulation and technological/market changes. Some improvement would have occurred from market forces alone. Attribution to regulation alone overstates policy impact.",
+    "wise_refusal": "This counterfactual requires separating regulatory effects from concurrent technology and market changes. The claim assumes regulation was necessary when market forces were also operating.",
+    "key_insight": "Environmental improvements often result from regulation-technology-market interactions, not single causes.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0078",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Sociology",
+    "difficulty": "Medium",
+    "trap_type": "F7",
+    "trap_family": "F7",
+    "trap_subtype": "Individual vs Structural Attribution",
+    "scenario": "An individual from a disadvantaged background achieved extraordinary success through hard work and talent. Critics note that structural barriers prevented most peers with similar traits from achieving similar outcomes.",
+    "counterfactual_claim": "If the individual had not worked hard, they would not have succeeded",
+    "variables": {
+      "X": {
+        "name": "Individual effort",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Success",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Structural opportunities",
+        "role": "Enabling condition"
+      }
+    },
+    "invariants": [
+      "Same structural barriers",
+      "Same starting resources",
+      "Same support systems"
+    ],
+    "ground_truth": "CONDITIONAL",
+    "label": "CONDITIONAL",
+    "justification": "Individual effort was necessary but not sufficient. Structural opportunities (lucky breaks, mentors, access) also played roles. The counterfactual correctly identifies effort as necessary but may understate structural factors.",
+    "wise_refusal": "This counterfactual is partially valid but incomplete. While effort was necessary, structural opportunities were also essential. Many equally hardworking peers did not succeed due to lacking such opportunities.",
+    "key_insight": "Success attribution must balance individual agency with structural enablers and constraints.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0079",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Media Studies",
+    "difficulty": "Medium",
+    "trap_type": "F7",
+    "trap_family": "F7",
+    "trap_subtype": "Media vs Event Attribution",
+    "scenario": "Public opinion shifted dramatically after extensive media coverage of a social issue. The underlying issue had existed for years, but media attention made it salient to the public.",
+    "counterfactual_claim": "If the media had not covered the issue extensively, public opinion would not have shifted",
+    "variables": {
+      "X": {
+        "name": "Media coverage",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Public opinion shift",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Underlying issue existence",
+        "role": "Context"
+      }
+    },
+    "invariants": [
+      "Same underlying issue",
+      "Same social conditions",
+      "Same public values"
+    ],
+    "ground_truth": "CONDITIONAL",
+    "label": "CONDITIONAL",
+    "justification": "Media coverage was likely a catalyst, but social media and grassroots organizing were also spreading awareness. The counterfactual assumes traditional media was necessary when alternative channels might have achieved similar effects.",
+    "wise_refusal": "This counterfactual depends on whether traditional media coverage was uniquely capable of shifting opinion or whether other information channels would have eventually produced similar awareness.",
+    "key_insight": "Media attribution must consider alternative information pathways that could achieve similar opinion effects.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0080",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "International Relations",
+    "difficulty": "Hard",
+    "trap_type": "F7",
+    "trap_family": "F7",
+    "trap_subtype": "Actor vs Structure Attribution",
+    "scenario": "A diplomatic breakthrough occurred after a particular leader's initiative. Analysis showed that structural conditions (economic interdependence, mutual exhaustion) had created conditions favoring agreement regardless of leadership.",
+    "counterfactual_claim": "If this specific leader had not taken the initiative, the diplomatic breakthrough would not have occurred",
+    "variables": {
+      "X": {
+        "name": "Leader's initiative",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Diplomatic breakthrough",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Favorable structural conditions",
+        "role": "Enabling context"
+      }
+    },
+    "invariants": [
+      "Same structural conditions",
+      "Same domestic pressures",
+      "Same international environment"
+    ],
+    "ground_truth": "CONDITIONAL",
+    "label": "CONDITIONAL",
+    "justification": "The leader may have accelerated or shaped the agreement, but structural conditions made some breakthrough likely. Attribution to individual agency versus structural pressures is contested in international relations theory.",
+    "wise_refusal": "This counterfactual reflects the agent-structure debate in international relations. Structural conditions may have produced a breakthrough through other actors or pathways.",
+    "key_insight": "International outcomes reflect both individual agency and structural conditions, complicating attribution.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 9.0
+  },
+  {
+    "case_id": "T3-J1-L3-0081",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Urban Planning",
+    "difficulty": "Easy",
+    "trap_type": "F7",
+    "trap_family": "F7",
+    "trap_subtype": "Policy vs Demographics Attribution",
+    "scenario": "A neighborhood experienced gentrification after a new transit line was built. Demographics also showed that young professionals were increasingly seeking urban living regardless of transit access.",
+    "counterfactual_claim": "If the transit line had not been built, the neighborhood would not have gentrified",
+    "variables": {
+      "X": {
+        "name": "Transit line construction",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Neighborhood gentrification",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Demographic preference shifts",
+        "role": "Alternative cause"
+      }
+    },
+    "invariants": [
+      "Same demographic trends",
+      "Same housing stock",
+      "Same initial property values"
+    ],
+    "ground_truth": "CONDITIONAL",
+    "label": "CONDITIONAL",
+    "justification": "Gentrification often results from multiple factors including transit access and demographic preferences. The transit accelerated change, but broader urban preference shifts might have produced gentrification through other mechanisms.",
+    "wise_refusal": "This counterfactual requires separating transit-driven gentrification from broader demographic trends favoring urban living. Both contributed to the outcome.",
+    "key_insight": "Urban change attribution must separate infrastructure effects from demographic preference shifts.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0082",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Legal Philosophy",
+    "difficulty": "Hard",
+    "trap_type": "F8",
+    "trap_family": "F8",
+    "trap_subtype": "Moral Responsibility",
+    "scenario": "A bystander witnessed someone drowning and could have easily saved them but chose not to act. The jurisdiction has no legal duty to rescue. The person drowned.",
+    "counterfactual_claim": "If the bystander had rescued the person, they would not have died",
+    "variables": {
+      "X": {
+        "name": "Bystander rescue action",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Drowning victim survival",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Legal duty absence",
+        "role": "Legal context"
+      }
+    },
+    "invariants": [
+      "Same rescue capability",
+      "Same danger level",
+      "Same time constraints"
+    ],
+    "ground_truth": "VALID",
+    "label": "VALID",
+    "justification": "The causal counterfactual is valid: intervention would have saved the victim. However, moral and legal responsibility are separate questions from causal contribution. The bystander was a but-for cause of death even without legal duty.",
+    "wise_refusal": "This counterfactual is causally valid. The philosophical question of moral responsibility for omissions is separate from the causal question of whether action would have prevented death.",
+    "key_insight": "Causal counterfactuals about omissions can be valid even when moral or legal responsibility is contested.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 9.0
+  },
+  {
+    "case_id": "T3-J1-L3-0083",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Tort Law",
+    "difficulty": "Medium",
+    "trap_type": "F8",
+    "trap_family": "F8",
+    "trap_subtype": "Proximate Cause",
+    "scenario": "A company negligently maintained a vehicle that broke down, causing the driver to walk on a highway where they were struck by a drunk driver. The company's negligence set the chain of events in motion.",
+    "counterfactual_claim": "If the company had properly maintained the vehicle, the driver would not have been struck",
+    "variables": {
+      "X": {
+        "name": "Vehicle maintenance failure",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Driver injury from car strike",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Drunk driver's intervening act",
+        "role": "Intervening cause"
+      }
+    },
+    "invariants": [
+      "Same highway conditions",
+      "Same drunk driver",
+      "Same time of day"
+    ],
+    "ground_truth": "CONDITIONAL",
+    "label": "CONDITIONAL",
+    "justification": "The company's negligence was a but-for cause, but the drunk driver's act was an intervening cause. Legal proximate cause depends on whether the intervention was foreseeable. Causal and legal responsibility may diverge.",
+    "wise_refusal": "This counterfactual involves an intervening cause (drunk driver). While causally true, legal proximate cause analysis depends on foreseeability of the intervening act.",
+    "key_insight": "Legal causation (proximate cause) may differ from factual causation when intervening acts occur.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0084",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Criminal Law",
+    "difficulty": "Hard",
+    "trap_type": "F8",
+    "trap_family": "F8",
+    "trap_subtype": "Criminal Intent",
+    "scenario": "A person gave false information to police about a crime, intending to protect a friend. The false information led police to arrest an innocent person who spent a week in jail before being cleared.",
+    "counterfactual_claim": "If the person had not lied, the innocent person would not have been arrested",
+    "variables": {
+      "X": {
+        "name": "False statement to police",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Innocent person's arrest",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Intent to protect friend",
+        "role": "Mental state"
+      }
+    },
+    "invariants": [
+      "Same police investigation",
+      "Same evidence",
+      "Same innocent person"
+    ],
+    "ground_truth": "VALID",
+    "label": "VALID",
+    "justification": "The false statement caused the arrest. The intent to protect a friend does not negate the causal relationship. Moral culpability may be mitigated by intent, but the counterfactual causal claim remains valid.",
+    "wise_refusal": "This counterfactual is causally valid. The lie caused the harm. The intent behind the lie affects moral and legal assessment but not the causal relationship.",
+    "key_insight": "Causal counterfactuals are independent of the mental states that inform moral and legal judgment.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0085",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Medical Ethics",
+    "difficulty": "Medium",
+    "trap_type": "F8",
+    "trap_family": "F8",
+    "trap_subtype": "Duty of Care",
+    "scenario": "A doctor followed established medical protocols for a patient's condition. The patient died from a rare complication that newer, not-yet-standard treatments might have prevented.",
+    "counterfactual_claim": "If the doctor had used the newer treatment, the patient would have survived",
+    "variables": {
+      "X": {
+        "name": "Treatment choice",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Patient survival",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Standard of care",
+        "role": "Legal/ethical context"
+      }
+    },
+    "invariants": [
+      "Same patient condition",
+      "Same complication occurrence",
+      "Same medical resources"
+    ],
+    "ground_truth": "CONDITIONAL",
+    "label": "CONDITIONAL",
+    "justification": "Whether the newer treatment would have prevented death is uncertain medically. The doctor followed the standard of care, which affects legal liability but not the underlying causal uncertainty.",
+    "wise_refusal": "This counterfactual involves medical uncertainty about treatment effectiveness. The standard of care question is separate from whether the alternative treatment would have worked.",
+    "key_insight": "Medical counterfactuals involve both causal uncertainty and professional standard assessments.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0086",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Environmental Law",
+    "difficulty": "Easy",
+    "trap_type": "F8",
+    "trap_family": "F8",
+    "trap_subtype": "Regulatory Compliance",
+    "scenario": "A factory operated within all legal pollution limits but still contributed to local environmental degradation. Residents suffered health effects from cumulative pollution from multiple compliant sources.",
+    "counterfactual_claim": "If the factory had not operated, residents would not have suffered health effects",
+    "variables": {
+      "X": {
+        "name": "Factory operation",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Resident health effects",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Regulatory compliance",
+        "role": "Legal context"
+      }
+    },
+    "invariants": [
+      "Same other pollution sources",
+      "Same regulatory framework",
+      "Same resident population"
+    ],
+    "ground_truth": "CONDITIONAL",
+    "label": "CONDITIONAL",
+    "justification": "Multiple sources contributed to cumulative harm. The factory's individual contribution may not have been necessary if other sources were sufficient. Compliance affects legal liability but not the causal contribution question.",
+    "wise_refusal": "This counterfactual depends on whether the factory's contribution was necessary for harm or whether other sources were independently sufficient. Compliance is separate from causal contribution.",
+    "key_insight": "Cumulative harm from multiple compliant sources creates complex causation distinct from regulatory compliance.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0087",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Corporate Governance",
+    "difficulty": "Hard",
+    "trap_type": "F8",
+    "trap_family": "F8",
+    "trap_subtype": "Fiduciary Duty",
+    "scenario": "A corporate board approved a risky investment that lost shareholders millions. The board followed all procedural requirements and relied on expert advice. The investment failed due to unforeseeable market conditions.",
+    "counterfactual_claim": "If the board had rejected the investment, shareholders would not have lost millions",
+    "variables": {
+      "X": {
+        "name": "Board investment approval",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Shareholder losses",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Business judgment rule",
+        "role": "Legal context"
+      }
+    },
+    "invariants": [
+      "Same market conditions",
+      "Same available information",
+      "Same expert advice"
+    ],
+    "ground_truth": "VALID",
+    "label": "VALID",
+    "justification": "The causal counterfactual is straightforward: not making the investment would have avoided the loss. The business judgment rule protects directors from liability for good-faith decisions, but does not affect the causal relationship.",
+    "wise_refusal": "This counterfactual is causally valid. The investment caused the loss. The business judgment rule affects legal liability, not causal responsibility for outcomes.",
+    "key_insight": "Corporate governance protections for decision-makers do not negate causal relationships between decisions and outcomes.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0088",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Employment Law",
+    "difficulty": "Medium",
+    "trap_type": "F8",
+    "trap_family": "F8",
+    "trap_subtype": "Discrimination Causation",
+    "scenario": "An employer did not hire a qualified candidate from a protected class. The employer claimed another candidate was slightly more qualified. Statistics showed the protected class was underrepresented in the company's workforce.",
+    "counterfactual_claim": "If the candidate had not been a member of the protected class, they would have been hired",
+    "variables": {
+      "X": {
+        "name": "Protected class membership",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Hiring decision",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Qualification differences",
+        "role": "Alternative explanation"
+      }
+    },
+    "invariants": [
+      "Same qualifications",
+      "Same interview performance",
+      "Same hiring committee"
+    ],
+    "ground_truth": "CONDITIONAL",
+    "label": "CONDITIONAL",
+    "justification": "Individual discrimination counterfactuals require establishing that class membership was the decisive factor. The qualification difference provides an alternative explanation. Statistical patterns may suggest but not prove individual causation.",
+    "wise_refusal": "This counterfactual depends on whether protected class membership or qualification differences determined the outcome. Statistical underrepresentation suggests but does not prove individual discrimination.",
+    "key_insight": "Discrimination counterfactuals must distinguish protected characteristic effects from legitimate factors in individual cases.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0089",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "International Law",
+    "difficulty": "Hard",
+    "trap_type": "F8",
+    "trap_family": "F8",
+    "trap_subtype": "Humanitarian Intervention",
+    "scenario": "A country did not intervene to prevent genocide in another nation, citing sovereignty concerns. 100,000 people died. Military experts estimated intervention could have saved most victims with minimal casualties.",
+    "counterfactual_claim": "If the country had intervened militarily, most victims would have been saved",
+    "variables": {
+      "X": {
+        "name": "Military intervention",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Victim survival",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Sovereignty and legal constraints",
+        "role": "Normative context"
+      }
+    },
+    "invariants": [
+      "Same military capability",
+      "Same timeline",
+      "Same perpetrator actions"
+    ],
+    "ground_truth": "CONDITIONAL",
+    "label": "CONDITIONAL",
+    "justification": "Military intervention outcomes are uncertain. Expert estimates are not guarantees. The counterfactual involves speculation about how perpetrators would have responded to intervention and collateral effects.",
+    "wise_refusal": "This counterfactual involves significant uncertainty about military intervention outcomes. Expert estimates provide a basis but interventions often have unintended consequences.",
+    "key_insight": "Humanitarian intervention counterfactuals involve deep uncertainty about conflict dynamics.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 9.0
+  },
+  {
+    "case_id": "T3-J1-L3-0090",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Constitutional Law",
+    "difficulty": "Medium",
+    "trap_type": "F8",
+    "trap_family": "F8",
+    "trap_subtype": "Rights vs Consequences",
+    "scenario": "A government restricted free speech to prevent hate speech that was inciting violence. Violence decreased significantly after the restrictions. Critics argued the restrictions violated fundamental rights regardless of outcomes.",
+    "counterfactual_claim": "If the government had not restricted speech, violence would have continued",
+    "variables": {
+      "X": {
+        "name": "Speech restrictions",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Violence reduction",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Rights framework",
+        "role": "Normative context"
+      }
+    },
+    "invariants": [
+      "Same hate speech content",
+      "Same vulnerable populations",
+      "Same law enforcement"
+    ],
+    "ground_truth": "CONDITIONAL",
+    "label": "CONDITIONAL",
+    "justification": "The causal claim that restrictions reduced violence may be valid, but violence might have declined for other reasons (e.g., enforcement against specific individuals). The rights question is separate from the causal question.",
+    "wise_refusal": "This counterfactual requires establishing that speech restrictions, not other concurrent factors, caused violence reduction. The rights analysis is separate from causal assessment.",
+    "key_insight": "Constitutional analysis separates causal effectiveness from rights-based legitimacy of government action.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0091",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Bioethics",
+    "difficulty": "Hard",
+    "trap_type": "F8",
+    "trap_family": "F8",
+    "trap_subtype": "Informed Consent",
+    "scenario": "A patient consented to a medical procedure without being informed of a rare but serious risk. The rare complication occurred. The patient argues they would not have consented with full information.",
+    "counterfactual_claim": "If the patient had been fully informed, they would not have consented to the procedure",
+    "variables": {
+      "X": {
+        "name": "Full risk disclosure",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Consent decision",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Risk preferences",
+        "role": "Subjective factor"
+      }
+    },
+    "invariants": [
+      "Same medical condition",
+      "Same alternative treatments",
+      "Same patient values"
+    ],
+    "ground_truth": "CONDITIONAL",
+    "label": "CONDITIONAL",
+    "justification": "The counterfactual about the patient's hypothetical decision is inherently uncertain. Courts use both subjective (what this patient would have decided) and objective (what a reasonable patient would decide) standards.",
+    "wise_refusal": "This counterfactual depends on the patient's risk preferences, which are difficult to establish ex post. Legal standards vary in how they assess hypothetical consent decisions.",
+    "key_insight": "Informed consent counterfactuals involve speculation about hypothetical decisions with imperfect self-knowledge.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 9.0
+  },
+  {
+    "case_id": "T3-J1-L3-0092",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Behavioral Economics",
+    "difficulty": "Medium",
+    "trap_type": "DomainExt",
+    "trap_family": "DomainExt",
+    "trap_subtype": "Cognitive Bias Extension",
+    "scenario": "A financial advisor recommended a conservative investment strategy to a client with high loss aversion. The client later regretted missing higher returns from riskier investments during a bull market.",
+    "counterfactual_claim": "If the advisor had recommended riskier investments, the client would have been happier with the outcome",
+    "variables": {
+      "X": {
+        "name": "Investment recommendation",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Client satisfaction",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Loss aversion",
+        "role": "Psychological factor"
+      }
+    },
+    "invariants": [
+      "Same market conditions",
+      "Same client psychology",
+      "Same investment horizon"
+    ],
+    "ground_truth": "INVALID",
+    "label": "INVALID",
+    "justification": "The client's loss aversion means they would have suffered disproportionately from any losses. In a down market, the riskier strategy would have caused greater dissatisfaction than the conservative strategy did in the bull market.",
+    "wise_refusal": "This counterfactual ignores the client's loss aversion. Higher returns only materialized in hindsight; a loss-averse client would have been worse off with riskier investments that experienced any volatility.",
+    "key_insight": "Behavioral economics factors like loss aversion change the utility function for evaluating counterfactual outcomes.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0093",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Network Science",
+    "difficulty": "Hard",
+    "trap_type": "DomainExt",
+    "trap_family": "DomainExt",
+    "trap_subtype": "Network Cascade Extension",
+    "scenario": "A social media post went viral after being shared by a highly connected influencer. Network analysis showed the post reached 10 million people within 24 hours through cascade effects.",
+    "counterfactual_claim": "If the influencer had not shared the post, it would not have gone viral",
+    "variables": {
+      "X": {
+        "name": "Influencer sharing",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Viral spread",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Network structure",
+        "role": "Mechanism"
+      }
+    },
+    "invariants": [
+      "Same post content",
+      "Same network structure",
+      "Same timing"
+    ],
+    "ground_truth": "CONDITIONAL",
+    "label": "CONDITIONAL",
+    "justification": "Viral spread depends on network topology and content quality. Another highly connected node might have shared it, or multiple smaller cascades could have achieved similar reach. The specific influencer was one pathway among potential others.",
+    "wise_refusal": "This counterfactual depends on network dynamics. Other highly connected nodes might have served as alternative cascade initiators, or the content might have spread through multiple smaller pathways.",
+    "key_insight": "Network cascade counterfactuals must consider alternative pathways through the network topology.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 9.0
+  },
+  {
+    "case_id": "T3-J1-L3-0094",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Complexity Science",
+    "difficulty": "Hard",
+    "trap_type": "DomainExt",
+    "trap_family": "DomainExt",
+    "trap_subtype": "Emergent Property Extension",
+    "scenario": "A city's traffic congestion exhibited emergent patterns that arose from individual driver decisions. No single driver's choice caused the gridlock, but collective behavior created system-wide breakdown.",
+    "counterfactual_claim": "If any individual driver had taken a different route, the traffic gridlock would not have occurred",
+    "variables": {
+      "X": {
+        "name": "Individual driver route choice",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "System-wide gridlock",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Emergent system behavior",
+        "role": "Mechanism"
+      }
+    },
+    "invariants": [
+      "Same number of vehicles",
+      "Same road network",
+      "Same time of day"
+    ],
+    "ground_truth": "INVALID",
+    "label": "INVALID",
+    "justification": "Emergent phenomena arise from collective behavior, not individual choices. No single driver's decision was necessary or sufficient for the systemic outcome. The gridlock was overdetermined by the aggregate pattern.",
+    "wise_refusal": "This counterfactual is invalid because emergent system properties are not reducible to individual component behavior. No single driver's choice was pivotal for the collective outcome.",
+    "key_insight": "Emergent system properties resist attribution to individual components or counterfactual manipulation of single elements.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 9.0
+  },
+  {
+    "case_id": "T3-J1-L3-0095",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Game Theory",
+    "difficulty": "Medium",
+    "trap_type": "DomainExt",
+    "trap_family": "DomainExt",
+    "trap_subtype": "Strategic Interaction Extension",
+    "scenario": "Two countries engaged in a trade war with escalating tariffs. Each country's tariff increases were responses to the other's actions. The trade war caused economic damage to both economies.",
+    "counterfactual_claim": "If Country A had not imposed the initial tariff, the trade war would not have occurred",
+    "variables": {
+      "X": {
+        "name": "Country A's initial tariff",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Trade war occurrence",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Strategic retaliation dynamics",
+        "role": "Mechanism"
+      }
+    },
+    "invariants": [
+      "Same trade imbalances",
+      "Same domestic pressures",
+      "Same strategic interests"
+    ],
+    "ground_truth": "CONDITIONAL",
+    "label": "CONDITIONAL",
+    "justification": "Strategic interactions involve anticipation and reaction. Country B might have initiated tariffs for its own reasons, or underlying trade tensions might have produced conflict through other triggers. The specific initiator may not be necessary.",
+    "wise_refusal": "This counterfactual depends on whether the specific initial action was necessary or whether strategic dynamics would have produced conflict anyway. Trade tensions may have made some conflict inevitable.",
+    "key_insight": "Strategic interaction counterfactuals must consider whether specific triggers are necessary or whether alternatives would have produced similar outcomes.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0096",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Cultural Evolution",
+    "difficulty": "Hard",
+    "trap_type": "DomainExt",
+    "trap_family": "DomainExt",
+    "trap_subtype": "Meme Evolution Extension",
+    "scenario": "A cultural practice spread across societies through contact and imitation over centuries. The practice now exists in modified forms across multiple cultures, with each version adapted to local conditions.",
+    "counterfactual_claim": "If the original culture had not developed this practice, it would not exist in other cultures today",
+    "variables": {
+      "X": {
+        "name": "Original cultural development",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Current global presence",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Cultural diffusion",
+        "role": "Mechanism"
+      }
+    },
+    "invariants": [
+      "Same human needs",
+      "Same contact patterns",
+      "Same adaptation processes"
+    ],
+    "ground_truth": "CONDITIONAL",
+    "label": "CONDITIONAL",
+    "justification": "Cultural practices may emerge independently in response to common human needs (convergent evolution) or spread through diffusion. The counterfactual depends on whether the practice was likely to be independently invented elsewhere.",
+    "wise_refusal": "This counterfactual depends on whether the practice would have been independently developed by other cultures. Some practices emerge convergently while others spread only through diffusion.",
+    "key_insight": "Cultural evolution counterfactuals must distinguish diffusion from independent invention.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 9.0
+  },
+  {
+    "case_id": "T3-J1-L3-0097",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Institutional Economics",
+    "difficulty": "Medium",
+    "trap_type": "DomainExt",
+    "trap_family": "DomainExt",
+    "trap_subtype": "Institutional Lock-In Extension",
+    "scenario": "A country adopted a particular legal system during colonization. Decades after independence, the country maintains this legal framework despite inefficiencies because switching costs are prohibitive.",
+    "counterfactual_claim": "If the country had been colonized by a different power, it would have a more efficient legal system today",
+    "variables": {
+      "X": {
+        "name": "Colonial legal inheritance",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Current legal system efficiency",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Institutional lock-in",
+        "role": "Mechanism"
+      }
+    },
+    "invariants": [
+      "Same post-independence development",
+      "Same regional context",
+      "Same domestic conditions"
+    ],
+    "ground_truth": "CONDITIONAL",
+    "label": "CONDITIONAL",
+    "justification": "Different colonial origins would have created different institutional inheritances, but whether alternatives would be more efficient depends on matching between legal systems and local conditions, which is context-specific.",
+    "wise_refusal": "This counterfactual requires assumptions about which legal system would have been inherited and whether it would have been more appropriate for local conditions. Efficiency depends on institutional fit.",
+    "key_insight": "Institutional lock-in counterfactuals involve path dependence where alternative paths have uncertain efficiency properties.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0098",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Collective Action",
+    "difficulty": "Easy",
+    "trap_type": "DomainExt",
+    "trap_family": "DomainExt",
+    "trap_subtype": "Free Rider Extension",
+    "scenario": "A public good was successfully provided through voluntary contributions despite free rider incentives. Research showed that social norms and peer pressure overcame individual incentives to defect.",
+    "counterfactual_claim": "If social norms had not been strong, the public good would not have been provided",
+    "variables": {
+      "X": {
+        "name": "Strong social norms",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Public good provision",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Free rider problem",
+        "role": "Structural challenge"
+      }
+    },
+    "invariants": [
+      "Same group size",
+      "Same individual incentives",
+      "Same benefit distribution"
+    ],
+    "ground_truth": "VALID",
+    "label": "VALID",
+    "justification": "Standard economic theory predicts public goods underprovision without enforcement mechanisms. Social norms provided the mechanism that overcame free riding. Without them, individual rationality would have dominated.",
+    "wise_refusal": "This counterfactual is valid because the free rider problem generally prevents voluntary public good provision. Social norms were the mechanism that overcame this structural challenge.",
+    "key_insight": "Collective action counterfactuals can be valid when mechanisms that solve coordination problems are identified.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J1-L3-0099",
+    "pearl_level": "L3",
+    "domain": "D10",
+    "subdomain": "Social Epistemology",
+    "difficulty": "Hard",
+    "trap_type": "DomainExt",
+    "trap_family": "DomainExt",
+    "trap_subtype": "Epistemic Community Extension",
+    "scenario": "Scientific consensus on a controversial topic shifted after key studies were published by respected researchers. The consensus then influenced policy decisions. Critics noted the studies had methodological limitations that were overlooked due to researcher prestige.",
+    "counterfactual_claim": "If the key studies had been published by less prestigious researchers, the scientific consensus would not have shifted",
+    "variables": {
+      "X": {
+        "name": "Researcher prestige",
+        "role": "Antecedent"
+      },
+      "Y": {
+        "name": "Scientific consensus shift",
+        "role": "Consequent"
+      },
+      "Z": {
+        "name": "Methodological limitations",
+        "role": "Hidden factor"
+      }
+    },
+    "invariants": [
+      "Same study methodology",
+      "Same findings",
+      "Same prior evidence base"
+    ],
+    "ground_truth": "CONDITIONAL",
+    "label": "CONDITIONAL",
+    "justification": "Scientific consensus formation involves both evidence quality and social factors. Prestige may have accelerated acceptance, but eventually the evidence would be evaluated on merits. The timeline might have differed without affecting the ultimate consensus.",
+    "wise_refusal": "This counterfactual depends on whether prestige was necessary for consensus or merely accelerated it. Eventually, the evidence might have shifted consensus regardless, or the limitations might have been caught earlier.",
+    "key_insight": "Scientific consensus counterfactuals must distinguish social acceleration factors from ultimate evidence-based convergence.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 9.0
+  }
+]

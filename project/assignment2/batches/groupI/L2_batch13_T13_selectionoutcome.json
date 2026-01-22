@@ -1,0 +1,466 @@
+[
+  {
+    "case_id": "T3-I1-L2-0215",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Startup Success",
+    "difficulty": "Easy",
+    "trap_type": "T13",
+    "trap_family": "F5",
+    "trap_subtype": "Successful Startup Selection",
+    "scenario": "A business school studies only successful AI unicorns and finds that aggressive scaling correlates with success. They conclude scaling causes success. However, by selecting only successful companies, they cannot see the many failed startups that also scaled aggressively.",
+    "claim": "Aggressive scaling causes AI startup success.",
+    "variables": {
+      "X": {"name": "Aggressive Scaling", "role": "Treatment"},
+      "Y": {"name": "Startup Success", "role": "Outcome"},
+      "Z": {"name": "Outcome Selection", "role": "Bias"}
+    },
+    "label": "NO",
+    "hidden_question": "Are we seeing the effect of scaling on success, or only seeing successful scalers because we selected on success?",
+    "conditional_answers": {
+      "A": "If scaling genuinely causes success across all startups, the claim may be valid.",
+      "B": "If selection on success hides failed aggressive scalers, the causal effect is overestimated."
+    },
+    "wise_refusal": "The claim that aggressive scaling causes AI startup success is ambiguous due to selection on outcome bias. We cannot determine the causal effect by studying only successful companies because we miss failed companies that also scaled aggressively. This selection censors the failures needed to assess scaling's true effect. Without data from failed startups, the causal claim is not justified.",
+    "causal_structure": "Selection on Y distorts observed X-Y relationship",
+    "key_insight": "Studying only successes hides the failures that would reveal true success rates.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0216",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "ML Competitions",
+    "difficulty": "Easy",
+    "trap_type": "T13",
+    "trap_family": "F5",
+    "trap_subtype": "Winner Selection",
+    "scenario": "Researchers study Kaggle competition winners and find that ensemble methods correlate with winning. They conclude ensembles cause victory. However, by selecting only winners, they cannot see the many losing submissions that also used ensembles.",
+    "claim": "Using ensemble methods causes Kaggle competition wins.",
+    "variables": {
+      "X": {"name": "Ensemble Methods", "role": "Treatment"},
+      "Y": {"name": "Competition Win", "role": "Outcome"},
+      "Z": {"name": "Outcome Selection", "role": "Bias"}
+    },
+    "label": "NO",
+    "hidden_question": "Do ensembles cause wins, or are we only seeing ensemble winners because we selected on winning?",
+    "conditional_answers": {
+      "A": "If ensembles genuinely cause wins across all submissions, the claim may be valid.",
+      "B": "If selection on winning hides losing ensemble submissions, the causal effect is overestimated."
+    },
+    "wise_refusal": "The claim that using ensemble methods causes Kaggle competition wins is ambiguous due to selection on outcome bias. We cannot determine the causal effect by studying only winners because we miss losing submissions that also used ensembles. This selection censors the information needed to assess ensembles' true benefit. Without data from all submissions, the causal claim is not justified.",
+    "causal_structure": "Selection on Y distorts observed X-Y relationship",
+    "key_insight": "Analyzing only winners overestimates the effectiveness of common winner characteristics.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0217",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Deployment",
+    "difficulty": "Medium",
+    "trap_type": "T13",
+    "trap_family": "F5",
+    "trap_subtype": "Deployed Model Selection",
+    "scenario": "A team studies deployed production models and finds that extensive hyperparameter tuning correlates with good performance. They conclude tuning causes performance. However, by selecting only deployed models, they miss models that were tuned but still failed deployment criteria.",
+    "claim": "Extensive hyperparameter tuning causes production model performance.",
+    "variables": {
+      "X": {"name": "Hyperparameter Tuning", "role": "Treatment"},
+      "Y": {"name": "Production Performance", "role": "Outcome"},
+      "Z": {"name": "Outcome Selection", "role": "Bias"}
+    },
+    "label": "NO",
+    "hidden_question": "Does tuning cause performance, or do we only see tuned performers because we selected on deployment?",
+    "conditional_answers": {
+      "A": "If tuning genuinely improves performance across all models, the claim may be valid.",
+      "B": "If selection on deployment hides failed tuning attempts, the causal effect is overestimated."
+    },
+    "wise_refusal": "The claim that extensive hyperparameter tuning causes production model performance is ambiguous due to selection on outcome bias. We cannot determine the causal effect by studying only deployed models because we miss models that were tuned but failed deployment. This selection censors the failures needed to assess tuning's true effect. Without data from all tuning attempts, the causal claim is not justified.",
+    "causal_structure": "Selection on Y distorts observed X-Y relationship",
+    "key_insight": "Deployment selection hides tuning failures that would reveal true tuning effectiveness.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0218",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Research Career",
+    "difficulty": "Medium",
+    "trap_type": "T13",
+    "trap_family": "F5",
+    "trap_subtype": "Successful Researcher Selection",
+    "scenario": "A study of tenured AI professors finds that PhD institution prestige correlates with career success. They conclude prestige causes success. However, by selecting only successful tenured faculty, they miss PhDs from prestigious institutions who failed to get tenure.",
+    "claim": "PhD institution prestige causes AI researcher career success.",
+    "variables": {
+      "X": {"name": "PhD Prestige", "role": "Treatment"},
+      "Y": {"name": "Career Success", "role": "Outcome"},
+      "Z": {"name": "Outcome Selection", "role": "Bias"}
+    },
+    "label": "NO",
+    "hidden_question": "Does prestige cause success, or are we only seeing prestigious successes because we selected on tenure?",
+    "conditional_answers": {
+      "A": "If prestige genuinely improves success rates across all PhDs, the claim may be valid.",
+      "B": "If selection on tenure hides prestigious graduates who failed, the causal effect is overestimated."
+    },
+    "wise_refusal": "The claim that PhD institution prestige causes AI researcher career success is ambiguous due to selection on outcome bias. We cannot determine the causal effect by studying only tenured faculty because we miss prestigious PhDs who did not achieve tenure. This selection censors the failures needed to assess prestige's true effect. Without data from all PhD graduates, the causal claim is not justified.",
+    "causal_structure": "Selection on Y distorts observed X-Y relationship",
+    "key_insight": "Career success studies must include failures to accurately assess path-to-success factors.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0219",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Products",
+    "difficulty": "Medium",
+    "trap_type": "T13",
+    "trap_family": "F5",
+    "trap_subtype": "Successful Product Selection",
+    "scenario": "Market researchers study high-revenue AI products and find that user-centric design correlates with revenue. They conclude user-centric design causes revenue. However, by selecting only high-revenue products, they miss user-centric products that failed commercially.",
+    "claim": "User-centric design causes higher AI product revenue.",
+    "variables": {
+      "X": {"name": "User-Centric Design", "role": "Treatment"},
+      "Y": {"name": "Product Revenue", "role": "Outcome"},
+      "Z": {"name": "Outcome Selection", "role": "Bias"}
+    },
+    "label": "NO",
+    "hidden_question": "Does design cause revenue, or are we only seeing well-designed successes because we selected on revenue?",
+    "conditional_answers": {
+      "A": "If user-centric design genuinely drives revenue across all products, the claim may be valid.",
+      "B": "If selection on revenue hides user-centric failures, the causal effect is overestimated."
+    },
+    "wise_refusal": "The claim that user-centric design causes higher AI product revenue is ambiguous due to selection on outcome bias. We cannot determine the causal effect by studying only high-revenue products because we miss user-centric products that failed. This selection censors the failures needed to assess design's true effect. Without data from all products, the causal claim is not justified.",
+    "causal_structure": "Selection on Y distorts observed X-Y relationship",
+    "key_insight": "Product success studies miss the well-designed products that still failed.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0220",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Safety",
+    "difficulty": "Hard",
+    "trap_type": "T13",
+    "trap_family": "F5",
+    "trap_subtype": "No-Incident Selection",
+    "scenario": "Researchers study AI systems with clean safety records and find that formal verification correlates with no incidents. They conclude verification causes safety. However, by selecting only incident-free systems, they miss verified systems that still had incidents.",
+    "claim": "Formal verification causes AI system safety.",
+    "variables": {
+      "X": {"name": "Formal Verification", "role": "Treatment"},
+      "Y": {"name": "Safety Record", "role": "Outcome"},
+      "Z": {"name": "Outcome Selection", "role": "Bias"}
+    },
+    "label": "NO",
+    "hidden_question": "Does verification cause safety, or are we only seeing verified safe systems because we selected on safety?",
+    "conditional_answers": {
+      "A": "If verification genuinely improves safety across all systems, the claim may be valid.",
+      "B": "If selection on safety hides verified systems with incidents, the causal effect is overestimated."
+    },
+    "wise_refusal": "The claim that formal verification causes AI system safety is ambiguous due to selection on outcome bias. We cannot determine the causal effect by studying only safe systems because we miss verified systems that still had incidents. This selection censors the information needed to assess verification's true effect. Without data from all verified systems, the causal claim is not justified.",
+    "causal_structure": "Selection on Y distorts observed X-Y relationship",
+    "key_insight": "Safety studies selecting on good outcomes hide verification failures.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0221",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "NLP Models",
+    "difficulty": "Easy",
+    "trap_type": "T13",
+    "trap_family": "F5",
+    "trap_subtype": "High Benchmark Selection",
+    "scenario": "Researchers study models that score above 90% on GLUE and find that larger model size correlates with high scores. They conclude size causes benchmark performance. However, by selecting only high scorers, they miss large models that still scored poorly.",
+    "claim": "Larger model size causes higher NLP benchmark scores.",
+    "variables": {
+      "X": {"name": "Model Size", "role": "Treatment"},
+      "Y": {"name": "Benchmark Score", "role": "Outcome"},
+      "Z": {"name": "Outcome Selection", "role": "Bias"}
+    },
+    "label": "NO",
+    "hidden_question": "Does size cause scores, or are we only seeing large high-scorers because we selected on performance?",
+    "conditional_answers": {
+      "A": "If size genuinely improves scores across all models, the claim may be valid.",
+      "B": "If selection on high scores hides large underperformers, the causal effect is overestimated."
+    },
+    "wise_refusal": "The claim that larger model size causes higher NLP benchmark scores is ambiguous due to selection on outcome bias. We cannot determine the causal effect by studying only high-scoring models because we miss large models that scored poorly. This selection censors the failures needed to assess size's true effect. Without data from all models, the causal claim is not justified.",
+    "causal_structure": "Selection on Y distorts observed X-Y relationship",
+    "key_insight": "Benchmark leader analysis hides large models that underperformed.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0222",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Funding",
+    "difficulty": "Medium",
+    "trap_type": "T13",
+    "trap_family": "F5",
+    "trap_subtype": "Funded Project Selection",
+    "scenario": "A foundation studies funded AI research projects and finds that interdisciplinary teams correlate with funding. They conclude interdisciplinary composition causes funding. However, by selecting only funded projects, they miss interdisciplinary proposals that were rejected.",
+    "claim": "Interdisciplinary team composition causes AI research funding success.",
+    "variables": {
+      "X": {"name": "Interdisciplinary Composition", "role": "Treatment"},
+      "Y": {"name": "Funding Success", "role": "Outcome"},
+      "Z": {"name": "Outcome Selection", "role": "Bias"}
+    },
+    "label": "NO",
+    "hidden_question": "Does interdisciplinarity cause funding, or are we only seeing funded interdisciplinary teams because we selected on funding?",
+    "conditional_answers": {
+      "A": "If interdisciplinarity genuinely improves funding rates across all proposals, the claim may be valid.",
+      "B": "If selection on funding hides rejected interdisciplinary proposals, the causal effect is overestimated."
+    },
+    "wise_refusal": "The claim that interdisciplinary team composition causes AI research funding success is ambiguous due to selection on outcome bias. We cannot determine the causal effect by studying only funded projects because we miss interdisciplinary proposals that were rejected. This selection censors the rejections needed to assess interdisciplinarity's true effect. Without data from all proposals, the causal claim is not justified.",
+    "causal_structure": "Selection on Y distorts observed X-Y relationship",
+    "key_insight": "Funded project analysis hides rejected proposals with the same characteristics.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0223",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Adoption",
+    "difficulty": "Hard",
+    "trap_type": "T13",
+    "trap_family": "F5",
+    "trap_subtype": "Successful Adoption Selection",
+    "scenario": "Consultants study successful enterprise AI adoptions and find that executive sponsorship correlates with success. They conclude sponsorship causes adoption success. However, by selecting only successes, they miss projects with executive sponsorship that still failed.",
+    "claim": "Executive sponsorship causes successful enterprise AI adoption.",
+    "variables": {
+      "X": {"name": "Executive Sponsorship", "role": "Treatment"},
+      "Y": {"name": "Adoption Success", "role": "Outcome"},
+      "Z": {"name": "Outcome Selection", "role": "Bias"}
+    },
+    "label": "NO",
+    "hidden_question": "Does sponsorship cause success, or are we only seeing sponsored successes because we selected on success?",
+    "conditional_answers": {
+      "A": "If sponsorship genuinely improves success rates across all adoptions, the claim may be valid.",
+      "B": "If selection on success hides sponsored failures, the causal effect is overestimated."
+    },
+    "wise_refusal": "The claim that executive sponsorship causes successful enterprise AI adoption is ambiguous due to selection on outcome bias. We cannot determine the causal effect by studying only successful adoptions because we miss sponsored projects that failed. This selection censors the failures needed to assess sponsorship's true effect. Without data from all adoption attempts, the causal claim is not justified.",
+    "causal_structure": "Selection on Y distorts observed X-Y relationship",
+    "key_insight": "Enterprise success studies must include failures to assess success factor effectiveness.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0224",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Autonomous Vehicles",
+    "difficulty": "Hard",
+    "trap_type": "T13",
+    "trap_family": "F5",
+    "trap_subtype": "Safe Miles Selection",
+    "scenario": "Researchers study autonomous vehicles with millions of safe miles and find that sensor redundancy correlates with safety records. They conclude redundancy causes safety. However, by selecting only high-mileage safe vehicles, they miss vehicles with redundancy that were withdrawn due to incidents.",
+    "claim": "Sensor redundancy causes autonomous vehicle safety.",
+    "variables": {
+      "X": {"name": "Sensor Redundancy", "role": "Treatment"},
+      "Y": {"name": "Safety Record", "role": "Outcome"},
+      "Z": {"name": "Outcome Selection", "role": "Bias"}
+    },
+    "label": "NO",
+    "hidden_question": "Does redundancy cause safety, or are we only seeing redundant safe vehicles because we selected on safety?",
+    "conditional_answers": {
+      "A": "If redundancy genuinely improves safety across all vehicles, the claim may be valid.",
+      "B": "If selection on safety hides redundant vehicles that had incidents, the causal effect is overestimated."
+    },
+    "wise_refusal": "The claim that sensor redundancy causes autonomous vehicle safety is ambiguous due to selection on outcome bias. We cannot determine the causal effect by studying only safe vehicles because we miss redundant vehicles that had incidents. This selection censors the information needed to assess redundancy's true effect. Without data from all vehicles, the causal claim is not justified.",
+    "causal_structure": "Selection on Y distorts observed X-Y relationship",
+    "key_insight": "Safety record selection hides redundant systems that still failed.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0225",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "ML Team Performance",
+    "difficulty": "Medium",
+    "trap_type": "T13",
+    "trap_family": "F5",
+    "trap_subtype": "High-Performing Team Selection",
+    "scenario": "A company studies their highest-performing ML teams and finds that Agile methodology correlates with performance. They conclude Agile causes team performance. However, by selecting only top teams, they miss teams using Agile that still underperformed.",
+    "claim": "Agile methodology causes higher ML team performance.",
+    "variables": {
+      "X": {"name": "Agile Methodology", "role": "Treatment"},
+      "Y": {"name": "Team Performance", "role": "Outcome"},
+      "Z": {"name": "Outcome Selection", "role": "Bias"}
+    },
+    "label": "NO",
+    "hidden_question": "Does Agile cause performance, or are we only seeing Agile top-performers because we selected on performance?",
+    "conditional_answers": {
+      "A": "If Agile genuinely improves performance across all teams, the claim may be valid.",
+      "B": "If selection on performance hides Agile underperformers, the causal effect is overestimated."
+    },
+    "wise_refusal": "The claim that Agile methodology causes higher ML team performance is ambiguous due to selection on outcome bias. We cannot determine the causal effect by studying only top-performing teams because we miss Agile teams that underperformed. This selection censors the failures needed to assess Agile's true effect. Without data from all teams, the causal claim is not justified.",
+    "causal_structure": "Selection on Y distorts observed X-Y relationship",
+    "key_insight": "Best practice studies selecting on outcomes hide failures using those practices.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0226",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Education",
+    "difficulty": "Easy",
+    "trap_type": "T13",
+    "trap_family": "F5",
+    "trap_subtype": "Successful Graduate Selection",
+    "scenario": "A bootcamp studies graduates who landed ML jobs and finds that personal projects correlate with job placement. They conclude projects cause employment. However, by selecting only employed graduates, they miss graduates with projects who failed to get jobs.",
+    "claim": "Personal ML projects cause successful job placement.",
+    "variables": {
+      "X": {"name": "Personal Projects", "role": "Treatment"},
+      "Y": {"name": "Job Placement", "role": "Outcome"},
+      "Z": {"name": "Outcome Selection", "role": "Bias"}
+    },
+    "label": "NO",
+    "hidden_question": "Do projects cause placement, or are we only seeing project-builders who got jobs because we selected on employment?",
+    "conditional_answers": {
+      "A": "If projects genuinely improve placement rates across all graduates, the claim may be valid.",
+      "B": "If selection on employment hides project-builders who weren't placed, the causal effect is overestimated."
+    },
+    "wise_refusal": "The claim that personal ML projects cause successful job placement is ambiguous due to selection on outcome bias. We cannot determine the causal effect by studying only employed graduates because we miss project-builders who failed to get jobs. This selection censors the information needed to assess projects' true effect. Without data from all graduates, the causal claim is not justified.",
+    "causal_structure": "Selection on Y distorts observed X-Y relationship",
+    "key_insight": "Employment success studies miss graduates with the same traits who still weren't hired.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0227",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Paper Impact",
+    "difficulty": "Medium",
+    "trap_type": "T13",
+    "trap_family": "F5",
+    "trap_subtype": "High Citation Selection",
+    "scenario": "Bibliometricians study highly-cited AI papers and find that releasing code correlates with citations. They conclude code release causes impact. However, by selecting only highly-cited papers, they miss papers with code that were still rarely cited.",
+    "claim": "Code release causes higher AI paper citation counts.",
+    "variables": {
+      "X": {"name": "Code Release", "role": "Treatment"},
+      "Y": {"name": "Citation Count", "role": "Outcome"},
+      "Z": {"name": "Outcome Selection", "role": "Bias"}
+    },
+    "label": "NO",
+    "hidden_question": "Does code release cause citations, or are we only seeing code-released high-citation papers because we selected on citations?",
+    "conditional_answers": {
+      "A": "If code release genuinely boosts citations across all papers, the claim may be valid.",
+      "B": "If selection on citations hides code-released low-citation papers, the causal effect is overestimated."
+    },
+    "wise_refusal": "The claim that code release causes higher AI paper citation counts is ambiguous due to selection on outcome bias. We cannot determine the causal effect by studying only highly-cited papers because we miss papers with code that were rarely cited. This selection censors the failures needed to assess code release's true effect. Without data from all papers, the causal claim is not justified.",
+    "causal_structure": "Selection on Y distorts observed X-Y relationship",
+    "key_insight": "Impact studies selecting on citations miss impactless papers with the same practices.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0228",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Robustness",
+    "difficulty": "Hard",
+    "trap_type": "T13",
+    "trap_family": "F5",
+    "trap_subtype": "Robust Model Selection",
+    "scenario": "Researchers study models that remained robust under distribution shift and find that data augmentation correlates with robustness. They conclude augmentation causes robustness. However, by selecting only robust models, they miss augmented models that still failed under shift.",
+    "claim": "Data augmentation causes model robustness to distribution shift.",
+    "variables": {
+      "X": {"name": "Data Augmentation", "role": "Treatment"},
+      "Y": {"name": "Robustness", "role": "Outcome"},
+      "Z": {"name": "Outcome Selection", "role": "Bias"}
+    },
+    "label": "NO",
+    "hidden_question": "Does augmentation cause robustness, or are we only seeing augmented robust models because we selected on robustness?",
+    "conditional_answers": {
+      "A": "If augmentation genuinely improves robustness across all models, the claim may be valid.",
+      "B": "If selection on robustness hides augmented models that failed, the causal effect is overestimated."
+    },
+    "wise_refusal": "The claim that data augmentation causes model robustness to distribution shift is ambiguous due to selection on outcome bias. We cannot determine the causal effect by studying only robust models because we miss augmented models that failed under distribution shift. This selection censors the failures needed to assess augmentation's true effect. Without data from all models, the causal claim is not justified.",
+    "causal_structure": "Selection on Y distorts observed X-Y relationship",
+    "key_insight": "Robustness studies must include failures to assess technique effectiveness accurately.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0229",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Governance",
+    "difficulty": "Hard",
+    "trap_type": "T13",
+    "trap_family": "F5",
+    "trap_subtype": "Compliant Organization Selection",
+    "scenario": "Regulators study AI organizations with clean compliance records and find that ethics boards correlate with compliance. They conclude ethics boards cause compliance. However, by selecting only compliant organizations, they miss organizations with ethics boards that still violated regulations.",
+    "claim": "Having an AI ethics board causes regulatory compliance.",
+    "variables": {
+      "X": {"name": "Ethics Board", "role": "Treatment"},
+      "Y": {"name": "Regulatory Compliance", "role": "Outcome"},
+      "Z": {"name": "Outcome Selection", "role": "Bias"}
+    },
+    "label": "NO",
+    "hidden_question": "Do ethics boards cause compliance, or are we only seeing compliant organizations with boards because we selected on compliance?",
+    "conditional_answers": {
+      "A": "If ethics boards genuinely improve compliance across all organizations, the claim may be valid.",
+      "B": "If selection on compliance hides organizations with boards that still violated rules, the causal effect is overestimated."
+    },
+    "wise_refusal": "The claim that having an AI ethics board causes regulatory compliance is ambiguous due to selection on outcome bias. We cannot determine the causal effect by studying only compliant organizations because we miss organizations with ethics boards that still violated regulations. This selection censors the violations needed to assess ethics boards' true effect. Without data from all organizations, the causal claim is not justified.",
+    "causal_structure": "Selection on Y distorts observed X-Y relationship",
+    "key_insight": "Compliance studies selecting on good outcomes hide governance failures.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0230",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "ML Infrastructure",
+    "difficulty": "Medium",
+    "trap_type": "T13",
+    "trap_family": "F5",
+    "trap_subtype": "High Uptime Selection",
+    "scenario": "DevOps teams study ML systems with 99.99% uptime and find that containerization correlates with reliability. They conclude containerization causes reliability. However, by selecting only high-uptime systems, they miss containerized systems that still had frequent outages.",
+    "claim": "Containerization causes higher ML system reliability.",
+    "variables": {
+      "X": {"name": "Containerization", "role": "Treatment"},
+      "Y": {"name": "System Reliability", "role": "Outcome"},
+      "Z": {"name": "Outcome Selection", "role": "Bias"}
+    },
+    "label": "NO",
+    "hidden_question": "Does containerization cause reliability, or are we only seeing containerized reliable systems because we selected on uptime?",
+    "conditional_answers": {
+      "A": "If containerization genuinely improves reliability across all systems, the claim may be valid.",
+      "B": "If selection on uptime hides containerized systems with outages, the causal effect is overestimated."
+    },
+    "wise_refusal": "The claim that containerization causes higher ML system reliability is ambiguous due to selection on outcome bias. We cannot determine the causal effect by studying only high-uptime systems because we miss containerized systems that had frequent outages. This selection censors the failures needed to assess containerization's true effect. Without data from all systems, the causal claim is not justified.",
+    "causal_structure": "Selection on Y distorts observed X-Y relationship",
+    "key_insight": "Infrastructure reliability studies must include failures to assess technology effectiveness.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  }
+]

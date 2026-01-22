@@ -1,0 +1,582 @@
+[
+  {
+    "case_id": "T3-I1-L2-0001",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "ML Model Evaluation",
+    "difficulty": "Easy",
+    "trap_type": "T1",
+    "trap_family": "F1",
+    "trap_subtype": "Self-Selection in Model Testing",
+    "scenario": "A tech company reports that users who opt into their new AI assistant feature show 40% higher productivity. The company claims the AI assistant causes productivity gains. However, only users who already had high digital literacy chose to enable the feature.",
+    "claim": "The AI assistant causes increased productivity.",
+    "variables": {
+      "X": {"name": "AI Assistant Usage", "role": "Treatment"},
+      "Y": {"name": "Productivity", "role": "Outcome"},
+      "Z": {"name": "Digital Literacy", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Did users self-select into the AI assistant group based on pre-existing traits that also affect productivity?",
+    "conditional_answers": {
+      "A": "If users were randomly assigned to use the AI assistant, the productivity difference would reflect the true causal effect.",
+      "B": "If digitally literate users self-selected into using the assistant, the correlation reflects selection bias, not causation."
+    },
+    "wise_refusal": "The claim that the AI assistant causes increased productivity is ambiguous due to selection bias. We cannot determine whether the productivity gains are caused by the assistant or by pre-existing digital literacy without knowing how users were assigned to use the feature. If users were randomly assigned, the effect may be causal. If users self-selected based on digital literacy, the correlation is spurious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z -> X, Z -> Y (digital literacy causes both adoption and productivity)",
+    "key_insight": "Self-selection into treatment groups can create spurious correlations between treatment and outcome.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0002",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "A/B Testing",
+    "difficulty": "Easy",
+    "trap_type": "T1",
+    "trap_family": "F1",
+    "trap_subtype": "Voluntary Participation Bias",
+    "scenario": "A software company runs an optional beta test for a new ML-powered code completion tool. Beta testers report 30% faster coding speed. The company concludes the tool improves coding efficiency. Beta testers were volunteers who signed up proactively.",
+    "claim": "The ML code completion tool causes faster coding.",
+    "variables": {
+      "X": {"name": "Code Completion Tool", "role": "Treatment"},
+      "Y": {"name": "Coding Speed", "role": "Outcome"},
+      "Z": {"name": "Developer Enthusiasm/Skill", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Were beta testers representative of typical developers, or did enthusiastic/skilled developers disproportionately volunteer?",
+    "conditional_answers": {
+      "A": "If beta testers were randomly selected from all developers, the speed improvement reflects the tool's causal effect.",
+      "B": "If enthusiastic or skilled developers self-selected into beta testing, the improvement may reflect their pre-existing capabilities."
+    },
+    "wise_refusal": "The claim that the ML code completion tool causes faster coding is ambiguous due to selection bias. We cannot determine whether speed improvements are caused by the tool or by the characteristics of volunteer testers without knowing how participants were selected. If participants were randomly assigned, the effect may be causal. If skilled developers self-selected, the correlation is spurious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z -> X, Z -> Y (enthusiasm/skill causes both volunteering and coding speed)",
+    "key_insight": "Volunteer bias in beta testing can inflate perceived tool effectiveness.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0003",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Safety",
+    "difficulty": "Medium",
+    "trap_type": "T1",
+    "trap_family": "F1",
+    "trap_subtype": "Deployment Selection Bias",
+    "scenario": "Companies using AI safety audits report 50% fewer AI incidents than companies without audits. Researchers conclude that AI safety audits prevent incidents. However, companies that chose to conduct audits were already more safety-conscious and had better internal processes.",
+    "claim": "AI safety audits cause fewer AI incidents.",
+    "variables": {
+      "X": {"name": "AI Safety Audits", "role": "Treatment"},
+      "Y": {"name": "AI Incidents", "role": "Outcome"},
+      "Z": {"name": "Safety Culture", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Did companies with strong safety cultures self-select into conducting audits, confounding the audit-incident relationship?",
+    "conditional_answers": {
+      "A": "If companies were randomly assigned to conduct audits regardless of their safety culture, fewer incidents would indicate audits are causally effective.",
+      "B": "If safety-conscious companies self-selected into audits, the correlation reflects their pre-existing safety culture, not the audit's effect."
+    },
+    "wise_refusal": "The claim that AI safety audits cause fewer AI incidents is ambiguous due to selection bias. We cannot determine whether reduced incidents are caused by audits or by pre-existing safety culture without knowing how companies were selected for audits. If companies were randomly assigned, the effect may be causal. If safety-conscious companies self-selected, the correlation is spurious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z -> X, Z -> Y (safety culture causes both audit adoption and incident prevention)",
+    "key_insight": "Companies that choose safety interventions may already be safer, creating selection bias.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0004",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Machine Learning",
+    "difficulty": "Medium",
+    "trap_type": "T1",
+    "trap_family": "F1",
+    "trap_subtype": "Dataset Selection Bias",
+    "scenario": "A new data augmentation technique is tested on datasets where researchers chose to apply it. Models show 15% accuracy improvement. The technique is proclaimed effective. Researchers only applied the technique to datasets where they expected it would work well.",
+    "claim": "The data augmentation technique causes accuracy improvements.",
+    "variables": {
+      "X": {"name": "Data Augmentation", "role": "Treatment"},
+      "Y": {"name": "Model Accuracy", "role": "Outcome"},
+      "Z": {"name": "Dataset Suitability", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Were datasets randomly selected for augmentation, or did researchers selectively apply the technique to favorable datasets?",
+    "conditional_answers": {
+      "A": "If the technique was tested on randomly selected datasets, accuracy improvements reflect its true causal effect.",
+      "B": "If researchers cherry-picked suitable datasets, the improvements reflect selection bias in evaluation."
+    },
+    "wise_refusal": "The claim that the data augmentation technique causes accuracy improvements is ambiguous due to selection bias. We cannot determine whether improvements are caused by the technique or by selective dataset choice without knowing how datasets were selected. If datasets were random, the effect may be causal. If datasets were cherry-picked, the correlation is spurious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z -> X, Z -> Y (dataset suitability causes both technique application and accuracy)",
+    "key_insight": "Selective application of techniques to favorable conditions inflates perceived effectiveness.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0005",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Algorithm Deployment",
+    "difficulty": "Medium",
+    "trap_type": "T1",
+    "trap_family": "F1",
+    "trap_subtype": "Market Selection Bias",
+    "scenario": "Tech startups that adopt automated ML pipelines show 60% higher valuations at Series A. Investors conclude that AutoML adoption drives startup success. However, well-funded startups with strong technical teams were more likely to implement AutoML.",
+    "claim": "AutoML adoption causes higher startup valuations.",
+    "variables": {
+      "X": {"name": "AutoML Adoption", "role": "Treatment"},
+      "Y": {"name": "Startup Valuation", "role": "Outcome"},
+      "Z": {"name": "Initial Resources/Team Quality", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Did startups with better resources and teams self-select into AutoML adoption?",
+    "conditional_answers": {
+      "A": "If startups were randomly assigned to adopt AutoML regardless of resources, higher valuations would indicate AutoML's causal effect.",
+      "B": "If well-resourced startups self-selected into AutoML, the valuation correlation reflects their pre-existing advantages."
+    },
+    "wise_refusal": "The claim that AutoML adoption causes higher startup valuations is ambiguous due to selection bias. We cannot determine whether valuations are driven by AutoML or by pre-existing startup quality without knowing the selection mechanism. If adoption was random, the effect may be causal. If successful startups self-selected, the correlation is spurious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z -> X, Z -> Y (resources/team quality causes both AutoML adoption and valuation)",
+    "key_insight": "Successful organizations may adopt new technologies more readily, creating selection bias.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0006",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Data Science",
+    "difficulty": "Hard",
+    "trap_type": "T1",
+    "trap_family": "F1",
+    "trap_subtype": "Feature Store Selection Bias",
+    "scenario": "Data science teams using centralized feature stores report 25% faster model development. A vendor claims feature stores accelerate ML workflows. Teams that adopted feature stores were large organizations with mature data infrastructure and dedicated MLOps engineers.",
+    "claim": "Feature stores cause faster model development.",
+    "variables": {
+      "X": {"name": "Feature Store Usage", "role": "Treatment"},
+      "Y": {"name": "Development Speed", "role": "Outcome"},
+      "Z": {"name": "Organizational Maturity", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Did organizationally mature teams with existing infrastructure self-select into feature store adoption?",
+    "conditional_answers": {
+      "A": "If teams were randomly assigned to use feature stores regardless of maturity, faster development would reflect the tool's causal effect.",
+      "B": "If mature organizations self-selected, the speed gains may reflect their pre-existing capabilities and infrastructure."
+    },
+    "wise_refusal": "The claim that feature stores cause faster model development is ambiguous due to selection bias. We cannot determine whether speed improvements are caused by feature stores or by organizational maturity without knowing the adoption mechanism. If adoption was random, the effect may be causal. If mature teams self-selected, the correlation is spurious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z -> X, Z -> Y (organizational maturity causes both adoption and development speed)",
+    "key_insight": "Enterprise tool adoption often correlates with organizational capabilities that independently affect outcomes.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0007",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "ML Fairness",
+    "difficulty": "Hard",
+    "trap_type": "T1",
+    "trap_family": "F1",
+    "trap_subtype": "Audit Selection Bias",
+    "scenario": "Companies that voluntarily undergo ML fairness audits show better fairness metrics than those that don't. Advocates claim fairness audits improve algorithmic equity. Companies that volunteered for audits were already committed to DEI initiatives and had diverse teams.",
+    "claim": "ML fairness audits cause improved fairness metrics.",
+    "variables": {
+      "X": {"name": "Fairness Audits", "role": "Treatment"},
+      "Y": {"name": "Fairness Metrics", "role": "Outcome"},
+      "Z": {"name": "DEI Commitment", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Did companies with pre-existing DEI commitment self-select into fairness audits?",
+    "conditional_answers": {
+      "A": "If companies were randomly assigned to undergo audits regardless of their DEI stance, improved metrics would indicate audits' causal effectiveness.",
+      "B": "If DEI-committed companies self-selected, better metrics may reflect their pre-existing commitment, not the audit's effect."
+    },
+    "wise_refusal": "The claim that ML fairness audits cause improved fairness metrics is ambiguous due to selection bias. We cannot determine whether metric improvements are caused by audits or by pre-existing DEI commitment without knowing the selection mechanism. If assignment was random, the effect may be causal. If committed companies self-selected, the correlation is spurious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z -> X, Z -> Y (DEI commitment causes both audit adoption and fairness outcomes)",
+    "key_insight": "Organizations seeking fairness interventions may already prioritize equity, confounding intervention effects.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0008",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Cloud Computing",
+    "difficulty": "Easy",
+    "trap_type": "T1",
+    "trap_family": "F1",
+    "trap_subtype": "Platform Migration Selection",
+    "scenario": "Companies migrating to cloud-based ML platforms report 35% cost reduction in model training. Cloud vendors claim their platforms reduce ML costs. Companies that migrated had inefficient on-premise setups and large budgets for optimization projects.",
+    "claim": "Cloud ML platforms cause training cost reductions.",
+    "variables": {
+      "X": {"name": "Cloud Platform Migration", "role": "Treatment"},
+      "Y": {"name": "Training Costs", "role": "Outcome"},
+      "Z": {"name": "Pre-existing Inefficiency", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Did companies with inefficient setups and optimization budgets self-select into cloud migration?",
+    "conditional_answers": {
+      "A": "If companies were randomly assigned to migrate regardless of their starting efficiency, cost reductions would reflect cloud platforms' causal effect.",
+      "B": "If inefficient companies self-selected, cost reductions may reflect regression to the mean or optimization efforts unrelated to cloud."
+    },
+    "wise_refusal": "The claim that cloud ML platforms cause training cost reductions is ambiguous due to selection bias. We cannot determine whether cost savings are caused by cloud platforms or by addressing pre-existing inefficiencies without knowing the migration selection process. If migration was random, the effect may be causal. If inefficient companies self-selected, the correlation is spurious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z -> X, Z -> Y (inefficiency causes both migration decision and potential for cost reduction)",
+    "key_insight": "Companies seeking optimization solutions may have the most room for improvement regardless of the solution chosen.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0009",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "NLP",
+    "difficulty": "Medium",
+    "trap_type": "T1",
+    "trap_family": "F1",
+    "trap_subtype": "Benchmark Selection Bias",
+    "scenario": "A new transformer architecture shows state-of-the-art results on selected NLP benchmarks. The authors claim architectural innovations drive performance. The benchmarks were specifically chosen where the architecture's design choices would be advantageous.",
+    "claim": "The transformer architecture innovations cause performance improvements.",
+    "variables": {
+      "X": {"name": "Architecture Innovations", "role": "Treatment"},
+      "Y": {"name": "Benchmark Performance", "role": "Outcome"},
+      "Z": {"name": "Benchmark Selection", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Were benchmarks randomly selected, or were they chosen to favor the new architecture?",
+    "conditional_answers": {
+      "A": "If benchmarks were pre-registered or randomly selected, superior performance would indicate the architecture's causal advantage.",
+      "B": "If benchmarks were selected post-hoc to favor the architecture, the results reflect selection bias in evaluation."
+    },
+    "wise_refusal": "The claim that transformer architecture innovations cause performance improvements is ambiguous due to selection bias. We cannot determine whether improvements reflect true architectural advantages or benchmark cherry-picking without knowing the benchmark selection process. If benchmarks were pre-registered, the effect may be causal. If they were cherry-picked, the correlation is spurious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z -> X evaluation, Z -> Y (benchmark selection affects both where architecture is tested and apparent performance)",
+    "key_insight": "Post-hoc benchmark selection can inflate apparent performance of any method.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0010",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Computer Vision",
+    "difficulty": "Hard",
+    "trap_type": "T1",
+    "trap_family": "F1",
+    "trap_subtype": "Deployment Context Selection",
+    "scenario": "Autonomous vehicle companies using a specific sensor fusion algorithm report 45% fewer false positives in object detection. The algorithm vendor claims their approach reduces errors. Companies that adopted this algorithm operated primarily in favorable weather conditions with well-maintained roads.",
+    "claim": "The sensor fusion algorithm causes reduced false positives.",
+    "variables": {
+      "X": {"name": "Sensor Fusion Algorithm", "role": "Treatment"},
+      "Y": {"name": "False Positive Rate", "role": "Outcome"},
+      "Z": {"name": "Operating Conditions", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Did companies operating in favorable conditions self-select into using this particular algorithm?",
+    "conditional_answers": {
+      "A": "If the algorithm was tested across diverse operating conditions, reduced false positives would reflect its causal effectiveness.",
+      "B": "If adopters primarily operated in easy conditions, the performance may reflect favorable deployment contexts, not algorithm quality."
+    },
+    "wise_refusal": "The claim that the sensor fusion algorithm causes reduced false positives is ambiguous due to selection bias. We cannot determine whether performance reflects algorithm quality or favorable operating conditions without knowing deployer characteristics. If testing was done across diverse conditions, the effect may be causal. If favorable-condition operators self-selected, the correlation is spurious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z -> X, Z -> Y (operating conditions affect both algorithm choice and detection performance)",
+    "key_insight": "Technology performance claims must account for the contexts where adopters choose to deploy.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0011",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "MLOps",
+    "difficulty": "Easy",
+    "trap_type": "T1",
+    "trap_family": "F1",
+    "trap_subtype": "Tool Adoption Selection",
+    "scenario": "Teams using ML experiment tracking tools report 20% fewer failed deployments. A tool vendor claims experiment tracking prevents deployment failures. Teams that adopted tracking tools were already practicing rigorous documentation and version control.",
+    "claim": "ML experiment tracking causes fewer deployment failures.",
+    "variables": {
+      "X": {"name": "Experiment Tracking", "role": "Treatment"},
+      "Y": {"name": "Deployment Failures", "role": "Outcome"},
+      "Z": {"name": "Engineering Rigor", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Did teams with rigorous engineering practices self-select into using experiment tracking tools?",
+    "conditional_answers": {
+      "A": "If teams were randomly assigned to use tracking tools regardless of their practices, fewer failures would indicate the tool's causal effect.",
+      "B": "If rigorous teams self-selected, reduced failures may reflect their pre-existing practices, not the tool."
+    },
+    "wise_refusal": "The claim that ML experiment tracking causes fewer deployment failures is ambiguous due to selection bias. We cannot determine whether reduced failures are caused by the tool or by pre-existing engineering rigor without knowing the adoption mechanism. If adoption was random, the effect may be causal. If rigorous teams self-selected, the correlation is spurious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z -> X, Z -> Y (engineering rigor causes both tool adoption and deployment success)",
+    "key_insight": "Teams that adopt best-practice tools may already follow best practices independently.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0012",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Ethics",
+    "difficulty": "Medium",
+    "trap_type": "T1",
+    "trap_family": "F1",
+    "trap_subtype": "Ethics Board Selection",
+    "scenario": "Tech companies with AI ethics boards report 40% fewer public controversies about their AI products. Industry observers conclude ethics boards prevent controversies. Companies that established ethics boards were already facing public scrutiny and had dedicated PR resources.",
+    "claim": "AI ethics boards cause fewer public controversies.",
+    "variables": {
+      "X": {"name": "AI Ethics Boards", "role": "Treatment"},
+      "Y": {"name": "Public Controversies", "role": "Outcome"},
+      "Z": {"name": "Public Scrutiny/PR Resources", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Did companies facing scrutiny with strong PR capabilities self-select into establishing ethics boards?",
+    "conditional_answers": {
+      "A": "If companies were randomly assigned to have ethics boards regardless of their situation, fewer controversies would indicate boards' causal effect.",
+      "B": "If scrutinized companies with PR resources self-selected, reduced controversies may reflect their PR capabilities, not the board's influence."
+    },
+    "wise_refusal": "The claim that AI ethics boards cause fewer public controversies is ambiguous due to selection bias. We cannot determine whether reduced controversies are caused by ethics boards or by companies' PR capabilities without knowing why companies established boards. If establishment was random, the effect may be causal. If companies self-selected based on resources, the correlation is spurious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z -> X, Z -> Y (scrutiny/resources cause both ethics board creation and controversy management)",
+    "key_insight": "Organizations that create oversight structures may have other capabilities that affect the apparent outcome.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0013",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Reinforcement Learning",
+    "difficulty": "Hard",
+    "trap_type": "T1",
+    "trap_family": "F1",
+    "trap_subtype": "Environment Selection Bias",
+    "scenario": "A new reward shaping technique shows 50% faster convergence in tested RL environments. Authors claim the technique accelerates learning. The technique was only tested in environments where the authors knew the optimal reward structure would align with their shaping approach.",
+    "claim": "The reward shaping technique causes faster RL convergence.",
+    "variables": {
+      "X": {"name": "Reward Shaping Technique", "role": "Treatment"},
+      "Y": {"name": "Convergence Speed", "role": "Outcome"},
+      "Z": {"name": "Environment-Technique Compatibility", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Were environments randomly selected, or were they chosen based on expected compatibility with the technique?",
+    "conditional_answers": {
+      "A": "If environments were randomly selected from a diverse set, faster convergence would reflect the technique's general effectiveness.",
+      "B": "If compatible environments were selected, the speedup may be specific to those environments and not generalizable."
+    },
+    "wise_refusal": "The claim that the reward shaping technique causes faster RL convergence is ambiguous due to selection bias. We cannot determine whether the speedup is a general effect or environment-specific without knowing how test environments were selected. If environments were random, the effect may be causal. If compatible environments were cherry-picked, the correlation is spurious for general claims. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z -> X application, Z -> Y (environment selection affects both where technique is tested and its apparent success)",
+    "key_insight": "RL techniques may show inflated performance when evaluated on hand-picked favorable environments.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0014",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Natural Language Processing",
+    "difficulty": "Easy",
+    "trap_type": "T1",
+    "trap_family": "F1",
+    "trap_subtype": "User Feedback Selection",
+    "scenario": "Users who provide feedback on an AI chatbot rate it 4.5/5 stars on average. The company claims their chatbot achieves high user satisfaction. Users who bother to leave feedback tend to be either very satisfied or very dissatisfied, with satisfied users being more vocal.",
+    "claim": "The AI chatbot causes high user satisfaction.",
+    "variables": {
+      "X": {"name": "AI Chatbot Usage", "role": "Treatment"},
+      "Y": {"name": "Satisfaction Ratings", "role": "Outcome"},
+      "Z": {"name": "Feedback Propensity", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Are users who provide feedback representative of all users, or do satisfied users disproportionately leave reviews?",
+    "conditional_answers": {
+      "A": "If feedback was collected from a random sample of all users, high ratings would reflect true satisfaction levels.",
+      "B": "If satisfied users disproportionately provided feedback, the ratings overestimate average satisfaction."
+    },
+    "wise_refusal": "The claim that the AI chatbot causes high user satisfaction is ambiguous due to selection bias. We cannot determine true satisfaction levels without knowing whether feedback providers are representative of all users. If feedback was randomly sampled, the ratings may be accurate. If satisfied users self-selected into providing feedback, the ratings are inflated. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z -> provides feedback, Z correlated with Y (satisfaction affects both feedback propensity and ratings)",
+    "key_insight": "Voluntary feedback systems suffer from non-response bias that can inflate apparent satisfaction.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0015",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Deep Learning",
+    "difficulty": "Medium",
+    "trap_type": "T1",
+    "trap_family": "F1",
+    "trap_subtype": "Hyperparameter Selection Bias",
+    "scenario": "A new neural architecture achieves SOTA results with carefully tuned hyperparameters. Authors claim the architecture is superior. Baseline models were run with default hyperparameters while the new architecture received extensive hyperparameter search.",
+    "claim": "The new neural architecture causes better performance.",
+    "variables": {
+      "X": {"name": "New Architecture", "role": "Treatment"},
+      "Y": {"name": "Model Performance", "role": "Outcome"},
+      "Z": {"name": "Hyperparameter Tuning Effort", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Was hyperparameter tuning effort equal across the new architecture and baselines?",
+    "conditional_answers": {
+      "A": "If all architectures received equal tuning effort, performance differences would reflect architectural advantages.",
+      "B": "If the new architecture received more tuning, the performance gain may reflect tuning effort, not architectural merit."
+    },
+    "wise_refusal": "The claim that the new neural architecture causes better performance is ambiguous due to selection bias in evaluation. We cannot determine whether performance reflects architectural advantages or differential tuning effort without knowing how hyperparameters were selected for each model. If tuning was equal, the effect may be causal. If tuning was unequal, the correlation is spurious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z -> X performance, Z -> Y (tuning effort affects apparent performance of favored architecture)",
+    "key_insight": "Unequal evaluation effort between methods creates selection bias in performance comparisons.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0016",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Recommender Systems",
+    "difficulty": "Hard",
+    "trap_type": "T1",
+    "trap_family": "F1",
+    "trap_subtype": "User Engagement Selection",
+    "scenario": "Users who interact with personalized AI recommendations show 55% higher purchase rates. E-commerce platforms claim AI recommendations drive purchases. Users who engage with recommendations are already in a buying mindset and have higher purchase intent.",
+    "claim": "AI recommendations cause increased purchases.",
+    "variables": {
+      "X": {"name": "AI Recommendation Interaction", "role": "Treatment"},
+      "Y": {"name": "Purchase Rate", "role": "Outcome"},
+      "Z": {"name": "Purchase Intent", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Did users with high purchase intent self-select into interacting with recommendations?",
+    "conditional_answers": {
+      "A": "If recommendation interaction was randomized, higher purchase rates would reflect recommendations' causal effect.",
+      "B": "If high-intent users self-selected into engaging with recommendations, the correlation reflects their pre-existing intent."
+    },
+    "wise_refusal": "The claim that AI recommendations cause increased purchases is ambiguous due to selection bias. We cannot determine whether purchases are driven by recommendations or by pre-existing purchase intent without knowing why users engaged with recommendations. If engagement was random, the effect may be causal. If high-intent users self-selected, the correlation is spurious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z -> X, Z -> Y (purchase intent causes both recommendation engagement and purchasing)",
+    "key_insight": "Users who engage with purchase-facilitating features may already intend to purchase.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0017",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Governance",
+    "difficulty": "Medium",
+    "trap_type": "T1",
+    "trap_family": "F1",
+    "trap_subtype": "Compliance Selection Bias",
+    "scenario": "Organizations that implement AI governance frameworks report 30% better regulatory compliance scores. Consultants claim governance frameworks improve compliance. Organizations that implemented frameworks were already subject to heavy regulation and had dedicated compliance departments.",
+    "claim": "AI governance frameworks cause better compliance scores.",
+    "variables": {
+      "X": {"name": "AI Governance Frameworks", "role": "Treatment"},
+      "Y": {"name": "Compliance Scores", "role": "Outcome"},
+      "Z": {"name": "Regulatory Pressure/Compliance Infrastructure", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Did organizations with compliance infrastructure and regulatory pressure self-select into implementing governance frameworks?",
+    "conditional_answers": {
+      "A": "If organizations were randomly assigned to implement frameworks regardless of their situation, improved scores would indicate frameworks' causal effect.",
+      "B": "If regulated organizations with compliance resources self-selected, better scores may reflect their existing infrastructure, not the framework."
+    },
+    "wise_refusal": "The claim that AI governance frameworks cause better compliance scores is ambiguous due to selection bias. We cannot determine whether improved scores are caused by frameworks or by pre-existing compliance capabilities without knowing the implementation context. If implementation was random, the effect may be causal. If well-resourced organizations self-selected, the correlation is spurious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z -> X, Z -> Y (regulatory environment causes both framework adoption and compliance focus)",
+    "key_insight": "Organizations in regulated industries may adopt governance measures and achieve compliance for correlated reasons.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0018",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Edge Computing",
+    "difficulty": "Hard",
+    "trap_type": "T1",
+    "trap_family": "F1",
+    "trap_subtype": "Infrastructure Selection Bias",
+    "scenario": "Companies deploying edge AI report 40% lower latency compared to cloud-only solutions. Edge computing vendors claim edge deployment reduces latency. Companies that deployed edge AI had latency-critical applications and invested heavily in network infrastructure.",
+    "claim": "Edge AI deployment causes lower latency.",
+    "variables": {
+      "X": {"name": "Edge AI Deployment", "role": "Treatment"},
+      "Y": {"name": "Latency", "role": "Outcome"},
+      "Z": {"name": "Infrastructure Investment", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Did companies with latency-critical needs and infrastructure investments self-select into edge deployment?",
+    "conditional_answers": {
+      "A": "If companies were randomly assigned to edge vs. cloud regardless of their infrastructure, lower latency would indicate edge deployment's causal effect.",
+      "B": "If companies with infrastructure investments self-selected, latency improvements may reflect their broader optimization efforts."
+    },
+    "wise_refusal": "The claim that edge AI deployment causes lower latency is ambiguous due to selection bias. We cannot determine whether latency improvements are caused by edge deployment or by overall infrastructure investments without knowing why companies chose edge solutions. If deployment was random, the effect may be causal. If infrastructure-invested companies self-selected, the correlation is spurious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z -> X, Z -> Y (infrastructure investment causes both edge adoption and latency optimization)",
+    "key_insight": "Companies that invest in specific deployment strategies often make correlated investments that independently affect outcomes.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0019",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Research",
+    "difficulty": "Easy",
+    "trap_type": "T1",
+    "trap_family": "F1",
+    "trap_subtype": "Publication Selection Bias",
+    "scenario": "Papers using a particular mathematical framework show higher citation counts. Proponents claim the framework leads to more impactful research. Researchers using this framework tend to be at top institutions with more resources and visibility.",
+    "claim": "The mathematical framework causes higher research impact.",
+    "variables": {
+      "X": {"name": "Mathematical Framework Usage", "role": "Treatment"},
+      "Y": {"name": "Citation Counts", "role": "Outcome"},
+      "Z": {"name": "Institutional Prestige/Resources", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Did researchers at prestigious institutions self-select into using this framework?",
+    "conditional_answers": {
+      "A": "If framework usage was independent of institutional factors, higher citations would reflect the framework's contribution to impact.",
+      "B": "If top-institution researchers self-selected, citations may reflect institutional prestige rather than the framework's value."
+    },
+    "wise_refusal": "The claim that the mathematical framework causes higher research impact is ambiguous due to selection bias. We cannot determine whether citations reflect framework value or institutional prestige without knowing who adopts the framework. If adoption was independent of institution, the effect may be causal. If prestigious researchers self-selected, the correlation is spurious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z -> X, Z -> Y (institutional prestige causes both framework adoption and citation counts)",
+    "key_insight": "Research method adoption may correlate with researcher characteristics that independently affect impact.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0020",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Cybersecurity",
+    "difficulty": "Medium",
+    "trap_type": "T1",
+    "trap_family": "F1",
+    "trap_subtype": "Security Tool Selection",
+    "scenario": "Organizations using AI-powered threat detection report 35% fewer successful cyberattacks. Security vendors claim AI detection prevents breaches. Organizations that adopted AI detection were already security-mature with dedicated SOC teams and incident response plans.",
+    "claim": "AI-powered threat detection causes fewer cyberattacks.",
+    "variables": {
+      "X": {"name": "AI Threat Detection", "role": "Treatment"},
+      "Y": {"name": "Successful Cyberattacks", "role": "Outcome"},
+      "Z": {"name": "Security Maturity", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Did security-mature organizations self-select into adopting AI threat detection?",
+    "conditional_answers": {
+      "A": "If organizations were randomly assigned to use AI detection regardless of their security posture, fewer attacks would indicate the tool's causal effectiveness.",
+      "B": "If security-mature organizations self-selected, reduced attacks may reflect their overall security posture, not the AI tool specifically."
+    },
+    "wise_refusal": "The claim that AI-powered threat detection causes fewer cyberattacks is ambiguous due to selection bias. We cannot determine whether reduced attacks are caused by the AI tool or by pre-existing security maturity without knowing the adoption context. If adoption was random, the effect may be causal. If mature organizations self-selected, the correlation is spurious. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z -> X, Z -> Y (security maturity causes both tool adoption and attack prevention)",
+    "key_insight": "Organizations that adopt advanced security tools may already have strong security postures.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  }
+]

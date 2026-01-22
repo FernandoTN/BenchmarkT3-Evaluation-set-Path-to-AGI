@@ -1,0 +1,599 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://t3benchmark.ai/schemas/groupJ_FernandoTorres_schema.json",
+  "title": "T3 Benchmark GroupJ1 Dataset Schema V4.0",
+  "description": "JSON Schema documenting the V4.0 case structure for GroupJ1 T3 Benchmark dataset. This schema defines the structure for cases testing AI causal reasoning across Pearl's Ladder of Causation (L1: Association, L2: Intervention, L3: Counterfactual).",
+  "version": "4.0",
+  "author": "Fernando Torres",
+  "group": "GroupJ1",
+  "type": "object",
+
+  "definitions": {
+    "pearl_level": {
+      "type": "string",
+      "enum": ["L1", "L2", "L3"],
+      "description": "Pearl's Ladder of Causation level",
+      "enumDescriptions": {
+        "L1": "Association - Observational reasoning about correlations (seeing/observing)",
+        "L2": "Intervention - Reasoning about effects of actions (doing/manipulating)",
+        "L3": "Counterfactual - Reasoning about hypothetical alternatives (imagining/retrospecting)"
+      }
+    },
+
+    "difficulty": {
+      "type": "string",
+      "enum": ["Easy", "Medium", "Hard"],
+      "description": "Case difficulty level following 1:2:1 distribution target",
+      "enumDescriptions": {
+        "Easy": "Straightforward reasoning with clear causal structure",
+        "Medium": "Moderate complexity requiring careful analysis",
+        "Hard": "Complex scenarios with subtle distinctions or multiple confounders"
+      }
+    },
+
+    "l1_label": {
+      "type": "string",
+      "enum": ["W", "S", "A"],
+      "description": "L1 case labels based on reasoning trap classification",
+      "enumDescriptions": {
+        "W": "WOLF - Claim appears valid but contains causal fallacy (false friend)",
+        "S": "SHEEP - Claim appears suspicious but is actually valid (true friend)",
+        "A": "AMBIGUOUS - Claim validity depends on unstated assumptions"
+      }
+    },
+
+    "l2_label": {
+      "type": "string",
+      "enum": ["NO"],
+      "description": "L2 cases always have NO label (cannot determine without intervention)",
+      "enumDescriptions": {
+        "NO": "Cannot determine causation from observational data alone"
+      }
+    },
+
+    "l3_label": {
+      "type": "string",
+      "enum": ["VALID", "INVALID", "CONDITIONAL"],
+      "description": "L3 counterfactual validity assessment",
+      "enumDescriptions": {
+        "VALID": "Counterfactual claim is supported given invariants",
+        "INVALID": "Counterfactual claim is not supported given invariants",
+        "CONDITIONAL": "Validity depends on additional unstated factors"
+      }
+    },
+
+    "l1_trap_type": {
+      "type": "string",
+      "description": "L1 trap types: WOLF (W1-W10), SHEEP (S1-S8), or AMBIGUOUS (A)",
+      "oneOf": [
+        {
+          "pattern": "^W([1-9]|10)$",
+          "description": "WOLF traps (W1-W10): False causal claims that appear valid"
+        },
+        {
+          "pattern": "^S[1-8]$",
+          "description": "SHEEP traps (S1-S8): Valid causal claims that appear suspicious"
+        },
+        {
+          "const": "A",
+          "description": "AMBIGUOUS: Validity depends on interpretation"
+        }
+      ],
+      "trapCatalog": {
+        "W1": "Correlation-Causation Confusion",
+        "W2": "Reverse Causation",
+        "W3": "Common Cause Fallacy",
+        "W4": "Selection Bias",
+        "W5": "Survivorship Bias",
+        "W6": "Simpson's Paradox",
+        "W7": "Ecological Fallacy",
+        "W8": "Regression to Mean",
+        "W9": "Post Hoc Fallacy",
+        "W10": "Confounding Variable",
+        "S1": "Valid Despite Correlation",
+        "S2": "Mechanism Known",
+        "S3": "Experimental Evidence",
+        "S4": "Temporal Precedence Clear",
+        "S5": "Dose-Response Relationship",
+        "S6": "Consistency Across Studies",
+        "S7": "Biological Plausibility",
+        "S8": "Specificity of Association",
+        "A": "Ambiguous - Context Dependent"
+      }
+    },
+
+    "l2_trap_type": {
+      "type": "string",
+      "pattern": "^T([1-9]|1[0-7])$",
+      "description": "L2 trap types (T1-T17): Intervention reasoning traps",
+      "trapCatalog": {
+        "T1": "Confounding Intervention",
+        "T2": "Mediation Misunderstanding",
+        "T3": "Collider Bias",
+        "T4": "Selection on Post-Treatment",
+        "T5": "Instrument Invalidity",
+        "T6": "Compliance Confusion",
+        "T7": "Spillover Effects",
+        "T8": "Time-Varying Treatment",
+        "T9": "Measurement Intervention",
+        "T10": "Feedback Loop",
+        "T11": "Heterogeneous Effects",
+        "T12": "External Validity",
+        "T13": "Construct Validity",
+        "T14": "Statistical vs Practical",
+        "T15": "Missing Data Mechanism",
+        "T16": "Causal Chain Length",
+        "T17": "Effect Modification"
+      }
+    },
+
+    "l2_trap_family": {
+      "type": "string",
+      "enum": ["F1", "F2", "F3", "F4", "F5", "F6"],
+      "description": "L2 trap family classification",
+      "enumDescriptions": {
+        "F1": "Confounding Family",
+        "F2": "Selection Family",
+        "F3": "Mediation Family",
+        "F4": "Measurement Family",
+        "F5": "Generalization Family",
+        "F6": "Temporal Family"
+      }
+    },
+
+    "l3_trap_type": {
+      "type": "string",
+      "description": "L3 trap types: Fallacy (F1-F8) or DomainExt",
+      "oneOf": [
+        {
+          "pattern": "^F[1-8]$",
+          "description": "Counterfactual fallacy types"
+        },
+        {
+          "const": "DomainExt",
+          "description": "Domain extension counterfactual"
+        }
+      ],
+      "trapCatalog": {
+        "F1": "Backtracking Counterfactual",
+        "F2": "Impossible Antecedent",
+        "F3": "Cotenability Violation",
+        "F4": "Causal Model Mismatch",
+        "F5": "Temporal Paradox",
+        "F6": "Determinism Assumption",
+        "F7": "Closest World Selection",
+        "F8": "Intervention vs Counterfactual",
+        "DomainExt": "Domain-Specific Extension"
+      }
+    },
+
+    "l3_trap_family": {
+      "type": "string",
+      "enum": ["F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8"],
+      "description": "L3 trap family classification",
+      "enumDescriptions": {
+        "F1": "Backtracking Family",
+        "F2": "Impossibility Family",
+        "F3": "Cotenability Family",
+        "F4": "Model Mismatch Family",
+        "F5": "Temporal Family",
+        "F6": "Determinism Family",
+        "F7": "World Selection Family",
+        "F8": "Intervention-Counterfactual Family"
+      }
+    },
+
+    "variable": {
+      "type": "object",
+      "required": ["name", "role"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Human-readable name of the variable"
+        },
+        "role": {
+          "type": "string",
+          "description": "Causal role (e.g., 'treatment', 'outcome', 'confounder', 'mediator', 'collider')"
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "variables_object": {
+      "type": "object",
+      "required": ["X", "Y"],
+      "properties": {
+        "X": {
+          "$ref": "#/definitions/variable",
+          "description": "Primary treatment/exposure variable"
+        },
+        "Y": {
+          "$ref": "#/definitions/variable",
+          "description": "Primary outcome variable"
+        },
+        "Z": {
+          "$ref": "#/definitions/variable",
+          "description": "Optional third variable (confounder, mediator, collider, etc.)"
+        }
+      },
+      "additionalProperties": {
+        "$ref": "#/definitions/variable"
+      }
+    },
+
+    "conditional_answers": {
+      "type": "object",
+      "required": ["A", "B"],
+      "properties": {
+        "A": {
+          "type": "string",
+          "minLength": 20,
+          "description": "First conditional interpretation/answer"
+        },
+        "B": {
+          "type": "string",
+          "minLength": 20,
+          "description": "Second conditional interpretation/answer"
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "score_breakdown": {
+      "type": "object",
+      "description": "Detailed 10-point rubric breakdown for validation scoring",
+      "properties": {
+        "scenario_clarity": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1.0,
+          "description": "Clarity and completeness of scenario description (0-1 points)"
+        },
+        "hidden_question_quality": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1.0,
+          "description": "Quality of hidden question formulation (0-1 points, L2 only)"
+        },
+        "conditional_answer_A": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1.5,
+          "description": "Quality of conditional answer A (0-1.5 points, L2 only)"
+        },
+        "conditional_answer_B": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1.5,
+          "description": "Quality of conditional answer B (0-1.5 points, L2 only)"
+        },
+        "wise_refusal_quality": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 2.0,
+          "description": "Quality of wise refusal statement (0-2 points)"
+        },
+        "difficulty_calibration": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1.0,
+          "description": "Appropriateness of difficulty rating (0-1 points)"
+        },
+        "final_label": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1.0,
+          "description": "Correctness of final label assignment (0-1 points)"
+        },
+        "trap_type": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1.0,
+          "description": "Appropriateness of trap type classification (0-1 points)"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+
+  "required": [
+    "case_id",
+    "pearl_level",
+    "domain",
+    "subdomain",
+    "difficulty",
+    "trap_type",
+    "scenario",
+    "variables",
+    "label",
+    "wise_refusal",
+    "initial_author",
+    "validator",
+    "final_score"
+  ],
+
+  "properties": {
+    "case_id": {
+      "type": "string",
+      "pattern": "^T3-[A-Z][0-9]-L[1-3]-[0-9]{4}$",
+      "description": "Unique identifier following format: T3-{GroupID}-L{Level}-{SequenceNumber}",
+      "examples": ["T3-J1-L1-0001", "T3-J1-L2-0015", "T3-J1-L3-0042"]
+    },
+
+    "pearl_level": {
+      "$ref": "#/definitions/pearl_level"
+    },
+
+    "domain": {
+      "type": "string",
+      "description": "Primary domain identifier. GroupJ focuses on D9 (AI & Technology) and D10 (Social Science)",
+      "examples": ["D9", "D10"]
+    },
+
+    "subdomain": {
+      "type": "string",
+      "description": "Specific subdomain within the primary domain",
+      "examples": [
+        "Machine Learning",
+        "Natural Language Processing",
+        "Computer Vision",
+        "Robotics",
+        "Behavioral Economics",
+        "Political Science",
+        "Sociology",
+        "Psychology"
+      ]
+    },
+
+    "difficulty": {
+      "$ref": "#/definitions/difficulty"
+    },
+
+    "trap_type": {
+      "type": "string",
+      "description": "Type of reasoning trap. Format depends on pearl_level: L1 uses W1-W10/S1-S8/A, L2 uses T1-T17, L3 uses F1-F8/DomainExt"
+    },
+
+    "trap_subtype": {
+      "type": "string",
+      "description": "Optional: More specific classification within the trap type"
+    },
+
+    "trap_family": {
+      "type": "string",
+      "description": "Trap family classification. L2: F1-F6, L3: F1-F8"
+    },
+
+    "scenario": {
+      "type": "string",
+      "minLength": 50,
+      "description": "Detailed description of the causal scenario. Must be self-contained and provide sufficient context for reasoning."
+    },
+
+    "claim": {
+      "type": "string",
+      "description": "The specific causal claim being tested in this case"
+    },
+
+    "variables": {
+      "$ref": "#/definitions/variables_object",
+      "description": "Causal variables involved in the scenario"
+    },
+
+    "label": {
+      "type": "string",
+      "description": "Case label indicating correct classification. L1: W/S/A, L2: NO, L3: VALID/INVALID/CONDITIONAL"
+    },
+
+    "hidden_question": {
+      "type": "string",
+      "minLength": 20,
+      "description": "L2 REQUIRED: The pivotal question that resolves the ambiguity about causal effect"
+    },
+
+    "conditional_answers": {
+      "$ref": "#/definitions/conditional_answers",
+      "description": "L2 REQUIRED: Two conditional interpretations based on different assumptions"
+    },
+
+    "wise_refusal": {
+      "type": "string",
+      "minLength": 50,
+      "description": "Template-following refusal statement demonstrating appropriate epistemic humility"
+    },
+
+    "counterfactual_claim": {
+      "type": "string",
+      "description": "L3 REQUIRED: The specific counterfactual claim being evaluated"
+    },
+
+    "invariants": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "description": "L3 REQUIRED: List of factors held constant across possible worlds"
+    },
+
+    "ground_truth": {
+      "type": "string",
+      "enum": ["VALID", "INVALID", "CONDITIONAL"],
+      "description": "L3 REQUIRED: Assessment of counterfactual validity"
+    },
+
+    "justification": {
+      "type": "string",
+      "minLength": 50,
+      "description": "L3 REQUIRED: Detailed explanation grounded in scenario and invariants"
+    },
+
+    "causal_structure": {
+      "type": "string",
+      "description": "Optional: DAG notation or description of causal relationships (e.g., 'X -> Z -> Y' or 'X <- Z -> Y')"
+    },
+
+    "key_insight": {
+      "type": "string",
+      "description": "Optional: The key reasoning insight that makes this case educational"
+    },
+
+    "initial_author": {
+      "type": "string",
+      "description": "Student identifier who originally created the case"
+    },
+
+    "validator": {
+      "type": "string",
+      "description": "Student identifier who validated this case"
+    },
+
+    "final_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 10,
+      "description": "Quality score assigned during validation (10-point rubric)"
+    },
+
+    "score_breakdown": {
+      "$ref": "#/definitions/score_breakdown",
+      "description": "Optional: Detailed breakdown of validation scoring"
+    }
+  },
+
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "pearl_level": {"const": "L1"}
+        }
+      },
+      "then": {
+        "properties": {
+          "label": {
+            "$ref": "#/definitions/l1_label"
+          },
+          "trap_type": {
+            "$ref": "#/definitions/l1_trap_type"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "pearl_level": {"const": "L2"}
+        }
+      },
+      "then": {
+        "required": ["hidden_question", "conditional_answers"],
+        "properties": {
+          "label": {
+            "$ref": "#/definitions/l2_label"
+          },
+          "trap_type": {
+            "$ref": "#/definitions/l2_trap_type"
+          },
+          "trap_family": {
+            "$ref": "#/definitions/l2_trap_family"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "pearl_level": {"const": "L3"}
+        }
+      },
+      "then": {
+        "required": ["counterfactual_claim", "invariants", "ground_truth", "justification"],
+        "properties": {
+          "label": {
+            "$ref": "#/definitions/l3_label"
+          },
+          "trap_type": {
+            "$ref": "#/definitions/l3_trap_type"
+          },
+          "trap_family": {
+            "$ref": "#/definitions/l3_trap_family"
+          }
+        }
+      }
+    }
+  ],
+
+  "examples": [
+    {
+      "case_id": "T3-J1-L1-0001",
+      "pearl_level": "L1",
+      "domain": "D9",
+      "subdomain": "Machine Learning",
+      "difficulty": "Medium",
+      "trap_type": "W3",
+      "scenario": "A tech company observes that teams using a new AI code assistant tool have 40% fewer bugs in their code. The company concludes that the AI assistant directly causes better code quality.",
+      "variables": {
+        "X": {"name": "AI Code Assistant Usage", "role": "treatment"},
+        "Y": {"name": "Code Bug Rate", "role": "outcome"},
+        "Z": {"name": "Developer Experience Level", "role": "confounder"}
+      },
+      "label": "W",
+      "wise_refusal": "I cannot confirm that the AI assistant directly causes fewer bugs. Senior developers who write cleaner code may be more likely to adopt new tools, creating a confounding relationship that explains the correlation without direct causation.",
+      "initial_author": "student_j1_01",
+      "validator": "student_j1_02",
+      "final_score": 8.5
+    },
+    {
+      "case_id": "T3-J1-L2-0001",
+      "pearl_level": "L2",
+      "domain": "D10",
+      "subdomain": "Behavioral Economics",
+      "difficulty": "Hard",
+      "trap_type": "T3",
+      "trap_family": "F2",
+      "scenario": "Researchers studying remote work effectiveness select employees who requested work-from-home arrangements. They find that remote workers have higher productivity than office workers.",
+      "variables": {
+        "X": {"name": "Work Location", "role": "treatment"},
+        "Y": {"name": "Productivity", "role": "outcome"},
+        "Z": {"name": "Self-Selection into Remote Work", "role": "collider"}
+      },
+      "label": "NO",
+      "hidden_question": "Are employees who self-select into remote work systematically different in productivity-relevant characteristics from those who prefer office work?",
+      "conditional_answers": {
+        "A": "If remote work requesters are already more self-motivated and productive, the observed difference may reflect selection bias rather than the causal effect of remote work itself.",
+        "B": "If remote work was assigned randomly or if there are no systematic differences between groups, the productivity difference could indicate a genuine causal effect of remote work on output."
+      },
+      "wise_refusal": "I cannot determine whether remote work causes higher productivity from this observational study. The self-selection into remote work arrangements creates a collider bias problem - employees who request remote work may already possess characteristics that make them more productive, making it impossible to isolate the causal effect of location without an intervention.",
+      "initial_author": "student_j1_03",
+      "validator": "student_j1_04",
+      "final_score": 9.0
+    },
+    {
+      "case_id": "T3-J1-L3-0001",
+      "pearl_level": "L3",
+      "domain": "D9",
+      "subdomain": "Natural Language Processing",
+      "difficulty": "Hard",
+      "trap_type": "F4",
+      "trap_family": "F4",
+      "scenario": "A large language model was trained on internet text through 2023. A researcher claims: 'If the model had been trained on data through 2025 instead, it would have performed better on questions about recent events.'",
+      "counterfactual_claim": "If the LLM had been trained on data through 2025, it would have performed better on questions about events from 2024-2025.",
+      "variables": {
+        "X": {"name": "Training Data Cutoff", "role": "treatment"},
+        "Y": {"name": "Performance on Recent Events", "role": "outcome"}
+      },
+      "invariants": [
+        "Model architecture remains identical",
+        "Training procedure and hyperparameters unchanged",
+        "Evaluation methodology consistent"
+      ],
+      "label": "CONDITIONAL",
+      "ground_truth": "CONDITIONAL",
+      "justification": "The counterfactual validity depends on unstated assumptions about the training data composition, potential distribution shift, and whether the model's general reasoning capabilities would transfer to new temporal contexts. Including 2024-2025 data would provide relevant information but might also introduce noise or shift the training distribution in unpredictable ways.",
+      "wise_refusal": "I cannot definitively validate this counterfactual claim. While having more recent training data would provide direct knowledge of 2024-2025 events, the counterfactual assumes that extending the training cutoff would straightforwardly improve performance without considering potential negative effects from distribution shift, data quality changes, or capacity limitations. The claim's validity depends on multiple unstated assumptions about how the model generalizes.",
+      "initial_author": "student_j1_05",
+      "validator": "student_j1_06",
+      "final_score": 8.0
+    }
+  ]
+}

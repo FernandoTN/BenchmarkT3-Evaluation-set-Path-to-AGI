@@ -1,0 +1,524 @@
+[
+  {
+    "case_id": "T3-I1-L2-0125",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "ML Model Comparison",
+    "difficulty": "Easy",
+    "trap_type": "T8",
+    "trap_family": "F3",
+    "trap_subtype": "Model Performance Reversal",
+    "scenario": "Overall, Model A outperforms Model B in accuracy. However, when stratifying by dataset difficulty (easy vs hard), Model B outperforms Model A on both easy datasets AND hard datasets. Model A is more frequently evaluated on easy datasets.",
+    "claim": "Model A is the better performing model overall.",
+    "variables": {
+      "X": {"name": "Model Choice", "role": "Treatment"},
+      "Y": {"name": "Accuracy", "role": "Outcome"},
+      "Z": {"name": "Dataset Difficulty", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the aggregated comparison mask a reversal when stratified by dataset difficulty?",
+    "conditional_answers": {
+      "A": "If dataset difficulty doesn't matter for the comparison, the aggregate may accurately reflect model quality.",
+      "B": "If Model B is better within each stratum but Model A gets easier tests, the aggregate reverses the true relationship."
+    },
+    "wise_refusal": "The claim that Model A is the better performing model overall is ambiguous due to Simpson's paradox. We cannot determine true relative performance without examining stratified results. If aggregate reflects truth, A may be better. If B is better within each difficulty level, the aggregate is misleading. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z affects both model evaluation distribution and baseline accuracy",
+    "key_insight": "Aggregate comparisons can reverse when groups have different baseline difficulties and different group sizes.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0126",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "A/B Testing",
+    "difficulty": "Easy",
+    "trap_type": "T8",
+    "trap_family": "F3",
+    "trap_subtype": "Conversion Rate Reversal",
+    "scenario": "Overall, the AI-powered checkout flow shows higher conversion than the traditional flow. However, stratifying by user device (mobile vs desktop), the traditional flow has higher conversion on mobile AND desktop. The AI flow is disproportionately shown to desktop users who convert more often.",
+    "claim": "The AI-powered checkout flow causes higher conversion rates.",
+    "variables": {
+      "X": {"name": "Checkout Flow Type", "role": "Treatment"},
+      "Y": {"name": "Conversion Rate", "role": "Outcome"},
+      "Z": {"name": "Device Type", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the aggregate conversion difference mask a reversal when stratified by device type?",
+    "conditional_answers": {
+      "A": "If device doesn't confound the comparison, the aggregate may show the AI flow's true effect.",
+      "B": "If traditional flow is better on both devices but AI flow gets easier traffic, the aggregate is misleading."
+    },
+    "wise_refusal": "The claim that the AI-powered checkout flow causes higher conversion rates is ambiguous due to Simpson's paradox. We cannot determine the true effect without examining stratified results. If aggregate reflects truth, AI may be better. If traditional is better within each device segment, the aggregate reverses the true relationship. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z affects both flow assignment distribution and baseline conversion",
+    "key_insight": "A/B test aggregates can be misleading when treatment assignment correlates with user segments.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0127",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "ML Platform Comparison",
+    "difficulty": "Medium",
+    "trap_type": "T8",
+    "trap_family": "F3",
+    "trap_subtype": "Platform Performance Reversal",
+    "scenario": "Overall, Platform A users achieve higher model accuracy than Platform B users. However, stratifying by user experience (beginner vs expert), Platform B users achieve higher accuracy among beginners AND among experts. Platform A disproportionately attracts experts who achieve higher accuracy.",
+    "claim": "Platform A causes better model development outcomes.",
+    "variables": {
+      "X": {"name": "Platform Choice", "role": "Treatment"},
+      "Y": {"name": "Model Accuracy", "role": "Outcome"},
+      "Z": {"name": "User Experience Level", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the aggregate accuracy difference mask a reversal when stratified by experience?",
+    "conditional_answers": {
+      "A": "If experience doesn't confound the comparison, the aggregate may show Platform A's true benefit.",
+      "B": "If Platform B is better for both beginners AND experts but A attracts experts, the aggregate is misleading."
+    },
+    "wise_refusal": "The claim that Platform A causes better model development outcomes is ambiguous due to Simpson's paradox. We cannot determine the true effect without stratified analysis. If aggregate reflects truth, A may be better. If B is better within each experience level, the aggregate reverses the true relationship. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z affects both platform choice distribution and baseline performance",
+    "key_insight": "Platform comparisons can be confounded by different user populations choosing different platforms.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0128",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Algorithm Selection",
+    "difficulty": "Medium",
+    "trap_type": "T8",
+    "trap_family": "F3",
+    "trap_subtype": "Algorithm Comparison Reversal",
+    "scenario": "Overall, Algorithm X shows faster training times than Algorithm Y. However, stratifying by dataset size (small vs large), Algorithm Y is faster on small datasets AND large datasets. Algorithm X is more commonly benchmarked on small datasets which train faster regardless.",
+    "claim": "Algorithm X is faster for training ML models.",
+    "variables": {
+      "X": {"name": "Algorithm Choice", "role": "Treatment"},
+      "Y": {"name": "Training Time", "role": "Outcome"},
+      "Z": {"name": "Dataset Size", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the aggregate training time mask a reversal when stratified by dataset size?",
+    "conditional_answers": {
+      "A": "If dataset size doesn't confound the comparison, the aggregate may show X's true speed advantage.",
+      "B": "If Y is faster at every size but X is tested on smaller data, the aggregate is misleading."
+    },
+    "wise_refusal": "The claim that Algorithm X is faster for training ML models is ambiguous due to Simpson's paradox. We cannot determine true relative speed without stratified analysis. If aggregate reflects truth, X may be faster. If Y is faster within each size category, the aggregate reverses the true relationship. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z affects both algorithm selection for benchmarks and baseline training time",
+    "key_insight": "Algorithm benchmarks can be misleading when different algorithms are tested under different conditions.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0129",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Hiring",
+    "difficulty": "Medium",
+    "trap_type": "T8",
+    "trap_family": "F3",
+    "trap_subtype": "Hiring Rate Reversal",
+    "scenario": "Overall, an AI hiring tool recommends a higher percentage of candidates from Group A than Group B. However, stratifying by job type (technical vs non-technical), the tool recommends a higher percentage of Group B candidates for technical roles AND non-technical roles. Group A applies more to non-technical roles which have higher acceptance rates.",
+    "claim": "The AI hiring tool favors Group A over Group B.",
+    "variables": {
+      "X": {"name": "Candidate Group", "role": "Treatment"},
+      "Y": {"name": "Recommendation Rate", "role": "Outcome"},
+      "Z": {"name": "Job Type", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the aggregate recommendation rate mask a reversal when stratified by job type?",
+    "conditional_answers": {
+      "A": "If job type doesn't confound the comparison, the aggregate may show real group preference.",
+      "B": "If Group B is favored in both job types but Group A applies to easier roles, the aggregate is misleading."
+    },
+    "wise_refusal": "The claim that the AI hiring tool favors Group A over Group B is ambiguous due to Simpson's paradox. We cannot determine true bias without stratified analysis. If aggregate reflects tool preference, bias may exist. If Group B is favored within each job type, the aggregate reverses the true relationship. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z affects both application distribution and baseline acceptance rates",
+    "key_insight": "Algorithmic fairness assessments can reverse when group application patterns differ.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0130",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Cloud Computing",
+    "difficulty": "Hard",
+    "trap_type": "T8",
+    "trap_family": "F3",
+    "trap_subtype": "Cost Comparison Reversal",
+    "scenario": "Overall, Cloud Provider A shows lower ML training costs than Provider B. However, stratifying by compute type (GPU vs CPU), Provider B has lower costs for GPU training AND CPU training. Provider A customers disproportionately use CPU which is cheaper overall.",
+    "claim": "Cloud Provider A offers lower ML training costs.",
+    "variables": {
+      "X": {"name": "Cloud Provider", "role": "Treatment"},
+      "Y": {"name": "Training Cost", "role": "Outcome"},
+      "Z": {"name": "Compute Type", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the aggregate cost comparison mask a reversal when stratified by compute type?",
+    "conditional_answers": {
+      "A": "If compute type doesn't confound the comparison, the aggregate may show A's true cost advantage.",
+      "B": "If B is cheaper for both GPU AND CPU but A's customers use cheaper compute, the aggregate is misleading."
+    },
+    "wise_refusal": "The claim that Cloud Provider A offers lower ML training costs is ambiguous due to Simpson's paradox. We cannot determine true cost comparison without stratified analysis. If aggregate reflects truth, A may be cheaper. If B is cheaper within each compute type, the aggregate reverses the true relationship. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z affects both provider choice distribution and baseline costs",
+    "key_insight": "Pricing comparisons can reverse when customer workload mixes differ between providers.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0131",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Data Annotation",
+    "difficulty": "Easy",
+    "trap_type": "T8",
+    "trap_family": "F3",
+    "trap_subtype": "Quality Comparison Reversal",
+    "scenario": "Overall, Annotation Service A shows higher accuracy than Service B. However, stratifying by task complexity (simple vs complex), Service B has higher accuracy on simple tasks AND complex tasks. Service A handles more simple tasks which have higher accuracy overall.",
+    "claim": "Annotation Service A provides higher quality annotations.",
+    "variables": {
+      "X": {"name": "Annotation Service", "role": "Treatment"},
+      "Y": {"name": "Annotation Accuracy", "role": "Outcome"},
+      "Z": {"name": "Task Complexity", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the aggregate accuracy mask a reversal when stratified by task complexity?",
+    "conditional_answers": {
+      "A": "If task complexity doesn't confound the comparison, the aggregate may show A's true quality.",
+      "B": "If B is better on both simple AND complex tasks but A gets easier work, the aggregate is misleading."
+    },
+    "wise_refusal": "The claim that Annotation Service A provides higher quality annotations is ambiguous due to Simpson's paradox. We cannot determine true quality comparison without stratified analysis. If aggregate reflects truth, A may be better. If B is better within each complexity level, the aggregate reverses the true relationship. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z affects both service assignment distribution and baseline accuracy",
+    "key_insight": "Service quality comparisons can reverse when services handle different task mixes.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0132",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Deployment",
+    "difficulty": "Hard",
+    "trap_type": "T8",
+    "trap_family": "F3",
+    "trap_subtype": "Latency Comparison Reversal",
+    "scenario": "Overall, Deployment Strategy A shows lower inference latency than Strategy B. However, stratifying by model type (CNN vs Transformer), Strategy B has lower latency for CNNs AND Transformers. Strategy A is used more with CNNs which have inherently lower latency.",
+    "claim": "Deployment Strategy A provides lower inference latency.",
+    "variables": {
+      "X": {"name": "Deployment Strategy", "role": "Treatment"},
+      "Y": {"name": "Inference Latency", "role": "Outcome"},
+      "Z": {"name": "Model Architecture", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the aggregate latency comparison mask a reversal when stratified by model type?",
+    "conditional_answers": {
+      "A": "If model type doesn't confound the comparison, the aggregate may show A's true latency advantage.",
+      "B": "If B is faster for both CNNs AND Transformers but A deploys faster models, the aggregate is misleading."
+    },
+    "wise_refusal": "The claim that Deployment Strategy A provides lower inference latency is ambiguous due to Simpson's paradox. We cannot determine true latency comparison without stratified analysis. If aggregate reflects truth, A may be faster. If B is faster within each model type, the aggregate reverses the true relationship. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z affects both strategy selection distribution and baseline latency",
+    "key_insight": "Infrastructure comparisons can reverse when different infrastructures serve different model types.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0133",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Education",
+    "difficulty": "Medium",
+    "trap_type": "T8",
+    "trap_family": "F3",
+    "trap_subtype": "Learning Outcome Reversal",
+    "scenario": "Overall, online ML course A shows higher completion rates than course B. However, stratifying by student background (CS vs non-CS), course B has higher completion rates for CS students AND non-CS students. Course A attracts more CS students who complete at higher rates overall.",
+    "claim": "Online course A leads to better learning outcomes.",
+    "variables": {
+      "X": {"name": "Course Choice", "role": "Treatment"},
+      "Y": {"name": "Completion Rate", "role": "Outcome"},
+      "Z": {"name": "Student Background", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the aggregate completion rate mask a reversal when stratified by student background?",
+    "conditional_answers": {
+      "A": "If background doesn't confound the comparison, the aggregate may show A's true effectiveness.",
+      "B": "If B is better for both CS AND non-CS students but A gets easier students, the aggregate is misleading."
+    },
+    "wise_refusal": "The claim that online course A leads to better learning outcomes is ambiguous due to Simpson's paradox. We cannot determine true course effectiveness without stratified analysis. If aggregate reflects truth, A may be better. If B is better within each background, the aggregate reverses the true relationship. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z affects both course selection distribution and baseline completion rates",
+    "key_insight": "Educational outcome comparisons can reverse when courses attract different student populations.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0134",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Research",
+    "difficulty": "Hard",
+    "trap_type": "T8",
+    "trap_family": "F3",
+    "trap_subtype": "Citation Comparison Reversal",
+    "scenario": "Overall, papers from Lab A receive more citations than Lab B. However, stratifying by research area (NLP vs CV), Lab B papers have more citations in NLP AND CV. Lab A publishes more NLP papers which receive more citations overall.",
+    "claim": "Lab A produces more impactful research.",
+    "variables": {
+      "X": {"name": "Lab Affiliation", "role": "Treatment"},
+      "Y": {"name": "Citation Count", "role": "Outcome"},
+      "Z": {"name": "Research Area", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the aggregate citation count mask a reversal when stratified by research area?",
+    "conditional_answers": {
+      "A": "If research area doesn't confound the comparison, the aggregate may show A's true impact.",
+      "B": "If B is more cited in both NLP AND CV but A publishes in higher-citation areas, the aggregate is misleading."
+    },
+    "wise_refusal": "The claim that Lab A produces more impactful research is ambiguous due to Simpson's paradox. We cannot determine true research impact without stratified analysis. If aggregate reflects truth, A may be more impactful. If B is more cited within each area, the aggregate reverses the true relationship. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z affects both publication distribution and baseline citation rates",
+    "key_insight": "Research impact comparisons can reverse when labs focus on different subfields with different citation norms.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0135",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Feature Engineering",
+    "difficulty": "Easy",
+    "trap_type": "T8",
+    "trap_family": "F3",
+    "trap_subtype": "Feature Importance Reversal",
+    "scenario": "Overall, Feature Set A yields higher model accuracy than Feature Set B. However, stratifying by data domain (text vs images), Feature Set B yields higher accuracy in text AND images. Feature Set A is used more with text data which has higher baseline accuracy.",
+    "claim": "Feature Set A produces better model performance.",
+    "variables": {
+      "X": {"name": "Feature Set", "role": "Treatment"},
+      "Y": {"name": "Model Accuracy", "role": "Outcome"},
+      "Z": {"name": "Data Domain", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the aggregate accuracy mask a reversal when stratified by data domain?",
+    "conditional_answers": {
+      "A": "If data domain doesn't confound the comparison, the aggregate may show A's true benefit.",
+      "B": "If B is better for both text AND images but A is tested on easier domains, the aggregate is misleading."
+    },
+    "wise_refusal": "The claim that Feature Set A produces better model performance is ambiguous due to Simpson's paradox. We cannot determine true feature quality without stratified analysis. If aggregate reflects truth, A may be better. If B is better within each domain, the aggregate reverses the true relationship. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z affects both feature set selection and baseline performance",
+    "key_insight": "Feature engineering comparisons can reverse when feature sets are tested on different data types.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0136",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "ML Fairness",
+    "difficulty": "Medium",
+    "trap_type": "T8",
+    "trap_family": "F3",
+    "trap_subtype": "Fairness Metric Reversal",
+    "scenario": "Overall, Model A shows higher demographic parity than Model B. However, stratifying by application domain (loans vs hiring), Model B has higher parity in loans AND hiring. Model A is deployed more in loans which has naturally higher parity.",
+    "claim": "Model A is fairer across demographic groups.",
+    "variables": {
+      "X": {"name": "Model Choice", "role": "Treatment"},
+      "Y": {"name": "Demographic Parity", "role": "Outcome"},
+      "Z": {"name": "Application Domain", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the aggregate fairness metric mask a reversal when stratified by application domain?",
+    "conditional_answers": {
+      "A": "If domain doesn't confound the comparison, the aggregate may show A's true fairness.",
+      "B": "If B is fairer in both loans AND hiring but A operates in easier domains, the aggregate is misleading."
+    },
+    "wise_refusal": "The claim that Model A is fairer across demographic groups is ambiguous due to Simpson's paradox. We cannot determine true fairness comparison without stratified analysis. If aggregate reflects truth, A may be fairer. If B is fairer within each domain, the aggregate reverses the true relationship. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z affects both model deployment distribution and baseline fairness levels",
+    "key_insight": "Fairness comparisons can reverse when models are deployed in contexts with different baseline fairness.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0137",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Safety",
+    "difficulty": "Hard",
+    "trap_type": "T8",
+    "trap_family": "F3",
+    "trap_subtype": "Safety Metric Reversal",
+    "scenario": "Overall, Safety Protocol A shows fewer AI incidents than Protocol B. However, stratifying by deployment risk level (high vs low), Protocol B has fewer incidents in high-risk AND low-risk deployments. Protocol A is used more in low-risk environments which have fewer incidents overall.",
+    "claim": "Safety Protocol A is more effective at preventing AI incidents.",
+    "variables": {
+      "X": {"name": "Safety Protocol", "role": "Treatment"},
+      "Y": {"name": "Incident Rate", "role": "Outcome"},
+      "Z": {"name": "Deployment Risk Level", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the aggregate incident rate mask a reversal when stratified by deployment risk?",
+    "conditional_answers": {
+      "A": "If risk level doesn't confound the comparison, the aggregate may show A's true safety benefit.",
+      "B": "If B is safer in both high AND low risk but A operates in safer environments, the aggregate is misleading."
+    },
+    "wise_refusal": "The claim that Safety Protocol A is more effective at preventing AI incidents is ambiguous due to Simpson's paradox. We cannot determine true safety effectiveness without stratified analysis. If aggregate reflects truth, A may be safer. If B is safer within each risk level, the aggregate reverses the true relationship. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z affects both protocol adoption distribution and baseline incident rates",
+    "key_insight": "Safety comparisons can reverse when protocols are used in environments with different baseline risks.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0138",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Data Pipeline",
+    "difficulty": "Medium",
+    "trap_type": "T8",
+    "trap_family": "F3",
+    "trap_subtype": "Throughput Comparison Reversal",
+    "scenario": "Overall, Pipeline Architecture A shows higher data throughput than Architecture B. However, stratifying by data source (streaming vs batch), Architecture B has higher throughput for streaming AND batch. Architecture A handles more batch jobs which have higher throughput overall.",
+    "claim": "Pipeline Architecture A provides better data throughput.",
+    "variables": {
+      "X": {"name": "Pipeline Architecture", "role": "Treatment"},
+      "Y": {"name": "Data Throughput", "role": "Outcome"},
+      "Z": {"name": "Data Source Type", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the aggregate throughput mask a reversal when stratified by data source type?",
+    "conditional_answers": {
+      "A": "If source type doesn't confound the comparison, the aggregate may show A's true throughput advantage.",
+      "B": "If B is faster for both streaming AND batch but A handles easier workloads, the aggregate is misleading."
+    },
+    "wise_refusal": "The claim that Pipeline Architecture A provides better data throughput is ambiguous due to Simpson's paradox. We cannot determine true throughput comparison without stratified analysis. If aggregate reflects truth, A may be better. If B is better within each source type, the aggregate reverses the true relationship. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z affects both architecture selection and baseline throughput levels",
+    "key_insight": "Infrastructure performance comparisons can reverse when architectures handle different workload types.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0139",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Reinforcement Learning",
+    "difficulty": "Hard",
+    "trap_type": "T8",
+    "trap_family": "F3",
+    "trap_subtype": "Reward Comparison Reversal",
+    "scenario": "Overall, RL Algorithm A achieves higher cumulative rewards than Algorithm B. However, stratifying by environment type (sparse vs dense reward), Algorithm B achieves higher rewards in sparse AND dense environments. Algorithm A is tested more on dense reward environments which yield higher scores.",
+    "claim": "RL Algorithm A achieves better performance.",
+    "variables": {
+      "X": {"name": "RL Algorithm", "role": "Treatment"},
+      "Y": {"name": "Cumulative Reward", "role": "Outcome"},
+      "Z": {"name": "Environment Reward Structure", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the aggregate reward mask a reversal when stratified by environment type?",
+    "conditional_answers": {
+      "A": "If environment type doesn't confound the comparison, the aggregate may show A's true performance.",
+      "B": "If B is better in both sparse AND dense but A is tested on easier environments, the aggregate is misleading."
+    },
+    "wise_refusal": "The claim that RL Algorithm A achieves better performance is ambiguous due to Simpson's paradox. We cannot determine true algorithm quality without stratified analysis. If aggregate reflects truth, A may be better. If B is better within each environment type, the aggregate reverses the true relationship. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z affects both algorithm benchmark selection and baseline reward levels",
+    "key_insight": "RL algorithm comparisons can reverse when algorithms are benchmarked on different environment types.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0140",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Evaluation",
+    "difficulty": "Easy",
+    "trap_type": "T8",
+    "trap_family": "F3",
+    "trap_subtype": "Benchmark Comparison Reversal",
+    "scenario": "Overall, Evaluation Metric A ranks Model X above Model Y. However, stratifying by benchmark type (synthetic vs real-world), Metric A ranks Model Y above Model X on synthetic AND real-world benchmarks. Model X is evaluated more on synthetic data where both models score higher.",
+    "claim": "Model X is superior to Model Y according to Metric A.",
+    "variables": {
+      "X": {"name": "Model Identity", "role": "Treatment"},
+      "Y": {"name": "Metric Score", "role": "Outcome"},
+      "Z": {"name": "Benchmark Type", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the aggregate ranking mask a reversal when stratified by benchmark type?",
+    "conditional_answers": {
+      "A": "If benchmark type doesn't affect the comparison, the aggregate may show true model ranking.",
+      "B": "If Y beats X on both benchmark types but X is tested on easier benchmarks, the aggregate is misleading."
+    },
+    "wise_refusal": "The claim that Model X is superior to Model Y according to Metric A is ambiguous due to Simpson's paradox. We cannot determine true model ranking without stratified analysis. If aggregate reflects truth, X may be better. If Y is better within each benchmark type, the aggregate reverses the true relationship. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z affects both model evaluation distribution and baseline scores",
+    "key_insight": "Model rankings can reverse when models are evaluated on different benchmark distributions.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0141",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Startup Success",
+    "difficulty": "Medium",
+    "trap_type": "T8",
+    "trap_family": "F3",
+    "trap_subtype": "Success Rate Reversal",
+    "scenario": "Overall, AI startups using Strategy A show higher success rates than Strategy B. However, stratifying by market sector (B2B vs B2C), Strategy B has higher success rates in B2B AND B2C. Strategy A startups are concentrated in B2B which has higher success rates overall.",
+    "claim": "Strategy A leads to higher AI startup success rates.",
+    "variables": {
+      "X": {"name": "Startup Strategy", "role": "Treatment"},
+      "Y": {"name": "Success Rate", "role": "Outcome"},
+      "Z": {"name": "Market Sector", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the aggregate success rate mask a reversal when stratified by market sector?",
+    "conditional_answers": {
+      "A": "If sector doesn't confound the comparison, the aggregate may show A's true success contribution.",
+      "B": "If B is more successful in both B2B AND B2C but A operates in easier sectors, the aggregate is misleading."
+    },
+    "wise_refusal": "The claim that Strategy A leads to higher AI startup success rates is ambiguous due to Simpson's paradox. We cannot determine true strategy effectiveness without stratified analysis. If aggregate reflects truth, A may be better. If B is more successful within each sector, the aggregate reverses the true relationship. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z affects both strategy adoption distribution and baseline success rates",
+    "key_insight": "Business strategy comparisons can reverse when strategies cluster in markets with different baseline success rates.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0142",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "GPU Utilization",
+    "difficulty": "Hard",
+    "trap_type": "T8",
+    "trap_family": "F3",
+    "trap_subtype": "Utilization Comparison Reversal",
+    "scenario": "Overall, Framework A shows higher GPU utilization than Framework B. However, stratifying by workload type (training vs inference), Framework B has higher utilization for training AND inference. Framework A is used more for training workloads which have higher utilization overall.",
+    "claim": "Framework A achieves better GPU utilization.",
+    "variables": {
+      "X": {"name": "ML Framework", "role": "Treatment"},
+      "Y": {"name": "GPU Utilization", "role": "Outcome"},
+      "Z": {"name": "Workload Type", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the aggregate utilization mask a reversal when stratified by workload type?",
+    "conditional_answers": {
+      "A": "If workload type doesn't confound the comparison, the aggregate may show A's true efficiency.",
+      "B": "If B is more efficient for both training AND inference but A handles higher-utilization workloads, the aggregate is misleading."
+    },
+    "wise_refusal": "The claim that Framework A achieves better GPU utilization is ambiguous due to Simpson's paradox. We cannot determine true framework efficiency without stratified analysis. If aggregate reflects truth, A may be better. If B is better within each workload type, the aggregate reverses the true relationship. Without this information, the causal claim is not justified.",
+    "causal_structure": "Z affects both framework selection and baseline utilization levels",
+    "key_insight": "Framework efficiency comparisons can reverse when frameworks are used for different workload types.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  }
+]

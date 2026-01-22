@@ -1,0 +1,466 @@
+[
+  {
+    "case_id": "T3-I1-L2-0039",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "ML Hiring",
+    "difficulty": "Easy",
+    "trap_type": "T3",
+    "trap_family": "F1",
+    "trap_subtype": "Hiring Collider",
+    "scenario": "Among hired ML engineers, there's a negative correlation between coding speed and research publications. HR concludes fast coders are poor researchers. The hiring process selected candidates who excelled in either coding OR research, making both sufficient for hire but creating a collider.",
+    "claim": "Fast coding ability causes lower research output in ML engineers.",
+    "variables": {
+      "X": {"name": "Coding Speed", "role": "Treatment"},
+      "Y": {"name": "Research Publications", "role": "Outcome"},
+      "Z": {"name": "Hiring Decision (collider)", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Is the analysis restricted to hired candidates, conditioning on a collider variable?",
+    "conditional_answers": {
+      "A": "If analyzing all candidates (hired and not), the correlation between coding and research may disappear or reverse.",
+      "B": "If analyzing only hired candidates, the negative correlation is induced by conditioning on the collider (hiring)."
+    },
+    "wise_refusal": "The claim that fast coding ability causes lower research output is ambiguous due to collider bias. We cannot determine the true relationship without knowing if analysis is restricted to hired candidates. If all candidates are analyzed, the correlation may differ. If only hired candidates are analyzed, the negative correlation is induced by conditioning on hiring. Without this information, the causal claim is not justified.",
+    "causal_structure": "X -> Z <- Y (both coding and research cause hiring, conditioning on Z induces spurious X-Y correlation)",
+    "key_insight": "Conditioning on a common effect (collider) creates spurious correlations between its causes.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0040",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Selection",
+    "difficulty": "Easy",
+    "trap_type": "T3",
+    "trap_family": "F1",
+    "trap_subtype": "Model Selection Collider",
+    "scenario": "Among models deployed to production, those with higher interpretability show lower accuracy. Data scientists conclude there's a tradeoff. Models were selected for production based on meeting thresholds for EITHER accuracy OR interpretability, creating a collider.",
+    "claim": "Higher interpretability causes lower accuracy in ML models.",
+    "variables": {
+      "X": {"name": "Interpretability", "role": "Treatment"},
+      "Y": {"name": "Accuracy", "role": "Outcome"},
+      "Z": {"name": "Production Deployment (collider)", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Is the analysis restricted to deployed models, conditioning on the deployment decision collider?",
+    "conditional_answers": {
+      "A": "If analyzing all models (deployed and not), the interpretability-accuracy relationship may differ.",
+      "B": "If analyzing only deployed models, the negative correlation is induced by conditioning on deployment."
+    },
+    "wise_refusal": "The claim that higher interpretability causes lower accuracy is ambiguous due to collider bias. We cannot determine the true relationship without knowing if analysis is restricted to deployed models. If all models are analyzed, the relationship may differ. If only deployed models are analyzed, the tradeoff is induced by deployment selection. Without this information, the causal claim is not justified.",
+    "causal_structure": "X -> Z <- Y (both interpretability and accuracy affect deployment, conditioning on Z induces spurious correlation)",
+    "key_insight": "Apparent tradeoffs in deployed models may be artifacts of selection criteria.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0041",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Paper Review",
+    "difficulty": "Medium",
+    "trap_type": "T3",
+    "trap_family": "F1",
+    "trap_subtype": "Publication Collider",
+    "scenario": "Among accepted ML papers, those with novel methods show weaker empirical results. Reviewers conclude novelty trades off with rigor. Papers were accepted if they had EITHER novel methods OR strong results, creating acceptance as a collider.",
+    "claim": "Methodological novelty causes weaker empirical results.",
+    "variables": {
+      "X": {"name": "Method Novelty", "role": "Treatment"},
+      "Y": {"name": "Empirical Results", "role": "Outcome"},
+      "Z": {"name": "Paper Acceptance (collider)", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Is the analysis restricted to accepted papers, conditioning on the acceptance collider?",
+    "conditional_answers": {
+      "A": "If analyzing all submitted papers, the novelty-results relationship may be different or non-existent.",
+      "B": "If analyzing only accepted papers, the negative correlation is an artifact of acceptance criteria."
+    },
+    "wise_refusal": "The claim that methodological novelty causes weaker empirical results is ambiguous due to collider bias. We cannot determine the true relationship without knowing if analysis includes rejected papers. If all submissions are analyzed, the relationship may differ. If only accepted papers are analyzed, the tradeoff is induced by acceptance selection. Without this information, the causal claim is not justified.",
+    "causal_structure": "X -> Z <- Y (novelty and results both affect acceptance, conditioning on Z induces spurious correlation)",
+    "key_insight": "Patterns observed only in accepted papers may be artifacts of the review process.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0042",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "VC Funding",
+    "difficulty": "Medium",
+    "trap_type": "T3",
+    "trap_family": "F1",
+    "trap_subtype": "Funding Collider",
+    "scenario": "Among funded AI startups, those with strong technical teams show weaker business traction. Investors conclude technical excellence hurts business sense. Startups were funded if they had EITHER strong tech OR strong traction, making funding a collider.",
+    "claim": "Strong technical teams cause weaker business traction in AI startups.",
+    "variables": {
+      "X": {"name": "Technical Team Strength", "role": "Treatment"},
+      "Y": {"name": "Business Traction", "role": "Outcome"},
+      "Z": {"name": "VC Funding (collider)", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Is the analysis restricted to funded startups, conditioning on the funding collider?",
+    "conditional_answers": {
+      "A": "If analyzing all startups (funded and unfunded), the tech-traction relationship may differ.",
+      "B": "If analyzing only funded startups, the negative correlation is induced by funding selection criteria."
+    },
+    "wise_refusal": "The claim that strong technical teams cause weaker business traction is ambiguous due to collider bias. We cannot determine the true relationship without knowing if analysis includes unfunded startups. If all startups are analyzed, the relationship may differ. If only funded startups are analyzed, the tradeoff is induced by funding selection. Without this information, the causal claim is not justified.",
+    "causal_structure": "X -> Z <- Y (tech and traction both affect funding, conditioning on Z induces spurious correlation)",
+    "key_insight": "Patterns in funded startups may be selection artifacts, not causal relationships.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0043",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Feature Selection",
+    "difficulty": "Medium",
+    "trap_type": "T3",
+    "trap_family": "F1",
+    "trap_subtype": "Feature Selection Collider",
+    "scenario": "Among features selected for a model, those with high predictive power show high correlation with each other. Engineers conclude predictive features are redundant. Features were selected based on individual predictive power, making selection a collider.",
+    "claim": "High predictive power causes feature redundancy.",
+    "variables": {
+      "X": {"name": "Feature Predictive Power", "role": "Treatment"},
+      "Y": {"name": "Inter-feature Correlation", "role": "Outcome"},
+      "Z": {"name": "Feature Selection (collider)", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Is the analysis restricted to selected features, conditioning on the selection collider?",
+    "conditional_answers": {
+      "A": "If analyzing all candidate features, the predictive power-correlation relationship may differ.",
+      "B": "If analyzing only selected features, the correlation pattern is induced by selection conditioning."
+    },
+    "wise_refusal": "The claim that high predictive power causes feature redundancy is ambiguous due to collider bias. We cannot determine the true relationship without knowing if analysis includes unselected features. If all features are analyzed, the relationship may differ. If only selected features are analyzed, the pattern is induced by selection. Without this information, the causal claim is not justified.",
+    "causal_structure": "X -> Z <- Y (predictive power and correlations affect selection, conditioning induces spurious correlation)",
+    "key_insight": "Patterns in selected features may not generalize to the full feature space.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0044",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "A/B Testing",
+    "difficulty": "Hard",
+    "trap_type": "T3",
+    "trap_family": "F1",
+    "trap_subtype": "Conversion Collider",
+    "scenario": "Among users who converted, those who saw the new AI recommendation widget spent less time on site. Product managers conclude the widget reduces engagement. Users converted if they EITHER engaged deeply OR used the widget efficiently, making conversion a collider.",
+    "claim": "The AI recommendation widget causes reduced site engagement.",
+    "variables": {
+      "X": {"name": "Widget Exposure", "role": "Treatment"},
+      "Y": {"name": "Time on Site", "role": "Outcome"},
+      "Z": {"name": "Conversion (collider)", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Is the analysis restricted to converted users, conditioning on the conversion collider?",
+    "conditional_answers": {
+      "A": "If analyzing all users (converted and non-converted), the widget-engagement relationship may differ.",
+      "B": "If analyzing only converted users, the negative correlation is induced by conversion selection."
+    },
+    "wise_refusal": "The claim that the AI recommendation widget causes reduced site engagement is ambiguous due to collider bias. We cannot determine the true relationship without knowing if analysis includes non-converters. If all users are analyzed, the relationship may differ. If only converters are analyzed, the pattern is induced by conversion selection. Without this information, the causal claim is not justified.",
+    "causal_structure": "X -> Z <- Y (widget use and engagement both affect conversion, conditioning induces spurious correlation)",
+    "key_insight": "Analyzing only successful conversions can create misleading correlations between conversion drivers.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0045",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Talent",
+    "difficulty": "Hard",
+    "trap_type": "T3",
+    "trap_family": "F1",
+    "trap_subtype": "Talent Pool Collider",
+    "scenario": "Among AI researchers who left academia for industry, those with more citations show lower industry salaries. Recruiters conclude academic prestige doesn't translate to industry value. Researchers left academia if they had EITHER high citations OR sought high salaries.",
+    "claim": "Higher academic citations cause lower industry salaries.",
+    "variables": {
+      "X": {"name": "Academic Citations", "role": "Treatment"},
+      "Y": {"name": "Industry Salary", "role": "Outcome"},
+      "Z": {"name": "Academia-to-Industry Transition (collider)", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Is the analysis restricted to those who transitioned, conditioning on the transition collider?",
+    "conditional_answers": {
+      "A": "If analyzing all researchers (stayed and left), the citation-salary relationship may differ.",
+      "B": "If analyzing only those who left academia, the negative correlation is induced by transition selection."
+    },
+    "wise_refusal": "The claim that higher academic citations cause lower industry salaries is ambiguous due to collider bias. We cannot determine the true relationship without knowing if analysis includes researchers who stayed in academia. If all researchers are analyzed, the relationship may differ. If only transitioners are analyzed, the pattern is induced by selection. Without this information, the causal claim is not justified.",
+    "causal_structure": "X -> Z <- Y (citations and salary expectations both affect transition, conditioning induces spurious correlation)",
+    "key_insight": "Career transition analysis limited to those who transitioned creates collider bias.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0046",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Bug Detection",
+    "difficulty": "Easy",
+    "trap_type": "T3",
+    "trap_family": "F1",
+    "trap_subtype": "Detection Collider",
+    "scenario": "Among detected ML model bugs, those in complex models show simpler root causes. QA teams conclude complex models have simpler bugs. Bugs were detected if they had EITHER obvious symptoms OR occurred in well-monitored complex models.",
+    "claim": "Model complexity causes simpler bugs.",
+    "variables": {
+      "X": {"name": "Model Complexity", "role": "Treatment"},
+      "Y": {"name": "Bug Simplicity", "role": "Outcome"},
+      "Z": {"name": "Bug Detection (collider)", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Is the analysis restricted to detected bugs, conditioning on the detection collider?",
+    "conditional_answers": {
+      "A": "If analyzing all bugs (detected and undetected), the complexity-bug relationship may differ.",
+      "B": "If analyzing only detected bugs, the correlation is induced by detection selection."
+    },
+    "wise_refusal": "The claim that model complexity causes simpler bugs is ambiguous due to collider bias. We cannot determine the true relationship without knowing if analysis includes undetected bugs. If all bugs are analyzed, the relationship may differ. If only detected bugs are analyzed, the pattern is induced by detection selection. Without this information, the causal claim is not justified.",
+    "causal_structure": "X -> Z <- Y (complexity and bug simplicity affect detection, conditioning induces spurious correlation)",
+    "key_insight": "Bug analysis limited to detected issues misses the dark matter of undetected problems.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0047",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Dataset Curation",
+    "difficulty": "Medium",
+    "trap_type": "T3",
+    "trap_family": "F1",
+    "trap_subtype": "Curation Collider",
+    "scenario": "Among curated benchmark datasets, those with more diverse samples show lower inter-annotator agreement. Researchers conclude diversity hurts annotation quality. Datasets were included in benchmarks if they had EITHER high diversity OR high agreement.",
+    "claim": "Dataset diversity causes lower annotation agreement.",
+    "variables": {
+      "X": {"name": "Sample Diversity", "role": "Treatment"},
+      "Y": {"name": "Inter-annotator Agreement", "role": "Outcome"},
+      "Z": {"name": "Benchmark Inclusion (collider)", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Is the analysis restricted to benchmark datasets, conditioning on the inclusion collider?",
+    "conditional_answers": {
+      "A": "If analyzing all datasets (included and excluded), the diversity-agreement relationship may differ.",
+      "B": "If analyzing only benchmark datasets, the negative correlation is induced by curation selection."
+    },
+    "wise_refusal": "The claim that dataset diversity causes lower annotation agreement is ambiguous due to collider bias. We cannot determine the true relationship without knowing if analysis includes excluded datasets. If all datasets are analyzed, the relationship may differ. If only benchmark datasets are analyzed, the tradeoff is induced by curation. Without this information, the causal claim is not justified.",
+    "causal_structure": "X -> Z <- Y (diversity and agreement both affect benchmark inclusion, conditioning induces spurious correlation)",
+    "key_insight": "Patterns in curated datasets may reflect curation criteria, not inherent relationships.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0048",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Debugging",
+    "difficulty": "Hard",
+    "trap_type": "T3",
+    "trap_family": "F1",
+    "trap_subtype": "Debugging Collider",
+    "scenario": "Among ML models that underwent debugging, those with more parameters show faster bug resolution. Engineers conclude larger models are easier to debug. Models were debugged if they were EITHER important enough OR showed obvious errors.",
+    "claim": "Larger model size causes faster debugging.",
+    "variables": {
+      "X": {"name": "Model Size", "role": "Treatment"},
+      "Y": {"name": "Debugging Speed", "role": "Outcome"},
+      "Z": {"name": "Debugging Priority (collider)", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Is the analysis restricted to debugged models, conditioning on the debugging priority collider?",
+    "conditional_answers": {
+      "A": "If analyzing all models (debugged and not), the size-debugging speed relationship may differ.",
+      "B": "If analyzing only debugged models, the correlation is induced by prioritization selection."
+    },
+    "wise_refusal": "The claim that larger model size causes faster debugging is ambiguous due to collider bias. We cannot determine the true relationship without knowing if analysis includes non-debugged models. If all models are analyzed, the relationship may differ. If only debugged models are analyzed, the pattern is induced by prioritization. Without this information, the causal claim is not justified.",
+    "causal_structure": "X -> Z <- Y (size and debuggability affect prioritization, conditioning induces spurious correlation)",
+    "key_insight": "Analyzing only prioritized cases can create misleading correlations.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0049",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "API Design",
+    "difficulty": "Medium",
+    "trap_type": "T3",
+    "trap_family": "F1",
+    "trap_subtype": "Adoption Collider",
+    "scenario": "Among widely-adopted ML APIs, those with more features show lower documentation quality. Developers conclude feature-rich APIs neglect documentation. APIs achieved adoption if they had EITHER many features OR excellent documentation.",
+    "claim": "More API features cause lower documentation quality.",
+    "variables": {
+      "X": {"name": "Feature Count", "role": "Treatment"},
+      "Y": {"name": "Documentation Quality", "role": "Outcome"},
+      "Z": {"name": "API Adoption (collider)", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Is the analysis restricted to adopted APIs, conditioning on the adoption collider?",
+    "conditional_answers": {
+      "A": "If analyzing all APIs (adopted and not), the features-documentation relationship may differ.",
+      "B": "If analyzing only adopted APIs, the negative correlation is induced by adoption selection."
+    },
+    "wise_refusal": "The claim that more API features cause lower documentation quality is ambiguous due to collider bias. We cannot determine the true relationship without knowing if analysis includes non-adopted APIs. If all APIs are analyzed, the relationship may differ. If only adopted APIs are analyzed, the tradeoff is induced by adoption selection. Without this information, the causal claim is not justified.",
+    "causal_structure": "X -> Z <- Y (features and documentation both affect adoption, conditioning induces spurious correlation)",
+    "key_insight": "Apparent tradeoffs in successful products may be artifacts of success selection.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0050",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Conference Attendance",
+    "difficulty": "Easy",
+    "trap_type": "T3",
+    "trap_family": "F1",
+    "trap_subtype": "Attendance Collider",
+    "scenario": "Among AI conference attendees, those from industry show lower paper acceptance rates than academics. Observers conclude industry researchers produce weaker research. Attendees came if they had EITHER accepted papers OR company sponsorship.",
+    "claim": "Industry affiliation causes lower research quality.",
+    "variables": {
+      "X": {"name": "Industry Affiliation", "role": "Treatment"},
+      "Y": {"name": "Paper Acceptance Rate", "role": "Outcome"},
+      "Z": {"name": "Conference Attendance (collider)", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Is the analysis restricted to conference attendees, conditioning on the attendance collider?",
+    "conditional_answers": {
+      "A": "If analyzing all researchers (attending and not), the affiliation-acceptance relationship may differ.",
+      "B": "If analyzing only attendees, the negative correlation is induced by attendance selection."
+    },
+    "wise_refusal": "The claim that industry affiliation causes lower research quality is ambiguous due to collider bias. We cannot determine the true relationship without knowing if analysis includes non-attendees. If all researchers are analyzed, the relationship may differ. If only attendees are analyzed, the pattern is induced by attendance selection. Without this information, the causal claim is not justified.",
+    "causal_structure": "X -> Z <- Y (affiliation and acceptance both affect attendance, conditioning induces spurious correlation)",
+    "key_insight": "Comparing groups within a selected population can create misleading comparisons.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0051",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Automated ML",
+    "difficulty": "Hard",
+    "trap_type": "T3",
+    "trap_family": "F1",
+    "trap_subtype": "AutoML Selection Collider",
+    "scenario": "Among AutoML-generated models that pass validation, those with deeper architectures show worse generalization. Researchers conclude depth hurts generalization in AutoML. Models passed validation if they had EITHER good validation metrics OR simple architectures.",
+    "claim": "Deeper architectures cause worse generalization in AutoML.",
+    "variables": {
+      "X": {"name": "Architecture Depth", "role": "Treatment"},
+      "Y": {"name": "Generalization", "role": "Outcome"},
+      "Z": {"name": "Validation Passage (collider)", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Is the analysis restricted to models that passed validation, conditioning on the validation collider?",
+    "conditional_answers": {
+      "A": "If analyzing all generated models (passed and failed), the depth-generalization relationship may differ.",
+      "B": "If analyzing only models that passed, the negative correlation is induced by validation selection."
+    },
+    "wise_refusal": "The claim that deeper architectures cause worse generalization in AutoML is ambiguous due to collider bias. We cannot determine the true relationship without knowing if analysis includes failed models. If all models are analyzed, the relationship may differ. If only passing models are analyzed, the pattern is induced by validation selection. Without this information, the causal claim is not justified.",
+    "causal_structure": "X -> Z <- Y (depth and generalization affect validation, conditioning induces spurious correlation)",
+    "key_insight": "AutoML analysis limited to surviving models may mischaracterize architecture effects.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0052",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Tech Blog Visibility",
+    "difficulty": "Medium",
+    "trap_type": "T3",
+    "trap_family": "F1",
+    "trap_subtype": "Visibility Collider",
+    "scenario": "Among viral AI tech blog posts, those with more technical depth show fewer reader comments. Bloggers conclude technical content discourages engagement. Posts went viral if they had EITHER deep content OR highly shareable takeaways.",
+    "claim": "Technical depth causes lower reader engagement.",
+    "variables": {
+      "X": {"name": "Technical Depth", "role": "Treatment"},
+      "Y": {"name": "Reader Comments", "role": "Outcome"},
+      "Z": {"name": "Viral Status (collider)", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Is the analysis restricted to viral posts, conditioning on the virality collider?",
+    "conditional_answers": {
+      "A": "If analyzing all posts (viral and not), the depth-engagement relationship may differ.",
+      "B": "If analyzing only viral posts, the negative correlation is induced by virality selection."
+    },
+    "wise_refusal": "The claim that technical depth causes lower reader engagement is ambiguous due to collider bias. We cannot determine the true relationship without knowing if analysis includes non-viral posts. If all posts are analyzed, the relationship may differ. If only viral posts are analyzed, the tradeoff is induced by virality selection. Without this information, the causal claim is not justified.",
+    "causal_structure": "X -> Z <- Y (depth and engagement both affect virality, conditioning induces spurious correlation)",
+    "key_insight": "Studying only successful content can create misleading impressions about content strategies.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0053",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Interpretability",
+    "difficulty": "Hard",
+    "trap_type": "T3",
+    "trap_family": "F1",
+    "trap_subtype": "Audit Selection Collider",
+    "scenario": "Among AI models that underwent external audits, those with better interpretability show more discovered vulnerabilities. Auditors conclude interpretable models are less secure. Models were audited if they were EITHER highly interpretable OR in high-risk applications.",
+    "claim": "Better interpretability causes more security vulnerabilities.",
+    "variables": {
+      "X": {"name": "Model Interpretability", "role": "Treatment"},
+      "Y": {"name": "Discovered Vulnerabilities", "role": "Outcome"},
+      "Z": {"name": "Audit Selection (collider)", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Is the analysis restricted to audited models, conditioning on the audit selection collider?",
+    "conditional_answers": {
+      "A": "If analyzing all models (audited and not), the interpretability-vulnerability relationship may differ.",
+      "B": "If analyzing only audited models, the correlation is induced by audit selection criteria."
+    },
+    "wise_refusal": "The claim that better interpretability causes more security vulnerabilities is ambiguous due to collider bias. We cannot determine the true relationship without knowing if analysis includes non-audited models. If all models are analyzed, the relationship may differ. If only audited models are analyzed, the pattern is induced by audit selection. Without this information, the causal claim is not justified.",
+    "causal_structure": "X -> Z <- Y (interpretability and risk profile affect audit selection, conditioning induces spurious correlation)",
+    "key_insight": "Security findings in audited systems may reflect audit selection, not system properties.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0054",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Data Labeling",
+    "difficulty": "Easy",
+    "trap_type": "T3",
+    "trap_family": "F1",
+    "trap_subtype": "Labeling Collider",
+    "scenario": "Among data points that received expert review, those from automated pipelines show higher error rates than manual entries. QA concludes automation introduces errors. Points were reviewed if they were EITHER flagged by automation OR manually selected as important.",
+    "claim": "Automated data pipelines cause higher error rates.",
+    "variables": {
+      "X": {"name": "Automated Pipeline Origin", "role": "Treatment"},
+      "Y": {"name": "Error Rate", "role": "Outcome"},
+      "Z": {"name": "Expert Review Selection (collider)", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Is the analysis restricted to reviewed data points, conditioning on the review selection collider?",
+    "conditional_answers": {
+      "A": "If analyzing all data points (reviewed and not), the automation-error relationship may differ.",
+      "B": "If analyzing only reviewed points, the correlation is induced by review selection criteria."
+    },
+    "wise_refusal": "The claim that automated data pipelines cause higher error rates is ambiguous due to collider bias. We cannot determine the true relationship without knowing if analysis includes non-reviewed data. If all data is analyzed, the relationship may differ. If only reviewed data is analyzed, the pattern is induced by review selection. Without this information, the causal claim is not justified.",
+    "causal_structure": "X -> Z <- Y (origin and errors affect review selection, conditioning induces spurious correlation)",
+    "key_insight": "Quality comparisons in reviewed samples may be artifacts of review selection criteria.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  }
+]

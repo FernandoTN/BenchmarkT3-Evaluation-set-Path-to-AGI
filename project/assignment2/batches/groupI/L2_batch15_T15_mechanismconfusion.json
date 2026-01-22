@@ -1,0 +1,466 @@
+[
+  {
+    "case_id": "T3-I1-L2-0247",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Transfer Learning",
+    "difficulty": "Easy",
+    "trap_type": "T15",
+    "trap_family": "F6",
+    "trap_subtype": "Pretraining Mechanism Confusion",
+    "scenario": "A fine-tuned model shows strong downstream performance. Teams conclude pretraining on large data causes the performance. However, the true mechanism might be architectural advantages, not data scale, and the same architecture with less pretraining data might perform similarly.",
+    "claim": "Pretraining on large data causes downstream task performance.",
+    "variables": {
+      "X": {"name": "Large Pretraining Data", "role": "Treatment"},
+      "Y": {"name": "Downstream Performance", "role": "Outcome"},
+      "Z": {"name": "True Mechanism (architecture vs data)", "role": "Mechanism"}
+    },
+    "label": "NO",
+    "hidden_question": "Does large pretraining data cause performance, or is it architectural advantages?",
+    "conditional_answers": {
+      "A": "If data scale is the key factor, more pretraining data directly causes better performance.",
+      "B": "If architecture is key, the causal mechanism is misidentified; performance comes from architectural choices."
+    },
+    "wise_refusal": "The claim that pretraining on large data causes downstream task performance is ambiguous due to mechanism confusion. We cannot determine if data scale is the causal mechanism without isolating it from architectural effects. The performance might come primarily from model architecture rather than data quantity. Without ablations separating these factors, the causal mechanism is not correctly identified.",
+    "causal_structure": "Multiple possible pathways: Data -> Performance vs Architecture -> Performance",
+    "key_insight": "Transfer learning benefits could come from data, architecture, or both in unknown proportions.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0248",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Compression",
+    "difficulty": "Easy",
+    "trap_type": "T15",
+    "trap_family": "F6",
+    "trap_subtype": "Compression Mechanism Confusion",
+    "scenario": "Knowledge distillation produces a smaller model that nearly matches the teacher's performance. Teams conclude distillation transfers the teacher's knowledge. The true mechanism might be that distillation provides better training signal, not actual knowledge transfer.",
+    "claim": "Knowledge distillation causes knowledge transfer from teacher to student.",
+    "variables": {
+      "X": {"name": "Knowledge Distillation", "role": "Treatment"},
+      "Y": {"name": "Student Performance", "role": "Outcome"},
+      "Z": {"name": "True Mechanism (transfer vs signal)", "role": "Mechanism"}
+    },
+    "label": "NO",
+    "hidden_question": "Does distillation transfer knowledge, or does it provide better training signal?",
+    "conditional_answers": {
+      "A": "If knowledge is literally transferred, distillation encodes teacher reasoning in student.",
+      "B": "If soft labels just provide better gradient signal, the mechanism is improved training, not knowledge transfer."
+    },
+    "wise_refusal": "The claim that knowledge distillation causes knowledge transfer from teacher to student is ambiguous due to mechanism confusion. We cannot determine if knowledge is truly transferred without understanding what the student learns. Soft labels might just provide smoother gradients rather than encoding teacher knowledge. Without mechanistic analysis, the causal pathway is not correctly identified.",
+    "causal_structure": "Multiple mechanisms: Teacher -> Soft Labels -> Student vs Soft Labels -> Better Gradients -> Student",
+    "key_insight": "Distillation benefits could come from various mechanisms beyond literal knowledge transfer.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0249",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Data Augmentation",
+    "difficulty": "Medium",
+    "trap_type": "T15",
+    "trap_family": "F6",
+    "trap_subtype": "Augmentation Mechanism Confusion",
+    "scenario": "A model trained with aggressive data augmentation shows better generalization. Teams conclude augmentation teaches invariances. The true mechanism might be regularization effect from noise injection rather than learned invariance.",
+    "claim": "Data augmentation causes models to learn invariances.",
+    "variables": {
+      "X": {"name": "Data Augmentation", "role": "Treatment"},
+      "Y": {"name": "Generalization", "role": "Outcome"},
+      "Z": {"name": "True Mechanism (invariance vs regularization)", "role": "Mechanism"}
+    },
+    "label": "NO",
+    "hidden_question": "Does augmentation teach invariances, or does it act as regularization noise?",
+    "conditional_answers": {
+      "A": "If models learn to be invariant to augmentations, the claim identifies the correct mechanism.",
+      "B": "If augmentation just regularizes through noise, the mechanism is different from learning invariances."
+    },
+    "wise_refusal": "The claim that data augmentation causes models to learn invariances is ambiguous due to mechanism confusion. We cannot determine if models learn true invariances without probing their representations. Augmentation might improve generalization through regularization rather than invariance learning. Without mechanistic studies, the causal pathway is not correctly identified.",
+    "causal_structure": "Multiple mechanisms: Augmentation -> Invariance -> Generalization vs Augmentation -> Regularization -> Generalization",
+    "key_insight": "Augmentation benefits could come from invariance learning or noise-based regularization.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0250",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Attention Mechanisms",
+    "difficulty": "Medium",
+    "trap_type": "T15",
+    "trap_family": "F6",
+    "trap_subtype": "Attention Mechanism Confusion",
+    "scenario": "Transformers with attention outperform RNNs on sequence tasks. Teams conclude attention enables capturing long-range dependencies. The true mechanism might be training efficiency from parallelization rather than architectural capability for long-range patterns.",
+    "claim": "Attention mechanisms cause better long-range dependency modeling.",
+    "variables": {
+      "X": {"name": "Attention Mechanism", "role": "Treatment"},
+      "Y": {"name": "Long-Range Performance", "role": "Outcome"},
+      "Z": {"name": "True Mechanism (capability vs training)", "role": "Mechanism"}
+    },
+    "label": "NO",
+    "hidden_question": "Does attention enable long-range modeling, or does it just enable better training?",
+    "conditional_answers": {
+      "A": "If attention architecturally enables long-range patterns, the mechanism is correctly identified.",
+      "B": "If attention mainly helps through better training dynamics, the mechanism is training efficiency, not capability."
+    },
+    "wise_refusal": "The claim that attention mechanisms cause better long-range dependency modeling is ambiguous due to mechanism confusion. We cannot determine if attention architecturally enables long-range patterns or just allows better training. Performance benefits might come from parallelization enabling more epochs or larger batches. Without controlled experiments, the causal mechanism is not correctly identified.",
+    "causal_structure": "Multiple mechanisms: Attention -> Direct Long-Range vs Attention -> Better Training -> Performance",
+    "key_insight": "Transformer benefits could come from architectural capability or training dynamics.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0251",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Batch Normalization",
+    "difficulty": "Medium",
+    "trap_type": "T15",
+    "trap_family": "F6",
+    "trap_subtype": "Normalization Mechanism Confusion",
+    "scenario": "Networks with batch normalization train faster and generalize better. Teams conclude batch norm reduces internal covariate shift. Research suggests the true mechanism might be smoothing the loss landscape rather than addressing covariate shift.",
+    "claim": "Batch normalization causes improved training by reducing internal covariate shift.",
+    "variables": {
+      "X": {"name": "Batch Normalization", "role": "Treatment"},
+      "Y": {"name": "Training Improvement", "role": "Outcome"},
+      "Z": {"name": "True Mechanism (covariate shift vs landscape)", "role": "Mechanism"}
+    },
+    "label": "NO",
+    "hidden_question": "Does batch norm work by reducing covariate shift, or by smoothing the loss landscape?",
+    "conditional_answers": {
+      "A": "If batch norm reduces internal covariate shift, the claimed mechanism is correct.",
+      "B": "If batch norm smooths the loss landscape, the mechanism is different from the claim."
+    },
+    "wise_refusal": "The claim that batch normalization causes improved training by reducing internal covariate shift is ambiguous due to mechanism confusion. We cannot determine the true mechanism without careful ablations. Research suggests loss landscape smoothing may be more important than covariate shift reduction. Without mechanistic evidence, the causal pathway is not correctly identified.",
+    "causal_structure": "Multiple mechanisms: BatchNorm -> Covariate Shift -> Training vs BatchNorm -> Smooth Landscape -> Training",
+    "key_insight": "The original explanation for batch norm's effectiveness may be mechanistically incorrect.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0252",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Dropout",
+    "difficulty": "Easy",
+    "trap_type": "T15",
+    "trap_family": "F6",
+    "trap_subtype": "Dropout Mechanism Confusion",
+    "scenario": "Networks trained with dropout show less overfitting. Teams conclude dropout prevents co-adaptation of neurons. The true mechanism might be implicit model ensemble averaging rather than preventing co-adaptation.",
+    "claim": "Dropout causes better generalization by preventing neuron co-adaptation.",
+    "variables": {
+      "X": {"name": "Dropout", "role": "Treatment"},
+      "Y": {"name": "Generalization", "role": "Outcome"},
+      "Z": {"name": "True Mechanism (co-adaptation vs ensemble)", "role": "Mechanism"}
+    },
+    "label": "NO",
+    "hidden_question": "Does dropout prevent co-adaptation, or does it create an implicit ensemble?",
+    "conditional_answers": {
+      "A": "If dropout prevents neurons from co-adapting, the claimed mechanism is correct.",
+      "B": "If dropout works by implicitly averaging many sub-networks, the mechanism is ensemble averaging."
+    },
+    "wise_refusal": "The claim that dropout causes better generalization by preventing neuron co-adaptation is ambiguous due to mechanism confusion. We cannot determine if the mechanism is co-adaptation prevention or ensemble averaging without mechanistic analysis. Both explanations are plausible but represent different causal pathways. Without evidence for the specific mechanism, the causal claim is not correctly specified.",
+    "causal_structure": "Multiple mechanisms: Dropout -> No Co-adaptation -> Generalization vs Dropout -> Ensemble -> Generalization",
+    "key_insight": "Dropout regularization may work through different mechanisms than originally proposed.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0253",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Learning Rate Schedules",
+    "difficulty": "Hard",
+    "trap_type": "T15",
+    "trap_family": "F6",
+    "trap_subtype": "Schedule Mechanism Confusion",
+    "scenario": "Warmup learning rate schedules improve transformer training. Teams conclude warmup prevents divergence from large initial gradients. The true mechanism might be that warmup allows adaptive optimizers to calibrate their statistics.",
+    "claim": "Learning rate warmup causes stable training by preventing gradient explosions.",
+    "variables": {
+      "X": {"name": "LR Warmup", "role": "Treatment"},
+      "Y": {"name": "Training Stability", "role": "Outcome"},
+      "Z": {"name": "True Mechanism (gradient vs optimizer calibration)", "role": "Mechanism"}
+    },
+    "label": "NO",
+    "hidden_question": "Does warmup prevent gradient issues, or calibrate optimizer statistics?",
+    "conditional_answers": {
+      "A": "If warmup prevents gradient explosions, the claimed mechanism is correct.",
+      "B": "If warmup allows optimizer moment calibration, the mechanism is different."
+    },
+    "wise_refusal": "The claim that learning rate warmup causes stable training by preventing gradient explosions is ambiguous due to mechanism confusion. We cannot determine if warmup prevents gradient issues or allows optimizer calibration without ablations. Both mechanisms could explain improved stability. Without isolating the true pathway, the causal mechanism is not correctly identified.",
+    "causal_structure": "Multiple mechanisms: Warmup -> Stable Gradients -> Training vs Warmup -> Optimizer Calibration -> Training",
+    "key_insight": "Training improvements from schedules could come from multiple mechanistic pathways.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0254",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Contrastive Learning",
+    "difficulty": "Hard",
+    "trap_type": "T15",
+    "trap_family": "F6",
+    "trap_subtype": "Contrastive Mechanism Confusion",
+    "scenario": "Self-supervised contrastive learning produces useful representations. Teams conclude contrastive loss causes the model to learn semantic similarity. The true mechanism might be that contrastive learning forces invariance to augmentations, not semantic understanding.",
+    "claim": "Contrastive learning causes models to learn semantic representations.",
+    "variables": {
+      "X": {"name": "Contrastive Learning", "role": "Treatment"},
+      "Y": {"name": "Representation Quality", "role": "Outcome"},
+      "Z": {"name": "True Mechanism (semantic vs augmentation invariance)", "role": "Mechanism"}
+    },
+    "label": "NO",
+    "hidden_question": "Does contrastive learning teach semantics, or just augmentation invariance?",
+    "conditional_answers": {
+      "A": "If contrastive learning captures semantic similarity, the claimed mechanism is correct.",
+      "B": "If it mainly learns augmentation invariance, the mechanism is different from semantic learning."
+    },
+    "wise_refusal": "The claim that contrastive learning causes models to learn semantic representations is ambiguous due to mechanism confusion. We cannot determine if learned representations are truly semantic without probing beyond the augmentations used. Models might only learn invariance to specific augmentations rather than general semantics. Without mechanistic analysis, the causal pathway is not correctly identified.",
+    "causal_structure": "Multiple mechanisms: Contrastive -> Semantics vs Contrastive -> Augmentation Invariance",
+    "key_insight": "Self-supervised representations may capture augmentation structure rather than semantics.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0255",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "RLHF",
+    "difficulty": "Hard",
+    "trap_type": "T15",
+    "trap_family": "F6",
+    "trap_subtype": "Alignment Mechanism Confusion",
+    "scenario": "RLHF-trained models appear more helpful and less harmful. Teams conclude RLHF causes the model to learn human values. The true mechanism might be that RLHF teaches the model to produce outputs that sound helpful, not to actually be helpful.",
+    "claim": "RLHF causes models to learn human values and preferences.",
+    "variables": {
+      "X": {"name": "RLHF Training", "role": "Treatment"},
+      "Y": {"name": "Aligned Behavior", "role": "Outcome"},
+      "Z": {"name": "True Mechanism (values vs appearance)", "role": "Mechanism"}
+    },
+    "label": "NO",
+    "hidden_question": "Does RLHF teach human values, or just how to appear aligned?",
+    "conditional_answers": {
+      "A": "If RLHF instills genuine understanding of values, the claimed mechanism is correct.",
+      "B": "If RLHF teaches surface-level compliance, the mechanism is imitation, not value learning."
+    },
+    "wise_refusal": "The claim that RLHF causes models to learn human values and preferences is ambiguous due to mechanism confusion. We cannot determine if models learn genuine values or surface patterns that satisfy reward models without deeper analysis. RLHF might produce outputs that sound aligned without internal value representation. Without mechanistic understanding, the causal pathway is not correctly identified.",
+    "causal_structure": "Multiple mechanisms: RLHF -> Value Learning -> Behavior vs RLHF -> Surface Compliance -> Behavior",
+    "key_insight": "Aligned-seeming behavior may come from superficial reward hacking rather than value learning.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0256",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Scaling Laws",
+    "difficulty": "Medium",
+    "trap_type": "T15",
+    "trap_family": "F6",
+    "trap_subtype": "Scaling Mechanism Confusion",
+    "scenario": "Larger models show emergent capabilities not present in smaller versions. Teams conclude scale causes emergence of new capabilities. The true mechanism might be that larger models cross capability thresholds that are continuous, not truly emergent.",
+    "claim": "Model scale causes emergent capabilities through phase transitions.",
+    "variables": {
+      "X": {"name": "Model Scale", "role": "Treatment"},
+      "Y": {"name": "Emergent Capabilities", "role": "Outcome"},
+      "Z": {"name": "True Mechanism (phase transition vs threshold)", "role": "Mechanism"}
+    },
+    "label": "NO",
+    "hidden_question": "Is emergence a phase transition, or a measurement artifact from crossing thresholds?",
+    "conditional_answers": {
+      "A": "If scale causes genuine phase transitions, capabilities emerge discontinuously.",
+      "B": "If capabilities grow continuously but measurement has thresholds, emergence is an artifact."
+    },
+    "wise_refusal": "The claim that model scale causes emergent capabilities through phase transitions is ambiguous due to mechanism confusion. We cannot determine if emergence is genuinely discontinuous without understanding the measurement process. What appears emergent might be continuous improvement crossing discrete benchmarks. Without mechanistic clarity, the causal pathway is not correctly characterized.",
+    "causal_structure": "Multiple mechanisms: Scale -> Phase Transition -> Emergence vs Scale -> Continuous Growth -> Threshold Crossing",
+    "key_insight": "Apparent emergence may be a measurement artifact rather than true discontinuity.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0257",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Prompt Engineering",
+    "difficulty": "Medium",
+    "trap_type": "T15",
+    "trap_family": "F6",
+    "trap_subtype": "Prompting Mechanism Confusion",
+    "scenario": "Chain-of-thought prompting improves LLM reasoning performance. Teams conclude CoT causes the model to reason step-by-step. The true mechanism might be that CoT simply retrieves better-formatted pretraining patterns rather than enabling reasoning.",
+    "claim": "Chain-of-thought prompting causes LLMs to perform multi-step reasoning.",
+    "variables": {
+      "X": {"name": "Chain-of-Thought", "role": "Treatment"},
+      "Y": {"name": "Reasoning Performance", "role": "Outcome"},
+      "Z": {"name": "True Mechanism (reasoning vs retrieval)", "role": "Mechanism"}
+    },
+    "label": "NO",
+    "hidden_question": "Does CoT enable reasoning, or does it trigger retrieval of reasoning-like patterns?",
+    "conditional_answers": {
+      "A": "If CoT enables genuine step-by-step reasoning, the claimed mechanism is correct.",
+      "B": "If CoT triggers pattern retrieval from training, the mechanism is not true reasoning."
+    },
+    "wise_refusal": "The claim that chain-of-thought prompting causes LLMs to perform multi-step reasoning is ambiguous due to mechanism confusion. We cannot determine if models genuinely reason or retrieve reasoning-like patterns without mechanistic analysis. CoT might work by activating pretraining patterns rather than enabling novel reasoning. Without understanding the true mechanism, the causal pathway is not correctly identified.",
+    "causal_structure": "Multiple mechanisms: CoT -> Reasoning -> Performance vs CoT -> Pattern Retrieval -> Performance",
+    "key_insight": "Improved outputs from prompting could come from retrieval rather than reasoning.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0258",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Adversarial Robustness",
+    "difficulty": "Hard",
+    "trap_type": "T15",
+    "trap_family": "F6",
+    "trap_subtype": "Robustness Mechanism Confusion",
+    "scenario": "Adversarial training improves model robustness to perturbations. Teams conclude adversarial training causes the model to learn robust features. The true mechanism might be that it teaches the model to suppress non-robust features rather than learn robust ones.",
+    "claim": "Adversarial training causes models to learn robust features.",
+    "variables": {
+      "X": {"name": "Adversarial Training", "role": "Treatment"},
+      "Y": {"name": "Robustness", "role": "Outcome"},
+      "Z": {"name": "True Mechanism (learn robust vs suppress non-robust)", "role": "Mechanism"}
+    },
+    "label": "NO",
+    "hidden_question": "Does adversarial training add robust features, or remove non-robust ones?",
+    "conditional_answers": {
+      "A": "If models learn new robust features, the claimed mechanism is correct.",
+      "B": "If models suppress existing non-robust features, the mechanism is feature removal, not learning."
+    },
+    "wise_refusal": "The claim that adversarial training causes models to learn robust features is ambiguous due to mechanism confusion. We cannot determine if robustness comes from learning new features or suppressing non-robust ones without feature analysis. The mechanism could be subtractive rather than additive. Without mechanistic understanding, the causal pathway is not correctly identified.",
+    "causal_structure": "Multiple mechanisms: AdvTrain -> Learn Robust vs AdvTrain -> Suppress Non-Robust",
+    "key_insight": "Robustness could come from feature addition or subtraction with different implications.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0259",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Mixture of Experts",
+    "difficulty": "Medium",
+    "trap_type": "T15",
+    "trap_family": "F6",
+    "trap_subtype": "MoE Mechanism Confusion",
+    "scenario": "Mixture-of-experts models achieve better efficiency-performance tradeoffs. Teams conclude sparse expert routing causes efficient specialization. The true mechanism might be that MoE just provides larger effective capacity, not meaningful specialization.",
+    "claim": "MoE causes efficient computation through expert specialization.",
+    "variables": {
+      "X": {"name": "Mixture of Experts", "role": "Treatment"},
+      "Y": {"name": "Efficiency Gains", "role": "Outcome"},
+      "Z": {"name": "True Mechanism (specialization vs capacity)", "role": "Mechanism"}
+    },
+    "label": "NO",
+    "hidden_question": "Do experts specialize meaningfully, or does MoE just provide more parameters?",
+    "conditional_answers": {
+      "A": "If experts develop meaningful specializations, the claimed mechanism is correct.",
+      "B": "If MoE just provides parameter capacity without specialization, the mechanism is different."
+    },
+    "wise_refusal": "The claim that MoE causes efficient computation through expert specialization is ambiguous due to mechanism confusion. We cannot determine if experts truly specialize without analyzing their activations. MoE benefits might come from increased capacity rather than meaningful routing. Without mechanistic analysis, the causal pathway is not correctly identified.",
+    "causal_structure": "Multiple mechanisms: MoE -> Specialization -> Efficiency vs MoE -> Capacity -> Efficiency",
+    "key_insight": "MoE efficiency could come from specialization or simply having more parameters.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0260",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Curriculum Learning",
+    "difficulty": "Easy",
+    "trap_type": "T15",
+    "trap_family": "F6",
+    "trap_subtype": "Curriculum Mechanism Confusion",
+    "scenario": "Curriculum learning (easy to hard examples) improves final model performance. Teams conclude ordering causes better feature learning. The true mechanism might be that curriculum just prevents early memorization of hard examples.",
+    "claim": "Curriculum ordering causes models to learn better features.",
+    "variables": {
+      "X": {"name": "Curriculum Ordering", "role": "Treatment"},
+      "Y": {"name": "Final Performance", "role": "Outcome"},
+      "Z": {"name": "True Mechanism (feature learning vs memorization prevention)", "role": "Mechanism"}
+    },
+    "label": "NO",
+    "hidden_question": "Does curriculum enable better feature learning, or prevent early memorization?",
+    "conditional_answers": {
+      "A": "If curriculum enables progressive feature building, the claimed mechanism is correct.",
+      "B": "If curriculum mainly prevents memorization, the mechanism is regularization, not feature learning."
+    },
+    "wise_refusal": "The claim that curriculum ordering causes models to learn better features is ambiguous due to mechanism confusion. We cannot determine if benefits come from progressive feature building or memorization prevention without representation analysis. Both mechanisms would improve performance but through different pathways. Without mechanistic understanding, the causal pathway is not correctly identified.",
+    "causal_structure": "Multiple mechanisms: Curriculum -> Better Features vs Curriculum -> Less Memorization",
+    "key_insight": "Curriculum learning benefits could come from building features or preventing overfitting.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0261",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Residual Connections",
+    "difficulty": "Easy",
+    "trap_type": "T15",
+    "trap_family": "F6",
+    "trap_subtype": "Skip Connection Mechanism Confusion",
+    "scenario": "Very deep networks train successfully with residual connections. Teams conclude skip connections enable gradient flow to early layers. The true mechanism might be that skip connections implicitly create an ensemble of different-depth networks.",
+    "claim": "Residual connections cause deep network training by enabling gradient flow.",
+    "variables": {
+      "X": {"name": "Residual Connections", "role": "Treatment"},
+      "Y": {"name": "Deep Network Training", "role": "Outcome"},
+      "Z": {"name": "True Mechanism (gradient flow vs ensemble)", "role": "Mechanism"}
+    },
+    "label": "NO",
+    "hidden_question": "Do residuals enable gradient flow, or create implicit ensembles?",
+    "conditional_answers": {
+      "A": "If residuals primarily help gradient flow, the claimed mechanism is correct.",
+      "B": "If residuals create implicit ensembles of different depths, the mechanism is different."
+    },
+    "wise_refusal": "The claim that residual connections cause deep network training by enabling gradient flow is ambiguous due to mechanism confusion. We cannot determine if benefits come from gradient flow or implicit ensembling without controlled experiments. Both mechanisms could explain why deep networks with residuals train well. Without mechanistic evidence, the causal pathway is not correctly identified.",
+    "causal_structure": "Multiple mechanisms: Residuals -> Gradients -> Training vs Residuals -> Ensemble -> Training",
+    "key_insight": "Residual network benefits may come from multiple mechanistic sources.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0262",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "In-Context Learning",
+    "difficulty": "Hard",
+    "trap_type": "T15",
+    "trap_family": "F6",
+    "trap_subtype": "ICL Mechanism Confusion",
+    "scenario": "Large language models can learn from examples in context without gradient updates. Teams conclude LLMs implement gradient descent internally. The true mechanism might be task recognition and pattern retrieval rather than any form of learning algorithm.",
+    "claim": "In-context learning causes LLMs to implement implicit gradient descent.",
+    "variables": {
+      "X": {"name": "In-Context Examples", "role": "Treatment"},
+      "Y": {"name": "Task Performance", "role": "Outcome"},
+      "Z": {"name": "True Mechanism (implicit learning vs retrieval)", "role": "Mechanism"}
+    },
+    "label": "NO",
+    "hidden_question": "Do LLMs implement learning, or do they retrieve pre-learned patterns?",
+    "conditional_answers": {
+      "A": "If LLMs implement gradient-like updates, in-context examples cause genuine learning.",
+      "B": "If LLMs recognize tasks and retrieve patterns, the mechanism is retrieval, not learning."
+    },
+    "wise_refusal": "The claim that in-context learning causes LLMs to implement implicit gradient descent is ambiguous due to mechanism confusion. We cannot determine if models learn or retrieve without mechanistic analysis. In-context examples might trigger task recognition rather than any learning algorithm. Without understanding the true mechanism, the causal pathway is not correctly identified.",
+    "causal_structure": "Multiple mechanisms: ICL -> Implicit Learning vs ICL -> Pattern Retrieval",
+    "key_insight": "In-context learning may be pattern matching rather than any form of learning.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  }
+]

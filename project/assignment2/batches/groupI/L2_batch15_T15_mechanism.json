@@ -1,0 +1,524 @@
+[
+  {
+    "case_id": "T3-I1-L2-0247",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Training",
+    "difficulty": "Easy",
+    "trap_type": "T15",
+    "trap_family": "F6",
+    "trap_subtype": "Unstated Training Mechanism",
+    "scenario": "A team observes that their model performs better after adding more training data. They conclude data improves models. However, the improvement may be due to longer training time, better diversity, or other changes made simultaneously with data addition.",
+    "claim": "Adding more training data caused the model improvement.",
+    "variables": {
+      "X": {"name": "Data Addition", "role": "Treatment"},
+      "Y": {"name": "Model Performance", "role": "Outcome"},
+      "Z": {"name": "Causal Mechanism", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "What is the mechanism by which data addition improved performance?",
+    "conditional_answers": {
+      "A": "If data quantity directly improves learning, more data may cause improvement.",
+      "B": "If improvement came from correlated changes (longer training, diversity), data quantity isn't the cause."
+    },
+    "wise_refusal": "The claim that adding more training data caused the model improvement is ambiguous due to mechanism uncertainty. We cannot determine causation without knowing the mechanism. If data quantity directly helps, the claim may be valid. If correlated changes drove improvement, data quantity is coincidental. Without this information, the causal claim is not justified.",
+    "causal_structure": "X -> ? -> Y (mechanism unknown)",
+    "key_insight": "Observing X precede Y doesn't establish causal mechanism; multiple pathways are possible.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0248",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Transfer Learning",
+    "difficulty": "Medium",
+    "trap_type": "T15",
+    "trap_family": "F6",
+    "trap_subtype": "Transfer Mechanism Ambiguity",
+    "scenario": "Fine-tuning a pretrained model on domain data improves performance. Researchers claim pretraining transfers useful knowledge. However, the improvement may be from initialization quality, not transferred knowledge - random but well-scaled initialization might work similarly.",
+    "claim": "Pretraining transfers useful knowledge to the target domain.",
+    "variables": {
+      "X": {"name": "Pretraining", "role": "Treatment"},
+      "Y": {"name": "Fine-tuning Performance", "role": "Outcome"},
+      "Z": {"name": "Transfer Mechanism", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does pretraining provide useful knowledge, or just good initialization?",
+    "conditional_answers": {
+      "A": "If pretrained representations encode useful knowledge, pretraining may transfer knowledge.",
+      "B": "If the benefit is from initialization properties, the 'transfer' claim overstates what's happening."
+    },
+    "wise_refusal": "The claim that pretraining transfers useful knowledge to the target domain is ambiguous due to mechanism uncertainty. We cannot determine the mechanism without ablation studies. If representations encode knowledge, transfer may occur. If initialization is the benefit, knowledge transfer is overstated. Without this information, the causal claim is not justified.",
+    "causal_structure": "X -> {knowledge? initialization?} -> Y (mechanism uncertain)",
+    "key_insight": "Performance improvement from pretraining doesn't distinguish knowledge transfer from initialization effects.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0249",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Architecture",
+    "difficulty": "Medium",
+    "trap_type": "T15",
+    "trap_family": "F6",
+    "trap_subtype": "Architecture Mechanism Ambiguity",
+    "scenario": "A new attention mechanism shows improved results on benchmarks. Authors claim the attention pattern is key. However, the improvement may come from increased parameters, implicit regularization, or optimization dynamics, not the attention pattern itself.",
+    "claim": "The novel attention mechanism causes the performance improvement.",
+    "variables": {
+      "X": {"name": "Attention Mechanism", "role": "Treatment"},
+      "Y": {"name": "Benchmark Performance", "role": "Outcome"},
+      "Z": {"name": "Improvement Mechanism", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does improvement come from the attention pattern or from side effects of the architecture change?",
+    "conditional_answers": {
+      "A": "If the attention pattern itself helps, the mechanism claim may be valid.",
+      "B": "If improvement comes from parameter count or optimization effects, attention is incidental."
+    },
+    "wise_refusal": "The claim that the novel attention mechanism causes the performance improvement is ambiguous due to mechanism uncertainty. We cannot determine the mechanism without controlled experiments. If attention patterns help, the claim may be valid. If side effects drive improvement, the mechanism is misidentified. Without this information, the causal claim is not justified.",
+    "causal_structure": "X -> {attention pattern? parameters? optimization?} -> Y (mechanism uncertain)",
+    "key_insight": "Architecture changes have multiple effects; improvement doesn't identify which effect matters.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0250",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Regularization",
+    "difficulty": "Easy",
+    "trap_type": "T15",
+    "trap_family": "F6",
+    "trap_subtype": "Regularization Mechanism Ambiguity",
+    "scenario": "Adding dropout improves model generalization. Researchers claim dropout prevents overfitting through stochastic regularization. However, dropout may work through implicit ensemble effects, noise injection, or capacity reduction - the mechanism is unclear.",
+    "claim": "Dropout prevents overfitting through stochastic regularization.",
+    "variables": {
+      "X": {"name": "Dropout", "role": "Treatment"},
+      "Y": {"name": "Generalization", "role": "Outcome"},
+      "Z": {"name": "Regularization Mechanism", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Through what mechanism does dropout improve generalization?",
+    "conditional_answers": {
+      "A": "If stochastic regularization is the mechanism, the explanation may be correct.",
+      "B": "If ensemble effects or capacity reduction dominate, the stated mechanism is wrong."
+    },
+    "wise_refusal": "The claim that dropout prevents overfitting through stochastic regularization is ambiguous due to mechanism uncertainty. We cannot determine the mechanism without careful ablations. If stochastic regularization is key, the claim may be valid. If other mechanisms dominate, the explanation is incorrect. Without this information, the causal claim is not justified.",
+    "causal_structure": "X -> {regularization? ensemble? capacity?} -> Y (mechanism uncertain)",
+    "key_insight": "Effective techniques may work through mechanisms different from proposed explanations.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0251",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Data Augmentation",
+    "difficulty": "Medium",
+    "trap_type": "T15",
+    "trap_family": "F6",
+    "trap_subtype": "Augmentation Mechanism Ambiguity",
+    "scenario": "Data augmentation improves model robustness. Researchers claim augmentation teaches invariances. However, augmentation may work through effective dataset size increase, regularization, or covering more of the input space - the mechanism is unclear.",
+    "claim": "Data augmentation improves robustness by teaching invariances.",
+    "variables": {
+      "X": {"name": "Data Augmentation", "role": "Treatment"},
+      "Y": {"name": "Robustness", "role": "Outcome"},
+      "Z": {"name": "Improvement Mechanism", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does augmentation teach invariances, or improve robustness through other mechanisms?",
+    "conditional_answers": {
+      "A": "If invariance learning is the mechanism, the explanation may be correct.",
+      "B": "If dataset size or coverage effects dominate, the invariance explanation is incomplete."
+    },
+    "wise_refusal": "The claim that data augmentation improves robustness by teaching invariances is ambiguous due to mechanism uncertainty. We cannot determine the mechanism without careful analysis. If invariance learning is key, the claim may be valid. If other mechanisms dominate, the explanation is incomplete. Without this information, the causal claim is not justified.",
+    "causal_structure": "X -> {invariances? size? coverage?} -> Y (mechanism uncertain)",
+    "key_insight": "Proposed mechanisms for effective techniques are often just one of multiple contributing factors.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0252",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Scaling",
+    "difficulty": "Hard",
+    "trap_type": "T15",
+    "trap_family": "F6",
+    "trap_subtype": "Scaling Mechanism Ambiguity",
+    "scenario": "Larger models show emergent capabilities. Researchers claim scale causes emergence. However, emergence may result from training on more data with larger models, better optimization with more parameters, or other correlated factors.",
+    "claim": "Model scale causes emergent capabilities.",
+    "variables": {
+      "X": {"name": "Model Scale", "role": "Treatment"},
+      "Y": {"name": "Emergent Capabilities", "role": "Outcome"},
+      "Z": {"name": "Emergence Mechanism", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does scale itself cause emergence, or do correlated factors drive it?",
+    "conditional_answers": {
+      "A": "If scale directly enables emergence, the claim may be valid.",
+      "B": "If correlated factors (data, optimization) drive emergence, scale is incidental."
+    },
+    "wise_refusal": "The claim that model scale causes emergent capabilities is ambiguous due to mechanism uncertainty. We cannot determine the mechanism without controlled experiments. If scale directly enables emergence, the claim may be valid. If correlated factors drive it, scale is coincidental. Without this information, the causal claim is not justified.",
+    "causal_structure": "X scale -> {direct? data? optimization?} -> Y emergence (mechanism uncertain)",
+    "key_insight": "Scale correlates with many factors; attributing emergence to scale alone is premature.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0253",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Optimization",
+    "difficulty": "Hard",
+    "trap_type": "T15",
+    "trap_family": "F6",
+    "trap_subtype": "Optimizer Mechanism Ambiguity",
+    "scenario": "Adam optimizer shows better convergence than SGD on a task. Researchers claim adaptive learning rates are key. However, Adam's improvement may come from momentum, epsilon stabilization, or interaction effects - the mechanism is unclear.",
+    "claim": "Adam's adaptive learning rates cause faster convergence.",
+    "variables": {
+      "X": {"name": "Adam Optimizer", "role": "Treatment"},
+      "Y": {"name": "Convergence Speed", "role": "Outcome"},
+      "Z": {"name": "Optimizer Mechanism", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Do adaptive rates cause improvement, or do other Adam components contribute?",
+    "conditional_answers": {
+      "A": "If adaptive rates are the key component, the explanation may be correct.",
+      "B": "If momentum or stabilization effects dominate, the adaptive rate explanation is incomplete."
+    },
+    "wise_refusal": "The claim that Adam's adaptive learning rates cause faster convergence is ambiguous due to mechanism uncertainty. We cannot determine the mechanism without ablations. If adaptive rates are key, the claim may be valid. If other components dominate, the mechanism is misidentified. Without this information, the causal claim is not justified.",
+    "causal_structure": "X -> {adaptive rates? momentum? epsilon?} -> Y (mechanism uncertain)",
+    "key_insight": "Complex optimizers have multiple interacting components; attributing success to one is premature.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0254",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Self-Supervised Learning",
+    "difficulty": "Medium",
+    "trap_type": "T15",
+    "trap_family": "F6",
+    "trap_subtype": "SSL Mechanism Ambiguity",
+    "scenario": "Contrastive learning produces good representations. Researchers claim learning to distinguish instances teaches useful features. However, the mechanism may be alignment of augmented views, uniformity on the hypersphere, or other effects.",
+    "claim": "Contrastive learning works by teaching instance discrimination.",
+    "variables": {
+      "X": {"name": "Contrastive Learning", "role": "Treatment"},
+      "Y": {"name": "Representation Quality", "role": "Outcome"},
+      "Z": {"name": "Learning Mechanism", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does instance discrimination drive quality, or do other mechanisms contribute?",
+    "conditional_answers": {
+      "A": "If instance discrimination is the mechanism, the explanation may be correct.",
+      "B": "If alignment or uniformity effects dominate, instance discrimination is an incomplete explanation."
+    },
+    "wise_refusal": "The claim that contrastive learning works by teaching instance discrimination is ambiguous due to mechanism uncertainty. We cannot determine the mechanism without analysis. If discrimination is key, the claim may be valid. If other factors dominate, the mechanism is misidentified. Without this information, the causal claim is not justified.",
+    "causal_structure": "X -> {discrimination? alignment? uniformity?} -> Y (mechanism uncertain)",
+    "key_insight": "Effective self-supervised methods may work through mechanisms other than intuitive explanations suggest.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0255",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Prompt Engineering",
+    "difficulty": "Easy",
+    "trap_type": "T15",
+    "trap_family": "F6",
+    "trap_subtype": "Prompting Mechanism Ambiguity",
+    "scenario": "Chain-of-thought prompting improves LLM reasoning. Researchers claim CoT enables step-by-step reasoning. However, CoT may work by activating relevant knowledge, providing computation space, or through other mechanisms entirely.",
+    "claim": "Chain-of-thought prompting enables step-by-step reasoning.",
+    "variables": {
+      "X": {"name": "Chain-of-Thought Prompting", "role": "Treatment"},
+      "Y": {"name": "Reasoning Performance", "role": "Outcome"},
+      "Z": {"name": "Improvement Mechanism", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does CoT enable reasoning, or does it work through other mechanisms?",
+    "conditional_answers": {
+      "A": "If CoT enables actual reasoning, the mechanism claim may be valid.",
+      "B": "If CoT works through knowledge activation or computation space, reasoning isn't the mechanism."
+    },
+    "wise_refusal": "The claim that chain-of-thought prompting enables step-by-step reasoning is ambiguous due to mechanism uncertainty. We cannot determine the mechanism without analysis. If reasoning is enabled, the claim may be valid. If other mechanisms drive improvement, the explanation is wrong. Without this information, the causal claim is not justified.",
+    "causal_structure": "X -> {reasoning? knowledge? computation?} -> Y (mechanism uncertain)",
+    "key_insight": "Effective prompting techniques may work through mechanisms that don't match intuitive explanations.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0256",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "RLHF",
+    "difficulty": "Hard",
+    "trap_type": "T15",
+    "trap_family": "F6",
+    "trap_subtype": "RLHF Mechanism Ambiguity",
+    "scenario": "RLHF improves LLM helpfulness. Researchers claim it teaches human preferences. However, RLHF may work by suppressing bad outputs, amplifying certain styles, or through reward model biases - the mechanism is complex and unclear.",
+    "claim": "RLHF teaches models human preferences.",
+    "variables": {
+      "X": {"name": "RLHF Training", "role": "Treatment"},
+      "Y": {"name": "Helpfulness", "role": "Outcome"},
+      "Z": {"name": "Learning Mechanism", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does RLHF teach preferences, or does it work through other mechanisms?",
+    "conditional_answers": {
+      "A": "If RLHF genuinely teaches preferences, the mechanism claim may be valid.",
+      "B": "If RLHF works by output suppression or style amplification, preference learning is overstated."
+    },
+    "wise_refusal": "The claim that RLHF teaches models human preferences is ambiguous due to mechanism uncertainty. We cannot determine the mechanism without analysis. If preference learning occurs, the claim may be valid. If other mechanisms dominate, the explanation is incomplete. Without this information, the causal claim is not justified.",
+    "causal_structure": "X -> {preference learning? suppression? style?} -> Y (mechanism uncertain)",
+    "key_insight": "RLHF's actual mechanism may differ from the intuitive 'learning preferences' explanation.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0257",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Knowledge Distillation",
+    "difficulty": "Medium",
+    "trap_type": "T15",
+    "trap_family": "F6",
+    "trap_subtype": "Distillation Mechanism Ambiguity",
+    "scenario": "Knowledge distillation produces smaller models that perform well. Researchers claim the student learns from teacher soft labels. However, improvement may come from label smoothing, curriculum effects, or the training process itself.",
+    "claim": "Knowledge distillation transfers teacher knowledge to students.",
+    "variables": {
+      "X": {"name": "Distillation Training", "role": "Treatment"},
+      "Y": {"name": "Student Performance", "role": "Outcome"},
+      "Z": {"name": "Transfer Mechanism", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does distillation transfer knowledge, or does improvement come from other effects?",
+    "conditional_answers": {
+      "A": "If knowledge transfer occurs, the distillation claim may be valid.",
+      "B": "If label smoothing or curriculum effects dominate, knowledge transfer is overstated."
+    },
+    "wise_refusal": "The claim that knowledge distillation transfers teacher knowledge to students is ambiguous due to mechanism uncertainty. We cannot determine the mechanism without ablations. If transfer occurs, the claim may be valid. If other effects dominate, the mechanism is misidentified. Without this information, the causal claim is not justified.",
+    "causal_structure": "X -> {knowledge transfer? smoothing? curriculum?} -> Y (mechanism uncertain)",
+    "key_insight": "Distillation benefits may come from training dynamics rather than explicit knowledge transfer.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0258",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Batch Normalization",
+    "difficulty": "Easy",
+    "trap_type": "T15",
+    "trap_family": "F6",
+    "trap_subtype": "BatchNorm Mechanism Ambiguity",
+    "scenario": "Batch normalization improves training stability. Researchers originally claimed it reduces internal covariate shift. However, BatchNorm may work through smoothing the loss landscape, implicit regularization, or other effects.",
+    "claim": "Batch normalization works by reducing internal covariate shift.",
+    "variables": {
+      "X": {"name": "Batch Normalization", "role": "Treatment"},
+      "Y": {"name": "Training Stability", "role": "Outcome"},
+      "Z": {"name": "Stabilization Mechanism", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does BatchNorm reduce covariate shift, or does it work through other mechanisms?",
+    "conditional_answers": {
+      "A": "If covariate shift reduction is the mechanism, the original claim may be valid.",
+      "B": "If landscape smoothing or regularization dominate, the covariate shift explanation is wrong."
+    },
+    "wise_refusal": "The claim that batch normalization works by reducing internal covariate shift is ambiguous due to mechanism uncertainty. We cannot determine the mechanism without analysis. If covariate shift is key, the claim may be valid. If other mechanisms dominate, the explanation is incorrect. Without this information, the causal claim is not justified.",
+    "causal_structure": "X -> {covariate shift? landscape? regularization?} -> Y (mechanism uncertain)",
+    "key_insight": "Initial mechanism explanations for techniques are often revised as understanding develops.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0259",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Neural Architecture",
+    "difficulty": "Hard",
+    "trap_type": "T15",
+    "trap_family": "F6",
+    "trap_subtype": "Skip Connection Mechanism",
+    "scenario": "Residual connections enable training very deep networks. Researchers claim they solve gradient flow problems. However, ResNets may work through ensemble effects, implicit architecture search, or loss landscape geometry changes.",
+    "claim": "Residual connections enable deep networks by improving gradient flow.",
+    "variables": {
+      "X": {"name": "Residual Connections", "role": "Treatment"},
+      "Y": {"name": "Deep Network Training", "role": "Outcome"},
+      "Z": {"name": "Enabling Mechanism", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Do skip connections improve gradient flow, or do they work through other mechanisms?",
+    "conditional_answers": {
+      "A": "If gradient flow is the mechanism, the explanation may be correct.",
+      "B": "If ensemble or geometry effects dominate, gradient flow is an incomplete explanation."
+    },
+    "wise_refusal": "The claim that residual connections enable deep networks by improving gradient flow is ambiguous due to mechanism uncertainty. We cannot determine the mechanism without analysis. If gradient flow is key, the claim may be valid. If other effects dominate, the mechanism is misidentified. Without this information, the causal claim is not justified.",
+    "causal_structure": "X -> {gradient flow? ensemble? geometry?} -> Y (mechanism uncertain)",
+    "key_insight": "Architectural innovations often work through multiple mechanisms beyond primary explanations.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0260",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Feature Learning",
+    "difficulty": "Medium",
+    "trap_type": "T15",
+    "trap_family": "F6",
+    "trap_subtype": "Representation Mechanism Ambiguity",
+    "scenario": "Deeper layers learn more abstract features. Researchers claim hierarchical abstraction is the key to deep learning. However, depth may matter for capacity, expressiveness, or optimization properties rather than abstraction per se.",
+    "claim": "Deep networks succeed by learning hierarchical abstractions.",
+    "variables": {
+      "X": {"name": "Network Depth", "role": "Treatment"},
+      "Y": {"name": "Performance", "role": "Outcome"},
+      "Z": {"name": "Success Mechanism", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does hierarchical abstraction drive success, or do other depth benefits matter more?",
+    "conditional_answers": {
+      "A": "If abstraction is the mechanism, the hierarchical claim may be valid.",
+      "B": "If capacity or optimization benefits dominate, abstraction is an incomplete explanation."
+    },
+    "wise_refusal": "The claim that deep networks succeed by learning hierarchical abstractions is ambiguous due to mechanism uncertainty. We cannot determine the mechanism without analysis. If abstraction is key, the claim may be valid. If other benefits dominate, the explanation is incomplete. Without this information, the causal claim is not justified.",
+    "causal_structure": "X depth -> {abstraction? capacity? optimization?} -> Y (mechanism uncertain)",
+    "key_insight": "Depth provides multiple benefits; abstraction may not be the primary mechanism.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0261",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "In-Context Learning",
+    "difficulty": "Hard",
+    "trap_type": "T15",
+    "trap_family": "F6",
+    "trap_subtype": "ICL Mechanism Ambiguity",
+    "scenario": "LLMs improve on tasks when given in-context examples. Researchers debate whether this is learning or retrieval. The mechanism may be gradient-free learning, pattern matching, or task specification - fundamentally different explanations.",
+    "claim": "In-context learning is genuine learning from examples.",
+    "variables": {
+      "X": {"name": "In-Context Examples", "role": "Treatment"},
+      "Y": {"name": "Task Performance", "role": "Outcome"},
+      "Z": {"name": "ICL Mechanism", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Is ICL learning, retrieval, task specification, or something else?",
+    "conditional_answers": {
+      "A": "If ICL involves genuine learning, the learning claim may be valid.",
+      "B": "If ICL is retrieval or task specification, calling it learning is misleading."
+    },
+    "wise_refusal": "The claim that in-context learning is genuine learning from examples is ambiguous due to mechanism uncertainty. We cannot determine the mechanism without analysis. If genuine learning occurs, the claim may be valid. If other mechanisms explain ICL, the learning label is inappropriate. Without this information, the causal claim is not justified.",
+    "causal_structure": "X examples -> {learning? retrieval? specification?} -> Y (mechanism uncertain)",
+    "key_insight": "Emergent capabilities may work through mechanisms very different from intuitive labels suggest.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0262",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Activation Functions",
+    "difficulty": "Easy",
+    "trap_type": "T15",
+    "trap_family": "F6",
+    "trap_subtype": "ReLU Mechanism Ambiguity",
+    "scenario": "ReLU activations enable effective deep network training. Researchers claim ReLU avoids vanishing gradients. However, ReLU may work through sparsity, computational efficiency, or implicit regularization effects.",
+    "claim": "ReLU enables deep learning by avoiding vanishing gradients.",
+    "variables": {
+      "X": {"name": "ReLU Activation", "role": "Treatment"},
+      "Y": {"name": "Training Effectiveness", "role": "Outcome"},
+      "Z": {"name": "Enabling Mechanism", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does ReLU help through gradient preservation, or through other mechanisms?",
+    "conditional_answers": {
+      "A": "If gradient preservation is the mechanism, the vanishing gradient explanation may be correct.",
+      "B": "If sparsity or regularization effects dominate, the explanation is incomplete."
+    },
+    "wise_refusal": "The claim that ReLU enables deep learning by avoiding vanishing gradients is ambiguous due to mechanism uncertainty. We cannot determine the mechanism without analysis. If gradient preservation is key, the claim may be valid. If other effects dominate, the mechanism is misidentified. Without this information, the causal claim is not justified.",
+    "causal_structure": "X -> {gradients? sparsity? regularization?} -> Y (mechanism uncertain)",
+    "key_insight": "Simple architectural choices may succeed through mechanisms other than obvious explanations.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0263",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Ensembling",
+    "difficulty": "Medium",
+    "trap_type": "T15",
+    "trap_family": "F6",
+    "trap_subtype": "Ensemble Mechanism Ambiguity",
+    "scenario": "Model ensembles outperform individual models. Researchers claim ensembles reduce variance. However, ensembles may succeed through error diversity, bias reduction, calibration improvement, or multiple mechanisms combined.",
+    "claim": "Ensembles improve performance by reducing variance.",
+    "variables": {
+      "X": {"name": "Ensembling", "role": "Treatment"},
+      "Y": {"name": "Performance Improvement", "role": "Outcome"},
+      "Z": {"name": "Ensemble Mechanism", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Do ensembles reduce variance, or do other mechanisms contribute to improvement?",
+    "conditional_answers": {
+      "A": "If variance reduction is the mechanism, the explanation may be correct.",
+      "B": "If diversity, bias reduction, or calibration dominate, variance reduction is incomplete."
+    },
+    "wise_refusal": "The claim that ensembles improve performance by reducing variance is ambiguous due to mechanism uncertainty. We cannot determine the mechanism without analysis. If variance reduction is key, the claim may be valid. If other mechanisms contribute, the explanation is incomplete. Without this information, the causal claim is not justified.",
+    "causal_structure": "X -> {variance? diversity? bias? calibration?} -> Y (mechanism uncertain)",
+    "key_insight": "Ensemble benefits may come from multiple mechanisms beyond the variance reduction intuition.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I1-L2-0264",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Learning Rate Schedules",
+    "difficulty": "Medium",
+    "trap_type": "T15",
+    "trap_family": "F6",
+    "trap_subtype": "LR Schedule Mechanism Ambiguity",
+    "scenario": "Warmup learning rate schedules improve transformer training. Researchers claim warmup prevents early training instability. However, warmup may help through gradient accumulation effects, attention pattern formation, or other mechanisms.",
+    "claim": "Learning rate warmup prevents early training instability.",
+    "variables": {
+      "X": {"name": "LR Warmup", "role": "Treatment"},
+      "Y": {"name": "Training Success", "role": "Outcome"},
+      "Z": {"name": "Stabilization Mechanism", "role": "Ambiguous"}
+    },
+    "label": "NO",
+    "hidden_question": "Does warmup prevent instability directly, or does it work through other mechanisms?",
+    "conditional_answers": {
+      "A": "If instability prevention is the mechanism, the explanation may be correct.",
+      "B": "If gradient or attention effects dominate, the instability explanation is incomplete."
+    },
+    "wise_refusal": "The claim that learning rate warmup prevents early training instability is ambiguous due to mechanism uncertainty. We cannot determine the mechanism without analysis. If instability prevention is key, the claim may be valid. If other effects dominate, the mechanism is misidentified. Without this information, the causal claim is not justified.",
+    "causal_structure": "X -> {instability prevention? gradients? attention?} -> Y (mechanism uncertain)",
+    "key_insight": "Training tricks may work through mechanisms different from intuitive explanations.",
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.5
+  }
+]
