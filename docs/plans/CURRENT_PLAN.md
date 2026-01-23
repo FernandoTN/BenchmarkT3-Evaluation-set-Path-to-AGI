@@ -1,34 +1,36 @@
 # Current Plan
 
-**Status:** ✅ NO ACTIVE PLAN
+**Status:** NO ACTIVE PLAN
 
 The most recent implementation plan has been completed and archived.
 
 ## Most Recent Completed Plan
 
-**[2026-01-22-v3-schema-update-plan.md](archivedPlans/2026-01-22-v3-schema-update-plan.md)**
+**[precious-napping-sundae.md](archivedPlans/precious-napping-sundae.md)**
 
-This plan updated the T3 Benchmark dataset from V2.0 to V3.0:
+CS372 Assignment 2: T3 Benchmark Expansion to 1000 Cases with Remediation
 
-1. **Phase 1:** Setup directories, archived V2.0 files
-2. **Phase 2:** Parsed original benchmark to identify 49 Stanford CS372 cases
-3. **Phase 3:** Transformed 454 cases using 8 parallel agents by trap type
-4. **Phase 4:** Validated all cases (100% pass rate)
-5. **Phase 5:** Merged and finalized `GroupI1_datasetV3.0.json`
+1. **Phase 0-5:** Generated and validated 1000 cases (500 GroupI + 500 GroupJ)
+2. **Phase 6 (Remediation):** Fixed trap type gaps (T8, T9, T16, T17, W3)
+3. **Phase 7:** Generated PDF analysis reports for both groups
+4. **Phase 8:** Final validation sweep - all checks passed
 
 ### Final Results
 
 | Metric | Target | Achieved |
 |--------|--------|----------|
-| Total Cases | 454 | 454 ✅ |
-| New Required Fields | 8 | 8 ✅ |
-| Label Distribution | Valid | YES=31, NO=385, AMBIGUOUS=38 ✅ |
-| Author Distribution | Correct | Stanford=49, Fernando=202, Alessandro=203 ✅ |
+| Total Cases | 1000 | 1000 |
+| GroupI Cases | 500 | 500 |
+| GroupJ Cases | 500 | 500 |
+| Trap Coverage | Complete | T1-T17, W1-W10, S1-S5 |
+| Score Variance | > 0.2 std | 0.36 std |
+| Deliverable Files | 10 | 10 |
 
 ## Archived Plans
 
 Previous implementation plans are archived in `archivedPlans/`:
 
+- `precious-napping-sundae.md` - Assignment 2: 1000 cases expansion (APPROVED)
 - `2026-01-22-v3-schema-update-plan.md` - V3.0 schema update (APPROVED)
 - `2026-01-11-dataset-cleanup-plan.md` - Dataset cleanup and validation
 - `2026-01-09-complete-454-cases-hybrid.md` - Complete to 454 cases
