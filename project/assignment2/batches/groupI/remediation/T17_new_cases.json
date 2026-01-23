@@ -1,0 +1,234 @@
+[
+  {
+    "case_id": "T3-I-L2-REMED-T17-001",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Large Language Models",
+    "difficulty": "Medium",
+    "trap_type": "T17",
+    "trap_family": "F6",
+    "trap_subtype": "Black Box Attribution",
+    "scenario": "A research team publishes a paper claiming to explain GPT-4's superior reasoning performance. Their explanation states that GPT-4 succeeds because it exhibits 'emergent capabilities' that arise spontaneously at scale. When asked to elaborate on the mechanism, they explain that emergence means complex behaviors appear that weren't explicitly trained for, which is simply a restatement of the observation rather than a causal mechanism.",
+    "claim": "GPT-4 achieves superior reasoning because of emergent capabilities.",
+    "variables": {
+      "X": {"name": "Emergent capabilities", "role": "Claimed cause"},
+      "Y": {"name": "Superior reasoning performance", "role": "Outcome"},
+      "M": {"name": "Actual computational mechanisms enabling reasoning", "role": "Missing mechanism"}
+    },
+    "label": "NO",
+    "hidden_question": "Does attributing performance to 'emergence' specify an actual causal mechanism, or does it merely relabel the phenomenon being explained?",
+    "conditional_answers": {
+      "A": "If the explanation specifies concrete mechanisms (e.g., specific circuit formations, representation structures, or training dynamics) that produce reasoning, then 'emergence' refers to a genuine causal process.",
+      "B": "If 'emergence' simply means 'capabilities that appeared without explicit programming,' the explanation is circular - it restates that the model can reason without explaining why or how."
+    },
+    "wise_refusal": "The claim that GPT-4 succeeds due to 'emergent capabilities' commits black box attribution. 'Emergence' as used here is a descriptive label for the observation that complex behaviors appeared, not a mechanistic explanation of how they arose. A true causal explanation would specify what computational structures form during training, how they enable reasoning, and why they appear at certain scales. Without this, 'emergence' merely names the mystery rather than solving it.",
+    "causal_structure": "X is a label for Y, not a cause of Y (M is unknown)",
+    "key_insight": "Naming a phenomenon ('emergence') is not the same as explaining its causal mechanism; the label restates what needs to be explained.",
+    "initial_author": "Claude Code Remediation Agent",
+    "validator": "Claude Code Validator",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I-L2-REMED-T17-002",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Deep Learning Theory",
+    "difficulty": "Hard",
+    "trap_type": "T17",
+    "trap_family": "F6",
+    "trap_subtype": "Black Box Attribution",
+    "scenario": "A machine learning conference keynote claims that neural scaling laws explain why larger models perform better. The presenter shows log-linear plots of model size versus performance and states that 'scaling laws predict performance improvements.' When an audience member asks what causes these scaling laws, the presenter responds that 'the laws emerge from the fundamental nature of deep learning,' without specifying loss landscape geometry, feature learning dynamics, or representational changes.",
+    "claim": "Neural scaling laws explain why larger language models achieve better performance.",
+    "variables": {
+      "X": {"name": "Neural scaling laws", "role": "Claimed cause"},
+      "Y": {"name": "Performance improvement with scale", "role": "Outcome"},
+      "M": {"name": "Loss landscape dynamics, feature formation, representation quality", "role": "Missing mechanism"}
+    },
+    "label": "NO",
+    "hidden_question": "Do scaling laws provide a causal mechanism for performance improvement, or are they merely an empirical description of the correlation between size and performance?",
+    "conditional_answers": {
+      "A": "If the scaling laws are derived from principles about loss landscape geometry, gradient flow, or representation learning that causally link model size to capability, they constitute a mechanistic explanation.",
+      "B": "If scaling laws are empirical curve fits that describe the size-performance relationship without explaining why this relationship holds, they are descriptive regularities, not causal explanations."
+    },
+    "wise_refusal": "The claim that scaling laws 'explain' performance commits black box attribution by conflating description with explanation. Scaling laws are empirical observations that larger models tend to perform better following certain curves. But stating this relationship does not explain why it holds - that would require understanding how additional parameters improve loss landscape optimization, what features emerge with scale, and how representations qualitatively change. The 'law' describes the phenomenon; the mechanism remains unspecified.",
+    "causal_structure": "X is a label for Y, not a cause of Y (M is unknown)",
+    "key_insight": "Empirical laws that describe patterns (scaling) are not causal mechanisms; they quantify what happens without explaining why.",
+    "initial_author": "Claude Code Remediation Agent",
+    "validator": "Claude Code Validator",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I-L2-REMED-T17-003",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Alignment",
+    "difficulty": "Hard",
+    "trap_type": "T17",
+    "trap_family": "F6",
+    "trap_subtype": "Black Box Attribution",
+    "scenario": "An AI safety paper claims that RLHF (Reinforcement Learning from Human Feedback) aligns language models with human values because the model 'learns from human feedback.' The paper demonstrates improved helpfulness scores but when pressed on the mechanism, authors state that 'the reward model captures human preferences and the policy learns to satisfy them.' This ignores documented phenomena like reward hacking, specification gaming, and sycophancy that suggest the actual learning mechanism differs from the stated one.",
+    "claim": "RLHF aligns AI systems with human values because the model learns from human feedback.",
+    "variables": {
+      "X": {"name": "Learning from human feedback", "role": "Claimed cause"},
+      "Y": {"name": "Alignment with human values", "role": "Outcome"},
+      "M": {"name": "Actual optimization dynamics (reward hacking, proxy gaming, representation changes)", "role": "Missing mechanism"}
+    },
+    "label": "NO",
+    "hidden_question": "Does 'learning from human feedback' specify what the model actually learns and how, or does it merely describe the training setup without explaining the resulting behavior?",
+    "conditional_answers": {
+      "A": "If the explanation details how feedback shapes internal representations, what the reward model captures versus misses, and how the policy generalizes, then 'learning from feedback' describes a genuine causal process.",
+      "B": "If 'learning from feedback' simply means 'trained on human preference data,' it describes the procedure without explaining what was learned, leaving open whether the model learned values, learned to appear aligned, or learned to exploit reward model weaknesses."
+    },
+    "wise_refusal": "The claim that RLHF works because models 'learn from human feedback' commits black box attribution. The phrase describes the training procedure, not the mechanism of alignment. True mechanistic understanding would explain what representations change during RLHF, how the reward model encodes preferences (and what it fails to encode), why the policy sometimes reward-hacks rather than aligns, and what 'alignment' means in terms of model internals. Without this, the explanation is tautological: the model is aligned because it was trained to be aligned.",
+    "causal_structure": "X is a label for Y, not a cause of Y (M is unknown)",
+    "key_insight": "Describing a training procedure ('learning from feedback') does not explain what the model learned or why it behaves as it does.",
+    "initial_author": "Claude Code Remediation Agent",
+    "validator": "Claude Code Validator",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I-L2-REMED-T17-004",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Transformer Architecture",
+    "difficulty": "Medium",
+    "trap_type": "T17",
+    "trap_family": "F6",
+    "trap_subtype": "Black Box Attribution",
+    "scenario": "A deep learning textbook explains that transformers excel at language tasks because 'self-attention captures long-range dependencies.' When students ask how attention achieves this, the textbook elaborates that 'attention allows each position to attend to all other positions, thereby capturing dependencies regardless of distance.' This explanation restates the architectural property (all-to-all connectivity) without explaining how attention weights are computed to identify relevant dependencies or why this leads to better language modeling.",
+    "claim": "Self-attention explains language model success because it captures long-range dependencies.",
+    "variables": {
+      "X": {"name": "Self-attention capturing long-range dependencies", "role": "Claimed cause"},
+      "Y": {"name": "Language modeling success", "role": "Outcome"},
+      "M": {"name": "Query-key-value computation, attention pattern formation, information routing", "role": "Missing mechanism"}
+    },
+    "label": "NO",
+    "hidden_question": "Does the explanation of 'capturing dependencies' specify how attention computationally identifies and uses relevant context, or does it merely restate the architectural capability?",
+    "conditional_answers": {
+      "A": "If the explanation details how query-key dot products identify relevant tokens, what features attention heads learn to extract, and how multi-head attention combines different dependency types, it provides mechanistic insight.",
+      "B": "If 'capturing long-range dependencies' means only that distant tokens can influence each other, the explanation restates the architecture's potential without explaining how this potential is realized."
+    },
+    "wise_refusal": "The claim that self-attention explains success by 'capturing long-range dependencies' commits black box attribution. Saying attention 'captures dependencies' redescribes what transformers can do (allow any token to influence any other) without explaining how they do it. A mechanistic explanation would address how attention weights learn to identify syntactically or semantically relevant relationships, what different attention heads specialize in, and why learned attention patterns improve language modeling compared to alternatives. The capability to attend everywhere is not the same as successfully identifying what matters.",
+    "causal_structure": "X is a label for Y, not a cause of Y (M is unknown)",
+    "key_insight": "Architectural capability (all-to-all attention) is not the same as mechanistic explanation of how that capability produces good results.",
+    "initial_author": "Claude Code Remediation Agent",
+    "validator": "Claude Code Validator",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I-L2-REMED-T17-005",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Generative AI",
+    "difficulty": "Medium",
+    "trap_type": "T17",
+    "trap_family": "F6",
+    "trap_subtype": "Black Box Attribution",
+    "scenario": "A popular science article explains that diffusion models like DALL-E and Stable Diffusion produce high-quality images because they 'iteratively denoise random noise into coherent images.' When readers ask why this produces realistic images, the article states that 'by reversing the diffusion process, the model gradually reveals the underlying image structure.' This ignores the roles of the U-Net architecture, the training data distribution, the noise schedule design, and classifier-free guidance in determining output quality.",
+    "claim": "Diffusion models generate high-quality images because iterative denoising gradually reveals image structure.",
+    "variables": {
+      "X": {"name": "Iterative denoising process", "role": "Claimed cause"},
+      "Y": {"name": "High-quality image generation", "role": "Outcome"},
+      "M": {"name": "Architecture design, training data, noise schedules, guidance mechanisms", "role": "Missing mechanism"}
+    },
+    "label": "NO",
+    "hidden_question": "Does 'iterative denoising' explain what determines image quality, or does it merely describe the generation procedure without identifying the factors that make outputs good?",
+    "conditional_answers": {
+      "A": "If the explanation specifies how the denoising network learns the data distribution, what architectural choices enable high-fidelity reconstruction, and how guidance improves coherence, it provides mechanistic understanding.",
+      "B": "If 'iterative denoising' only means 'gradually removing noise over multiple steps,' it describes the algorithm without explaining why the algorithm produces good results rather than noise or artifacts."
+    },
+    "wise_refusal": "The claim that diffusion quality comes from 'iterative denoising' commits black box attribution. The denoising procedure describes the algorithm's steps but not the sources of quality. A mechanistic explanation would need to address why the U-Net learns to denoise in perceptually meaningful ways, how the training data distribution shapes outputs, why certain noise schedules work better, and how guidance techniques improve coherence. Many iterative algorithms exist; the question is what makes this particular one generate good images.",
+    "causal_structure": "X is a label for Y, not a cause of Y (M is unknown)",
+    "key_insight": "Describing an algorithm's procedure (denoising) does not explain why that procedure produces quality outputs.",
+    "initial_author": "Claude Code Remediation Agent",
+    "validator": "Claude Code Validator",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I-L2-REMED-T17-006",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Natural Language Processing",
+    "difficulty": "Easy",
+    "trap_type": "T17",
+    "trap_family": "F6",
+    "trap_subtype": "Black Box Attribution",
+    "scenario": "A tech company's blog post claims that their chatbot provides helpful responses because 'large language models understand natural language.' When asked what 'understanding' means, the post explains that 'the model has learned the statistical patterns of language and can generate contextually appropriate responses.' This conflates statistical pattern matching with semantic understanding and does not define what understanding would mean computationally or how to distinguish it from sophisticated mimicry.",
+    "claim": "Large language models succeed at dialogue because they understand language.",
+    "variables": {
+      "X": {"name": "Language understanding", "role": "Claimed cause"},
+      "Y": {"name": "Helpful dialogue responses", "role": "Outcome"},
+      "M": {"name": "Actual computational processes (pattern matching, compression, retrieval)", "role": "Missing mechanism"}
+    },
+    "label": "NO",
+    "hidden_question": "Does 'understanding' specify a computational mechanism distinct from pattern matching, or is it a label applied to outputs without defining what understanding means?",
+    "conditional_answers": {
+      "A": "If 'understanding' is operationally defined (e.g., building world models, maintaining consistent beliefs, or passing specific comprehension tests), and the model demonstrably does this, the term refers to a real capability.",
+      "B": "If 'understanding' simply means 'produces appropriate outputs,' it labels the behavior without explaining its mechanism and leaves open whether the model understands or merely mimics understanding."
+    },
+    "wise_refusal": "The claim that LLMs succeed because they 'understand language' commits black box attribution. 'Understanding' is applied as a label to outputs that appear comprehending, but without defining what understanding means computationally, the explanation is circular: the model produces good responses because it understands, and we know it understands because it produces good responses. A mechanistic explanation would need to specify what internal representations constitute understanding, how to distinguish understanding from sophisticated statistical imitation, and what computational processes generate contextually appropriate outputs.",
+    "causal_structure": "X is a label for Y, not a cause of Y (M is unknown)",
+    "key_insight": "Attributing behavior to 'understanding' without defining what understanding means computationally is labeling, not explaining.",
+    "initial_author": "Claude Code Remediation Agent",
+    "validator": "Claude Code Validator",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I-L2-REMED-T17-007",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Multimodal AI",
+    "difficulty": "Hard",
+    "trap_type": "T17",
+    "trap_family": "F6",
+    "trap_subtype": "Black Box Attribution",
+    "scenario": "A research review claims that CLIP's remarkable zero-shot image classification abilities are explained by 'contrastive learning aligning image and text representations.' When asked why CLIP outperforms prior contrastive approaches, the reviewers note it uses 'natural language supervision at scale.' This explanation does not address the specific contributions of 400 million image-text pairs, the curation methodology that selected informative pairs, or the architectural choices that enable effective alignment.",
+    "claim": "CLIP's zero-shot success is explained by contrastive learning aligning images and text.",
+    "variables": {
+      "X": {"name": "Contrastive learning alignment", "role": "Claimed cause"},
+      "Y": {"name": "Zero-shot classification success", "role": "Outcome"},
+      "M": {"name": "Massive data scale, curation quality, architecture, and training dynamics", "role": "Missing mechanism"}
+    },
+    "label": "NO",
+    "hidden_question": "Does 'contrastive learning' explain CLIP's specific success, or does the explanation omit the factors that differentiate CLIP from less successful contrastive approaches?",
+    "conditional_answers": {
+      "A": "If the explanation specifies what properties of CLIP's contrastive setup (data scale, pair quality, negative sampling, architecture) produce superior alignment compared to alternatives, it provides mechanistic insight.",
+      "B": "If 'contrastive learning' simply describes the loss function used without explaining why CLIP's particular implementation works so well, critical causal factors (400M curated pairs, specific architectures) are omitted."
+    },
+    "wise_refusal": "The claim that contrastive learning explains CLIP commits black box attribution by citing the training objective without explaining what makes CLIP successful. Contrastive learning existed before CLIP with less impressive results. The explanation omits critical factors: 400 million image-text pairs (versus millions in prior work), WebImageText curation methodology, specific architecture choices, and training scale. Attributing success to 'contrastive learning' names the loss function while leaving the actual sources of performance improvement unexamined.",
+    "causal_structure": "X is a label for Y, not a cause of Y (M is unknown)",
+    "key_insight": "Naming the training objective (contrastive learning) does not explain why one implementation of that objective succeeds where others failed.",
+    "initial_author": "Claude Code Remediation Agent",
+    "validator": "Claude Code Validator",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I-L2-REMED-T17-008",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Training Methods",
+    "difficulty": "Easy",
+    "trap_type": "T17",
+    "trap_family": "F6",
+    "trap_subtype": "Black Box Attribution",
+    "scenario": "An AI company explains that their assistant follows complex instructions because it underwent 'instruction tuning,' which they define as 'training the model on instruction-response pairs so it learns to follow instructions.' A journalist notes this seems circular: the model follows instructions because it was trained to follow instructions. The company responds that 'instruction tuning teaches the model to generalize instruction-following to new contexts,' which restates the phenomenon without explaining the mechanism.",
+    "claim": "Instruction tuning explains why language models follow instructions.",
+    "variables": {
+      "X": {"name": "Instruction tuning", "role": "Claimed cause"},
+      "Y": {"name": "Instruction-following ability", "role": "Outcome"},
+      "M": {"name": "Representational changes, generalization mechanisms, format learning", "role": "Missing mechanism"}
+    },
+    "label": "NO",
+    "hidden_question": "Does 'instruction tuning' specify a mechanism for how training on examples produces generalized instruction-following, or is the explanation circular?",
+    "conditional_answers": {
+      "A": "If the explanation details what representations change during instruction tuning, how the model learns to parse instruction structure, and why it generalizes to novel instructions, it provides mechanistic insight.",
+      "B": "If 'instruction tuning' means only 'training on instruction examples produces instruction-following,' the explanation is circular: the model follows instructions because it was trained on instructions."
+    },
+    "wise_refusal": "The claim that instruction tuning 'explains' instruction-following commits black box attribution through circular reasoning. Saying 'the model follows instructions because it was instruction-tuned' is equivalent to saying 'it follows instructions because it was trained to follow instructions.' This names the training procedure without explaining the mechanism. A genuine explanation would address what representational changes instruction tuning induces, how the model learns to parse and execute novel instruction formats, why this generalizes beyond training examples, and what distinguishes effective instruction tuning from ineffective approaches.",
+    "causal_structure": "X is a label for Y, not a cause of Y (M is unknown)",
+    "key_insight": "Explaining a capability by naming the training procedure that produces it is circular when the procedure is defined by the capability.",
+    "initial_author": "Claude Code Remediation Agent",
+    "validator": "Claude Code Validator",
+    "final_score": 8.5
+  }
+]

@@ -1,0 +1,122 @@
+[
+  {
+    "case_id": "T3-J-L1-REMED-W3-001",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Education Policy",
+    "difficulty": "Medium",
+    "trap_type": "W3",
+    "trap_family": "",
+    "trap_subtype": "Asymptotic Failure / Extrapolation",
+    "scenario": "A state education department analyzes spending data from districts investing between $5,000 and $15,000 per student annually. The data shows a strong positive correlation: each additional $1,000 in per-student spending corresponds to approximately 8 percentile points higher on standardized tests. Based on this relationship, a policy advisor proposes that increasing spending to $100,000 per student would raise test scores to the 99th percentile, recommending massive budget increases to achieve educational excellence.",
+    "claim": "Increasing education spending to $100,000 per student would produce proportionally higher test scores based on the observed $5K-$15K correlation.",
+    "variables": {
+      "X": {"name": "Per-student education spending", "role": "Treatment/Factor"},
+      "Y": {"name": "Standardized test scores", "role": "Outcome"},
+      "R": {"name": "Observed spending range ($5,000-$15,000)", "role": "Domain constraint"}
+    },
+    "label": "W",
+    "hidden_question": "Does the linear relationship between education spending and test scores hold when extrapolating from $5K-$15K to $100K per student?",
+    "conditional_answers": {
+      "A": "If the relationship is truly linear across all spending levels, the extrapolation would be valid.",
+      "B": "If diminishing returns, ceiling effects on test scores, or resource absorption limits exist, the relationship plateaus well before $100K.",
+      "C": "If spending beyond certain thresholds creates bureaucratic inefficiency or misallocation, the relationship could reverse."
+    },
+    "wise_refusal": "This extrapolation from $5K-$15K to $100K per student is unjustified. Education spending exhibits well-documented diminishing returns: initial investments improve basics like qualified teachers and materials, but additional funds face ceiling effects (students cannot score above 100%), absorption limits (schools cannot productively deploy unlimited resources), and diminishing marginal utility (tenth teacher aide provides less value than first). The linear relationship observed in the modest range breaks down dramatically at extreme values.",
+    "causal_structure": "X -> Y observed for X in [$5K, $15K], extrapolated to X = $100K without justification",
+    "key_insight": "Linear correlations in moderate spending ranges cannot be extrapolated indefinitely due to ceiling effects on test scores, diminishing marginal returns on educational inputs, and practical limits on resource deployment.",
+    "initial_author": "Claude Code Remediation Agent",
+    "validator": "Claude Code Validator",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J-L1-REMED-W3-002",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Labor Economics",
+    "difficulty": "Hard",
+    "trap_type": "W3",
+    "trap_family": "",
+    "trap_subtype": "Asymptotic Failure / Extrapolation",
+    "scenario": "Economists study the effects of minimum wage increases across states where rates varied from $7.25 to $15.00 per hour over a decade. Within this range, they find modest negative effects on employment: each $1 increase correlates with approximately 0.5% reduction in low-wage employment, but the effect is small and some studies show neutral or positive effects due to reduced turnover. A policy group extrapolates this finding to argue that a $50 per hour minimum wage would cause only a 21% reduction in low-wage employment, which they consider an acceptable tradeoff.",
+    "claim": "A $50/hour minimum wage would reduce low-wage employment by approximately 21% based on linear extrapolation from effects observed in the $7-$15/hour range.",
+    "variables": {
+      "X": {"name": "Minimum wage level", "role": "Treatment/Factor"},
+      "Y": {"name": "Low-wage employment rate", "role": "Outcome"},
+      "R": {"name": "Observed wage range ($7.25-$15.00/hour)", "role": "Domain constraint"}
+    },
+    "label": "W",
+    "hidden_question": "Does the modest employment elasticity observed for minimum wages between $7-$15/hour apply when extrapolating to $50/hour?",
+    "conditional_answers": {
+      "A": "If labor demand elasticity is constant across all wage levels, the linear extrapolation would hold.",
+      "B": "If labor markets exhibit discontinuities, threshold effects, or nonlinear responses at extreme wages, employment effects would be far more severe than predicted.",
+      "C": "If businesses fundamentally restructure operations, automate, or relocate at extreme wage levels, the observed relationship becomes meaningless."
+    },
+    "wise_refusal": "Extrapolating minimum wage effects from $7-$15/hour to $50/hour is fundamentally flawed. The observed range represents modest perturbations where businesses can absorb costs through reduced profits, slight price increases, or productivity gains. At $50/hour, these adjustment mechanisms break down entirely: most low-wage businesses would become unviable, automation becomes economically imperative, and underground employment would surge. Labor market discontinuities and business model constraints invalidate linear extrapolation beyond the observed domain.",
+    "causal_structure": "X -> Y observed for X in [$7.25, $15.00], extrapolated to X = $50 without justification",
+    "key_insight": "Labor market responses to minimum wages are bounded by business viability thresholds, automation economics, and market restructuring that create severe nonlinearities far outside the observed policy range.",
+    "initial_author": "Claude Code Remediation Agent",
+    "validator": "Claude Code Validator",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J-L1-REMED-W3-003",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Criminal Justice",
+    "difficulty": "Medium",
+    "trap_type": "W3",
+    "trap_family": "",
+    "trap_subtype": "Asymptotic Failure / Extrapolation",
+    "scenario": "A city crime analysis unit examines data across neighborhoods with varying police-to-resident ratios ranging from 1 officer per 1,000 residents to 1 per 200 residents. Within this range, they observe a negative correlation: doubling police presence correlates with roughly 15% lower property crime rates. A city council member extrapolates this relationship to propose that if police presence were increased to 1 officer per 10 residents, property crime would approach zero, justifying a dramatic expansion of the police force.",
+    "claim": "Increasing police presence to 1 officer per 10 residents would reduce crime to near-zero based on the observed correlation at moderate staffing levels.",
+    "variables": {
+      "X": {"name": "Police-to-resident ratio", "role": "Treatment/Factor"},
+      "Y": {"name": "Property crime rate", "role": "Outcome"},
+      "R": {"name": "Observed ratio range (1:1000 to 1:200)", "role": "Domain constraint"}
+    },
+    "label": "W",
+    "hidden_question": "Does the negative correlation between police presence and crime observed at moderate levels continue linearly as police presence approaches extreme saturation?",
+    "conditional_answers": {
+      "A": "If deterrence effects scale linearly with police presence regardless of saturation, the extrapolation would be valid.",
+      "B": "If diminishing returns exist because easily deterrable crimes are prevented first, additional officers provide decreasing marginal benefit.",
+      "C": "If extreme police presence creates civil liberties violations, community alienation, or displaces rather than prevents crime, the relationship could reverse."
+    },
+    "wise_refusal": "Extrapolating from moderate police ratios (1:1000 to 1:200) to extreme saturation (1:10) ignores fundamental limits on crime reduction. Diminishing returns occur because police first deter the most preventable crimes; remaining crime involves determined offenders, crimes of passion, or hidden victimization. Opportunity costs become extreme as police spending crowds out social services that address root causes. Civil liberties constraints, community alienation, and crime displacement to unpoliced domains further invalidate the assumed monotonic relationship. Zero crime is an asymptote that cannot be reached through policing alone.",
+    "causal_structure": "X -> Y observed for X in [1:1000, 1:200], extrapolated to X = 1:10 without justification",
+    "key_insight": "Crime reduction through policing faces asymptotic limits: easily deterred crimes are prevented first, and remaining crime has causes that policing cannot address, creating diminishing returns that invalidate linear extrapolation.",
+    "initial_author": "Claude Code Remediation Agent",
+    "validator": "Claude Code Validator",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-J-L1-REMED-W3-004",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Social Psychology",
+    "difficulty": "Easy",
+    "trap_type": "W3",
+    "trap_family": "",
+    "trap_subtype": "Asymptotic Failure / Extrapolation",
+    "scenario": "Mental health researchers analyze survey data from adolescents reporting social media use between 0 and 4 hours daily. Within this range, they find a positive correlation: each additional hour of daily social media use corresponds to a 0.3-point increase on a depression symptoms scale (range 0-27). A concerned parent advocacy group extrapolates this finding to claim that teenagers using social media for 16 hours daily would have depression scores 4.8 points higher than non-users, characterizing extreme social media use as a severe mental health crisis requiring urgent intervention.",
+    "claim": "Teenagers using social media 16 hours daily would show proportionally elevated depression scores based on the linear relationship observed in the 0-4 hour range.",
+    "variables": {
+      "X": {"name": "Daily social media use (hours)", "role": "Treatment/Factor"},
+      "Y": {"name": "Depression symptom score", "role": "Outcome"},
+      "R": {"name": "Observed usage range (0-4 hours daily)", "role": "Domain constraint"}
+    },
+    "label": "W",
+    "hidden_question": "Does the linear correlation between social media use and depression observed from 0-4 hours/day extend to extreme usage levels like 16 hours/day?",
+    "conditional_answers": {
+      "A": "If the relationship is truly linear across all usage levels, extrapolation to extreme hours would be valid.",
+      "B": "If ceiling effects on depression scales or saturation of psychological mechanisms exist, the relationship plateaus at high usage.",
+      "C": "If extreme usage (16 hours) indicates severe underlying conditions that independently cause both behaviors, the correlation reflects confounding rather than direct causation."
+    },
+    "wise_refusal": "Extrapolating from 0-4 hours to 16 hours of daily social media use is unjustified for multiple reasons. First, 16-hour usage is physically unsustainable, leaving only 8 hours for sleep with no time for school, eating, or other activities, indicating severe confounding conditions. Second, depression scales have ceiling effects, preventing linear extrapolation beyond maximum scores. Third, individuals using social media 16 hours daily likely have pre-existing conditions (severe depression, social isolation, disability) that confound any observed correlation. The extreme usage domain has different population characteristics that invalidate extrapolation from typical users.",
+    "causal_structure": "X -> Y observed for X in [0, 4 hours], extrapolated to X = 16 hours without justification",
+    "key_insight": "Extreme usage levels (16 hours daily) represent a fundamentally different population with severe confounders; extrapolating correlations from typical usage ignores ceiling effects on outcomes and qualitative differences in who exhibits extreme behavior.",
+    "initial_author": "Claude Code Remediation Agent",
+    "validator": "Claude Code Validator",
+    "final_score": 8.5
+  }
+]

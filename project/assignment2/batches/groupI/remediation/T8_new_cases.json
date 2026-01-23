@@ -1,0 +1,234 @@
+[
+  {
+    "case_id": "T3-I-L2-REMED-T8-001",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Large Language Models",
+    "difficulty": "Medium",
+    "trap_type": "T8",
+    "trap_family": "F3",
+    "trap_subtype": "Mediated Effect Confusion",
+    "scenario": "A research team observes a strong positive correlation between model parameter count (ranging from 7B to 70B parameters) and benchmark accuracy across their LLM experiments. They note that models with more parameters consistently achieve higher scores on reasoning tasks. However, larger models also require proportionally larger compute budgets and longer training times, which enables more gradient updates and better optimization. The team concludes that simply scaling up parameters directly improves model capabilities.",
+    "claim": "Increasing model size directly causes improved accuracy on reasoning benchmarks.",
+    "variables": {
+      "X": {"name": "Model Parameter Count", "role": "Treatment"},
+      "Y": {"name": "Benchmark Accuracy", "role": "Outcome"},
+      "M": {"name": "Compute Budget and Training Time", "role": "Mediator"}
+    },
+    "label": "NO",
+    "hidden_question": "Does model size directly improve accuracy, or is the effect primarily mediated through increased compute budget and training time?",
+    "conditional_answers": {
+      "A": "If larger models inherently represent knowledge better regardless of training, then parameter count directly causes improved accuracy.",
+      "B": "If larger models only improve because they receive more compute and training time, then the effect is mediated and the direct claim is misleading."
+    },
+    "wise_refusal": "The claim that increasing model size directly causes improved accuracy commits the mediated effect fallacy. The relationship between parameter count and benchmark accuracy is substantially mediated by compute budget and training time. Larger models receive more training compute, enabling better optimization. Without controlling for this mediator, we cannot determine how much of the improvement comes from model capacity versus training investment. The direct causal claim ignores this critical mediation pathway.",
+    "causal_structure": "X -> M -> Y",
+    "key_insight": "Scaling laws confound model capacity with training investment; disentangling direct from mediated effects requires controlled experiments.",
+    "initial_author": "Claude Code Remediation Agent",
+    "validator": "Claude Code Validator",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I-L2-REMED-T8-002",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Machine Learning Training",
+    "difficulty": "Medium",
+    "trap_type": "T8",
+    "trap_family": "F3",
+    "trap_subtype": "Mediated Effect Confusion",
+    "scenario": "An ML engineering team analyzes their image classification models and finds that models trained on larger datasets consistently achieve better generalization on held-out test sets. They observe that doubling dataset size correlates with a 15% reduction in test error. However, larger datasets naturally contain more diverse examples covering edge cases, rare classes, and varied conditions. The team recommends simply collecting more data to improve generalization.",
+    "claim": "Training data size directly causes better model generalization.",
+    "variables": {
+      "X": {"name": "Training Data Size", "role": "Treatment"},
+      "Y": {"name": "Generalization Performance", "role": "Outcome"},
+      "M": {"name": "Data Diversity and Coverage", "role": "Mediator"}
+    },
+    "label": "NO",
+    "hidden_question": "Does more data directly improve generalization, or is the effect primarily mediated through increased data diversity and coverage?",
+    "conditional_answers": {
+      "A": "If repeated similar examples improve learning regardless of diversity, then data size directly causes better generalization.",
+      "B": "If larger datasets improve generalization primarily by capturing more diverse patterns and edge cases, then the effect is mediated by diversity."
+    },
+    "wise_refusal": "The claim that training data size directly causes better generalization commits the mediated effect fallacy. The relationship is substantially mediated by data diversity and coverage. Larger datasets typically contain more varied examples, edge cases, and domain coverage. A large dataset of repetitive examples would not provide the same benefits as a diverse one. Without isolating the effect of sheer quantity from diversity, the direct causal claim oversimplifies the actual mechanism of improvement.",
+    "causal_structure": "X -> M -> Y",
+    "key_insight": "Data quantity often proxies for data diversity; more data without increased coverage may not improve generalization.",
+    "initial_author": "Claude Code Remediation Agent",
+    "validator": "Claude Code Validator",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I-L2-REMED-T8-003",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Alignment",
+    "difficulty": "Hard",
+    "trap_type": "T8",
+    "trap_family": "F3",
+    "trap_subtype": "Mediated Effect Confusion",
+    "scenario": "An AI safety team compares models trained with RLHF to baseline models and finds that RLHF-trained models receive significantly higher helpfulness ratings from human evaluators. They attribute this improvement to the RLHF training process itself. However, the quality of RLHF depends heavily on the reward model used to guide optimization - teams with better reward models (trained on more diverse preference data with careful annotation guidelines) achieve better outcomes. The team concludes that simply applying RLHF will improve helpfulness.",
+    "claim": "RLHF training directly causes models to become more helpful.",
+    "variables": {
+      "X": {"name": "RLHF Training", "role": "Treatment"},
+      "Y": {"name": "Model Helpfulness", "role": "Outcome"},
+      "M": {"name": "Reward Model Quality", "role": "Mediator"}
+    },
+    "label": "NO",
+    "hidden_question": "Does RLHF directly improve helpfulness, or is the effect primarily mediated through the quality of the reward model?",
+    "conditional_answers": {
+      "A": "If the RLHF optimization process inherently improves helpfulness regardless of reward model quality, then RLHF directly causes improvement.",
+      "B": "If RLHF effectiveness depends critically on reward model quality, then the effect is mediated and poor reward models could lead to unhelpful or harmful outputs."
+    },
+    "wise_refusal": "The claim that RLHF training directly causes models to become more helpful commits the mediated effect fallacy. The effectiveness of RLHF is substantially mediated by reward model quality. A poorly calibrated reward model can lead to reward hacking, sycophancy, or other failure modes where the model optimizes for proxies of helpfulness rather than genuine helpfulness. Without accounting for this critical mediator, the claim oversimplifies the pathway and could lead to misguided expectations about RLHF deployment.",
+    "causal_structure": "X -> M -> Y",
+    "key_insight": "RLHF is only as good as its reward model; claiming RLHF directly improves outcomes ignores this critical mediation pathway.",
+    "initial_author": "Claude Code Remediation Agent",
+    "validator": "Claude Code Validator",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I-L2-REMED-T8-004",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Prompt Engineering",
+    "difficulty": "Easy",
+    "trap_type": "T8",
+    "trap_family": "F3",
+    "trap_subtype": "Mediated Effect Confusion",
+    "scenario": "A product team analyzing their LLM-powered application observes that longer prompts consistently produce higher-quality responses as rated by users. Prompts with 500+ tokens receive 40% higher satisfaction scores than prompts under 100 tokens. However, longer prompts typically contain more relevant context, clearer instructions, and better-structured examples. The team implements a policy to always maximize prompt length.",
+    "claim": "Longer prompts directly cause better response quality.",
+    "variables": {
+      "X": {"name": "Prompt Length", "role": "Treatment"},
+      "Y": {"name": "Response Quality", "role": "Outcome"},
+      "M": {"name": "Context Relevance and Instruction Clarity", "role": "Mediator"}
+    },
+    "label": "NO",
+    "hidden_question": "Does prompt length directly improve response quality, or is the effect mediated through the relevance and clarity of the additional content?",
+    "conditional_answers": {
+      "A": "If LLMs perform better with more tokens regardless of content quality, then prompt length directly causes improvement.",
+      "B": "If longer prompts improve responses only when they add relevant context and clear instructions, then the effect is mediated by content quality."
+    },
+    "wise_refusal": "The claim that longer prompts directly cause better response quality commits the mediated effect fallacy. The relationship is mediated by context relevance and instruction clarity. Adding irrelevant filler text or confusing additional instructions to increase length would likely degrade performance. The correlation between length and quality exists because thoughtful prompts tend to be longer, not because length itself is beneficial. Optimizing for length rather than relevance misunderstands the actual causal mechanism.",
+    "causal_structure": "X -> M -> Y",
+    "key_insight": "Prompt length correlates with quality because relevant context takes space; padding prompts without adding value would not improve responses.",
+    "initial_author": "Claude Code Remediation Agent",
+    "validator": "Claude Code Validator",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I-L2-REMED-T8-005",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "API Services",
+    "difficulty": "Easy",
+    "trap_type": "T8",
+    "trap_family": "F3",
+    "trap_subtype": "Mediated Effect Confusion",
+    "scenario": "A developer platform team finds a strong negative correlation between API response latency and user satisfaction scores. Users experiencing sub-100ms responses report 85% satisfaction, while those with 500ms+ responses report only 45% satisfaction. However, higher latency often signals more complex queries requiring more computation, and users performing complex tasks have different expectations and patience levels. The team prioritizes reducing all latency uniformly.",
+    "claim": "Lower API latency directly causes higher user satisfaction.",
+    "variables": {
+      "X": {"name": "API Latency", "role": "Treatment"},
+      "Y": {"name": "User Satisfaction", "role": "Outcome"},
+      "M": {"name": "Task Complexity Perception", "role": "Mediator"}
+    },
+    "label": "NO",
+    "hidden_question": "Does lower latency directly improve satisfaction, or is the effect mediated by how users perceive task complexity and set expectations?",
+    "conditional_answers": {
+      "A": "If users always prefer faster responses regardless of task type, then latency directly causes satisfaction changes.",
+      "B": "If users accept higher latency for complex tasks when they understand why, then satisfaction is mediated by complexity perception and expectation-setting."
+    },
+    "wise_refusal": "The claim that lower API latency directly causes higher user satisfaction commits the mediated effect fallacy. The relationship is mediated by task complexity perception. Users performing simple lookups expect instant responses, while those running complex analyses may accept longer waits if they understand the reason. Simply reducing latency without considering task context ignores this mediation. Showing users progress indicators or explaining computation time for complex queries might improve satisfaction without requiring latency reduction.",
+    "causal_structure": "X -> M -> Y",
+    "key_insight": "User satisfaction depends on latency relative to expectations; context about task complexity mediates the relationship.",
+    "initial_author": "Claude Code Remediation Agent",
+    "validator": "Claude Code Validator",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I-L2-REMED-T8-006",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "ML Infrastructure",
+    "difficulty": "Hard",
+    "trap_type": "T8",
+    "trap_family": "F3",
+    "trap_subtype": "Mediated Effect Confusion",
+    "scenario": "An ML infrastructure team benchmarking different GPU configurations finds that GPUs with more memory consistently achieve faster inference speeds. A100 80GB cards process 2.5x more requests per second than A10 24GB cards. However, higher memory enables larger batch sizes and more efficient memory access patterns. The team recommends simply upgrading to maximum-memory GPUs for all workloads.",
+    "claim": "GPU memory directly causes faster inference speeds.",
+    "variables": {
+      "X": {"name": "GPU Memory Capacity", "role": "Treatment"},
+      "Y": {"name": "Inference Speed", "role": "Outcome"},
+      "M": {"name": "Batch Size Optimization", "role": "Mediator"}
+    },
+    "label": "NO",
+    "hidden_question": "Does GPU memory directly improve inference speed, or is the effect primarily mediated through enabling larger batch sizes and better memory optimization?",
+    "conditional_answers": {
+      "A": "If GPUs with more memory have inherently faster computation regardless of batch size, then memory directly causes speed improvement.",
+      "B": "If more memory primarily enables larger batches which amortize overhead, then the effect is mediated and single-request latency may not improve."
+    },
+    "wise_refusal": "The claim that GPU memory directly causes faster inference speeds commits the mediated effect fallacy. The relationship is substantially mediated by batch size optimization. More memory allows larger batches, which amortize fixed overhead costs and improve throughput. However, for single-request latency-sensitive applications where batch size is constrained to 1, additional memory provides minimal benefit. Without considering this mediation pathway, the recommendation to maximize memory ignores workload-specific requirements.",
+    "causal_structure": "X -> M -> Y",
+    "key_insight": "GPU memory enables speed through batching; workloads that cannot batch see diminishing returns from additional memory.",
+    "initial_author": "Claude Code Remediation Agent",
+    "validator": "Claude Code Validator",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I-L2-REMED-T8-007",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Software Engineering",
+    "difficulty": "Medium",
+    "trap_type": "T8",
+    "trap_family": "F3",
+    "trap_subtype": "Mediated Effect Confusion",
+    "scenario": "A software quality team analyzes bug reports across their codebase and finds that modules with higher cyclomatic complexity have significantly more bugs. Modules with complexity scores above 20 have 4x the bug rate of modules scoring below 5. However, complex modules are harder to test thoroughly, leading to lower test coverage and more undetected edge cases. The team mandates reducing code complexity across all modules.",
+    "claim": "Code complexity directly causes higher bug rates.",
+    "variables": {
+      "X": {"name": "Code Complexity", "role": "Treatment"},
+      "Y": {"name": "Bug Rate", "role": "Outcome"},
+      "M": {"name": "Test Coverage Quality", "role": "Mediator"}
+    },
+    "label": "NO",
+    "hidden_question": "Does code complexity directly cause more bugs, or is the effect primarily mediated through reduced test coverage and testing effectiveness?",
+    "conditional_answers": {
+      "A": "If complex code inherently contains more logical errors regardless of testing, then complexity directly causes bugs.",
+      "B": "If complex code has more bugs primarily because it is harder to test thoroughly, then improved testing could mitigate the effect."
+    },
+    "wise_refusal": "The claim that code complexity directly causes higher bug rates commits the mediated effect fallacy. The relationship is substantially mediated by test coverage quality. Complex code is harder to test comprehensively, leading to gaps that allow bugs to escape detection. With sufficient testing investment, some complex code can be made reliable. Mandating complexity reduction without addressing testing practices ignores this mediation pathway. Sometimes complex logic is necessary and should be addressed through better testing rather than artificial simplification.",
+    "causal_structure": "X -> M -> Y",
+    "key_insight": "Complexity affects bugs partly through testability; investing in testing can mitigate complexity-induced risks.",
+    "initial_author": "Claude Code Remediation Agent",
+    "validator": "Claude Code Validator",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I-L2-REMED-T8-008",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Tech Organizations",
+    "difficulty": "Hard",
+    "trap_type": "T8",
+    "trap_family": "F3",
+    "trap_subtype": "Mediated Effect Confusion",
+    "scenario": "A tech company's leadership analyzes release velocity data across teams and finds that larger teams ship features more slowly. Teams of 15+ engineers release 60% fewer features per quarter than teams of 5-7. They propose splitting large teams to improve velocity. However, larger teams require more meetings, cross-team dependencies, and communication channels, creating coordination overhead that scales non-linearly with team size. The inherent work capacity scales linearly but effective output does not.",
+    "claim": "Larger team size directly causes slower release velocity.",
+    "variables": {
+      "X": {"name": "Team Size", "role": "Treatment"},
+      "Y": {"name": "Release Velocity", "role": "Outcome"},
+      "M": {"name": "Coordination Overhead", "role": "Mediator"}
+    },
+    "label": "NO",
+    "hidden_question": "Does larger team size directly slow releases, or is the effect primarily mediated through increased coordination overhead?",
+    "conditional_answers": {
+      "A": "If adding engineers inherently dilutes focus regardless of coordination, then team size directly causes velocity reduction.",
+      "B": "If larger teams slow down primarily due to coordination costs, then better coordination practices could preserve velocity gains from scale."
+    },
+    "wise_refusal": "The claim that larger team size directly causes slower release velocity commits the mediated effect fallacy. The relationship is substantially mediated by coordination overhead. As teams grow, communication channels increase quadratically (n*(n-1)/2), requiring more meetings, documentation, and alignment. However, with effective coordination practices (clear ownership, well-defined interfaces, asynchronous communication), larger teams can scale more effectively. Simply splitting teams without addressing coordination mechanisms may just fragment the problem rather than solve it.",
+    "causal_structure": "X -> M -> Y",
+    "key_insight": "Team size affects velocity through coordination costs; addressing coordination practices may be more effective than arbitrary team splits.",
+    "initial_author": "Claude Code Remediation Agent",
+    "validator": "Claude Code Validator",
+    "final_score": 8.5
+  }
+]

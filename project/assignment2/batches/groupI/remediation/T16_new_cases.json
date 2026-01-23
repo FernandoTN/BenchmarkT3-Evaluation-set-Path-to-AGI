@@ -1,0 +1,242 @@
+[
+  {
+    "case_id": "T3-I-L2-REMED-T16-001",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Transformer Architecture",
+    "difficulty": "Hard",
+    "trap_type": "T16",
+    "trap_family": "F6",
+    "trap_subtype": "Mechanism Oversimplification",
+    "scenario": "A machine learning blog post claims that the revolutionary success of transformer models can be entirely attributed to the self-attention mechanism, citing the famous paper title 'Attention Is All You Need' as evidence. The author argues that any model implementing self-attention will achieve comparable performance to transformers, and that other architectural components are merely implementation details that could be substituted or removed without significant impact on model capabilities.",
+    "claim": "Self-attention is the sole mechanism responsible for transformer model performance, making other architectural components optional.",
+    "variables": {
+      "X": {"name": "Self-attention mechanism", "role": "Treatment"},
+      "Y": {"name": "Transformer model performance", "role": "Outcome"},
+      "A": {"name": "Layer normalization and residual connections", "role": "Auxiliary"},
+      "B": {"name": "Positional encoding scheme", "role": "Auxiliary"}
+    },
+    "label": "NO",
+    "hidden_question": "Can self-attention alone explain transformer performance, or are auxiliary architectural components essential for the mechanism to work?",
+    "conditional_answers": {
+      "A": "If layer normalization, residual connections, and positional encoding are dispensable, the claim is valid",
+      "B": "If these auxiliary components are essential for training stability and sequence understanding, the claim oversimplifies the mechanism"
+    },
+    "wise_refusal": "This claim critically oversimplifies transformer architecture. Residual connections enable gradient flow through deep networks, preventing vanishing gradients during training. Layer normalization stabilizes activations and accelerates convergence. Positional encoding provides sequence order information that pure attention cannot capture. Research shows removing any of these components severely degrades performance or prevents training entirely. The transformer's success emerges from the synergistic interaction of these components, not attention alone.",
+    "causal_structure": "X + A + B -> Y (interaction required)",
+    "key_insight": "Self-attention provides the core representational mechanism, but requires residual connections for gradient flow, layer normalization for training stability, and positional encoding for sequence order - removing any component breaks the system.",
+    "initial_author": "Claude Code Remediation Agent",
+    "validator": "Claude Code Validator",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I-L2-REMED-T16-002",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Language Model Scaling",
+    "difficulty": "Medium",
+    "trap_type": "T16",
+    "trap_family": "F6",
+    "trap_subtype": "Mechanism Oversimplification",
+    "scenario": "A tech company executive announces that their AI research strategy will focus exclusively on scaling model size, arguing that 'bigger models are smarter models.' They cite scaling laws showing performance improvements with parameter count and claim that architectural innovations, training methodology, and data curation are secondary concerns that naturally sort themselves out at sufficient scale. The executive proposes reallocating all research resources from architecture design to compute acquisition.",
+    "claim": "Increasing model parameter count is the primary driver of AI capability improvements, making other factors secondary.",
+    "variables": {
+      "X": {"name": "Model parameter count", "role": "Treatment"},
+      "Y": {"name": "Model intelligence and capabilities", "role": "Outcome"},
+      "A": {"name": "Architecture design and training dynamics", "role": "Auxiliary"},
+      "B": {"name": "Training data quality and diversity", "role": "Auxiliary"}
+    },
+    "label": "NO",
+    "hidden_question": "Is model size sufficient to explain capability gains, or do architecture and data quality interact non-trivially with scale?",
+    "conditional_answers": {
+      "A": "If scale alone determines capability regardless of architecture and data, the claim is valid",
+      "B": "If architecture design and data quality determine how effectively scale translates to capability, the claim oversimplifies"
+    },
+    "wise_refusal": "This claim ignores crucial interactions between scale, architecture, and data. Poorly designed architectures show diminishing returns at scale, while innovations like mixture-of-experts achieve better performance per parameter. Training dynamics including learning rate schedules and optimization algorithms determine whether large models converge effectively. Data quality bounds maximum capability regardless of scale - models trained on low-quality data develop systematic biases. Scaling laws explicitly include data and compute as equal factors, not just parameters.",
+    "causal_structure": "X + A + B -> Y (interaction required)",
+    "key_insight": "Scaling laws show parameter count, compute, and data scale together optimally - architecture determines the scaling coefficient, and poor data quality creates capability ceilings that more parameters cannot overcome.",
+    "initial_author": "Claude Code Remediation Agent",
+    "validator": "Claude Code Validator",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I-L2-REMED-T16-003",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Machine Learning Training",
+    "difficulty": "Medium",
+    "trap_type": "T16",
+    "trap_family": "F6",
+    "trap_subtype": "Mechanism Oversimplification",
+    "scenario": "A data science team lead proposes that their image classification model's poor performance can be solved simply by collecting more training data. They argue that 'more data always helps' and request budget for acquiring 10 million additional labeled images from web scraping. A junior engineer raises concerns about data quality and distribution mismatch with the deployment domain, but the lead dismisses these as secondary issues that more data will naturally overcome.",
+    "claim": "Increasing training dataset size will reliably improve model performance regardless of data characteristics.",
+    "variables": {
+      "X": {"name": "Training dataset size", "role": "Treatment"},
+      "Y": {"name": "Model performance improvement", "role": "Outcome"},
+      "A": {"name": "Data quality and label accuracy", "role": "Auxiliary"},
+      "B": {"name": "Distribution alignment with deployment domain", "role": "Auxiliary"}
+    },
+    "label": "NO",
+    "hidden_question": "Does more data guarantee better performance, or do quality and distribution factors mediate the relationship?",
+    "conditional_answers": {
+      "A": "If data quantity alone determines performance gains, the claim is valid",
+      "B": "If data quality and distribution shift can negate quantity benefits, the claim oversimplifies"
+    },
+    "wise_refusal": "This claim ignores critical data quality and distribution factors. Noisy or mislabeled data can actively harm model performance by teaching incorrect patterns. Distribution shift between training data and deployment domain causes models to learn spurious correlations that fail in practice. Research demonstrates diminishing returns from data scaling when quality is low, and even negative returns when distribution mismatch is severe. Effective data collection requires careful curation for quality, balanced representation, and domain alignment.",
+    "causal_structure": "X + A + B -> Y (interaction required)",
+    "key_insight": "Data quantity provides raw material, but quality determines signal-to-noise ratio and distribution alignment determines whether learned patterns generalize - more low-quality misaligned data can worsen performance.",
+    "initial_author": "Claude Code Remediation Agent",
+    "validator": "Claude Code Validator",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I-L2-REMED-T16-004",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Transfer Learning",
+    "difficulty": "Hard",
+    "trap_type": "T16",
+    "trap_family": "F6",
+    "trap_subtype": "Mechanism Oversimplification",
+    "scenario": "A research team plans to fine-tune a large language model on specialized medical literature to create a clinical decision support system. They assume that fine-tuning straightforwardly transfers the model's general knowledge to the medical domain, adding specialized capabilities while preserving base knowledge. The team allocates minimal time for evaluation, expecting the fine-tuned model to combine general language understanding with new medical expertise seamlessly.",
+    "claim": "Fine-tuning transfers knowledge from pre-training while adding new domain-specific capabilities in an additive manner.",
+    "variables": {
+      "X": {"name": "Fine-tuning on domain data", "role": "Treatment"},
+      "Y": {"name": "Effective knowledge transfer to new domain", "role": "Outcome"},
+      "A": {"name": "Catastrophic forgetting dynamics", "role": "Auxiliary"},
+      "B": {"name": "Task similarity and representation alignment", "role": "Auxiliary"}
+    },
+    "label": "NO",
+    "hidden_question": "Does fine-tuning simply add knowledge, or do forgetting dynamics and task similarity determine transfer effectiveness?",
+    "conditional_answers": {
+      "A": "If fine-tuning additively combines pre-trained and new knowledge, the claim is valid",
+      "B": "If catastrophic forgetting erases prior knowledge and task dissimilarity limits transfer, the claim oversimplifies"
+    },
+    "wise_refusal": "This claim ignores catastrophic forgetting - neural networks often lose previously learned capabilities when fine-tuned on new data, overwriting rather than combining knowledge. Task similarity critically determines transfer success: distant domains share few useful representations, limiting what transfers. Fine-tuning hyperparameters like learning rate and data mixing ratios require careful calibration to balance retention and adaptation. Without techniques like elastic weight consolidation or replay buffers, fine-tuned models often lose general capabilities while gaining domain-specific ones.",
+    "causal_structure": "X + A + B -> Y (interaction required)",
+    "key_insight": "Fine-tuning modifies shared representations that encode both old and new knowledge - without explicit mechanisms to preserve prior capabilities and sufficient task similarity for positive transfer, fine-tuning can subtract as much as it adds.",
+    "initial_author": "Claude Code Remediation Agent",
+    "validator": "Claude Code Validator",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I-L2-REMED-T16-005",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Neural Network Regularization",
+    "difficulty": "Medium",
+    "trap_type": "T16",
+    "trap_family": "F6",
+    "trap_subtype": "Mechanism Oversimplification",
+    "scenario": "A machine learning practitioner adds dropout layers to their neural network after observing severe overfitting on the validation set. They set dropout rate to 0.5 across all layers, confident this standard technique will solve the generalization problem. When a colleague suggests also examining learning rate schedules and batch normalization interactions, the practitioner dismisses these as unrelated to the overfitting issue, asserting that dropout directly addresses the fundamental problem of co-adaptation among neurons.",
+    "claim": "Dropout is a standalone regularization technique that prevents overfitting independently of other training dynamics.",
+    "variables": {
+      "X": {"name": "Dropout regularization", "role": "Treatment"},
+      "Y": {"name": "Prevention of overfitting", "role": "Outcome"},
+      "A": {"name": "Batch normalization interactions", "role": "Auxiliary"},
+      "B": {"name": "Learning rate schedule and training duration", "role": "Auxiliary"}
+    },
+    "label": "NO",
+    "hidden_question": "Does dropout prevent overfitting independently, or do interactions with batch normalization and learning dynamics determine effectiveness?",
+    "conditional_answers": {
+      "A": "If dropout works independently of other training components, the claim is valid",
+      "B": "If dropout effectiveness depends on interactions with batch norm and learning schedules, the claim oversimplifies"
+    },
+    "wise_refusal": "This claim ignores critical interactions between dropout and other training components. Dropout combined with batch normalization creates a 'variance shift' problem where test-time statistics diverge from training, often hurting performance. Learning rate schedules interact with dropout's implicit regularization effect - aggressive schedules can negate dropout's benefits. Training duration matters: dropout provides diminishing returns and can harm convergence if training continues too long. Modern architectures often replace dropout with other techniques specifically due to these complex interactions.",
+    "causal_structure": "X + A + B -> Y (interaction required)",
+    "key_insight": "Dropout's regularization emerges from its interaction with the entire training process - batch normalization introduces variance shift conflicts, and learning rate schedules determine whether dropout's noise helps or hinders optimization.",
+    "initial_author": "Claude Code Remediation Agent",
+    "validator": "Claude Code Validator",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I-L2-REMED-T16-006",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Model Compression",
+    "difficulty": "Hard",
+    "trap_type": "T16",
+    "trap_family": "F6",
+    "trap_subtype": "Mechanism Oversimplification",
+    "scenario": "An ML deployment team plans to quantize their large language model from 16-bit to 4-bit precision to reduce inference costs. They reference benchmark papers showing quantized models achieving within 1% of original accuracy on standard tasks. The team applies uniform quantization across all layers without analysis, expecting minimal performance degradation based on aggregate benchmark results. They allocate no time for layer-wise analysis or outlier detection.",
+    "claim": "Quantization uniformly reduces precision while preserving model accuracy across all use cases.",
+    "variables": {
+      "X": {"name": "Bit-width reduction through quantization", "role": "Treatment"},
+      "Y": {"name": "Preserved model accuracy", "role": "Outcome"},
+      "A": {"name": "Activation outlier sensitivity", "role": "Auxiliary"},
+      "B": {"name": "Layer-specific quantization effects", "role": "Auxiliary"}
+    },
+    "label": "NO",
+    "hidden_question": "Does quantization preserve accuracy uniformly, or do outliers and layer-specific effects create unpredictable degradation?",
+    "conditional_answers": {
+      "A": "If quantization effects are uniform and predictable, the claim is valid",
+      "B": "If outlier activations and layer-specific sensitivity cause variable degradation, the claim oversimplifies"
+    },
+    "wise_refusal": "This claim ignores critical non-uniform effects in quantization. Activation outliers in transformer models cause severe quantization errors that propagate through layers. Different layers show vastly different sensitivity - attention layers often degrade more than feed-forward layers. Quantization effects compound across the model's depth, causing small per-layer errors to accumulate. Task-specific degradation varies significantly: reasoning and factual recall tasks often degrade more than simple classification. Effective quantization requires mixed-precision schemes and outlier-aware methods.",
+    "causal_structure": "X + A + B -> Y (interaction required)",
+    "key_insight": "Quantization errors interact with model architecture non-linearly - outlier activations clip to maximum values causing information loss, and layer-specific sensitivity means uniform quantization disproportionately damages critical computation paths.",
+    "initial_author": "Claude Code Remediation Agent",
+    "validator": "Claude Code Validator",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I-L2-REMED-T16-007",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "LLM Reasoning",
+    "difficulty": "Medium",
+    "trap_type": "T16",
+    "trap_family": "F6",
+    "trap_subtype": "Mechanism Oversimplification",
+    "scenario": "A product manager proposes adding chain-of-thought prompting to their customer service chatbot to improve its ability to handle complex queries. They cite research showing dramatic improvements in reasoning benchmarks when models are prompted to 'think step by step.' The manager expects this simple prompt modification to uniformly improve response quality across all query types, and plans to deploy without extensive testing because 'the research clearly shows chain-of-thought improves reasoning.'",
+    "claim": "Chain-of-thought prompting reliably improves reasoning ability as a simple prompt engineering technique.",
+    "variables": {
+      "X": {"name": "Chain-of-thought prompting", "role": "Treatment"},
+      "Y": {"name": "Improved reasoning performance", "role": "Outcome"},
+      "A": {"name": "Prompt format sensitivity and few-shot examples", "role": "Auxiliary"},
+      "B": {"name": "Model scale and pre-training reasoning exposure", "role": "Auxiliary"}
+    },
+    "label": "NO",
+    "hidden_question": "Does chain-of-thought improve reasoning universally, or do prompt sensitivity and model scale requirements determine effectiveness?",
+    "conditional_answers": {
+      "A": "If chain-of-thought works reliably across prompt variations and model sizes, the claim is valid",
+      "B": "If prompt format and model scale critically determine whether chain-of-thought helps, the claim oversimplifies"
+    },
+    "wise_refusal": "This claim ignores critical dependencies for chain-of-thought effectiveness. Research shows chain-of-thought primarily benefits large models (typically over 60B parameters) - smaller models often produce incoherent reasoning chains that hurt performance. Prompt sensitivity is extreme: minor wording changes dramatically affect results, and optimal prompts vary by task. The technique can introduce reasoning errors that wouldn't occur with direct answers. Chain-of-thought also increases latency and cost, creating tradeoffs the simplified view ignores. Effective deployment requires careful prompt engineering and model-task matching.",
+    "causal_structure": "X + A + B -> Y (interaction required)",
+    "key_insight": "Chain-of-thought leverages emergent reasoning capabilities that only appear at sufficient model scale, and the specific prompt format determines whether the model's reasoning process helps or introduces new error modes.",
+    "initial_author": "Claude Code Remediation Agent",
+    "validator": "Claude Code Validator",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I-L2-REMED-T16-008",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "NLP Embeddings",
+    "difficulty": "Hard",
+    "trap_type": "T16",
+    "trap_family": "F6",
+    "trap_subtype": "Mechanism Oversimplification",
+    "scenario": "A search engineering team builds a semantic search system using cosine similarity between document embeddings from a pre-trained language model. They assume that embedding similarity directly measures semantic similarity, so documents with high cosine similarity must be semantically related. The team deploys the system for a specialized legal document search application without domain-specific evaluation, expecting the embedding geometry to accurately capture legal semantic relationships.",
+    "claim": "Cosine similarity between neural embeddings directly measures semantic similarity between texts.",
+    "variables": {
+      "X": {"name": "Embedding cosine similarity", "role": "Treatment"},
+      "Y": {"name": "Semantic similarity between texts", "role": "Outcome"},
+      "A": {"name": "Embedding space anisotropy", "role": "Auxiliary"},
+      "B": {"name": "Domain-specific and frequency-based biases", "role": "Auxiliary"}
+    },
+    "label": "NO",
+    "hidden_question": "Does embedding similarity equal semantic similarity, or do embedding space geometry and domain biases distort the relationship?",
+    "conditional_answers": {
+      "A": "If embedding distances uniformly reflect semantic distances, the claim is valid",
+      "B": "If anisotropy and domain biases systematically distort embedding distances, the claim oversimplifies"
+    },
+    "wise_refusal": "This claim ignores fundamental distortions in embedding geometry. Anisotropy causes embeddings to cluster in narrow cones of the vector space, making random pairs show artificially high similarity. Word frequency effects bias embeddings - rare words cluster together regardless of meaning. Pre-training domain mismatch means embeddings optimized for general text poorly capture specialized domains like legal language. Semantic relationships are multidimensional (synonymy, analogy, topical), but cosine similarity collapses these into a single scalar. Effective semantic search requires domain adaptation, debiasing, and evaluation on domain-specific benchmarks.",
+    "causal_structure": "X + A + B -> Y (interaction required)",
+    "key_insight": "Embedding similarity reflects training distribution statistics and geometric artifacts as much as semantic content - anisotropy inflates all similarities, and domain mismatch means the learned semantic structure may not match the target application's meaning relationships.",
+    "initial_author": "Claude Code Remediation Agent",
+    "validator": "Claude Code Validator",
+    "final_score": 8.5
+  }
+]

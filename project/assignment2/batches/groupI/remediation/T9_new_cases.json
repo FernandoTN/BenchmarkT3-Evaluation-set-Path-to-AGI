@@ -1,0 +1,234 @@
+[
+  {
+    "case_id": "T3-I-L2-REMED-T9-001",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "ML Deployment",
+    "difficulty": "Medium",
+    "trap_type": "T9",
+    "trap_family": "F3",
+    "trap_subtype": "Collider Stratification Bias",
+    "scenario": "A tech company analyzes its portfolio of AI models and notices that among successfully deployed systems, there appears to be a negative correlation between model capability (measured by benchmark scores) and ease of deployment (measured by integration time). The analysis only examines models that achieved successful deployment status, filtering out models that failed deployment for various reasons.",
+    "claim": "Higher model capability causes more difficult deployment, as evidenced by the negative correlation observed among successfully deployed AI systems.",
+    "variables": {
+      "X": {"name": "Model Capability", "role": "Treatment"},
+      "Y": {"name": "Deployment Difficulty", "role": "Outcome"},
+      "C": {"name": "Successful Deployment", "role": "Collider (common effect)"}
+    },
+    "label": "NO",
+    "hidden_question": "Is the analysis conditioning on a collider variable that is a common effect of both model capability and deployment difficulty?",
+    "conditional_answers": {
+      "A": "If examining all models regardless of deployment outcome, no spurious correlation would be introduced",
+      "B": "If conditioning on successful deployment, spurious negative correlation appears between capability and deployment difficulty"
+    },
+    "wise_refusal": "This conclusion exhibits collider stratification bias (Berkson's paradox). 'Successful deployment' is a collider - it is caused by both high capability (making deployment worthwhile) and low deployment difficulty (making deployment feasible). By restricting analysis to successfully deployed models, we select cases where either capability is high OR difficulty is low. This creates a spurious negative correlation: among deployed models, those with lower capability must have had easier deployment to succeed, making it appear that capability causes deployment difficulty.",
+    "causal_structure": "X -> C <- Y (C is collider)",
+    "key_insight": "Successful deployment requires either high capability or easy integration. By only examining deployed models, we artificially create a tradeoff appearance between these independent factors.",
+    "initial_author": "Claude Code Remediation Agent",
+    "validator": "Claude Code Validator",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I-L2-REMED-T9-002",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "ML Benchmarking",
+    "difficulty": "Medium",
+    "trap_type": "T9",
+    "trap_family": "F3",
+    "trap_subtype": "Collider Stratification Bias",
+    "scenario": "Researchers analyzing ML benchmark leaderboards observe that among models appearing on the top-100 leaderboard, there is a strong negative correlation between accuracy and inference speed. They conclude that improving accuracy inherently requires sacrificing speed. The study exclusively examines models that qualified for the leaderboard by meeting minimum performance thresholds.",
+    "claim": "Higher accuracy in ML models causally reduces inference speed, based on the negative correlation observed among leaderboard models.",
+    "variables": {
+      "X": {"name": "Model Accuracy", "role": "Treatment"},
+      "Y": {"name": "Inference Speed", "role": "Outcome"},
+      "C": {"name": "Leaderboard Qualification", "role": "Collider (common effect)"}
+    },
+    "label": "NO",
+    "hidden_question": "Does restricting analysis to leaderboard-qualifying models introduce selection bias through a collider?",
+    "conditional_answers": {
+      "A": "Analyzing all submitted models would show the true relationship between accuracy and speed",
+      "B": "Conditioning on leaderboard status creates artificial negative correlation between accuracy and speed"
+    },
+    "wise_refusal": "This analysis suffers from collider bias. 'Leaderboard qualification' is a collider variable - models can qualify either through exceptional accuracy OR exceptional speed. By only examining leaderboard models, we create Berkson's paradox: among qualified models, those lacking high accuracy must compensate with high speed, and vice versa. This selection effect produces a spurious negative correlation. The apparent accuracy-speed tradeoff may not exist in the general population of models.",
+    "causal_structure": "X -> C <- Y (C is collider)",
+    "key_insight": "Leaderboard entry requires excellence in either accuracy or speed. Conditioning on this status makes these independent attributes appear inversely related.",
+    "initial_author": "Claude Code Remediation Agent",
+    "validator": "Claude Code Validator",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I-L2-REMED-T9-003",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Regulation",
+    "difficulty": "Hard",
+    "trap_type": "T9",
+    "trap_family": "F3",
+    "trap_subtype": "Collider Stratification Bias",
+    "scenario": "A regulatory body studies AI systems that have received approval for deployment. Among approved models, they find a negative correlation between safety measures (alignment techniques, guardrails) and raw capabilities (task performance). They conclude that implementing safety measures fundamentally limits what AI systems can accomplish. The analysis only includes models that passed the regulatory approval process.",
+    "claim": "Implementing safety measures in AI systems causally reduces their capabilities, as demonstrated by the inverse relationship among regulatory-approved models.",
+    "variables": {
+      "X": {"name": "Safety Measures", "role": "Treatment"},
+      "Y": {"name": "Raw Capabilities", "role": "Outcome"},
+      "C": {"name": "Regulatory Approval", "role": "Collider (common effect)"}
+    },
+    "label": "NO",
+    "hidden_question": "Is regulatory approval a collider that both safety measures and capabilities influence, biasing the observed relationship?",
+    "conditional_answers": {
+      "A": "Examining all AI systems regardless of approval status would reveal the true safety-capability relationship",
+      "B": "Conditioning on regulatory approval induces spurious negative correlation between safety and capabilities"
+    },
+    "wise_refusal": "This conclusion demonstrates collider stratification bias. Regulatory approval is a collider - systems can gain approval through strong safety measures OR by demonstrating controlled capabilities that don't require extensive safety features. By analyzing only approved models, we invoke Berkson's paradox: approved systems with fewer safety measures must have limited capabilities (thus deemed safe), while highly capable approved systems must have extensive safety measures. This selection creates a false appearance that safety limits capability.",
+    "causal_structure": "X -> C <- Y (C is collider)",
+    "key_insight": "Approval requires either strong safety measures or inherently limited capabilities. Conditioning on approval makes safety and capability appear to trade off when they may be independent.",
+    "initial_author": "Claude Code Remediation Agent",
+    "validator": "Claude Code Validator",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I-L2-REMED-T9-004",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "MLOps",
+    "difficulty": "Medium",
+    "trap_type": "T9",
+    "trap_family": "F3",
+    "trap_subtype": "Collider Stratification Bias",
+    "scenario": "An MLOps team analyzes their production ML systems and discovers that among models currently in production, there is a strong negative correlation between computational cost and task performance. They conclude that higher-performing models are inherently more cost-efficient. The analysis is restricted to models that made it to production, excluding experimental or deprecated models.",
+    "claim": "Better-performing ML models are causally more cost-efficient, based on the negative correlation between cost and performance observed in production systems.",
+    "variables": {
+      "X": {"name": "Computational Cost", "role": "Treatment"},
+      "Y": {"name": "Task Performance", "role": "Outcome"},
+      "C": {"name": "Production Deployment", "role": "Collider (common effect)"}
+    },
+    "label": "NO",
+    "hidden_question": "Does conditioning on production deployment status create a collider bias in the cost-performance relationship?",
+    "conditional_answers": {
+      "A": "Analyzing all models including non-production ones would show the true cost-performance relationship",
+      "B": "Conditioning on production status creates spurious negative correlation between cost and performance"
+    },
+    "wise_refusal": "This finding reflects collider bias (Berkson's paradox). 'Production deployment' is a collider - models reach production either by having exceptional performance (justifying any cost) OR by being very cost-efficient (acceptable despite moderate performance). By only examining production models, we select cases where high cost requires high performance to justify deployment, and low performance requires low cost. This creates an artificial negative correlation between cost and performance that may not exist in the full population of models.",
+    "causal_structure": "X -> C <- Y (C is collider)",
+    "key_insight": "Production deployment requires either excellent performance or low cost. Conditioning on this status makes cost and performance appear inversely related.",
+    "initial_author": "Claude Code Remediation Agent",
+    "validator": "Claude Code Validator",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I-L2-REMED-T9-005",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "AI Research",
+    "difficulty": "Hard",
+    "trap_type": "T9",
+    "trap_family": "F3",
+    "trap_subtype": "Collider Stratification Bias",
+    "scenario": "A bibliometric study of AI research finds that among published papers at top venues, there is a negative correlation between methodological novelty and citation count. The authors conclude that novel methods are inherently less impactful. The study only analyzes papers that were accepted for publication at top-tier conferences and journals, excluding rejected submissions.",
+    "claim": "Methodological novelty in AI research causally reduces citation impact, as shown by the negative correlation among published papers at top venues.",
+    "variables": {
+      "X": {"name": "Methodological Novelty", "role": "Treatment"},
+      "Y": {"name": "Citation Potential", "role": "Outcome"},
+      "C": {"name": "Publication at Top Venue", "role": "Collider (common effect)"}
+    },
+    "label": "NO",
+    "hidden_question": "Is publication acceptance a collider that both novelty and citation potential influence, creating selection bias?",
+    "conditional_answers": {
+      "A": "Analyzing all submitted papers regardless of acceptance would show the true novelty-citation relationship",
+      "B": "Conditioning on publication acceptance creates spurious negative correlation between novelty and citations"
+    },
+    "wise_refusal": "This conclusion exhibits collider stratification bias. Publication at a top venue is a collider - papers can be accepted either for high novelty (exciting new methods) OR for high expected impact (incremental but important work). By restricting to published papers, we invoke Berkson's paradox: among accepted papers, those with less novelty must have high citation potential to be published, while highly novel papers may be accepted despite uncertain impact. This selection effect creates a spurious negative correlation between novelty and citations.",
+    "causal_structure": "X -> C <- Y (C is collider)",
+    "key_insight": "Publication requires either exceptional novelty or high expected impact. Conditioning on publication makes these independent qualities appear to trade off.",
+    "initial_author": "Claude Code Remediation Agent",
+    "validator": "Claude Code Validator",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I-L2-REMED-T9-006",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Deep Learning",
+    "difficulty": "Hard",
+    "trap_type": "T9",
+    "trap_family": "F3",
+    "trap_subtype": "Collider Stratification Bias",
+    "scenario": "A survey of state-of-the-art (SOTA) deep learning models finds that among models achieving SOTA status, there is a negative correlation between training time and parameter count. Researchers conclude that longer training allows models to be more parameter-efficient. The analysis only includes models that achieved SOTA performance on at least one benchmark, excluding models that failed to reach SOTA.",
+    "claim": "Longer training time causally enables parameter efficiency in deep learning models, based on the negative correlation observed among SOTA models.",
+    "variables": {
+      "X": {"name": "Training Time", "role": "Treatment"},
+      "Y": {"name": "Parameter Count", "role": "Outcome"},
+      "C": {"name": "SOTA Achievement", "role": "Collider (common effect)"}
+    },
+    "label": "NO",
+    "hidden_question": "Does conditioning on SOTA achievement introduce collider bias in the training time-parameter count relationship?",
+    "conditional_answers": {
+      "A": "Examining all models regardless of SOTA status would reveal the true relationship between training time and parameters",
+      "B": "Conditioning on SOTA achievement creates spurious negative correlation between training time and parameter count"
+    },
+    "wise_refusal": "This analysis suffers from collider bias (Berkson's paradox). SOTA achievement is a collider - models can reach SOTA either through extensive training (extracting maximum from limited parameters) OR through massive parameter counts (achieving performance through scale). By only examining SOTA models, we create selection bias: among SOTA models, those with shorter training must compensate with more parameters, and those with fewer parameters must have trained longer. This produces a spurious negative correlation that may not exist generally.",
+    "causal_structure": "X -> C <- Y (C is collider)",
+    "key_insight": "SOTA status can be achieved through either extensive training or large scale. Conditioning on SOTA makes these independent factors appear inversely related.",
+    "initial_author": "Claude Code Remediation Agent",
+    "validator": "Claude Code Validator",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I-L2-REMED-T9-007",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Medical AI",
+    "difficulty": "Hard",
+    "trap_type": "T9",
+    "trap_family": "F3",
+    "trap_subtype": "Collider Stratification Bias",
+    "scenario": "A healthcare technology review examines AI diagnostic systems deployed in clinical settings. Among clinically deployed systems, they observe a negative correlation between model interpretability and diagnostic accuracy. The reviewers conclude that interpretability fundamentally limits diagnostic performance. The study only considers AI systems that achieved clinical deployment, excluding systems that failed regulatory or clinical evaluation.",
+    "claim": "Model interpretability causally reduces diagnostic accuracy in medical AI, as evidenced by the negative correlation among clinically deployed systems.",
+    "variables": {
+      "X": {"name": "Model Interpretability", "role": "Treatment"},
+      "Y": {"name": "Diagnostic Accuracy", "role": "Outcome"},
+      "C": {"name": "Clinical Deployment", "role": "Collider (common effect)"}
+    },
+    "label": "NO",
+    "hidden_question": "Is clinical deployment a collider that both interpretability and accuracy influence, biasing the observed relationship?",
+    "conditional_answers": {
+      "A": "Analyzing all medical AI systems regardless of deployment would show the true interpretability-accuracy relationship",
+      "B": "Conditioning on clinical deployment creates spurious negative correlation between interpretability and accuracy"
+    },
+    "wise_refusal": "This conclusion demonstrates collider stratification bias. Clinical deployment is a collider - medical AI systems can achieve deployment either through high interpretability (building clinician trust despite moderate accuracy) OR through exceptional accuracy (justifying use despite limited interpretability). By analyzing only deployed systems, we invoke Berkson's paradox: deployed systems with lower interpretability must have superior accuracy, while those with lower accuracy must have high interpretability. This selection effect creates a false tradeoff between interpretability and accuracy.",
+    "causal_structure": "X -> C <- Y (C is collider)",
+    "key_insight": "Clinical deployment requires either exceptional interpretability for trust or exceptional accuracy for utility. Conditioning on deployment makes these appear mutually exclusive.",
+    "initial_author": "Claude Code Remediation Agent",
+    "validator": "Claude Code Validator",
+    "final_score": 8.5
+  },
+  {
+    "case_id": "T3-I-L2-REMED-T9-008",
+    "pearl_level": "L2",
+    "domain": "D9",
+    "subdomain": "Cloud Infrastructure",
+    "difficulty": "Medium",
+    "trap_type": "T9",
+    "trap_family": "F3",
+    "trap_subtype": "Collider Stratification Bias",
+    "scenario": "A cloud services provider analyzes their customer-facing AI APIs. Among APIs that achieved significant customer adoption, they observe a negative correlation between response latency and throughput capacity. They conclude that optimizing for low latency inherently sacrifices throughput. The analysis only examines APIs that met the threshold for customer adoption, excluding APIs that failed to gain traction.",
+    "claim": "Lower response latency causally reduces throughput capacity in AI APIs, based on the negative correlation observed among customer-adopted systems.",
+    "variables": {
+      "X": {"name": "Response Latency (inverse)", "role": "Treatment"},
+      "Y": {"name": "Throughput Capacity", "role": "Outcome"},
+      "C": {"name": "Customer Adoption", "role": "Collider (common effect)"}
+    },
+    "label": "NO",
+    "hidden_question": "Does conditioning on customer adoption create collider bias in the latency-throughput relationship?",
+    "conditional_answers": {
+      "A": "Analyzing all APIs regardless of adoption status would reveal the true latency-throughput relationship",
+      "B": "Conditioning on customer adoption creates spurious negative correlation between low latency and throughput"
+    },
+    "wise_refusal": "This finding reflects collider bias (Berkson's paradox). Customer adoption is a collider - APIs can achieve adoption either through excellent latency (enabling real-time applications) OR through high throughput (enabling batch processing at scale). By restricting to adopted APIs, we select cases where high latency requires compensating throughput, and low throughput requires compensating low latency. This creates an artificial tradeoff between latency and throughput that may not reflect actual engineering constraints.",
+    "causal_structure": "X -> C <- Y (C is collider)",
+    "key_insight": "Customer adoption requires either excellent latency or high throughput. Conditioning on adoption makes these independent performance metrics appear to trade off.",
+    "initial_author": "Claude Code Remediation Agent",
+    "validator": "Claude Code Validator",
+    "final_score": 8.5
+  }
+]

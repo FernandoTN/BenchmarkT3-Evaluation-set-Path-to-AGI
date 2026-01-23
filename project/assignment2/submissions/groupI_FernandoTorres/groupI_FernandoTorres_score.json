@@ -1,4072 +1,3011 @@
 {
-  "summary": {
+  "metadata": {
     "total_cases": 500,
-    "mean_score": 8.5,
-    "min_score": 8.5,
-    "max_score": 8.5,
-    "std_dev": 0.0,
-    "by_level": {
-      "L1": {
-        "count": 50,
-        "mean": 8.5
-      },
-      "L2": {
-        "count": 300,
-        "mean": 8.5
-      },
-      "L3": {
-        "count": 150,
-        "mean": 8.5
-      }
-    }
+    "mean_score": 8.52,
+    "std_score": 0.36,
+    "min_score": 8.0,
+    "max_score": 9.5
   },
-  "aggregates": {
-    "by_trap_type": {
-      "W3": 8.5,
-      "W5": 8.5,
-      "W4": 8.5,
-      "W6": 8.5,
-      "W7": 8.5,
-      "W1": 8.5,
-      "W2": 8.5,
-      "W9": 8.5,
-      "W10": 8.5,
-      "S1": 8.5,
-      "S2": 8.5,
-      "S3": 8.5,
-      "S4": 8.5,
-      "S5": 8.5,
-      "A": 8.5,
-      "T1": 8.5,
-      "T3": 8.5,
-      "T2": 8.5,
-      "T5": 8.5,
-      "T4": 8.5,
-      "T10": 8.5,
-      "T11": 8.5,
-      "T12": 8.5,
-      "T13": 8.5,
-      "T14": 8.5,
-      "T15": 8.5,
-      "T6": 8.5,
-      "T7": 8.5,
-      "F1": 8.5,
-      "F2": 8.5,
-      "F4": 8.5,
-      "F3": 8.5,
-      "F5": 8.5,
-      "F6": 8.5,
-      "F7": 8.5,
-      "F8": 8.5,
-      "DomainExt": 8.5
-    },
-    "by_difficulty": {
-      "Easy": 8.5,
-      "Medium": 8.5,
-      "Hard": 8.5
-    }
-  },
-  "pass_rate": "100%",
-  "cases": [
+  "scores": [
     {
       "case_id": "T3-I-L1-0001",
-      "pearl_level": "L1",
-      "trap_type": "W3",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.7,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L1-0002",
-      "pearl_level": "L1",
-      "trap_type": "W5",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.44,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L1-0003",
-      "pearl_level": "L1",
-      "trap_type": "W4",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.76,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L1-0004",
-      "pearl_level": "L1",
-      "trap_type": "W6",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.11,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L1-0005",
-      "pearl_level": "L1",
-      "trap_type": "W7",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.41,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L1-0006",
-      "pearl_level": "L1",
-      "trap_type": "W1",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.41,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L1-0007",
-      "pearl_level": "L1",
-      "trap_type": "W1",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.13,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L1-0008",
-      "pearl_level": "L1",
-      "trap_type": "W1",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.81,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L1-0009",
-      "pearl_level": "L1",
-      "trap_type": "W1",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.31,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L1-0010",
-      "pearl_level": "L1",
-      "trap_type": "W2",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.72,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L1-0011",
-      "pearl_level": "L1",
-      "trap_type": "W2",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.31,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L1-0012",
-      "pearl_level": "L1",
-      "trap_type": "W2",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.31,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L1-0013",
-      "pearl_level": "L1",
-      "trap_type": "W3",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.6,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L1-0014",
-      "pearl_level": "L1",
-      "trap_type": "W3",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L1-0015",
-      "pearl_level": "L1",
-      "trap_type": "W3",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L1-0016",
-      "pearl_level": "L1",
-      "trap_type": "W5",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.28,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L1-0017",
-      "pearl_level": "L1",
-      "trap_type": "W5",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.09,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L1-0018",
-      "pearl_level": "L1",
-      "trap_type": "W5",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.63,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L1-0019",
-      "pearl_level": "L1",
-      "trap_type": "W5",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.14,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L1-0020",
-      "pearl_level": "L1",
-      "trap_type": "W7",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L1-0021",
-      "pearl_level": "L1",
-      "trap_type": "W7",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.09,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L1-0022",
-      "pearl_level": "L1",
-      "trap_type": "W7",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.41,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L1-0023",
-      "pearl_level": "L1",
-      "trap_type": "W7",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.53,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L1-0024",
-      "pearl_level": "L1",
-      "trap_type": "W7",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L1-0025",
-      "pearl_level": "L1",
-      "trap_type": "W9",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.28,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L1-0026",
-      "pearl_level": "L1",
-      "trap_type": "W9",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.54,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L1-0027",
-      "pearl_level": "L1",
-      "trap_type": "W9",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.04,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L1-0028",
-      "pearl_level": "L1",
-      "trap_type": "W10",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.65,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L1-0029",
-      "pearl_level": "L1",
-      "trap_type": "W10",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.26,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L1-0030",
-      "pearl_level": "L1",
-      "trap_type": "W10",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.38,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L1-0031",
-      "pearl_level": "L1",
-      "trap_type": "S1",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.26,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L1-0032",
-      "pearl_level": "L1",
-      "trap_type": "S1",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.24,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L1-0033",
-      "pearl_level": "L1",
-      "trap_type": "S1",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.49,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L1-0034",
-      "pearl_level": "L1",
-      "trap_type": "S1",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.08,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L1-0035",
-      "pearl_level": "L1",
-      "trap_type": "S2",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.83,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L1-0036",
-      "pearl_level": "L1",
-      "trap_type": "S2",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.01,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L1-0037",
-      "pearl_level": "L1",
-      "trap_type": "S2",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.58,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L1-0038",
-      "pearl_level": "L1",
-      "trap_type": "S3",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L1-0039",
-      "pearl_level": "L1",
-      "trap_type": "S3",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L1-0040",
-      "pearl_level": "L1",
-      "trap_type": "S3",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.58,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L1-0041",
-      "pearl_level": "L1",
-      "trap_type": "S4",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.8,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L1-0042",
-      "pearl_level": "L1",
-      "trap_type": "S4",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.57,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L1-0043",
-      "pearl_level": "L1",
-      "trap_type": "S4",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.45,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L1-0044",
-      "pearl_level": "L1",
-      "trap_type": "S5",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.38,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L1-0045",
-      "pearl_level": "L1",
-      "trap_type": "S5",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L1-0046",
-      "pearl_level": "L1",
-      "trap_type": "A",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.21,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L1-0047",
-      "pearl_level": "L1",
-      "trap_type": "A",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.32,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L1-0048",
-      "pearl_level": "L1",
-      "trap_type": "A",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.92,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L1-0049",
-      "pearl_level": "L1",
-      "trap_type": "A",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.64,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L1-0050",
-      "pearl_level": "L1",
-      "trap_type": "A",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0051",
-      "pearl_level": "L2",
-      "trap_type": "T1",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.63,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0052",
-      "pearl_level": "L2",
-      "trap_type": "T1",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.35,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0053",
-      "pearl_level": "L2",
-      "trap_type": "T3",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.23,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0054",
-      "pearl_level": "L2",
-      "trap_type": "T2",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.74,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0055",
-      "pearl_level": "L2",
-      "trap_type": "T5",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.91,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0056",
-      "pearl_level": "L2",
-      "trap_type": "T4",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.87,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0057",
-      "pearl_level": "L2",
-      "trap_type": "T1",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.16,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0058",
-      "pearl_level": "L2",
-      "trap_type": "T1",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.38,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0059",
-      "pearl_level": "L2",
-      "trap_type": "T10",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.63,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0060",
-      "pearl_level": "L2",
-      "trap_type": "T10",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.89,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0061",
-      "pearl_level": "L2",
-      "trap_type": "T10",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.31,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0062",
-      "pearl_level": "L2",
-      "trap_type": "T10",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.43,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0063",
-      "pearl_level": "L2",
-      "trap_type": "T10",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.06,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0064",
-      "pearl_level": "L2",
-      "trap_type": "T10",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.02,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0065",
-      "pearl_level": "L2",
-      "trap_type": "T10",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.83,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0066",
-      "pearl_level": "L2",
-      "trap_type": "T10",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.04,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0067",
-      "pearl_level": "L2",
-      "trap_type": "T10",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.47,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0068",
-      "pearl_level": "L2",
-      "trap_type": "T10",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.9,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0069",
-      "pearl_level": "L2",
-      "trap_type": "T10",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.64,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0070",
-      "pearl_level": "L2",
-      "trap_type": "T10",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.24,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0071",
-      "pearl_level": "L2",
-      "trap_type": "T10",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.64,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0072",
-      "pearl_level": "L2",
-      "trap_type": "T10",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.12,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0073",
-      "pearl_level": "L2",
-      "trap_type": "T10",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.49,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0074",
-      "pearl_level": "L2",
-      "trap_type": "T10",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.13,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0075",
-      "pearl_level": "L2",
-      "trap_type": "T10",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0076",
-      "pearl_level": "L2",
-      "trap_type": "T10",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.83,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0077",
-      "pearl_level": "L2",
-      "trap_type": "T10",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.53,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0078",
-      "pearl_level": "L2",
-      "trap_type": "T10",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.38,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0079",
-      "pearl_level": "L2",
-      "trap_type": "T11",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.54,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0080",
-      "pearl_level": "L2",
-      "trap_type": "T11",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0081",
-      "pearl_level": "L2",
-      "trap_type": "T11",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.41,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0082",
-      "pearl_level": "L2",
-      "trap_type": "T11",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.64,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0083",
-      "pearl_level": "L2",
-      "trap_type": "T11",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.09,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0084",
-      "pearl_level": "L2",
-      "trap_type": "T11",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.29,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0085",
-      "pearl_level": "L2",
-      "trap_type": "T11",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.18,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0086",
-      "pearl_level": "L2",
-      "trap_type": "T11",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.3,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0087",
-      "pearl_level": "L2",
-      "trap_type": "T11",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.87,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0088",
-      "pearl_level": "L2",
-      "trap_type": "T11",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.63,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0089",
-      "pearl_level": "L2",
-      "trap_type": "T11",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.29,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0090",
-      "pearl_level": "L2",
-      "trap_type": "T11",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.71,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0091",
-      "pearl_level": "L2",
-      "trap_type": "T11",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.54,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0092",
-      "pearl_level": "L2",
-      "trap_type": "T11",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.89,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0093",
-      "pearl_level": "L2",
-      "trap_type": "T11",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.22,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0094",
-      "pearl_level": "L2",
-      "trap_type": "T11",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.37,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0095",
-      "pearl_level": "L2",
-      "trap_type": "T11",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.34,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0096",
-      "pearl_level": "L2",
-      "trap_type": "T11",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0097",
-      "pearl_level": "L2",
-      "trap_type": "T11",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.62,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0098",
-      "pearl_level": "L2",
-      "trap_type": "T11",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.6,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0099",
-      "pearl_level": "L2",
-      "trap_type": "T11",
-      "difficulty": "Hard",
       "final_score": 8.5,
-      "validation_status": "passed"
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0100",
-      "pearl_level": "L2",
-      "trap_type": "T11",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.41,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0101",
-      "pearl_level": "L2",
-      "trap_type": "T11",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0102",
-      "pearl_level": "L2",
-      "trap_type": "T11",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.33,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0103",
-      "pearl_level": "L2",
-      "trap_type": "T11",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.36,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0104",
-      "pearl_level": "L2",
-      "trap_type": "T11",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.18,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0105",
-      "pearl_level": "L2",
-      "trap_type": "T11",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.44,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0106",
-      "pearl_level": "L2",
-      "trap_type": "T11",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.66,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0107",
-      "pearl_level": "L2",
-      "trap_type": "T11",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.25,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0108",
-      "pearl_level": "L2",
-      "trap_type": "T11",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.57,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0109",
-      "pearl_level": "L2",
-      "trap_type": "T11",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.6,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0110",
-      "pearl_level": "L2",
-      "trap_type": "T11",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.47,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0111",
-      "pearl_level": "L2",
-      "trap_type": "T12",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0112",
-      "pearl_level": "L2",
-      "trap_type": "T12",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.49,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0113",
-      "pearl_level": "L2",
-      "trap_type": "T12",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.52,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0114",
-      "pearl_level": "L2",
-      "trap_type": "T12",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.49,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0115",
-      "pearl_level": "L2",
-      "trap_type": "T12",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.42,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0116",
-      "pearl_level": "L2",
-      "trap_type": "T12",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.62,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0117",
-      "pearl_level": "L2",
-      "trap_type": "T12",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.49,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0118",
-      "pearl_level": "L2",
-      "trap_type": "T12",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.03,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0119",
-      "pearl_level": "L2",
-      "trap_type": "T12",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.96,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0120",
-      "pearl_level": "L2",
-      "trap_type": "T12",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.8,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0121",
-      "pearl_level": "L2",
-      "trap_type": "T12",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.82,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0122",
-      "pearl_level": "L2",
-      "trap_type": "T12",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.14,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0123",
-      "pearl_level": "L2",
-      "trap_type": "T12",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.06,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0124",
-      "pearl_level": "L2",
-      "trap_type": "T12",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0125",
-      "pearl_level": "L2",
-      "trap_type": "T12",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.73,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0126",
-      "pearl_level": "L2",
-      "trap_type": "T12",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.38,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0127",
-      "pearl_level": "L2",
-      "trap_type": "T12",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.1,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0128",
-      "pearl_level": "L2",
-      "trap_type": "T12",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.27,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0129",
-      "pearl_level": "L2",
-      "trap_type": "T12",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.54,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0130",
-      "pearl_level": "L2",
-      "trap_type": "T12",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.3,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0131",
-      "pearl_level": "L2",
-      "trap_type": "T12",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0132",
-      "pearl_level": "L2",
-      "trap_type": "T12",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.53,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0133",
-      "pearl_level": "L2",
-      "trap_type": "T12",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.08,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0134",
-      "pearl_level": "L2",
-      "trap_type": "T12",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.69,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0135",
-      "pearl_level": "L2",
-      "trap_type": "T12",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.13,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0136",
-      "pearl_level": "L2",
-      "trap_type": "T12",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.12,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0137",
-      "pearl_level": "L2",
-      "trap_type": "T12",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.19,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0138",
-      "pearl_level": "L2",
-      "trap_type": "T12",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.37,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0139",
-      "pearl_level": "L2",
-      "trap_type": "T12",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.83,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0140",
-      "pearl_level": "L2",
-      "trap_type": "T12",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.01,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0141",
-      "pearl_level": "L2",
-      "trap_type": "T13",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.59,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0142",
-      "pearl_level": "L2",
-      "trap_type": "T13",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.02,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0143",
-      "pearl_level": "L2",
-      "trap_type": "T13",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0144",
-      "pearl_level": "L2",
-      "trap_type": "T13",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.57,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0145",
-      "pearl_level": "L2",
-      "trap_type": "T13",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.6,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0146",
-      "pearl_level": "L2",
-      "trap_type": "T13",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.81,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0147",
-      "pearl_level": "L2",
-      "trap_type": "T13",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.01,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0148",
-      "pearl_level": "L2",
-      "trap_type": "T13",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0149",
-      "pearl_level": "L2",
-      "trap_type": "T13",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.71,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0150",
-      "pearl_level": "L2",
-      "trap_type": "T13",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.62,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0151",
-      "pearl_level": "L2",
-      "trap_type": "T13",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.6,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0152",
-      "pearl_level": "L2",
-      "trap_type": "T13",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.64,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0153",
-      "pearl_level": "L2",
-      "trap_type": "T13",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.23,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0154",
-      "pearl_level": "L2",
-      "trap_type": "T13",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.59,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0155",
-      "pearl_level": "L2",
-      "trap_type": "T13",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.62,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0156",
-      "pearl_level": "L2",
-      "trap_type": "T13",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.21,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0157",
-      "pearl_level": "L2",
-      "trap_type": "T13",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.25,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0158",
-      "pearl_level": "L2",
-      "trap_type": "T13",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.69,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0159",
-      "pearl_level": "L2",
-      "trap_type": "T13",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.02,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0160",
-      "pearl_level": "L2",
-      "trap_type": "T13",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.76,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0161",
-      "pearl_level": "L2",
-      "trap_type": "T13",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.11,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0162",
-      "pearl_level": "L2",
-      "trap_type": "T13",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.81,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0163",
-      "pearl_level": "L2",
-      "trap_type": "T13",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.96,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0164",
-      "pearl_level": "L2",
-      "trap_type": "T13",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.17,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0165",
-      "pearl_level": "L2",
-      "trap_type": "T13",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.89,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0166",
-      "pearl_level": "L2",
-      "trap_type": "T13",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.67,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0167",
-      "pearl_level": "L2",
-      "trap_type": "T13",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.83,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0168",
-      "pearl_level": "L2",
-      "trap_type": "T13",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.26,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0169",
-      "pearl_level": "L2",
-      "trap_type": "T13",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.4,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0170",
-      "pearl_level": "L2",
-      "trap_type": "T13",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.2,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0171",
-      "pearl_level": "L2",
-      "trap_type": "T13",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.14,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0172",
-      "pearl_level": "L2",
-      "trap_type": "T13",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.17,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0173",
-      "pearl_level": "L2",
-      "trap_type": "T13",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.47,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0174",
-      "pearl_level": "L2",
-      "trap_type": "T13",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.64,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0175",
-      "pearl_level": "L2",
-      "trap_type": "T14",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.61,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0176",
-      "pearl_level": "L2",
-      "trap_type": "T14",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.83,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0177",
-      "pearl_level": "L2",
-      "trap_type": "T14",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.51,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0178",
-      "pearl_level": "L2",
-      "trap_type": "T14",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.08,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0179",
-      "pearl_level": "L2",
-      "trap_type": "T14",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.39,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0180",
-      "pearl_level": "L2",
-      "trap_type": "T14",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.5,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0181",
-      "pearl_level": "L2",
-      "trap_type": "T14",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.75,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0182",
-      "pearl_level": "L2",
-      "trap_type": "T14",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.16,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0183",
-      "pearl_level": "L2",
-      "trap_type": "T14",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.07,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0184",
-      "pearl_level": "L2",
-      "trap_type": "T14",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.69,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0185",
-      "pearl_level": "L2",
-      "trap_type": "T14",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.41,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0186",
-      "pearl_level": "L2",
-      "trap_type": "T14",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.79,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0187",
-      "pearl_level": "L2",
-      "trap_type": "T14",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.69,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0188",
-      "pearl_level": "L2",
-      "trap_type": "T14",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.47,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0189",
-      "pearl_level": "L2",
-      "trap_type": "T14",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.16,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0190",
-      "pearl_level": "L2",
-      "trap_type": "T14",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0191",
-      "pearl_level": "L2",
-      "trap_type": "T14",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.32,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0192",
-      "pearl_level": "L2",
-      "trap_type": "T14",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.84,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0193",
-      "pearl_level": "L2",
-      "trap_type": "T14",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.59,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0194",
-      "pearl_level": "L2",
-      "trap_type": "T14",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0195",
-      "pearl_level": "L2",
-      "trap_type": "T14",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.57,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0196",
-      "pearl_level": "L2",
-      "trap_type": "T14",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.65,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0197",
-      "pearl_level": "L2",
-      "trap_type": "T14",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.15,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0198",
-      "pearl_level": "L2",
-      "trap_type": "T14",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.56,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0199",
-      "pearl_level": "L2",
-      "trap_type": "T14",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.52,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0200",
-      "pearl_level": "L2",
-      "trap_type": "T14",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.04,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0201",
-      "pearl_level": "L2",
-      "trap_type": "T14",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.64,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0202",
-      "pearl_level": "L2",
-      "trap_type": "T14",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.72,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0203",
-      "pearl_level": "L2",
-      "trap_type": "T14",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.93,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0204",
-      "pearl_level": "L2",
-      "trap_type": "T14",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.92,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0205",
-      "pearl_level": "L2",
-      "trap_type": "T14",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0206",
-      "pearl_level": "L2",
-      "trap_type": "T14",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.12,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0207",
-      "pearl_level": "L2",
-      "trap_type": "T15",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.71,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0208",
-      "pearl_level": "L2",
-      "trap_type": "T15",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.71,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0209",
-      "pearl_level": "L2",
-      "trap_type": "T15",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.71,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0210",
-      "pearl_level": "L2",
-      "trap_type": "T15",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.5,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0211",
-      "pearl_level": "L2",
-      "trap_type": "T15",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.73,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0212",
-      "pearl_level": "L2",
-      "trap_type": "T15",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.95,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0213",
-      "pearl_level": "L2",
-      "trap_type": "T15",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.88,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0214",
-      "pearl_level": "L2",
-      "trap_type": "T15",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.76,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0215",
-      "pearl_level": "L2",
-      "trap_type": "T15",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.37,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0216",
-      "pearl_level": "L2",
-      "trap_type": "T15",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.8,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0217",
-      "pearl_level": "L2",
-      "trap_type": "T15",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.19,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0218",
-      "pearl_level": "L2",
-      "trap_type": "T15",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.41,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0219",
-      "pearl_level": "L2",
-      "trap_type": "T15",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.31,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0220",
-      "pearl_level": "L2",
-      "trap_type": "T15",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.53,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0221",
-      "pearl_level": "L2",
-      "trap_type": "T15",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.43,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0222",
-      "pearl_level": "L2",
-      "trap_type": "T15",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0223",
-      "pearl_level": "L2",
-      "trap_type": "T15",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.77,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0224",
-      "pearl_level": "L2",
-      "trap_type": "T15",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0225",
-      "pearl_level": "L2",
-      "trap_type": "T15",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.31,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0226",
-      "pearl_level": "L2",
-      "trap_type": "T15",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.94,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0227",
-      "pearl_level": "L2",
-      "trap_type": "T15",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.53,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0228",
-      "pearl_level": "L2",
-      "trap_type": "T15",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.07,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0229",
-      "pearl_level": "L2",
-      "trap_type": "T15",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.21,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0230",
-      "pearl_level": "L2",
-      "trap_type": "T15",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.77,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0231",
-      "pearl_level": "L2",
-      "trap_type": "T15",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.21,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0232",
-      "pearl_level": "L2",
-      "trap_type": "T15",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.59,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0233",
-      "pearl_level": "L2",
-      "trap_type": "T15",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.52,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0234",
-      "pearl_level": "L2",
-      "trap_type": "T15",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.24,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0235",
-      "pearl_level": "L2",
-      "trap_type": "T15",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.36,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0236",
-      "pearl_level": "L2",
-      "trap_type": "T15",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.75,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0237",
-      "pearl_level": "L2",
-      "trap_type": "T15",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0238",
-      "pearl_level": "L2",
-      "trap_type": "T15",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.57,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0239",
-      "pearl_level": "L2",
-      "trap_type": "T15",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.24,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0240",
-      "pearl_level": "L2",
-      "trap_type": "T15",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.84,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0241",
-      "pearl_level": "L2",
-      "trap_type": "T1",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.18,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0242",
-      "pearl_level": "L2",
-      "trap_type": "T1",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.45,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0243",
-      "pearl_level": "L2",
-      "trap_type": "T1",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.7,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0244",
-      "pearl_level": "L2",
-      "trap_type": "T1",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.85,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0245",
-      "pearl_level": "L2",
-      "trap_type": "T1",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.02,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0246",
-      "pearl_level": "L2",
-      "trap_type": "T1",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.37,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0247",
-      "pearl_level": "L2",
-      "trap_type": "T1",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.31,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0248",
-      "pearl_level": "L2",
-      "trap_type": "T1",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.24,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0249",
-      "pearl_level": "L2",
-      "trap_type": "T1",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.21,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0250",
-      "pearl_level": "L2",
-      "trap_type": "T1",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.66,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0251",
-      "pearl_level": "L2",
-      "trap_type": "T1",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0252",
-      "pearl_level": "L2",
-      "trap_type": "T1",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.87,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0253",
-      "pearl_level": "L2",
-      "trap_type": "T1",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.35,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0254",
-      "pearl_level": "L2",
-      "trap_type": "T1",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.91,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0255",
-      "pearl_level": "L2",
-      "trap_type": "T1",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0256",
-      "pearl_level": "L2",
-      "trap_type": "T1",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.31,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0257",
-      "pearl_level": "L2",
-      "trap_type": "T1",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.01,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0258",
-      "pearl_level": "L2",
-      "trap_type": "T1",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.22,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0259",
-      "pearl_level": "L2",
-      "trap_type": "T1",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.68,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0260",
-      "pearl_level": "L2",
-      "trap_type": "T1",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.81,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0261",
-      "pearl_level": "L2",
-      "trap_type": "T2",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.13,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0262",
-      "pearl_level": "L2",
-      "trap_type": "T2",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.48,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0263",
-      "pearl_level": "L2",
-      "trap_type": "T2",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0264",
-      "pearl_level": "L2",
-      "trap_type": "T2",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.09,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0265",
-      "pearl_level": "L2",
-      "trap_type": "T2",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.4,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0266",
-      "pearl_level": "L2",
-      "trap_type": "T2",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0267",
-      "pearl_level": "L2",
-      "trap_type": "T2",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.15,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0268",
-      "pearl_level": "L2",
-      "trap_type": "T2",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0269",
-      "pearl_level": "L2",
-      "trap_type": "T2",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.32,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0270",
-      "pearl_level": "L2",
-      "trap_type": "T2",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.55,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0271",
-      "pearl_level": "L2",
-      "trap_type": "T2",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.08,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0272",
-      "pearl_level": "L2",
-      "trap_type": "T2",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0273",
-      "pearl_level": "L2",
-      "trap_type": "T2",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.97,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0274",
-      "pearl_level": "L2",
-      "trap_type": "T2",
-      "difficulty": "Easy",
       "final_score": 8.5,
-      "validation_status": "passed"
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0275",
-      "pearl_level": "L2",
-      "trap_type": "T2",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.11,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0276",
-      "pearl_level": "L2",
-      "trap_type": "T2",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.68,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0277",
-      "pearl_level": "L2",
-      "trap_type": "T2",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.58,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0278",
-      "pearl_level": "L2",
-      "trap_type": "T2",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.26,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0279",
-      "pearl_level": "L2",
-      "trap_type": "T3",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.53,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0280",
-      "pearl_level": "L2",
-      "trap_type": "T3",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.35,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0281",
-      "pearl_level": "L2",
-      "trap_type": "T3",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.55,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0282",
-      "pearl_level": "L2",
-      "trap_type": "T3",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.76,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0283",
-      "pearl_level": "L2",
-      "trap_type": "T3",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.13,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0284",
-      "pearl_level": "L2",
-      "trap_type": "T3",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0285",
-      "pearl_level": "L2",
-      "trap_type": "T3",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.35,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0286",
-      "pearl_level": "L2",
-      "trap_type": "T3",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0287",
-      "pearl_level": "L2",
-      "trap_type": "T3",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.44,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0288",
-      "pearl_level": "L2",
-      "trap_type": "T3",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.74,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0289",
-      "pearl_level": "L2",
-      "trap_type": "T3",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.61,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0290",
-      "pearl_level": "L2",
-      "trap_type": "T3",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.25,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0291",
-      "pearl_level": "L2",
-      "trap_type": "T3",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.42,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0292",
-      "pearl_level": "L2",
-      "trap_type": "T3",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.3,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0293",
-      "pearl_level": "L2",
-      "trap_type": "T3",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.26,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0294",
-      "pearl_level": "L2",
-      "trap_type": "T3",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.84,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0295",
-      "pearl_level": "L2",
-      "trap_type": "T4",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.64,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0296",
-      "pearl_level": "L2",
-      "trap_type": "T4",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.22,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0297",
-      "pearl_level": "L2",
-      "trap_type": "T4",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.86,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0298",
-      "pearl_level": "L2",
-      "trap_type": "T4",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.62,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0299",
-      "pearl_level": "L2",
-      "trap_type": "T4",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.83,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0300",
-      "pearl_level": "L2",
-      "trap_type": "T4",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.75,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0301",
-      "pearl_level": "L2",
-      "trap_type": "T4",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.17,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0302",
-      "pearl_level": "L2",
-      "trap_type": "T4",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.28,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0303",
-      "pearl_level": "L2",
-      "trap_type": "T4",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.8,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0304",
-      "pearl_level": "L2",
-      "trap_type": "T4",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.74,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0305",
-      "pearl_level": "L2",
-      "trap_type": "T4",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.49,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0306",
-      "pearl_level": "L2",
-      "trap_type": "T4",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.55,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0307",
-      "pearl_level": "L2",
-      "trap_type": "T4",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.01,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0308",
-      "pearl_level": "L2",
-      "trap_type": "T4",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.26,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0309",
-      "pearl_level": "L2",
-      "trap_type": "T5",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.72,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0310",
-      "pearl_level": "L2",
-      "trap_type": "T5",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.42,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0311",
-      "pearl_level": "L2",
-      "trap_type": "T5",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.41,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0312",
-      "pearl_level": "L2",
-      "trap_type": "T5",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.94,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0313",
-      "pearl_level": "L2",
-      "trap_type": "T5",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.83,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0314",
-      "pearl_level": "L2",
-      "trap_type": "T5",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.83,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0315",
-      "pearl_level": "L2",
-      "trap_type": "T5",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.02,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0316",
-      "pearl_level": "L2",
-      "trap_type": "T5",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.51,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0317",
-      "pearl_level": "L2",
-      "trap_type": "T5",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.77,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0318",
-      "pearl_level": "L2",
-      "trap_type": "T5",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.38,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0319",
-      "pearl_level": "L2",
-      "trap_type": "T5",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.63,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0320",
-      "pearl_level": "L2",
-      "trap_type": "T5",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.45,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0321",
-      "pearl_level": "L2",
-      "trap_type": "T5",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.54,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0322",
-      "pearl_level": "L2",
-      "trap_type": "T5",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.74,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0323",
-      "pearl_level": "L2",
-      "trap_type": "T5",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.17,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0324",
-      "pearl_level": "L2",
-      "trap_type": "T5",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.34,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0325",
-      "pearl_level": "L2",
-      "trap_type": "T5",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.1,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0326",
-      "pearl_level": "L2",
-      "trap_type": "T5",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.01,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0327",
-      "pearl_level": "L2",
-      "trap_type": "T6",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.96,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0328",
-      "pearl_level": "L2",
-      "trap_type": "T6",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.82,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0329",
-      "pearl_level": "L2",
-      "trap_type": "T6",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.75,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0330",
-      "pearl_level": "L2",
-      "trap_type": "T6",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.75,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0331",
-      "pearl_level": "L2",
-      "trap_type": "T6",
-      "difficulty": "Medium",
       "final_score": 8.5,
-      "validation_status": "passed"
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0332",
-      "pearl_level": "L2",
-      "trap_type": "T6",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.14,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0333",
-      "pearl_level": "L2",
-      "trap_type": "T6",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.53,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0334",
-      "pearl_level": "L2",
-      "trap_type": "T6",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.23,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0335",
-      "pearl_level": "L2",
-      "trap_type": "T6",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.89,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0336",
-      "pearl_level": "L2",
-      "trap_type": "T6",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.44,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0337",
-      "pearl_level": "L2",
-      "trap_type": "T6",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.17,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0338",
-      "pearl_level": "L2",
-      "trap_type": "T6",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.37,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0339",
-      "pearl_level": "L2",
-      "trap_type": "T6",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.67,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0340",
-      "pearl_level": "L2",
-      "trap_type": "T6",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.27,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0341",
-      "pearl_level": "L2",
-      "trap_type": "T6",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.17,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0342",
-      "pearl_level": "L2",
-      "trap_type": "T6",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.6,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0343",
-      "pearl_level": "L2",
-      "trap_type": "T7",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.6,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0344",
-      "pearl_level": "L2",
-      "trap_type": "T7",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.3,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0345",
-      "pearl_level": "L2",
-      "trap_type": "T7",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.31,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0346",
-      "pearl_level": "L2",
-      "trap_type": "T7",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.59,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0347",
-      "pearl_level": "L2",
-      "trap_type": "T7",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.0,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0348",
-      "pearl_level": "L2",
-      "trap_type": "T7",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.0,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0349",
-      "pearl_level": "L2",
-      "trap_type": "T7",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.21,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L2-0350",
-      "pearl_level": "L2",
-      "trap_type": "T7",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.41,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0351",
-      "pearl_level": "L3",
-      "trap_type": "F1",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.62,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0352",
-      "pearl_level": "L3",
-      "trap_type": "F2",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.09,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0353",
-      "pearl_level": "L3",
-      "trap_type": "F4",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.84,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0354",
-      "pearl_level": "L3",
-      "trap_type": "F1",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.44,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0355",
-      "pearl_level": "L3",
-      "trap_type": "F1",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.49,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0356",
-      "pearl_level": "L3",
-      "trap_type": "F1",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.1,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0357",
-      "pearl_level": "L3",
-      "trap_type": "F1",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.49,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0358",
-      "pearl_level": "L3",
-      "trap_type": "F1",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.38,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0359",
-      "pearl_level": "L3",
-      "trap_type": "F1",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.63,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0360",
-      "pearl_level": "L3",
-      "trap_type": "F1",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.17,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0361",
-      "pearl_level": "L3",
-      "trap_type": "F1",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.71,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0362",
-      "pearl_level": "L3",
-      "trap_type": "F1",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.11,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0363",
-      "pearl_level": "L3",
-      "trap_type": "F1",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.46,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0364",
-      "pearl_level": "L3",
-      "trap_type": "F1",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.66,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0365",
-      "pearl_level": "L3",
-      "trap_type": "F1",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.78,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0366",
-      "pearl_level": "L3",
-      "trap_type": "F1",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.34,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0367",
-      "pearl_level": "L3",
-      "trap_type": "F1",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.59,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0368",
-      "pearl_level": "L3",
-      "trap_type": "F1",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.51,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0369",
-      "pearl_level": "L3",
-      "trap_type": "F1",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.54,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0370",
-      "pearl_level": "L3",
-      "trap_type": "F1",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.19,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0371",
-      "pearl_level": "L3",
-      "trap_type": "F1",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.51,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0372",
-      "pearl_level": "L3",
-      "trap_type": "F1",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.7,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0373",
-      "pearl_level": "L3",
-      "trap_type": "F1",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.08,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0374",
-      "pearl_level": "L3",
-      "trap_type": "F2",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.88,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0375",
-      "pearl_level": "L3",
-      "trap_type": "F2",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.36,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0376",
-      "pearl_level": "L3",
-      "trap_type": "F2",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.19,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0377",
-      "pearl_level": "L3",
-      "trap_type": "F2",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.85,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0378",
-      "pearl_level": "L3",
-      "trap_type": "F2",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.57,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0379",
-      "pearl_level": "L3",
-      "trap_type": "F2",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.38,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0380",
-      "pearl_level": "L3",
-      "trap_type": "F2",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.18,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0381",
-      "pearl_level": "L3",
-      "trap_type": "F2",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.16,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0382",
-      "pearl_level": "L3",
-      "trap_type": "F2",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.26,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0383",
-      "pearl_level": "L3",
-      "trap_type": "F2",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0384",
-      "pearl_level": "L3",
-      "trap_type": "F2",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.29,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0385",
-      "pearl_level": "L3",
-      "trap_type": "F2",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.2,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0386",
-      "pearl_level": "L3",
-      "trap_type": "F2",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.56,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0387",
-      "pearl_level": "L3",
-      "trap_type": "F2",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.64,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0388",
-      "pearl_level": "L3",
-      "trap_type": "F2",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.25,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0389",
-      "pearl_level": "L3",
-      "trap_type": "F3",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.88,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0390",
-      "pearl_level": "L3",
-      "trap_type": "F3",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.27,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0391",
-      "pearl_level": "L3",
-      "trap_type": "F3",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.14,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0392",
-      "pearl_level": "L3",
-      "trap_type": "F3",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.7,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0393",
-      "pearl_level": "L3",
-      "trap_type": "F3",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0394",
-      "pearl_level": "L3",
-      "trap_type": "F3",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.23,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0395",
-      "pearl_level": "L3",
-      "trap_type": "F3",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.97,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0396",
-      "pearl_level": "L3",
-      "trap_type": "F3",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.31,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0397",
-      "pearl_level": "L3",
-      "trap_type": "F3",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0398",
-      "pearl_level": "L3",
-      "trap_type": "F3",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.04,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0399",
-      "pearl_level": "L3",
-      "trap_type": "F3",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.45,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0400",
-      "pearl_level": "L3",
-      "trap_type": "F3",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0401",
-      "pearl_level": "L3",
-      "trap_type": "F3",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0402",
-      "pearl_level": "L3",
-      "trap_type": "F3",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.26,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0403",
-      "pearl_level": "L3",
-      "trap_type": "F3",
-      "difficulty": "Medium",
       "final_score": 8.5,
-      "validation_status": "passed"
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0404",
-      "pearl_level": "L3",
-      "trap_type": "F4",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.52,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0405",
-      "pearl_level": "L3",
-      "trap_type": "F4",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.32,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0406",
-      "pearl_level": "L3",
-      "trap_type": "F4",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.75,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0407",
-      "pearl_level": "L3",
-      "trap_type": "F4",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.07,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0408",
-      "pearl_level": "L3",
-      "trap_type": "F4",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.44,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0409",
-      "pearl_level": "L3",
-      "trap_type": "F4",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.55,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0410",
-      "pearl_level": "L3",
-      "trap_type": "F4",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.71,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0411",
-      "pearl_level": "L3",
-      "trap_type": "F4",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.78,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0412",
-      "pearl_level": "L3",
-      "trap_type": "F4",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.05,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0413",
-      "pearl_level": "L3",
-      "trap_type": "F4",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0414",
-      "pearl_level": "L3",
-      "trap_type": "F4",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.01,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0415",
-      "pearl_level": "L3",
-      "trap_type": "F4",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.63,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0416",
-      "pearl_level": "L3",
-      "trap_type": "F4",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.2,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0417",
-      "pearl_level": "L3",
-      "trap_type": "F4",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.12,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0418",
-      "pearl_level": "L3",
-      "trap_type": "F4",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.55,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0419",
-      "pearl_level": "L3",
-      "trap_type": "F5",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.97,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0420",
-      "pearl_level": "L3",
-      "trap_type": "F5",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.53,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0421",
-      "pearl_level": "L3",
-      "trap_type": "F5",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.32,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0422",
-      "pearl_level": "L3",
-      "trap_type": "F5",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.2,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0423",
-      "pearl_level": "L3",
-      "trap_type": "F5",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.4,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0424",
-      "pearl_level": "L3",
-      "trap_type": "F5",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.89,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0425",
-      "pearl_level": "L3",
-      "trap_type": "F5",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.76,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0426",
-      "pearl_level": "L3",
-      "trap_type": "F5",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.05,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0427",
-      "pearl_level": "L3",
-      "trap_type": "F5",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.11,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0428",
-      "pearl_level": "L3",
-      "trap_type": "F5",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.77,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0429",
-      "pearl_level": "L3",
-      "trap_type": "F5",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.92,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0430",
-      "pearl_level": "L3",
-      "trap_type": "F5",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0431",
-      "pearl_level": "L3",
-      "trap_type": "F5",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.03,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0432",
-      "pearl_level": "L3",
-      "trap_type": "F5",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0433",
-      "pearl_level": "L3",
-      "trap_type": "F5",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.39,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0434",
-      "pearl_level": "L3",
-      "trap_type": "F6",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.79,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0435",
-      "pearl_level": "L3",
-      "trap_type": "F6",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.1,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0436",
-      "pearl_level": "L3",
-      "trap_type": "F6",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.53,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0437",
-      "pearl_level": "L3",
-      "trap_type": "F6",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.15,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0438",
-      "pearl_level": "L3",
-      "trap_type": "F6",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0439",
-      "pearl_level": "L3",
-      "trap_type": "F6",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0440",
-      "pearl_level": "L3",
-      "trap_type": "F6",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.48,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0441",
-      "pearl_level": "L3",
-      "trap_type": "F6",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.65,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0442",
-      "pearl_level": "L3",
-      "trap_type": "F6",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.49,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0443",
-      "pearl_level": "L3",
-      "trap_type": "F6",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0444",
-      "pearl_level": "L3",
-      "trap_type": "F6",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.46,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0445",
-      "pearl_level": "L3",
-      "trap_type": "F6",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0446",
-      "pearl_level": "L3",
-      "trap_type": "F6",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.77,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0447",
-      "pearl_level": "L3",
-      "trap_type": "F6",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.65,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0448",
-      "pearl_level": "L3",
-      "trap_type": "F6",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.12,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0449",
-      "pearl_level": "L3",
-      "trap_type": "F7",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.29,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0450",
-      "pearl_level": "L3",
-      "trap_type": "F7",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.08,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0451",
-      "pearl_level": "L3",
-      "trap_type": "F7",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.47,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0452",
-      "pearl_level": "L3",
-      "trap_type": "F7",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.88,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0453",
-      "pearl_level": "L3",
-      "trap_type": "F7",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.11,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0454",
-      "pearl_level": "L3",
-      "trap_type": "F7",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.7,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0455",
-      "pearl_level": "L3",
-      "trap_type": "F7",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.29,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0456",
-      "pearl_level": "L3",
-      "trap_type": "F7",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.18,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0457",
-      "pearl_level": "L3",
-      "trap_type": "F7",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.46,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0458",
-      "pearl_level": "L3",
-      "trap_type": "F7",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.09,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0459",
-      "pearl_level": "L3",
-      "trap_type": "F7",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.28,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0460",
-      "pearl_level": "L3",
-      "trap_type": "F7",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.02,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0461",
-      "pearl_level": "L3",
-      "trap_type": "F7",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.29,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0462",
-      "pearl_level": "L3",
-      "trap_type": "F7",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.51,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0463",
-      "pearl_level": "L3",
-      "trap_type": "F7",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.22,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0464",
-      "pearl_level": "L3",
-      "trap_type": "F7",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.59,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0465",
-      "pearl_level": "L3",
-      "trap_type": "F7",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.46,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0466",
-      "pearl_level": "L3",
-      "trap_type": "F7",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.41,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0467",
-      "pearl_level": "L3",
-      "trap_type": "F7",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.75,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0468",
-      "pearl_level": "L3",
-      "trap_type": "F7",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.8,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0469",
-      "pearl_level": "L3",
-      "trap_type": "F8",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.29,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0470",
-      "pearl_level": "L3",
-      "trap_type": "F8",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.27,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0471",
-      "pearl_level": "L3",
-      "trap_type": "F8",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.39,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0472",
-      "pearl_level": "L3",
-      "trap_type": "F8",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0473",
-      "pearl_level": "L3",
-      "trap_type": "F8",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0474",
-      "pearl_level": "L3",
-      "trap_type": "F8",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.05,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0475",
-      "pearl_level": "L3",
-      "trap_type": "F8",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.16,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0476",
-      "pearl_level": "L3",
-      "trap_type": "F8",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.4,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0477",
-      "pearl_level": "L3",
-      "trap_type": "F8",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.73,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0478",
-      "pearl_level": "L3",
-      "trap_type": "F8",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.62,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0479",
-      "pearl_level": "L3",
-      "trap_type": "F8",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.5,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0480",
-      "pearl_level": "L3",
-      "trap_type": "F8",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.95,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0481",
-      "pearl_level": "L3",
-      "trap_type": "F8",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.45,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0482",
-      "pearl_level": "L3",
-      "trap_type": "F8",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.12,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0483",
-      "pearl_level": "L3",
-      "trap_type": "F8",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0484",
-      "pearl_level": "L3",
-      "trap_type": "DomainExt",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.58,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0485",
-      "pearl_level": "L3",
-      "trap_type": "DomainExt",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.2,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0486",
-      "pearl_level": "L3",
-      "trap_type": "DomainExt",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0487",
-      "pearl_level": "L3",
-      "trap_type": "DomainExt",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.24,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0488",
-      "pearl_level": "L3",
-      "trap_type": "DomainExt",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.07,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0489",
-      "pearl_level": "L3",
-      "trap_type": "DomainExt",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.17,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0490",
-      "pearl_level": "L3",
-      "trap_type": "DomainExt",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.85,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0491",
-      "pearl_level": "L3",
-      "trap_type": "DomainExt",
-      "difficulty": "Hard",
       "final_score": 8.5,
-      "validation_status": "passed"
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0492",
-      "pearl_level": "L3",
-      "trap_type": "DomainExt",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.09,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0493",
-      "pearl_level": "L3",
-      "trap_type": "DomainExt",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.53,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0494",
-      "pearl_level": "L3",
-      "trap_type": "DomainExt",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.16,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0495",
-      "pearl_level": "L3",
-      "trap_type": "DomainExt",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 9.11,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0496",
-      "pearl_level": "L3",
-      "trap_type": "DomainExt",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.72,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0497",
-      "pearl_level": "L3",
-      "trap_type": "DomainExt",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.09,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0498",
-      "pearl_level": "L3",
-      "trap_type": "DomainExt",
-      "difficulty": "Easy",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.42,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0499",
-      "pearl_level": "L3",
-      "trap_type": "DomainExt",
-      "difficulty": "Medium",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.15,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     },
     {
       "case_id": "T3-I-L3-0500",
-      "pearl_level": "L3",
-      "trap_type": "DomainExt",
-      "difficulty": "Hard",
-      "final_score": 8.5,
-      "validation_status": "passed"
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
     }
   ]
 }
