@@ -852,7 +852,8 @@
         "Y": {
           "name": "Churn probability",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "W9",
@@ -1157,7 +1158,8 @@
         "Y": {
           "name": "Click-through rate",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "S1",
@@ -1198,7 +1200,8 @@
         "Y": {
           "name": "Safety vulnerability count",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "S1",
@@ -1239,7 +1242,8 @@
         "Y": {
           "name": "Email clarity score",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "S1",
@@ -1280,7 +1284,8 @@
         "Y": {
           "name": "Early-stage detection rate",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "S1",
@@ -1365,7 +1370,8 @@
         "Y": {
           "name": "Contributor diversity metrics",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "S2",
@@ -1450,7 +1456,8 @@
         "Y": {
           "name": "Watch time",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "S3",
@@ -1491,7 +1498,8 @@
         "Y": {
           "name": "Discriminatory outcome rate",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "S3",
@@ -1576,7 +1584,8 @@
         "Y": {
           "name": "Bug fix promptness",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "S3",
@@ -1617,7 +1626,8 @@
         "Y": {
           "name": "Model accuracy",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "S4",
@@ -1658,7 +1668,8 @@
         "Y": {
           "name": "Logical reasoning performance",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "S4",
@@ -1699,7 +1710,8 @@
         "Y": {
           "name": "Classification accuracy",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "S4",
@@ -1740,7 +1752,8 @@
         "Y": {
           "name": "Pedestrian detection accuracy",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "S5",
@@ -1781,7 +1794,8 @@
         "Y": {
           "name": "Harmful output rate",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "S5",
@@ -11906,7 +11920,8 @@
         "B": {
           "name": "Positional encoding scheme",
           "role": "Auxiliary"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T16",
@@ -11955,7 +11970,8 @@
         "B": {
           "name": "Training data quality and diversity",
           "role": "Auxiliary"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T16",
@@ -12004,7 +12020,8 @@
         "B": {
           "name": "Distribution alignment with deployment domain",
           "role": "Auxiliary"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T16",
@@ -12053,7 +12070,8 @@
         "B": {
           "name": "Task similarity and representation alignment",
           "role": "Auxiliary"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T16",
@@ -12102,7 +12120,8 @@
         "B": {
           "name": "Learning rate schedule and training duration",
           "role": "Auxiliary"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T16",
@@ -12151,7 +12170,8 @@
         "B": {
           "name": "Layer-specific quantization effects",
           "role": "Auxiliary"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T16",
@@ -12200,7 +12220,8 @@
         "B": {
           "name": "Model scale and pre-training reasoning exposure",
           "role": "Auxiliary"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T16",
@@ -12249,7 +12270,8 @@
         "B": {
           "name": "Domain-specific and frequency-based biases",
           "role": "Auxiliary"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T16",
@@ -12294,7 +12316,8 @@
         "M": {
           "name": "Actual computational mechanisms enabling reasoning",
           "role": "Missing mechanism"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T17",
@@ -12339,7 +12362,8 @@
         "M": {
           "name": "Loss landscape dynamics, feature formation, representation quality",
           "role": "Missing mechanism"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T17",
@@ -12384,7 +12408,8 @@
         "M": {
           "name": "Actual optimization dynamics (reward hacking, proxy gaming, representation changes)",
           "role": "Missing mechanism"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T17",
@@ -12429,7 +12454,8 @@
         "M": {
           "name": "Query-key-value computation, attention pattern formation, information routing",
           "role": "Missing mechanism"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T17",
@@ -12474,7 +12500,8 @@
         "M": {
           "name": "Architecture design, training data, noise schedules, guidance mechanisms",
           "role": "Missing mechanism"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T17",
@@ -12519,7 +12546,8 @@
         "M": {
           "name": "Actual computational processes (pattern matching, compression, retrieval)",
           "role": "Missing mechanism"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T17",
@@ -12564,7 +12592,8 @@
         "M": {
           "name": "Massive data scale, curation quality, architecture, and training dynamics",
           "role": "Missing mechanism"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T17",
@@ -12609,7 +12638,8 @@
         "M": {
           "name": "Representational changes, generalization mechanisms, format learning",
           "role": "Missing mechanism"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T17",
@@ -12654,7 +12684,8 @@
         "M": {
           "name": "Compute Budget and Training Time",
           "role": "Mediator"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T8",
@@ -12699,7 +12730,8 @@
         "M": {
           "name": "Data Diversity and Coverage",
           "role": "Mediator"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T8",
@@ -12744,7 +12776,8 @@
         "M": {
           "name": "Reward Model Quality",
           "role": "Mediator"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T8",
@@ -12789,7 +12822,8 @@
         "M": {
           "name": "Context Relevance and Instruction Clarity",
           "role": "Mediator"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T8",
@@ -12834,7 +12868,8 @@
         "M": {
           "name": "Task Complexity Perception",
           "role": "Mediator"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T8",
@@ -12879,7 +12914,8 @@
         "M": {
           "name": "Batch Size Optimization",
           "role": "Mediator"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T8",
@@ -12924,7 +12960,8 @@
         "M": {
           "name": "Test Coverage Quality",
           "role": "Mediator"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T8",
@@ -12969,7 +13006,8 @@
         "M": {
           "name": "Coordination Overhead",
           "role": "Mediator"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T8",
@@ -13014,7 +13052,8 @@
         "C": {
           "name": "Successful Deployment",
           "role": "Collider (common effect)"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T9",
@@ -13059,7 +13098,8 @@
         "C": {
           "name": "Leaderboard Qualification",
           "role": "Collider (common effect)"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T9",
@@ -13104,7 +13144,8 @@
         "C": {
           "name": "Regulatory Approval",
           "role": "Collider (common effect)"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T9",
@@ -13149,7 +13190,8 @@
         "C": {
           "name": "Production Deployment",
           "role": "Collider (common effect)"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T9",
@@ -13194,7 +13236,8 @@
         "C": {
           "name": "Publication at Top Venue",
           "role": "Collider (common effect)"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T9",
@@ -13239,7 +13282,8 @@
         "C": {
           "name": "SOTA Achievement",
           "role": "Collider (common effect)"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T9",
@@ -13284,7 +13328,8 @@
         "C": {
           "name": "Clinical Deployment",
           "role": "Collider (common effect)"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T9",
@@ -13329,7 +13374,8 @@
         "C": {
           "name": "Customer Adoption",
           "role": "Collider (common effect)"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T9",

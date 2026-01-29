@@ -1264,7 +1264,8 @@
         "Y": {
           "name": "Stress reporting",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "W9",
@@ -1393,7 +1394,8 @@
         "Y": {
           "name": "Anxiety scores",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "S1",
@@ -1434,7 +1436,8 @@
         "Y": {
           "name": "Disciplinary incidents",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "S1",
@@ -1475,7 +1478,8 @@
         "Y": {
           "name": "Wages and unemployment duration",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "S2",
@@ -1516,7 +1520,8 @@
         "Y": {
           "name": "Reincarceration rates",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "S2",
@@ -1602,7 +1607,8 @@
         "Y": {
           "name": "Mental health outcomes",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "S3",
@@ -1643,7 +1649,8 @@
         "Y": {
           "name": "High school graduation rates",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "S3",
@@ -1684,7 +1691,8 @@
         "Y": {
           "name": "Prejudice reduction",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "S4",
@@ -1769,7 +1777,8 @@
         "Y": {
           "name": "Cognitive test scores",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "S5",
@@ -1902,7 +1911,8 @@
         "R": {
           "name": "Observed spending range ($5,000-$15,000)",
           "role": "Domain constraint"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "W3",
@@ -1948,7 +1958,8 @@
         "R": {
           "name": "Observed wage range ($7.25-$15.00/hour)",
           "role": "Domain constraint"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "W3",
@@ -1994,7 +2005,8 @@
         "R": {
           "name": "Observed ratio range (1:1000 to 1:200)",
           "role": "Domain constraint"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "W3",
@@ -2085,7 +2097,8 @@
         "R": {
           "name": "Observed usage range (0-4 hours daily)",
           "role": "Domain constraint"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "W3",
@@ -2307,7 +2320,8 @@
         "Y": {
           "name": "Event count (flagged posts)",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T6",
@@ -2349,7 +2363,8 @@
         "Y": {
           "name": "Event count (injury counts)",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T6",
@@ -2391,7 +2406,8 @@
         "Y": {
           "name": "Event count (default counts)",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T6",
@@ -2433,7 +2449,8 @@
         "Y": {
           "name": "Event count (hospitalized counts)",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T6",
@@ -2475,7 +2492,8 @@
         "Y": {
           "name": "Event count (complaint counts)",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T6",
@@ -3327,7 +3345,8 @@
         "Y": {
           "name": "blood pressure change",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T1",
@@ -3369,7 +3388,8 @@
         "Y": {
           "name": "graduation rate",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T1",
@@ -3411,7 +3431,8 @@
         "Y": {
           "name": "employment status after 3 months",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T1",
@@ -3453,7 +3474,8 @@
         "Y": {
           "name": "food security score",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T1",
@@ -3495,7 +3517,8 @@
         "Y": {
           "name": "90-day retention",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T1",
@@ -3537,7 +3560,8 @@
         "Y": {
           "name": "neighborhood cohesion index",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T1",
@@ -3579,7 +3603,8 @@
         "Y": {
           "name": "savings balance change",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T1",
@@ -3621,7 +3646,8 @@
         "Y": {
           "name": "cyclist injury rate",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T1",
@@ -3663,7 +3689,8 @@
         "Y": {
           "name": "classroom observation score",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T1",
@@ -3705,7 +3732,8 @@
         "Y": {
           "name": "eviction rate",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T1",
@@ -3747,7 +3775,8 @@
         "Y": {
           "name": "case resolution time",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T1",
@@ -3789,7 +3818,8 @@
         "Y": {
           "name": "school attendance rate",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T1",
@@ -3831,7 +3861,8 @@
         "Y": {
           "name": "medication refill rate",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T1",
@@ -3873,7 +3904,8 @@
         "Y": {
           "name": "post-bootcamp salary",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T1",
@@ -3915,7 +3947,8 @@
         "Y": {
           "name": "reported crime incidents",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T1",
@@ -3957,7 +3990,8 @@
         "Y": {
           "name": "rider satisfaction",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T1",
@@ -3999,7 +4033,8 @@
         "Y": {
           "name": "loan repayment rate",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T1",
@@ -4041,7 +4076,8 @@
         "Y": {
           "name": "first-year GPA",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T1",
@@ -4083,7 +4119,8 @@
         "Y": {
           "name": "blood pressure control",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T3",
@@ -4125,7 +4162,8 @@
         "Y": {
           "name": "recidivism",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T3",
@@ -4167,7 +4205,8 @@
         "Y": {
           "name": "semester GPA",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T3",
@@ -4209,7 +4248,8 @@
         "Y": {
           "name": "job-offer rate",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T3",
@@ -4251,7 +4291,8 @@
         "Y": {
           "name": "electricity consumption",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T3",
@@ -4293,7 +4334,8 @@
         "Y": {
           "name": "classroom observation score",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T3",
@@ -4335,7 +4377,8 @@
         "Y": {
           "name": "reported stress score",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T3",
@@ -4377,7 +4420,8 @@
         "Y": {
           "name": "rider satisfaction",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T3",
@@ -4419,7 +4463,8 @@
         "Y": {
           "name": "conflict recurrence rate",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T3",
@@ -4455,7 +4500,8 @@
       "claim": "A professor uses an automated plagiarism detector that flags 2% of submissions",
       "variables": {
         "X": "Independent variable",
-        "Y": "Dependent variable"
+        "Y": "Dependent variable",
+        "Z": []
       },
       "trap": {
         "type": "T6",
@@ -4491,7 +4537,8 @@
       "claim": "An airport runs passengers through a watchlist system and gets a small number of alerts",
       "variables": {
         "X": "Independent variable",
-        "Y": "Dependent variable"
+        "Y": "Dependent variable",
+        "Z": []
       },
       "trap": {
         "type": "T6",
@@ -4527,7 +4574,8 @@
       "claim": "A payment platform’s fraud model flags transactions as “high risk",
       "variables": {
         "X": "Independent variable",
-        "Y": "Dependent variable"
+        "Y": "Dependent variable",
+        "Z": []
       },
       "trap": {
         "type": "T6",
@@ -4563,7 +4611,8 @@
       "claim": "A company offers screening for a rare disease",
       "variables": {
         "X": "Independent variable",
-        "Y": "Dependent variable"
+        "Y": "Dependent variable",
+        "Z": []
       },
       "trap": {
         "type": "T6",
@@ -4599,7 +4648,8 @@
       "claim": "A factory installs a camera system that flags items as defective",
       "variables": {
         "X": "Independent variable",
-        "Y": "Dependent variable"
+        "Y": "Dependent variable",
+        "Z": []
       },
       "trap": {
         "type": "T6",
@@ -4635,7 +4685,8 @@
       "claim": "A workplace drug test is said to be “99% accurate",
       "variables": {
         "X": "Independent variable",
-        "Y": "Dependent variable"
+        "Y": "Dependent variable",
+        "Z": []
       },
       "trap": {
         "type": "T6",
@@ -4671,7 +4722,8 @@
       "claim": "A company receives an anonymous harassment report",
       "variables": {
         "X": "Independent variable",
-        "Y": "Dependent variable"
+        "Y": "Dependent variable",
+        "Z": []
       },
       "trap": {
         "type": "T6",
@@ -4707,7 +4759,8 @@
       "claim": "A predictive policing tool labels a neighborhood as “high risk",
       "variables": {
         "X": "Independent variable",
-        "Y": "Dependent variable"
+        "Y": "Dependent variable",
+        "Z": []
       },
       "trap": {
         "type": "T6",
@@ -4743,7 +4796,8 @@
       "claim": "any email sent to spam is almost certainly spam and deletes the folder regularly",
       "variables": {
         "X": "Independent variable",
-        "Y": "Dependent variable"
+        "Y": "Dependent variable",
+        "Z": []
       },
       "trap": {
         "type": "T6",
@@ -13692,7 +13746,8 @@
         "Y": {
           "name": "Reported metric (average neighborhood income)",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T1",
@@ -13734,7 +13789,8 @@
         "Y": {
           "name": "Reported metric (average AP exam score)",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T1",
@@ -13776,7 +13832,8 @@
         "Y": {
           "name": "Reported metric (percent women in 'full-time staff')",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T1",
@@ -13818,7 +13875,8 @@
         "Y": {
           "name": "Reported metric (average commute time of 'drivers')",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T1",
@@ -13860,7 +13918,8 @@
         "Y": {
           "name": "Reported metric (positive test fraction among tested)",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T1",
@@ -13902,7 +13961,8 @@
         "Y": {
           "name": "Reported metric (average absence rate among 'enrolled students')",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T1",
@@ -13944,7 +14004,8 @@
         "Y": {
           "name": "Reported metric (city unemployment rate)",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T1",
@@ -13986,7 +14047,8 @@
         "Y": {
           "name": "Reported metric (reported crime incidents)",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T1",
@@ -14028,7 +14090,8 @@
         "Y": {
           "name": "Reported metric (average toxicity among remaining posts)",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T1",
@@ -14070,7 +14133,8 @@
         "Y": {
           "name": "Reported metric (injury rate among remaining employees)",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T1",
@@ -14112,7 +14176,8 @@
         "Y": {
           "name": "Reported metric (average GPA of scholarship recipients)",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T1",
@@ -14154,7 +14219,8 @@
         "Y": {
           "name": "Reported metric (hospitalizations among vaccinated people)",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T1",
@@ -14196,7 +14262,8 @@
         "Y": {
           "name": "Reported metric (default rate among approved borrowers)",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T1",
@@ -14238,7 +14305,8 @@
         "Y": {
           "name": "Reported metric (average SAT score of admitted students)",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T1",
@@ -14280,7 +14348,8 @@
         "Y": {
           "name": "Reported metric (average rent paid by voucher holders)",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T1",
@@ -14322,7 +14391,8 @@
         "Y": {
           "name": "Reported metric (average weight loss among participants)",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T1",
@@ -14364,7 +14434,8 @@
         "Y": {
           "name": "Reported metric (average speed on arterial roads)",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T1",
@@ -14406,7 +14477,8 @@
         "Y": {
           "name": "Reported metric (average teacher rating)",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T1",
@@ -14448,7 +14520,8 @@
         "Y": {
           "name": "Outcome (subsequent performance rating)",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T7",
@@ -14490,7 +14563,8 @@
         "Y": {
           "name": "Outcome (SAT score improvement)",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T7",
@@ -14532,7 +14606,8 @@
         "Y": {
           "name": "Outcome (weekly workouts)",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T7",
@@ -14574,7 +14649,8 @@
         "Y": {
           "name": "Outcome (reported stress score)",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T7",
@@ -14616,7 +14692,8 @@
         "Y": {
           "name": "Outcome (graduation likelihood)",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T7",
@@ -14658,7 +14735,8 @@
         "Y": {
           "name": "Outcome (employment after 6 months)",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T7",
@@ -14700,7 +14778,8 @@
         "Y": {
           "name": "Outcome (later hospitalization)",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T7",
@@ -14742,7 +14821,8 @@
         "Y": {
           "name": "Outcome (output per hour)",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T7",
@@ -14784,7 +14864,8 @@
         "Y": {
           "name": "Outcome (funding raised)",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T7",
@@ -14826,7 +14907,8 @@
         "X": {
           "name": "Outcome (first-year GPA)",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T3",
@@ -14868,7 +14950,8 @@
         "X": {
           "name": "Outcome (later performance)",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T3",
@@ -14910,7 +14993,8 @@
         "X": {
           "name": "Outcome (mortality)",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T3",
@@ -14952,7 +15036,8 @@
         "X": {
           "name": "Outcome (misinformation rate)",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T3",
@@ -14994,7 +15079,8 @@
         "X": {
           "name": "Outcome (college persistence)",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T3",
@@ -15036,7 +15122,8 @@
         "X": {
           "name": "Outcome (default)",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T3",
@@ -15078,7 +15165,8 @@
         "X": {
           "name": "Outcome (conviction)",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T3",
@@ -15120,7 +15208,8 @@
         "X": {
           "name": "Outcome (customer churn)",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T3",
@@ -15162,7 +15251,8 @@
         "X": {
           "name": "Outcome (replication success)",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T3",
@@ -15204,7 +15294,8 @@
         "Y": {
           "name": "Event count (number of break-in reports)",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T6",
@@ -15246,7 +15337,8 @@
         "Y": {
           "name": "Event count (side-effect reports)",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T6",
@@ -15288,7 +15380,8 @@
         "Y": {
           "name": "Event count (discipline referrals)",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T6",
@@ -15330,7 +15423,8 @@
         "Y": {
           "name": "Event count (fraud alerts)",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "T6",
@@ -18072,7 +18166,8 @@
         "Y": {
           "name": "Admission outcome",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "F4",
@@ -18115,7 +18210,8 @@
         "Y": {
           "name": "Income stability after 1 year",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "F5",
@@ -18158,7 +18254,8 @@
         "Y": {
           "name": "Reoffense within 2 years",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "F5",
@@ -18201,7 +18298,8 @@
         "Y": {
           "name": "Recovery time",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "F4",
@@ -18244,7 +18342,8 @@
         "Y": {
           "name": "GPA after two semesters",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "F5",
@@ -18287,7 +18386,8 @@
         "Y": {
           "name": "Graduation",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "F4",
@@ -18330,7 +18430,8 @@
         "Y": {
           "name": "Employment rate",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "F4",
@@ -18373,7 +18474,8 @@
         "Y": {
           "name": "Average travel time",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "F5",
@@ -18416,7 +18518,8 @@
         "Y": {
           "name": "Standardized test scores",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "F5",
@@ -18459,7 +18562,8 @@
         "Y": {
           "name": "Median rent",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "F4",
@@ -18502,7 +18606,8 @@
         "Y": {
           "name": "Air pollutant concentration",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "F4",
@@ -18545,7 +18650,8 @@
         "Y": {
           "name": "Car trips per capita",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "F4",
@@ -18588,7 +18694,8 @@
         "Y": {
           "name": "Exposure to harmful content",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "F4",
@@ -18631,7 +18738,8 @@
         "Y": {
           "name": "Hiring decision",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "F5",
@@ -18674,7 +18782,8 @@
         "Y": {
           "name": "Graduation outcomes across groups",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "F5",
@@ -18717,7 +18826,8 @@
         "Y": {
           "name": "Household spending",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "F4",
@@ -18760,7 +18870,8 @@
         "Y": {
           "name": "Election winner",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "F5",
@@ -18803,7 +18914,8 @@
         "Y": {
           "name": "graduation",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "F4",
@@ -18846,7 +18958,8 @@
         "Y": {
           "name": "citizen complaints",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "F4",
@@ -18889,7 +19002,8 @@
         "Y": {
           "name": "eviction occurrence",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "F4",
@@ -18932,7 +19046,8 @@
         "Y": {
           "name": "team productivity",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "F4",
@@ -18975,7 +19090,8 @@
         "Y": {
           "name": "time to job offer",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "F4",
@@ -19018,7 +19134,8 @@
         "Y": {
           "name": "traffic congestion contribution",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "F4",
@@ -19061,7 +19178,8 @@
         "Y": {
           "name": "toxicity rate",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "F4",
@@ -19104,7 +19222,8 @@
         "Y": {
           "name": "smoking cessation",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "F4",
@@ -19147,7 +19266,8 @@
         "Y": {
           "name": "semester GPA",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "F4",
@@ -19190,7 +19310,8 @@
         "Y": {
           "name": "employment status",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "F4",
@@ -19233,7 +19354,8 @@
         "Y": {
           "name": "promotion decision",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "F5",
@@ -19276,7 +19398,8 @@
         "Y": {
           "name": "crime rate",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "F5",
@@ -19319,7 +19442,8 @@
         "Y": {
           "name": "polarization on the platform",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "F5",
@@ -19362,7 +19486,8 @@
         "Y": {
           "name": "community trust after three years",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "F5",
@@ -19405,7 +19530,8 @@
         "Y": {
           "name": "a large protest occurs",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "F5",
@@ -19448,7 +19574,8 @@
         "Y": {
           "name": "power outage occurs",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "F5",
@@ -19491,7 +19618,8 @@
         "Y": {
           "name": "employment probability",
           "role": "Outcome"
-        }
+        },
+        "Z": []
       },
       "trap": {
         "type": "F4",
