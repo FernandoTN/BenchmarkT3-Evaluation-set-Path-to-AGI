@@ -1,0 +1,259 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "T3 Benchmark Case Schema - Assignment 2 V3.0",
+  "description": "Schema for Group J migrated dataset cases in the T3 Causal Reasoning Benchmark",
+  "version": "3.0",
+  "type": "object",
+  "required": [
+    "id",
+    "bucket",
+    "case_id",
+    "pearl_level",
+    "domain",
+    "subdomain",
+    "difficulty",
+    "is_ambiguous",
+    "scenario",
+    "claim",
+    "variables",
+    "trap",
+    "label",
+    "gold_rationale",
+    "initial_author",
+    "validator",
+    "final_score"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique case identifier in format T3-BucketLarge-{Group}-{level}.{number}",
+      "pattern": "^T3-BucketLarge-[A-Z]-[0-9]+\\.[0-9]+$"
+    },
+    "bucket": {
+      "type": "string",
+      "description": "Bucket identifier for the case group",
+      "enum": ["BucketLarge-J"]
+    },
+    "case_id": {
+      "type": "string",
+      "description": "Four-digit zero-padded case number",
+      "pattern": "^[0-9]{4}$"
+    },
+    "pearl_level": {
+      "type": "string",
+      "description": "Pearl's Ladder level: L1 (Association), L2 (Intervention), L3 (Counterfactual)",
+      "enum": ["L1", "L2", "L3"]
+    },
+    "domain": {
+      "type": "string",
+      "description": "Domain code (e.g., D1-D10)",
+      "pattern": "^D[0-9]+$"
+    },
+    "subdomain": {
+      "type": "string",
+      "description": "Specific subdomain within the domain"
+    },
+    "difficulty": {
+      "type": "string",
+      "description": "Case difficulty level",
+      "enum": ["Easy", "Medium", "Hard"]
+    },
+    "is_ambiguous": {
+      "type": "boolean",
+      "description": "Whether the case has intentional ambiguity"
+    },
+    "scenario": {
+      "type": "string",
+      "description": "Full scenario text describing the causal situation"
+    },
+    "claim": {
+      "type": "string",
+      "description": "The specific claim to be evaluated"
+    },
+    "variables": {
+      "type": "object",
+      "description": "Causal variables in the scenario",
+      "properties": {
+        "X": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "role": { "type": "string" }
+          },
+          "required": ["name", "role"]
+        },
+        "Y": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "role": { "type": "string" }
+          },
+          "required": ["name", "role"]
+        },
+        "Z": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Confounders, mediators, or other relevant variables"
+        }
+      },
+      "required": ["X", "Y"]
+    },
+    "trap": {
+      "type": "object",
+      "description": "Causal reasoning trap embedded in the case",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Trap type code (W-series for L1, T-series for L2, F-series for L3)"
+        },
+        "type_name": {
+          "type": "string",
+          "description": "Human-readable trap type name"
+        },
+        "subtype": {
+          "type": "string",
+          "description": "Specific subtype of the trap"
+        },
+        "subtype_name": {
+          "type": "string",
+          "description": "Human-readable subtype name"
+        }
+      },
+      "required": ["type", "type_name"]
+    },
+    "label": {
+      "type": "string",
+      "description": "Ground truth label for the case",
+      "oneOf": [
+        {
+          "enum": ["YES", "NO", "AMBIGUOUS"],
+          "description": "L1 labels: Can association support causal claim?"
+        },
+        {
+          "enum": ["YES", "NO"],
+          "description": "L2 labels: Is intervention effect identifiable?"
+        },
+        {
+          "enum": ["VALID", "INVALID", "CONDITIONAL"],
+          "description": "L3 labels: Is counterfactual valid?"
+        }
+      ]
+    },
+    "gold_rationale": {
+      "type": "string",
+      "description": "Expert rationale for the ground truth label"
+    },
+    "causal_structure": {
+      "type": "string",
+      "description": "Description of the underlying causal structure"
+    },
+    "key_insight": {
+      "type": "string",
+      "description": "Key insight for solving the case"
+    },
+    "wise_refusal": {
+      "type": "string",
+      "description": "Expected wise refusal response (L1/L3 cases)"
+    },
+    "hidden_timestamp": {
+      "type": "string",
+      "description": "Hidden temporal information if relevant"
+    },
+    "conditional_answers": {
+      "type": "object",
+      "description": "Conditional answer variants for L3 CONDITIONAL cases",
+      "properties": {
+        "answer_if_condition_1": { "type": "string" },
+        "answer_if_condition_2": { "type": "string" },
+        "answer_if_condition_3": { "type": "string" }
+      }
+    },
+    "initial_author": {
+      "type": "string",
+      "description": "Original case author"
+    },
+    "validator": {
+      "type": "string",
+      "description": "Person/system who validated the case"
+    },
+    "final_score": {
+      "type": "number",
+      "description": "Quality score (8.0-10.0 scale)",
+      "minimum": 0,
+      "maximum": 10
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "pearl_level": { "const": "L1" } }
+      },
+      "then": {
+        "properties": {
+          "trap": {
+            "properties": {
+              "type": {
+                "pattern": "^(W[0-9]+|S[0-9]+|A)$",
+                "description": "L1 cases must use W-series (Wise Refusal), S-series (Skepticism), or A (Ambiguous) traps"
+              }
+            }
+          },
+          "label": {
+            "enum": ["YES", "NO", "AMBIGUOUS"]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": { "pearl_level": { "const": "L2" } }
+      },
+      "then": {
+        "properties": {
+          "trap": {
+            "properties": {
+              "type": {
+                "pattern": "^T[0-9]+$",
+                "description": "L2 cases must use T-series (Treatment Effect) traps"
+              }
+            }
+          },
+          "label": {
+            "enum": ["YES", "NO"]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": { "pearl_level": { "const": "L3" } }
+      },
+      "then": {
+        "properties": {
+          "trap": {
+            "properties": {
+              "type": {
+                "pattern": "^(F[0-9]+|DomainExt)$",
+                "description": "L3 cases must use F-series (Fallacy) or DomainExt traps"
+              }
+            }
+          },
+          "label": {
+            "enum": ["VALID", "INVALID", "CONDITIONAL"]
+          }
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "group": "J",
+    "author": "Fernando Torres",
+    "migration_date": "2026-01-28",
+    "total_cases": 500,
+    "distribution": {
+      "L1": 50,
+      "L2": 300,
+      "L3": 150
+    }
+  }
+}

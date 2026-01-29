@@ -12,6 +12,50 @@
 
 # TODO Done
 
+## CS372 Assignment 2: Schema Migration for Updated Requirements (Completed: January 28, 2026)
+
+**Status:** ✅ IMPLEMENTED
+
+**Plan Reference:** [docs/plans/federated-herding-knuth.md](docs/plans/federated-herding-knuth.md)
+
+**Objective:** Migrate existing 1000 cases (500 GroupI + 500 GroupJ) to comply with the new schema specification in the updated Assignment 2 PDF (Appendix B).
+
+**Implementation Summary:**
+- Phase 1: Setup directories, backed up originals
+- Phase 2: Created migration script with all transformation functions
+- Phase 3: Executed parallel migrations using 6 agents (one per level per group)
+- Phase 4: Merged and validated all cases (100% pass rate)
+- Phase 5: Generated migration reports and schema files
+
+**Key Changes Applied:**
+- [x] Transform `variables.Z` from object `{name, role}` to array of strings
+- [x] Restructure flat `trap_type` fields into nested `trap` object
+- [x] Transform L1 labels: W→NO, S→YES, A→AMBIGUOUS
+- [x] Add new required fields: `id`, `bucket`, `is_ambiguous`, `gold_rationale`
+- [x] Output migrated files to `project/assignment2/updatedSubmissions/`
+
+**Critical Data Quality Fixes Applied:**
+- GroupJ L1: 23 trap type corrections (T1→W1, T7→W7, T8→W8)
+- GroupJ L3: 51 trap type corrections (T7→F4, T9→F4, T10→F5, T11→F5, T12→F5)
+- Total: 74 trap type corrections
+
+**Final Results:**
+- GroupI (AI & Tech): **500 cases** (100% valid)
+- GroupJ (Social Science): **500 cases** (100% valid)
+- Combined total: **1000 validated cases**
+
+**Deliverables:**
+- [x] `project/assignment2/updatedSubmissions/groupI_FernandoTorres/groupI_FernandoTorres_dataset.json` (500 cases)
+- [x] `project/assignment2/updatedSubmissions/groupI_FernandoTorres/groupI_FernandoTorres_schema.json`
+- [x] `project/assignment2/updatedSubmissions/groupI_FernandoTorres/groupI_FernandoTorres_score.json`
+- [x] `project/assignment2/updatedSubmissions/groupI_FernandoTorres/groupI_FernandoTorres_migration_report.md`
+- [x] `project/assignment2/updatedSubmissions/groupJ_FernandoTorres/groupJ_FernandoTorres_dataset.json` (500 cases)
+- [x] `project/assignment2/updatedSubmissions/groupJ_FernandoTorres/groupJ_FernandoTorres_schema.json`
+- [x] `project/assignment2/updatedSubmissions/groupJ_FernandoTorres/groupJ_FernandoTorres_score.json`
+- [x] `project/assignment2/updatedSubmissions/groupJ_FernandoTorres/groupJ_FernandoTorres_migration_report.md`
+
+---
+
 ## CS372 Assignment 2: T3 Benchmark Expansion (Completed: January 22, 2026)
 
 **Status:** ✅ IMPLEMENTED

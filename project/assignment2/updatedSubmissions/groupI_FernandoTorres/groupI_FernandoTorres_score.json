@@ -1,0 +1,3011 @@
+{
+  "metadata": {
+    "total_cases": 500,
+    "mean_score": 8.52,
+    "std_score": 0.36,
+    "min_score": 8.0,
+    "max_score": 9.5
+  },
+  "scores": [
+    {
+      "case_id": "T3-I-L1-0001",
+      "final_score": 8.7,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L1-0002",
+      "final_score": 8.44,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L1-0003",
+      "final_score": 8.76,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L1-0004",
+      "final_score": 9.11,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L1-0005",
+      "final_score": 8.41,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L1-0006",
+      "final_score": 8.41,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L1-0007",
+      "final_score": 9.13,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L1-0008",
+      "final_score": 8.81,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L1-0009",
+      "final_score": 8.31,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L1-0010",
+      "final_score": 8.72,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L1-0011",
+      "final_score": 8.31,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L1-0012",
+      "final_score": 8.31,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L1-0013",
+      "final_score": 8.6,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L1-0014",
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L1-0015",
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L1-0016",
+      "final_score": 8.28,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L1-0017",
+      "final_score": 8.09,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L1-0018",
+      "final_score": 8.63,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L1-0019",
+      "final_score": 8.14,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L1-0020",
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L1-0021",
+      "final_score": 9.09,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L1-0022",
+      "final_score": 8.41,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L1-0023",
+      "final_score": 8.53,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L1-0024",
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L1-0025",
+      "final_score": 8.28,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L1-0026",
+      "final_score": 8.54,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L1-0027",
+      "final_score": 8.04,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L1-0028",
+      "final_score": 8.65,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L1-0029",
+      "final_score": 8.26,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L1-0030",
+      "final_score": 8.38,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L1-0031",
+      "final_score": 8.26,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L1-0032",
+      "final_score": 9.24,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L1-0033",
+      "final_score": 8.49,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L1-0034",
+      "final_score": 8.08,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L1-0035",
+      "final_score": 8.83,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L1-0036",
+      "final_score": 8.01,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L1-0037",
+      "final_score": 8.58,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L1-0038",
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L1-0039",
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L1-0040",
+      "final_score": 8.58,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L1-0041",
+      "final_score": 8.8,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L1-0042",
+      "final_score": 8.57,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L1-0043",
+      "final_score": 8.45,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L1-0044",
+      "final_score": 8.38,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L1-0045",
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L1-0046",
+      "final_score": 8.21,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L1-0047",
+      "final_score": 8.32,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L1-0048",
+      "final_score": 8.92,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L1-0049",
+      "final_score": 8.64,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L1-0050",
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0051",
+      "final_score": 8.63,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0052",
+      "final_score": 8.35,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0053",
+      "final_score": 8.23,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0054",
+      "final_score": 8.74,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0055",
+      "final_score": 8.91,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0056",
+      "final_score": 8.87,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0057",
+      "final_score": 8.16,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0058",
+      "final_score": 8.38,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0059",
+      "final_score": 8.63,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0060",
+      "final_score": 8.89,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0061",
+      "final_score": 8.31,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0062",
+      "final_score": 8.43,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0063",
+      "final_score": 8.06,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0064",
+      "final_score": 8.02,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0065",
+      "final_score": 8.83,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0066",
+      "final_score": 9.04,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0067",
+      "final_score": 8.47,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0068",
+      "final_score": 8.9,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0069",
+      "final_score": 8.64,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0070",
+      "final_score": 8.24,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0071",
+      "final_score": 8.64,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0072",
+      "final_score": 9.12,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0073",
+      "final_score": 8.49,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0074",
+      "final_score": 9.13,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0075",
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0076",
+      "final_score": 8.83,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0077",
+      "final_score": 8.53,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0078",
+      "final_score": 8.38,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0079",
+      "final_score": 8.54,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0080",
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0081",
+      "final_score": 8.41,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0082",
+      "final_score": 8.64,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0083",
+      "final_score": 9.09,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0084",
+      "final_score": 8.29,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0085",
+      "final_score": 8.18,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0086",
+      "final_score": 8.3,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0087",
+      "final_score": 8.87,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0088",
+      "final_score": 8.63,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0089",
+      "final_score": 8.29,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0090",
+      "final_score": 8.71,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0091",
+      "final_score": 8.54,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0092",
+      "final_score": 8.89,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0093",
+      "final_score": 8.22,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0094",
+      "final_score": 8.37,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0095",
+      "final_score": 8.34,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0096",
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0097",
+      "final_score": 8.62,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0098",
+      "final_score": 8.6,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0099",
+      "final_score": 8.5,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0100",
+      "final_score": 8.41,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0101",
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0102",
+      "final_score": 8.33,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0103",
+      "final_score": 8.36,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0104",
+      "final_score": 8.18,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0105",
+      "final_score": 8.44,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0106",
+      "final_score": 8.66,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0107",
+      "final_score": 9.25,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0108",
+      "final_score": 8.57,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0109",
+      "final_score": 8.6,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0110",
+      "final_score": 8.47,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0111",
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0112",
+      "final_score": 8.49,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0113",
+      "final_score": 8.52,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0114",
+      "final_score": 9.49,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0115",
+      "final_score": 8.42,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0116",
+      "final_score": 8.62,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0117",
+      "final_score": 8.49,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0118",
+      "final_score": 8.03,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0119",
+      "final_score": 8.96,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0120",
+      "final_score": 8.8,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0121",
+      "final_score": 8.82,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0122",
+      "final_score": 8.14,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0123",
+      "final_score": 9.06,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0124",
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0125",
+      "final_score": 8.73,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0126",
+      "final_score": 9.38,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0127",
+      "final_score": 8.1,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0128",
+      "final_score": 8.27,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0129",
+      "final_score": 8.54,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0130",
+      "final_score": 8.3,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0131",
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0132",
+      "final_score": 8.53,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0133",
+      "final_score": 8.08,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0134",
+      "final_score": 8.69,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0135",
+      "final_score": 8.13,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0136",
+      "final_score": 9.12,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0137",
+      "final_score": 8.19,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0138",
+      "final_score": 8.37,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0139",
+      "final_score": 8.83,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0140",
+      "final_score": 8.01,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0141",
+      "final_score": 8.59,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0142",
+      "final_score": 9.02,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0143",
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0144",
+      "final_score": 8.57,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0145",
+      "final_score": 8.6,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0146",
+      "final_score": 8.81,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0147",
+      "final_score": 8.01,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0148",
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0149",
+      "final_score": 8.71,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0150",
+      "final_score": 8.62,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0151",
+      "final_score": 8.6,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0152",
+      "final_score": 8.64,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0153",
+      "final_score": 8.23,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0154",
+      "final_score": 8.59,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0155",
+      "final_score": 8.62,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0156",
+      "final_score": 8.21,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0157",
+      "final_score": 9.25,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0158",
+      "final_score": 8.69,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0159",
+      "final_score": 8.02,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0160",
+      "final_score": 8.76,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0161",
+      "final_score": 8.11,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0162",
+      "final_score": 8.81,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0163",
+      "final_score": 8.96,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0164",
+      "final_score": 8.17,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0165",
+      "final_score": 8.89,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0166",
+      "final_score": 8.67,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0167",
+      "final_score": 8.83,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0168",
+      "final_score": 9.26,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0169",
+      "final_score": 8.4,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0170",
+      "final_score": 8.2,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0171",
+      "final_score": 8.14,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0172",
+      "final_score": 8.17,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0173",
+      "final_score": 8.47,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0174",
+      "final_score": 8.64,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0175",
+      "final_score": 8.61,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0176",
+      "final_score": 8.83,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0177",
+      "final_score": 8.51,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0178",
+      "final_score": 9.08,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0179",
+      "final_score": 8.39,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0180",
+      "final_score": 9.5,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0181",
+      "final_score": 8.75,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0182",
+      "final_score": 8.16,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0183",
+      "final_score": 8.07,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0184",
+      "final_score": 8.69,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0185",
+      "final_score": 8.41,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0186",
+      "final_score": 8.79,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0187",
+      "final_score": 8.69,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0188",
+      "final_score": 8.47,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0189",
+      "final_score": 8.16,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0190",
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0191",
+      "final_score": 8.32,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0192",
+      "final_score": 8.84,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0193",
+      "final_score": 8.59,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0194",
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0195",
+      "final_score": 8.57,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0196",
+      "final_score": 8.65,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0197",
+      "final_score": 8.15,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0198",
+      "final_score": 8.56,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0199",
+      "final_score": 8.52,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0200",
+      "final_score": 8.04,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0201",
+      "final_score": 8.64,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0202",
+      "final_score": 8.72,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0203",
+      "final_score": 8.93,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0204",
+      "final_score": 8.92,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0205",
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0206",
+      "final_score": 8.12,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0207",
+      "final_score": 8.71,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0208",
+      "final_score": 8.71,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0209",
+      "final_score": 8.71,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0210",
+      "final_score": 9.5,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0211",
+      "final_score": 8.73,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0212",
+      "final_score": 8.95,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0213",
+      "final_score": 8.88,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0214",
+      "final_score": 8.76,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0215",
+      "final_score": 8.37,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0216",
+      "final_score": 8.8,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0217",
+      "final_score": 8.19,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0218",
+      "final_score": 8.41,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0219",
+      "final_score": 8.31,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0220",
+      "final_score": 8.53,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0221",
+      "final_score": 9.43,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0222",
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0223",
+      "final_score": 8.77,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0224",
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0225",
+      "final_score": 8.31,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0226",
+      "final_score": 8.94,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0227",
+      "final_score": 8.53,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0228",
+      "final_score": 8.07,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0229",
+      "final_score": 8.21,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0230",
+      "final_score": 8.77,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0231",
+      "final_score": 8.21,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0232",
+      "final_score": 8.59,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0233",
+      "final_score": 8.52,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0234",
+      "final_score": 8.24,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0235",
+      "final_score": 9.36,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0236",
+      "final_score": 8.75,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0237",
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0238",
+      "final_score": 8.57,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0239",
+      "final_score": 8.24,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0240",
+      "final_score": 8.84,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0241",
+      "final_score": 8.18,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0242",
+      "final_score": 8.45,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0243",
+      "final_score": 8.7,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0244",
+      "final_score": 8.85,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0245",
+      "final_score": 8.02,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0246",
+      "final_score": 8.37,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0247",
+      "final_score": 8.31,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0248",
+      "final_score": 8.24,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0249",
+      "final_score": 9.21,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0250",
+      "final_score": 8.66,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0251",
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0252",
+      "final_score": 8.87,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0253",
+      "final_score": 9.35,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0254",
+      "final_score": 8.91,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0255",
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0256",
+      "final_score": 8.31,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0257",
+      "final_score": 9.01,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0258",
+      "final_score": 8.22,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0259",
+      "final_score": 8.68,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0260",
+      "final_score": 8.81,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0261",
+      "final_score": 8.13,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0262",
+      "final_score": 8.48,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0263",
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0264",
+      "final_score": 8.09,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0265",
+      "final_score": 8.4,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0266",
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0267",
+      "final_score": 9.15,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0268",
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0269",
+      "final_score": 8.32,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0270",
+      "final_score": 8.55,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0271",
+      "final_score": 9.08,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0272",
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0273",
+      "final_score": 8.97,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0274",
+      "final_score": 8.5,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0275",
+      "final_score": 8.11,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0276",
+      "final_score": 8.68,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0277",
+      "final_score": 8.58,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0278",
+      "final_score": 8.26,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0279",
+      "final_score": 8.53,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0280",
+      "final_score": 8.35,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0281",
+      "final_score": 8.55,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0282",
+      "final_score": 8.76,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0283",
+      "final_score": 9.13,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0284",
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0285",
+      "final_score": 9.35,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0286",
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0287",
+      "final_score": 8.44,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0288",
+      "final_score": 8.74,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0289",
+      "final_score": 8.61,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0290",
+      "final_score": 8.25,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0291",
+      "final_score": 8.42,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0292",
+      "final_score": 8.3,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0293",
+      "final_score": 8.26,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0294",
+      "final_score": 8.84,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0295",
+      "final_score": 8.64,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0296",
+      "final_score": 8.22,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0297",
+      "final_score": 8.86,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0298",
+      "final_score": 8.62,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0299",
+      "final_score": 8.83,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0300",
+      "final_score": 8.75,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0301",
+      "final_score": 8.17,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0302",
+      "final_score": 8.28,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0303",
+      "final_score": 8.8,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0304",
+      "final_score": 8.74,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0305",
+      "final_score": 8.49,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0306",
+      "final_score": 8.55,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0307",
+      "final_score": 9.01,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0308",
+      "final_score": 8.26,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0309",
+      "final_score": 8.72,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0310",
+      "final_score": 8.42,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0311",
+      "final_score": 8.41,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0312",
+      "final_score": 8.94,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0313",
+      "final_score": 8.83,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0314",
+      "final_score": 8.83,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0315",
+      "final_score": 9.02,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0316",
+      "final_score": 8.51,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0317",
+      "final_score": 8.77,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0318",
+      "final_score": 8.38,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0319",
+      "final_score": 8.63,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0320",
+      "final_score": 8.45,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0321",
+      "final_score": 8.54,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0322",
+      "final_score": 8.74,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0323",
+      "final_score": 8.17,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0324",
+      "final_score": 9.34,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0325",
+      "final_score": 8.1,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0326",
+      "final_score": 8.01,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0327",
+      "final_score": 8.96,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0328",
+      "final_score": 8.82,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0329",
+      "final_score": 8.75,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0330",
+      "final_score": 8.75,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0331",
+      "final_score": 8.5,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0332",
+      "final_score": 8.14,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0333",
+      "final_score": 8.53,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0334",
+      "final_score": 8.23,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0335",
+      "final_score": 8.89,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0336",
+      "final_score": 8.44,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0337",
+      "final_score": 8.17,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0338",
+      "final_score": 8.37,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0339",
+      "final_score": 8.67,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0340",
+      "final_score": 8.27,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0341",
+      "final_score": 8.17,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0342",
+      "final_score": 8.6,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0343",
+      "final_score": 8.6,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0344",
+      "final_score": 8.3,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0345",
+      "final_score": 8.31,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0346",
+      "final_score": 8.59,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0347",
+      "final_score": 8.0,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0348",
+      "final_score": 8.0,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0349",
+      "final_score": 8.21,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L2-0350",
+      "final_score": 8.41,
+      "validator": "Claude Code Validator",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0351",
+      "final_score": 8.62,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0352",
+      "final_score": 9.09,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0353",
+      "final_score": 8.84,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0354",
+      "final_score": 8.44,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0355",
+      "final_score": 8.49,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0356",
+      "final_score": 8.1,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0357",
+      "final_score": 8.49,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0358",
+      "final_score": 8.38,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0359",
+      "final_score": 8.63,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0360",
+      "final_score": 8.17,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0361",
+      "final_score": 8.71,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0362",
+      "final_score": 9.11,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0363",
+      "final_score": 8.46,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0364",
+      "final_score": 8.66,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0365",
+      "final_score": 8.78,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0366",
+      "final_score": 8.34,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0367",
+      "final_score": 8.59,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0368",
+      "final_score": 8.51,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0369",
+      "final_score": 8.54,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0370",
+      "final_score": 8.19,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0371",
+      "final_score": 8.51,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0372",
+      "final_score": 8.7,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0373",
+      "final_score": 9.08,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0374",
+      "final_score": 8.88,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0375",
+      "final_score": 9.36,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0376",
+      "final_score": 8.19,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0377",
+      "final_score": 8.85,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0378",
+      "final_score": 8.57,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0379",
+      "final_score": 9.38,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0380",
+      "final_score": 8.18,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0381",
+      "final_score": 8.16,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0382",
+      "final_score": 8.26,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0383",
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0384",
+      "final_score": 8.29,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0385",
+      "final_score": 8.2,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0386",
+      "final_score": 8.56,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0387",
+      "final_score": 8.64,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0388",
+      "final_score": 9.25,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0389",
+      "final_score": 8.88,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0390",
+      "final_score": 8.27,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0391",
+      "final_score": 8.14,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0392",
+      "final_score": 8.7,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0393",
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0394",
+      "final_score": 9.23,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0395",
+      "final_score": 8.97,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0396",
+      "final_score": 8.31,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0397",
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0398",
+      "final_score": 9.04,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0399",
+      "final_score": 8.45,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0400",
+      "final_score": 9.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0401",
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0402",
+      "final_score": 8.26,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0403",
+      "final_score": 8.5,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0404",
+      "final_score": 8.52,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0405",
+      "final_score": 8.32,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0406",
+      "final_score": 8.75,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0407",
+      "final_score": 8.07,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0408",
+      "final_score": 8.44,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0409",
+      "final_score": 8.55,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0410",
+      "final_score": 8.71,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0411",
+      "final_score": 8.78,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0412",
+      "final_score": 8.05,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0413",
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0414",
+      "final_score": 9.01,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0415",
+      "final_score": 8.63,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0416",
+      "final_score": 8.2,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0417",
+      "final_score": 9.12,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0418",
+      "final_score": 8.55,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0419",
+      "final_score": 8.97,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0420",
+      "final_score": 8.53,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0421",
+      "final_score": 9.32,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0422",
+      "final_score": 9.2,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0423",
+      "final_score": 8.4,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0424",
+      "final_score": 8.89,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0425",
+      "final_score": 8.76,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0426",
+      "final_score": 9.05,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0427",
+      "final_score": 8.11,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0428",
+      "final_score": 8.77,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0429",
+      "final_score": 8.92,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0430",
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0431",
+      "final_score": 8.03,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0432",
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0433",
+      "final_score": 8.39,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0434",
+      "final_score": 8.79,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0435",
+      "final_score": 9.1,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0436",
+      "final_score": 8.53,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0437",
+      "final_score": 9.15,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0438",
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0439",
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0440",
+      "final_score": 8.48,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0441",
+      "final_score": 8.65,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0442",
+      "final_score": 8.49,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0443",
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0444",
+      "final_score": 8.46,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0445",
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0446",
+      "final_score": 8.77,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0447",
+      "final_score": 8.65,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0448",
+      "final_score": 8.12,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0449",
+      "final_score": 8.29,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0450",
+      "final_score": 8.08,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0451",
+      "final_score": 8.47,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0452",
+      "final_score": 8.88,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0453",
+      "final_score": 8.11,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0454",
+      "final_score": 8.7,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0455",
+      "final_score": 8.29,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0456",
+      "final_score": 8.18,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0457",
+      "final_score": 8.46,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0458",
+      "final_score": 8.09,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0459",
+      "final_score": 8.28,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0460",
+      "final_score": 8.02,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0461",
+      "final_score": 9.29,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0462",
+      "final_score": 8.51,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0463",
+      "final_score": 8.22,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0464",
+      "final_score": 8.59,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0465",
+      "final_score": 8.46,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0466",
+      "final_score": 8.41,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0467",
+      "final_score": 8.75,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0468",
+      "final_score": 8.8,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0469",
+      "final_score": 8.29,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0470",
+      "final_score": 8.27,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0471",
+      "final_score": 8.39,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0472",
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0473",
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0474",
+      "final_score": 9.05,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0475",
+      "final_score": 9.16,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0476",
+      "final_score": 8.4,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0477",
+      "final_score": 8.73,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0478",
+      "final_score": 8.62,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0479",
+      "final_score": 9.5,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0480",
+      "final_score": 8.95,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0481",
+      "final_score": 8.45,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0482",
+      "final_score": 8.12,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0483",
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0484",
+      "final_score": 8.58,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0485",
+      "final_score": 8.2,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0486",
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0487",
+      "final_score": 8.24,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0488",
+      "final_score": 8.07,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0489",
+      "final_score": 9.17,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0490",
+      "final_score": 8.85,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0491",
+      "final_score": 8.5,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0492",
+      "final_score": 9.09,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0493",
+      "final_score": 8.53,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0494",
+      "final_score": 8.16,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0495",
+      "final_score": 9.11,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0496",
+      "final_score": 8.72,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0497",
+      "final_score": 8.09,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0498",
+      "final_score": 8.42,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0499",
+      "final_score": 8.15,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    },
+    {
+      "case_id": "T3-I-L3-0500",
+      "final_score": 8.0,
+      "validator": "Fernando Torres",
+      "validation_timestamp": "2026-01-22T18:54:00Z"
+    }
+  ]
+}

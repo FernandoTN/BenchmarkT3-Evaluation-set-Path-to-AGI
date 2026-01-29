@@ -1,0 +1,2206 @@
+[
+  {
+    "id": "T3-BucketLarge-J-1.1",
+    "bucket": "BucketLarge-J",
+    "case_id": "0001",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Digital Media",
+    "difficulty": "Easy",
+    "is_ambiguous": false,
+    "scenario": "An organization reports a very positive statistic for Average star rating based only on observations from a subset of people.\nThe subset is formed by Who leaves reviews that is voluntary or outcome-dependent.\nInternal notes suggest people with negative experiences are less likely to be observed in the dataset.",
+    "claim": "An organization reports a very positive statistic for Average star rating based only on observations from a subset of people",
+    "variables": {
+      "X": {
+        "name": "Who leaves reviews",
+        "role": "Treatment/Factor"
+      },
+      "Y": {
+        "name": "Average star rating",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Underlying true outcome (positive/negative)"
+      ]
+    },
+    "trap": {
+      "type": "W1",
+      "type_name": "Selection Bias",
+      "subtype": "Sampling-on-the-Outcome",
+      "subtype_name": "Sampling Bias"
+    },
+    "label": "YES",
+    "causal_structure": "Z affects whether an observation is recorded (X), and Y is computed only among observed cases.",
+    "key_insight": "Observed outcomes reflect who is observed, not the full population.",
+    "gold_rationale": "I don’t have enough information to make a definitive causal claim from the summary statistics alone. We need to know how units enter the treated/observed group and what pre-existing differences drive selection (especially Underlying true outcome (positive/negative)); otherwise Who leaves reviews–Average star rating differences may reflect selection rather than effect.",
+    "wise_refusal": "I don’t have enough information to make a definitive causal claim from the summary statistics alone. We need to know how units enter the treated/observed group and what pre-existing differences drive selection (especially Underlying true outcome (positive/negative)); otherwise Who leaves reviews–Average star rating differences may reflect selection rather than effect.",
+    "hidden_timestamp": "At what point were units selected into the observed sample—before or after Average star rating occurred—and is selection related to Underlying true outcome (positive/negative) or Average star rating?",
+    "conditional_answers": {
+      "A": "Answer if Who leaves reviews is randomly assigned: A difference in Average star rating across Who leaves reviews groups can be interpreted causally.",
+      "B": "Answer if participation/exposure is voluntary or selected (e.g., Underlying true outcome (positive/negative)): The Who leaves reviews vs not-Who leaves reviews difference in Average star rating is biased by who ends up observed/treated.",
+      "C": "Answer if you can measure the selection drivers (e.g., Underlying true outcome (positive/negative)) and adjust (matching/weighting/IV): The conclusion becomes CONDITIONAL on those assumptions and model quality."
+    },
+    "initial_author": "Sreya Vangara",
+    "validator": "Fernando Torres",
+    "final_score": 8.87
+  },
+  {
+    "id": "T3-BucketLarge-J-1.2",
+    "bucket": "BucketLarge-J",
+    "case_id": "0002",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Psychology",
+    "difficulty": "Easy",
+    "is_ambiguous": false,
+    "scenario": "An organization reports a very positive statistic for Reported improvement based only on observations from a subset of people.\nThe subset is formed by Who shares outcomes that is voluntary or outcome-dependent.\nInternal notes suggest people with negative experiences are less likely to be observed in the dataset.",
+    "claim": "An organization reports a very positive statistic for Reported improvement based only on observations from a subset of people",
+    "variables": {
+      "X": {
+        "name": "Who shares outcomes",
+        "role": "Treatment/Factor"
+      },
+      "Y": {
+        "name": "Reported improvement",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Underlying true outcome (positive/negative)"
+      ]
+    },
+    "trap": {
+      "type": "W1",
+      "type_name": "Selection Bias",
+      "subtype": "Sampling-on-the-Outcome",
+      "subtype_name": "Sampling Bias"
+    },
+    "label": "YES",
+    "causal_structure": "Z affects whether an observation is recorded (X), and Y is computed only among observed cases.",
+    "key_insight": "Observed outcomes reflect who is observed, not the full population.",
+    "gold_rationale": "I don’t have enough information to make a definitive causal claim from the summary statistics alone. We need to know how units enter the treated/observed group and what pre-existing differences drive selection (especially Underlying true outcome (positive/negative)); otherwise Who shares outcomes–Reported improvement differences may reflect selection rather than effect.",
+    "wise_refusal": "I don’t have enough information to make a definitive causal claim from the summary statistics alone. We need to know how units enter the treated/observed group and what pre-existing differences drive selection (especially Underlying true outcome (positive/negative)); otherwise Who shares outcomes–Reported improvement differences may reflect selection rather than effect.",
+    "hidden_timestamp": "At what point were units selected into the observed sample—before or after Reported improvement occurred—and is selection related to Underlying true outcome (positive/negative) or Reported improvement?",
+    "conditional_answers": {
+      "A": "Answer if Who shares outcomes is randomly assigned: A difference in Reported improvement across Who shares outcomes groups can be interpreted causally.",
+      "B": "Answer if participation/exposure is voluntary or selected (e.g., Underlying true outcome (positive/negative)): The Who shares outcomes vs not-Who shares outcomes difference in Reported improvement is biased by who ends up observed/treated.",
+      "C": "Answer if you can measure the selection drivers (e.g., Underlying true outcome (positive/negative)) and adjust (matching/weighting/IV): The conclusion becomes CONDITIONAL on those assumptions and model quality."
+    },
+    "initial_author": "Sreya Vangara",
+    "validator": "Fernando Torres",
+    "final_score": 9.26
+  },
+  {
+    "id": "T3-BucketLarge-J-1.3",
+    "bucket": "BucketLarge-J",
+    "case_id": "0003",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Education Sociology",
+    "difficulty": "Medium",
+    "is_ambiguous": false,
+    "scenario": "A report finds that regions/organizations with higher County average broadband access also have higher Student grades on average.\nA commentator concludes that any individual inside a region with higher County average broadband access will have higher Student grades.\nHowever, individual-level data within regions shows large variation, and the within-region relationship is weak or opposite once relevant individual factors are considered.",
+    "claim": "any individual inside a region with higher County average broadband access will have higher Student grades",
+    "variables": {
+      "X": {
+        "name": "County average broadband access (group-level)",
+        "role": "Treatment/Factor"
+      },
+      "Y": {
+        "name": "Student grades (individual-level)",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Individual-level characteristics"
+      ]
+    },
+    "trap": {
+      "type": "W7",
+      "type_name": "Confounding",
+      "subtype": "Socioeconomic",
+      "subtype_name": "Socioeconomic"
+    },
+    "label": "YES",
+    "causal_structure": "Group-level aggregates summarize heterogeneous individuals; group-level correlation does not imply the same relation at the individual level.",
+    "key_insight": "You cannot infer individual behavior reliably from group-level correlations.",
+    "gold_rationale": "I don’t have enough information to make a definitive causal claim from the summary statistics alone. The evidence is at an aggregate level, but the conclusion is about individuals. I would need individual-level data (or a defensible model of sorting into groups) before inferring how County average broadband access (group-level) relates to Student grades (individual-level) for a person.",
+    "wise_refusal": "I don’t have enough information to make a definitive causal claim from the summary statistics alone. The evidence is at an aggregate level, but the conclusion is about individuals. I would need individual-level data (or a defensible model of sorting into groups) before inferring how County average broadband access (group-level) relates to Student grades (individual-level) for a person.",
+    "hidden_timestamp": "Is County average broadband access (group-level) measured at an aggregate level while Student grades (individual-level) is an individual claim, and when/where does aggregation into Individual-level characteristics happen relative to measuring Student grades (individual-level)?",
+    "conditional_answers": {
+      "A": "Answer if you only have aggregate correlations: You cannot infer individual-level behavior; the relationship may be confounded by group-level factors.",
+      "B": "Answer if you have individual-level data within groups: Estimate the within-group association/effect and check whether it matches the aggregate pattern.",
+      "C": "Answer if there is sorting/selection into groups: Treat conclusions as CONDITIONAL unless you model the sorting mechanism or use a design that breaks it."
+    },
+    "initial_author": "Sreya Vangara",
+    "validator": "Fernando Torres",
+    "final_score": 8.0
+  },
+  {
+    "id": "T3-BucketLarge-J-1.4",
+    "bucket": "BucketLarge-J",
+    "case_id": "0004",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Criminology",
+    "difficulty": "Medium",
+    "is_ambiguous": false,
+    "scenario": "A report finds that regions/organizations with higher State unemployment rate also have higher Individual criminal behavior on average.\nA commentator concludes that any individual inside a region with higher State unemployment rate will have higher Individual criminal behavior.\nHowever, individual-level data within regions shows large variation, and the within-region relationship is weak or opposite once relevant individual factors are considered.",
+    "claim": "any individual inside a region with higher State unemployment rate will have higher Individual criminal behavior",
+    "variables": {
+      "X": {
+        "name": "State unemployment rate (group-level)",
+        "role": "Treatment/Factor"
+      },
+      "Y": {
+        "name": "Individual criminal behavior (individual-level)",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Individual-level characteristics"
+      ]
+    },
+    "trap": {
+      "type": "W7",
+      "type_name": "Confounding",
+      "subtype": "Socioeconomic",
+      "subtype_name": "Socioeconomic"
+    },
+    "label": "YES",
+    "causal_structure": "Group-level aggregates summarize heterogeneous individuals; group-level correlation does not imply the same relation at the individual level.",
+    "key_insight": "You cannot infer individual behavior reliably from group-level correlations.",
+    "gold_rationale": "I don’t have enough information to make a definitive causal claim from the summary statistics alone. The evidence is at an aggregate level, but the conclusion is about individuals. I would need individual-level data (or a defensible model of sorting into groups) before inferring how State unemployment rate (group-level) relates to Individual criminal behavior (individual-level) for a person.",
+    "wise_refusal": "I don’t have enough information to make a definitive causal claim from the summary statistics alone. The evidence is at an aggregate level, but the conclusion is about individuals. I would need individual-level data (or a defensible model of sorting into groups) before inferring how State unemployment rate (group-level) relates to Individual criminal behavior (individual-level) for a person.",
+    "hidden_timestamp": "Is State unemployment rate (group-level) measured at an aggregate level while Individual criminal behavior (individual-level) is an individual claim, and when/where does aggregation into Individual-level characteristics happen relative to measuring Individual criminal behavior (individual-level)?",
+    "conditional_answers": {
+      "A": "Answer if you only have aggregate correlations: You cannot infer individual-level behavior; the relationship may be confounded by group-level factors.",
+      "B": "Answer if you have individual-level data within groups: Estimate the within-group association/effect and check whether it matches the aggregate pattern.",
+      "C": "Answer if there is sorting/selection into groups: Treat conclusions as CONDITIONAL unless you model the sorting mechanism or use a design that breaks it."
+    },
+    "initial_author": "Sreya Vangara",
+    "validator": "Fernando Torres",
+    "final_score": 8.73
+  },
+  {
+    "id": "T3-BucketLarge-J-1.5",
+    "bucket": "BucketLarge-J",
+    "case_id": "0005",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Organizational Behavior",
+    "difficulty": "Medium",
+    "is_ambiguous": false,
+    "scenario": "A report finds that regions/organizations with higher Company diversity percentage also have higher Individual satisfaction on average.\nA commentator concludes that any individual inside a region with higher Company diversity percentage will have higher Individual satisfaction.\nHowever, individual-level data within regions shows large variation, and the within-region relationship is weak or opposite once relevant individual factors are considered.",
+    "claim": "any individual inside a region with higher Company diversity percentage will have higher Individual satisfaction",
+    "variables": {
+      "X": {
+        "name": "Company diversity percentage (group-level)",
+        "role": "Treatment/Factor"
+      },
+      "Y": {
+        "name": "Individual satisfaction (individual-level)",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Individual-level characteristics"
+      ]
+    },
+    "trap": {
+      "type": "W7",
+      "type_name": "Confounding",
+      "subtype": "Socioeconomic",
+      "subtype_name": "Socioeconomic"
+    },
+    "label": "YES",
+    "causal_structure": "Group-level aggregates summarize heterogeneous individuals; group-level correlation does not imply the same relation at the individual level.",
+    "key_insight": "You cannot infer individual behavior reliably from group-level correlations.",
+    "gold_rationale": "I don’t have enough information to make a definitive causal claim from the summary statistics alone. The evidence is at an aggregate level, but the conclusion is about individuals. I would need individual-level data (or a defensible model of sorting into groups) before inferring how Company diversity percentage (group-level) relates to Individual satisfaction (individual-level) for a person.",
+    "wise_refusal": "I don’t have enough information to make a definitive causal claim from the summary statistics alone. The evidence is at an aggregate level, but the conclusion is about individuals. I would need individual-level data (or a defensible model of sorting into groups) before inferring how Company diversity percentage (group-level) relates to Individual satisfaction (individual-level) for a person.",
+    "hidden_timestamp": "Is Company diversity percentage (group-level) measured at an aggregate level while Individual satisfaction (individual-level) is an individual claim, and when/where does aggregation into Individual-level characteristics happen relative to measuring Individual satisfaction (individual-level)?",
+    "conditional_answers": {
+      "A": "Answer if you only have aggregate correlations: You cannot infer individual-level behavior; the relationship may be confounded by group-level factors.",
+      "B": "Answer if you have individual-level data within groups: Estimate the within-group association/effect and check whether it matches the aggregate pattern.",
+      "C": "Answer if there is sorting/selection into groups: Treat conclusions as CONDITIONAL unless you model the sorting mechanism or use a design that breaks it."
+    },
+    "initial_author": "Sreya Vangara",
+    "validator": "Fernando Torres",
+    "final_score": 8.24
+  },
+  {
+    "id": "T3-BucketLarge-J-1.6",
+    "bucket": "BucketLarge-J",
+    "case_id": "0006",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Education Policy",
+    "difficulty": "Medium",
+    "is_ambiguous": false,
+    "scenario": "A nonprofit reports that applicants from Prep Program A are accepted into selective colleges at a higher overall rate than applicants from Prep Program B. Donors conclude Program A is more effective and recommend expanding it.\n\nA counselor points out that when acceptance rates are broken down by family income bracket (low-income vs higher-income), Program B has a higher acceptance rate in both brackets. Program A has more higher-income participants overall, while Program B serves mostly low-income participants.",
+    "claim": "applicants from Prep Program A are accepted into selective colleges at a higher overall rate than applicants from Prep Program B",
+    "variables": {
+      "X": {
+        "name": "Prep program (A vs. B)",
+        "role": "Treatment/Factor"
+      },
+      "Y": {
+        "name": "College acceptance rate",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Family income bracket (low vs. higher)"
+      ]
+    },
+    "trap": {
+      "type": "W8",
+      "type_name": "Simpson's Paradox",
+      "subtype": "Aggregation Bias",
+      "subtype_name": "Aggregation Bias"
+    },
+    "label": "YES",
+    "causal_structure": "Z affects Y and differs in distribution across X; aggregating across Z reverses the subgroup acceptance-rate comparison.",
+    "key_insight": "Aggregate success rates can reverse within-group trends when group composition differs.",
+    "gold_rationale": "I can’t determine which program is causally better without baseline comparability (prior grades, support) and a credible assignment mechanism.",
+    "wise_refusal": "I can’t determine which program is causally better without baseline comparability (prior grades, support) and a credible assignment mechanism.",
+    "hidden_timestamp": "Was family income bracket known before students enrolled in Prep Program A vs. B, making it a true pre-enrollment stratifier?",
+    "conditional_answers": {
+      "A": "Answer if you only use overall acceptance rates: You may wrongly prefer Program A because it serves more higher-income students.",
+      "B": "Answer if you stratify or standardize by income bracket: Compare within strata (or compute standardized rates) to evaluate program performance.",
+      "C": "Answer if assignment to programs can be randomized within income strata: Then within-stratum differences can support a causal claim about program effectiveness."
+    },
+    "initial_author": "Sreya Vangara",
+    "validator": "Fernando Torres",
+    "final_score": 8.31
+  },
+  {
+    "id": "T3-BucketLarge-J-1.7",
+    "bucket": "BucketLarge-J",
+    "case_id": "0007",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Finance",
+    "difficulty": "Medium",
+    "is_ambiguous": false,
+    "scenario": "A city report states that Bank X has a lower overall loan default rate than Bank Y, and officials argue Bank X has better underwriting practices.\n\nWhen analysts stratify borrowers by credit-risk tier (prime vs subprime), Bank Y has a lower default rate in both tiers. The reversal occurs because Bank X approves a larger share of prime borrowers, while Bank Y serves more subprime borrowers overall.",
+    "claim": "A city report states that Bank X has a lower overall loan default rate than Bank Y, and officials argue Bank X has better underwriting practices",
+    "variables": {
+      "X": {
+        "name": "Bank (X vs. Y)",
+        "role": "Treatment/Factor"
+      },
+      "Y": {
+        "name": "Loan default rate",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Credit-risk tier (prime vs. subprime)"
+      ]
+    },
+    "trap": {
+      "type": "W8",
+      "type_name": "Simpson's Paradox",
+      "subtype": "Imbalanced Group Composition",
+      "subtype_name": "Imbalanced Group Composition"
+    },
+    "label": "YES",
+    "causal_structure": "Z strongly affects Y and the distribution of Z differs by X; aggregate defaults reverse the within-tier comparison.",
+    "key_insight": "Comparing institutions using aggregate outcomes is misleading when they serve different mixes of clients.",
+    "gold_rationale": "I can’t judge underwriting quality without consistent risk-tier measurement and a standardized comparison across the same risk distribution.",
+    "wise_refusal": "I can’t judge underwriting quality without consistent risk-tier measurement and a standardized comparison across the same risk distribution.",
+    "hidden_timestamp": "Is credit-risk tier assessed before borrowers choose a bank, making Z pre-treatment with respect to X?",
+    "conditional_answers": {
+      "A": "Answer if you compare only overall defaults: You may incorrectly attribute Bank X’s lower defaults to better underwriting.",
+      "B": "Answer if you compare within risk tiers or compute standardized defaults: Prefer the bank with lower within-tier defaults (and report a standardized overall rate).",
+      "C": "Answer if approval decisions themselves change the portfolio mix: Separate “mix effects” from “within-tier performance.”"
+    },
+    "initial_author": "Sreya Vangara",
+    "validator": "Fernando Torres",
+    "final_score": 8.26
+  },
+  {
+    "id": "T3-BucketLarge-J-1.8",
+    "bucket": "BucketLarge-J",
+    "case_id": "0008",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Healthcare Administration",
+    "difficulty": "Medium",
+    "is_ambiguous": false,
+    "scenario": "A hospital network claims Clinic A provides better follow-up care because its overall 30-day readmission rate is lower than Clinic B’s.\n\nWhen readmissions are broken down by patient age group (under 65 vs 65+), Clinic B has lower readmission rates in both groups. Clinic A treats a much larger share of younger patients, while Clinic B treats more older patients overall.",
+    "claim": "A hospital network claims Clinic A provides better follow-up care because its overall 30-day readmission rate is lower than Clinic B’s",
+    "variables": {
+      "X": {
+        "name": "Clinic (A vs. B)",
+        "role": "Treatment/Factor"
+      },
+      "Y": {
+        "name": "30-day readmission rate",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Age group (under 65 vs. 65+)"
+      ]
+    },
+    "trap": {
+      "type": "W8",
+      "type_name": "Simpson's Paradox",
+      "subtype": "Aggregation Bias",
+      "subtype_name": "Aggregation Bias"
+    },
+    "label": "YES",
+    "causal_structure": "Z affects Y and differs by clinic; aggregating across Z reverses the subgroup comparison.",
+    "key_insight": "Overall metrics can hide within-group differences driven by demographic mix.",
+    "gold_rationale": "I can’t attribute readmission differences to care quality without case-mix adjustment and information on referral/triage processes.",
+    "wise_refusal": "I can’t attribute readmission differences to care quality without case-mix adjustment and information on referral/triage processes.",
+    "hidden_timestamp": "Was age determined before clinic selection (a true pre-treatment stratifier), or does clinic choice affect which ages are seen?",
+    "conditional_answers": {
+      "A": "Answer if you only look at overall readmissions: You might reward Clinic A incorrectly.",
+      "B": "Answer if you age-standardize or compare within age strata: The within-stratum comparison is more informative for care quality.",
+      "C": "Answer if clinics differ in referral patterns: Adjust for case mix and referral selection before drawing conclusions."
+    },
+    "initial_author": "Sreya Vangara",
+    "validator": "Fernando Torres",
+    "final_score": 8.15
+  },
+  {
+    "id": "T3-BucketLarge-J-1.9",
+    "bucket": "BucketLarge-J",
+    "case_id": "0009",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Organizational Behavior",
+    "difficulty": "Easy",
+    "is_ambiguous": false,
+    "scenario": "A company emails an anonymous satisfaction survey and reports that “85% of employees are satisfied.” Leadership concludes morale is high.\n\nOnly 30% of employees responded. Dissatisfied employees may be less likely to respond because they think nothing will change or fear being identified.",
+    "claim": "“85% of employees are satisfied",
+    "variables": {
+      "X": {
+        "name": "Survey response (respond vs. not)",
+        "role": "Treatment/Factor"
+      },
+      "Y": {
+        "name": "Reported satisfaction",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Dissatisfaction / fear of retaliation"
+      ]
+    },
+    "trap": {
+      "type": "W1",
+      "type_name": "Selection Bias",
+      "subtype": "Sampling-on-the-Outcome",
+      "subtype_name": "Sampling Bias"
+    },
+    "label": "YES",
+    "causal_structure": "Z affects response and satisfaction; conditioning on responders yields biased satisfaction estimate.",
+    "key_insight": "Survey results can be unrepresentative when response is selective.",
+    "gold_rationale": "I can’t infer company-wide morale without response-rate patterns and information about non-respondents.",
+    "wise_refusal": "I can’t infer company-wide morale without response-rate patterns and information about non-respondents.",
+    "hidden_timestamp": "Did dissatisfaction exist before employees chose whether to respond, or did the survey context change willingness to respond?",
+    "conditional_answers": {
+      "A": "Answer if response is random: Then the respondent rate estimates overall morale.",
+      "B": "Answer if dissatisfied employees avoid responding: Then results are biased upward; improve sampling/response incentives.",
+      "C": "Answer if response differs by team or manager: Use stratified follow-ups to assess representation."
+    },
+    "initial_author": "Sreya Vangara",
+    "validator": "Fernando Torres",
+    "final_score": 8.52
+  },
+  {
+    "id": "T3-BucketLarge-J-1.10",
+    "bucket": "BucketLarge-J",
+    "case_id": "0010",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Media Economics",
+    "difficulty": "Medium",
+    "is_ambiguous": false,
+    "scenario": "A blog analyzes “what makes a film profitable” by looking only at movies that won major awards. The author finds that award-winning films have high budgets and concludes that increasing budgets causes higher profits.\n\nThe dataset excludes many high-budget films that were not nominated or that failed commercially. Award status is a filter for inclusion.",
+    "claim": "increasing budgets causes higher profits",
+    "variables": {
+      "X": {
+        "name": "Production budget",
+        "role": "Treatment/Factor"
+      },
+      "Y": {
+        "name": "Profit",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Award nomination/win status"
+      ]
+    },
+    "trap": {
+      "type": "W1",
+      "type_name": "Selection Bias",
+      "subtype": "Sampling-on-the-Outcome",
+      "subtype_name": "Sampling Bias"
+    },
+    "label": "YES",
+    "causal_structure": "Conditioning on Z (award inclusion) selects a non-representative subset; X–Y relationship differs from full population.",
+    "key_insight": "Analyzing only visible successes distorts relationships between inputs and outcomes.",
+    "gold_rationale": "I can’t draw a causal conclusion without data on non-award films and a clear sampling frame that includes both successes and failures.",
+    "wise_refusal": "I can’t draw a causal conclusion without data on non-award films and a clear sampling frame that includes both successes and failures.",
+    "hidden_timestamp": "Is award status determined before profits are realized, or is the dataset effectively filtered after outcomes are known?",
+    "conditional_answers": {
+      "A": "Answer if awards are unrelated to profit (unlikely): Restriction would be less problematic.",
+      "B": "Answer if awards filter on quality/visibility correlated with profit: Include all films to avoid selection bias.",
+      "C": "Answer if you can model nomination probability: Any correction remains assumption-dependent."
+    },
+    "initial_author": "Sreya Vangara",
+    "validator": "Fernando Torres",
+    "final_score": 8.17
+  },
+  {
+    "id": "T3-BucketLarge-J-1.11",
+    "bucket": "BucketLarge-J",
+    "case_id": "0011",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Labor Policy",
+    "difficulty": "Medium",
+    "is_ambiguous": false,
+    "scenario": "A city runs a six-month workforce training program and reports that participants’ average wages increased by 20%. Officials conclude the program boosted earnings.\n\nHowever, 40% of participants dropped out and are missing from the final wage measurement. The report analyzes only participants who completed the program.",
+    "claim": "participants’ average wages increased by 20%",
+    "variables": {
+      "X": {
+        "name": "Training program enrollment",
+        "role": "Treatment/Factor"
+      },
+      "Y": {
+        "name": "Post-program wage",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Program completion (complete vs. dropout)"
+      ]
+    },
+    "trap": {
+      "type": "W1",
+      "type_name": "Selection Bias",
+      "subtype": "Attrition Bias",
+      "subtype_name": "Attrition Bias"
+    },
+    "label": "YES",
+    "causal_structure": "Completion is selected post-enrollment; completers differ from dropouts in factors affecting Y.",
+    "key_insight": "Attrition can make observed improvements unrepresentative of the full enrolled group.",
+    "gold_rationale": "I can’t estimate overall impact without outcomes (or credible imputations) for dropouts and evidence about why participants left.",
+    "wise_refusal": "I can’t estimate overall impact without outcomes (or credible imputations) for dropouts and evidence about why participants left.",
+    "hidden_timestamp": "Did dropout occur after participants could have benefited (or been harmed) by the program, making completion a post-treatment selection?",
+    "conditional_answers": {
+      "A": "Answer if dropout is random: Completer outcomes may approximate all enrollees.",
+      "B": "Answer if dropout is related to constraints or low baseline readiness: Use intent-to-treat or obtain administrative wage data for dropouts.",
+      "C": "Answer if dropouts can be followed up: Measuring outcomes for all reduces attrition bias."
+    },
+    "initial_author": "Sreya Vangara",
+    "validator": "Fernando Torres",
+    "final_score": 8.61
+  },
+  {
+    "id": "T3-BucketLarge-J-1.12",
+    "bucket": "BucketLarge-J",
+    "case_id": "0012",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Education Policy",
+    "difficulty": "Easy",
+    "is_ambiguous": false,
+    "scenario": "A school district observes that students who attend private tutoring have higher math scores than students who do not. Administrators conclude tutoring causes higher scores.\n\nStudents who get tutoring are more likely to come from higher-income families with more educational resources at home.",
+    "claim": "A school district observes that students who attend private tutoring have higher math scores than students who do not",
+    "variables": {
+      "X": {
+        "name": "Tutoring attendance",
+        "role": "Treatment/Factor"
+      },
+      "Y": {
+        "name": "Math test score",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Socioeconomic resources"
+      ]
+    },
+    "trap": {
+      "type": "W7",
+      "type_name": "Confounding",
+      "subtype": "Socioeconomic",
+      "subtype_name": "Socioeconomic"
+    },
+    "label": "YES",
+    "causal_structure": "Z influences both X and Y, creating a spurious X–Y association.",
+    "key_insight": "A common cause can make correlation look like causation.",
+    "gold_rationale": "I can’t make a causal claim without baseline scores, resource measures, and a credible strategy to compare similar students.",
+    "wise_refusal": "I can’t make a causal claim without baseline scores, resource measures, and a credible strategy to compare similar students.",
+    "hidden_timestamp": "Were family resources present before tutoring began, making them a baseline confounder?",
+    "conditional_answers": {
+      "A": "Answer if tutoring were randomly assigned: Score differences could be attributed to tutoring.",
+      "B": "Answer if tutoring is purchased mostly by higher-resource families: Adjust for baseline resources and prior scores; residual confounding may remain.",
+      "C": "Answer if comparing within the same school and income bracket: Confounding is reduced but not eliminated."
+    },
+    "initial_author": "Sreya Vangara",
+    "validator": "Fernando Torres",
+    "final_score": 8.48
+  },
+  {
+    "id": "T3-BucketLarge-J-1.13",
+    "bucket": "BucketLarge-J",
+    "case_id": "0013",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Urban Policy",
+    "difficulty": "Easy",
+    "is_ambiguous": false,
+    "scenario": "A city analyst finds that days with higher ice cream sales in parks also have more reported minor injuries. They argue ice cream vendors create unsafe conditions.\n\nA parks manager suggests that hot weather increases both park attendance (creating more injury opportunities) and ice cream sales.",
+    "claim": "days with higher ice cream sales in parks also have more reported minor injuries",
+    "variables": {
+      "X": {
+        "name": "Ice cream sales",
+        "role": "Treatment/Factor"
+      },
+      "Y": {
+        "name": "Park injury reports",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Temperature / attendance"
+      ]
+    },
+    "trap": {
+      "type": "W7",
+      "type_name": "Confounding",
+      "subtype": "Omitted Variable",
+      "subtype_name": "Omitted Variable"
+    },
+    "label": "YES",
+    "causal_structure": "Z increases both X and Y; omitting Z yields misleading correlation.",
+    "key_insight": "An omitted common cause can create a misleading association.",
+    "gold_rationale": "I can’t conclude causality without controlling for weather/attendance and knowing how vendor permits are assigned.",
+    "wise_refusal": "I can’t conclude causality without controlling for weather/attendance and knowing how vendor permits are assigned.",
+    "hidden_timestamp": "Did temperature rise before both ice cream sales and injuries, suggesting a shared upstream cause?",
+    "conditional_answers": {
+      "A": "Answer if you control for temperature and attendance: The sales–injury correlation may disappear.",
+      "B": "Answer if injuries rise on high-attendance days regardless of vendors: Vendor restriction is not justified by this correlation.",
+      "C": "Answer if vendor placement is randomized across similar days: Comparisons become more informative."
+    },
+    "initial_author": "Sreya Vangara",
+    "validator": "Fernando Torres",
+    "final_score": 8.4
+  },
+  {
+    "id": "T3-BucketLarge-J-1.14",
+    "bucket": "BucketLarge-J",
+    "case_id": "0014",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Healthcare Administration",
+    "difficulty": "Medium",
+    "is_ambiguous": false,
+    "scenario": "A hospital audit reports that patients prescribed a stronger painkiller have higher 30-day mortality than patients prescribed a milder painkiller. A supervisor argues the stronger drug is dangerous.\n\nClinicians respond that the stronger painkiller is typically prescribed to patients with more severe conditions, who are already at higher risk of death.",
+    "claim": "patients prescribed a stronger painkiller have higher 30-day mortality than patients prescribed a milder painkiller",
+    "variables": {
+      "X": {
+        "name": "Painkiller prescribed (strong vs. mild)",
+        "role": "Treatment/Factor"
+      },
+      "Y": {
+        "name": "30-day mortality",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Underlying illness severity"
+      ]
+    },
+    "trap": {
+      "type": "W7",
+      "type_name": "Confounding",
+      "subtype": "Confounding by Indication",
+      "subtype_name": "Confounding by Indication"
+    },
+    "label": "YES",
+    "causal_structure": "Severity (Z) influences both treatment choice (X) and mortality (Y).",
+    "key_insight": "Sicker patients are more likely to receive stronger treatments, confounding naive comparisons.",
+    "gold_rationale": "I can’t infer a causal drug effect without detailed severity/comorbidity measures and timing of prescription relative to deterioration.",
+    "wise_refusal": "I can’t infer a causal drug effect without detailed severity/comorbidity measures and timing of prescription relative to deterioration.",
+    "hidden_timestamp": "Was severity assessed before the prescription decision, and is it measured well enough to adjust for it?",
+    "conditional_answers": {
+      "A": "Answer if patients of similar severity are compared: The estimate is less confounded.",
+      "B": "Answer if severity is poorly measured: Residual confounding remains even after adjustment.",
+      "C": "Answer if prescribing follows a protocol unrelated to individual severity: Comparisons are closer to causal."
+    },
+    "initial_author": "Sreya Vangara",
+    "validator": "Fernando Torres",
+    "final_score": 8.14
+  },
+  {
+    "id": "T3-BucketLarge-J-1.15",
+    "bucket": "BucketLarge-J",
+    "case_id": "0015",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Education Policy",
+    "difficulty": "Medium",
+    "is_ambiguous": false,
+    "scenario": "A university releases a report stating that Department A has a higher overall graduation rate than Department B. Administrators conclude that Department A’s curriculum is more effective and consider expanding it.\nHowever, a faculty member notes that when graduation rates are broken down by student preparedness level (high vs. low incoming GPA), Department B has higher graduation rates in both groups.\nThe discrepancy arises because Department A enrolls a much larger proportion of high-preparedness students, while Department B enrolls more low-preparedness students overall.",
+    "claim": "Department A’s curriculum is more effective and consider expanding it",
+    "variables": {
+      "X": {
+        "name": "Department (A vs. B)",
+        "role": "Treatment/Factor"
+      },
+      "Y": {
+        "name": "Graduation rate",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Student preparedness level (high / low incoming GPA)"
+      ]
+    },
+    "trap": {
+      "type": "W8",
+      "type_name": "Simpson's Paradox",
+      "subtype": "Aggregation Bias",
+      "subtype_name": "Aggregation Bias"
+    },
+    "label": "YES",
+    "causal_structure": "Student preparedness (Z) affects graduation (Y) and differs in distribution across departments (X). Aggregating across Z reverses subgroup-level trends.",
+    "key_insight": "Aggregate performance metrics can contradict subgroup-level performance due to population composition.",
+    "gold_rationale": "I don’t have enough information to make a definitive causal claim from the summary statistics alone. Please report Graduation rate by the key strata (e.g., Student preparedness level (high / low incoming GPA) if that is the stratifier), and compute a standardized effect; the aggregate comparison can reverse when Department (A vs. B) is unevenly applied across strata.",
+    "wise_refusal": "I don’t have enough information to make a definitive causal claim from the summary statistics alone. Please report Graduation rate by the key strata (e.g., Student preparedness level (high / low incoming GPA) if that is the stratifier), and compute a standardized effect; the aggregate comparison can reverse when Department (A vs. B) is unevenly applied across strata.",
+    "hidden_timestamp": "Was Student preparedness level (high / low incoming GPA) determined before Department (A vs. B) was chosen, and could Student preparedness level (high / low incoming GPA) have influenced the choice of Department (A vs. B) before Graduation rate was measured?",
+    "conditional_answers": {
+      "A": "Answer if you only compare aggregates: The apparent effect of Department (A vs. B) on Graduation rate may be reversed because the mix of subgroups differs between Department (A vs. B) arms.",
+      "B": "Answer if you compare within strata after stratifying/standardizing by Student preparedness level (high / low incoming GPA): Use the within-stratum differences (or a standardized effect). If Department (A vs. B) improves Graduation rate in each stratum, prefer Department (A vs. B) even if the aggregate looks worse.",
+      "C": "Answer if Department (A vs. B) can be randomized within strata: Then the within-stratum comparison identifies the causal effect; report both stratum-specific and standardized estimates."
+    },
+    "initial_author": "Sreya Vangara",
+    "validator": "Fernando Torres",
+    "final_score": 8.27
+  },
+  {
+    "id": "T3-BucketLarge-J-1.16",
+    "bucket": "BucketLarge-J",
+    "case_id": "0016",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Criminology",
+    "difficulty": "Medium",
+    "is_ambiguous": false,
+    "scenario": "A city publishes annual crime statistics showing that District East has a higher overall crime clearance rate than District West. City officials argue that policing strategies used in District East are more effective and consider expanding them citywide.\nHowever, analysts examining the data by crime severity (violent vs. non-violent offenses) find that District West has higher clearance rates for both categories.\nThe apparent contradiction arises because District East handles a much larger share of non-violent crimes, which are generally easier to solve, while District West deals disproportionately with violent crimes.",
+    "claim": "District West has higher clearance rates for both categories",
+    "variables": {
+      "X": {
+        "name": "Police district (East vs. West)",
+        "role": "Treatment/Factor"
+      },
+      "Y": {
+        "name": "Crime clearance rate",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Crime severity (violent / non-violent)"
+      ]
+    },
+    "trap": {
+      "type": "W8",
+      "type_name": "Simpson's Paradox",
+      "subtype": "Imbalanced Group Composition",
+      "subtype_name": "Imbalanced Group Composition"
+    },
+    "label": "YES",
+    "causal_structure": "Crime severity (Z) affects clearance probability (Y) and differs in prevalence across districts (X). Aggregation across Z reverses subgroup-level performance.",
+    "key_insight": "Aggregate performance metrics can mask inferior performance within every relevant subgroup.",
+    "gold_rationale": "I don’t have enough information to make a definitive causal claim from the summary statistics alone. Please report Crime clearance rate by the key strata (e.g., Crime severity (violent / non-violent) if that is the stratifier), and compute a standardized effect; the aggregate comparison can reverse when Police district (East vs. West) is unevenly applied across strata.",
+    "wise_refusal": "I don’t have enough information to make a definitive causal claim from the summary statistics alone. Please report Crime clearance rate by the key strata (e.g., Crime severity (violent / non-violent) if that is the stratifier), and compute a standardized effect; the aggregate comparison can reverse when Police district (East vs. West) is unevenly applied across strata.",
+    "hidden_timestamp": "Was Crime severity (violent / non-violent) determined before Police district (East vs. West) was chosen, and could Crime severity (violent / non-violent) have influenced the choice of Police district (East vs. West) before Crime clearance rate was measured?",
+    "conditional_answers": {
+      "A": "Answer if you only compare aggregates: The apparent effect of Police district (East vs. West) on Crime clearance rate may be reversed because the mix of subgroups differs between Police district (East vs. West) arms.",
+      "B": "Answer if you compare within strata after stratifying/standardizing by Crime severity (violent / non-violent): Use the within-stratum differences (or a standardized effect). If Police district (East vs. West) improves Crime clearance rate in each stratum, prefer Police district (East vs. West) even if the aggregate looks worse.",
+      "C": "Answer if Police district (East vs. West) can be randomized within strata: Then the within-stratum comparison identifies the causal effect; report both stratum-specific and standardized estimates."
+    },
+    "initial_author": "Sreya Vangara",
+    "validator": "Fernando Torres",
+    "final_score": 8.8
+  },
+  {
+    "id": "T3-BucketLarge-J-1.17",
+    "bucket": "BucketLarge-J",
+    "case_id": "0017",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Education Technology",
+    "difficulty": "Easy",
+    "is_ambiguous": false,
+    "scenario": "An online education platform reports that Course X has a higher overall completion rate than Course Y. The platform promotes Course X as better designed and more engaging.\nHowever, when completion rates are examined by learner experience level (beginner vs. advanced), Course Y shows higher completion rates in both groups.\nThis occurs because Course X attracts a much larger proportion of advanced learners, who are more likely to complete any course regardless of design quality.",
+    "claim": "Course X has a higher overall completion rate than Course Y",
+    "variables": {
+      "X": {
+        "name": "Course (X vs. Y)",
+        "role": "Treatment/Factor"
+      },
+      "Y": {
+        "name": "Course completion rate",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Learner experience level (beginner / advanced)"
+      ]
+    },
+    "trap": {
+      "type": "W8",
+      "type_name": "Simpson's Paradox",
+      "subtype": "Aggregation Bias",
+      "subtype_name": "Aggregation Bias"
+    },
+    "label": "YES",
+    "causal_structure": "Learner experience (Z) affects completion (Y) and differs across courses (X), producing a reversal when aggregated.",
+    "key_insight": "Differences in participant composition can dominate aggregate outcome measures.",
+    "gold_rationale": "I don’t have enough information to make a definitive causal claim from the summary statistics alone. Please report Course completion rate by the key strata (e.g., Learner experience level (beginner / advanced) if that is the stratifier), and compute a standardized effect; the aggregate comparison can reverse when Course (X vs. Y) is unevenly applied across strata.",
+    "wise_refusal": "I don’t have enough information to make a definitive causal claim from the summary statistics alone. Please report Course completion rate by the key strata (e.g., Learner experience level (beginner / advanced) if that is the stratifier), and compute a standardized effect; the aggregate comparison can reverse when Course (X vs. Y) is unevenly applied across strata.",
+    "hidden_timestamp": "Was Learner experience level (beginner / advanced) determined before Course (X vs. Y) was chosen, and could Learner experience level (beginner / advanced) have influenced the choice of Course (X vs. Y) before Course completion rate was measured?",
+    "conditional_answers": {
+      "A": "Answer if you only compare aggregates: The apparent effect of Course (X vs. Y) on Course completion rate may be reversed because the mix of subgroups differs between Course (X vs. Y) arms.",
+      "B": "Answer if you compare within strata after stratifying/standardizing by Learner experience level (beginner / advanced): Use the within-stratum differences (or a standardized effect). If Course (X vs. Y) improves Course completion rate in each stratum, prefer Course (X vs. Y) even if the aggregate looks worse.",
+      "C": "Answer if Course (X vs. Y) can be randomized within strata: Then the within-stratum comparison identifies the causal effect; report both stratum-specific and standardized estimates."
+    },
+    "initial_author": "Sreya Vangara",
+    "validator": "Fernando Torres",
+    "final_score": 8.7
+  },
+  {
+    "id": "T3-BucketLarge-J-1.18",
+    "bucket": "BucketLarge-J",
+    "case_id": "0018",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Consumer Behavior",
+    "difficulty": "Easy",
+    "is_ambiguous": false,
+    "scenario": "A company reports that 92% of customers are satisfied with its new subscription service, based on responses to a voluntary online satisfaction survey. Executives conclude that the service rollout has been a major success.\nHowever, internal data shows that only 15% of customers responded to the survey. Customer support logs indicate that dissatisfied users are more likely to cancel their subscriptions and disengage from company communications altogether.",
+    "claim": "the service rollout has been a major success",
+    "variables": {
+      "X": {
+        "name": "Survey response participation",
+        "role": "Treatment/Factor"
+      },
+      "Y": {
+        "name": "Reported customer satisfaction",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Customer satisfaction status (satisfied / dissatisfied)"
+      ]
+    },
+    "trap": {
+      "type": "W1",
+      "type_name": "Selection Bias",
+      "subtype": "Sampling-on-the-Outcome",
+      "subtype_name": "Sampling Bias"
+    },
+    "label": "YES",
+    "causal_structure": "Customer satisfaction (Z) affects likelihood of survey participation (X), and the outcome (Y) is measured only among respondents.",
+    "key_insight": "Observed satisfaction reflects who responds, not the true customer population.",
+    "gold_rationale": "I don’t have enough information to make a definitive causal claim from the summary statistics alone. We need to know how units enter the treated/observed group and what pre-existing differences drive selection (especially Customer satisfaction status (satisfied / dissatisfied)); otherwise Survey response participation–Reported customer satisfaction differences may reflect selection rather than effect.",
+    "wise_refusal": "I don’t have enough information to make a definitive causal claim from the summary statistics alone. We need to know how units enter the treated/observed group and what pre-existing differences drive selection (especially Customer satisfaction status (satisfied / dissatisfied)); otherwise Survey response participation–Reported customer satisfaction differences may reflect selection rather than effect.",
+    "hidden_timestamp": "At what point were units selected into the observed sample—before or after Reported customer satisfaction occurred—and is selection related to Customer satisfaction status (satisfied / dissatisfied) or Reported customer satisfaction?",
+    "conditional_answers": {
+      "A": "Answer if Survey response participation is randomly assigned: A difference in Reported customer satisfaction across Survey response participation groups can be interpreted causally.",
+      "B": "Answer if participation/exposure is voluntary or selected (e.g., Customer satisfaction status (satisfied / dissatisfied)): The Survey response participation vs not-Survey response participation difference in Reported customer satisfaction is biased by who ends up observed/treated.",
+      "C": "Answer if you can measure the selection drivers (e.g., Customer satisfaction status (satisfied / dissatisfied)) and adjust (matching/weighting/IV): The conclusion becomes CONDITIONAL on those assumptions and model quality."
+    },
+    "initial_author": "Sreya Vangara",
+    "validator": "Fernando Torres",
+    "final_score": 8.11
+  },
+  {
+    "id": "T3-BucketLarge-J-1.19",
+    "bucket": "BucketLarge-J",
+    "case_id": "0019",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Entrepreneurship",
+    "difficulty": "Medium",
+    "is_ambiguous": false,
+    "scenario": "A startup accelerator advertises that 70% of companies in its program succeed, defining success as raising a Series A funding round within two years. Aspiring founders interpret this statistic as evidence that participation dramatically increases startup success.\nHowever, the accelerator accepts only a small fraction of applicants and explicitly selects founders with strong prior experience, existing traction, and elite educational backgrounds.",
+    "claim": "A startup accelerator advertises that 70% of companies in its program succeed, defining success as raising a Series A funding round within two years",
+    "variables": {
+      "X": {
+        "name": "Accelerator participation",
+        "role": "Treatment/Factor"
+      },
+      "Y": {
+        "name": "Startup success (Series A funding)",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Founder quality / prior advantages"
+      ]
+    },
+    "trap": {
+      "type": "W1",
+      "type_name": "Selection Bias",
+      "subtype": "Sampling-on-the-Outcome",
+      "subtype_name": "Sampling Bias"
+    },
+    "label": "YES",
+    "causal_structure": "Founder quality (Z) affects both selection into the accelerator (X) and startup success (Y).",
+    "key_insight": "High success rates may reflect who is admitted rather than program effectiveness.",
+    "gold_rationale": "I don’t have enough information to make a definitive causal claim from the summary statistics alone. We need to know how units enter the treated/observed group and what pre-existing differences drive selection (especially Founder quality / prior advantages); otherwise Accelerator participation–Startup success (Series A funding) differences may reflect selection rather than effect.",
+    "wise_refusal": "I don’t have enough information to make a definitive causal claim from the summary statistics alone. We need to know how units enter the treated/observed group and what pre-existing differences drive selection (especially Founder quality / prior advantages); otherwise Accelerator participation–Startup success (Series A funding) differences may reflect selection rather than effect.",
+    "hidden_timestamp": "At what point were units selected into the observed sample—before or after Startup success (Series A funding) occurred—and is selection related to Founder quality / prior advantages or Startup success (Series A funding)?",
+    "conditional_answers": {
+      "A": "Answer if Accelerator participation is randomly assigned: A difference in Startup success (Series A funding) across Accelerator participation groups can be interpreted causally.",
+      "B": "Answer if participation/exposure is voluntary or selected (e.g., Founder quality / prior advantages): The Accelerator participation vs not-Accelerator participation difference in Startup success (Series A funding) is biased by who ends up observed/treated.",
+      "C": "Answer if you can measure the selection drivers (e.g., Founder quality / prior advantages) and adjust (matching/weighting/IV): The conclusion becomes CONDITIONAL on those assumptions and model quality."
+    },
+    "initial_author": "Sreya Vangara",
+    "validator": "Fernando Torres",
+    "final_score": 8.54
+  },
+  {
+    "id": "T3-BucketLarge-J-1.20",
+    "bucket": "BucketLarge-J",
+    "case_id": "0020",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Workplace Health",
+    "difficulty": "Medium",
+    "is_ambiguous": false,
+    "scenario": "A company reports that employees enrolled in its voluntary wellness program take fewer sick days than employees who do not enroll. Management concludes that the wellness program improves employee health and considers expanding it.\nFurther examination reveals that employees who opt into the program tend to be healthier, more health-conscious, and more engaged with company initiatives even before the program begins.",
+    "claim": "the wellness program improves employee health and considers expanding it",
+    "variables": {
+      "X": {
+        "name": "Wellness program participation",
+        "role": "Treatment/Factor"
+      },
+      "Y": {
+        "name": "Number of sick days taken",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Baseline employee health / engagement"
+      ]
+    },
+    "trap": {
+      "type": "W1",
+      "type_name": "Selection Bias",
+      "subtype": "Sampling-on-the-Outcome",
+      "subtype_name": "Sampling Bias"
+    },
+    "label": "YES",
+    "causal_structure": "Baseline health (Z) influences both program participation (X) and health outcomes (Y).",
+    "key_insight": "Voluntary programs often attract participants who would perform better regardless.",
+    "gold_rationale": "I don’t have enough information to make a definitive causal claim from the summary statistics alone. We need to know how units enter the treated/observed group and what pre-existing differences drive selection (especially Baseline employee health / engagement); otherwise Wellness program participation–Number of sick days taken differences may reflect selection rather than effect.",
+    "wise_refusal": "I don’t have enough information to make a definitive causal claim from the summary statistics alone. We need to know how units enter the treated/observed group and what pre-existing differences drive selection (especially Baseline employee health / engagement); otherwise Wellness program participation–Number of sick days taken differences may reflect selection rather than effect.",
+    "hidden_timestamp": "At what point were units selected into the observed sample—before or after Number of sick days taken occurred—and is selection related to Baseline employee health / engagement or Number of sick days taken?",
+    "conditional_answers": {
+      "A": "Answer if Wellness program participation is randomly assigned: A difference in Number of sick days taken across Wellness program participation groups can be interpreted causally.",
+      "B": "Answer if participation/exposure is voluntary or selected (e.g., Baseline employee health / engagement): The Wellness program participation vs not-Wellness program participation difference in Number of sick days taken is biased by who ends up observed/treated.",
+      "C": "Answer if you can measure the selection drivers (e.g., Baseline employee health / engagement) and adjust (matching/weighting/IV): The conclusion becomes CONDITIONAL on those assumptions and model quality."
+    },
+    "initial_author": "Sreya Vangara",
+    "validator": "Fernando Torres",
+    "final_score": 8.8
+  },
+  {
+    "id": "T3-BucketLarge-J-1.21",
+    "bucket": "BucketLarge-J",
+    "case_id": "0021",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Political Science",
+    "difficulty": "Medium",
+    "is_ambiguous": false,
+    "scenario": "An analyst observes that states with higher average household income tend to vote for Party A in national elections. Based on this pattern, a commentator concludes that wealthier individuals are more likely to support Party A.\nHowever, individual-level polling data within states shows that higher-income individuals are actually more likely to support Party B, while lower-income individuals are more likely to support Party A.\nThe apparent contradiction arises because wealthier states differ from poorer states in urbanization, education levels, and industry composition.",
+    "claim": "wealthier individuals are more likely to support Party A",
+    "variables": {
+      "X": {
+        "name": "State-level average income",
+        "role": "Treatment/Factor"
+      },
+      "Y": {
+        "name": "Voting outcome (Party A vs. Party B)",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Individual income level"
+      ]
+    },
+    "trap": {
+      "type": "W7",
+      "type_name": "Confounding",
+      "subtype": "Socioeconomic",
+      "subtype_name": "Socioeconomic"
+    },
+    "label": "YES",
+    "causal_structure": "State-level income aggregates over heterogeneous individuals; group-level correlations do not reflect individual-level behavior.",
+    "key_insight": "Correlations observed at the group level cannot be assumed to hold at the individual level.",
+    "gold_rationale": "I don’t have enough information to make a definitive causal claim from the summary statistics alone. The evidence is at an aggregate level, but the conclusion is about individuals. I would need individual-level data (or a defensible model of sorting into groups) before inferring how State-level average income relates to Voting outcome (Party A vs. Party B) for a person.",
+    "wise_refusal": "I don’t have enough information to make a definitive causal claim from the summary statistics alone. The evidence is at an aggregate level, but the conclusion is about individuals. I would need individual-level data (or a defensible model of sorting into groups) before inferring how State-level average income relates to Voting outcome (Party A vs. Party B) for a person.",
+    "hidden_timestamp": "Is State-level average income measured at an aggregate level while Voting outcome (Party A vs. Party B) is an individual claim, and when/where does aggregation into Individual income level happen relative to measuring Voting outcome (Party A vs. Party B)?",
+    "conditional_answers": {
+      "A": "Answer if you only have aggregate correlations: You cannot infer individual-level behavior; the relationship may be confounded by group-level factors.",
+      "B": "Answer if you have individual-level data within groups: Estimate the within-group association/effect and check whether it matches the aggregate pattern.",
+      "C": "Answer if there is sorting/selection into groups: Treat conclusions as CONDITIONAL unless you model the sorting mechanism or use a design that breaks it."
+    },
+    "initial_author": "Sreya Vangara",
+    "validator": "Fernando Torres",
+    "final_score": 8.0
+  },
+  {
+    "id": "T3-BucketLarge-J-1.22",
+    "bucket": "BucketLarge-J",
+    "case_id": "0022",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Education Sociology",
+    "difficulty": "Easy",
+    "is_ambiguous": false,
+    "scenario": "A city education report shows that neighborhoods with higher average adult education levels have higher student test scores. Policymakers infer that students living in highly educated neighborhoods perform better academically.\nHowever, individual-level data reveals that students from less-educated households can perform as well as their peers when controlling for school quality and family support, regardless of neighborhood averages.\nThe neighborhood-level correlation reflects broader structural differences rather than individual household effects.",
+    "claim": "A city education report shows that neighborhoods with higher average adult education levels have higher student test scores",
+    "variables": {
+      "X": {
+        "name": "Neighborhood average education level",
+        "role": "Treatment/Factor"
+      },
+      "Y": {
+        "name": "Student test scores",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Household-level educational support"
+      ]
+    },
+    "trap": {
+      "type": "W7",
+      "type_name": "Confounding",
+      "subtype": "Socioeconomic",
+      "subtype_name": "Socioeconomic"
+    },
+    "label": "YES",
+    "causal_structure": "Neighborhood averages mask variation across households; individual outcomes depend on household-level factors.",
+    "key_insight": "Group characteristics do not deterministically apply to individuals within the group.",
+    "gold_rationale": "I don’t have enough information to make a definitive causal claim from the summary statistics alone. The evidence is at an aggregate level, but the conclusion is about individuals. I would need individual-level data (or a defensible model of sorting into groups) before inferring how Neighborhood average education level relates to Student test scores for a person.",
+    "wise_refusal": "I don’t have enough information to make a definitive causal claim from the summary statistics alone. The evidence is at an aggregate level, but the conclusion is about individuals. I would need individual-level data (or a defensible model of sorting into groups) before inferring how Neighborhood average education level relates to Student test scores for a person.",
+    "hidden_timestamp": "Is Neighborhood average education level measured at an aggregate level while Student test scores is an individual claim, and when/where does aggregation into Household-level educational support happen relative to measuring Student test scores?",
+    "conditional_answers": {
+      "A": "Answer if you only have aggregate correlations: You cannot infer individual-level behavior; the relationship may be confounded by group-level factors.",
+      "B": "Answer if you have individual-level data within groups: Estimate the within-group association/effect and check whether it matches the aggregate pattern.",
+      "C": "Answer if there is sorting/selection into groups: Treat conclusions as CONDITIONAL unless you model the sorting mechanism or use a design that breaks it."
+    },
+    "initial_author": "Sreya Vangara",
+    "validator": "Fernando Torres",
+    "final_score": 8.72
+  },
+  {
+    "id": "T3-BucketLarge-J-1.23",
+    "bucket": "BucketLarge-J",
+    "case_id": "0023",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Sociology",
+    "difficulty": "Easy",
+    "is_ambiguous": false,
+    "scenario": "International surveys show that Country A ranks higher than Country B on average happiness scores. Commentators argue that citizens of Country A are happier in their daily lives.\nHowever, within both countries, individual happiness varies widely, and individual-level analysis shows that factors such as income security, health, and social relationships are stronger predictors of personal well-being than nationality.\nThe national ranking reflects aggregated survey responses rather than uniform individual experiences.",
+    "claim": "International surveys show that Country A ranks higher than Country B on average happiness scores",
+    "variables": {
+      "X": {
+        "name": "Country of residence",
+        "role": "Treatment/Factor"
+      },
+      "Y": {
+        "name": "Average happiness score",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Individual-level well-being determinants"
+      ]
+    },
+    "trap": {
+      "type": "W7",
+      "type_name": "Confounding",
+      "subtype": "Socioeconomic",
+      "subtype_name": "Socioeconomic"
+    },
+    "label": "YES",
+    "causal_structure": "National averages collapse heterogeneous individual experiences into a single metric.",
+    "key_insight": "Country-level statistics cannot substitute for individual-level causal explanations.",
+    "gold_rationale": "I don’t have enough information to make a definitive causal claim from the summary statistics alone. The evidence is at an aggregate level, but the conclusion is about individuals. I would need individual-level data (or a defensible model of sorting into groups) before inferring how Country of residence relates to Average happiness score for a person.",
+    "wise_refusal": "I don’t have enough information to make a definitive causal claim from the summary statistics alone. The evidence is at an aggregate level, but the conclusion is about individuals. I would need individual-level data (or a defensible model of sorting into groups) before inferring how Country of residence relates to Average happiness score for a person.",
+    "hidden_timestamp": "Is Country of residence measured at an aggregate level while Average happiness score is an individual claim, and when/where does aggregation into Individual-level well-being determinants happen relative to measuring Average happiness score?",
+    "conditional_answers": {
+      "A": "Answer if you only have aggregate correlations: You cannot infer individual-level behavior; the relationship may be confounded by group-level factors.",
+      "B": "Answer if you have individual-level data within groups: Estimate the within-group association/effect and check whether it matches the aggregate pattern.",
+      "C": "Answer if there is sorting/selection into groups: Treat conclusions as CONDITIONAL unless you model the sorting mechanism or use a design that breaks it."
+    },
+    "initial_author": "Sreya Vangara",
+    "validator": "Fernando Torres",
+    "final_score": 8.23
+  },
+  {
+    "id": "T3-BucketLarge-J-1.24",
+    "bucket": "BucketLarge-J",
+    "case_id": "0024",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Labor Economics",
+    "difficulty": "Easy",
+    "is_ambiguous": false,
+    "scenario": "A job training program advertises on social media and accepts all applicants who sign up. After 6 months, participants show 40% higher employment rates than non-participants. Researchers conclude the program caused the employment gains.",
+    "claim": "The job training program causes higher employment rates.",
+    "variables": {
+      "X": {
+        "name": "Participation in job training program",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Employment rate",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Pre-existing motivation and job-seeking behavior"
+      ]
+    },
+    "trap": {
+      "type": "W1",
+      "type_name": "Selection Bias",
+      "subtype": "Self-Selection into Treatment",
+      "subtype_name": "Self-Selection into Treatment"
+    },
+    "label": "NO",
+    "causal_structure": "",
+    "key_insight": "Self-selection into voluntary programs confounds treatment effects with pre-existing participant characteristics.",
+    "gold_rationale": "This claim cannot be supported because the study suffers from selection bias. Individuals who voluntarily sign up for job training programs likely differ systematically from those who do not - they may be more motivated, have more time flexibility, or be more proactive job seekers. These same characteristics that lead people to enroll would also help them find employment regardless of the program.",
+    "wise_refusal": "This claim cannot be supported because the study suffers from selection bias. Individuals who voluntarily sign up for job training programs likely differ systematically from those who do not - they may be more motivated, have more time flexibility, or be more proactive job seekers. These same characteristics that lead people to enroll would also help them find employment regardless of the program.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.73
+  },
+  {
+    "id": "T3-BucketLarge-J-1.25",
+    "bucket": "BucketLarge-J",
+    "case_id": "0025",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Education Policy",
+    "difficulty": "Medium",
+    "is_ambiguous": false,
+    "scenario": "A study tracks students in a new intensive tutoring program over two years. Students who remain in the program by year two show significantly higher test scores than the general student population. The program is deemed highly effective.",
+    "claim": "The intensive tutoring program significantly improves student test scores.",
+    "variables": {
+      "X": {
+        "name": "Participation in tutoring program",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Test scores",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Academic ability and parental support"
+      ]
+    },
+    "trap": {
+      "type": "W1",
+      "type_name": "Selection Bias",
+      "subtype": "Differential Attrition",
+      "subtype_name": "Differential Attrition"
+    },
+    "label": "NO",
+    "causal_structure": "",
+    "key_insight": "Differential dropout creates a biased sample of only successful participants.",
+    "gold_rationale": "This conclusion is undermined by selection bias through differential attrition. Students who struggle academically or lack family support are more likely to drop out of an intensive program, leaving only higher-performing, well-supported students by year two. The observed high scores may reflect who remained rather than program effectiveness.",
+    "wise_refusal": "This conclusion is undermined by selection bias through differential attrition. Students who struggle academically or lack family support are more likely to drop out of an intensive program, leaving only higher-performing, well-supported students by year two. The observed high scores may reflect who remained rather than program effectiveness.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.19
+  },
+  {
+    "id": "T3-BucketLarge-J-1.26",
+    "bucket": "BucketLarge-J",
+    "case_id": "0026",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Criminal Justice",
+    "difficulty": "Easy",
+    "is_ambiguous": false,
+    "scenario": "A criminologist studies successful rehabilitation programs by interviewing ex-offenders who have been crime-free for 10 years. Most report that prison education programs were transformative. The study concludes prison education is highly effective at reducing recidivism.",
+    "claim": "Prison education programs effectively reduce recidivism.",
+    "variables": {
+      "X": {
+        "name": "Prison education program participation",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Recidivism rates",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Other rehabilitation factors and individual circumstances"
+      ]
+    },
+    "trap": {
+      "type": "W2",
+      "type_name": "Survivorship Bias",
+      "subtype": "Success-Only Sampling",
+      "subtype_name": "Success-Only Sampling"
+    },
+    "label": "NO",
+    "causal_structure": "",
+    "key_insight": "Sampling only successes excludes failures who may have received the same treatment.",
+    "gold_rationale": "This study exhibits survivorship bias by only sampling successful cases. Ex-offenders who re-offended or are incarcerated cannot be interviewed in this design. Many who participated in education programs may have reoffended but are invisible in this sample. The true effectiveness of prison education cannot be determined without examining all participants.",
+    "wise_refusal": "This study exhibits survivorship bias by only sampling successful cases. Ex-offenders who re-offended or are incarcerated cannot be interviewed in this design. Many who participated in education programs may have reoffended but are invisible in this sample. The true effectiveness of prison education cannot be determined without examining all participants.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.0
+  },
+  {
+    "id": "T3-BucketLarge-J-1.27",
+    "bucket": "BucketLarge-J",
+    "case_id": "0027",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Social Psychology",
+    "difficulty": "Medium",
+    "is_ambiguous": false,
+    "scenario": "A researcher studies viral social media campaigns to understand what makes activism successful. By analyzing 50 campaigns that achieved their policy goals, they identify common features like celebrity endorsement and emotional storytelling. They recommend these as key ingredients for successful activism.",
+    "claim": "Celebrity endorsement and emotional storytelling cause social media activism to succeed.",
+    "variables": {
+      "X": {
+        "name": "Campaign features (celebrity endorsement, emotional storytelling)",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Campaign success",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Underlying cause salience and timing"
+      ]
+    },
+    "trap": {
+      "type": "W2",
+      "type_name": "Survivorship Bias",
+      "subtype": "Media Visibility Bias",
+      "subtype_name": "Media Visibility Bias"
+    },
+    "label": "NO",
+    "causal_structure": "",
+    "key_insight": "Studying only visible successes ignores the base rate of failure with identical characteristics.",
+    "gold_rationale": "This analysis suffers from survivorship bias by examining only successful campaigns. Countless campaigns with identical features - celebrity endorsements and emotional storytelling - failed and went unnoticed. Without studying failed campaigns, we cannot determine whether these features actually increase success probability or are simply common across all campaigns regardless of outcome.",
+    "wise_refusal": "This analysis suffers from survivorship bias by examining only successful campaigns. Countless campaigns with identical features - celebrity endorsements and emotional storytelling - failed and went unnoticed. Without studying failed campaigns, we cannot determine whether these features actually increase success probability or are simply common across all campaigns regardless of outcome.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.0
+  },
+  {
+    "id": "T3-BucketLarge-J-1.28",
+    "bucket": "BucketLarge-J",
+    "case_id": "0028",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Political Behavior",
+    "difficulty": "Easy",
+    "is_ambiguous": false,
+    "scenario": "Analysis of county-level data shows that counties with higher average education levels vote more Democratic. A political consultant concludes that increasing an individual's education would make them more likely to vote Democratic.",
+    "claim": "Higher education causes individuals to vote Democratic.",
+    "variables": {
+      "X": {
+        "name": "Education level",
+        "role": "Factor"
+      },
+      "Y": {
+        "name": "Democratic voting",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Urban vs rural residence, regional culture"
+      ]
+    },
+    "trap": {
+      "type": "W5",
+      "type_name": "Ecological Fallacy",
+      "subtype": "Aggregate to Individual Inference",
+      "subtype_name": "Aggregate to Individual Inference"
+    },
+    "label": "NO",
+    "causal_structure": "",
+    "key_insight": "County-level correlations do not reveal individual-level causal relationships.",
+    "gold_rationale": "This commits the ecological fallacy by inferring individual behavior from aggregate data. Counties with higher average education may vote Democratic due to urbanization, demographic composition, or regional factors rather than education itself. Highly educated individuals within less-educated counties might not follow this pattern, and less-educated individuals in educated counties might vote Democratic due to social context.",
+    "wise_refusal": "This commits the ecological fallacy by inferring individual behavior from aggregate data. Counties with higher average education may vote Democratic due to urbanization, demographic composition, or regional factors rather than education itself. Highly educated individuals within less-educated counties might not follow this pattern, and less-educated individuals in educated counties might vote Democratic due to social context.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.52
+  },
+  {
+    "id": "T3-BucketLarge-J-1.29",
+    "bucket": "BucketLarge-J",
+    "case_id": "0029",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Urban Sociology",
+    "difficulty": "Medium",
+    "is_ambiguous": false,
+    "scenario": "A study finds that neighborhoods with more coffee shops have lower crime rates. City planners propose subsidizing coffee shop openings in high-crime areas, expecting this will reduce crime.",
+    "claim": "Opening coffee shops in neighborhoods causes crime reduction.",
+    "variables": {
+      "X": {
+        "name": "Coffee shop density",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Crime rates",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Neighborhood affluence and gentrification"
+      ]
+    },
+    "trap": {
+      "type": "W5",
+      "type_name": "Ecological Fallacy",
+      "subtype": "Compositional Fallacy",
+      "subtype_name": "Compositional Fallacy"
+    },
+    "label": "NO",
+    "causal_structure": "",
+    "key_insight": "Neighborhood-level correlations reflect compositional differences, not causal mechanisms transferable via intervention.",
+    "gold_rationale": "This reasoning exemplifies the ecological fallacy. Coffee shops are markers of neighborhood affluence and gentrification - conditions that independently correlate with lower crime through better policing, invested residents, and economic opportunity. Adding coffee shops to high-crime areas would not import the wealth and social capital that actually drives the observed correlation.",
+    "wise_refusal": "This reasoning exemplifies the ecological fallacy. Coffee shops are markers of neighborhood affluence and gentrification - conditions that independently correlate with lower crime through better policing, invested residents, and economic opportunity. Adding coffee shops to high-crime areas would not import the wealth and social capital that actually drives the observed correlation.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.6
+  },
+  {
+    "id": "T3-BucketLarge-J-1.30",
+    "bucket": "BucketLarge-J",
+    "case_id": "0030",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Public Health Policy",
+    "difficulty": "Medium",
+    "is_ambiguous": false,
+    "scenario": "A study compares health outcomes between people who regularly use preventive healthcare services and those who do not. Regular users show 30% lower mortality over 10 years. Researchers conclude that preventive care significantly extends life.",
+    "claim": "Regular preventive healthcare use causes lower mortality.",
+    "variables": {
+      "X": {
+        "name": "Preventive healthcare utilization",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "10-year mortality",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Socioeconomic status, health consciousness, insurance coverage"
+      ]
+    },
+    "trap": {
+      "type": "W7",
+      "type_name": "Confounding",
+      "subtype": "Socioeconomic Confounding",
+      "subtype_name": "Socioeconomic Confounding"
+    },
+    "label": "NO",
+    "causal_structure": "",
+    "key_insight": "Healthcare utilization is a marker of socioeconomic advantage that independently affects health outcomes.",
+    "gold_rationale": "This association is confounded by socioeconomic factors. People who regularly access preventive care typically have better insurance, higher incomes, more education, and greater health consciousness. These same factors independently predict lower mortality through better nutrition, safer living conditions, and healthier behaviors. The 30% mortality difference likely reflects these advantages rather than preventive care alone.",
+    "wise_refusal": "This association is confounded by socioeconomic factors. People who regularly access preventive care typically have better insurance, higher incomes, more education, and greater health consciousness. These same factors independently predict lower mortality through better nutrition, safer living conditions, and healthier behaviors. The 30% mortality difference likely reflects these advantages rather than preventive care alone.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.14
+  },
+  {
+    "id": "T3-BucketLarge-J-1.31",
+    "bucket": "BucketLarge-J",
+    "case_id": "0031",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Family Studies",
+    "difficulty": "Hard",
+    "is_ambiguous": false,
+    "scenario": "Research shows that children who eat dinner with their families at least five times per week have significantly higher academic achievement and lower rates of substance abuse. Family advocacy groups promote family dinners as a solution to youth problems.",
+    "claim": "Regular family dinners cause better youth outcomes.",
+    "variables": {
+      "X": {
+        "name": "Family dinner frequency",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Academic achievement and substance abuse rates",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Parental involvement, family stability, socioeconomic resources"
+      ]
+    },
+    "trap": {
+      "type": "W7",
+      "type_name": "Confounding",
+      "subtype": "Parenting Style Confounding",
+      "subtype_name": "Parenting Style Confounding"
+    },
+    "label": "NO",
+    "causal_structure": "",
+    "key_insight": "Family dinner frequency is a proxy for overall family functioning and resources.",
+    "gold_rationale": "Family dinners are confounded with broader parenting and family characteristics. Parents who prioritize and can arrange regular dinners typically have more stable work schedules, greater involvement in children's lives, better communication skills, and more resources. These underlying family qualities - not the dinner itself - likely drive better youth outcomes. Mandating dinners without changing fundamental family dynamics would not replicate these benefits.",
+    "wise_refusal": "Family dinners are confounded with broader parenting and family characteristics. Parents who prioritize and can arrange regular dinners typically have more stable work schedules, greater involvement in children's lives, better communication skills, and more resources. These underlying family qualities - not the dinner itself - likely drive better youth outcomes. Mandating dinners without changing fundamental family dynamics would not replicate these benefits.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.76
+  },
+  {
+    "id": "T3-BucketLarge-J-1.32",
+    "bucket": "BucketLarge-J",
+    "case_id": "0032",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Immigration Studies",
+    "difficulty": "Medium",
+    "is_ambiguous": false,
+    "scenario": "Data shows that recent immigrants have better health outcomes than native-born citizens despite lower average incomes. Researchers conclude that immigration itself has health-protective effects.",
+    "claim": "The process of immigration causes better health outcomes.",
+    "variables": {
+      "X": {
+        "name": "Immigration status",
+        "role": "Factor"
+      },
+      "Y": {
+        "name": "Health outcomes",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Health selection, age, pre-migration health behaviors"
+      ]
+    },
+    "trap": {
+      "type": "W7",
+      "type_name": "Confounding",
+      "subtype": "Healthy Immigrant Effect",
+      "subtype_name": "Healthy Immigrant Effect"
+    },
+    "label": "NO",
+    "causal_structure": "",
+    "key_insight": "Immigration selects for healthier individuals, creating a spurious association between immigrant status and health.",
+    "gold_rationale": "This conclusion ignores the healthy immigrant selection effect. Immigration is physically demanding and often requires passing health screenings, so healthier individuals are more likely to successfully migrate. Additionally, immigrants often come from cultures with different dietary and lifestyle patterns. The observed health advantage reflects who migrates rather than any health benefit conferred by immigration itself.",
+    "wise_refusal": "This conclusion ignores the healthy immigrant selection effect. Immigration is physically demanding and often requires passing health screenings, so healthier individuals are more likely to successfully migrate. Additionally, immigrants often come from cultures with different dietary and lifestyle patterns. The observed health advantage reflects who migrates rather than any health benefit conferred by immigration itself.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.0
+  },
+  {
+    "id": "T3-BucketLarge-J-1.33",
+    "bucket": "BucketLarge-J",
+    "case_id": "0033",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Environmental Sociology",
+    "difficulty": "Easy",
+    "is_ambiguous": false,
+    "scenario": "Surveys show that people who report high levels of stress are more likely to use mental health apps. A tech company claims their mental health app increases stress awareness, thereby causing people to report more stress.",
+    "claim": "Mental health app use causes increased stress reporting.",
+    "variables": {
+      "X": {
+        "name": "Mental health app usage",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Stress reporting",
+        "role": "Outcome"
+      }
+    },
+    "trap": {
+      "type": "W9",
+      "type_name": "Reverse Causation",
+      "subtype": "Outcome-Driven Exposure",
+      "subtype_name": "Outcome-Driven Exposure"
+    },
+    "label": "NO",
+    "causal_structure": "",
+    "key_insight": "High stress causes app-seeking behavior, not the reverse.",
+    "gold_rationale": "The causal direction is likely reversed. People experiencing high stress are motivated to seek tools for managing it, leading them to download mental health apps. The stress precedes and causes app adoption, not vice versa. While the app might increase stress awareness marginally, the primary driver of this correlation is that stressed individuals self-select into app usage.",
+    "wise_refusal": "The causal direction is likely reversed. People experiencing high stress are motivated to seek tools for managing it, leading them to download mental health apps. The stress precedes and causes app adoption, not vice versa. While the app might increase stress awareness marginally, the primary driver of this correlation is that stressed individuals self-select into app usage.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.47
+  },
+  {
+    "id": "T3-BucketLarge-J-1.34",
+    "bucket": "BucketLarge-J",
+    "case_id": "0034",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Labor Economics",
+    "difficulty": "Hard",
+    "is_ambiguous": false,
+    "scenario": "Research finds that companies with more women in leadership positions have higher profitability. Business consultants recommend promoting more women to leadership to boost company profits.",
+    "claim": "Having more women in leadership causes higher company profitability.",
+    "variables": {
+      "X": {
+        "name": "Women in leadership positions",
+        "role": "Factor"
+      },
+      "Y": {
+        "name": "Company profitability",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Company culture, industry sector, company age"
+      ]
+    },
+    "trap": {
+      "type": "W9",
+      "type_name": "Reverse Causation",
+      "subtype": "Bidirectional Causation",
+      "subtype_name": "Bidirectional Causation"
+    },
+    "label": "NO",
+    "causal_structure": "",
+    "key_insight": "Company success may enable diversity rather than result from it.",
+    "gold_rationale": "Reverse causation is plausible here. Already-profitable companies may have more resources to invest in diversity initiatives, better cultures that attract diverse talent, or operate in industries where women are better represented. Profitability may enable gender diversity rather than result from it. Additionally, both may be caused by progressive management practices. The causal direction and mechanism cannot be established from this correlation.",
+    "wise_refusal": "Reverse causation is plausible here. Already-profitable companies may have more resources to invest in diversity initiatives, better cultures that attract diverse talent, or operate in industries where women are better represented. Profitability may enable gender diversity rather than result from it. Additionally, both may be caused by progressive management practices. The causal direction and mechanism cannot be established from this correlation.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.02
+  },
+  {
+    "id": "T3-BucketLarge-J-1.35",
+    "bucket": "BucketLarge-J",
+    "case_id": "0035",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Political Behavior",
+    "difficulty": "Medium",
+    "is_ambiguous": false,
+    "scenario": "A city implemented a new civic education curriculum in September. In the November election that year, youth voter turnout increased by 15%. The school board concludes the curriculum successfully increased political engagement.",
+    "claim": "The civic education curriculum caused increased youth voter turnout.",
+    "variables": {
+      "X": {
+        "name": "Civic education curriculum implementation",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Youth voter turnout",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Election competitiveness, national political climate, candidates"
+      ]
+    },
+    "trap": {
+      "type": "W10",
+      "type_name": "Post Hoc Fallacy",
+      "subtype": "Temporal Coincidence",
+      "subtype_name": "Temporal Coincidence"
+    },
+    "label": "NO",
+    "causal_structure": "",
+    "key_insight": "Temporal coincidence between curriculum and election does not establish causation.",
+    "gold_rationale": "This conclusion commits the post hoc fallacy by assuming temporal sequence implies causation. The November election may have featured particularly engaging candidates, controversial ballot measures, or occurred amid a national surge in youth political activism. Two months is also insufficient time for curriculum effects to manifest. Without comparison to similar areas without the curriculum, the turnout increase cannot be attributed to the educational intervention.",
+    "wise_refusal": "This conclusion commits the post hoc fallacy by assuming temporal sequence implies causation. The November election may have featured particularly engaging candidates, controversial ballot measures, or occurred amid a national surge in youth political activism. Two months is also insufficient time for curriculum effects to manifest. Without comparison to similar areas without the curriculum, the turnout increase cannot be attributed to the educational intervention.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.24
+  },
+  {
+    "id": "T3-BucketLarge-J-1.36",
+    "bucket": "BucketLarge-J",
+    "case_id": "0036",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Public Health Policy",
+    "difficulty": "Easy",
+    "is_ambiguous": false,
+    "scenario": "Researchers conduct a randomized controlled trial where 500 participants are randomly assigned to receive either cognitive behavioral therapy delivered via app or a placebo app with general wellness tips. Neither participants nor outcome assessors know which app is which. After 12 weeks, the CBT group shows significantly lower anxiety scores.",
+    "claim": "The CBT app reduces anxiety compared to placebo.",
+    "variables": {
+      "X": {
+        "name": "CBT app vs placebo app",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Anxiety scores",
+        "role": "Outcome"
+      }
+    },
+    "trap": {
+      "type": "S1",
+      "type_name": "RCT",
+      "subtype": "Double-Blind RCT",
+      "subtype_name": "Double-Blind RCT"
+    },
+    "label": "YES",
+    "causal_structure": "",
+    "key_insight": "Proper randomization, placebo control, and blinding establish valid causal inference.",
+    "gold_rationale": "This causal claim is well-supported. The study uses random assignment eliminating selection bias, a placebo control accounting for expectancy effects, and double-blinding preventing assessment bias. With 500 participants and 12-week follow-up, the design has adequate power and duration. The observed anxiety reduction can be causally attributed to the CBT content rather than placebo effects or confounding factors.",
+    "wise_refusal": "This causal claim is well-supported. The study uses random assignment eliminating selection bias, a placebo control accounting for expectancy effects, and double-blinding preventing assessment bias. With 500 participants and 12-week follow-up, the design has adequate power and duration. The observed anxiety reduction can be causally attributed to the CBT content rather than placebo effects or confounding factors.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.52
+  },
+  {
+    "id": "T3-BucketLarge-J-1.37",
+    "bucket": "BucketLarge-J",
+    "case_id": "0037",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Education Policy",
+    "difficulty": "Medium",
+    "is_ambiguous": false,
+    "scenario": "A randomized trial randomly assigns 60 schools to either implement a new social-emotional learning curriculum or continue standard instruction. After one academic year, students in treatment schools show improved behavioral outcomes and reduced disciplinary incidents compared to control schools.",
+    "claim": "The social-emotional learning curriculum reduces disciplinary incidents.",
+    "variables": {
+      "X": {
+        "name": "Social-emotional learning curriculum",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Disciplinary incidents",
+        "role": "Outcome"
+      }
+    },
+    "trap": {
+      "type": "S1",
+      "type_name": "RCT",
+      "subtype": "Cluster RCT",
+      "subtype_name": "Cluster RCT"
+    },
+    "label": "YES",
+    "causal_structure": "",
+    "key_insight": "Cluster randomization at the school level enables valid causal inference for educational interventions.",
+    "gold_rationale": "This causal claim is supported by the study design. Cluster randomization at the school level prevents contamination between treatment and control groups while maintaining practical implementation. With 60 schools randomly assigned, confounding factors like school resources, neighborhood characteristics, and student demographics should be balanced across groups. The year-long duration allows sufficient time for curriculum effects to manifest.",
+    "wise_refusal": "This causal claim is supported by the study design. Cluster randomization at the school level prevents contamination between treatment and control groups while maintaining practical implementation. With 60 schools randomly assigned, confounding factors like school resources, neighborhood characteristics, and student demographics should be balanced across groups. The year-long duration allows sufficient time for curriculum effects to manifest.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.16
+  },
+  {
+    "id": "T3-BucketLarge-J-1.38",
+    "bucket": "BucketLarge-J",
+    "case_id": "0038",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Labor Economics",
+    "difficulty": "Medium",
+    "is_ambiguous": false,
+    "scenario": "Germany reunified suddenly in 1990, exposing East Germans to West German labor market institutions overnight. Economists compare employment outcomes of similar workers on either side of the former border before and after reunification, finding that exposure to West German institutions increased wages but also unemployment duration.",
+    "claim": "West German labor market institutions caused changes in employment outcomes for East Germans.",
+    "variables": {
+      "X": {
+        "name": "Exposure to West German labor market institutions",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Wages and unemployment duration",
+        "role": "Outcome"
+      }
+    },
+    "trap": {
+      "type": "S2",
+      "type_name": "Natural Experiment",
+      "subtype": "Policy Discontinuity",
+      "subtype_name": "Policy Discontinuity"
+    },
+    "label": "YES",
+    "causal_structure": "",
+    "key_insight": "Sudden geopolitical events create natural experiments by exposing similar populations to different institutional treatments.",
+    "gold_rationale": "This natural experiment provides strong causal evidence. German reunification was an exogenous shock unrelated to individual worker characteristics. Workers on either side of the border were culturally and economically similar before 1990, providing a natural control group. The sudden policy change allows researchers to isolate institutional effects from gradual economic trends. This design approximates random assignment of labor market institutions.",
+    "wise_refusal": "This natural experiment provides strong causal evidence. German reunification was an exogenous shock unrelated to individual worker characteristics. Workers on either side of the border were culturally and economically similar before 1990, providing a natural control group. The sudden policy change allows researchers to isolate institutional effects from gradual economic trends. This design approximates random assignment of labor market institutions.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.35
+  },
+  {
+    "id": "T3-BucketLarge-J-1.39",
+    "bucket": "BucketLarge-J",
+    "case_id": "0039",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Criminal Justice",
+    "difficulty": "Hard",
+    "is_ambiguous": false,
+    "scenario": "In 2014, California's Proposition 47 unexpectedly reclassified certain drug and property crimes from felonies to misdemeanors. Researchers use synthetic control methods to compare California's recidivism rates to a weighted combination of states without such policy changes, finding reduced reincarceration rates.",
+    "claim": "Felony reclassification to misdemeanor reduces reincarceration rates.",
+    "variables": {
+      "X": {
+        "name": "Felony to misdemeanor reclassification",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Reincarceration rates",
+        "role": "Outcome"
+      }
+    },
+    "trap": {
+      "type": "S2",
+      "type_name": "Natural Experiment",
+      "subtype": "Natural Policy Experiment",
+      "subtype_name": "Natural Policy Experiment"
+    },
+    "label": "YES",
+    "causal_structure": "",
+    "key_insight": "Voter initiatives create exogenous policy variation; synthetic controls address selection into treatment.",
+    "gold_rationale": "This natural experiment, combined with synthetic control methods, provides credible causal evidence. Proposition 47 was a voter initiative creating an exogenous policy shock. The synthetic control approach constructs a counterfactual California from states with similar pre-treatment trends, addressing concerns about parallel trends. The policy change was discrete and identifiable, allowing clear before-after comparisons while controlling for secular trends in criminal justice outcomes.",
+    "wise_refusal": "This natural experiment, combined with synthetic control methods, provides credible causal evidence. Proposition 47 was a voter initiative creating an exogenous policy shock. The synthetic control approach constructs a counterfactual California from states with similar pre-treatment trends, addressing concerns about parallel trends. The policy change was discrete and identifiable, allowing clear before-after comparisons while controlling for secular trends in criminal justice outcomes.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.9
+  },
+  {
+    "id": "T3-BucketLarge-J-1.40",
+    "bucket": "BucketLarge-J",
+    "case_id": "0040",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Urban Sociology",
+    "difficulty": "Easy",
+    "is_ambiguous": false,
+    "scenario": "A city's affordable housing program receives more applicants than available units, so apartments are allocated by lottery. Researchers compare health outcomes of lottery winners who received housing to lottery losers who remained in their previous housing, finding improved mental health among winners after two years.",
+    "claim": "Receiving affordable housing improves mental health outcomes.",
+    "variables": {
+      "X": {
+        "name": "Affordable housing receipt",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Mental health outcomes",
+        "role": "Outcome"
+      }
+    },
+    "trap": {
+      "type": "S3",
+      "type_name": "Lottery/Quasi-Random",
+      "subtype": "Housing Lottery",
+      "subtype_name": "Housing Lottery"
+    },
+    "label": "YES",
+    "causal_structure": "",
+    "key_insight": "Oversubscribed programs with lottery allocation create natural randomization among applicants.",
+    "gold_rationale": "This lottery design supports causal inference. All applicants demonstrated similar motivation and eligibility by applying, and random selection eliminated systematic differences between winners and losers. This creates treatment and control groups comparable in income, prior housing instability, and baseline mental health. The two-year follow-up allows sufficient time for housing effects to manifest. The observed mental health improvements can be attributed to housing rather than selection effects.",
+    "wise_refusal": "This lottery design supports causal inference. All applicants demonstrated similar motivation and eligibility by applying, and random selection eliminated systematic differences between winners and losers. This creates treatment and control groups comparable in income, prior housing instability, and baseline mental health. The two-year follow-up allows sufficient time for housing effects to manifest. The observed mental health improvements can be attributed to housing rather than selection effects.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.27
+  },
+  {
+    "id": "T3-BucketLarge-J-1.41",
+    "bucket": "BucketLarge-J",
+    "case_id": "0041",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Education Policy",
+    "difficulty": "Medium",
+    "is_ambiguous": false,
+    "scenario": "A charter school receives three times more applications than available seats and uses a lottery for admission. Researchers track lottery winners and losers through high school graduation, finding that lottery winners have 12% higher graduation rates, with effects concentrated among low-income students.",
+    "claim": "Charter school attendance increases graduation rates for low-income students.",
+    "variables": {
+      "X": {
+        "name": "Charter school attendance",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "High school graduation rates",
+        "role": "Outcome"
+      }
+    },
+    "trap": {
+      "type": "S3",
+      "type_name": "Lottery/Quasi-Random",
+      "subtype": "School Choice Lottery",
+      "subtype_name": "School Choice Lottery"
+    },
+    "label": "YES",
+    "causal_structure": "",
+    "key_insight": "Lottery admission to oversubscribed schools creates experimental conditions within observational data.",
+    "gold_rationale": "The lottery design provides strong causal evidence. Families who applied share similar motivation and engagement, addressing selection concerns. Random assignment ensures lottery winners and losers differ only by treatment status. Long-term tracking through graduation captures meaningful educational outcomes. The finding that effects concentrate among low-income students suggests the charter school provides resources that particularly benefit disadvantaged populations.",
+    "wise_refusal": "The lottery design provides strong causal evidence. Families who applied share similar motivation and engagement, addressing selection concerns. Random assignment ensures lottery winners and losers differ only by treatment status. Long-term tracking through graduation captures meaningful educational outcomes. The finding that effects concentrate among low-income students suggests the charter school provides resources that particularly benefit disadvantaged populations.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.83
+  },
+  {
+    "id": "T3-BucketLarge-J-1.42",
+    "bucket": "BucketLarge-J",
+    "case_id": "0042",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Social Psychology",
+    "difficulty": "Medium",
+    "is_ambiguous": false,
+    "scenario": "Researchers develop an anti-prejudice intervention with three components: perspective-taking exercises, intergroup contact, and factual information. They test the full intervention against versions with each component removed. Only removing perspective-taking significantly reduces effectiveness, while removing factual information has no impact.",
+    "claim": "Perspective-taking is the causally active component in reducing prejudice.",
+    "variables": {
+      "X": {
+        "name": "Perspective-taking component",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Prejudice reduction",
+        "role": "Outcome"
+      }
+    },
+    "trap": {
+      "type": "S4",
+      "type_name": "Controlled Ablation",
+      "subtype": "Component Removal Study",
+      "subtype_name": "Component Removal Study"
+    },
+    "label": "YES",
+    "causal_structure": "",
+    "key_insight": "Systematic component removal identifies causally necessary elements within complex interventions.",
+    "gold_rationale": "This controlled ablation design supports causal attribution to specific components. By systematically removing each element while holding others constant, researchers isolate which components drive effects. The finding that only perspective-taking removal diminishes effectiveness, while factual information removal does not, demonstrates that perspective-taking is necessary for the intervention's success. This design goes beyond showing the full package works to identifying active ingredients.",
+    "wise_refusal": "This controlled ablation design supports causal attribution to specific components. By systematically removing each element while holding others constant, researchers isolate which components drive effects. The finding that only perspective-taking removal diminishes effectiveness, while factual information removal does not, demonstrates that perspective-taking is necessary for the intervention's success. This design goes beyond showing the full package works to identifying active ingredients.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.05
+  },
+  {
+    "id": "T3-BucketLarge-J-1.43",
+    "bucket": "BucketLarge-J",
+    "case_id": "0043",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Political Behavior",
+    "difficulty": "Hard",
+    "is_ambiguous": false,
+    "scenario": "Researchers study voter mobilization using a 2x2x2 factorial design: phone calls (yes/no), text messages (yes/no), and social pressure messaging (yes/no). They find phone calls increase turnout by 3%, texts by 1%, and social pressure by 5%, with no significant interactions. Social pressure works equally well regardless of delivery method.",
+    "claim": "Social pressure messaging causally increases voter turnout independent of delivery method.",
+    "variables": {
+      "X": {
+        "name": "Social pressure messaging",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Voter turnout",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Delivery method (phone/text)"
+      ]
+    },
+    "trap": {
+      "type": "S4",
+      "type_name": "Controlled Ablation",
+      "subtype": "Factorial Ablation Design",
+      "subtype_name": "Factorial Ablation Design"
+    },
+    "label": "YES",
+    "causal_structure": "",
+    "key_insight": "Factorial designs disentangle main effects from interactions, isolating causally active components.",
+    "gold_rationale": "The factorial design enables strong causal inference about social pressure effects. By crossing all combinations, researchers can isolate main effects and test for interactions. The absence of significant interactions indicates social pressure works through its content rather than synergistically with particular delivery methods. This design separates message content effects from medium effects, establishing that social pressure is an independent causal factor in mobilization.",
+    "wise_refusal": "The factorial design enables strong causal inference about social pressure effects. By crossing all combinations, researchers can isolate main effects and test for interactions. The absence of significant interactions indicates social pressure works through its content rather than synergistically with particular delivery methods. This design separates message content effects from medium effects, establishing that social pressure is an independent causal factor in mobilization.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.71
+  },
+  {
+    "id": "T3-BucketLarge-J-1.44",
+    "bucket": "BucketLarge-J",
+    "case_id": "0044",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Public Health Policy",
+    "difficulty": "Hard",
+    "is_ambiguous": false,
+    "scenario": "Researchers studying lead exposure find that children's blood lead levels show a monotonic dose-response relationship with cognitive test scores: each 5 microgram/dL increase corresponds to a 2-point IQ decrease. Biological studies confirm lead interferes with neurotransmitter function and synaptic plasticity. Effects persist after controlling for socioeconomic factors.",
+    "claim": "Lead exposure causes cognitive impairment in children.",
+    "variables": {
+      "X": {
+        "name": "Blood lead levels",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Cognitive test scores",
+        "role": "Outcome"
+      }
+    },
+    "trap": {
+      "type": "S5",
+      "type_name": "Mechanism + Dose",
+      "subtype": "Mechanism with Dose-Response",
+      "subtype_name": "Mechanism with Dose-Response"
+    },
+    "label": "YES",
+    "causal_structure": "",
+    "key_insight": "Dose-response relationships combined with mechanistic understanding strengthen causal inference.",
+    "gold_rationale": "This claim is well-supported by converging evidence. The consistent dose-response relationship across exposure levels suggests a genuine biological effect rather than confounding. The established mechanism - lead's interference with neurotransmitter function - provides biological plausibility. Robustness to socioeconomic controls addresses major confounders. The combination of epidemiological dose-response evidence with mechanistic understanding from biological studies creates a compelling causal case.",
+    "wise_refusal": "This claim is well-supported by converging evidence. The consistent dose-response relationship across exposure levels suggests a genuine biological effect rather than confounding. The established mechanism - lead's interference with neurotransmitter function - provides biological plausibility. Robustness to socioeconomic controls addresses major confounders. The combination of epidemiological dose-response evidence with mechanistic understanding from biological studies creates a compelling causal case.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 9.08
+  },
+  {
+    "id": "T3-BucketLarge-J-1.45",
+    "bucket": "BucketLarge-J",
+    "case_id": "0045",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Family Studies",
+    "difficulty": "Hard",
+    "is_ambiguous": true,
+    "scenario": "A longitudinal study follows children of divorce and intact families for 20 years, controlling for pre-divorce family conflict, income, and parental education. Children of divorce show somewhat lower wellbeing, but the effect size is much smaller than in uncontrolled studies. Some unmeasured factors like parental mental health may still differ between groups.",
+    "claim": "Parental divorce causes reduced long-term wellbeing in children.",
+    "variables": {
+      "X": {
+        "name": "Parental divorce",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Long-term child wellbeing",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Pre-divorce conflict, income, education, unmeasured factors"
+      ]
+    },
+    "trap": {
+      "type": "A",
+      "type_name": "Ambiguous",
+      "subtype": "Partial Confounding Control",
+      "subtype_name": "Partial Confounding Control"
+    },
+    "label": "AMBIGUOUS",
+    "causal_structure": "",
+    "key_insight": "Partial confounding control leaves genuine uncertainty about remaining causal effects.",
+    "gold_rationale": "The evidence is genuinely ambiguous. Controlling for major confounders substantially reduces but does not eliminate the divorce-wellbeing association, suggesting some causal effect may exist. However, unmeasured confounders like parental mental health or relationship quality could still explain residual differences. The truth likely lies between 'divorce has no causal effect' and 'the raw correlation reflects pure causation.' Better evidence would require natural experiments or sibling comparisons.",
+    "wise_refusal": "The evidence is genuinely ambiguous. Controlling for major confounders substantially reduces but does not eliminate the divorce-wellbeing association, suggesting some causal effect may exist. However, unmeasured confounders like parental mental health or relationship quality could still explain residual differences. The truth likely lies between 'divorce has no causal effect' and 'the raw correlation reflects pure causation.' Better evidence would require natural experiments or sibling comparisons.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.0
+  },
+  {
+    "id": "T3-BucketLarge-J-1.46",
+    "bucket": "BucketLarge-J",
+    "case_id": "0046",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Environmental Sociology",
+    "difficulty": "Medium",
+    "is_ambiguous": true,
+    "scenario": "Communities near industrial facilities show higher rates of respiratory illness. Air quality measurements confirm elevated pollution, but these communities also have lower incomes, less healthcare access, and higher smoking rates. Researchers control for individual smoking and income but cannot fully account for cumulative disadvantage and healthcare access differences.",
+    "claim": "Industrial pollution causes respiratory illness in nearby communities.",
+    "variables": {
+      "X": {
+        "name": "Industrial facility proximity",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Respiratory illness rates",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Income, smoking, healthcare access, cumulative disadvantage"
+      ]
+    },
+    "trap": {
+      "type": "A",
+      "type_name": "Ambiguous",
+      "subtype": "Competing Mechanisms",
+      "subtype_name": "Competing Mechanisms"
+    },
+    "label": "AMBIGUOUS",
+    "causal_structure": "",
+    "key_insight": "Environmental injustice creates confounding that is conceptually clear but practically impossible to fully control.",
+    "gold_rationale": "This case presents genuine causal ambiguity. A plausible mechanism exists - documented air pollution exposure causing respiratory harm. However, environmental injustice means pollution exposure correlates with multiple disadvantages that independently affect health. Controlling for smoking and income helps but cannot address cumulative disadvantage or healthcare access. The pollution likely contributes to illness, but quantifying its independent causal contribution versus correlated socioeconomic factors remains uncertain.",
+    "wise_refusal": "This case presents genuine causal ambiguity. A plausible mechanism exists - documented air pollution exposure causing respiratory harm. However, environmental injustice means pollution exposure correlates with multiple disadvantages that independently affect health. Controlling for smoking and income helps but cannot address cumulative disadvantage or healthcare access. The pollution likely contributes to illness, but quantifying its independent causal contribution versus correlated socioeconomic factors remains uncertain.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.18
+  },
+  {
+    "id": "T3-BucketLarge-J-1.47",
+    "bucket": "BucketLarge-J",
+    "case_id": "0047",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Education Policy",
+    "difficulty": "Medium",
+    "is_ambiguous": false,
+    "scenario": "A state education department analyzes spending data from districts investing between $5,000 and $15,000 per student annually. The data shows a strong positive correlation: each additional $1,000 in per-student spending corresponds to approximately 8 percentile points higher on standardized tests. Based on this relationship, a policy advisor proposes that increasing spending to $100,000 per student would raise test scores to the 99th percentile, recommending massive budget increases to achieve educational excellence.",
+    "claim": "Increasing education spending to $100,000 per student would produce proportionally higher test scores based on the observed $5K-$15K correlation.",
+    "variables": {
+      "X": {
+        "name": "Per-student education spending",
+        "role": "Treatment/Factor"
+      },
+      "Y": {
+        "name": "Standardized test scores",
+        "role": "Outcome"
+      },
+      "R": {
+        "name": "Observed spending range ($5,000-$15,000)",
+        "role": "Domain constraint"
+      }
+    },
+    "trap": {
+      "type": "W3",
+      "type_name": "Healthy User Bias",
+      "subtype": "Asymptotic Failure / Extrapolation",
+      "subtype_name": "Extrapolation Error"
+    },
+    "label": "NO",
+    "causal_structure": "X -> Y observed for X in [$5K, $15K], extrapolated to X = $100K without justification",
+    "key_insight": "Linear correlations in moderate spending ranges cannot be extrapolated indefinitely due to ceiling effects on test scores, diminishing marginal returns on educational inputs, and practical limits on resource deployment.",
+    "gold_rationale": "This extrapolation from $5K-$15K to $100K per student is unjustified. Education spending exhibits well-documented diminishing returns: initial investments improve basics like qualified teachers and materials, but additional funds face ceiling effects (students cannot score above 100%), absorption limits (schools cannot productively deploy unlimited resources), and diminishing marginal utility (tenth teacher aide provides less value than first). The linear relationship observed in the modest range breaks down dramatically at extreme values.",
+    "wise_refusal": "This extrapolation from $5K-$15K to $100K per student is unjustified. Education spending exhibits well-documented diminishing returns: initial investments improve basics like qualified teachers and materials, but additional funds face ceiling effects (students cannot score above 100%), absorption limits (schools cannot productively deploy unlimited resources), and diminishing marginal utility (tenth teacher aide provides less value than first). The linear relationship observed in the modest range breaks down dramatically at extreme values.",
+    "hidden_timestamp": "Does the linear relationship between education spending and test scores hold when extrapolating from $5K-$15K to $100K per student?",
+    "conditional_answers": {
+      "A": "If the relationship is truly linear across all spending levels, the extrapolation would be valid.",
+      "B": "If diminishing returns, ceiling effects on test scores, or resource absorption limits exist, the relationship plateaus well before $100K.",
+      "C": "If spending beyond certain thresholds creates bureaucratic inefficiency or misallocation, the relationship could reverse."
+    },
+    "initial_author": "Claude Code Remediation Agent",
+    "validator": "Claude Code Validator",
+    "final_score": 8.73
+  },
+  {
+    "id": "T3-BucketLarge-J-1.48",
+    "bucket": "BucketLarge-J",
+    "case_id": "0048",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Labor Economics",
+    "difficulty": "Hard",
+    "is_ambiguous": false,
+    "scenario": "Economists study the effects of minimum wage increases across states where rates varied from $7.25 to $15.00 per hour over a decade. Within this range, they find modest negative effects on employment: each $1 increase correlates with approximately 0.5% reduction in low-wage employment, but the effect is small and some studies show neutral or positive effects due to reduced turnover. A policy group extrapolates this finding to argue that a $50 per hour minimum wage would cause only a 21% reduction in low-wage employment, which they consider an acceptable tradeoff.",
+    "claim": "A $50/hour minimum wage would reduce low-wage employment by approximately 21% based on linear extrapolation from effects observed in the $7-$15/hour range.",
+    "variables": {
+      "X": {
+        "name": "Minimum wage level",
+        "role": "Treatment/Factor"
+      },
+      "Y": {
+        "name": "Low-wage employment rate",
+        "role": "Outcome"
+      },
+      "R": {
+        "name": "Observed wage range ($7.25-$15.00/hour)",
+        "role": "Domain constraint"
+      }
+    },
+    "trap": {
+      "type": "W3",
+      "type_name": "Healthy User Bias",
+      "subtype": "Asymptotic Failure / Extrapolation",
+      "subtype_name": "Extrapolation Error"
+    },
+    "label": "NO",
+    "causal_structure": "X -> Y observed for X in [$7.25, $15.00], extrapolated to X = $50 without justification",
+    "key_insight": "Labor market responses to minimum wages are bounded by business viability thresholds, automation economics, and market restructuring that create severe nonlinearities far outside the observed policy range.",
+    "gold_rationale": "Extrapolating minimum wage effects from $7-$15/hour to $50/hour is fundamentally flawed. The observed range represents modest perturbations where businesses can absorb costs through reduced profits, slight price increases, or productivity gains. At $50/hour, these adjustment mechanisms break down entirely: most low-wage businesses would become unviable, automation becomes economically imperative, and underground employment would surge. Labor market discontinuities and business model constraints invalidate linear extrapolation beyond the observed domain.",
+    "wise_refusal": "Extrapolating minimum wage effects from $7-$15/hour to $50/hour is fundamentally flawed. The observed range represents modest perturbations where businesses can absorb costs through reduced profits, slight price increases, or productivity gains. At $50/hour, these adjustment mechanisms break down entirely: most low-wage businesses would become unviable, automation becomes economically imperative, and underground employment would surge. Labor market discontinuities and business model constraints invalidate linear extrapolation beyond the observed domain.",
+    "hidden_timestamp": "Does the modest employment elasticity observed for minimum wages between $7-$15/hour apply when extrapolating to $50/hour?",
+    "conditional_answers": {
+      "A": "If labor demand elasticity is constant across all wage levels, the linear extrapolation would hold.",
+      "B": "If labor markets exhibit discontinuities, threshold effects, or nonlinear responses at extreme wages, employment effects would be far more severe than predicted.",
+      "C": "If businesses fundamentally restructure operations, automate, or relocate at extreme wage levels, the observed relationship becomes meaningless."
+    },
+    "initial_author": "Claude Code Remediation Agent",
+    "validator": "Claude Code Validator",
+    "final_score": 8.42
+  },
+  {
+    "id": "T3-BucketLarge-J-1.49",
+    "bucket": "BucketLarge-J",
+    "case_id": "0049",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Criminal Justice",
+    "difficulty": "Medium",
+    "is_ambiguous": false,
+    "scenario": "A city crime analysis unit examines data across neighborhoods with varying police-to-resident ratios ranging from 1 officer per 1,000 residents to 1 per 200 residents. Within this range, they observe a negative correlation: doubling police presence correlates with roughly 15% lower property crime rates. A city council member extrapolates this relationship to propose that if police presence were increased to 1 officer per 10 residents, property crime would approach zero, justifying a dramatic expansion of the police force.",
+    "claim": "Increasing police presence to 1 officer per 10 residents would reduce crime to near-zero based on the observed correlation at moderate staffing levels.",
+    "variables": {
+      "X": {
+        "name": "Police-to-resident ratio",
+        "role": "Treatment/Factor"
+      },
+      "Y": {
+        "name": "Property crime rate",
+        "role": "Outcome"
+      },
+      "R": {
+        "name": "Observed ratio range (1:1000 to 1:200)",
+        "role": "Domain constraint"
+      }
+    },
+    "trap": {
+      "type": "W3",
+      "type_name": "Healthy User Bias",
+      "subtype": "Asymptotic Failure / Extrapolation",
+      "subtype_name": "Extrapolation Error"
+    },
+    "label": "NO",
+    "causal_structure": "X -> Y observed for X in [1:1000, 1:200], extrapolated to X = 1:10 without justification",
+    "key_insight": "Crime reduction through policing faces asymptotic limits: easily deterred crimes are prevented first, and remaining crime has causes that policing cannot address, creating diminishing returns that invalidate linear extrapolation.",
+    "gold_rationale": "Extrapolating from moderate police ratios (1:1000 to 1:200) to extreme saturation (1:10) ignores fundamental limits on crime reduction. Diminishing returns occur because police first deter the most preventable crimes; remaining crime involves determined offenders, crimes of passion, or hidden victimization. Opportunity costs become extreme as police spending crowds out social services that address root causes. Civil liberties constraints, community alienation, and crime displacement to unpoliced domains further invalidate the assumed monotonic relationship. Zero crime is an asymptote that cannot be reached through policing alone.",
+    "wise_refusal": "Extrapolating from moderate police ratios (1:1000 to 1:200) to extreme saturation (1:10) ignores fundamental limits on crime reduction. Diminishing returns occur because police first deter the most preventable crimes; remaining crime involves determined offenders, crimes of passion, or hidden victimization. Opportunity costs become extreme as police spending crowds out social services that address root causes. Civil liberties constraints, community alienation, and crime displacement to unpoliced domains further invalidate the assumed monotonic relationship. Zero crime is an asymptote that cannot be reached through policing alone.",
+    "hidden_timestamp": "Does the negative correlation between police presence and crime observed at moderate levels continue linearly as police presence approaches extreme saturation?",
+    "conditional_answers": {
+      "A": "If deterrence effects scale linearly with police presence regardless of saturation, the extrapolation would be valid.",
+      "B": "If diminishing returns exist because easily deterrable crimes are prevented first, additional officers provide decreasing marginal benefit.",
+      "C": "If extreme police presence creates civil liberties violations, community alienation, or displaces rather than prevents crime, the relationship could reverse."
+    },
+    "initial_author": "Claude Code Remediation Agent",
+    "validator": "Claude Code Validator",
+    "final_score": 8.65
+  },
+  {
+    "id": "T3-BucketLarge-J-1.50",
+    "bucket": "BucketLarge-J",
+    "case_id": "0050",
+    "pearl_level": "L1",
+    "domain": "D10",
+    "subdomain": "Social Psychology",
+    "difficulty": "Easy",
+    "is_ambiguous": false,
+    "scenario": "Mental health researchers analyze survey data from adolescents reporting social media use between 0 and 4 hours daily. Within this range, they find a positive correlation: each additional hour of daily social media use corresponds to a 0.3-point increase on a depression symptoms scale (range 0-27). A concerned parent advocacy group extrapolates this finding to claim that teenagers using social media for 16 hours daily would have depression scores 4.8 points higher than non-users, characterizing extreme social media use as a severe mental health crisis requiring urgent intervention.",
+    "claim": "Teenagers using social media 16 hours daily would show proportionally elevated depression scores based on the linear relationship observed in the 0-4 hour range.",
+    "variables": {
+      "X": {
+        "name": "Daily social media use (hours)",
+        "role": "Treatment/Factor"
+      },
+      "Y": {
+        "name": "Depression symptom score",
+        "role": "Outcome"
+      },
+      "R": {
+        "name": "Observed usage range (0-4 hours daily)",
+        "role": "Domain constraint"
+      }
+    },
+    "trap": {
+      "type": "W3",
+      "type_name": "Healthy User Bias",
+      "subtype": "Asymptotic Failure / Extrapolation",
+      "subtype_name": "Extrapolation Error"
+    },
+    "label": "NO",
+    "causal_structure": "X -> Y observed for X in [0, 4 hours], extrapolated to X = 16 hours without justification",
+    "key_insight": "Extreme usage levels (16 hours daily) represent a fundamentally different population with severe confounders; extrapolating correlations from typical usage ignores ceiling effects on outcomes and qualitative differences in who exhibits extreme behavior.",
+    "gold_rationale": "Extrapolating from 0-4 hours to 16 hours of daily social media use is unjustified for multiple reasons. First, 16-hour usage is physically unsustainable, leaving only 8 hours for sleep with no time for school, eating, or other activities, indicating severe confounding conditions. Second, depression scales have ceiling effects, preventing linear extrapolation beyond maximum scores. Third, individuals using social media 16 hours daily likely have pre-existing conditions (severe depression, social isolation, disability) that confound any observed correlation. The extreme usage domain has different population characteristics that invalidate extrapolation from typical users.",
+    "wise_refusal": "Extrapolating from 0-4 hours to 16 hours of daily social media use is unjustified for multiple reasons. First, 16-hour usage is physically unsustainable, leaving only 8 hours for sleep with no time for school, eating, or other activities, indicating severe confounding conditions. Second, depression scales have ceiling effects, preventing linear extrapolation beyond maximum scores. Third, individuals using social media 16 hours daily likely have pre-existing conditions (severe depression, social isolation, disability) that confound any observed correlation. The extreme usage domain has different population characteristics that invalidate extrapolation from typical users.",
+    "hidden_timestamp": "Does the linear correlation between social media use and depression observed from 0-4 hours/day extend to extreme usage levels like 16 hours/day?",
+    "conditional_answers": {
+      "A": "If the relationship is truly linear across all usage levels, extrapolation to extreme hours would be valid.",
+      "B": "If ceiling effects on depression scales or saturation of psychological mechanisms exist, the relationship plateaus at high usage.",
+      "C": "If extreme usage (16 hours) indicates severe underlying conditions that independently cause both behaviors, the correlation reflects confounding rather than direct causation."
+    },
+    "initial_author": "Claude Code Remediation Agent",
+    "validator": "Claude Code Validator",
+    "final_score": 8.26
+  }
+]

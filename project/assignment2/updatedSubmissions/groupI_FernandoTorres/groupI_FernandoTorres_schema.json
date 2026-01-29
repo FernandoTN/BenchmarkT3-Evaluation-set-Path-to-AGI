@@ -1,0 +1,186 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "T3 Benchmark Case Schema - Assignment 2",
+  "description": "Schema for T3 Causal Reasoning Benchmark cases (V3.0)",
+  "type": "object",
+  "required": [
+    "id",
+    "bucket",
+    "case_id",
+    "pearl_level",
+    "domain",
+    "subdomain",
+    "difficulty",
+    "is_ambiguous",
+    "scenario",
+    "claim",
+    "variables",
+    "trap",
+    "label",
+    "gold_rationale",
+    "initial_author",
+    "validator",
+    "final_score"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier following pattern: T3-{Bucket}-{Group}-{Level}.{CaseNum}",
+      "pattern": "^T3-[A-Za-z]+-[A-Z]-[0-9]+\\.[0-9]+$"
+    },
+    "bucket": {
+      "type": "string",
+      "description": "Size bucket category",
+      "enum": ["BucketSmall", "BucketMedium", "BucketLarge"]
+    },
+    "case_id": {
+      "type": "string",
+      "description": "Four-digit case identifier",
+      "pattern": "^[0-9]{4}$"
+    },
+    "pearl_level": {
+      "type": "string",
+      "description": "Pearl's ladder level (L1=Association, L2=Intervention, L3=Counterfactual)",
+      "enum": ["L1", "L2", "L3"]
+    },
+    "domain": {
+      "type": "string",
+      "description": "Domain code (D1-D10)",
+      "pattern": "^D[0-9]{1,2}$"
+    },
+    "subdomain": {
+      "type": "string",
+      "description": "Specific subdomain within the domain"
+    },
+    "difficulty": {
+      "type": "string",
+      "description": "Case difficulty level",
+      "enum": ["Easy", "Medium", "Hard"]
+    },
+    "is_ambiguous": {
+      "type": "boolean",
+      "description": "Whether the case has inherent ambiguity"
+    },
+    "scenario": {
+      "type": "string",
+      "description": "The scenario describing the causal situation",
+      "minLength": 50
+    },
+    "claim": {
+      "type": "string",
+      "description": "The claim to be evaluated",
+      "minLength": 20
+    },
+    "variables": {
+      "type": "object",
+      "description": "Causal variables involved in the scenario",
+      "required": ["X", "Y"],
+      "properties": {
+        "X": {
+          "type": "string",
+          "description": "Primary causal variable (cause)"
+        },
+        "Y": {
+          "type": "string",
+          "description": "Outcome variable (effect)"
+        },
+        "Z": {
+          "type": "string",
+          "description": "Optional confounding or mediating variable"
+        }
+      }
+    },
+    "trap": {
+      "type": "object",
+      "description": "The reasoning trap embedded in the case",
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Trap type code (T1-T17, F1-F8, W1-W10, S1-S5, A, DomainExt)"
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the trap"
+        }
+      }
+    },
+    "label": {
+      "type": "string",
+      "description": "Gold label for the case",
+      "enum": ["YES", "NO", "AMBIGUOUS", "VALID", "INVALID", "CONDITIONAL"]
+    },
+    "gold_rationale": {
+      "type": "string",
+      "description": "Expert rationale for the gold label",
+      "minLength": 50
+    },
+    "initial_author": {
+      "type": "string",
+      "description": "Author who created the initial case"
+    },
+    "validator": {
+      "type": "string",
+      "description": "Validator who reviewed and approved the case"
+    },
+    "final_score": {
+      "type": "number",
+      "description": "Final quality score (0-10)",
+      "minimum": 0,
+      "maximum": 10
+    },
+    "causal_structure": {
+      "type": "string",
+      "description": "Optional: DAG or structural description"
+    },
+    "conditional_answers": {
+      "type": "object",
+      "description": "Optional: Conditional answer breakdown for L3 cases"
+    },
+    "hidden_timestamp": {
+      "type": "string",
+      "description": "Optional: Hidden temporal information"
+    },
+    "key_insight": {
+      "type": "string",
+      "description": "Optional: Key insight for solving the case"
+    },
+    "wise_refusal": {
+      "type": "string",
+      "description": "Optional: Expected wise refusal response"
+    }
+  },
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": { "pearl_level": { "const": "L1" } }
+      },
+      "then": {
+        "properties": {
+          "label": { "enum": ["YES", "NO", "AMBIGUOUS"] }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": { "pearl_level": { "const": "L2" } }
+      },
+      "then": {
+        "properties": {
+          "label": { "enum": ["YES", "NO"] }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": { "pearl_level": { "const": "L3" } }
+      },
+      "then": {
+        "properties": {
+          "label": { "enum": ["VALID", "INVALID", "CONDITIONAL"] }
+        }
+      }
+    }
+  ]
+}

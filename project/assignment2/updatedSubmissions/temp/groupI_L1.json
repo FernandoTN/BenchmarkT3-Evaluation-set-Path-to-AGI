@@ -1,0 +1,2160 @@
+[
+  {
+    "id": "T3-BucketLarge-I-1.1",
+    "bucket": "BucketLarge-I",
+    "case_id": "0001",
+    "pearl_level": "L1",
+    "domain": "D9",
+    "subdomain": "AI Scaling",
+    "difficulty": "Easy",
+    "is_ambiguous": false,
+    "scenario": "Larger models (X) correlate with higher truthfulness scores (Y) on benchmarks. A user assumes a 100B model never lies.",
+    "claim": "A 100 billion parameter model never produces false statements because larger models correlate with higher truthfulness scores.",
+    "variables": {
+      "X": {
+        "name": "Parameter Count (Size)",
+        "role": "Treatment/Factor"
+      },
+      "Y": {
+        "name": "Truthfulness Score",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Hallucination Rate"
+      ]
+    },
+    "trap": {
+      "type": "W3",
+      "type_name": "Healthy User Bias",
+      "subtype": "Asymptotic Failure / Extrapolation",
+      "subtype_name": "Extrapolation Error"
+    },
+    "label": "NO",
+    "causal_structure": "Correlation != total elimination of defects",
+    "key_insight": "Larger models can still hallucinate, sometimes more persuasively.",
+    "gold_rationale": "Parameter count correlates with benchmark scores, but that does not imply perfection. Larger models can still hallucinate; assuming the trend reaches zero defects is an extrapolation error.",
+    "wise_refusal": "Parameter count correlates with benchmark scores, but that does not imply perfection. Larger models can still hallucinate; assuming the trend reaches zero defects is an extrapolation error.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.7
+  },
+  {
+    "id": "T3-BucketLarge-I-1.2",
+    "bucket": "BucketLarge-I",
+    "case_id": "0002",
+    "pearl_level": "L1",
+    "domain": "D9",
+    "subdomain": "RLHF",
+    "difficulty": "Medium",
+    "is_ambiguous": false,
+    "scenario": "Models with high safety scores (X) often have lower creativity scores (Y). A user concludes safety destroys intelligence.",
+    "claim": "Safety training destroys the intelligence and reasoning ability of AI models because safer models have lower creativity scores.",
+    "variables": {
+      "X": {
+        "name": "Safety Score (Refusal Rate)",
+        "role": "Factor"
+      },
+      "Y": {
+        "name": "Creativity (Diversity)",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Filtering"
+      ]
+    },
+    "trap": {
+      "type": "W5",
+      "type_name": "Ecological Fallacy",
+      "subtype": "Alignment Tax / Trade-Off Fallacy",
+      "subtype_name": "Trade-Off Fallacy"
+    },
+    "label": "NO",
+    "causal_structure": "Safety filters truncate the output distribution tail",
+    "key_insight": "Association is driven by truncation, not necessarily loss of reasoning ability.",
+    "gold_rationale": "The negative association reflects distribution truncation from safety filtering. It doesn't prove safety training destroys underlying reasoning; it may restrict outputs that contribute to measured creativity.",
+    "wise_refusal": "The negative association reflects distribution truncation from safety filtering. It doesn't prove safety training destroys underlying reasoning; it may restrict outputs that contribute to measured creativity.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.44
+  },
+  {
+    "id": "T3-BucketLarge-I-1.3",
+    "bucket": "BucketLarge-I",
+    "case_id": "0003",
+    "pearl_level": "L1",
+    "domain": "D9",
+    "subdomain": "AI Reliability",
+    "difficulty": "Hard",
+    "is_ambiguous": false,
+    "scenario": "Outputs with low average log-probability (X) are associated with higher error rates (Y). A user assumes high-probability outputs are always factually correct.",
+    "claim": "High token probability outputs from language models are always factually correct because confidence correlates with accuracy.",
+    "variables": {
+      "X": {
+        "name": "Log Probability (Confidence)",
+        "role": "Signal"
+      },
+      "Y": {
+        "name": "Factual Error",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Common Misconceptions"
+      ]
+    },
+    "trap": {
+      "type": "W4",
+      "type_name": "Regression to Mean",
+      "subtype": "Calibration Error / Sycophancy",
+      "subtype_name": "Calibration Error / Sycophancy"
+    },
+    "label": "NO",
+    "causal_structure": "Models can be highly confident in common misconceptions",
+    "key_insight": "Confidence != correctness, especially in adversarial or misconception-heavy settings.",
+    "gold_rationale": "High token probability indicates confidence, not truth. Models can assign high probability to common misconceptions; the confidence-truth link is weak under distribution shift or adversarial prompts.",
+    "wise_refusal": "High token probability indicates confidence, not truth. Models can assign high probability to common misconceptions; the confidence-truth link is weak under distribution shift or adversarial prompts.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.76
+  },
+  {
+    "id": "T3-BucketLarge-I-1.4",
+    "bucket": "BucketLarge-I",
+    "case_id": "0004",
+    "pearl_level": "L1",
+    "domain": "D9",
+    "subdomain": "Mechanistic Interpretability",
+    "difficulty": "Medium",
+    "is_ambiguous": false,
+    "scenario": "Activity in Neuron 55 (X) is strongly associated with outputting the word 'hate' (Y). A researcher deletes Neuron 55 to stop hate speech.",
+    "claim": "Deleting Neuron 55 will eliminate hate speech from the model because Neuron 55 activity correlates with hate output.",
+    "variables": {
+      "X": {
+        "name": "Neuron 55 Activity",
+        "role": "Feature"
+      },
+      "Y": {
+        "name": "Output 'hate'",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Polysemanticity"
+      ]
+    },
+    "trap": {
+      "type": "W6",
+      "type_name": "Base Rate Neglect",
+      "subtype": "Polysemanticity / Feature Entanglement",
+      "subtype_name": "Polysemanticity / Feature Entanglement"
+    },
+    "label": "NO",
+    "causal_structure": "One neuron can encode multiple unrelated concepts",
+    "key_insight": "Correlation does not imply 1:1 functional mapping; ablation can damage unrelated capabilities.",
+    "gold_rationale": "Neuron 55 correlates with 'hate' output, but neurons are often polysemantic. Deleting it based on association alone can degrade other capabilities and may not eliminate hate speech robustly.",
+    "wise_refusal": "Neuron 55 correlates with 'hate' output, but neurons are often polysemantic. Deleting it based on association alone can degrade other capabilities and may not eliminate hate speech robustly.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 9.11
+  },
+  {
+    "id": "T3-BucketLarge-I-1.5",
+    "bucket": "BucketLarge-I",
+    "case_id": "0005",
+    "pearl_level": "L1",
+    "domain": "D9",
+    "subdomain": "Red Teaming",
+    "difficulty": "Medium",
+    "is_ambiguous": false,
+    "scenario": "Polite prompts (X) are associated with higher refusal rates (Y) for harmful queries than aggressive prompts.",
+    "claim": "Polite prompts are safer than aggressive prompts because polite harmful queries have higher refusal rates.",
+    "variables": {
+      "X": {
+        "name": "Polite Tone",
+        "role": "Input feature"
+      },
+      "Y": {
+        "name": "Refusal Rate",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Safety Fine-Tuning Data"
+      ]
+    },
+    "trap": {
+      "type": "W7",
+      "type_name": "Confounding",
+      "subtype": "Distribution Shift / Jailbreak Dynamics",
+      "subtype_name": "Distribution Shift / Jailbreak Dynamics"
+    },
+    "label": "NO",
+    "causal_structure": "Safety training focused on aggressive attacks",
+    "key_insight": "Tone can act as a spurious cue; polite harmful queries may bypass classifiers.",
+    "gold_rationale": "This likely reflects safety training bias: aggressive prompts were seen as attacks. Polite harmful queries may bypass filters because they don't trigger the learned attack cues.",
+    "wise_refusal": "This likely reflects safety training bias: aggressive prompts were seen as attacks. Polite harmful queries may bypass filters because they don't trigger the learned attack cues.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.41
+  },
+  {
+    "id": "T3-BucketLarge-I-1.6",
+    "bucket": "BucketLarge-I",
+    "case_id": "0006",
+    "pearl_level": "L1",
+    "domain": "D9",
+    "subdomain": "Machine Learning Models",
+    "difficulty": "Easy",
+    "is_ambiguous": false,
+    "scenario": "A machine learning team reports that their image classification model achieves 98% accuracy on detecting skin cancer. However, the training dataset was collected exclusively from dermatology clinics in Northern Europe, consisting primarily of light-skinned patients. The team claims their model is highly effective at skin cancer detection.",
+    "claim": "The ML model is highly effective at detecting skin cancer across all populations.",
+    "variables": {
+      "X": {
+        "name": "Model predictions",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Skin cancer detection accuracy",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Skin tone diversity in training data"
+      ]
+    },
+    "trap": {
+      "type": "W1",
+      "type_name": "Selection Bias",
+      "subtype": "Dataset Selection Bias",
+      "subtype_name": "Dataset Selection Bias"
+    },
+    "label": "NO",
+    "causal_structure": "",
+    "key_insight": "Training data selection determines what populations a model can reliably serve.",
+    "gold_rationale": "This claim suffers from selection bias. The training data was collected only from Northern European clinics with predominantly light-skinned patients, creating a non-representative sample. The model's high accuracy may not generalize to populations with darker skin tones, where melanoma presents differently. Without testing on diverse populations, the causal claim about effectiveness is not justified.",
+    "wise_refusal": "This claim suffers from selection bias. The training data was collected only from Northern European clinics with predominantly light-skinned patients, creating a non-representative sample. The model's high accuracy may not generalize to populations with darker skin tones, where melanoma presents differently. Without testing on diverse populations, the causal claim about effectiveness is not justified.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.41
+  },
+  {
+    "id": "T3-BucketLarge-I-1.7",
+    "bucket": "BucketLarge-I",
+    "case_id": "0007",
+    "pearl_level": "L1",
+    "domain": "D9",
+    "subdomain": "Natural Language Processing",
+    "difficulty": "Medium",
+    "is_ambiguous": false,
+    "scenario": "Researchers develop a new large language model and evaluate it on popular NLP benchmarks like GLUE and SuperGLUE, achieving state-of-the-art results. These benchmarks primarily contain English text from Wikipedia and news articles. The researchers claim their model demonstrates superior language understanding capabilities.",
+    "claim": "The LLM has superior language understanding capabilities.",
+    "variables": {
+      "X": {
+        "name": "LLM architecture",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Language understanding performance",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Benchmark domain coverage"
+      ]
+    },
+    "trap": {
+      "type": "W1",
+      "type_name": "Selection Bias",
+      "subtype": "Benchmark Selection Bias",
+      "subtype_name": "Benchmark Selection Bias"
+    },
+    "label": "NO",
+    "causal_structure": "",
+    "key_insight": "Benchmark selection can create illusions of capability that do not generalize to real-world language use.",
+    "gold_rationale": "This claim is undermined by selection bias in the evaluation benchmarks. GLUE and SuperGLUE primarily test formal English from Wikipedia and news sources, excluding conversational language, code-switching, dialects, and non-English languages. High benchmark scores may reflect overfitting to these specific domains rather than genuine language understanding. The causal claim requires evaluation across diverse linguistic contexts.",
+    "wise_refusal": "This claim is undermined by selection bias in the evaluation benchmarks. GLUE and SuperGLUE primarily test formal English from Wikipedia and news sources, excluding conversational language, code-switching, dialects, and non-English languages. High benchmark scores may reflect overfitting to these specific domains rather than genuine language understanding. The causal claim requires evaluation across diverse linguistic contexts.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 9.13
+  },
+  {
+    "id": "T3-BucketLarge-I-1.8",
+    "bucket": "BucketLarge-I",
+    "case_id": "0008",
+    "pearl_level": "L1",
+    "domain": "D9",
+    "subdomain": "Recommendation Systems",
+    "difficulty": "Medium",
+    "is_ambiguous": false,
+    "scenario": "A streaming platform analyzes user ratings to improve its recommendation algorithm. They find that users who rate content give an average score of 4.2 out of 5 stars. The platform concludes that their content library is highly satisfying to users and their recommendation system successfully matches users with content they enjoy.",
+    "claim": "The recommendation system successfully matches users with enjoyable content.",
+    "variables": {
+      "X": {
+        "name": "Recommendation algorithm",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "User satisfaction",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Rating behavior patterns"
+      ]
+    },
+    "trap": {
+      "type": "W1",
+      "type_name": "Selection Bias",
+      "subtype": "User Feedback Selection Bias",
+      "subtype_name": "User Feedback Selection Bias"
+    },
+    "label": "NO",
+    "causal_structure": "",
+    "key_insight": "Voluntary feedback mechanisms systematically over-represent satisfied users.",
+    "gold_rationale": "This conclusion suffers from selection bias because only users who choose to rate content are included in the analysis. Users who dislike content often abandon it without rating, while satisfied users are more likely to engage with the rating system. The 4.2 average reflects the self-selected group of raters, not the broader user population's actual satisfaction with recommendations.",
+    "wise_refusal": "This conclusion suffers from selection bias because only users who choose to rate content are included in the analysis. Users who dislike content often abandon it without rating, while satisfied users are more likely to engage with the rating system. The 4.2 average reflects the self-selected group of raters, not the broader user population's actual satisfaction with recommendations.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.81
+  },
+  {
+    "id": "T3-BucketLarge-I-1.9",
+    "bucket": "BucketLarge-I",
+    "case_id": "0009",
+    "pearl_level": "L1",
+    "domain": "D9",
+    "subdomain": "Software Engineering",
+    "difficulty": "Hard",
+    "is_ambiguous": false,
+    "scenario": "A software engineering study analyzes 500 popular open-source projects on GitHub to understand code quality practices. They find that 85% of these projects use comprehensive test suites and continuous integration. The researchers conclude that the software development community has widely adopted rigorous quality assurance practices.",
+    "claim": "The software development community has widely adopted rigorous QA practices.",
+    "variables": {
+      "X": {
+        "name": "Community development practices",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "QA practice adoption rate",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Project visibility and popularity"
+      ]
+    },
+    "trap": {
+      "type": "W1",
+      "type_name": "Selection Bias",
+      "subtype": "Open Source Selection Bias",
+      "subtype_name": "Open Source Selection Bias"
+    },
+    "label": "NO",
+    "causal_structure": "",
+    "key_insight": "Visible, successful projects are not representative of typical development practices.",
+    "gold_rationale": "This claim is invalidated by severe selection bias. Popular GitHub projects represent a tiny fraction of all software development and are more likely to have resources, community contributions, and motivation for quality practices. The vast majority of software projects, proprietary codebases, internal tools, and smaller open-source projects are not represented. Generalizing from elite projects to the entire community is not justified.",
+    "wise_refusal": "This claim is invalidated by severe selection bias. Popular GitHub projects represent a tiny fraction of all software development and are more likely to have resources, community contributions, and motivation for quality practices. The vast majority of software projects, proprietary codebases, internal tools, and smaller open-source projects are not represented. Generalizing from elite projects to the entire community is not justified.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.31
+  },
+  {
+    "id": "T3-BucketLarge-I-1.10",
+    "bucket": "BucketLarge-I",
+    "case_id": "0010",
+    "pearl_level": "L1",
+    "domain": "D9",
+    "subdomain": "AI Safety",
+    "difficulty": "Easy",
+    "is_ambiguous": false,
+    "scenario": "A tech journalist interviews founders of five successful AI startups that achieved unicorn status. All founders report that they focused heavily on scaling quickly rather than on safety considerations during early development. The journalist writes that prioritizing rapid scaling over safety is the key to AI startup success.",
+    "claim": "Prioritizing rapid scaling over safety is the key to AI startup success.",
+    "variables": {
+      "X": {
+        "name": "Scaling vs safety prioritization",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Startup success",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Failed startups with same strategy"
+      ]
+    },
+    "trap": {
+      "type": "W2",
+      "type_name": "Survivorship Bias",
+      "subtype": "Successful AI Startup Survivorship",
+      "subtype_name": "Successful AI Startup Survivorship"
+    },
+    "label": "NO",
+    "causal_structure": "",
+    "key_insight": "Studying only winners hides whether their strategies actually caused success.",
+    "gold_rationale": "This claim exhibits classic survivorship bias. The analysis only examines successful startups while ignoring the many AI startups that also prioritized rapid scaling but failed, possibly due to safety incidents, technical debt, or regulatory issues. Without studying failed startups, we cannot determine whether this strategy actually contributes to success or is merely common among all startups regardless of outcome.",
+    "wise_refusal": "This claim exhibits classic survivorship bias. The analysis only examines successful startups while ignoring the many AI startups that also prioritized rapid scaling but failed, possibly due to safety incidents, technical debt, or regulatory issues. Without studying failed startups, we cannot determine whether this strategy actually contributes to success or is merely common among all startups regardless of outcome.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.72
+  },
+  {
+    "id": "T3-BucketLarge-I-1.11",
+    "bucket": "BucketLarge-I",
+    "case_id": "0011",
+    "pearl_level": "L1",
+    "domain": "D9",
+    "subdomain": "Machine Learning Models",
+    "difficulty": "Medium",
+    "is_ambiguous": false,
+    "scenario": "A meta-analysis of published deep learning papers finds that transformer architectures consistently outperform other approaches across various tasks. The analysis covers 200 papers from top venues over five years. Researchers conclude that transformer architectures are inherently superior for deep learning applications.",
+    "claim": "Transformer architectures are inherently superior for deep learning applications.",
+    "variables": {
+      "X": {
+        "name": "Model architecture choice",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Task performance",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Publication bias"
+      ]
+    },
+    "trap": {
+      "type": "W2",
+      "type_name": "Survivorship Bias",
+      "subtype": "Published Model Survivorship",
+      "subtype_name": "Published Model Survivorship"
+    },
+    "label": "NO",
+    "causal_structure": "",
+    "key_insight": "Published research systematically overrepresents whatever approach is currently fashionable.",
+    "gold_rationale": "This conclusion suffers from survivorship bias due to publication bias. Papers showing transformers underperforming or alternative architectures succeeding are less likely to be published in top venues. The meta-analysis only captures successful transformer applications while missing unpublished negative results and successful non-transformer approaches that did not receive attention. The apparent superiority may reflect publishing trends rather than true architectural advantages.",
+    "wise_refusal": "This conclusion suffers from survivorship bias due to publication bias. Papers showing transformers underperforming or alternative architectures succeeding are less likely to be published in top venues. The meta-analysis only captures successful transformer applications while missing unpublished negative results and successful non-transformer approaches that did not receive attention. The apparent superiority may reflect publishing trends rather than true architectural advantages.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.31
+  },
+  {
+    "id": "T3-BucketLarge-I-1.12",
+    "bucket": "BucketLarge-I",
+    "case_id": "0012",
+    "pearl_level": "L1",
+    "domain": "D9",
+    "subdomain": "Cybersecurity",
+    "difficulty": "Hard",
+    "is_ambiguous": false,
+    "scenario": "A cybersecurity firm analyzes 1,000 detected malware samples from the past year and finds that 90% used known vulnerability exploits rather than zero-day attacks. They conclude that organizations should focus their security resources on patching known vulnerabilities rather than investing in zero-day detection capabilities.",
+    "claim": "Organizations should prioritize patching known vulnerabilities over zero-day detection.",
+    "variables": {
+      "X": {
+        "name": "Security resource allocation",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Attack prevention effectiveness",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Detection capability bias"
+      ]
+    },
+    "trap": {
+      "type": "W2",
+      "type_name": "Survivorship Bias",
+      "subtype": "Detected Attack Survivorship",
+      "subtype_name": "Detected Attack Survivorship"
+    },
+    "label": "NO",
+    "causal_structure": "",
+    "key_insight": "Detected threats are not representative of all threats, especially sophisticated ones.",
+    "gold_rationale": "This recommendation is based on survivorship bias in threat detection. The analysis only includes detected malware, but zero-day attacks are by definition harder to detect and may remain unnoticed for extended periods. The 90% figure reflects what current tools can catch, not the true distribution of threats. The most damaging attacks often use undetected zero-days, which are systematically excluded from this analysis.",
+    "wise_refusal": "This recommendation is based on survivorship bias in threat detection. The analysis only includes detected malware, but zero-day attacks are by definition harder to detect and may remain unnoticed for extended periods. The 90% figure reflects what current tools can catch, not the true distribution of threats. The most damaging attacks often use undetected zero-days, which are systematically excluded from this analysis.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.31
+  },
+  {
+    "id": "T3-BucketLarge-I-1.13",
+    "bucket": "BucketLarge-I",
+    "case_id": "0013",
+    "pearl_level": "L1",
+    "domain": "D9",
+    "subdomain": "Data Science",
+    "difficulty": "Easy",
+    "is_ambiguous": false,
+    "scenario": "A productivity software company finds that users who adopt their new AI-powered features show 40% higher task completion rates compared to users who stick with traditional features. The company claims that their AI features significantly boost user productivity.",
+    "claim": "AI-powered features significantly boost user productivity.",
+    "variables": {
+      "X": {
+        "name": "AI feature adoption",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Task completion rate",
+        "role": "Outcome"
+      },
+      "Z": [
+        "User tech-savviness and motivation"
+      ]
+    },
+    "trap": {
+      "type": "W3",
+      "type_name": "Healthy User Bias",
+      "subtype": "Early Adopter Tech User Bias",
+      "subtype_name": "Early Adopter Tech User Bias"
+    },
+    "label": "NO",
+    "causal_structure": "",
+    "key_insight": "People who choose to try new tools are systematically different from those who do not.",
+    "gold_rationale": "This claim is confounded by healthy user bias (or in this case, power user bias). Users who voluntarily adopt new AI features are likely already more tech-savvy, motivated, and productive than average users. The 40% difference may reflect pre-existing characteristics of early adopters rather than the causal effect of the AI features. Without random assignment, we cannot separate feature effects from user selection effects.",
+    "wise_refusal": "This claim is confounded by healthy user bias (or in this case, power user bias). Users who voluntarily adopt new AI features are likely already more tech-savvy, motivated, and productive than average users. The 40% difference may reflect pre-existing characteristics of early adopters rather than the causal effect of the AI features. Without random assignment, we cannot separate feature effects from user selection effects.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.6
+  },
+  {
+    "id": "T3-BucketLarge-I-1.14",
+    "bucket": "BucketLarge-I",
+    "case_id": "0014",
+    "pearl_level": "L1",
+    "domain": "D9",
+    "subdomain": "Algorithm Fairness",
+    "difficulty": "Medium",
+    "is_ambiguous": false,
+    "scenario": "A job matching platform reports that users who complete their detailed profile and actively use the platform's AI-driven job matching features have 3x higher interview rates than passive users. The platform advertises that their AI matching technology triples your chances of getting interviews.",
+    "claim": "The AI matching technology triples interview chances.",
+    "variables": {
+      "X": {
+        "name": "AI matching feature usage",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Interview rate",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Job seeker motivation and effort"
+      ]
+    },
+    "trap": {
+      "type": "W3",
+      "type_name": "Healthy User Bias",
+      "subtype": "Engaged User Bias",
+      "subtype_name": "Engaged User Bias"
+    },
+    "label": "NO",
+    "causal_structure": "",
+    "key_insight": "Engagement with a tool signals traits that independently predict success.",
+    "gold_rationale": "This claim conflates correlation with causation due to healthy user bias. Job seekers who invest time in completing detailed profiles and actively engaging with platform features are demonstrating motivation, organization, and effort that independently predict job search success. The 3x difference likely reflects these underlying characteristics rather than the AI technology itself. Motivated job seekers would likely outperform passive ones regardless of platform features.",
+    "wise_refusal": "This claim conflates correlation with causation due to healthy user bias. Job seekers who invest time in completing detailed profiles and actively engaging with platform features are demonstrating motivation, organization, and effort that independently predict job search success. The 3x difference likely reflects these underlying characteristics rather than the AI technology itself. Motivated job seekers would likely outperform passive ones regardless of platform features.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.0
+  },
+  {
+    "id": "T3-BucketLarge-I-1.15",
+    "bucket": "BucketLarge-I",
+    "case_id": "0015",
+    "pearl_level": "L1",
+    "domain": "D9",
+    "subdomain": "Autonomous Systems",
+    "difficulty": "Hard",
+    "is_ambiguous": false,
+    "scenario": "An autonomous vehicle company reports that customers who purchase the full self-driving package have 60% fewer accidents per mile than those with basic driver assistance. The company uses this data in marketing materials to demonstrate that their full autonomy system dramatically improves safety.",
+    "claim": "The full self-driving package dramatically improves safety.",
+    "variables": {
+      "X": {
+        "name": "Full self-driving package",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Accident rate",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Driver characteristics and driving patterns"
+      ]
+    },
+    "trap": {
+      "type": "W3",
+      "type_name": "Healthy User Bias",
+      "subtype": "Premium Feature User Bias",
+      "subtype_name": "Premium Feature User Bias"
+    },
+    "label": "NO",
+    "causal_structure": "",
+    "key_insight": "Premium product purchasers differ systematically in ways that affect outcomes.",
+    "gold_rationale": "This safety claim is confounded by healthy user bias. Customers who purchase expensive premium packages are likely wealthier, with newer vehicles and safer driving conditions. They may drive more on highways where autonomy performs best, live in areas with better infrastructure, and have driving patterns that are inherently lower risk. The 60% reduction cannot be attributed to the technology without controlling for these systematic differences between buyer populations.",
+    "wise_refusal": "This safety claim is confounded by healthy user bias. Customers who purchase expensive premium packages are likely wealthier, with newer vehicles and safer driving conditions. They may drive more on highways where autonomy performs best, live in areas with better infrastructure, and have driving patterns that are inherently lower risk. The 60% reduction cannot be attributed to the technology without controlling for these systematic differences between buyer populations.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.0
+  },
+  {
+    "id": "T3-BucketLarge-I-1.16",
+    "bucket": "BucketLarge-I",
+    "case_id": "0016",
+    "pearl_level": "L1",
+    "domain": "D9",
+    "subdomain": "AI Safety",
+    "difficulty": "Easy",
+    "is_ambiguous": false,
+    "scenario": "A policy report shows that countries with higher national AI research investment have faster economic growth rates. The report recommends that individual companies should increase their AI R&D spending to achieve higher revenue growth, citing the country-level correlation as evidence.",
+    "claim": "Individual companies should increase AI R&D spending to achieve higher revenue growth.",
+    "variables": {
+      "X": {
+        "name": "AI R&D investment level",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Growth rate",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Aggregation level"
+      ]
+    },
+    "trap": {
+      "type": "W5",
+      "type_name": "Ecological Fallacy",
+      "subtype": "Country-Level AI Investment Fallacy",
+      "subtype_name": "Country-Level AI Investment Fallacy"
+    },
+    "label": "NO",
+    "causal_structure": "",
+    "key_insight": "Patterns at the national level may not apply to individual organizations.",
+    "gold_rationale": "This recommendation commits the ecological fallacy by applying group-level findings to individuals. The correlation between national AI investment and GDP growth reflects macro-economic factors, infrastructure development, and policy environments that do not directly translate to individual company outcomes. A company increasing AI spending may not see proportional revenue growth, as the relationship operates through different mechanisms at different scales.",
+    "wise_refusal": "This recommendation commits the ecological fallacy by applying group-level findings to individuals. The correlation between national AI investment and GDP growth reflects macro-economic factors, infrastructure development, and policy environments that do not directly translate to individual company outcomes. A company increasing AI spending may not see proportional revenue growth, as the relationship operates through different mechanisms at different scales.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.28
+  },
+  {
+    "id": "T3-BucketLarge-I-1.17",
+    "bucket": "BucketLarge-I",
+    "case_id": "0017",
+    "pearl_level": "L1",
+    "domain": "D9",
+    "subdomain": "Software Engineering",
+    "difficulty": "Medium",
+    "is_ambiguous": false,
+    "scenario": "A study of software development teams finds that teams using pair programming produce 30% fewer bugs per feature. A manager concludes that requiring any individual developer to pair program will reduce that developer's bug rate by 30%.",
+    "claim": "Requiring individual developers to pair program will reduce their bug rate by 30%.",
+    "variables": {
+      "X": {
+        "name": "Pair programming practice",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Bug rate",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Team vs individual effects"
+      ]
+    },
+    "trap": {
+      "type": "W5",
+      "type_name": "Ecological Fallacy",
+      "subtype": "Team-Level Productivity Fallacy",
+      "subtype_name": "Team-Level Productivity Fallacy"
+    },
+    "label": "NO",
+    "causal_structure": "",
+    "key_insight": "Team-level outcomes emerge from interactions that cannot be decomposed to individuals.",
+    "gold_rationale": "This conclusion commits the ecological fallacy. The team-level benefit of pair programming emerges from collaboration dynamics, knowledge sharing, and real-time code review that manifest at the team level. An individual developer's bug rate depends on their specific skills, the complexity of their tasks, and their partner. Some developers may see more or less benefit, and forced pairing without willing partners may even reduce productivity.",
+    "wise_refusal": "This conclusion commits the ecological fallacy. The team-level benefit of pair programming emerges from collaboration dynamics, knowledge sharing, and real-time code review that manifest at the team level. An individual developer's bug rate depends on their specific skills, the complexity of their tasks, and their partner. Some developers may see more or less benefit, and forced pairing without willing partners may even reduce productivity.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.09
+  },
+  {
+    "id": "T3-BucketLarge-I-1.18",
+    "bucket": "BucketLarge-I",
+    "case_id": "0018",
+    "pearl_level": "L1",
+    "domain": "D9",
+    "subdomain": "Computer Vision",
+    "difficulty": "Medium",
+    "is_ambiguous": false,
+    "scenario": "A computer vision benchmark shows that on average across all object categories, Model A achieves 85% accuracy while Model B achieves 80% accuracy. A company deploying the model for detecting manufacturing defects concludes Model A will perform better for their specific defect detection task.",
+    "claim": "Model A will perform better for specific defect detection tasks.",
+    "variables": {
+      "X": {
+        "name": "Model choice",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Defect detection accuracy",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Category-specific performance variation"
+      ]
+    },
+    "trap": {
+      "type": "W5",
+      "type_name": "Ecological Fallacy",
+      "subtype": "Dataset Average Fallacy",
+      "subtype_name": "Dataset Average Fallacy"
+    },
+    "label": "NO",
+    "causal_structure": "",
+    "key_insight": "Average performance across categories does not predict performance on any specific category.",
+    "gold_rationale": "This conclusion exemplifies the ecological fallacy applied to model evaluation. Aggregate benchmark scores average across many categories, but performance varies dramatically by object type. Model B might excel at detecting the specific visual patterns relevant to manufacturing defects while Model A performs better on natural images. The average hides category-specific strengths that determine real-world utility for any particular application.",
+    "wise_refusal": "This conclusion exemplifies the ecological fallacy applied to model evaluation. Aggregate benchmark scores average across many categories, but performance varies dramatically by object type. Model B might excel at detecting the specific visual patterns relevant to manufacturing defects while Model A performs better on natural images. The average hides category-specific strengths that determine real-world utility for any particular application.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.63
+  },
+  {
+    "id": "T3-BucketLarge-I-1.19",
+    "bucket": "BucketLarge-I",
+    "case_id": "0019",
+    "pearl_level": "L1",
+    "domain": "D9",
+    "subdomain": "Data Privacy",
+    "difficulty": "Hard",
+    "is_ambiguous": false,
+    "scenario": "A privacy study finds that regions with higher smartphone penetration have higher rates of data breaches per capita. A privacy advocate argues that any individual who uses a smartphone is therefore at significantly higher risk of experiencing a personal data breach.",
+    "claim": "Individual smartphone users are at significantly higher risk of personal data breaches.",
+    "variables": {
+      "X": {
+        "name": "Smartphone usage",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Data breach risk",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Regional digital infrastructure"
+      ]
+    },
+    "trap": {
+      "type": "W5",
+      "type_name": "Ecological Fallacy",
+      "subtype": "Aggregated Privacy Risk Fallacy",
+      "subtype_name": "Aggregated Privacy Risk Fallacy"
+    },
+    "label": "NO",
+    "causal_structure": "",
+    "key_insight": "Regional technology adoption patterns do not determine individual security outcomes.",
+    "gold_rationale": "This argument commits the ecological fallacy. Regional data breach rates correlate with smartphone penetration because high-tech regions have more digital services, larger databases, and more attractive targets for attackers. An individual's breach risk depends on which specific services they use, their security practices, and whether organizations holding their data are compromised, not simply whether they own a smartphone. Regional patterns do not map to individual risk profiles.",
+    "wise_refusal": "This argument commits the ecological fallacy. Regional data breach rates correlate with smartphone penetration because high-tech regions have more digital services, larger databases, and more attractive targets for attackers. An individual's breach risk depends on which specific services they use, their security practices, and whether organizations holding their data are compromised, not simply whether they own a smartphone. Regional patterns do not map to individual risk profiles.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.14
+  },
+  {
+    "id": "T3-BucketLarge-I-1.20",
+    "bucket": "BucketLarge-I",
+    "case_id": "0020",
+    "pearl_level": "L1",
+    "domain": "D9",
+    "subdomain": "Machine Learning Models",
+    "difficulty": "Easy",
+    "is_ambiguous": false,
+    "scenario": "A study finds that research labs using more GPU compute hours produce more highly-cited papers. The authors conclude that access to computational resources directly causes research impact, recommending that funding agencies prioritize hardware grants.",
+    "claim": "Access to computational resources directly causes research impact.",
+    "variables": {
+      "X": {
+        "name": "GPU compute hours",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Citation count",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Lab prestige, funding, and researcher quality"
+      ]
+    },
+    "trap": {
+      "type": "W7",
+      "type_name": "Confounding",
+      "subtype": "Resource Confounding",
+      "subtype_name": "Resource Confounding"
+    },
+    "label": "NO",
+    "causal_structure": "",
+    "key_insight": "Resource access correlates with many other advantages that independently affect outcomes.",
+    "gold_rationale": "This causal claim is confounded. Labs with more compute resources are typically at prestigious institutions with better researchers, more funding, stronger networks, and higher baseline visibility. These factors independently drive citation counts. The correlation between compute and citations does not establish that compute access causes impact; both may be effects of underlying lab quality and resources.",
+    "wise_refusal": "This causal claim is confounded. Labs with more compute resources are typically at prestigious institutions with better researchers, more funding, stronger networks, and higher baseline visibility. These factors independently drive citation counts. The correlation between compute and citations does not establish that compute access causes impact; both may be effects of underlying lab quality and resources.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.0
+  },
+  {
+    "id": "T3-BucketLarge-I-1.21",
+    "bucket": "BucketLarge-I",
+    "case_id": "0021",
+    "pearl_level": "L1",
+    "domain": "D9",
+    "subdomain": "Natural Language Processing",
+    "difficulty": "Medium",
+    "is_ambiguous": false,
+    "scenario": "An NLP company finds that their chatbots trained on customer service data from Fortune 500 companies score 25% higher on customer satisfaction benchmarks than those trained on data from small businesses. They conclude that training on Fortune 500 data produces superior chatbot performance.",
+    "claim": "Training on Fortune 500 data produces superior chatbot performance.",
+    "variables": {
+      "X": {
+        "name": "Training data source",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Customer satisfaction scores",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Data curation and quality"
+      ]
+    },
+    "trap": {
+      "type": "W7",
+      "type_name": "Confounding",
+      "subtype": "Data Quality Confounding",
+      "subtype_name": "Data Quality Confounding"
+    },
+    "label": "NO",
+    "causal_structure": "",
+    "key_insight": "Data source is confounded with data quality and curation resources.",
+    "gold_rationale": "This conclusion is confounded by data quality. Fortune 500 companies typically have professional customer service teams, standardized procedures, quality-controlled conversation logs, and resources for data curation. The performance difference likely reflects superior data quality, consistency, and annotation rather than something inherent about large company conversations. Training on equally well-curated small business data might produce similar results.",
+    "wise_refusal": "This conclusion is confounded by data quality. Fortune 500 companies typically have professional customer service teams, standardized procedures, quality-controlled conversation logs, and resources for data curation. The performance difference likely reflects superior data quality, consistency, and annotation rather than something inherent about large company conversations. Training on equally well-curated small business data might produce similar results.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 9.09
+  },
+  {
+    "id": "T3-BucketLarge-I-1.22",
+    "bucket": "BucketLarge-I",
+    "case_id": "0022",
+    "pearl_level": "L1",
+    "domain": "D9",
+    "subdomain": "Recommendation Systems",
+    "difficulty": "Medium",
+    "is_ambiguous": false,
+    "scenario": "An e-commerce platform reports that products featured in their AI-curated recommendation section sell 5x more than products not featured. The platform claims their recommendation AI is responsible for this dramatic sales increase.",
+    "claim": "The recommendation AI is responsible for the 5x sales increase.",
+    "variables": {
+      "X": {
+        "name": "AI recommendation featuring",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Sales volume",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Product quality and existing popularity"
+      ]
+    },
+    "trap": {
+      "type": "W7",
+      "type_name": "Confounding",
+      "subtype": "Platform Ecosystem Confounding",
+      "subtype_name": "Platform Ecosystem Confounding"
+    },
+    "label": "NO",
+    "causal_structure": "",
+    "key_insight": "Recommendation algorithms select items with characteristics that independently predict success.",
+    "gold_rationale": "This claim is heavily confounded. The AI recommends products that already have high ratings, good reviews, competitive prices, and sales momentum. These factors independently drive sales. The 5x difference largely reflects the AI selecting products that would sell well anyway, not the causal effect of recommendation placement. The AI may provide some lift, but the comparison conflates selection criteria with treatment effects.",
+    "wise_refusal": "This claim is heavily confounded. The AI recommends products that already have high ratings, good reviews, competitive prices, and sales momentum. These factors independently drive sales. The 5x difference largely reflects the AI selecting products that would sell well anyway, not the causal effect of recommendation placement. The AI may provide some lift, but the comparison conflates selection criteria with treatment effects.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.41
+  },
+  {
+    "id": "T3-BucketLarge-I-1.23",
+    "bucket": "BucketLarge-I",
+    "case_id": "0023",
+    "pearl_level": "L1",
+    "domain": "D9",
+    "subdomain": "AI Safety",
+    "difficulty": "Hard",
+    "is_ambiguous": false,
+    "scenario": "A survey of AI companies finds that firms with dedicated AI ethics teams have fewer publicized AI-related incidents. An industry report concludes that establishing AI ethics teams prevents harmful AI incidents.",
+    "claim": "Establishing AI ethics teams prevents harmful AI incidents.",
+    "variables": {
+      "X": {
+        "name": "Presence of AI ethics team",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "AI incident rate",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Overall organizational safety culture"
+      ]
+    },
+    "trap": {
+      "type": "W7",
+      "type_name": "Confounding",
+      "subtype": "Organizational Culture Confounding",
+      "subtype_name": "Organizational Culture Confounding"
+    },
+    "label": "NO",
+    "causal_structure": "",
+    "key_insight": "Visible safety initiatives often signal broader organizational cultures that independently prevent harm.",
+    "gold_rationale": "This causal claim is confounded by organizational culture. Companies that establish AI ethics teams likely have broader cultures of responsibility, better risk management practices, more mature governance, and greater resources for safety across all dimensions. These cultural factors independently reduce incidents. The ethics team may be a marker of safety-conscious organizations rather than the cause of fewer incidents.",
+    "wise_refusal": "This causal claim is confounded by organizational culture. Companies that establish AI ethics teams likely have broader cultures of responsibility, better risk management practices, more mature governance, and greater resources for safety across all dimensions. These cultural factors independently reduce incidents. The ethics team may be a marker of safety-conscious organizations rather than the cause of fewer incidents.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.53
+  },
+  {
+    "id": "T3-BucketLarge-I-1.24",
+    "bucket": "BucketLarge-I",
+    "case_id": "0024",
+    "pearl_level": "L1",
+    "domain": "D9",
+    "subdomain": "Cybersecurity",
+    "difficulty": "Hard",
+    "is_ambiguous": false,
+    "scenario": "Analysis shows that organizations using advanced threat intelligence platforms experience 40% fewer successful cyberattacks than those using basic security tools. A security vendor uses this data to claim their advanced platform prevents 40% of attacks.",
+    "claim": "The advanced threat intelligence platform prevents 40% of attacks.",
+    "variables": {
+      "X": {
+        "name": "Threat intelligence platform tier",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Successful attack rate",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Security team expertise and budget"
+      ]
+    },
+    "trap": {
+      "type": "W7",
+      "type_name": "Confounding",
+      "subtype": "Expertise Confounding",
+      "subtype_name": "Expertise Confounding"
+    },
+    "label": "NO",
+    "causal_structure": "",
+    "key_insight": "Advanced tools are adopted by advanced teams with capabilities that independently improve outcomes.",
+    "gold_rationale": "This claim is confounded by organizational security maturity. Organizations that invest in advanced threat intelligence typically have larger security budgets, more experienced teams, better security practices across the board, and stronger security cultures. These factors independently reduce successful attacks. The 40% difference cannot be attributed to the platform alone without controlling for the expertise and resources of the security teams using these tools.",
+    "wise_refusal": "This claim is confounded by organizational security maturity. Organizations that invest in advanced threat intelligence typically have larger security budgets, more experienced teams, better security practices across the board, and stronger security cultures. These factors independently reduce successful attacks. The 40% difference cannot be attributed to the platform alone without controlling for the expertise and resources of the security teams using these tools.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.0
+  },
+  {
+    "id": "T3-BucketLarge-I-1.25",
+    "bucket": "BucketLarge-I",
+    "case_id": "0025",
+    "pearl_level": "L1",
+    "domain": "D9",
+    "subdomain": "Data Science",
+    "difficulty": "Easy",
+    "is_ambiguous": false,
+    "scenario": "A data science team notices that their churn prediction model shows high engagement users are less likely to churn. They recommend implementing features to increase engagement, claiming that high engagement prevents customer churn.",
+    "claim": "High engagement prevents customer churn.",
+    "variables": {
+      "X": {
+        "name": "User engagement level",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Churn probability",
+        "role": "Outcome"
+      }
+    },
+    "trap": {
+      "type": "W9",
+      "type_name": "Reverse Causation",
+      "subtype": "Outcome-Driven Feature Selection",
+      "subtype_name": "Outcome-Driven Feature Selection"
+    },
+    "label": "NO",
+    "causal_structure": "",
+    "key_insight": "Disengagement may be a symptom of the decision to leave, not its cause.",
+    "gold_rationale": "This recommendation may have the causation reversed. Users who have already decided to leave stop engaging with the product before they formally churn. Low engagement is a symptom of impending churn, not necessarily its cause. Artificially boosting engagement metrics through notifications or incentives may not prevent churn if the underlying dissatisfaction remains unaddressed. The observed correlation reflects churn causing disengagement, not vice versa.",
+    "wise_refusal": "This recommendation may have the causation reversed. Users who have already decided to leave stop engaging with the product before they formally churn. Low engagement is a symptom of impending churn, not necessarily its cause. Artificially boosting engagement metrics through notifications or incentives may not prevent churn if the underlying dissatisfaction remains unaddressed. The observed correlation reflects churn causing disengagement, not vice versa.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.28
+  },
+  {
+    "id": "T3-BucketLarge-I-1.26",
+    "bucket": "BucketLarge-I",
+    "case_id": "0026",
+    "pearl_level": "L1",
+    "domain": "D9",
+    "subdomain": "Algorithm Fairness",
+    "difficulty": "Medium",
+    "is_ambiguous": false,
+    "scenario": "A lending algorithm trained on historical data shows that applicants from certain zip codes have higher default rates. The company claims that living in these areas causes higher default risk and uses location as a feature in their risk model.",
+    "claim": "Living in certain areas causes higher default risk.",
+    "variables": {
+      "X": {
+        "name": "Residential location",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Loan default rate",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Historical lending discrimination"
+      ]
+    },
+    "trap": {
+      "type": "W9",
+      "type_name": "Reverse Causation",
+      "subtype": "Feedback Loop Reverse Causation",
+      "subtype_name": "Feedback Loop Reverse Causation"
+    },
+    "label": "NO",
+    "causal_structure": "",
+    "key_insight": "Historical discrimination can create correlations that reverse the apparent causal direction.",
+    "gold_rationale": "This claim likely reverses causation and perpetuates discrimination. Historical lending discrimination denied credit to residents of certain areas, preventing wealth accumulation and forcing reliance on predatory lenders, which elevated default rates. The correlation reflects the effects of past discrimination, not an inherent risk from location. Using this feature perpetuates a feedback loop where the algorithm's predictions become self-fulfilling through continued credit denial.",
+    "wise_refusal": "This claim likely reverses causation and perpetuates discrimination. Historical lending discrimination denied credit to residents of certain areas, preventing wealth accumulation and forcing reliance on predatory lenders, which elevated default rates. The correlation reflects the effects of past discrimination, not an inherent risk from location. Using this feature perpetuates a feedback loop where the algorithm's predictions become self-fulfilling through continued credit denial.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.54
+  },
+  {
+    "id": "T3-BucketLarge-I-1.27",
+    "bucket": "BucketLarge-I",
+    "case_id": "0027",
+    "pearl_level": "L1",
+    "domain": "D9",
+    "subdomain": "Computer Vision",
+    "difficulty": "Hard",
+    "is_ambiguous": false,
+    "scenario": "Researchers find that images classified as 'difficult' by their object detection model often have complex backgrounds. They conclude that complex backgrounds cause object detection difficulty and develop preprocessing to simplify backgrounds.",
+    "claim": "Complex backgrounds cause object detection difficulty.",
+    "variables": {
+      "X": {
+        "name": "Background complexity",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Detection difficulty",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Annotation and training data characteristics"
+      ]
+    },
+    "trap": {
+      "type": "W9",
+      "type_name": "Reverse Causation",
+      "subtype": "Annotation Artifact Reverse Causation",
+      "subtype_name": "Annotation Artifact Reverse Causation"
+    },
+    "label": "NO",
+    "causal_structure": "",
+    "key_insight": "Model failures often correlate with data collection artifacts rather than visual features.",
+    "gold_rationale": "This causal interpretation may be reversed or confounded. Images with complex backgrounds may have been annotated less carefully by human labelers, or objects in these scenes may have been photographed in challenging conditions for multiple reasons. The model's difficulty might reflect training data quality issues rather than an inherent challenge from backgrounds. Simplifying backgrounds in deployment may not improve performance if the underlying issue is annotation quality or other correlated factors.",
+    "wise_refusal": "This causal interpretation may be reversed or confounded. Images with complex backgrounds may have been annotated less carefully by human labelers, or objects in these scenes may have been photographed in challenging conditions for multiple reasons. The model's difficulty might reflect training data quality issues rather than an inherent challenge from backgrounds. Simplifying backgrounds in deployment may not improve performance if the underlying issue is annotation quality or other correlated factors.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.04
+  },
+  {
+    "id": "T3-BucketLarge-I-1.28",
+    "bucket": "BucketLarge-I",
+    "case_id": "0028",
+    "pearl_level": "L1",
+    "domain": "D9",
+    "subdomain": "Natural Language Processing",
+    "difficulty": "Easy",
+    "is_ambiguous": false,
+    "scenario": "A company deployed a new sentiment analysis model on Monday, and by Friday, customer support ticket resolution times had decreased by 20%. The project manager reports that the sentiment analysis model improved support efficiency by helping agents prioritize urgent tickets.",
+    "claim": "The sentiment analysis model improved support efficiency.",
+    "variables": {
+      "X": {
+        "name": "Sentiment analysis deployment",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Ticket resolution time",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Other concurrent changes"
+      ]
+    },
+    "trap": {
+      "type": "W10",
+      "type_name": "Post Hoc Fallacy",
+      "subtype": "Coincidental Timing Fallacy",
+      "subtype_name": "Coincidental Timing Fallacy"
+    },
+    "label": "NO",
+    "causal_structure": "",
+    "key_insight": "Improvements following a deployment may have other causes coinciding with the same timeframe.",
+    "gold_rationale": "This claim commits the post hoc fallacy. The temporal sequence does not establish causation. Many factors could explain the improvement: seasonal ticket volume changes, new support staff completing training, other process improvements, or random variation. Without a controlled comparison or longer observation period, attributing the improvement to the sentiment analysis model is not justified. Correlation in timing does not demonstrate that the model caused the efficiency gains.",
+    "wise_refusal": "This claim commits the post hoc fallacy. The temporal sequence does not establish causation. Many factors could explain the improvement: seasonal ticket volume changes, new support staff completing training, other process improvements, or random variation. Without a controlled comparison or longer observation period, attributing the improvement to the sentiment analysis model is not justified. Correlation in timing does not demonstrate that the model caused the efficiency gains.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.65
+  },
+  {
+    "id": "T3-BucketLarge-I-1.29",
+    "bucket": "BucketLarge-I",
+    "case_id": "0029",
+    "pearl_level": "L1",
+    "domain": "D9",
+    "subdomain": "Autonomous Systems",
+    "difficulty": "Medium",
+    "is_ambiguous": false,
+    "scenario": "A city deployed AI-optimized traffic signals in March and observed a 15% reduction in average commute times by June. Transportation officials attribute the improvement to the AI system and plan to expand it citywide.",
+    "claim": "The AI traffic system caused the 15% reduction in commute times.",
+    "variables": {
+      "X": {
+        "name": "AI traffic signal deployment",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Average commute time",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Seasonal traffic patterns"
+      ]
+    },
+    "trap": {
+      "type": "W10",
+      "type_name": "Post Hoc Fallacy",
+      "subtype": "Seasonal Variation Fallacy",
+      "subtype_name": "Seasonal Variation Fallacy"
+    },
+    "label": "NO",
+    "causal_structure": "",
+    "key_insight": "Seasonal patterns can create apparent improvements that coincide with any deployment during that period.",
+    "gold_rationale": "This conclusion commits the post hoc fallacy. The March to June period typically sees reduced traffic as school lets out, vacation travel increases, and weather improves encouraging alternative transportation. Commute times naturally decrease during this period regardless of traffic signal changes. Without comparing to previous years or control areas without the AI system, the 15% improvement cannot be attributed to the technology rather than normal seasonal variation.",
+    "wise_refusal": "This conclusion commits the post hoc fallacy. The March to June period typically sees reduced traffic as school lets out, vacation travel increases, and weather improves encouraging alternative transportation. Commute times naturally decrease during this period regardless of traffic signal changes. Without comparing to previous years or control areas without the AI system, the 15% improvement cannot be attributed to the technology rather than normal seasonal variation.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.26
+  },
+  {
+    "id": "T3-BucketLarge-I-1.30",
+    "bucket": "BucketLarge-I",
+    "case_id": "0030",
+    "pearl_level": "L1",
+    "domain": "D9",
+    "subdomain": "Machine Learning Models",
+    "difficulty": "Hard",
+    "is_ambiguous": false,
+    "scenario": "A machine learning team noticed their model's validation accuracy dropped to 75% last month. They implemented several architectural changes and hyperparameter adjustments, and accuracy recovered to 82%. They attribute the recovery to their modifications and publish a paper on the effective interventions.",
+    "claim": "The architectural changes and hyperparameter adjustments improved model accuracy.",
+    "variables": {
+      "X": {
+        "name": "Model modifications",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Validation accuracy",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Random variation in validation metrics"
+      ]
+    },
+    "trap": {
+      "type": "W10",
+      "type_name": "Post Hoc Fallacy",
+      "subtype": "Regression to Mean Fallacy",
+      "subtype_name": "Regression to Mean Fallacy"
+    },
+    "label": "NO",
+    "causal_structure": "",
+    "key_insight": "Interventions made at performance troughs will appear successful due to regression to the mean.",
+    "gold_rationale": "This claim exhibits the post hoc fallacy combined with regression to the mean. Model validation metrics naturally fluctuate, and the team intervened at a low point. The recovery to 82% may largely reflect normal variation returning toward the average rather than the effectiveness of modifications. Interventions triggered by poor performance will often appear successful simply because performance was likely to improve regardless. Proper evaluation requires controlled experiments, not before-after comparisons at performance extremes.",
+    "wise_refusal": "This claim exhibits the post hoc fallacy combined with regression to the mean. Model validation metrics naturally fluctuate, and the team intervened at a low point. The recovery to 82% may largely reflect normal variation returning toward the average rather than the effectiveness of modifications. Interventions triggered by poor performance will often appear successful simply because performance was likely to improve regardless. Proper evaluation requires controlled experiments, not before-after comparisons at performance extremes.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.38
+  },
+  {
+    "id": "T3-BucketLarge-I-1.31",
+    "bucket": "BucketLarge-I",
+    "case_id": "0031",
+    "pearl_level": "L1",
+    "domain": "D9",
+    "subdomain": "Machine Learning Models",
+    "difficulty": "Easy",
+    "is_ambiguous": false,
+    "scenario": "A tech company conducted an A/B test where users were randomly assigned to either see recommendations from Algorithm A or Algorithm B. After two months with 100,000 users per group, Algorithm A showed a 12% higher click-through rate with p<0.001. The company concludes that Algorithm A causes higher engagement.",
+    "claim": "Algorithm A causes higher engagement than Algorithm B.",
+    "variables": {
+      "X": {
+        "name": "Algorithm version",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Click-through rate",
+        "role": "Outcome"
+      }
+    },
+    "trap": {
+      "type": "S1",
+      "type_name": "RCT",
+      "subtype": "A/B Test Model Comparison",
+      "subtype_name": "A/B Test Model Comparison"
+    },
+    "label": "YES",
+    "causal_structure": "",
+    "key_insight": "Randomized A/B testing with large samples provides strong causal evidence for algorithm effects.",
+    "gold_rationale": "This causal claim is justified. The A/B test randomly assigned users to algorithms, eliminating selection bias and confounding. The large sample size (100,000 per group) provides statistical power, and the two-month duration allows for stable behavior patterns. The highly significant result (p<0.001) indicates the 12% difference is unlikely due to chance. Random assignment supports the causal inference that Algorithm A produces higher engagement.",
+    "wise_refusal": "This causal claim is justified. The A/B test randomly assigned users to algorithms, eliminating selection bias and confounding. The large sample size (100,000 per group) provides statistical power, and the two-month duration allows for stable behavior patterns. The highly significant result (p<0.001) indicates the 12% difference is unlikely due to chance. Random assignment supports the causal inference that Algorithm A produces higher engagement.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.26
+  },
+  {
+    "id": "T3-BucketLarge-I-1.32",
+    "bucket": "BucketLarge-I",
+    "case_id": "0032",
+    "pearl_level": "L1",
+    "domain": "D9",
+    "subdomain": "AI Safety",
+    "difficulty": "Medium",
+    "is_ambiguous": false,
+    "scenario": "Researchers conducted a randomized controlled trial across 50 AI development teams. Teams were randomly assigned to either receive red-teaming feedback during development or standard code review only. After six months, models from red-teamed groups had 40% fewer safety vulnerabilities in independent audits.",
+    "claim": "Red-teaming during development reduces AI safety vulnerabilities.",
+    "variables": {
+      "X": {
+        "name": "Red-teaming intervention",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Safety vulnerability count",
+        "role": "Outcome"
+      }
+    },
+    "trap": {
+      "type": "S1",
+      "type_name": "RCT",
+      "subtype": "Randomized Safety Intervention Trial",
+      "subtype_name": "Randomized Safety Intervention Trial"
+    },
+    "label": "YES",
+    "causal_structure": "",
+    "key_insight": "Randomizing teams to interventions with independent outcome assessment establishes causation.",
+    "gold_rationale": "This causal claim is well-supported. The randomized assignment of teams to conditions eliminates confounding from team quality, experience, or project type. The six-month duration allows for meaningful development cycles, and independent audits prevent bias in outcome assessment. The substantial effect size (40% reduction) combined with proper randomization supports the conclusion that red-teaming causally reduces vulnerabilities.",
+    "wise_refusal": "This causal claim is well-supported. The randomized assignment of teams to conditions eliminates confounding from team quality, experience, or project type. The six-month duration allows for meaningful development cycles, and independent audits prevent bias in outcome assessment. The substantial effect size (40% reduction) combined with proper randomization supports the conclusion that red-teaming causally reduces vulnerabilities.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 9.24
+  },
+  {
+    "id": "T3-BucketLarge-I-1.33",
+    "bucket": "BucketLarge-I",
+    "case_id": "0033",
+    "pearl_level": "L1",
+    "domain": "D9",
+    "subdomain": "Natural Language Processing",
+    "difficulty": "Medium",
+    "is_ambiguous": false,
+    "scenario": "A research team conducted a randomized study where 500 participants were randomly assigned to write emails with or without an AI writing assistant. Blind evaluators rated the assisted emails as having 25% higher clarity scores on average, with careful controls for participant writing ability through pre-study assessments.",
+    "claim": "The AI writing assistant causally improves email clarity.",
+    "variables": {
+      "X": {
+        "name": "AI writing assistant use",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Email clarity score",
+        "role": "Outcome"
+      }
+    },
+    "trap": {
+      "type": "S1",
+      "type_name": "RCT",
+      "subtype": "User Study RCT",
+      "subtype_name": "User Study RCT"
+    },
+    "label": "YES",
+    "causal_structure": "",
+    "key_insight": "RCTs with blind evaluation and baseline controls establish causal effects of AI tools.",
+    "gold_rationale": "This causal claim is justified by strong experimental design. Random assignment ensures groups are comparable in writing ability and other characteristics. Blind evaluation prevents rater bias. Pre-study assessment controls for baseline differences. The 25% improvement can be attributed to the AI assistant because randomization eliminates confounding explanations. This represents proper causal inference from a well-designed RCT.",
+    "wise_refusal": "This causal claim is justified by strong experimental design. Random assignment ensures groups are comparable in writing ability and other characteristics. Blind evaluation prevents rater bias. Pre-study assessment controls for baseline differences. The 25% improvement can be attributed to the AI assistant because randomization eliminates confounding explanations. This represents proper causal inference from a well-designed RCT.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.49
+  },
+  {
+    "id": "T3-BucketLarge-I-1.34",
+    "bucket": "BucketLarge-I",
+    "case_id": "0034",
+    "pearl_level": "L1",
+    "domain": "D9",
+    "subdomain": "Computer Vision",
+    "difficulty": "Hard",
+    "is_ambiguous": false,
+    "scenario": "A medical imaging study randomly assigned 30 hospitals to either use AI-assisted diagnosis or standard radiologist review for chest X-rays. Over one year with 50,000 images per group, AI-assisted hospitals showed 18% higher early-stage lung cancer detection rates, with pathology confirmation and survival tracking.",
+    "claim": "AI-assisted diagnosis causally improves early lung cancer detection.",
+    "variables": {
+      "X": {
+        "name": "AI-assisted diagnosis",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Early-stage detection rate",
+        "role": "Outcome"
+      }
+    },
+    "trap": {
+      "type": "S1",
+      "type_name": "RCT",
+      "subtype": "Multi-Site Randomized Trial",
+      "subtype_name": "Multi-Site Randomized Trial"
+    },
+    "label": "YES",
+    "causal_structure": "",
+    "key_insight": "Cluster-randomized trials with verified outcomes support causal claims about clinical AI tools.",
+    "gold_rationale": "This causal claim is strongly supported. Cluster randomization at the hospital level addresses practical constraints while maintaining randomization integrity. The large sample (50,000 images per group) and year-long duration provide robust evidence. Pathology confirmation and survival tracking verify that detections were true positives with clinical benefit. The design supports causal inference that AI assistance improves cancer detection.",
+    "wise_refusal": "This causal claim is strongly supported. Cluster randomization at the hospital level addresses practical constraints while maintaining randomization integrity. The large sample (50,000 images per group) and year-long duration provide robust evidence. Pathology confirmation and survival tracking verify that detections were true positives with clinical benefit. The design supports causal inference that AI assistance improves cancer detection.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.08
+  },
+  {
+    "id": "T3-BucketLarge-I-1.35",
+    "bucket": "BucketLarge-I",
+    "case_id": "0035",
+    "pearl_level": "L1",
+    "domain": "D9",
+    "subdomain": "Data Privacy",
+    "difficulty": "Easy",
+    "is_ambiguous": false,
+    "scenario": "The EU implemented GDPR in May 2018, while similar regulations were not adopted in the US until years later. Researchers compared data breach rates in multinational companies' EU versus US operations before and after GDPR, finding EU operations had 30% fewer breaches post-GDPR with no change in US operations.",
+    "claim": "GDPR implementation causally reduced data breach rates.",
+    "variables": {
+      "X": {
+        "name": "GDPR implementation",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Data breach rate",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Regional variation"
+      ]
+    },
+    "trap": {
+      "type": "S2",
+      "type_name": "Natural Experiment",
+      "subtype": "Regulatory Change Natural Experiment",
+      "subtype_name": "Regulatory Change Natural Experiment"
+    },
+    "label": "YES",
+    "causal_structure": "",
+    "key_insight": "Difference-in-differences with regulatory natural experiments supports causal inference.",
+    "gold_rationale": "This causal claim is supported by a strong natural experiment design. The difference-in-differences approach comparing EU and US operations of the same companies controls for company-level confounders. The regulatory change was externally imposed, not self-selected. The US operations serve as a control group experiencing the same time trends. The 30% reduction specific to EU operations post-GDPR supports a causal interpretation of regulatory impact.",
+    "wise_refusal": "This causal claim is supported by a strong natural experiment design. The difference-in-differences approach comparing EU and US operations of the same companies controls for company-level confounders. The regulatory change was externally imposed, not self-selected. The US operations serve as a control group experiencing the same time trends. The 30% reduction specific to EU operations post-GDPR supports a causal interpretation of regulatory impact.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.83
+  },
+  {
+    "id": "T3-BucketLarge-I-1.36",
+    "bucket": "BucketLarge-I",
+    "case_id": "0036",
+    "pearl_level": "L1",
+    "domain": "D9",
+    "subdomain": "Software Engineering",
+    "difficulty": "Medium",
+    "is_ambiguous": false,
+    "scenario": "GitHub changed its default branch name from 'master' to 'main' for new repositories in October 2020. Researchers compared contribution patterns in repositories created just before versus just after this change, finding similar contributor diversity, suggesting the naming convention does not causally affect who contributes.",
+    "claim": "Branch naming conventions do not causally affect contributor diversity.",
+    "variables": {
+      "X": {
+        "name": "Default branch name",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Contributor diversity metrics",
+        "role": "Outcome"
+      }
+    },
+    "trap": {
+      "type": "S2",
+      "type_name": "Natural Experiment",
+      "subtype": "Platform Policy Natural Experiment",
+      "subtype_name": "Platform Policy Natural Experiment"
+    },
+    "label": "YES",
+    "causal_structure": "",
+    "key_insight": "Natural experiments can support causal conclusions about null effects when design is strong.",
+    "gold_rationale": "This null finding from a regression discontinuity design is methodologically sound. Repositories created just before and after the policy change are comparable in most respects, differing primarily in default branch name. The sharp temporal cutoff creates a natural experiment. Finding no difference in contributor diversity across this boundary supports the causal conclusion that branch naming itself does not significantly affect who contributes, though the study is limited to short-term effects.",
+    "wise_refusal": "This null finding from a regression discontinuity design is methodologically sound. Repositories created just before and after the policy change are comparable in most respects, differing primarily in default branch name. The sharp temporal cutoff creates a natural experiment. Finding no difference in contributor diversity across this boundary supports the causal conclusion that branch naming itself does not significantly affect who contributes, though the study is limited to short-term effects.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.01
+  },
+  {
+    "id": "T3-BucketLarge-I-1.37",
+    "bucket": "BucketLarge-I",
+    "case_id": "0037",
+    "pearl_level": "L1",
+    "domain": "D9",
+    "subdomain": "Cybersecurity",
+    "difficulty": "Hard",
+    "is_ambiguous": false,
+    "scenario": "A major cloud provider's authentication system experienced a 6-hour outage affecting random geographic regions due to a routing failure. Researchers compared phishing attack success rates in affected versus unaffected regions during this window, finding affected regions had 5x higher successful credential theft.",
+    "claim": "Authentication system availability causally protects against credential theft.",
+    "variables": {
+      "X": {
+        "name": "Authentication system availability",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Credential theft rate",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Geographic variation"
+      ]
+    },
+    "trap": {
+      "type": "S2",
+      "type_name": "Natural Experiment",
+      "subtype": "Infrastructure Outage Natural Experiment",
+      "subtype_name": "Infrastructure Outage Natural Experiment"
+    },
+    "label": "YES",
+    "causal_structure": "",
+    "key_insight": "Infrastructure failures can create natural experiments revealing causal security mechanisms.",
+    "gold_rationale": "This causal claim is supported by a natural experiment with quasi-random treatment assignment. The routing failure affected regions in a manner unrelated to their baseline security characteristics, creating exogenous variation in authentication availability. The short time window controls for many potential confounders. The dramatic 5x difference in affected versus unaffected regions during the same period supports the causal role of authentication systems in preventing credential theft.",
+    "wise_refusal": "This causal claim is supported by a natural experiment with quasi-random treatment assignment. The routing failure affected regions in a manner unrelated to their baseline security characteristics, creating exogenous variation in authentication availability. The short time window controls for many potential confounders. The dramatic 5x difference in affected versus unaffected regions during the same period supports the causal role of authentication systems in preventing credential theft.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.58
+  },
+  {
+    "id": "T3-BucketLarge-I-1.38",
+    "bucket": "BucketLarge-I",
+    "case_id": "0038",
+    "pearl_level": "L1",
+    "domain": "D9",
+    "subdomain": "Recommendation Systems",
+    "difficulty": "Easy",
+    "is_ambiguous": false,
+    "scenario": "A streaming platform uses consistent hashing of user IDs to assign users to recommendation algorithm variants, ensuring each user consistently sees one variant while the assignment is effectively random with respect to user characteristics. Analysis of 1 million users shows Variant C increases watch time by 8%.",
+    "claim": "Recommendation Variant C causally increases watch time by 8%.",
+    "variables": {
+      "X": {
+        "name": "Recommendation algorithm variant",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Watch time",
+        "role": "Outcome"
+      }
+    },
+    "trap": {
+      "type": "S3",
+      "type_name": "Lottery/Quasi-Random",
+      "subtype": "Hash-Based User Assignment",
+      "subtype_name": "Hash-Based User Assignment"
+    },
+    "label": "YES",
+    "causal_structure": "",
+    "key_insight": "Deterministic hash-based assignment creates quasi-random treatment allocation.",
+    "gold_rationale": "This causal claim is justified. Hash-based assignment of user IDs creates quasi-random allocation that is independent of user characteristics, functioning like lottery assignment. The consistent assignment prevents contamination from users switching between variants. With 1 million users, the statistical power is high. This quasi-random design supports causal inference that Variant C produces the 8% increase in watch time.",
+    "wise_refusal": "This causal claim is justified. Hash-based assignment of user IDs creates quasi-random allocation that is independent of user characteristics, functioning like lottery assignment. The consistent assignment prevents contamination from users switching between variants. With 1 million users, the statistical power is high. This quasi-random design supports causal inference that Variant C produces the 8% increase in watch time.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.0
+  },
+  {
+    "id": "T3-BucketLarge-I-1.39",
+    "bucket": "BucketLarge-I",
+    "case_id": "0039",
+    "pearl_level": "L1",
+    "domain": "D9",
+    "subdomain": "Algorithm Fairness",
+    "difficulty": "Medium",
+    "is_ambiguous": false,
+    "scenario": "A regulatory body randomly selected 200 companies for algorithmic audit from a pool of 5,000 using a public lottery. Audited companies subsequently showed 35% reduction in discriminatory outcomes in their hiring algorithms compared to non-audited companies over the following year.",
+    "claim": "Algorithmic audits causally reduce discriminatory hiring outcomes.",
+    "variables": {
+      "X": {
+        "name": "Algorithmic audit",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Discriminatory outcome rate",
+        "role": "Outcome"
+      }
+    },
+    "trap": {
+      "type": "S3",
+      "type_name": "Lottery/Quasi-Random",
+      "subtype": "Audit Lottery Selection",
+      "subtype_name": "Audit Lottery Selection"
+    },
+    "label": "YES",
+    "causal_structure": "",
+    "key_insight": "Public lottery selection creates credible quasi-experimental comparison groups.",
+    "gold_rationale": "This causal claim is well-supported by lottery-based quasi-random assignment. The public random selection ensures audited companies are not systematically different from non-audited ones at baseline. The comparison to the non-selected control group controls for time trends affecting all companies. The 35% reduction in audited companies supports the causal conclusion that audits drive improvements in algorithmic fairness.",
+    "wise_refusal": "This causal claim is well-supported by lottery-based quasi-random assignment. The public random selection ensures audited companies are not systematically different from non-audited ones at baseline. The comparison to the non-selected control group controls for time trends affecting all companies. The 35% reduction in audited companies supports the causal conclusion that audits drive improvements in algorithmic fairness.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.0
+  },
+  {
+    "id": "T3-BucketLarge-I-1.40",
+    "bucket": "BucketLarge-I",
+    "case_id": "0040",
+    "pearl_level": "L1",
+    "domain": "D9",
+    "subdomain": "Software Engineering",
+    "difficulty": "Hard",
+    "is_ambiguous": false,
+    "scenario": "A code review system assigns reviewers based on developer surname alphabetical order, rotating through available reviewers. Analysis shows that bugs found by reviewers in the first half of the alphabet (A-M) are 15% more likely to be fixed promptly than those in the second half (N-Z), controlling for bug severity.",
+    "claim": "Reviewer assignment position causally affects bug fix rates.",
+    "variables": {
+      "X": {
+        "name": "Reviewer alphabetical position",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Bug fix promptness",
+        "role": "Outcome"
+      }
+    },
+    "trap": {
+      "type": "S3",
+      "type_name": "Lottery/Quasi-Random",
+      "subtype": "Alphabetical Queue Assignment",
+      "subtype_name": "Alphabetical Queue Assignment"
+    },
+    "label": "YES",
+    "causal_structure": "",
+    "key_insight": "Arbitrary administrative assignment rules can create quasi-experimental variation.",
+    "gold_rationale": "This finding benefits from quasi-random assignment since surname alphabetical order is unrelated to reviewer expertise or bug characteristics. The alphabetical queue creates arbitrary assignment independent of potential confounders. However, the causal interpretation requires careful consideration: the effect might operate through reviewer workload patterns or queue position effects rather than something about alphabetical names. The design supports some causal inference about assignment mechanisms affecting outcomes.",
+    "wise_refusal": "This finding benefits from quasi-random assignment since surname alphabetical order is unrelated to reviewer expertise or bug characteristics. The alphabetical queue creates arbitrary assignment independent of potential confounders. However, the causal interpretation requires careful consideration: the effect might operate through reviewer workload patterns or queue position effects rather than something about alphabetical names. The design supports some causal inference about assignment mechanisms affecting outcomes.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.58
+  },
+  {
+    "id": "T3-BucketLarge-I-1.41",
+    "bucket": "BucketLarge-I",
+    "case_id": "0041",
+    "pearl_level": "L1",
+    "domain": "D9",
+    "subdomain": "Machine Learning Models",
+    "difficulty": "Easy",
+    "is_ambiguous": false,
+    "scenario": "Researchers systematically evaluated their transformer model by removing individual components while holding all other architecture choices, training data, and hyperparameters constant. Removing the attention mechanism decreased accuracy by 25%, while removing layer normalization decreased it by 8%.",
+    "claim": "The attention mechanism causally contributes more to model accuracy than layer normalization.",
+    "variables": {
+      "X": {
+        "name": "Model component presence",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Model accuracy",
+        "role": "Outcome"
+      }
+    },
+    "trap": {
+      "type": "S4",
+      "type_name": "Controlled Ablation",
+      "subtype": "Architecture Component Ablation",
+      "subtype_name": "Architecture Component Ablation"
+    },
+    "label": "YES",
+    "causal_structure": "",
+    "key_insight": "Controlled ablation studies isolate causal contributions of individual components.",
+    "gold_rationale": "This causal claim is supported by controlled ablation methodology. By removing single components while holding everything else constant, the researchers isolate the causal contribution of each component. The difference in accuracy drop (25% vs 8%) reflects the causal importance of each component for the model's performance. This systematic ablation with proper controls supports causal attribution of accuracy to specific architectural choices.",
+    "wise_refusal": "This causal claim is supported by controlled ablation methodology. By removing single components while holding everything else constant, the researchers isolate the causal contribution of each component. The difference in accuracy drop (25% vs 8%) reflects the causal importance of each component for the model's performance. This systematic ablation with proper controls supports causal attribution of accuracy to specific architectural choices.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.8
+  },
+  {
+    "id": "T3-BucketLarge-I-1.42",
+    "bucket": "BucketLarge-I",
+    "case_id": "0042",
+    "pearl_level": "L1",
+    "domain": "D9",
+    "subdomain": "Natural Language Processing",
+    "difficulty": "Medium",
+    "is_ambiguous": false,
+    "scenario": "A research team trained identical language models with and without code examples in the training data, holding model architecture, total training tokens, and all hyperparameters constant. Models trained with code showed 40% better performance on logical reasoning tasks.",
+    "claim": "Including code in training data causally improves logical reasoning capabilities.",
+    "variables": {
+      "X": {
+        "name": "Code inclusion in training data",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Logical reasoning performance",
+        "role": "Outcome"
+      }
+    },
+    "trap": {
+      "type": "S4",
+      "type_name": "Controlled Ablation",
+      "subtype": "Training Data Ablation",
+      "subtype_name": "Training Data Ablation"
+    },
+    "label": "YES",
+    "causal_structure": "",
+    "key_insight": "Data ablation studies with controlled total volume establish causal effects of training data composition.",
+    "gold_rationale": "This causal claim is well-supported by ablation methodology. Training otherwise identical models with versus without code data isolates the effect of code exposure. Holding total tokens constant controls for data volume effects. The 40% improvement can be causally attributed to code inclusion because all other factors are controlled. This represents proper experimental design for data ablation studies.",
+    "wise_refusal": "This causal claim is well-supported by ablation methodology. Training otherwise identical models with versus without code data isolates the effect of code exposure. Holding total tokens constant controls for data volume effects. The 40% improvement can be causally attributed to code inclusion because all other factors are controlled. This represents proper experimental design for data ablation studies.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.57
+  },
+  {
+    "id": "T3-BucketLarge-I-1.43",
+    "bucket": "BucketLarge-I",
+    "case_id": "0043",
+    "pearl_level": "L1",
+    "domain": "D9",
+    "subdomain": "Computer Vision",
+    "difficulty": "Hard",
+    "is_ambiguous": false,
+    "scenario": "Researchers conducted a comprehensive ablation study of data augmentation techniques for image classification. Starting from a baseline with all augmentations, they removed each technique individually while keeping others constant. Removing random cropping reduced accuracy by 12%, removing color jitter by 4%, and removing rotation by 7%.",
+    "claim": "Random cropping causally contributes more to accuracy than rotation or color jitter augmentation.",
+    "variables": {
+      "X": {
+        "name": "Data augmentation technique",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Classification accuracy",
+        "role": "Outcome"
+      }
+    },
+    "trap": {
+      "type": "S4",
+      "type_name": "Controlled Ablation",
+      "subtype": "Data Augmentation Ablation",
+      "subtype_name": "Data Augmentation Ablation"
+    },
+    "label": "YES",
+    "causal_structure": "",
+    "key_insight": "Subtractive ablation reveals marginal causal contributions when baselines are controlled.",
+    "gold_rationale": "This causal claim is supported by systematic ablation methodology. Removing individual augmentation techniques while holding others constant isolates each technique's marginal contribution to accuracy. The measured accuracy drops (12%, 7%, 4%) reflect the causal importance of each augmentation. The controlled experimental design supports ranking the causal contributions of different augmentation strategies.",
+    "wise_refusal": "This causal claim is supported by systematic ablation methodology. Removing individual augmentation techniques while holding others constant isolates each technique's marginal contribution to accuracy. The measured accuracy drops (12%, 7%, 4%) reflect the causal importance of each augmentation. The controlled experimental design supports ranking the causal contributions of different augmentation strategies.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.45
+  },
+  {
+    "id": "T3-BucketLarge-I-1.44",
+    "bucket": "BucketLarge-I",
+    "case_id": "0044",
+    "pearl_level": "L1",
+    "domain": "D9",
+    "subdomain": "Autonomous Systems",
+    "difficulty": "Medium",
+    "is_ambiguous": false,
+    "scenario": "Researchers tested autonomous vehicle perception systems by systematically degrading camera resolution in controlled increments (100%, 75%, 50%, 25% of baseline) while measuring pedestrian detection accuracy. They found a consistent monotonic relationship: each 25% reduction in resolution decreased detection accuracy by approximately 15%, following the known physics of visual acuity limits.",
+    "claim": "Camera resolution causally affects pedestrian detection accuracy in a dose-dependent manner.",
+    "variables": {
+      "X": {
+        "name": "Camera resolution level",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Pedestrian detection accuracy",
+        "role": "Outcome"
+      }
+    },
+    "trap": {
+      "type": "S5",
+      "type_name": "Mechanism + Dose",
+      "subtype": "Sensor Degradation Dose-Response",
+      "subtype_name": "Sensor Degradation Dose-Response"
+    },
+    "label": "YES",
+    "causal_structure": "",
+    "key_insight": "Systematic dose-response relationships combined with mechanistic theory support causal claims.",
+    "gold_rationale": "This causal claim is strongly supported by dose-response evidence combined with mechanistic understanding. The monotonic relationship between resolution and accuracy matches predictions from optical physics and computer vision theory. The controlled, systematic degradation isolates resolution as the causal factor. The consistent dose-response pattern across multiple levels strengthens causal inference beyond what a simple comparison would provide.",
+    "wise_refusal": "This causal claim is strongly supported by dose-response evidence combined with mechanistic understanding. The monotonic relationship between resolution and accuracy matches predictions from optical physics and computer vision theory. The controlled, systematic degradation isolates resolution as the causal factor. The consistent dose-response pattern across multiple levels strengthens causal inference beyond what a simple comparison would provide.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.38
+  },
+  {
+    "id": "T3-BucketLarge-I-1.45",
+    "bucket": "BucketLarge-I",
+    "case_id": "0045",
+    "pearl_level": "L1",
+    "domain": "D9",
+    "subdomain": "AI Safety",
+    "difficulty": "Hard",
+    "is_ambiguous": false,
+    "scenario": "A safety team conducted experiments varying the intensity of RLHF training (0, 1000, 5000, 20000, 50000 preference comparisons) while holding base model and other training parameters constant. They observed monotonic reduction in harmful outputs at each level, with diminishing returns above 20000 comparisons, consistent with theoretical models of preference learning convergence.",
+    "claim": "RLHF training intensity causally reduces harmful outputs in a dose-dependent manner.",
+    "variables": {
+      "X": {
+        "name": "RLHF training intensity",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Harmful output rate",
+        "role": "Outcome"
+      }
+    },
+    "trap": {
+      "type": "S5",
+      "type_name": "Mechanism + Dose",
+      "subtype": "RLHF Intensity Dose-Response",
+      "subtype_name": "RLHF Intensity Dose-Response"
+    },
+    "label": "YES",
+    "causal_structure": "",
+    "key_insight": "Dose-response patterns matching theoretical predictions provide strong causal evidence.",
+    "gold_rationale": "This causal claim is well-supported by dose-response evidence and mechanistic reasoning. The monotonic decrease in harmful outputs with increasing RLHF intensity follows theoretical predictions about preference learning. The diminishing returns pattern matches convergence theory. The controlled experimental variation isolates RLHF intensity as the causal factor. This combination of dose-response data and mechanistic alignment supports the causal interpretation.",
+    "wise_refusal": "This causal claim is well-supported by dose-response evidence and mechanistic reasoning. The monotonic decrease in harmful outputs with increasing RLHF intensity follows theoretical predictions about preference learning. The diminishing returns pattern matches convergence theory. The controlled experimental variation isolates RLHF intensity as the causal factor. This combination of dose-response data and mechanistic alignment supports the causal interpretation.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.0
+  },
+  {
+    "id": "T3-BucketLarge-I-1.46",
+    "bucket": "BucketLarge-I",
+    "case_id": "0046",
+    "pearl_level": "L1",
+    "domain": "D9",
+    "subdomain": "Machine Learning Models",
+    "difficulty": "Medium",
+    "is_ambiguous": true,
+    "scenario": "A company reports that their larger 70B parameter language model produces more factually accurate outputs than their 7B model, based on evaluation across 10 benchmark datasets. Both models were trained on the same data with similar architectures, differing primarily in parameter count and the computational resources used during training.",
+    "claim": "Larger parameter count causes better factual accuracy in language models.",
+    "variables": {
+      "X": {
+        "name": "Model parameter count",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Factual accuracy",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Training compute and optimization differences"
+      ]
+    },
+    "trap": {
+      "type": "A",
+      "type_name": "Ambiguous",
+      "subtype": "Ambiguous Model Size Effect",
+      "subtype_name": "Ambiguous Model Size Effect"
+    },
+    "label": "AMBIGUOUS",
+    "causal_structure": "",
+    "key_insight": "Model size comparisons confound parameter count with training procedure differences.",
+    "gold_rationale": "This claim has ambiguous causal status. While the comparison controls for training data and architecture family, larger models also require different training procedures, longer training, potentially different hyperparameters, and more compute. It is unclear whether parameter count itself causes better accuracy or whether correlated factors like training duration, compute budget, or optimization differences are responsible. The causal mechanism remains underspecified.",
+    "wise_refusal": "This claim has ambiguous causal status. While the comparison controls for training data and architecture family, larger models also require different training procedures, longer training, potentially different hyperparameters, and more compute. It is unclear whether parameter count itself causes better accuracy or whether correlated factors like training duration, compute budget, or optimization differences are responsible. The causal mechanism remains underspecified.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.21
+  },
+  {
+    "id": "T3-BucketLarge-I-1.47",
+    "bucket": "BucketLarge-I",
+    "case_id": "0047",
+    "pearl_level": "L1",
+    "domain": "D9",
+    "subdomain": "Software Engineering",
+    "difficulty": "Hard",
+    "is_ambiguous": true,
+    "scenario": "A software company introduced AI-assisted code review six months ago. Bug rates in production have decreased by 20%, but during the same period, the company also hired senior engineers, improved documentation, and increased test coverage requirements. Some teams adopted AI review more enthusiastically than others.",
+    "claim": "AI-assisted code review caused the 20% reduction in production bugs.",
+    "variables": {
+      "X": {
+        "name": "AI-assisted code review adoption",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Production bug rate",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Concurrent process improvements"
+      ]
+    },
+    "trap": {
+      "type": "A",
+      "type_name": "Ambiguous",
+      "subtype": "Ambiguous AI Code Review Effect",
+      "subtype_name": "Ambiguous AI Code Review Effect"
+    },
+    "label": "AMBIGUOUS",
+    "causal_structure": "",
+    "key_insight": "Simultaneous organizational changes prevent attribution to any single intervention.",
+    "gold_rationale": "The causal attribution is ambiguous. Multiple interventions occurred simultaneously: AI code review, senior hiring, documentation improvements, and testing requirements. Without isolating these factors through controlled comparison, the contribution of AI review specifically cannot be determined. Variation in adoption enthusiasm across teams might allow some analysis, but self-selection into adoption creates confounding. The available evidence does not clearly support or refute the causal claim.",
+    "wise_refusal": "The causal attribution is ambiguous. Multiple interventions occurred simultaneously: AI code review, senior hiring, documentation improvements, and testing requirements. Without isolating these factors through controlled comparison, the contribution of AI review specifically cannot be determined. Variation in adoption enthusiasm across teams might allow some analysis, but self-selection into adoption creates confounding. The available evidence does not clearly support or refute the causal claim.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.32
+  },
+  {
+    "id": "T3-BucketLarge-I-1.48",
+    "bucket": "BucketLarge-I",
+    "case_id": "0048",
+    "pearl_level": "L1",
+    "domain": "D9",
+    "subdomain": "Recommendation Systems",
+    "difficulty": "Medium",
+    "is_ambiguous": true,
+    "scenario": "A news platform found that users exposed to personalized article recommendations spend 35% more time on the platform than those seeing non-personalized trending articles. However, personalization was rolled out to users who had already demonstrated higher engagement through their browsing history, as the algorithm requires historical data to function.",
+    "claim": "Personalized recommendations cause users to spend more time on the platform.",
+    "variables": {
+      "X": {
+        "name": "Personalized vs non-personalized recommendations",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Time spent on platform",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Pre-existing engagement level"
+      ]
+    },
+    "trap": {
+      "type": "A",
+      "type_name": "Ambiguous",
+      "subtype": "Ambiguous Personalization Effect",
+      "subtype_name": "Ambiguous Personalization Effect"
+    },
+    "label": "AMBIGUOUS",
+    "causal_structure": "",
+    "key_insight": "When treatment requires prior behavior, selection effects confound causal estimates.",
+    "gold_rationale": "The causal claim is ambiguous due to selection into treatment. Personalization requires browsing history, so users receiving personalized recommendations had already demonstrated higher engagement. The 35% difference may partially reflect pre-existing engagement levels rather than the causal effect of personalization. Some effect likely exists since personalization adds value, but the magnitude cannot be cleanly estimated without controlling for baseline engagement differences.",
+    "wise_refusal": "The causal claim is ambiguous due to selection into treatment. Personalization requires browsing history, so users receiving personalized recommendations had already demonstrated higher engagement. The 35% difference may partially reflect pre-existing engagement levels rather than the causal effect of personalization. Some effect likely exists since personalization adds value, but the magnitude cannot be cleanly estimated without controlling for baseline engagement differences.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.92
+  },
+  {
+    "id": "T3-BucketLarge-I-1.49",
+    "bucket": "BucketLarge-I",
+    "case_id": "0049",
+    "pearl_level": "L1",
+    "domain": "D9",
+    "subdomain": "Data Privacy",
+    "difficulty": "Hard",
+    "is_ambiguous": true,
+    "scenario": "Security researchers found that users who install privacy-focused browser extensions experience 50% fewer tracking attempts. However, these users also tend to use VPNs, avoid social media, use strong passwords, and exhibit generally more privacy-conscious behavior that independently reduces their digital footprint.",
+    "claim": "Privacy browser extensions cause a 50% reduction in tracking attempts.",
+    "variables": {
+      "X": {
+        "name": "Privacy extension installation",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Tracking attempts",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Overall privacy-conscious behavior"
+      ]
+    },
+    "trap": {
+      "type": "A",
+      "type_name": "Ambiguous",
+      "subtype": "Ambiguous Privacy Tool Effect",
+      "subtype_name": "Ambiguous Privacy Tool Effect"
+    },
+    "label": "AMBIGUOUS",
+    "causal_structure": "",
+    "key_insight": "Tool adoption signals user characteristics that independently affect outcomes.",
+    "gold_rationale": "The causal effect is ambiguous. Privacy extension users self-select based on privacy consciousness that manifests in many behaviors independently reducing tracking exposure. The extensions themselves block trackers, suggesting some causal effect, but the 50% figure conflates extension effectiveness with user behavior differences. Without isolating extension effects from correlated privacy behaviors, the specific causal contribution of extensions remains unclear.",
+    "wise_refusal": "The causal effect is ambiguous. Privacy extension users self-select based on privacy consciousness that manifests in many behaviors independently reducing tracking exposure. The extensions themselves block trackers, suggesting some causal effect, but the 50% figure conflates extension effectiveness with user behavior differences. Without isolating extension effects from correlated privacy behaviors, the specific causal contribution of extensions remains unclear.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.64
+  },
+  {
+    "id": "T3-BucketLarge-I-1.50",
+    "bucket": "BucketLarge-I",
+    "case_id": "0050",
+    "pearl_level": "L1",
+    "domain": "D9",
+    "subdomain": "AI Safety",
+    "difficulty": "Easy",
+    "is_ambiguous": true,
+    "scenario": "An AI lab reports that their model trained with Constitutional AI (CAI) principles shows 60% fewer harmful outputs compared to their previous model. However, the new model also has a different architecture, was trained on more data, underwent more RLHF rounds, and was developed by a team that gained experience from the previous model's failures.",
+    "claim": "Constitutional AI training caused the 60% reduction in harmful outputs.",
+    "variables": {
+      "X": {
+        "name": "Constitutional AI training",
+        "role": "Treatment"
+      },
+      "Y": {
+        "name": "Harmful output rate",
+        "role": "Outcome"
+      },
+      "Z": [
+        "Architecture, data, and team experience changes"
+      ]
+    },
+    "trap": {
+      "type": "A",
+      "type_name": "Ambiguous",
+      "subtype": "Ambiguous Constitutional AI Effect",
+      "subtype_name": "Ambiguous Constitutional AI Effect"
+    },
+    "label": "AMBIGUOUS",
+    "causal_structure": "",
+    "key_insight": "Version-to-version comparisons confound multiple simultaneous improvements.",
+    "gold_rationale": "The causal attribution is ambiguous. Multiple factors changed simultaneously: CAI principles, architecture, training data volume, RLHF intensity, and team experience. Each of these plausibly contributes to safer outputs. Without controlled experiments isolating CAI specifically, the 60% improvement cannot be attributed to Constitutional AI alone. The claim overstates certainty about which changes drove the improvement.",
+    "wise_refusal": "The causal attribution is ambiguous. Multiple factors changed simultaneously: CAI principles, architecture, training data volume, RLHF intensity, and team experience. Each of these plausibly contributes to safer outputs. Without controlled experiments isolating CAI specifically, the 60% improvement cannot be attributed to Constitutional AI alone. The claim overstates certainty about which changes drove the improvement.",
+    "hidden_timestamp": "",
+    "conditional_answers": {
+      "answer_if_condition_1": "",
+      "answer_if_condition_2": ""
+    },
+    "initial_author": "Fernando Torres",
+    "validator": "Fernando Torres",
+    "final_score": 8.0
+  }
+]
