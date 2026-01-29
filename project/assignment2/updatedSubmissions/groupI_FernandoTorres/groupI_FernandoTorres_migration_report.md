@@ -131,6 +131,68 @@
 
 ---
 
+## Prompt Setup
+
+This section documents the prompt engineering approach, LLM configuration, and generation methodology used for the GroupI (AI & Tech) dataset.
+
+### LLM Configuration
+
+| Parameter | Value |
+|-----------|-------|
+| Model | Claude (Anthropic) |
+| Temperature | 0.7 (generation), 0.0 (validation) |
+| Max Tokens | 4096 per case |
+| Context Window | Full conversation context |
+
+### Generation Methodology
+
+The dataset was created using a **multi-agent parallel workflow** designed to maximize throughput while maintaining rigorous quality standards:
+
+1. **Generator Agents (10-12 parallel)**: Specialized by trap type family
+   - L1 Generators: WOLF (W1-W10) and SHEEP (S1-S8) specialists
+   - L2 Generators: One per family (F1-F6, covering T1-T17)
+   - L3 Generators: Covering F1-F8 counterfactual families
+
+2. **Validation Agents (5-6 parallel)**:
+   - Schema Validator: JSON structure compliance
+   - Content Validators: 10-point rubric scoring
+   - Cross Validator: Duplicate detection and distribution balance
+   - LLM Quality Judges: Trap type verification and reasoning soundness
+
+3. **Correction Agents (3-5 parallel)**:
+   - Field Fixer: Schema compliance fixes
+   - Content Rewriter: Improve scenario/refusal quality
+   - Label Corrector: Fix trap type and label misclassifications
+
+### Quality Control Measures
+
+- **95%+ Pass Rate Threshold**: Each batch required minimum 95% validation pass rate
+- **10-Point Rubric Scoring**: Cases scored on scenario clarity, hidden question quality, conditional answers, wise refusal quality, difficulty calibration, final label, and trap type
+- **Acceptance Threshold**: Score ≥ 8.0 required for acceptance
+- **Duplicate Detection**: Semantic similarity threshold < 0.75
+- **Iterative Correction Loop**: Failed cases routed to correction agents until threshold met
+
+### Prompt Templates
+
+**L1 Generator Prompt Structure:**
+- Domain context (AI & Technology)
+- Trap type definition and examples
+- Variable structure requirements (X, Y, Z)
+- Label guidelines (YES/NO/AMBIGUOUS mapping)
+
+**L2 Generator Prompt Structure:**
+- Intervention scenario requirements
+- Hidden question formulation guidelines
+- Conditional answer mutual exclusivity requirements
+- Wise refusal template structure
+
+**L3 Generator Prompt Structure:**
+- Counterfactual claim formulation
+- Invariant specification guidelines
+- Ground truth evaluation criteria (VALID/INVALID/CONDITIONAL)
+
+---
+
 ## Schema Changes Applied
 
 The following schema changes were applied during migration:

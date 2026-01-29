@@ -121,6 +121,83 @@
 
 ---
 
+## Prompt Setup
+
+This section documents the prompt engineering approach, LLM configuration, and generation methodology used for the GroupJ (Social Science) dataset.
+
+### LLM Configuration
+
+| Parameter | Value |
+|-----------|-------|
+| Model | Claude (Anthropic) |
+| Temperature | 0.7 (generation), 0.0 (validation) |
+| Max Tokens | 4096 per case |
+| Context Window | Full conversation context |
+
+### Generation Methodology
+
+The dataset was created using a **multi-agent parallel workflow** with specialized handling for existing case transformation:
+
+1. **Existing Case Transformation (240 cases)**:
+   - Variable Parser Agent: Convert array → object format
+   - Field Normalizer Agent: Rename fields to V4.0 names
+   - Metadata Enricher Agent: Add validation fields
+
+2. **New Case Generation (260 cases)**:
+   - L1 Generators: WOLF (W1-W10) and SHEEP (S1-S8) specialists
+   - L2 Generators: Family-partitioned (T1-T3, T4-T6, T7-T9, T10-T12, T13-T14, T15-T17)
+   - L3 Generators: Covering F1-F8 counterfactual families plus DomainExt
+
+3. **Validation Agents (5-6 parallel)**:
+   - Schema Validator: JSON structure compliance
+   - Content Validators: 10-point rubric scoring
+   - Cross Validator: Duplicate detection and distribution balance
+   - LLM Quality Judges: Trap type verification and reasoning soundness
+
+4. **Correction Agents (3-5 parallel)**:
+   - Field Fixer: Schema compliance fixes
+   - Content Rewriter: Improve scenario/refusal quality
+   - Label Corrector: Fix trap type and label misclassifications
+
+### Quality Control Measures
+
+- **95%+ Pass Rate Threshold**: Each batch required minimum 95% validation pass rate
+- **10-Point Rubric Scoring**: Cases scored on scenario clarity, hidden question quality, conditional answers, wise refusal quality, difficulty calibration, final label, and trap type
+- **Acceptance Threshold**: Score ≥ 8.0 required for acceptance
+- **Duplicate Detection**: Semantic similarity threshold < 0.75
+- **Iterative Correction Loop**: Failed cases routed to correction agents until threshold met
+
+### Prompt Templates
+
+**L1 Generator Prompt Structure:**
+- Domain context (Social Science)
+- Trap type definition and examples
+- Variable structure requirements (X, Y, Z)
+- Label guidelines (YES/NO/AMBIGUOUS mapping)
+
+**L2 Generator Prompt Structure:**
+- Intervention scenario requirements
+- Hidden question formulation guidelines
+- Conditional answer mutual exclusivity requirements
+- Wise refusal template structure
+
+**L3 Generator Prompt Structure:**
+- Counterfactual claim formulation
+- Invariant specification guidelines
+- Ground truth evaluation criteria (VALID/INVALID/CONDITIONAL)
+
+### Domain-Specific Considerations
+
+Social Science cases span diverse subdomains including:
+- Education Policy and Sociology
+- Public Health Policy
+- Labor Economics
+- Urban Policy and Community Development
+- Political Science and Criminology
+- Social Psychology and Demographics
+
+---
+
 ## Schema Changes Applied
 
 ### Fields Added/Modified
